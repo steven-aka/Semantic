@@ -1,0 +1,47 @@
+{
+  "protocol": "m0_qampari_sentence_atomic_lossless_additive_development",
+  "frozen_at": "2026-09-08 after bounded 3-example method smoke and before the 30-example lossless exact search",
+  "scientific_status": "development_gate_not_locked_test",
+  "primary_grid": [0.60, 0.70, 0.80, 0.90, 0.95],
+  "sample": {
+    "n_examples": 30,
+    "n_units": 6,
+    "answer_atoms_per_example": 10,
+    "states_per_example": 729,
+    "examples_sha256": "728a91d73d80f4466597fd836af330c50721af8286d10a47976bd4bc0b0eb95f",
+    "annotations_sha256": "6001e763b742ec9537c21f9532e8b04f45c0c56712d802ddb758cdcd35089d4f",
+    "selection_manifest_sha256": "c3b90d3e78d1c628ef879ff7add79d94cc4693c6bf500c1807f47febe39fe0bf"
+  },
+  "packetization": {
+    "policy": "two_original_document_blocks_partitioned_without_overlap_or rewriting; shorter target-tokenizer block is gist and the other is residual",
+    "reads_question": false,
+    "reads_gold_annotations": false,
+    "maximum_gist_source_ratio": 0.50,
+    "packet_tree_sha256": "4f983035fbd56bcb674b29cb03422b1a99a866d248ef74267afa4cf0586f4fbd"
+  },
+  "fidelity": {
+    "primary": "official_alias_aware_hard_list_f1",
+    "secondary": "answer_atom_recall",
+    "soft_judge": false
+  },
+  "models": {
+    "target": "models/Qwen3-8B",
+    "decoding": "greedy_thinking_disabled",
+    "max_new_tokens": 256
+  },
+  "hard_gates": {
+    "minimum_complete_examples": 30,
+    "minimum_adjacent_feasible_pairs": 30,
+    "minimum_strict_rate_transition_fraction": 0.20,
+    "minimum_nested_reuse_fraction": 0.80,
+    "maximum_example_weighted_mean_structural_gap_normalized": 0.10,
+    "maximum_structural_gap_normalized_p90": 0.20,
+    "minimum_mean_atom_recall_gain_0_60_to_0_90": 0.15,
+    "maximum_atom_recall_decline_fraction": 0.10,
+    "minimum_full_state_f1_0_8_fraction": 0.90,
+    "minimum_max_f1_0_9_fraction": 0.90,
+    "minimum_nonnested_independent_switches": 1,
+    "require_lossless_partition": true
+  },
+  "decision_rule": "All hard gates must pass. This is the final bounded development redesign. If it fails, stop before V1 and reject the current three-state method rather than adding another mechanism. Passing permits protocol freeze and a fresh locked-test M0 run, not V1 itself."
+}

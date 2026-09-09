@@ -1,0 +1,54 @@
+{
+  "attainable_diagnostics": {
+    "adjacent_feasible_pairs": 213,
+    "assessment": "structural_gap_identifiable",
+    "bounded_decision_rule": "Stop before V1 when the rate-fidelity frontier is flat. If switches exist but none is nonnested, keep the zero-gap result descriptive and revise one bounded V0 pilot design rather than adding representation levels.",
+    "examples_with_any_state_switch": 15,
+    "fact_recall_increases": 31,
+    "n_examples": 17,
+    "next_action": "perform_human_v0_gate_review",
+    "nonnested_independent_switches": 5,
+    "positive_structural_gap_rows": 23,
+    "state_switch_rate": 0.14553990610328638,
+    "state_switches": 31,
+    "strict_rate_increases": 31
+  },
+  "complete": true,
+  "counts": {
+    "candidates": 33,
+    "eligible": 17,
+    "exact_states": 12393,
+    "gold_facts": 56,
+    "packets": 102
+  },
+  "errors": [],
+  "primary_diagnostics": {
+    "adjacent_feasible_pairs": 44,
+    "assessment": "structural_gap_identifiable",
+    "bounded_decision_rule": "Stop before V1 when the rate-fidelity frontier is flat. If switches exist but none is nonnested, keep the zero-gap result descriptive and revise one bounded V0 pilot design rather than adding representation levels.",
+    "examples_with_any_state_switch": 12,
+    "fact_recall_increases": 12,
+    "n_examples": 15,
+    "next_action": "perform_human_v0_gate_review",
+    "nonnested_independent_switches": 1,
+    "positive_structural_gap_rows": 1,
+    "state_switch_rate": 0.2727272727272727,
+    "state_switches": 12,
+    "strict_rate_increases": 12
+  },
+  "sha256": {
+    "data/units/hotpot_fact_atomic_candidates.jsonl": "66c9e645a24ab95cbad3995e3e6cbc18a70df5b3b149846ff0c0aff542b6777c",
+    "data/units/hotpot_fact_atomic_eligible.jsonl": "d2425f1f025b16f9068b6aceb450894322f2e1b5b90084a64553794e9c2b3a58",
+    "results/v0_2/diagnostics.json": "dd80e7bcd914c08e40cbbf19f4a28d5657cf7a5101012935dbaa86c041357592",
+    "results/v0_2/diagnostics_attainable.json": "948e2ce6ee848dccb04046cc59696955febccae95151d29b0267122b912c7d46",
+    "results/v0_2/exact_frontier.csv": "bd241e23af18f3ac06b139db866f87add7fa2c5cd6e1efc4c55d41cd20d706c7",
+    "results/v0_2/exact_frontier_attainable.csv": "da8e52b5c4a97bbc5f6c012816f8693208bfe1647312b843ba79f06d7492e987",
+    "results/v0_2/fact_coverage.jsonl": "25c10c0de3733f69377c9accf5f3485d855f5d0b303d3b6e5238221dca1861e8",
+    "results/v0_2/full_context.jsonl": "a24ab85a1019883213b075f6bad58aa3eb5a0c8695bf7614b97f3a7f0c6e474b",
+    "results/v0_2/nested_frontier.csv": "dcb83a75ce181e77074501c983452d80a5827b19945380a26c9d09753788a8d7",
+    "results/v0_2/nested_frontier_attainable.csv": "a786d923f0c7fae1eb8ab991d2ee0b1a1c438a8b3c71d053eb7177922904f5fd",
+    "results/v0_2/structural_gap.csv": "09aa4aeaed66743eeb93c5827efc2bd9aaad1b23bd78bdc73b46b1b933f46dad",
+    "results/v0_2/structural_gap_attainable.csv": "df23fa69f2dde1f972f2261ca68913c5b308ea44d0c1ce99b6432ba8c9eed223"
+  },
+  "stage": "v0_2_complete_stop_before_v1"
+}

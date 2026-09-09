@@ -1,0 +1,16 @@
+{
+  "examples": 60,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "input_annotations": "data/units/qampari_m0_dev60_annotations.jsonl",
+  "input_examples": "data/units/qampari_m0_dev60.jsonl",
+  "max_new_tokens": 256,
+  "model": "models/Qwen3-8B",
+  "model_revision": "main",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "m0_qampari_full_context_development_only",
+  "timestamp_utc": "2026-09-08T08:04:39.932507+00:00"
+}

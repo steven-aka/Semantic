@@ -1,0 +1,1415 @@
+{
+  "chosen_policy": "linked_title_pair_3_sentences_each",
+  "examples": 200,
+  "fact_coverage": 0.7565392354124748,
+  "gold_facts": 497,
+  "gold_support_titles": 400,
+  "mean_unique_titles": 2.785,
+  "passed": false,
+  "per_example": [
+    {
+      "example_id": "5ac2455e55429951e9e68512",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a80f793554299260e20a1e1",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5ac1c7605542994ab5c67e14",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae491155542995ad6573da3",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac4d2cd5542995c82c4ad73",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab875bd55429916710eb062",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae765bf5542995703ce8c12",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a73551e5542991f29ee2d84",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ab84de95542990e739ec8b4",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7780e855429949eeb29e9f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5ac11ee45542997d64295a7d",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae692e35542996d980e7c0e",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae1fd8a5542994d89d5b2ee",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ac3e68b5542997ea680c98b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab6c1da554299710c8d1f4c",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a77321355429972597f1493",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae6371155429929b0807af1",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a86141f5542996432c571a5",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ab96c93554299743d22eb63",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a793b5b55429970f5fffe82",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a80993d5542996402f6a589",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a7fb5ce5542994857a767ca",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8331f15542993344745fe8",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a89e92c5542993b751ca9af",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5abd848455429924427fd03a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a8e69565542990e94052afb",
+      "gold_facts": 5,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac43530554299204fd21f0a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a75f1a755429976ec32bcb1",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5abb14a55542992ccd8e7f06",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab614e5554299488d4d9a9c",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a7a94f155429941d65f26ca",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8d263f554299653c1aa139",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a716f575542994082a3e82f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7621bb554299109176e650",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a77510b5542994aec3b728b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7e694a5542997cc2c4753d",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a790d9855429974737f7954",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a7cd0fd55429909bec76823",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5adcc9f35542990d50227d20",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae5fc345542993aec5ec1f8",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7a33a35542994f819ef14c",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae531695542990ba0bbb1fb",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab91799554299753720f6ea",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac3a76e554299741d48a2be",
+      "gold_facts": 5,
+      "gold_support_titles": 2,
+      "selected_facts": 5,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab2b7c1554299166977406a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac3a0b25542993915413838",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a76404b5542994ccc91873d",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8838635542997e5c09a5a9",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ab73b2e5542993667793f9b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab6006a554299110f2199b5",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8c7ac2554299653c1aa08e",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae32c935542990afbd1e0bd",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae628fd5542995703ce8b33",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab87fa255429934fafe6e00",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5a7a59d15542996c55b2dd67",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a776f8555429972597f1534",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ab46f4e5542991751b4d770",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab7fbbb5542990e739ec7b0",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a8318955542990548d0b177",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac240ef55429951e9e684ef",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ade6acf554299728e26c71a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a88b513554299206df2b338",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5ab94acd554299743d22eac6",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8051265542992bc0c4a6f8",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a8a06c35542992d82986e57",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab4482b55429942dd415f09",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5abbd3ac55429931dba1458b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a8135eb55429938b61422fa",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae0ac1c5542993d6555ec07",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a727e1b5542991f9a20c497",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a8799c55542996e4f308877",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7b3b4f5542992d025e67ac",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7f3bcd55429930675136c3",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a80a1b25542992bc0c4a78c",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a828a7b55429954d2e2eb69",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae0159855429925eb1afc09",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8026a05542992e7d278df8",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ab870ee5542990e739ec8f6",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5aba454855429901930fa794",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a734ca85542994cef4bc51b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8756aa5542994846c1cd69",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ade653f55429975fa854ebb",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5abdf06355429976d4830a2d",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5add3a605542990dbb2f7ddb",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5abe49765542991f6610611f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ac2ffbd554299677310267b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a73266d5542994cef4bc47d",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5addda9b5542992200553b5b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a84abaf5542997b5ce3ff06",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5adc2e3d554299438c868d6b",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae4885e55429970de88d99d",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac24a035542992f1f2b3832",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8c8502554299585d9e36d0",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae2c2c05542996483e64a4a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7631c05542994ccc91870b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5abf08985542997719eab625",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5abd83775542993062266cb7",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a84be095542992a431d1a97",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac4f2235542996feb3fe995",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab659e355429954757d324e",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae1c214554299234fd042ed",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5adcd2435542992c1e3a241b",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a86ec9f55429960ec39b6d7",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5abda2b755429933744ab80f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac2659b55429963665199a1",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae3249555429928c423962f",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a72634d5542997f82783994",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a75d8dc5542992db94736f0",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7b374c5542995eb53be8cc",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8bd49d5542997f31a41dd7",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a90a9a45542990a9849367e",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a7a9b9a5542990198eaf160",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab56f7a554299637185c59a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae5cf0b55429929b08079aa",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7270395542992359bc30a8",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8de5d55542995085b3734d",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac5630e5542993e66e823d5",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab9ba6855429970cfb8eb87",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7ca33f5542990527d554ee",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5adf6a5c5542995ec70e8ff9",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a8dacf2554299068b959d91",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5adbd70c55429947ff173843",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8afb9955429971feec45c2",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac45cfd554299076e296db5",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae157ed5542990adbacf75d",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ab2999a554299194fa9342f",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7545605542993748c89807",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae8202255429952e35eaa3a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a867089554299211dda2b30",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5a737d3c55429908901be2c8",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a73235c5542994cef4bc475",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a7180205542994082a3e856",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac082535542992a796ded2f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab5e9865542992aa134a3db",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae083e855429924de1b70fb",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a82626655429966c78a6a08",
+      "gold_facts": 7,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a8e16a5554299068b959e58",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab41f6b5542991751b4d671",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5a85e57a5542994c784ddbb1",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5abbd34d5542993f40c73bc6",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ac2a41e55429967731025d0",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a87d8215542994775f60800",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5adc035c554299438c868d04",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5ac3e5de554299204fd21ebc",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7f924c55429969796c1aba",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7f62405542992e7d278cf0",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5ae0006755429925eb1afbd3",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae358c05542990afbd1e10f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a8ae0ae55429950cd6afbc2",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5a8ccea555429941ae14deeb",
+      "gold_facts": 5,
+      "gold_support_titles": 2,
+      "selected_facts": 5,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a79c9395542994bb94570a2",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5adea8cf55429939a52fe92d",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac257fe55429951e9e68562",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a7a1d305542990783324e66",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5aba5e2555429955dce3edf1",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab2d65e554299545a2cfabe",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ab5ac345542992aa134a37f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae66d785542996d980e7b67",
+      "gold_facts": 5,
+      "gold_support_titles": 2,
+      "selected_facts": 5,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a773c7755429972597f14b5",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a73cad5554299623ed4ac5e",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a7ca98f55429935c91b5288",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a816db055429903bc27b961",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ac160605542994ab5c67d02",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a74551555429974ef308bd9",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5adfb790554299603e418389",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a9064c755429916514e74a6",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ac0223f5542992a796dec9f",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a82301155429926c1cdae4a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5abb2f245542996cc5e49fd2",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a724ba25542990c210a40c7",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a79240955429974737f79a4",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ac3295d5542995ef918c14d",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5adca0845542994d58a2f684",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ac05310554299012d1db5e7",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae0850055429945ae959396",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae7b001554299540e5a5645",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae15d70554299422ee9966f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ae3b1ba5542992f92d82343",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5ae1c3cd554299492dc91b87",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ae08dad55429945ae9593b9",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5abd2af955429933744ab74b",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7115475542994082a3e56d",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ab7452b5542992aa3b8c806",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a77d31c55429967ab1052c0",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a81cf64554299676cceb0ed",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac1725c5542994d76dcce2c",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5aba916c55429901930fa83b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5ac00278554299012d1db56b",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a83ef745542996488c2e4f8",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5adf35935542993344016c36",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 0,
+      "selected_support_titles": 0
+    },
+    {
+      "example_id": "5a7759dd5542994aec3b729f",
+      "gold_facts": 4,
+      "gold_support_titles": 2,
+      "selected_facts": 4,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a866fa855429960ec39b6a5",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a77f4755542992a6e59e01f",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5adfff0755429925eb1afbce",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5a81624d5542995ce29dcbf1",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a7c99d555429935c91b5254",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5ade64c7554299728e26c710",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5abc715f5542993a06baf8ea",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 2,
+      "selected_support_titles": 2
+    },
+    {
+      "example_id": "5a80aeef5542992097ad301a",
+      "gold_facts": 2,
+      "gold_support_titles": 2,
+      "selected_facts": 1,
+      "selected_support_titles": 1
+    },
+    {
+      "example_id": "5abec9b25542997ec76fd366",
+      "gold_facts": 3,
+      "gold_support_titles": 2,
+      "selected_facts": 3,
+      "selected_support_titles": 2
+    }
+  ],
+  "selected_facts": 376,
+  "selected_support_titles": 315,
+  "support_title_coverage": 0.7875,
+  "threshold": 0.8
+}

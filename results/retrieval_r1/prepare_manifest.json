@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "config": "configs/retrieval_r1.json",
+  "config_sha256": "8af2d36e4bff5cd468c0051e5fd8ddd7676351555c23bd8985ea8789d9e3f5ec",
+  "examples": 220,
+  "excluded_ids": 830,
+  "locked_test_examples": 200,
+  "max_prompt_tokens_observed": 3491,
+  "prompt_template_sha256": "00534b2d8c87c744620fccd2383e36df557920795aa6627eff1e4a87e5fae618",
+  "prompt_version": "semantic_top6_v1",
+  "raw_sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+  "smoke_examples": 20,
+  "split_sha256": "2f9df456430cdf6c2abbe8beeb0f5a24d5e07252fff58cff729f11a13899fac8",
+  "stage": "prepared_before_model_output_and_gold_scoring"
+}

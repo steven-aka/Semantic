@@ -1,0 +1,14 @@
+{
+  "n_examples": 22,
+  "adjacent_feasible_pairs": 82,
+  "state_switches": 5,
+  "state_switch_rate": 0.06097560975609756,
+  "examples_with_any_state_switch": 5,
+  "strict_rate_increases": 5,
+  "fact_recall_increases": 5,
+  "nonnested_independent_switches": 0,
+  "positive_structural_gap_rows": 0,
+  "assessment": "tradeoff_observed_but_structural_gap_not_stress_tested",
+  "next_action": "do_not_interpret_zero_gap_as_evidence; revise_the_bounded_v0_pilot_design",
+  "bounded_decision_rule": "Stop before V1 when the rate-fidelity frontier is flat. If switches exist but none is nonnested, keep the zero-gap result descriptive and revise one bounded V0 pilot design rather than adding representation levels."
+}

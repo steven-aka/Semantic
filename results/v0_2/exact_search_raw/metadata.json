@@ -1,0 +1,18 @@
+{
+  "batch_size": 729,
+  "experiment_id": "v0_2_fact_atomic_exact",
+  "fidelity": "min(answer_f1, target_judged_gold_fact_recall)",
+  "git_commit": "unversioned",
+  "gpu_memory_utilization": 0.6,
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "max_model_len": 2048,
+  "model_name": "models/Qwen3-8B",
+  "model_revision": "main",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "source_examples": "data/units/hotpot_fact_atomic_eligible.jsonl",
+  "source_packets": "data/packets_v0_2",
+  "timestamp_utc": "2026-09-07T04:04:42.178329+00:00"
+}

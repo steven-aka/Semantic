@@ -1,0 +1,17 @@
+{
+  "experiment_id": "v0_5_answerable_semantic_coverage",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "judgment": "frozen_target_binary_explicit_support",
+  "model_name": "models/Qwen3-8B",
+  "model_revision": "main",
+  "monotonic_full_closure": true,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "source_examples": "data/units/hotpot_v0_5_candidates.jsonl",
+  "source_packets": "data/packets_v0_5",
+  "source_raw": "data/raw/hotpot_validation.parquet",
+  "timestamp_utc": "2026-09-08T07:05:17.025847+00:00"
+}

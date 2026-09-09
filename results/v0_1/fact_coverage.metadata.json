@@ -1,0 +1,21 @@
+{
+  "experiment_id": "v0_1_content_fact_coverage",
+  "generation_parameters": {
+    "max_tokens": 16,
+    "temperature": 0.0
+  },
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "judgment": "frozen_target_binary_explicit_support",
+  "model_name": "models/Qwen3-8B",
+  "model_revision": "main",
+  "monotonic_full_closure": true,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "source_examples": "data/units/hotpot_controlled_pilot_eligible.jsonl",
+  "source_packets": "data/packets",
+  "source_raw": "data/raw/hotpot_validation.parquet",
+  "timestamp_utc": "2026-09-07T01:34:48.173427+00:00"
+}

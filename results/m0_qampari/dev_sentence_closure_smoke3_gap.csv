@@ -1,0 +1,16 @@
+example_id,fidelity_level,independent_tokens,nested_tokens,structural_gap,structural_gap_normalized
+356__wikidata_intersection__dev,0.6,126,140,14,0.1111111111111111
+356__wikidata_intersection__dev,0.7,220,220,0,0.0
+356__wikidata_intersection__dev,0.8,259,259,0,0.0
+356__wikidata_intersection__dev,0.9,357,435,78,0.2184873949579832
+356__wikidata_intersection__dev,0.95,435,435,0,0.0
+709__wikidata_simple__dev,0.6,143,143,0,0.0
+709__wikidata_simple__dev,0.7,179,179,0,0.0
+709__wikidata_simple__dev,0.8,216,216,0,0.0
+709__wikidata_simple__dev,0.9,416,416,0,0.0
+709__wikidata_simple__dev,0.95,565,565,0,0.0
+801__wikidata_simple__dev,0.6,61,61,0,0.0
+801__wikidata_simple__dev,0.7,61,61,0,0.0
+801__wikidata_simple__dev,0.8,81,81,0,0.0
+801__wikidata_simple__dev,0.9,104,104,0,0.0
+801__wikidata_simple__dev,0.95,104,104,0,0.0

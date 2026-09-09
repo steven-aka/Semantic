@@ -1,0 +1,38 @@
+{
+  "protocol": "v0_3_sentence_atomic_label_free_bm25",
+  "frozen_at": "2026-09-07 before any V0.3 GPU result",
+  "primary_grid": [0.60, 0.70, 0.80, 0.90, 0.95],
+  "sample": {
+    "n_examples": 30,
+    "n_units": 6,
+    "states_per_example": 729,
+    "exclude_prior_v0_ids": true,
+    "sample_salt": "v0_3_label_free_sentence_atomic_20260907"
+  },
+  "segmentation": {
+    "policy": "one_original_sentence_per_unit",
+    "title_visible_and_token_counted": true,
+    "max_tokens": 256,
+    "overlap": false
+  },
+  "selection": {
+    "policy": "per_example_bm25_top_6_then_source_order",
+    "k1": 1.2,
+    "b": 0.75,
+    "uses_gold_support": false,
+    "uses_answer": false
+  },
+  "hard_gates": {
+    "minimum_complete_examples": 30,
+    "minimum_adjacent_feasible_pairs": 30,
+    "minimum_strict_rate_transition_fraction": 0.20,
+    "minimum_nested_reuse_fraction": 0.80,
+    "maximum_example_weighted_mean_structural_gap_normalized": 0.10,
+    "maximum_structural_gap_normalized_p90": 0.20,
+    "minimum_mean_fact_recall_gain_0_60_to_0_90": 0.15,
+    "maximum_fact_recall_decline_fraction": 0.10,
+    "minimum_top6_gold_fact_coverage": 0.80,
+    "require_label_permutation_invariance": true
+  },
+  "decision_rule": "All hard gates must pass before a separate human authorization may start V1. Attainable breakpoints are sensitivity analysis only. No segmentation retuning is permitted after V0.3 results."
+}

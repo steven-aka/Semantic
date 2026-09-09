@@ -1,0 +1,22 @@
+# Core experiment runtime (Python 3.11 recommended)
+torch>=2.4
+# vLLM 0.10.2 uses tokenizer APIs removed by Transformers 5.
+transformers>=4.55.2,<5
+datasets>=3.0
+accelerate>=1.0
+peft>=0.13
+bitsandbytes>=0.44; platform_system == "Linux"
+vllm>=0.8; platform_system == "Linux"
+sentence-transformers>=3.0
+scikit-learn>=1.5
+scipy>=1.13
+pandas>=2.2
+numpy>=1.26
+evaluate>=0.4
+rouge-score>=0.1.2
+matplotlib>=3.9
+tqdm>=4.66
+pyyaml>=6.0
+
+# Development
+pytest>=8.3

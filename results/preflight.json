@@ -1,0 +1,53 @@
+{
+  "python": "3.11.16",
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "4.55.2",
+    "datasets": "5.0.1",
+    "vllm": "0.10.2",
+    "matplotlib": "3.11.1",
+    "pyyaml": "6.0.3"
+  },
+  "gpu": {
+    "available": true,
+    "reason": "Unable to determine the device handle for GPU4: 0000:89:00.0: Unknown Error",
+    "devices": [
+      "NVIDIA RTX A6000, 49140 MiB, 15091 MiB",
+      "NVIDIA RTX A6000, 49140 MiB, 38080 MiB",
+      "NVIDIA RTX A6000, 49140 MiB, 6969 MiB",
+      "NVIDIA RTX A6000, 49140 MiB, 31437 MiB",
+      "NVIDIA RTX A6000, 49140 MiB, 44529 MiB"
+    ]
+  },
+  "target": {
+    "model": "Qwen/Qwen3-8B",
+    "cache_directory_exists": true,
+    "local_directory": "models/Qwen3-8B",
+    "tokenizer_cached": true,
+    "weight_file_count": 5,
+    "expected_local_weight_file_count": 5,
+    "partial_file_count": 0,
+    "weights_cached": true
+  },
+  "teacher": {
+    "model": "Qwen/Qwen3-14B",
+    "cache_directory_exists": false,
+    "local_directory": "models/Qwen3-14B",
+    "tokenizer_cached": true,
+    "weight_file_count": 8,
+    "expected_local_weight_file_count": 8,
+    "partial_file_count": 0,
+    "weights_cached": true
+  },
+  "data": {
+    "raw_hotpot": true,
+    "smoke_examples": true,
+    "controlled_examples": true
+  },
+  "ready": {
+    "data_preparation": true,
+    "full_context": true,
+    "packet_generation": true,
+    "exact_search": true
+  }
+}

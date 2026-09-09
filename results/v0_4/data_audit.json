@@ -1,0 +1,25 @@
+{
+  "examples": 30,
+  "semantic_units": 180,
+  "unit_ids_contiguous": true,
+  "empty_units": 0,
+  "units_over_max_tokens": 0,
+  "tokens_per_unit": {
+    "min": 17,
+    "mean": 43.022222222222226,
+    "median": 40.0,
+    "p95": 68,
+    "max": 137
+  },
+  "units_per_example": {
+    "6": 30
+  },
+  "supporting_units_per_example": {
+    "0": 30
+  },
+  "input": "data/units/hotpot_v0_4_candidates.jsonl",
+  "input_sha256": "0cc341ee79aec571d464d3035c524d129a76a2c4bdb00cac3cb99962c29073a0",
+  "tokenizer": "models/Qwen3-8B",
+  "tokenizer_revision": "main",
+  "max_tokens": 256
+}

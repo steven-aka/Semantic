@@ -1,0 +1,14 @@
+{
+  "candidate_output": "data/units/hotpot_v0_4_candidates.jsonl",
+  "candidate_output_sha256": "0cc341ee79aec571d464d3035c524d129a76a2c4bdb00cac3cb99962c29073a0",
+  "complete": true,
+  "config_sha256": "8af2d36e4bff5cd468c0051e5fd8ddd7676351555c23bd8985ea8789d9e3f5ec",
+  "decision": "BUILD_V0_4",
+  "label_free_selection": true,
+  "label_permutation_invariance": true,
+  "locked_test_metrics_sha256": "8fa169659848910643ccabbd1a728f81778761613cbb875ae3d0a6611474d5ec",
+  "output_sha256": "0cc341ee79aec571d464d3035c524d129a76a2c4bdb00cac3cb99962c29073a0",
+  "passed": true,
+  "selection_manifest_sha256": "abf03bb6925edc858095f7a61d84669ffb7f173f9f895bfc4d68ad4cd2ae8f5f",
+  "selector_cache_sha256": "cc6a3f1ae7e199786e0065b23256c068a122a9ddc40f014516dbd6422e567826"
+}

@@ -1,0 +1,36 @@
+{
+  "examples": 100,
+  "semantic_units": 1148,
+  "unit_ids_contiguous": true,
+  "empty_units": 0,
+  "units_over_max_tokens": 0,
+  "tokens_per_unit": {
+    "min": 9,
+    "mean": 115.56533101045297,
+    "median": 113.0,
+    "p95": 198,
+    "max": 227
+  },
+  "units_per_example": {
+    "2": 1,
+    "10": 26,
+    "11": 38,
+    "12": 16,
+    "13": 7,
+    "14": 6,
+    "15": 2,
+    "16": 2,
+    "19": 1,
+    "20": 1
+  },
+  "supporting_units_per_example": {
+    "2": 93,
+    "3": 6,
+    "4": 1
+  },
+  "input": "data/units/hotpot_validation.jsonl",
+  "input_sha256": "28209a134eec97e893a573331346adc95894d137d6eb4ca345bd3dd69f529ed3",
+  "tokenizer": "Qwen/Qwen3-8B",
+  "tokenizer_revision": "main",
+  "max_tokens": 256
+}

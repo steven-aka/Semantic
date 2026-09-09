@@ -1,0 +1,53 @@
+{
+  "artifacts": {
+    "annotations_sha256": "6001e763b742ec9537c21f9532e8b04f45c0c56712d802ddb758cdcd35089d4f",
+    "exact_tree_sha256": "c2009deac8324b1aae5ceb98f48e304153cbab14c2767c0a6ab0e80dd71a84f2",
+    "examples_sha256": "728a91d73d80f4466597fd836af330c50721af8286d10a47976bd4bc0b0eb95f",
+    "packet_tree_sha256": "4f983035fbd56bcb674b29cb03422b1a99a866d248ef74267afa4cf0586f4fbd",
+    "selection_manifest_sha256": "c3b90d3e78d1c628ef879ff7add79d94cc4693c6bf500c1807f47febe39fe0bf"
+  },
+  "checks": {
+    "artifact_integrity": true,
+    "maximum_atom_recall_decline_fraction": true,
+    "maximum_example_weighted_mean_structural_gap_normalized": true,
+    "maximum_structural_gap_normalized_p90": true,
+    "minimum_adjacent_feasible_pairs": true,
+    "minimum_complete_examples": true,
+    "minimum_full_state_f1_0_8_fraction": true,
+    "minimum_max_f1_0_9_fraction": false,
+    "minimum_mean_atom_recall_gain_0_60_to_0_90": true,
+    "minimum_nested_reuse_fraction": true,
+    "minimum_nonnested_independent_switches": true,
+    "minimum_strict_rate_transition_fraction": true,
+    "require_lossless_partition": true
+  },
+  "complete": true,
+  "config_sha256": "0d4c6f90f8d5a604c3863abe961c1fdf57b443eabacd9f8933dfe38e0580698e",
+  "decision": "NO_GO_STOP_BEFORE_V1",
+  "metrics": {
+    "adjacent_feasible_pairs": 104,
+    "atom_recall_decline_fraction": 0.0,
+    "errors": [],
+    "exact_states": 21870,
+    "example_weighted_mean_structural_gap_normalized": 0.0053379100654392195,
+    "examples": 30,
+    "full_state_f1_0_8_examples": 27,
+    "full_state_f1_0_8_fraction": 0.9,
+    "lossless_packets": 180,
+    "lossless_partition_complete": true,
+    "max_f1_0_9_examples": 25,
+    "max_f1_0_9_fraction": 0.8333333333333334,
+    "mean_atom_recall_gain_0_60_to_0_90": 0.4,
+    "nested_reuse_fraction_all_ties": 0.8269230769230769,
+    "nested_reuse_fraction_any_tie": 0.875,
+    "nonnested_independent_switches": 16,
+    "paired_0_60_0_90_examples": 25,
+    "positive_structural_gap_rows": 15,
+    "state_switches": 104,
+    "strict_rate_increases": 104,
+    "strict_rate_transition_fraction": 1.0,
+    "structural_gap_normalized_p90": 0.008482142857142872
+  },
+  "scientific_gate_passed": false,
+  "stage": "m0_qampari_lossless_development_complete_stop_before_v1"
+}

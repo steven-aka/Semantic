@@ -1,0 +1,14 @@
+{
+  "n_examples": 11,
+  "adjacent_feasible_pairs": 30,
+  "state_switches": 0,
+  "state_switch_rate": 0.0,
+  "examples_with_any_state_switch": 0,
+  "strict_rate_increases": 0,
+  "fact_recall_increases": 0,
+  "nonnested_independent_switches": 0,
+  "positive_structural_gap_rows": 0,
+  "assessment": "no_go_representation_or_fidelity_method_not_identifiable",
+  "next_action": "stop_before_v1_and_revise_representation_or_fidelity_measurement",
+  "bounded_decision_rule": "Stop before V1 when the rate-fidelity frontier is flat. If switches exist but none is nonnested, keep the zero-gap result descriptive and revise one bounded V0 pilot design rather than adding representation levels."
+}

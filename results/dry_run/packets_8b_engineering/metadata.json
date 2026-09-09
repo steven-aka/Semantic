@@ -1,0 +1,23 @@
+{
+  "dataset_revision": "hotpot_qa_distractor_validation",
+  "experiment_id": "engineering_packet_smoke_qwen3_8b_not_scientific",
+  "generation_parameters": {
+    "max_retries": 2,
+    "max_tokens": 256,
+    "temperature": 0.0
+  },
+  "git_commit": "unversioned",
+  "gpu_memory_utilization": 0.4,
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "input_path": "data/units/hotpot_exact_pilot_eligible.jsonl",
+  "max_model_len": 2048,
+  "model_name": "models/Qwen3-8B",
+  "model_revision": "main",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 42,
+  "timestamp_utc": "2026-09-06T08:51:14.228163+00:00",
+  "tokenizer_name": "models/Qwen3-8B"
+}

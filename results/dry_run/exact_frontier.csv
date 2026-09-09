@@ -1,0 +1,6 @@
+example_id,fidelity_level,feasible,tokens,state,achieved_fidelity
+dry_run_0001,0.6,True,11,"[1, 1, 0, 0, 0]",0.6666666666666666
+dry_run_0001,0.7,True,16,"[1, 2, 0, 0, 0]",1.0
+dry_run_0001,0.8,True,16,"[1, 2, 0, 0, 0]",1.0
+dry_run_0001,0.9,True,16,"[1, 2, 0, 0, 0]",1.0
+dry_run_0001,0.95,True,16,"[1, 2, 0, 0, 0]",1.0

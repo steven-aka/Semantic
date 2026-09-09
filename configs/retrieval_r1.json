@@ -1,0 +1,36 @@
+{
+  "protocol": "retrieval_r1_frozen_qwen3_14b_semantic_top6",
+  "frozen_at": "2026-09-07 before any Retrieval R1 model output or gold scoring",
+  "scientific_role": "label-free semantic evidence selector; bounded final retrieval repair before reconsidering N=6",
+  "excluded_id_sources": [
+    "data/units/hotpot_validation.jsonl",
+    "data/units/hotpot_v0_3_candidates.jsonl"
+  ],
+  "excluded_manifest_sources": [
+    "results/retrieval_r0/manifest.json"
+  ],
+  "split": {
+    "salt": "retrieval_r1_qwen3_14b_top6_20260907",
+    "smoke_examples": 20,
+    "locked_test_examples": 200,
+    "v0_4_exact_examples": 30
+  },
+  "selector": {
+    "model": "models/Qwen3-14B",
+    "revision": "main",
+    "temperature": 0.0,
+    "max_output_tokens": 64,
+    "max_model_len": 4096,
+    "max_prompt_tokens": 3900,
+    "max_attempts": 2,
+    "fallback": "global_bm25_k1_1.2_b_0.75"
+  },
+  "unit_policy": "exactly six original, non-overlapping sentences in source order; visible token-counted title",
+  "n_units": 6,
+  "max_unit_tokens": 256,
+  "locked_test_gate": {
+    "minimum_top6_gold_fact_coverage": 0.80,
+    "maximum_fallback_fraction": 0.02
+  },
+  "decision_rule": "Freeze every selector output and its prompt hash before reading supporting facts. Score the fresh locked test once. Build V0.4 candidates only if both gates pass; otherwise stop and reconsider N=6. No prompt or threshold changes after scoring."
+}

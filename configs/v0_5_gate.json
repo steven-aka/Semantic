@@ -1,0 +1,48 @@
+{
+  "protocol": "v0_5_plan_aligned_answerable_semantic_top6",
+  "frozen_at": "2026-09-08 before any V0.5 baseline, packet, or exact-search output",
+  "primary_grid": [0.60, 0.70, 0.80, 0.90, 0.95],
+  "sample": {
+    "n_examples": 30,
+    "n_units": 6,
+    "states_per_example": 729,
+    "source": "Retrieval R1 locked-test positions 30:200, first 30 in frozen order with selected-context Qwen3-8B F1 >= 0.8",
+    "pool_examples": 170,
+    "eligibility_f1": 0.8
+  },
+  "segmentation": {
+    "policy": "one_original_sentence_per_unit",
+    "title_visible_and_token_counted": true,
+    "max_tokens": 256,
+    "overlap": false
+  },
+  "selection": {
+    "policy": "frozen_qwen3_14b_semantic_top6",
+    "uses_gold_support": false,
+    "uses_answer_for_retrieval": false,
+    "split": "results/retrieval_r1/split.jsonl",
+    "locked_offset": 30,
+    "selection_manifest": "results/retrieval_r1/selection_manifest.json",
+    "selector_cache": "results/retrieval_r1/selector_cache",
+    "eligibility_pool": "data/units/hotpot_v0_5_pool.jsonl",
+    "eligibility_baseline": "results/v0_5/pool_full_context.jsonl"
+  },
+  "models": {
+    "teacher": "models/Qwen3-14B",
+    "target_and_judge": "models/Qwen3-8B",
+    "decoding": "greedy_thinking_disabled"
+  },
+  "hard_gates": {
+    "minimum_complete_examples": 30,
+    "minimum_adjacent_feasible_pairs": 30,
+    "minimum_strict_rate_transition_fraction": 0.20,
+    "minimum_nested_reuse_fraction": 0.80,
+    "maximum_example_weighted_mean_structural_gap_normalized": 0.10,
+    "maximum_structural_gap_normalized_p90": 0.20,
+    "minimum_mean_fact_recall_gain_0_60_to_0_90": 0.15,
+    "maximum_fact_recall_decline_fraction": 0.10,
+    "minimum_top6_gold_fact_coverage": 0.80,
+    "require_label_permutation_invariance": true
+  },
+  "decision_rule": "Run this plan-aligned population repair once. All unchanged hard gates must pass before separate V1 authorization. If it fails, stop revising V0 and reconsider the representation/fidelity method."
+}

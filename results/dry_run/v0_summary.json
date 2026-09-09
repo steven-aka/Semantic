@@ -1,0 +1,54 @@
+{
+  "label": "V0 exact-pilot summary",
+  "n_examples": 1,
+  "by_fidelity_level": {
+    "0.60": {
+      "independent_feasible_examples": 1,
+      "nested_feasible_examples": 1,
+      "mean_independent_tokens": 11.0,
+      "mean_nested_tokens": 11.0,
+      "mean_structural_gap_normalized": 0.0
+    },
+    "0.70": {
+      "independent_feasible_examples": 1,
+      "nested_feasible_examples": 1,
+      "mean_independent_tokens": 16.0,
+      "mean_nested_tokens": 16.0,
+      "mean_structural_gap_normalized": 0.0
+    },
+    "0.80": {
+      "independent_feasible_examples": 1,
+      "nested_feasible_examples": 1,
+      "mean_independent_tokens": 16.0,
+      "mean_nested_tokens": 16.0,
+      "mean_structural_gap_normalized": 0.0
+    },
+    "0.90": {
+      "independent_feasible_examples": 1,
+      "nested_feasible_examples": 1,
+      "mean_independent_tokens": 16.0,
+      "mean_nested_tokens": 16.0,
+      "mean_structural_gap_normalized": 0.0
+    },
+    "0.95": {
+      "independent_feasible_examples": 1,
+      "nested_feasible_examples": 1,
+      "mean_independent_tokens": 16.0,
+      "mean_nested_tokens": 16.0,
+      "mean_structural_gap_normalized": 0.0
+    }
+  },
+  "representation_nestedness": {
+    "adjacent_pairs": 4,
+    "violations": 0,
+    "rate_decreases": 0
+  },
+  "mean_supporting_unit_visibility": {
+    "0.60": 1.0,
+    "0.70": 1.0,
+    "0.80": 1.0,
+    "0.90": 1.0,
+    "0.95": 1.0
+  },
+  "gate_status": "requires_human_review_of_real_results"
+}

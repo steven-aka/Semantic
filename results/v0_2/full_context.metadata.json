@@ -1,0 +1,24 @@
+{
+  "backend": "vllm",
+  "batch_size": 33,
+  "dataset_revision": "hotpot_qa_distractor_validation",
+  "experiment_id": "v0_2_fact_atomic_full_context",
+  "generation_parameters": {
+    "do_sample": false,
+    "enable_thinking": false,
+    "max_new_tokens": 64
+  },
+  "git_commit": "unversioned",
+  "gpu_memory_utilization": 0.5,
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "input_path": "data/units/hotpot_fact_atomic_candidates.jsonl",
+  "max_model_len": 2048,
+  "model_name": "models/Qwen3-8B",
+  "model_revision": "main",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 42,
+  "timestamp_utc": "2026-09-07T03:42:25.195147+00:00"
+}

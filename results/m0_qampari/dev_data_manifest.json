@@ -1,0 +1,13 @@
+{
+  "answer_atoms_per_example": 10,
+  "distractor_units": 1,
+  "examples": 60,
+  "input_sha256": "2d15cb441017f0bd4cbc40086ed04a77604c2cad94388acdfb9f6141e69e6de3",
+  "locked_model_outputs_observed": false,
+  "max_unit_tokens": 256,
+  "relevant_units": 5,
+  "seed": 20260908,
+  "source_split": "dev",
+  "stage": "m0_qampari_controlled_development_only",
+  "units_per_example": 6
+}

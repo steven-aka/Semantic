@@ -1,0 +1,9 @@
+model_name: Qwen/Qwen3-14B
+revision: main
+backend: vllm
+dtype: bfloat16
+temperature: 0.0
+max_new_tokens: 256
+max_retries: 2
+gpu_memory_utilization: 0.70
+max_model_len: 2048

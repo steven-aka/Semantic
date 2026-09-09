@@ -1,0 +1,26 @@
+{
+  "examples": 30,
+  "semantic_units": 180,
+  "unit_ids_contiguous": true,
+  "empty_units": 0,
+  "units_over_max_tokens": 0,
+  "tokens_per_unit": {
+    "min": 9,
+    "mean": 119.27777777777777,
+    "median": 115.0,
+    "p95": 195,
+    "max": 220
+  },
+  "units_per_example": {
+    "6": 30
+  },
+  "supporting_units_per_example": {
+    "2": 29,
+    "3": 1
+  },
+  "input": "data/units/hotpot_controlled_pilot.jsonl",
+  "input_sha256": "b3717ba051e8a7d5d0a6225519ea8a3729761819e3f0e2ebcb818631a35156e2",
+  "tokenizer": "Qwen/Qwen3-8B",
+  "tokenizer_revision": "main",
+  "max_tokens": 256
+}

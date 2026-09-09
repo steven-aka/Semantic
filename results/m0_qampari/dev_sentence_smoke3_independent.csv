@@ -1,0 +1,16 @@
+example_id,fidelity_level,feasible,tokens,state,achieved_fidelity,answer_f1,fact_recall
+356__wikidata_intersection__dev,0.6,False,,,,,
+356__wikidata_intersection__dev,0.7,False,,,,,
+356__wikidata_intersection__dev,0.8,False,,,,,
+356__wikidata_intersection__dev,0.9,False,,,,,
+356__wikidata_intersection__dev,0.95,False,,,,,
+709__wikidata_simple__dev,0.6,True,226,"[2, 2, 1, 0, 0, 0]",0.6666666666666666,0.6666666666666666,0.5
+709__wikidata_simple__dev,0.7,True,256,"[2, 0, 1, 0, 0, 2]",0.7499999999999999,0.7499999999999999,0.6
+709__wikidata_simple__dev,0.8,True,412,"[2, 2, 2, 0, 0, 2]",0.8235294117647058,0.8235294117647058,0.7
+709__wikidata_simple__dev,0.9,False,,,,,
+709__wikidata_simple__dev,0.95,False,,,,,
+801__wikidata_simple__dev,0.6,True,58,"[0, 1, 1, 0, 1, 0]",0.6666666666666666,0.6666666666666666,0.5
+801__wikidata_simple__dev,0.7,True,61,"[1, 1, 1, 0, 0, 0]",0.7499999999999999,0.7499999999999999,0.6
+801__wikidata_simple__dev,0.8,True,78,"[1, 1, 1, 0, 1, 0]",0.8235294117647058,0.8235294117647058,0.7
+801__wikidata_simple__dev,0.9,False,,,,,
+801__wikidata_simple__dev,0.95,False,,,,,

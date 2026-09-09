@@ -1,0 +1,14 @@
+{
+  "experiment_id": "v0_1_fact_aware_rescore",
+  "fidelity": "min(answer_f1, target_judged_gold_fact_recall)",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "source_exact_search": "results/exact_search",
+  "source_fact_coverage": "results/v0_1/fact_coverage.jsonl",
+  "target_predictions_reused": true,
+  "timestamp_utc": "2026-09-07T04:15:49.417628+00:00"
+}

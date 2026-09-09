@@ -1,0 +1,9 @@
+{
+  "complete": true,
+  "config_sha256": "8af2d36e4bff5cd468c0051e5fd8ddd7676351555c23bd8985ea8789d9e3f5ec",
+  "examples": 220,
+  "prepare_manifest_sha256": "986b2d4a8c88032420a97a5fbfb3afd0644c111fe2c585c8084c605fba499ecd",
+  "selector_cache_sha256": "cc6a3f1ae7e199786e0065b23256c068a122a9ddc40f014516dbd6422e567826",
+  "split_sha256": "2f9df456430cdf6c2abbe8beeb0f5a24d5e07252fff58cff729f11a13899fac8",
+  "stage": "selection_frozen_before_gold_scoring"
+}

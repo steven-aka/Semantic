@@ -1,0 +1,25 @@
+{
+  "examples": 60,
+  "semantic_units": 360,
+  "unit_ids_contiguous": true,
+  "empty_units": 0,
+  "units_over_max_tokens": 0,
+  "tokens_per_unit": {
+    "min": 31,
+    "mean": 85.81388888888888,
+    "median": 82.0,
+    "p95": 141,
+    "max": 205
+  },
+  "units_per_example": {
+    "6": 60
+  },
+  "supporting_units_per_example": {
+    "0": 60
+  },
+  "input": "data/units/qampari_m0_dev60_sentence.jsonl",
+  "input_sha256": "75dd5e3e00e6c4c114065c7ab77f26388814102b8fcb1fd4fd9bcc7059741fea",
+  "tokenizer": "models/Qwen3-8B",
+  "tokenizer_revision": "main",
+  "max_tokens": 256
+}

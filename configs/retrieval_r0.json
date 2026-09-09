@@ -1,0 +1,28 @@
+{
+  "protocol": "retrieval_r0_label_free_multihop_screen",
+  "frozen_at": "2026-09-07 before retrieval R0 gold scoring",
+  "excluded_id_sources": [
+    "data/units/hotpot_validation.jsonl",
+    "data/units/hotpot_v0_3_candidates.jsonl"
+  ],
+  "split": {
+    "salt": "retrieval_r0_multihop_20260907",
+    "development_examples": 500,
+    "locked_test_examples": 200,
+    "v0_4_exact_examples": 30
+  },
+  "unit_policy": "one original sentence; visible token-counted title; no overlap",
+  "n_units": 6,
+  "max_tokens": 256,
+  "bm25": {"k1": 1.2, "b": 0.75},
+  "candidate_policies": [
+    "global_bm25",
+    "hierarchical_3_titles_x_2_sentences",
+    "linked_title_pair_3_sentences_each"
+  ],
+  "selection_rule": "choose the highest development fact coverage; ties follow candidate_policies order",
+  "locked_test_gate": {
+    "minimum_top6_gold_fact_coverage": 0.80
+  },
+  "decision_rule": "Evaluate the chosen policy exactly once on the locked test. Build V0.4 candidates only if it passes. Do not alter policies or thresholds after scoring."
+}

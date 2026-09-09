@@ -1,0 +1,2 @@
+"""Frozen target-model inference."""
+

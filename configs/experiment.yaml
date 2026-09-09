@@ -1,0 +1,14 @@
+experiment_id: v0_hotpot_seed42
+seed: 42
+dataset: hotpotqa
+target_tokens: 192
+max_tokens: 256
+smoke_examples: 10
+smoke_units: 5
+pilot_examples: 30
+pilot_units: 6
+fidelity_levels: [0.60, 0.70, 0.80, 0.90, 0.95]
+target_config: configs/target_qwen3_8b.yaml
+teacher_config: configs/teacher_qwen3_14b.yaml
+tokenizer_name: Qwen/Qwen3-8B
+

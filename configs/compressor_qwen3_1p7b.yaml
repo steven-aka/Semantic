@@ -1,0 +1,10 @@
+model_name: Qwen/Qwen3-1.7B
+revision: main
+quantization: nf4
+compute_dtype: bfloat16
+lora_rank: 32
+lora_alpha: 64
+lora_dropout: 0.05
+learning_rate: 0.0001
+epochs: 2
+

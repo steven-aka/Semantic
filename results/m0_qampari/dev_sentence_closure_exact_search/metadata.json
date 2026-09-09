@@ -1,0 +1,19 @@
+{
+  "answer_atoms": 10,
+  "fidelity": "official_alias_aware_list_f1",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "input_annotations": "data/units/qampari_m0_dev30_sentence_annotations.jsonl",
+  "input_examples": "data/units/qampari_m0_dev30_sentence.jsonl",
+  "input_packets": "data/packets_qampari_m0_dev_sentence_closure",
+  "model": "models/Qwen3-8B",
+  "model_revision": "main",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "scientific_status": "development_only_not_a_locked_result",
+  "stage": "m0_qampari_development_exact_search",
+  "states_per_example": 729,
+  "timestamp_utc": "2026-09-08T12:42:05.753071+00:00"
+}

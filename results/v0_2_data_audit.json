@@ -1,0 +1,27 @@
+{
+  "examples": 33,
+  "semantic_units": 198,
+  "unit_ids_contiguous": true,
+  "empty_units": 0,
+  "units_over_max_tokens": 0,
+  "tokens_per_unit": {
+    "min": 5,
+    "mean": 77.35858585858585,
+    "median": 55.5,
+    "p95": 189,
+    "max": 211
+  },
+  "units_per_example": {
+    "6": 33
+  },
+  "supporting_units_per_example": {
+    "3": 24,
+    "4": 8,
+    "5": 1
+  },
+  "input": "data/units/hotpot_fact_atomic_candidates.jsonl",
+  "input_sha256": "66c9e645a24ab95cbad3995e3e6cbc18a70df5b3b149846ff0c0aff542b6777c",
+  "tokenizer": "models/Qwen3-8B",
+  "tokenizer_revision": "main",
+  "max_tokens": 256
+}

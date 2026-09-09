@@ -1,0 +1,25 @@
+{
+  "examples": 10,
+  "semantic_units": 50,
+  "unit_ids_contiguous": true,
+  "empty_units": 0,
+  "units_over_max_tokens": 0,
+  "tokens_per_unit": {
+    "min": 36,
+    "mean": 115.1,
+    "median": 100.5,
+    "p95": 203,
+    "max": 207
+  },
+  "units_per_example": {
+    "5": 10
+  },
+  "supporting_units_per_example": {
+    "2": 10
+  },
+  "input": "data/units/hotpot_exact_pilot.jsonl",
+  "input_sha256": "24af6b570ec6a3f0db2d231053e895e2776bb42d923e45d30447bae1bc72a436",
+  "tokenizer": "Qwen/Qwen3-8B",
+  "tokenizer_revision": "main",
+  "max_tokens": 256
+}
