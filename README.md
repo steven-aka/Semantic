@@ -1,6 +1,6 @@
 # Fidelity-Constrained Successive Semantic Compression
 
-本仓库按 `CODEX_FIDELITY_COMPRESSION_IMPLEMENTATION_PLAN.md` 构建。当前实现范围是 **V0 + V0.1--V0.5 有界诊断，以及 M0 根因验证**；遵守计划中的 STOP POINT，尚未实现或启动 QLoRA/V1 训练。
+本仓库按 `CODEX_FIDELITY_COMPRESSION_IMPLEMENTATION_PLAN.md` 构建。当前实现范围是 **V0 + V0.1--V0.5 有界诊断，以及 M0 根因验证和 ceiling-v2 锁定复验**；遵守计划中的 STOP POINT，尚未实现或启动 QLoRA/V1 训练。
 
 ## 当前实验进度
 
@@ -34,6 +34,21 @@ answerability：仅
 或 V1/QLoRA。权威结果见 `results/m0_qampari/RESULTS.md` 与
 `results/m0_qampari/lossless_dev_gate_result.json`；完整根因、已解决问题与
 未解决问题见 `FIDELITY_SIGNAL_BOTTLENECK_PLAN.md`。
+
+2026-09-09 完成了根因级 ceiling-v2 修复，没有弱化上述历史门槛，也没有
+继续叠加解码机制。新协议把“证据闭合且目标模型可答”设为结构压缩研究的
+显式入组条件：十个答案原子必须通过同页来源、关系词、数值边界和完整 proof
+证书，并在实际 all-state-2 表示上满足 F1≥0.90、empty F1≤0.20、上下文增益
+≥0.70 且非长度截断。98 个证据认证候选中 61 个入组，筛选率 62.24%；因此
+结论只适用于这个条件总体，不能外推为一般 QAMPARI 可答率。
+
+冻结后的 development 30 与 ID 零重叠 heldout 30 均完成 21,870 个状态并
+通过全部联合 gate。dev/heldout 的 `F1max≥0.9` 都是 30/30；heldout 严格
+rate 增长 111/111、nested reuse 93.69%、0.60→0.90 atom 增益 0.40、平均
+归一化结构差 0.00328。由此当前状态变为 **允许进行 V1 readiness review，
+但尚未启动 V1/QLoRA**。官方 QAMPARI test 未被读取为 target 输出。权威结论
+见 `results/m0_qampari_ceiling_v2/RESULTS.md`、
+`results/m0_qampari_ceiling_v2/final_readiness.json` 和冻结的 heldout gate。
 
 ## 当前可复现实验流程
 

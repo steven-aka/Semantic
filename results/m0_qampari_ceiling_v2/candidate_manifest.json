@@ -1,0 +1,20 @@
+{
+  "annotations_sha256": "c221edfac50f62edf2e3375d54601115c48f9dd2a497d305cbca4be8a53b11bb",
+  "answer_atoms_per_example": 10,
+  "certificate": "display identity; same-article proof; relation overlap; numeric bound; full proof",
+  "examples": 98,
+  "examples_sha256": "17386da6c8f4e7395955a2eac339a47bdbd88a3cf59eed8fb108e8e907bd361f",
+  "excluded_examples": 60,
+  "input_sha256": "2d15cb441017f0bd4cbc40086ed04a77604c2cad94388acdfb9f6141e69e6de3",
+  "max_unit_tokens": 512,
+  "rejection_counts": {
+    "excluded_id": 60,
+    "fewer_than_ten_certified_atoms": 838,
+    "unit_too_long": 3
+  },
+  "seed": 20260909,
+  "source_split": "dev",
+  "stage": "m0_qampari_ceiling_v2_candidates_before_target_inference",
+  "target_outputs_observed_before_candidate_freeze": false,
+  "units_per_example": 6
+}

@@ -1,0 +1,88 @@
+{
+  "protocol": "m0_qampari_evidence_closed_ceiling_v2_development",
+  "frozen_at": "2026-09-09 after candidate ceiling baselines and before any v2 exact-search output",
+  "scientific_status": "development_gate_not_locked_test",
+  "primary_grid": [0.60, 0.70, 0.80, 0.90, 0.95],
+  "sample": {
+    "n_examples": 30,
+    "n_units": 6,
+    "answer_atoms_per_example": 10,
+    "states_per_example": 729,
+    "examples_sha256": "01c7866af24b15e7a84c43af857e9f0a9a9c3d06c1f9c1dc7265af7aaf0dc1c5",
+    "annotations_sha256": "9149cdd19fcd478ef243598ddde80556be01e75e3dc1dbc2774e28c2bbd3ee45",
+    "selection_manifest_sha256": "45ae71334f348e2459dce22e7399f598675a49c923c4c357ce58c781997ed91d"
+  },
+  "population_screen": {
+    "raw_split": "official_qampari_dev",
+    "previously_consumed_ids_excluded": 60,
+    "evidence_certified_examples_available": 99,
+    "candidate_examples_evaluated": 98,
+    "ceiling_eligible_examples": 61,
+    "ceiling_eligibility_fraction": 0.6224489795918368,
+    "selection_rule": "stable-hash-order first 30 satisfying the frozen ceiling precondition"
+  },
+  "ceiling_precondition": {
+    "baseline_sha256": "1d94af0b5bed104dd0fd322dc403a3a42a1d2fbe2316a4d633f7a4e988820d09",
+    "evaluated_context": "actual all-state-2 lossless representation",
+    "minimum_full_f1": 0.90,
+    "maximum_empty_f1": 0.20,
+    "minimum_context_gain": 0.70,
+    "require_nontruncated": true,
+    "observed_selected_minimum_full_f1": 0.90,
+    "observed_selected_maximum_empty_f1": 0.16666666666666669,
+    "observed_selected_minimum_context_gain": 0.7807017543859649,
+    "observed_full_finish_reasons": ["stop"]
+  },
+  "evidence_contract": {
+    "canonical_identity": "MediaWiki display text plus answer-URL title aliases",
+    "provenance": "answer and proof URLs resolve to the same Wikipedia article",
+    "relation_support": "at least one non-entity question relation term appears in the retained proof",
+    "numeric_constraints": "explicit after/before/greater/less bounds must be satisfied by a source number",
+    "proof_retention": "complete selected official proof retained without sentence reduction",
+    "reads_gold_for_benchmark_construction": true,
+    "packetizer_reads_question": false,
+    "packetizer_reads_gold_annotations": false
+  },
+  "packetization": {
+    "policy": "two complete source-evidence blocks partitioned without overlap; shorter target-tokenizer block is gist and the other is residual",
+    "maximum_gist_source_ratio": 0.5,
+    "packet_tree_sha256": "f28c66169df02e90139986a2b8a8c1aa449d7749f7dcb209f1aa92fbf946eeff"
+  },
+  "fidelity": {
+    "primary": "alias_aware_hard_list_f1",
+    "secondary": "answer_atom_recall",
+    "soft_judge": false
+  },
+  "models": {
+    "target": "models/Qwen3-8B",
+    "decoding": "single_pass_greedy_thinking_disabled",
+    "max_new_tokens": 256,
+    "max_model_len": 4096
+  },
+  "implementation_sha256": {
+    "candidate_builder": "9f7218c19c75940971461bb4b56680c2b5ee52dab7ed643ebb530dbd2e600c64",
+    "target_runner": "2897f2c82f7478c9b5130ecd50dc39ca1ec38e19ef2bd70f94aa6aff2b308921",
+    "qampari_prompt": "41f7ba11db73f4f4a6f763afb2b4c4de774b2cb299577581a01704ab0ed5b9a5",
+    "metric": "3c880f20cf35570c6c366b2d62d871c50451f8dbd04f9a14e82df77c93180c63",
+    "exact_search": "0afc3a5db6763a3cd3be915f7a3d1b07ecc89c55b7bc028cd4c6960cdd10b66b",
+    "independent_gate": "8322467132b01d2c0005e0afb1bf203924c91755d001bc0560102871ab28c44b",
+    "packetizer": "12782238cf975675593d5b3a106a142cf007461b045c1bbba40e4ffd62145068"
+  },
+  "hard_gates": {
+    "minimum_complete_examples": 30,
+    "minimum_adjacent_feasible_pairs": 30,
+    "minimum_strict_rate_transition_fraction": 0.20,
+    "minimum_nested_reuse_fraction": 0.80,
+    "maximum_example_weighted_mean_structural_gap_normalized": 0.10,
+    "maximum_structural_gap_normalized_p90": 0.20,
+    "minimum_mean_atom_recall_gain_0_60_to_0_90": 0.15,
+    "maximum_atom_recall_decline_fraction": 0.10,
+    "minimum_full_state_f1_0_8_fraction": 0.90,
+    "minimum_max_f1_0_9_fraction": 0.90,
+    "minimum_nonnested_independent_switches": 1,
+    "require_lossless_partition": true,
+    "require_evidence_certificate": true,
+    "require_ceiling_precondition": true
+  },
+  "decision_rule": "All gates are conjunctive. Passing this development gate permits a separately frozen fresh QAMPARI-test exact run, not V1. Failure stops without threshold changes or additional decoding mechanisms."
+}

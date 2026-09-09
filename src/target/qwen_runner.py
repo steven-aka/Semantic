@@ -112,6 +112,11 @@ class TargetRunner:
         return prompts
 
     def generate_batch(self, questions: Sequence[str], contexts: Sequence[str]) -> list[str]:
+        return [record["text"] for record in self.generate_batch_records(questions, contexts)]
+
+    def generate_batch_records(
+        self, questions: Sequence[str], contexts: Sequence[str]
+    ) -> list[dict[str, Any]]:
         if len(questions) != len(contexts):
             raise ValueError("questions and contexts must have equal length")
         if not questions:
@@ -122,7 +127,18 @@ class TargetRunner:
 
             params = SamplingParams(temperature=0.0, max_tokens=self.max_new_tokens)
             outputs = self.model.generate(prompts, params, use_tqdm=False)
-            return [output.outputs[0].text.strip() for output in outputs]
+            records = []
+            for output in outputs:
+                candidate = output.outputs[0]
+                records.append(
+                    {
+                        "text": candidate.text.strip(),
+                        "finish_reason": getattr(candidate, "finish_reason", None),
+                        "stop_reason": getattr(candidate, "stop_reason", None),
+                        "generated_tokens": len(getattr(candidate, "token_ids", []) or []),
+                    }
+                )
+            return records
         import torch
 
         batch = self.tokenizer(prompts, return_tensors="pt", padding=True)
@@ -135,7 +151,18 @@ class TargetRunner:
         answers = []
         input_width = batch["input_ids"].shape[1]
         for output in generated:
-            answers.append(self.tokenizer.decode(output[input_width:], skip_special_tokens=True).strip())
+            token_ids = output[input_width:]
+            eos_id = getattr(self.tokenizer, "eos_token_id", None)
+            token_list = token_ids.tolist()
+            reached_eos = eos_id is not None and eos_id in token_list
+            answers.append(
+                {
+                    "text": self.tokenizer.decode(token_ids, skip_special_tokens=True).strip(),
+                    "finish_reason": "stop" if reached_eos else "length",
+                    "stop_reason": eos_id if reached_eos else None,
+                    "generated_tokens": len(token_list),
+                }
+            )
         return answers
 
     def answer_batch(self, questions: Sequence[str], contexts: Sequence[str]) -> list[str]:

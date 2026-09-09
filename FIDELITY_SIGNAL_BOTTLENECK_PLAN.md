@@ -1,9 +1,39 @@
 # Fidelity signal bottleneck: root-cause resolution and final M0 decision
 
-Status: development experiment complete and independently verified; scientific
-gate is **NO-GO**; V1/QLoRA remains stopped.
+Status: the original development result below remains a preserved **NO-GO**.
+The 2026-09-09 evidence-closed ceiling-v2 successor passed a frozen disjoint
+heldout gate and permits V1 readiness review; V1/QLoRA remains stopped.
 
 Date: 2026-09-08
+
+## 2026-09-09 superseding root-cause resolution
+
+The original 25/30 result is not reinterpreted or overwritten. Its five
+failures mixed true eight-of-ten target enumeration misses with incomplete
+query-condition evidence, temporal-boundary noise, and Wiki identity mismatch.
+Consequently it did not isolate compressor fidelity from benchmark ceiling.
+
+The successor fixes that confound at the population contract. It requires ten
+source-certified answer atoms, same-article provenance, relation support,
+explicit numeric-bound consistency, full proof retention, and an actual
+all-state-2 target precondition of full F1 >= 0.90, empty F1 <= 0.20, context
+gain >= 0.70, with no length stop. It does not change the representation,
+fidelity grid, list-F1 metric, exact search, structural-gap definition, or any
+hard gate. Of 98 certified candidates, 61 satisfy the precondition (62.24%);
+that yield is reported rather than hidden.
+
+Development and a disjoint heldout subset each contain 30 examples and 21,870
+exact states. Both pass every conjunctive check, including 30/30 any-state
+F1 >= 0.9. Heldout achieves 111/111 strict rate increases, nine non-nested
+switches, 93.69% nested reuse, 0.40 atom-recall gain, mean normalized gap
+0.00328, and gap p90 0. The heldout inputs/config were frozen before its exact
+outputs and no post-result tuning occurred.
+
+This is a GO for V1 readiness review on an oracle, evidence-certified,
+target-answerable conditional population. It is not an unbiased retrieval
+claim or a general QAMPARI capacity estimate. Official QAMPARI test target
+outputs remain untouched, and training is intentionally stopped at the V1
+boundary. See `results/m0_qampari_ceiling_v2/RESULTS.md`.
 
 ## 中文结论
 

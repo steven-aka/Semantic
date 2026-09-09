@@ -162,3 +162,37 @@ The full-context target benchmark and Qwen3-14B teacher artifacts are validated.
 - One frozen gate fails: only 25/30=83.33% examples reach alias-aware list F1≥0.9 in any state, below 90%. The threshold was not weakened. Final result: `complete=true`, `errors=[]`, `scientific_gate_passed=false`, `decision=NO_GO_STOP_BEFORE_V1`.
 - A post-gate read-only audit examined all five failures. Every best output contains eight matched atoms. Two examples have fully explicit missing evidence and expose target enumeration failure; three also contain incomplete query-condition evidence, a noisy temporal-boundary answer, or a Wiki display-name mismatch. The failed gate is therefore attributed to target–benchmark answerability/compatibility, not cleanly to model capacity and not to the compression structure.
 - Authoritative files are `results/m0_qampari/RESULTS.md` and `results/m0_qampari/lossless_dev_gate_result.json`. No QAMPARI test target output and no V1/QLoRA artifact was produced.
+
+## 2026-09-09 — M0 evidence-closed ceiling-v2 and disjoint heldout GO
+
+- Preserved the original M0 result as NO-GO (25/30 any-state F1 >= 0.9). The
+  failure audit showed a mixed ceiling: target enumeration misses plus evidence,
+  alias, and temporal-boundary defects. It was therefore unsuitable as a clean
+  compression prerequisite without changing the research objective.
+- Implemented one root correction rather than additional decoding layers:
+  ten answer atoms now require source certificates covering MediaWiki display
+  and URL-title identity, same-article proof provenance, question-relation
+  support, explicit numeric constraints, and complete proof retention.
+- Evaluated the actual lossless all-state-2 representation with Qwen3-8B and
+  recorded text, generated-token count, finish reason, and stop reason. Among
+  98 evidence-certified candidates, 61 pass the preregistered conditional
+  ceiling (full F1 >= 0.90, empty F1 <= 0.20, gain >= 0.70, nontruncated), for
+  an explicitly reported selection yield of 62.24%.
+- Froze 30 development examples from eligible positions 0--29. Exact search
+  completed 21,870 states and all gates passed: 30/30 any-state F1 >= 0.9,
+  109/110 strict rate increases, 16 non-nested switches, 85.32% nested reuse,
+  0.3967 atom gain, normalized mean gap 0.00460 and p90 0.00914.
+- After development GO and before heldout exact output, froze eligible positions
+  30--59 with zero development-ID overlap. The heldout run completed 21,870
+  states and passed every gate: 30/30 any-state F1 >= 0.9, 111/111 strict rate
+  increases, nine non-nested switches, 93.69% nested reuse, 0.40 atom gain,
+  normalized mean gap 0.00328 and p90 0.
+- No threshold, representation state, prompt, decoding rule, or sample was
+  changed after heldout output. Official QAMPARI test target outputs remain
+  untouched. The valid scope is an oracle, evidence-certified,
+  target-answerable conditional population—not unbiased retrieval or general
+  QAMPARI capacity.
+- Final decision is `GO_V1_READINESS_REVIEW_NOT_TRAINING`. The chain stops at
+  the V1 boundary. All 51 unit tests and Python compilation pass; no project
+  model process remains. See `results/m0_qampari_ceiling_v2/RESULTS.md` and
+  `results/m0_qampari_ceiling_v2/final_readiness.json`.

@@ -1,0 +1,39 @@
+{
+  "stage": "m0_qampari_ceiling_v2_heldout_complete_stop_before_v1",
+  "complete": true,
+  "scientific_gate_passed": true,
+  "decision": "GO_V1_READINESS_REVIEW_NOT_TRAINING",
+  "legacy_result_preserved": {
+    "path": "results/m0_qampari/lossless_dev_gate_result.json",
+    "scientific_gate_passed": false,
+    "max_f1_0_9_examples": 25,
+    "examples": 30
+  },
+  "population": {
+    "evidence_certified_candidates_evaluated": 98,
+    "ceiling_eligible_examples": 61,
+    "ceiling_eligibility_fraction": 0.6224489795918368,
+    "claim_scope": "evidence-certified target-answerable conditional population"
+  },
+  "development": {
+    "config": "configs/m0_qampari_ceiling_v2_dev_gate.json",
+    "config_sha256": "a1b6dd81f269e8b12a5ee0ecaa3b391a820f2ac8efa33be567041b9f2003b1ac",
+    "result": "results/m0_qampari_ceiling_v2/dev_gate_result.json",
+    "result_sha256": "2435850b29afc410150f9cb0f08ebe3ea03ad16431176b04eea23d03dd4b901a",
+    "examples": 30,
+    "exact_states": 21870,
+    "max_f1_0_9_fraction": 1.0
+  },
+  "heldout": {
+    "config": "configs/m0_qampari_ceiling_v2_heldout_gate.json",
+    "config_sha256": "1c5ae3e2016f48f0c4639dd91af9e3a0163d5a4bf6c50ee87924866316829f27",
+    "result": "results/m0_qampari_ceiling_v2/heldout_gate_result.json",
+    "result_sha256": "382715c1aac570aa48693b4c949de70c8d1462f546ad79c176ef8324cfe3a440",
+    "examples": 30,
+    "exact_states": 21870,
+    "development_id_overlap": 0,
+    "max_f1_0_9_fraction": 1.0
+  },
+  "official_qampari_test_target_outputs_observed": false,
+  "v1_training_started": false
+}

@@ -2,23 +2,25 @@
 
 ## Current gate
 
-The newest authoritative handoff is the independently verified QAMPARI M0
-lossless development gate at
-`results/m0_qampari/lossless_dev_gate_result.json`. It records
-`complete=true`, `errors=[]`, and 30 examples × 729 = 21,870 exact states.
-The structural bottleneck is resolved: 104/104 strict rate increases, 16
-non-nested independent switches, 87.5% nested reuse, and 0.40 mean answer-atom
-recall gain from 0.60 to 0.90. The only failed frozen check is
-target–benchmark answerability measured by any-state
-F1≥0.9 coverage: 25/30=83.33% versus the required 90%. Therefore
-`scientific_gate_passed=false` and `decision=NO_GO_STOP_BEFORE_V1`.
-A read-only failure audit found both eight-of-ten target enumeration errors and
-evidence/label closure defects, so this must not be reported as compressor
-failure or as a clean estimate of target-model capacity.
+The newest authoritative handoff is
+`results/m0_qampari_ceiling_v2/final_readiness.json`. The evidence-closed
+ceiling-v2 development and disjoint heldout exact runs each contain 30 examples
+and 21,870 states, report `complete=true`, `errors=[]`, and pass every frozen
+conjunctive check. Both obtain 30/30 any-state F1 >= 0.9. Heldout also obtains
+111/111 strict rate increases, nine non-nested switches, 93.69% nested reuse,
+0.40 mean answer-atom gain, and mean normalized structural gap 0.00328.
 
-No QAMPARI test target inference, V1/QLoRA job, checkpoint, or project-owned
-model process was started. Earlier V0.x results below are historical evidence,
-not the current decision point.
+The earlier `results/m0_qampari/lossless_dev_gate_result.json` remains an
+unaltered historical NO-GO at 25/30. Ceiling-v2 did not weaken that gate. It
+removed a benchmark confound by requiring source-certified answer atoms and a
+hashed all-state-2 target-answerability precondition before structural study.
+Of 98 certified candidates, 61 qualified (62.24%); the GO therefore applies to
+that conditional population, not arbitrary QAMPARI questions.
+
+No official QAMPARI test target inference, V1/QLoRA job, checkpoint, or
+project-owned model process was started. The current decision is
+`GO_V1_READINESS_REVIEW_NOT_TRAINING`. Earlier V0.x and original M0 results
+below are historical evidence, not the current decision point.
 
 V0.2 is complete and end-to-end verified. `results/v0_2/verification.json`
 records `complete=true`, `errors=[]`, the expected artifact counts, primary and
@@ -94,25 +96,23 @@ diagnostics, metadata paths, tests, compilation, and shell syntax.
 
 ## Decisions required before V1
 
-1. Do not approve V1 from the M0 development result: the final conjunctive
-   gate is NO-GO even though the representation and structural-signal checks
-   now pass. Do not revive confidence/NLL proxies, weaken the frozen 90%
-   capacity threshold, or inspect the locked test to repair this result.
+1. The M0 scientific prerequisite is now satisfied on the explicitly scoped
+   evidence-certified, target-answerable population. Review and freeze V1
+   training/evaluation criteria before starting; do not reinterpret this as a
+   general QAMPARI or retrieval result.
 2. Keep V0.2 as oracle supervision/diagnosis only. Keep V0.3 frozen as the
    single label-free BM25 result; do not retune it after observing metrics.
 3. Freeze the exact-search artifacts and their hashes as the oracle target for
    selector/compressor supervision. Do not overwrite them during V1.
-4. Stop numbered V0 repair attempts. The user-authorized next method study is
-   the bounded M0 continuous-fidelity redesign specified in
-   `FIDELITY_SIGNAL_BOTTLENECK_PLAN.md`. It must preregister and hash its fresh
-   locked protocol before inference. Do not retroactively replace the V0.5
-   primary gate with its attainable-breakpoint sensitivity result.
+4. Stop numbered V0/M0 repair attempts. Preserve the old NO-GO and both
+   ceiling-v2 exact trees as immutable provenance/supervision. Do not
+   retroactively replace any earlier primary result.
 5. Define the V1 acceptance criteria and ablations before starting QLoRA.
 
-Any proposed multi-hop, label-free selector must be registered as a new bounded
-experiment with frozen splits and acceptance criteria. M0 method development
-is now authorized, but V1 remains stopped; only a conjunctive M0 GO followed by
-an explicit V1 authorization can change that status.
+Any proposed multi-hop, label-free selector remains a separate experiment with
+frozen splits and acceptance criteria. The conjunctive M0 prerequisite is now
+GO; V1 remains stopped until its own protocol is frozen and explicitly
+started.
 
 That bounded CPU retrieval screen has now been run once.  Its best development
 policy, linked-title-pair retrieval, achieved only 75.65% on the 200-example

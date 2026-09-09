@@ -3,6 +3,11 @@ from __future__ import annotations
 import unittest
 
 from src.data.qampari_controlled import build_controlled_examples, select_query_sentence
+from src.data.qampari_ceiling_v2 import (
+    build_ceiling_candidates,
+    numeric_constraint_passes,
+    wiki_display,
+)
 from src.data.qampari_select import select_qampari_development
 from src.data.schemas import ExactSearchResult, SemanticPacket
 from src.evaluation.qampari_metrics import parse_list_prediction, qampari_list_metrics
@@ -50,6 +55,52 @@ def _row(qid: str, offset: int = 0) -> dict:
 
 
 class QampariTests(unittest.TestCase):
+    def test_ceiling_v2_normalizes_wiki_display_and_numeric_bounds(self) -> None:
+        self.assertEqual(
+            wiki_display("[[Harry Potter (film)|Harry Potter]]"), "Harry Potter"
+        )
+        self.assertFalse(numeric_constraint_passes("movies after 1997", "A 1997 film"))
+        self.assertTrue(numeric_constraint_passes("movies after 1997", "A 2001 film"))
+        self.assertTrue(
+            numeric_constraint_passes("length larger than 600 meters", "span 1,650 metres")
+        )
+
+    def test_ceiling_v2_keeps_full_same_article_proofs(self) -> None:
+        rows = []
+        for qid, offset in (("q1", 0), ("q2", 100)):
+            answers = []
+            for index in range(10):
+                name = f"Manga {offset + index}"
+                url = f"https://en.wikipedia.org/wiki/Manga_{offset + index}"
+                answers.append(
+                    {
+                        "answer_text": f"[[Manga_{offset + index}|{name}]]",
+                        "aliases": [name],
+                        "answer_url": url,
+                        "proof": [
+                            {
+                                "proof_text": f"{name} is a manga drawn by Artist Q. Full second sentence.",
+                                "found_in_url": url,
+                            }
+                        ],
+                    }
+                )
+            rows.append(
+                {
+                    "qid": qid,
+                    "question_text": "What manga was drawn by Artist Q?",
+                    "entities": [{"entity_text": "Artist Q", "aliases": ["Artist Q"]}],
+                    "answer_list": answers,
+                }
+            )
+        examples, annotations, rejections = build_ceiling_candidates(
+            rows, _Tokenizer(), n_examples=1
+        )
+        self.assertEqual(rejections["fewer_than_ten_certified_atoms"], 0)
+        self.assertRegex(annotations[0]["answer_atoms"][0]["answer_text"], r"^Manga \d+$")
+        self.assertIn("Full second sentence.", examples[0].context)
+        self.assertTrue(annotations[0]["evidence_certificate_pass"])
+
     def test_query_sentence_selection_is_label_free_and_source_preserving(self) -> None:
         proof = (
             "He studied engineering.\n"
@@ -104,6 +155,7 @@ class QampariTests(unittest.TestCase):
         self.assertEqual(rows[0]["full_metrics"]["recall"], 0.2)
         self.assertEqual(rows[0]["empty_metrics"]["correct"], 0)
         self.assertGreater(rows[0]["f1_context_gain"], 0)
+        self.assertEqual(rows[0]["full_finish_reason"], "unknown")
 
     def test_development_selector_applies_one_conjunctive_rule_in_source_order(self) -> None:
         examples, annotations = build_controlled_examples(
@@ -130,6 +182,12 @@ class QampariTests(unittest.TestCase):
         )
         self.assertEqual(selected[0].example_id, examples[0].example_id)
         self.assertEqual(selected_annotations[0]["example_id"], examples[0].example_id)
+
+        baseline[1]["full_metrics"]["f1"] = 0.9
+        offset_selected, _ = select_qampari_development(
+            examples, annotations, baseline, n_examples=1, eligible_offset=1
+        )
+        self.assertEqual(offset_selected[0].example_id, examples[1].example_id)
 
     def test_exact_search_covers_all_states_and_validates_list_f1(self) -> None:
         examples, annotation_rows = build_controlled_examples(

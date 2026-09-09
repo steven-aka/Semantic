@@ -21,7 +21,7 @@ from src.search.qampari_exact_search import validate_qampari_exact_rows
 
 
 def _checks(metrics: Mapping[str, Any], thresholds: Mapping[str, Any]) -> dict[str, bool]:
-    return {
+    checks = {
         "artifact_integrity": metrics["errors"] == [],
         "minimum_complete_examples": metrics["examples"] >= thresholds["minimum_complete_examples"],
         "minimum_adjacent_feasible_pairs": metrics["adjacent_feasible_pairs"] >= thresholds["minimum_adjacent_feasible_pairs"],
@@ -36,6 +36,17 @@ def _checks(metrics: Mapping[str, Any], thresholds: Mapping[str, Any]) -> dict[s
         "minimum_nonnested_independent_switches": metrics["nonnested_independent_switches"] >= thresholds["minimum_nonnested_independent_switches"],
         "require_lossless_partition": metrics["lossless_partition_complete"] == bool(thresholds["require_lossless_partition"]),
     }
+    if "require_evidence_certificate" in thresholds:
+        checks["require_evidence_certificate"] = (
+            metrics.get("evidence_certificate_complete", False)
+            == bool(thresholds["require_evidence_certificate"])
+        )
+    if "require_ceiling_precondition" in thresholds:
+        checks["require_ceiling_precondition"] = (
+            metrics.get("ceiling_precondition_complete", False)
+            == bool(thresholds["require_ceiling_precondition"])
+        )
+    return checks
 
 
 def evaluate_qampari_gate(args: argparse.Namespace) -> dict[str, Any]:
@@ -46,6 +57,19 @@ def evaluate_qampari_gate(args: argparse.Namespace) -> dict[str, Any]:
     store = PacketStore(args.packet_dir)
     levels = tuple(float(value) for value in config["primary_grid"])
     errors: list[str] = []
+
+    ceiling_config = config.get("ceiling_precondition")
+    ceiling_by_id: dict[str, Mapping[str, Any]] = {}
+    ceiling_path = getattr(args, "ceiling_baseline", None)
+    if ceiling_config:
+        if not ceiling_path:
+            errors.append("ceiling baseline is required by the frozen config")
+        else:
+            if sha256(ceiling_path) != ceiling_config["baseline_sha256"]:
+                errors.append("ceiling baseline changed after gate freeze")
+            ceiling_by_id = {
+                str(row["example_id"]): row for row in read_jsonl(ceiling_path)
+            }
 
     expected_hashes = config["sample"]
     for name, path, expected in (
@@ -70,13 +94,32 @@ def evaluate_qampari_gate(args: argparse.Namespace) -> dict[str, Any]:
     nested_rows: list[dict[str, object]] = []
     gap_rows: list[dict[str, object]] = []
     full_state_high = max_high = exact_examples = exact_states = 0
-    lossless_packets = 0
+    lossless_packets = evidence_certificates = ceiling_passes = 0
 
     for example in examples:
         if example.example_id not in annotations:
             errors.append(f"{example.example_id}: missing annotation")
             continue
         annotation = annotations[example.example_id]
+        if bool(annotation.get("evidence_certificate_pass", False)):
+            evidence_certificates += 1
+        if ceiling_config:
+            baseline = ceiling_by_id.get(example.example_id)
+            if baseline is None:
+                errors.append(f"{example.example_id}: missing ceiling baseline")
+            elif (
+                float(baseline["full_metrics"]["f1"])
+                >= float(ceiling_config["minimum_full_f1"])
+                and float(baseline["empty_metrics"]["f1"])
+                <= float(ceiling_config["maximum_empty_f1"])
+                and float(baseline["f1_context_gain"])
+                >= float(ceiling_config["minimum_context_gain"])
+                and (
+                    not bool(ceiling_config.get("require_nontruncated", False))
+                    or str(baseline.get("full_finish_reason", "unknown")) != "length"
+                )
+            ):
+                ceiling_passes += 1
         if len(annotation.get("answer_atoms", [])) != int(config["sample"]["answer_atoms_per_example"]):
             errors.append(f"{example.example_id}: answer atom count mismatch")
         try:
@@ -189,6 +232,10 @@ def evaluate_qampari_gate(args: argparse.Namespace) -> dict[str, Any]:
         "exact_states": exact_states,
         "lossless_packets": lossless_packets,
         "lossless_partition_complete": lossless_packets == len(examples) * 6,
+        "evidence_certificates": evidence_certificates,
+        "evidence_certificate_complete": evidence_certificates == len(examples),
+        "ceiling_precondition_passes": ceiling_passes,
+        "ceiling_precondition_complete": bool(ceiling_config) and ceiling_passes == len(examples),
         "adjacent_feasible_pairs": adjacent_pairs,
         "strict_rate_increases": strict_increases,
         "strict_rate_transition_fraction": strict_increases / adjacent_pairs if adjacent_pairs else 0.0,
@@ -223,6 +270,7 @@ def evaluate_qampari_gate(args: argparse.Namespace) -> dict[str, Any]:
             "selection_manifest_sha256": sha256(args.selection_manifest),
             "packet_tree_sha256": tree_sha256(args.packet_dir),
             "exact_tree_sha256": tree_sha256(args.exact_dir),
+            **({"ceiling_baseline_sha256": sha256(ceiling_path)} if ceiling_path else {}),
         },
     }
 
@@ -235,6 +283,7 @@ def main() -> None:
     parser.add_argument("--selection-manifest", default="results/m0_qampari/dev_sentence_selection_manifest.json")
     parser.add_argument("--packet-dir", default="data/packets_qampari_m0_dev_sentence_lossless")
     parser.add_argument("--exact-dir", default="results/m0_qampari/dev_sentence_lossless_exact_search")
+    parser.add_argument("--ceiling-baseline")
     parser.add_argument("--tokenizer", default="models/Qwen3-8B")
     parser.add_argument("--output-dir", default="results/m0_qampari")
     parser.add_argument("--output", default="results/m0_qampari/lossless_dev_gate_result.json")

@@ -17,11 +17,15 @@ def select_qampari_development(
     minimum_full_f1: float = 0.8,
     maximum_empty_f1: float = 0.2,
     minimum_context_gain: float = 0.6,
+    require_nontruncated: bool = False,
+    eligible_offset: int = 0,
 ) -> tuple[list[QAExample], list[Mapping[str, Any]]]:
+    if eligible_offset < 0:
+        raise ValueError("eligible_offset must be non-negative")
     annotations_by_id = {str(row["example_id"]): row for row in annotations}
     baseline_by_id = {str(row["example_id"]): row for row in baseline_rows}
-    selected_examples = []
-    selected_annotations = []
+    eligible_examples = []
+    eligible_annotations = []
     for example in examples:
         if example.example_id not in annotations_by_id or example.example_id not in baseline_by_id:
             raise ValueError(f"missing QAMPARI development input for {example.example_id}")
@@ -30,13 +34,22 @@ def select_qampari_development(
             float(row["full_metrics"]["f1"]) >= minimum_full_f1
             and float(row["empty_metrics"]["f1"]) <= maximum_empty_f1
             and float(row["f1_context_gain"]) >= minimum_context_gain
+            and (
+                not require_nontruncated
+                or str(row.get("full_finish_reason", "unknown")) != "length"
+            )
         ):
-            selected_examples.append(example)
-            selected_annotations.append(annotations_by_id[example.example_id])
-        if len(selected_examples) == n_examples:
+            eligible_examples.append(example)
+            eligible_annotations.append(annotations_by_id[example.example_id])
+        if len(eligible_examples) == eligible_offset + n_examples:
             break
+    selected_examples = eligible_examples[eligible_offset:eligible_offset + n_examples]
+    selected_annotations = eligible_annotations[eligible_offset:eligible_offset + n_examples]
     if len(selected_examples) != n_examples:
-        raise ValueError(f"only {len(selected_examples)} examples pass; require {n_examples}")
+        raise ValueError(
+            f"only {len(eligible_examples)} examples pass through requested offset; "
+            f"require {eligible_offset + n_examples}"
+        )
     return selected_examples, selected_annotations
 
 
@@ -52,6 +65,8 @@ def main() -> None:
     parser.add_argument("--minimum-full-f1", type=float, default=0.8)
     parser.add_argument("--maximum-empty-f1", type=float, default=0.2)
     parser.add_argument("--minimum-context-gain", type=float, default=0.6)
+    parser.add_argument("--require-nontruncated", action="store_true")
+    parser.add_argument("--eligible-offset", type=int, default=0)
     args = parser.parse_args()
     examples = list(read_jsonl(args.examples, QAExample))
     annotations = list(read_jsonl(args.annotations))
@@ -64,6 +79,8 @@ def main() -> None:
         minimum_full_f1=args.minimum_full_f1,
         maximum_empty_f1=args.maximum_empty_f1,
         minimum_context_gain=args.minimum_context_gain,
+        require_nontruncated=args.require_nontruncated,
+        eligible_offset=args.eligible_offset,
     )
     write_jsonl(args.examples_output, selected_examples)
     write_jsonl(args.annotations_output, selected_annotations)
@@ -79,6 +96,8 @@ def main() -> None:
             "minimum_full_f1": args.minimum_full_f1,
             "maximum_empty_f1": args.maximum_empty_f1,
             "minimum_context_gain": args.minimum_context_gain,
+            "require_nontruncated": args.require_nontruncated,
+            "eligible_offset": args.eligible_offset,
             "selected_ids": [example.example_id for example in selected_examples],
             "selected_examples_sha256": sha256(args.examples_output),
             "selected_annotations_sha256": sha256(args.annotations_output),
