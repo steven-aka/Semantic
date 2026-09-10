@@ -28,6 +28,7 @@ gpu_used_by_project() {
 best_free_gpu() {
   local candidate_gpu free_mib
   while read -r candidate_gpu free_mib; do
+    [[ "$candidate_gpu" == "4" ]] && continue
     gpu_used_by_project "$candidate_gpu" && continue
     if (( free_mib >= 32000 )); then
       echo "$candidate_gpu"
@@ -41,7 +42,7 @@ best_free_gpu() {
   return 1
 }
 
-echo "waiting for a project-unused GPU with >=32000 MiB free for V2 shard 4"
+echo "waiting for a project-unused non-GPU4 device with >=32000 MiB free for V2 shard 4"
 while true; do
   if active_shard4; then
     echo "shard 4 is already active; waiter exits"

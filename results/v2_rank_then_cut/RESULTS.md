@@ -61,6 +61,7 @@ Exact Target inference is split into six deterministic shards in
 are assigned to separate A6000 GPUs with a 0.45 vLLM memory cap. Shard 4 is
 queued under `scripts/24_wait_launch_v2_shard4.sh`: it launches only after a
 project-unused GPU remains above 32GB free for two checks 30 seconds apart.
+Physical GPU4 is explicitly excluded by operator instruction.
 The first attempt
 at shard 0 used a 0.60 cap on GPU4 and failed during sampler warm-up after an
 external process grew; it produced no example output and was safely restarted
