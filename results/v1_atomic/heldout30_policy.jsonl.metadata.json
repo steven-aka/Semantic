@@ -1,0 +1,14 @@
+{
+  "checkpoint": "results/v1_atomic/train40_primary",
+  "data": "data/threshold_labels/qampari_atomic_heldout30_ordinal.jsonl",
+  "exact_dir": "results/m0_qampari_atomic/heldout30_exact",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "v1_atomic_ordinal_policy_evaluation",
+  "temperature": 0.05,
+  "timestamp_utc": "2026-09-10T02:41:48.179533+00:00"
+}

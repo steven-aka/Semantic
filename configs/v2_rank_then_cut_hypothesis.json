@@ -1,0 +1,123 @@
+{
+  "protocol": "v2_qampari_rank_then_cut_preregistered",
+  "frozen_at": "2026-09-10 after consumed fresh30 diagnosis and before any candidate5000 target inference",
+  "scientific_hypothesis": "A query-conditioned partial order over lossless evidence packets, followed by a separately learned monotone prefix budget, can approximate the optimal fidelity-constrained nested subset trajectory more reliably than absolute packet reveal thresholds.",
+  "consumed_diagnostic": {
+    "result": "results/v1_atomic/fresh30_rank_cut_decomposition_summary.json",
+    "sha256": "242f04e356499beef4e92096b2bc911ae26e4c2f80a55d3bb7cd91b329a3cd76",
+    "status": "development evidence only; never a new heldout result",
+    "finding": "cutoff is primary failure; learned ordering is imperfect but promising"
+  },
+  "preserved_invariants": {
+    "packets": "12 source-preserving lossless binary packets",
+    "ranker_backbone": "models/Qwen3-1.7B",
+    "target": "models/Qwen3-8B",
+    "target_decoding": "single-pass greedy, thinking disabled, 256 new tokens",
+    "representation": "one nested prefix trajectory shared across fidelity levels",
+    "primary_fidelity": "alias-aware hard QAMPARI list F1",
+    "fidelity_grid": [0.60, 0.70, 0.80, 0.90, 0.95],
+    "larger_backbone": false,
+    "reinforcement_learning": false,
+    "generative_residual": false
+  },
+  "full_fallback": {
+    "ranked_control_domain": [0.60, 0.95],
+    "FULL": "independent lossless reconstruction operation",
+    "control_1_implies_full_reveal": false,
+    "highest_ranked_fidelity_may_permanently_exclude_packets": true
+  },
+  "candidate_pool": {
+    "source": "official QAMPARI train split",
+    "source_sha256": "8a21bca2c7810a3f7ea147d40d637bac082e2b91b4b974e927d988b135db7cdf",
+    "strict_certified_available": 6231,
+    "primary_candidates": 5000,
+    "examples": "data/units/qampari_rank_v2_candidates5000.jsonl",
+    "examples_sha256": "cce862a91fc2562ac6cf8c456ce663c4bcf0e4c24b66fb67e39f8ad43345be04",
+    "annotations": "data/units/qampari_rank_v2_candidates5000_annotations.jsonl",
+    "annotations_sha256": "71c50309631b488b252024cc114ff72c1369457166ec85ab2b1cd1c93c0f17b3",
+    "packet_dir": "data/packets_qampari_rank_v2_candidates5000",
+    "packet_tree_sha256": "d0df345cdf13191a64ea4affc697db6df5d6c73d9bc96a88bc90d6dd31b33364",
+    "selection": "target-blind SHA256(seed:qid), seed 20260910",
+    "whitespace_normalization": "collapse internal proof whitespace only; no word deletion or rewriting",
+    "eligibility_after_exact": "maximum any-state fidelity >= 0.90; full-state fidelity is not a filter"
+  },
+  "target_blind_candidate_partitions": {
+    "train_pool": {"slice": [0, 3400], "required_eligible": 2000},
+    "ranking_validation": {"slice": [3400, 3950], "required_eligible": 300},
+    "calibration": {"slice": [3950, 4475], "required_eligible": 300},
+    "final_test": {"slice": [4475, 5000], "required_eligible": 300},
+    "cross_partition_reallocation": false,
+    "failure_rule": "If any partition is short, stop and use only a separately frozen role-specific reserve; never move target-observed examples between roles."
+  },
+  "exact_oracle": {
+    "states_per_example": 4096,
+    "objective": "minimum cumulative tokens over complete nested chains satisfying active fidelity anchors",
+    "primary_near_optimal_slack": 0.005,
+    "slack_normalizer": "active_anchor_count * full_state_tokens",
+    "sensitivity_slacks": [0.0, 0.01],
+    "supervision": "partial-order pairs identifiable across the complete near-optimal chain set",
+    "ambiguous_pairs": "ignored, not assigned an arbitrary single-chain order",
+    "robust_never_reveal": "excluded from every admissible terminal state",
+    "harmful_is_distinct_from_redundant": true
+  },
+  "ranking_model": {
+    "backbone": "Qwen3-1.7B NF4 QLoRA",
+    "head": "shared MLP score over local packet mean hidden plus global final hidden",
+    "head_hidden_size": 256,
+    "loss": "example-balanced RankNet logistic loss over identifiable partial-order pairs",
+    "learning_curve_train_sizes": [500, 1000, 2000],
+    "nested_training_sets": true,
+    "seeds": [20260910, 20260911, 20260912],
+    "epochs": 5,
+    "batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 0.0001,
+    "checkpoint_selection": "minimum pairwise loss on fixed ranking_validation300"
+  },
+  "ranking_only_gate_before_cutoff": {
+    "evaluated_size": 2000,
+    "primary": "learned order plus global oracle monotone cutoff",
+    "minimum_mean_active_contract_success": 0.97,
+    "minimum_mean_all_active_trajectory_success": 0.90,
+    "minimum_mean_highest_active_anchor_success": 0.90,
+    "maximum_mean_normalized_ranking_regret_feasible": 0.03,
+    "minimum_mean_identifiable_pairwise_accuracy": 0.85,
+    "aggregation": "mean across three frozen seeds",
+    "decision": "Only a conjunctive pass permits implementation or training of the cutoff head."
+  },
+  "cutoff_and_risk_stage_if_ranking_passes": {
+    "cutoff": "monotone token-aware prefix budget head; terminal cutoff may be smaller than 12",
+    "calibration_examples": 300,
+    "final_test_examples": 300,
+    "risk_statement": "per-anchor one-sided Clopper-Pearson bounds with Bonferroni familywise alpha 0.05",
+    "minimum_contract_lower_bound": 0.90,
+    "test_runs": 1,
+    "no_post_test_tuning": true
+  },
+  "primary_metrics": [
+    "oracle-cutoff prefix feasibility and contract success",
+    "oracle-cutoff ranking regret",
+    "end-to-end contract success",
+    "rate regret / policy gap",
+    "set-identifiable pairwise ordering accuracy",
+    "robust never-reveal and robust harmful precision/recall"
+  ],
+  "nonprimary_metrics": {
+    "exact_trajectory_fraction": "diagnostic only",
+    "NDCG": "secondary only after a set-valued graded relevance definition is frozen"
+  },
+  "implementation_sha256": {
+    "src/data/qampari_rank_pool.py": "69ecaa738a9793940783e2f4606d4ea1d9cb150fe42ed64e933f71c19876204f",
+    "src/data/select_rank_v2_splits.py": "dee95c48fd5dceebd80df32d846d1142b192a47e52e96c9c5d49c771f63e3011",
+    "src/representation/atomic_packetizer.py": "1c69b9e51f9ff6b94a29f6fcc31e53daab2469a82f50bd2ce6d7563d20431e98",
+    "src/search/atomic_exact_search.py": "cb7659d12c2701d413baf8c0d1b516bff5bd2a2c286001728846323bec7da3f6",
+    "src/target/qampari_runner.py": "41f7ba11db73f4f4a6f763afb2b4c4de774b2cb299577581a01704ab0ed5b9a5",
+    "src/search/rank_then_cut.py": "be5e368966e86fc47d4d5eb9e293bb0eff13ff46601db8806527085e5c58af68",
+    "src/search/near_optimal_chain_set.py": "b88847a1428c2bc0b5f55bc97da17fbb990eb77bf6712b73b57fe1aa1747b4dd",
+    "src/data/rank_oracle_dataset.py": "5379bb8d919517d0d9919b466ec7f280ef912824a1da10c2a3d546754fc5044b",
+    "src/model/input_builder.py": "16180765bfd8a9db224cec17f42d18f7ad0a444ef2b5c8a51b25f28949a74695",
+    "src/model/atomic_packet_ranker.py": "12960a1cb3642f4c4cb9d5177437d264e4f9553ff1dc54cb8ade051e5168252d",
+    "src/training/train_atomic_ranker.py": "87fc11fbe31d0ecb9baec6711639ebdc928944e7eec7cd52efc23b32eb7f8444",
+    "src/evaluation/atomic_ranker_evaluation.py": "770bcc6e233727bd460565e3df0f72cdd66d80b73f1b2c0e5c1bedb5bd0c0132"
+  }
+}

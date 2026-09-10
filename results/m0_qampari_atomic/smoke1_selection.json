@@ -1,0 +1,18 @@
+{
+  "eligible_offset": 0,
+  "maximum_empty_f1": 0.2,
+  "minimum_context_gain": 0.7,
+  "minimum_full_f1": 0.9,
+  "n_examples": 1,
+  "require_nontruncated": true,
+  "scientific_status": "development_only_not_a_locked_result",
+  "selected_annotations_sha256": "285cf9f64c60a4d01487163b717b8b5f65d75f45743ba456a046daa56379d63f",
+  "selected_examples_sha256": "a9fa4e592efecb3734b89bfd440f00b5cf764ac922b2aad53c6b8470943dcc4f",
+  "selected_ids": [
+    "637__wikidata_simple__dev"
+  ],
+  "source_annotations_sha256": "9149cdd19fcd478ef243598ddde80556be01e75e3dc1dbc2774e28c2bbd3ee45",
+  "source_baseline_sha256": "863c2110b9f28e41f06485795c0b0a68feb6eab05a0c2e404235813ebf3ea8b1",
+  "source_examples_sha256": "01c7866af24b15e7a84c43af857e9f0a9a9c3d06c1f9c1dc7265af7aaf0dc1c5",
+  "stage": "m0_qampari_development_selection_frozen_before_packets"
+}

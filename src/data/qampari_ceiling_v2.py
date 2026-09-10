@@ -139,6 +139,7 @@ def build_ceiling_candidates(
     rows: Sequence[Mapping[str, Any]], tokenizer: Any, *, n_examples: int,
     excluded_ids: set[str] | None = None, n_answers: int = 10,
     max_unit_tokens: int = 512, seed: int = 20260909,
+    dataset_name: str = "qampari_ceiling_v2_development",
 ) -> tuple[list[QAExample], list[dict[str, Any]], dict[str, int]]:
     if n_answers != 10:
         raise ValueError("ceiling-v2 protocol requires exactly ten answer atoms")
@@ -187,7 +188,7 @@ def build_ceiling_candidates(
         random.Random(f"{seed}:{row['qid']}").shuffle(unit_rows)
         units = [SemanticUnit(unit_id=i, text=unit["text"], supporting=False) for i, unit in enumerate(unit_rows)]
         examples.append(QAExample(
-            example_id=str(row["qid"]), dataset="qampari_ceiling_v2_development",
+            example_id=str(row["qid"]), dataset=dataset_name,
             question=str(row["question_text"]).strip(),
             answer=" # ".join(str(atom["answer_text"]) for atom in atoms),
             context="\n\n".join(unit.text for unit in units), units=units,
@@ -213,6 +214,8 @@ def main() -> None:
     parser.add_argument("--n-examples", type=int, default=120)
     parser.add_argument("--max-unit-tokens", type=int, default=512)
     parser.add_argument("--seed", type=int, default=20260909)
+    parser.add_argument("--source-split", choices=("dev", "test"), default="dev")
+    parser.add_argument("--dataset-name")
     args = parser.parse_args()
     rows = [json.loads(line) for line in Path(args.input).open(encoding="utf-8") if line.strip()]
     excluded_ids = set()
@@ -222,12 +225,16 @@ def main() -> None:
     examples, annotations, rejections = build_ceiling_candidates(
         rows, tokenizer, n_examples=args.n_examples, excluded_ids=excluded_ids,
         max_unit_tokens=args.max_unit_tokens, seed=args.seed,
+        dataset_name=(
+            args.dataset_name
+            or f"qampari_ceiling_v2_{args.source_split}"
+        ),
     )
     write_jsonl(args.examples_output, examples)
     write_jsonl(args.annotations_output, annotations)
     write_metadata(args.metadata_output, {
         "stage": "m0_qampari_ceiling_v2_candidates_before_target_inference",
-        "source_split": "dev", "input_sha256": sha256(args.input),
+        "source_split": args.source_split, "input_sha256": sha256(args.input),
         "examples": len(examples), "answer_atoms_per_example": 10,
         "units_per_example": 6, "max_unit_tokens": args.max_unit_tokens,
         "seed": args.seed, "excluded_examples": len(excluded_ids),

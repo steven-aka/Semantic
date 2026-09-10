@@ -1,0 +1,74 @@
+{
+  "protocol": "m0_qampari_atomic_binary_development_bridge",
+  "frozen_at": "2026-09-09 after smoke1 and before any dev10 exact-search output",
+  "scientific_status": "development_bridge_not_locked_test",
+  "primary_grid": [0.60, 0.70, 0.80, 0.90, 0.95],
+  "sample": {
+    "n_examples": 10,
+    "source_split": "official_qampari_dev",
+    "answer_atoms_per_example": 10,
+    "source_units_per_example": 6,
+    "packets_per_example": 12,
+    "states_per_example": 4096,
+    "selection_rule": "ceiling-eligible examples at stable order offset 1; offset 0 was reserved for smoke and excluded"
+  },
+  "representation": {
+    "policy": "each original lossless source block is one independently revealable binary packet",
+    "render_order": "original source-unit order then source-block order",
+    "packetizer_reads_question": false,
+    "packetizer_reads_gold_annotations": false,
+    "state_space": "complete Boolean lattice over 12 packets"
+  },
+  "ceiling_precondition": {
+    "minimum_full_f1": 0.90,
+    "maximum_empty_f1": 0.20,
+    "minimum_context_gain": 0.70,
+    "require_nontruncated": true
+  },
+  "fidelity": {
+    "primary": "alias_aware_hard_list_f1",
+    "secondary": "answer_atom_recall",
+    "soft_judge": false
+  },
+  "models": {
+    "target": "models/Qwen3-8B",
+    "decoding": "single_pass_greedy_thinking_disabled",
+    "max_new_tokens": 256,
+    "max_model_len": 4096
+  },
+  "artifacts": {
+    "examples_sha256": "973fcbaaa7d7b764ab9970433772b109bdba6aba754cfe8d9691d3036cb57b74",
+    "annotations_sha256": "12ef1e8d777f4ee07e26ea9698e2ff8a03e8d420ab16dd22ff37a6f48ac64be2",
+    "selection_manifest_sha256": "488a16dbf84233e86968ad7a41eec9083970de79192810b4850685643308f015",
+    "ceiling_baseline_sha256": "863c2110b9f28e41f06485795c0b0a68feb6eab05a0c2e404235813ebf3ea8b1",
+    "packet_tree_sha256": "56c534acd7c8cce925140ff6f6174a925eec776dbdd8b4785eb3aefefd7e041a"
+  },
+  "implementation_sha256": {
+    "src/representation/atomic_packetizer.py": "1c69b9e51f9ff6b94a29f6fcc31e53daab2469a82f50bd2ce6d7563d20431e98",
+    "src/representation/state_builder.py": "86dde8102f1263e988475437df81510cd77054e5ce6802c095c68110711a9573",
+    "src/search/atomic_exact_search.py": "cb7659d12c2701d413baf8c0d1b516bff5bd2a2c286001728846323bec7da3f6",
+    "src/search/atomic_nested_chain.py": "80cc408302053e5d5a9b0ce6637a2109b3c7fc0e56ee28f17c6f1a62a7bc8205",
+    "src/evaluation/qampari_atomic_gate.py": "1b0b2505533c521e79b397bc44e311bea84ba353c9e48b104392d72e0f745cea",
+    "src/model/reveal_trajectory.py": "350b3ae305669867dd1cb89267e636f28e41ce66146d1768e8a22d64fef7aef3",
+    "src/evaluation/qampari_metrics.py": "3c880f20cf35570c6c366b2d62d871c50451f8dbd04f9a14e82df77c93180c63",
+    "src/target/qampari_runner.py": "41f7ba11db73f4f4a6f763afb2b4c4de774b2cb299577581a01704ab0ed5b9a5"
+  },
+  "hard_gates": {
+    "minimum_complete_examples": 10,
+    "minimum_adjacent_feasible_pairs": 10,
+    "minimum_strict_rate_transition_fraction": 0.20,
+    "minimum_nested_reuse_fraction": 0.80,
+    "maximum_mean_structural_gap_normalized": 0.10,
+    "maximum_structural_gap_normalized_p90": 0.20,
+    "minimum_mean_atom_recall_gain_0_60_to_0_90": 0.15,
+    "maximum_atom_recall_decline_fraction": 0.10,
+    "minimum_full_state_f1_0_8_fraction": 0.90,
+    "minimum_max_f1_0_9_fraction": 0.90,
+    "minimum_nonnested_independent_switches": 1,
+    "require_atomic_packet_partition": true,
+    "require_source_reconstruction": true,
+    "require_evidence_certificate": true,
+    "require_ceiling_precondition": true
+  },
+  "decision_rule": "All gates are conjunctive. Passing freezes a fresh official-test heldout protocol; failure stops without threshold changes or added decoding mechanisms."
+}

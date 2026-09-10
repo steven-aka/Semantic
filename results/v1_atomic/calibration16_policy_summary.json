@@ -1,0 +1,20 @@
+{
+  "active_contract_success_fraction": 0.5454545454545454,
+  "all_active_contracts_success_fraction": 0.25,
+  "artifacts": {
+    "checkpoint_metadata_sha256": "36b0f9d493b330c50de7a7a1b896cf8081985be0f4c36e0219d1280daef51802",
+    "data_sha256": "fae751fb2f1cad3479d7368370fda874364226ca629c4160441542efa1eb04e2"
+  },
+  "calibrated": false,
+  "calibration_sha256": null,
+  "complete": true,
+  "exact_trajectory_fraction": 0.0,
+  "examples": 16,
+  "feasible_trajectory_examples": 4,
+  "infeasible_predictions_are_violations_not_negative_gaps": true,
+  "maximum_gap_decomposition_residual": 0.0,
+  "mean_policy_gap_normalized_feasible": 0.1991897050359599,
+  "mean_total_gap_normalized_feasible": 0.1991897050359599,
+  "ordinal_accuracy": 0.7608225108225108,
+  "representation_nested_fraction": 1.0
+}

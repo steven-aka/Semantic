@@ -16,8 +16,12 @@ data/units/*
 data/packets/*
 data/packets*/
 data/exact_search/*
+data/threshold_labels/*.jsonl
 results/**/*.jsonl
 results/**/selector_cache/
+results/**/*.safetensors
+results/**/*.pt
+results/v2_rank_then_cut/candidates5000_exact/
 config/nccl_topo_gpu01.xml
 !data/**/.gitkeep
 !results/**/.gitkeep

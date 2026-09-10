@@ -1,0 +1,17 @@
+{
+  "examples": 70,
+  "fresh30_used": false,
+  "scientific_status": "first heldout30 consumed by failed primary policy and demoted to development",
+  "sources": [
+    {
+      "path": "data/threshold_labels/qampari_atomic_train40_ordinal.jsonl",
+      "sha256": "35d80ed08a5f5a77f17246039cfbf8876be8a24215bba598c7876820a4389b7f"
+    },
+    {
+      "path": "data/threshold_labels/qampari_atomic_heldout30_ordinal.jsonl",
+      "sha256": "933cfbb0021a0d0dd6fc1408c26609d60e36bb231ffd9ddadb487b3afb9268ce"
+    }
+  ],
+  "stage": "v1_bounded_redesign_training_pool",
+  "unique_ids": 70
+}

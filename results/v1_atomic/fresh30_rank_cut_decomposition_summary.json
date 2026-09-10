@@ -1,0 +1,96 @@
+{
+  "ambiguity": {
+    "0.0": {
+      "bidirectionally_ambiguous_pairs": 20,
+      "identifiable_pairs": 1602,
+      "identifiable_pairwise_accuracy": 0.8089887640449438,
+      "inseparable_or_unrevealed_pairs": 358,
+      "mean_packet_anchor_ambiguity_fraction": 0.017777777777777778,
+      "mean_robust_excluded_fraction": 0.3723611111111111,
+      "robust_harmful_packets": 23,
+      "robust_harmful_recall": 0.34782608695652173,
+      "robust_never_packets": 50,
+      "robust_never_precision": 0.6842105263157895,
+      "robust_never_recall": 0.52
+    },
+    "0.005": {
+      "bidirectionally_ambiguous_pairs": 590,
+      "identifiable_pairs": 1290,
+      "identifiable_pairwise_accuracy": 0.8410852713178295,
+      "inseparable_or_unrevealed_pairs": 100,
+      "mean_packet_anchor_ambiguity_fraction": 0.26569444444444446,
+      "mean_robust_excluded_fraction": 0.2806944444444444,
+      "robust_harmful_packets": 20,
+      "robust_harmful_recall": 0.35,
+      "robust_never_packets": 43,
+      "robust_never_precision": 0.6052631578947368,
+      "robust_never_recall": 0.5348837209302325
+    },
+    "0.01": {
+      "bidirectionally_ambiguous_pairs": 883,
+      "identifiable_pairs": 1052,
+      "identifiable_pairwise_accuracy": 0.8659695817490495,
+      "inseparable_or_unrevealed_pairs": 45,
+      "mean_packet_anchor_ambiguity_fraction": 0.39,
+      "mean_robust_excluded_fraction": 0.23597222222222222,
+      "robust_harmful_packets": 20,
+      "robust_harmful_recall": 0.35,
+      "robust_never_packets": 41,
+      "robust_never_precision": 0.5789473684210527,
+      "robust_never_recall": 0.5365853658536586
+    },
+    "0.02": {
+      "bidirectionally_ambiguous_pairs": 1197,
+      "identifiable_pairs": 766,
+      "identifiable_pairwise_accuracy": 0.8955613577023499,
+      "inseparable_or_unrevealed_pairs": 17,
+      "mean_packet_anchor_ambiguity_fraction": 0.5266666666666666,
+      "mean_robust_excluded_fraction": 0.18041666666666667,
+      "robust_harmful_packets": 17,
+      "robust_harmful_recall": 0.35294117647058826,
+      "robust_never_packets": 30,
+      "robust_never_precision": 0.39473684210526316,
+      "robust_never_recall": 0.5
+    }
+  },
+  "artifacts": {
+    "data_sha256": "809d320f09acbfead226fea02c462632e1224170ee445138e206daee995b77a2",
+    "exact_tree_sha256": "7dc467115b98d0d874588d97ec82bae00e36af70e26d63581bd77f4afc924d7e",
+    "predictions_sha256": "a4d76a000aa035786e6e9c571fe49c1b2b318c5ab16d8fb8702afaeb0143672d"
+  },
+  "complete": true,
+  "decomposition": {
+    "learned_order_learned_count": {
+      "active_contract_success_fraction": 0.43537414965986393,
+      "all_active_contracts_success_fraction": 0.1,
+      "feasible_trajectory_examples": 3,
+      "mean_trajectory_rate_regret_normalized_feasible": 0.21265632168404217
+    },
+    "learned_order_oracle_cutoff": {
+      "active_contract_success_fraction": 0.9523809523809523,
+      "all_active_contracts_success_fraction": 0.8,
+      "feasible_trajectory_examples": 24,
+      "mean_trajectory_rate_regret_normalized_feasible": 0.03859088326842663
+    },
+    "oracle_order_learned_count": {
+      "active_contract_success_fraction": 0.5374149659863946,
+      "all_active_contracts_success_fraction": 0.16666666666666666,
+      "feasible_trajectory_examples": 5,
+      "mean_trajectory_rate_regret_normalized_feasible": 0.18435242337100707
+    },
+    "oracle_order_oracle_cutoff": {
+      "active_contract_success_fraction": 1.0,
+      "all_active_contracts_success_fraction": 1,
+      "feasible_trajectory_examples": 30,
+      "mean_trajectory_rate_regret_normalized_feasible": 0.0
+    }
+  },
+  "examples": 30,
+  "interpretation_rule": {
+    "both_bad_if": "both isolated arms fail",
+    "cutoff_bad_if": "oracle_order_learned_count violates contracts or has high rate regret",
+    "ordering_bad_if": "learned_order_oracle_cutoff violates contracts or has high rate regret",
+    "violations_are_not_negative_regret": true
+  },
+  "protocol": "consumed_fresh30_rank_cut_diagnostic_not_new_test"
+}

@@ -1,0 +1,17 @@
+{
+  "annotations_sha256": "71c50309631b488b252024cc114ff72c1369457166ec85ab2b1cd1c93c0f17b3",
+  "distractor": "disjoint deterministic half-pool offset",
+  "examples_sha256": "cce862a91fc2562ac6cf8c456ce663c4bcf0e4c24b66fb67e39f8ad43345be04",
+  "input_sha256": "8a21bca2c7810a3f7ea147d40d637bac082e2b91b4b974e927d988b135db7cdf",
+  "rejection_counts": {
+    "fewer_than_ten_certified_atoms": 55651,
+    "unit_too_long": 29
+  },
+  "seed": 20260910,
+  "selected_candidates": 5000,
+  "selection": "sha256(seed:qid), then first n_examples",
+  "source_split": "official_qampari_train",
+  "stage": "v2_rank_then_cut_candidate_pool_before_target_inference",
+  "strict_certified_records": 6231,
+  "target_outputs_observed_before_candidate_freeze": false
+}

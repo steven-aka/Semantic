@@ -1,0 +1,43 @@
+{
+  "base_model": "models/Qwen3-1.7B",
+  "batch_size": 1,
+  "best_epoch": 7,
+  "best_validation_loss": 0.5672237973879365,
+  "checkpoint_selection": "minimum validation BCE across fixed epochs",
+  "elapsed_seconds": 822.8843997969816,
+  "epochs": 10,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 8,
+  "input_data": "data/threshold_labels/qampari_atomic_redesign_train70_ordinal.jsonl",
+  "input_data_sha256": "28b6144c4116efabee196ffd8518f92e9f74a782e9bab254e25ffc6f46478109",
+  "learning_rate": 0.0001,
+  "lora_rank": 32,
+  "loss": "masked trajectory BCE on sigmoid((c-tau)/temperature)",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "quantization": "nf4_double_quant",
+  "stage": "v1_atomic_ordinal_training",
+  "temperature": 0.05,
+  "timestamp_utc": "2026-09-10T03:18:13.683511+00:00",
+  "train_examples": 56,
+  "validation_examples": 14,
+  "validation_ids": [
+    "25__wikitables_composition__dev",
+    "74__wikitables_composition__dev",
+    "42__wikitables_composition__dev",
+    "552__wikitables_simple__dev",
+    "733__wikidata_simple__dev",
+    "629__wikidata_simple__test",
+    "81__wikitables_composition__test",
+    "624__wikidata_simple__test",
+    "584__wikidata_simple__test",
+    "31__wikitables_composition__test",
+    "8__wikitables_composition__test",
+    "1332__wikidata_simple__test",
+    "393__wikidata_intersection__test",
+    "731__wikidata_simple__test"
+  ]
+}

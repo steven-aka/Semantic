@@ -1,0 +1,33 @@
+{
+  "eligible_offset": 40,
+  "maximum_empty_f1": 0.2,
+  "minimum_context_gain": 0.7,
+  "minimum_full_f1": 0.9,
+  "n_examples": 16,
+  "require_nontruncated": true,
+  "scientific_status": "development_only_not_a_locked_result",
+  "selected_annotations_sha256": "320716f05bbc8b9c44cd796cfd55d4abf3cd38d58c0f11d65f1a46b13919c740",
+  "selected_examples_sha256": "0d9392c77898ee1c7cf5b43a5e8a2e36e126bd20cfa90e1435e645e17299a527",
+  "selected_ids": [
+    "621__wikidata_simple__dev",
+    "330__wikidata_intersection__dev",
+    "476__wikitables_simple__dev",
+    "505__wikitables_simple__dev",
+    "871__wikidata_simple__dev",
+    "463__wikidata_intersection__dev",
+    "65__wikitables_composition__dev",
+    "328__wikidata_intersection__dev",
+    "197__wikidata_intersection__dev",
+    "520__wikitables_simple__dev",
+    "532__wikitables_simple__dev",
+    "896__wikidata_simple__dev",
+    "579__wikidata_simple__dev",
+    "1358__wikidata_simple__dev",
+    "21__wikitables_composition__dev",
+    "486__wikitables_simple__dev"
+  ],
+  "source_annotations_sha256": "c221edfac50f62edf2e3375d54601115c48f9dd2a497d305cbca4be8a53b11bb",
+  "source_baseline_sha256": "53f7f65c42c7b0e360cbdfab6f75bd38ea7cd367a6246b7827d105fdaf991f8d",
+  "source_examples_sha256": "17386da6c8f4e7395955a2eac339a47bdbd88a3cf59eed8fb108e8e907bd361f",
+  "stage": "m0_qampari_development_selection_frozen_before_packets"
+}

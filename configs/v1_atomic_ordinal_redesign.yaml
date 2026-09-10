@@ -1,0 +1,42 @@
+protocol: v1_atomic_ordinal_bounded_data_redesign
+frozen_at: "2026-09-10 before redesign train70 training and fresh30 evaluation"
+data:
+  path: data/threshold_labels/qampari_atomic_redesign_train70_ordinal.jsonl
+  sha256: 28b6144c4116efabee196ffd8518f92e9f74a782e9bab254e25ffc6f46478109
+  examples: 70
+  heldout_id_overlap: 0
+  validation_fraction: 0.20
+  split_seed: 20260910
+model:
+  path: models/Qwen3-1.7B
+  config_sha256: 1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197
+  shard_1_sha256: 169ad53ec313c3a34b06c0809216e4fc072cce444a5d4ff2b59690d064130ed5
+  shard_2_sha256: 912becff8d60672aa8628ef08c05898d9adf17c2ad4ae3caf99b065622fdeff9
+  quantization: nf4_double_quant
+  compute_dtype: bfloat16
+  lora_rank: 32
+  lora_alpha: 64
+  lora_dropout: 0.05
+policy:
+  packets_per_example: 12
+  head: one_shared_scalar_head_over_local_plus_global_hidden
+  fidelity_levels: [0.60, 0.70, 0.80, 0.90, 0.95]
+  reveal_probability: sigmoid((c - tau) / temperature)
+  temperature: 0.05
+  loss: masked_full_trajectory_binary_cross_entropy
+  representation_nested_by_construction: true
+training:
+  epochs: 10
+  batch_size: 1
+  gradient_accumulation: 8
+  optimizer: AdamW
+  learning_rate: 0.0001
+  gradient_clip_norm: 1.0
+  checkpoint_selection: minimum_validation_BCE_across_fixed_epochs
+implementation_sha256:
+  src/model/input_builder.py: 16180765bfd8a9db224cec17f42d18f7ad0a444ef2b5c8a51b25f28949a74695
+  src/model/atomic_reveal_policy.py: fb99c923b58b920bf4f67b74596b9622210bb144f5010ae58756b0a1aee8d786
+  src/training/train_atomic_ordinal.py: 37180b4d12b310f78c707012acdb4d2a374225f91a92395fc233a300a9f7b8c4
+decision_rule: >-
+  This is the only bounded redesign after the primary policy failed. Select only by
+  internal validation BCE, calibrate on calibration16, then evaluate once on fresh30.

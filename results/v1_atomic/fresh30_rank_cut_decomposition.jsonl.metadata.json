@@ -1,0 +1,14 @@
+{
+  "ambiguity_slacks": "0,0.005,0.01,0.02",
+  "data": "data/threshold_labels/qampari_atomic_fresh30_ordinal.jsonl",
+  "exact_dir": "results/m0_qampari_atomic/fresh30_exact",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "predictions": "results/v1_atomic/fresh30_policy_calibrated.jsonl",
+  "python": "3.11.16",
+  "stage": "consumed_rank_cut_decomposition",
+  "timestamp_utc": "2026-09-10T06:06:05.169786+00:00"
+}

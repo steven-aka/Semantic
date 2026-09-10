@@ -1,4 +1,49 @@
-# V1 readiness handoff — intentionally stopped before training
+# V1/V2 readiness handoff
+
+## Latest authoritative status (2026-09-10)
+
+The atomic M0 scientific prerequisite remains passed. The first learned V1
+absolute-threshold policy was subsequently trained and evaluated, and is a
+frozen **NO-GO**: on its one-shot fresh30 evaluation it obtained 86.39% active
+contract success, 50% all-active-trajectory success, and 0.35390 feasible
+normalized policy gap. Its calibration was invalid. These results do not undo
+M0; they show that the learned threshold policy did not recover M0's nested
+oracle. See `results/v1_atomic/RESULTS.md`.
+
+The consumed fresh30 has now been used once more for diagnosis only, with no
+new training or heldout claim. The four-way ordering/cutoff decomposition shows
+that learned-order + oracle-cutoff reaches 95.24% anchor contract success and
+0.03859 regret, whereas oracle-order + learned-count reaches only 53.74% and
+0.18435. Cutoff is therefore the dominant failure; ordering is secondary but
+not yet sufficient at the highest fidelity. See
+`results/v1_atomic/RANK_CUT_DIAGNOSTIC.md`.
+
+A new protocol, `configs/v2_rank_then_cut_hypothesis.json`, was frozen after
+that consumed-data diagnosis and before inference on the new candidate pool.
+It preserves lossless atomic packets, Qwen3-1.7B as the learned backbone, the
+frozen Qwen3-8B Target, and nested representations, but replaces absolute
+threshold regression with set-valued near-optimal partial-order ranking. The
+official QAMPARI train pool was partitioned target-blind into disjoint training,
+ranking-validation, calibration, and final-test roles.
+
+V2 is currently constructing exact 4096-state oracle lattices for the frozen
+5000-candidate pool. **No V2 ranker has been trained, the cutoff head has not
+been implemented, and calibration/final test remain untouched.** Ranking is
+trained first on the frozen 500/1000/2000 learning curve only after exact
+construction and split eligibility checks finish. A conjunctive rank-only gate
+on train2000, evaluated as learned order + global oracle cutoff, must pass before
+cutoff work is permitted. FULL remains a separate lossless fallback and is not
+the endpoint of the learned control trajectory.
+
+Current decision:
+
+```text
+M0_ATOMIC_GATE=PASS
+V1_ABSOLUTE_THRESHOLD_POLICY=NO_GO_FROZEN
+V2_RANK_THEN_CUT=ORACLE_CONSTRUCTION_IN_PROGRESS
+V2_TRAINING=NOT_STARTED
+V2_CUTOFF_HEAD=NOT_IMPLEMENTED_PENDING_RANKING_GATE
+```
 
 ## Current gate
 
@@ -17,10 +62,9 @@ hashed all-state-2 target-answerability precondition before structural study.
 Of 98 certified candidates, 61 qualified (62.24%); the GO therefore applies to
 that conditional population, not arbitrary QAMPARI questions.
 
-No official QAMPARI test target inference, V1/QLoRA job, checkpoint, or
-project-owned model process was started. The current decision is
-`GO_V1_READINESS_REVIEW_NOT_TRAINING`. Earlier V0.x and original M0 results
-below are historical evidence, not the current decision point.
+The paragraphs below preserve the pre-V1 handoff as historical provenance.
+Statements there that V1 had not started were true at that handoff but are
+superseded by the latest authoritative status above.
 
 V0.2 is complete and end-to-end verified. `results/v0_2/verification.json`
 records `complete=true`, `errors=[]`, the expected artifact counts, primary and

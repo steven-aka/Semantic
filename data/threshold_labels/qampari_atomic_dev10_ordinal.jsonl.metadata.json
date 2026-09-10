@@ -1,0 +1,22 @@
+{
+  "examples": 10,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "input_exact": "results/m0_qampari_atomic/dev10_exact",
+  "input_examples": "data/units/qampari_atomic_dev10.jsonl",
+  "input_packets": "data/packets_qampari_atomic_dev10",
+  "levels": [
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "v1_atomic_ordinal_pseudo_oracle",
+  "supervision": "full binary reveal trajectory with infeasible-anchor mask",
+  "timestamp_utc": "2026-09-10T02:03:38.218742+00:00"
+}

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
-from src.data.schemas import SemanticPacket
+from src.data.schemas import AtomicPacket, SemanticPacket
 
 
 def build_representation(packets: Sequence[SemanticPacket], states: Sequence[int]) -> str:
@@ -40,3 +40,26 @@ def states_at_fidelity(
         raise ValueError("tau_g and tau_r must have equal length")
     return tuple(state_from_threshold(c, gist, residual) for gist, residual in zip(tau_g, tau_r))
 
+
+def build_atomic_representation(
+    packets: Sequence[AtomicPacket], states: Sequence[int]
+) -> str:
+    if len(packets) != len(states):
+        raise ValueError("packets and states must have equal length")
+    if [packet.packet_id for packet in packets] != list(range(len(packets))):
+        raise ValueError("atomic packets must have contiguous source-order ids")
+    if any(state not in (0, 1) for state in states):
+        raise ValueError("each atomic state must be 0 or 1")
+    return "\n\n".join(
+        packet.text.strip() for packet, state in zip(packets, states) if state == 1
+    )
+
+
+def atomic_states_at_fidelity(
+    c: float, reveal_thresholds: Sequence[float]
+) -> tuple[int, ...]:
+    if not 0 <= c <= 1:
+        raise ValueError("require c in [0,1]")
+    if any(not 0 <= threshold <= 1 for threshold in reveal_thresholds):
+        raise ValueError("reveal thresholds must be in [0,1]")
+    return tuple(int(c >= threshold) for threshold in reveal_thresholds)

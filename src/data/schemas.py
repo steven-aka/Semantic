@@ -63,6 +63,26 @@ class SemanticPacket:
 
 
 @dataclass(frozen=True)
+class AtomicPacket:
+    """One source-preserving evidence block with an independently revealable state."""
+
+    example_id: str
+    packet_id: int
+    source_unit_id: int
+    source_block_index: int
+    text: str
+    tokens: int
+
+    def __post_init__(self) -> None:
+        if self.packet_id < 0 or self.source_unit_id < 0 or self.source_block_index < 0:
+            raise ValueError("atomic packet coordinates must be non-negative")
+        if not self.text.strip():
+            raise ValueError("atomic packet text must be non-empty")
+        if self.tokens < 0:
+            raise ValueError("atomic packet tokens must be non-negative")
+
+
+@dataclass(frozen=True)
 class ExactSearchResult:
     example_id: str
     state: tuple[int, ...]

@@ -1,0 +1,28 @@
+{
+  "base_model": "models/Qwen3-1.7B",
+  "batch_size": 1,
+  "elapsed_seconds": 13.064019587007351,
+  "epochs": 1,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 8,
+  "input_data": "data/threshold_labels/qampari_atomic_dev10_ordinal.jsonl",
+  "input_data_sha256": "35e6a10a1190c2cb4082fae075990015f0d1b37ff91ed393cdab6631d6decf3f",
+  "learning_rate": 0.0001,
+  "lora_rank": 32,
+  "loss": "masked trajectory BCE on sigmoid((c-tau)/temperature)",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "quantization": "nf4_double_quant",
+  "stage": "v1_atomic_ordinal_training",
+  "temperature": 0.05,
+  "timestamp_utc": "2026-09-10T02:31:18.234427+00:00",
+  "train_examples": 8,
+  "validation_examples": 2,
+  "validation_ids": [
+    "453__wikidata_intersection__dev",
+    "937__wikidata_simple__dev"
+  ]
+}

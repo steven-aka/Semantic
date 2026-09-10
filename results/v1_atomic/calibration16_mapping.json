@@ -1,0 +1,227 @@
+{
+  "artifacts": {
+    "data_sha256": "fae751fb2f1cad3479d7368370fda874364226ca629c4160441542efa1eb04e2",
+    "exact_tree": "results/m0_qampari_atomic/calibration16_exact",
+    "predictions_sha256": "4cb18254438fbce631536d8334118616bcd128c260a6eb5ff7d15657e50f4377"
+  },
+  "calibration_valid": false,
+  "candidate_step": 0.05,
+  "control_levels": {
+    "0.6": 0.85,
+    "0.7": 0.9,
+    "0.8": 1.0,
+    "0.9": 1.0,
+    "0.95": 1.0
+  },
+  "diagnostics": [
+    {
+      "candidates": [
+        {
+          "control_level": 0.6,
+          "examples": 16,
+          "success_fraction": 0.3125,
+          "successes": 5
+        },
+        {
+          "control_level": 0.65,
+          "examples": 16,
+          "success_fraction": 0.375,
+          "successes": 6
+        },
+        {
+          "control_level": 0.7,
+          "examples": 16,
+          "success_fraction": 0.5,
+          "successes": 8
+        },
+        {
+          "control_level": 0.75,
+          "examples": 16,
+          "success_fraction": 0.5625,
+          "successes": 9
+        },
+        {
+          "control_level": 0.8,
+          "examples": 16,
+          "success_fraction": 0.875,
+          "successes": 14
+        },
+        {
+          "control_level": 0.85,
+          "examples": 16,
+          "success_fraction": 0.9375,
+          "successes": 15
+        },
+        {
+          "control_level": 0.9,
+          "examples": 16,
+          "success_fraction": 1.0,
+          "successes": 16
+        },
+        {
+          "control_level": 0.95,
+          "examples": 16,
+          "success_fraction": 1.0,
+          "successes": 16
+        },
+        {
+          "control_level": 1.0,
+          "examples": 16,
+          "success_fraction": 1.0,
+          "successes": 16
+        }
+      ],
+      "meets_minimum_empirical_success": true,
+      "selected_control_level": 0.85,
+      "target_level": 0.6
+    },
+    {
+      "candidates": [
+        {
+          "control_level": 0.7,
+          "examples": 16,
+          "success_fraction": 0.375,
+          "successes": 6
+        },
+        {
+          "control_level": 0.75,
+          "examples": 16,
+          "success_fraction": 0.5,
+          "successes": 8
+        },
+        {
+          "control_level": 0.8,
+          "examples": 16,
+          "success_fraction": 0.75,
+          "successes": 12
+        },
+        {
+          "control_level": 0.85,
+          "examples": 16,
+          "success_fraction": 0.875,
+          "successes": 14
+        },
+        {
+          "control_level": 0.9,
+          "examples": 16,
+          "success_fraction": 1.0,
+          "successes": 16
+        },
+        {
+          "control_level": 0.95,
+          "examples": 16,
+          "success_fraction": 1.0,
+          "successes": 16
+        },
+        {
+          "control_level": 1.0,
+          "examples": 16,
+          "success_fraction": 1.0,
+          "successes": 16
+        }
+      ],
+      "meets_minimum_empirical_success": true,
+      "selected_control_level": 0.9,
+      "target_level": 0.7
+    },
+    {
+      "candidates": [
+        {
+          "control_level": 0.8,
+          "examples": 16,
+          "success_fraction": 0.625,
+          "successes": 10
+        },
+        {
+          "control_level": 0.85,
+          "examples": 16,
+          "success_fraction": 0.8125,
+          "successes": 13
+        },
+        {
+          "control_level": 0.9,
+          "examples": 16,
+          "success_fraction": 0.875,
+          "successes": 14
+        },
+        {
+          "control_level": 0.95,
+          "examples": 16,
+          "success_fraction": 0.875,
+          "successes": 14
+        },
+        {
+          "control_level": 1.0,
+          "examples": 16,
+          "success_fraction": 0.9375,
+          "successes": 15
+        }
+      ],
+      "meets_minimum_empirical_success": true,
+      "selected_control_level": 1.0,
+      "target_level": 0.8
+    },
+    {
+      "candidates": [
+        {
+          "control_level": 0.9,
+          "examples": 16,
+          "success_fraction": 0.75,
+          "successes": 12
+        },
+        {
+          "control_level": 0.95,
+          "examples": 16,
+          "success_fraction": 0.8125,
+          "successes": 13
+        },
+        {
+          "control_level": 1.0,
+          "examples": 16,
+          "success_fraction": 0.8125,
+          "successes": 13
+        }
+      ],
+      "meets_minimum_empirical_success": false,
+      "selected_control_level": 1.0,
+      "target_level": 0.9
+    },
+    {
+      "candidates": [
+        {
+          "control_level": 0.95,
+          "examples": 13,
+          "success_fraction": 0.6923076923076923,
+          "successes": 9
+        },
+        {
+          "control_level": 1.0,
+          "examples": 13,
+          "success_fraction": 0.7692307692307693,
+          "successes": 10
+        }
+      ],
+      "meets_minimum_empirical_success": false,
+      "selected_control_level": 1.0,
+      "target_level": 0.95
+    }
+  ],
+  "fallback_control_1_0_is_not_success": true,
+  "mapping_nondecreasing": true,
+  "minimum_empirical_success": 0.9,
+  "protocol": "v1_atomic_monotone_fidelity_calibration",
+  "target_calibration_success": {
+    "0.6": true,
+    "0.7": true,
+    "0.8": true,
+    "0.9": false,
+    "0.95": false
+  },
+  "target_levels": [
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    0.95
+  ]
+}

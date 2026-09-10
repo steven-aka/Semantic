@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from itertools import product
 
 from src.data.qampari_controlled import build_controlled_examples, select_query_sentence
 from src.data.qampari_ceiling_v2 import (
@@ -9,10 +10,25 @@ from src.data.qampari_ceiling_v2 import (
     wiki_display,
 )
 from src.data.qampari_select import select_qampari_development
-from src.data.schemas import ExactSearchResult, SemanticPacket
+from src.data.schemas import ExactSearchResult, QAExample, SemanticPacket, SemanticUnit
 from src.evaluation.qampari_metrics import parse_list_prediction, qampari_list_metrics
 from src.evaluation.qampari_full_context import run_qampari_full_context
 from src.evaluation.qampari_gate import _checks
+from src.model.reveal_trajectory import (
+    chain_to_reveal_thresholds,
+    soft_reveal_probability,
+    thresholds_to_chain,
+)
+from src.representation.atomic_packetizer import (
+    build_atomic_packets,
+    validate_atomic_packets,
+)
+from src.representation.state_builder import build_atomic_representation
+from src.search.atomic_nested_chain import (
+    best_binary_nested_chain,
+    mask_to_state,
+    state_to_mask,
+)
 from src.search.qampari_exact_search import (
     run_qampari_exact_search,
     validate_qampari_exact_rows,
@@ -55,6 +71,80 @@ def _row(qid: str, offset: int = 0) -> dict:
 
 
 class QampariTests(unittest.TestCase):
+    def test_atomic_packets_reconstruct_source_and_have_binary_states(self) -> None:
+        units = [
+            SemanticUnit(unit_id=0, text="first proof\n\nsecond proof"),
+            SemanticUnit(unit_id=1, text="third proof\n\nfourth proof"),
+        ]
+        example = QAExample(
+            example_id="atomic",
+            dataset="test",
+            question="q",
+            answer="a",
+            context="\n\n".join(unit.text for unit in units),
+            units=units,
+        )
+        packets = build_atomic_packets(example, _Tokenizer())
+        self.assertEqual(len(packets), 4)
+        self.assertEqual(validate_atomic_packets(example, packets, _Tokenizer()), [])
+        self.assertEqual(
+            build_atomic_representation(packets, (1, 1, 1, 1)), example.context
+        )
+        self.assertEqual(
+            build_atomic_representation(packets, (1, 0, 0, 1)),
+            "first proof\n\nfourth proof",
+        )
+
+    def test_reveal_thresholds_exactly_represent_nested_binary_chain(self) -> None:
+        levels = (0.60, 0.70, 0.80, 0.90, 0.95)
+        states = [
+            (0, 0, 0, 1),
+            (0, 1, 0, 1),
+            (0, 1, 0, 1),
+            (1, 1, 0, 1),
+            (1, 1, 0, 1),
+        ]
+        thresholds, bins, ordinal = chain_to_reveal_thresholds(states, levels)
+        self.assertEqual(thresholds, [0.90, 0.70, 1.0, 0.60])
+        self.assertEqual(bins, [3, 1, 5, 0])
+        self.assertEqual(thresholds_to_chain(thresholds, levels), states)
+        self.assertEqual(ordinal[1], [0, 1, 1, 1, 1])
+        probabilities = [
+            soft_reveal_probability(level, 0.8, 0.05) for level in levels
+        ]
+        self.assertEqual(probabilities, sorted(probabilities))
+
+    def test_binary_nested_sos_dp_matches_brute_force(self) -> None:
+        width = 3
+        fidelity = [0.2, 0.7, 0.5, 0.8, 0.4, 0.95, 0.85, 1.0]
+        rows = [
+            ExactSearchResult(
+                example_id="dp",
+                state=mask_to_state(mask, width),
+                tokens=1 + 2 * mask.bit_count() + mask,
+                prediction="",
+                answer_em=0.0,
+                answer_f1=fidelity[mask],
+                fact_recall=fidelity[mask],
+                fidelity=fidelity[mask],
+            )
+            for mask in range(1 << width)
+        ]
+        levels = (0.6, 0.8, 0.9)
+        nested = best_binary_nested_chain(rows, levels)
+        chosen = [state_to_mask(row["state"]) for row in nested]
+        self.assertTrue(all(a & b == a for a, b in zip(chosen, chosen[1:])))
+        candidate_masks = [
+            [mask for mask, value in enumerate(fidelity) if value >= level]
+            for level in levels
+        ]
+        brute = min(
+            sum(rows[mask].tokens for mask in chain)
+            for chain in product(*candidate_masks)
+            if all(a & b == a for a, b in zip(chain, chain[1:]))
+        )
+        self.assertEqual(nested[-1]["cumulative_tokens"], brute)
+
     def test_ceiling_v2_normalizes_wiki_display_and_numeric_bounds(self) -> None:
         self.assertEqual(
             wiki_display("[[Harry Potter (film)|Harry Potter]]"), "Harry Potter"
