@@ -2,7 +2,7 @@
 
 Status: **protocol frozen; exact-oracle construction in progress; no training**
 
-Date: 2026-09-10
+Date: 2026-09-13
 
 ## Why this protocol exists
 
@@ -56,12 +56,23 @@ protocol config = 2376fd274372ac6c595e1cfeb30a13c36dc23d72c302fcec308f89563e7aeb
 pre-training amendment 1 = 00e875df1306d049074251da77ab263c7d231e3736be97f52c8a51da927f7a21
 ```
 
-Exact Target inference is split into six deterministic shards in
-`results/v2_rank_then_cut/candidates5000_exact`. Five shards (0, 1, 2, 3, 5)
-are assigned to separate A6000 GPUs with a 0.45 vLLM memory cap. Shard 4 is
-queued under `scripts/24_wait_launch_v2_shard4.sh`: it launches only after a
-project-unused GPU remains above 32GB free for two checks 30 seconds apart.
-Physical GPU4 is explicitly excluded by operator instruction.
+Exact Target inference is defined by six deterministic scientific shards in
+`results/v2_rank_then_cut/candidates5000_exact`. At the 2026-09-13 09:07 CST
+snapshot, shards 0, 2, 3, and 5 were complete, shard 1 was at 802/834, and the
+aggregate was 4135/5000 (82.70%). Every worker uses the same Qwen3-8B Target
+and a 0.45 vLLM memory cap. Physical GPU4 is explicitly excluded by operator
+instruction.
+
+The shard-4 waiting scheduler did not launch between September 10 and 13
+because its `nvidia-smi` CSV reader failed to split the comma-delimited GPU and
+free-memory fields. This was an operational scheduling defect, not an
+inference or data error. The parser was corrected before shard 4 produced any
+example output. To remove the resulting tail without changing its membership,
+the original set `index mod 6 = 4` was partitioned into the mutually disjoint
+sets `index mod 18 = 4, 10, 16` (278, 278, and 277 examples). Their union is
+exactly the original 833-example shard. These workers were started on physical
+GPUs 1, 3, and 5 respectively; GPU4 remains unused.
+
 The first attempt
 at shard 0 used a 0.60 cap on GPU4 and failed during sampler warm-up after an
 external process grew; it produced no example output and was safely restarted
