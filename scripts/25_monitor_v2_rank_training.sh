@@ -13,7 +13,7 @@ from pathlib import Path
 
 root = Path("results/v2_rank_then_cut/training")
 processes = subprocess.run(
-    ["ps", "-eo", "pid,etimes,cmd"],
+    ["ps", "-ww", "-eo", "pid,etimes,args"],
     check=True,
     capture_output=True,
     text=True,
