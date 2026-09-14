@@ -4,6 +4,7 @@ import unittest
 from itertools import product
 
 import torch
+from torch.utils.data import DataLoader
 
 from src.model.atomic_reveal_policy import AtomicRevealPolicy, masked_ordinal_bce, trajectory_logits
 from src.model.atomic_packet_ranker import AtomicPacketRanker, partial_order_rank_loss
@@ -11,6 +12,11 @@ from src.model.input_builder import build_atomic_model_input
 from src.data.schemas import ExactSearchResult
 from src.data.build_rank_learning_curve import build_nested_learning_curve
 from src.evaluation.rank_only_gate import apply_conjunctive_gate, summarize_gate_run
+from src.training.train_atomic_ranker import (
+    RankOracleDataset,
+    evaluate_ranker,
+    make_rank_collator,
+)
 from src.search.atomic_nested_chain import mask_to_state
 from src.search.near_optimal_chain_set import (
     identifiable_pair_relations,
@@ -102,12 +108,57 @@ class AtomicPolicyTests(unittest.TestCase):
             {"example_id": str(index), "pairwise_preferences": [[0, 1]]}
             for index in range(2000)
         ]
+        rows[0]["pairwise_preferences"] = []
         curve = build_nested_learning_curve(rows)
         self.assertEqual(list(curve), [500, 1000, 2000])
         self.assertEqual(curve[500], curve[1000][:500])
         self.assertEqual(curve[1000], curve[2000][:1000])
         with self.assertRaises(ValueError):
             build_nested_learning_curve(rows[:-1])
+
+    def test_rank_dataset_retains_zero_preference_evaluation_rows(self) -> None:
+        rows = [
+            {
+                "example_id": "ambiguous",
+                "question": "who?",
+                "packet_texts": [f"packet {index}" for index in range(12)],
+                "pairwise_preferences": [],
+            }
+        ]
+        dataset = RankOracleDataset(rows, _Tokenizer(), max_length=4096)
+        self.assertEqual(len(dataset), 1)
+
+    def test_rank_evaluation_ignores_undefined_example_loss(self) -> None:
+        class FakeRanker(torch.nn.Module):
+            def forward(self, input_ids, attention_mask, packet_spans):
+                del attention_mask, packet_spans
+                scores = torch.arange(12, 0, -1, dtype=torch.float32)
+                return {"scores": scores.repeat(input_ids.shape[0], 1)}
+
+        rows = [
+            {
+                "example_id": "supervised",
+                "question": "who?",
+                "packet_texts": [f"packet {index}" for index in range(12)],
+                "pairwise_preferences": [[0, 1]],
+            },
+            {
+                "example_id": "ambiguous",
+                "question": "who?",
+                "packet_texts": [f"packet {index}" for index in range(12)],
+                "pairwise_preferences": [],
+            },
+        ]
+        dataset = RankOracleDataset(rows, _Tokenizer(), max_length=4096)
+        loader = DataLoader(
+            dataset,
+            batch_size=1,
+            collate_fn=make_rank_collator(_Tokenizer.eos_token_id),
+        )
+        summary = evaluate_ranker(FakeRanker(), loader, torch.device("cpu"))
+        self.assertEqual(summary["supervised_examples"], 1)
+        self.assertEqual(summary["identifiable_pairs"], 1)
+        self.assertEqual(summary["micro_pairwise_accuracy"], 1.0)
 
     def test_rank_only_gate_uses_highest_active_anchor_and_is_conjunctive(self) -> None:
         summary = {

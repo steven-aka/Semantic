@@ -11,7 +11,7 @@ import torch
 from torch.utils.data import DataLoader, Dataset
 
 from src.data.schemas import read_jsonl, write_jsonl
-from src.model.atomic_packet_ranker import AtomicPacketRanker
+from src.model.atomic_packet_ranker import AtomicPacketRanker, partial_order_rank_loss
 from src.model.input_builder import AtomicModelInput, build_atomic_model_input, collate_atomic_inputs
 from src.reproducibility import experiment_metadata, sha256, write_metadata
 
@@ -21,8 +21,6 @@ class RankOracleDataset(Dataset):
         self.rows = list(rows)
         if any(len(row["packet_texts"]) != 12 for row in self.rows):
             raise ValueError("Rank-then-Cut requires exactly 12 lossless packets")
-        if any(not row["pairwise_preferences"] for row in self.rows):
-            raise ValueError("every ranking row requires identifiable preference pairs")
         self.inputs = [
             build_atomic_model_input(
                 tokenizer, row["question"], row["packet_texts"], max_length=max_length
@@ -66,18 +64,25 @@ def evaluate_ranker(
                 batch["input_ids"].to(device),
                 batch["attention_mask"].to(device),
                 batch["packet_spans"],
-                batch["preferences"],
             )
-            example_losses.append(float(output["loss"].item()))
             scores = output["scores"].float().cpu()
             for batch_index, preferences in enumerate(batch["preferences"]):
+                if preferences:
+                    example_loss = partial_order_rank_loss(
+                        output["scores"][batch_index : batch_index + 1],
+                        [preferences],
+                    )
+                    example_losses.append(float(example_loss.item()))
                 for winner, loser in preferences:
                     correct += int(scores[batch_index, winner] > scores[batch_index, loser])
                     pairs += 1
+    if not example_losses or not pairs:
+        raise ValueError("validation set contains no identifiable preference pairs")
     return {
         "example_mean_pairwise_loss": sum(example_losses) / len(example_losses),
         "micro_pairwise_accuracy": correct / pairs,
         "identifiable_pairs": pairs,
+        "supervised_examples": len(example_losses),
     }
 
 
@@ -149,7 +154,10 @@ def main() -> None:
     model = AtomicPacketRanker(lm, head_hidden_size=args.head_hidden_size)
     model.rank_head.to(device=device, dtype=torch.bfloat16)
 
-    train_data = RankOracleDataset(train_rows, tokenizer, args.max_length)
+    supervised_train_rows = [row for row in train_rows if row["pairwise_preferences"]]
+    if not supervised_train_rows:
+        raise ValueError("training set contains no identifiable preference pairs")
+    train_data = RankOracleDataset(supervised_train_rows, tokenizer, args.max_length)
     validation_data = RankOracleDataset(validation_rows, tokenizer, args.max_length)
     collator = make_rank_collator(int(tokenizer.pad_token_id))
     train_loader = DataLoader(
@@ -230,6 +238,8 @@ def main() -> None:
             validation_data_sha256=sha256(args.validation_data),
             base_model=args.model,
             train_examples=len(train_rows),
+            train_supervised_examples=len(supervised_train_rows),
+            train_zero_preference_examples=len(train_rows) - len(supervised_train_rows),
             validation_examples=len(validation_rows),
             loss="example-balanced RankNet logistic loss on set-identifiable pairs",
             epochs=args.epochs,

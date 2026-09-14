@@ -1,0 +1,47 @@
+{
+  "protocol": "v2_rank_then_cut_pretraining_amendment2",
+  "frozen_at": "2026-09-14 after exact-oracle and rank-oracle construction but before any V2 ranking training or learned-policy evaluation",
+  "parent_protocol": "configs/v2_rank_then_cut_hypothesis.json",
+  "parent_protocol_sha256": "2376fd274372ac6c595e1cfeb30a13c36dc23d72c302fcec308f89563e7aeb79",
+  "prior_amendment": "configs/v2_rank_then_cut_pretraining_amendment1.json",
+  "prior_amendment_sha256": "00e875df1306d049074251da77ab263c7d231e3736be97f52c8a51da927f7a21",
+  "scope": "define the loss semantics for examples with no identifiable packet-order pair under the already-frozen set-valued oracle",
+  "trigger": {
+    "split_manifest": "results/v2_rank_then_cut/split_manifest.json",
+    "split_manifest_sha256": "ac376f2a3051f2b8680a037cafc5fe8dda9954525ccffc2a0a3f44b942905c98",
+    "train2000_oracle": "results/v2_rank_then_cut/train2000_rank_oracle.jsonl",
+    "train2000_oracle_sha256": "80eb5300a7e0b15b94a224ea9fe0491960398b55cb69fe18603a86019489aee5",
+    "train2000_zero_preference_examples": 0,
+    "ranking_validation300_oracle": "results/v2_rank_then_cut/ranking_validation300_rank_oracle.jsonl",
+    "ranking_validation300_oracle_sha256": "e92cb0eb7fe9eec5b6645a85b16eb49c6962ae134f363a19d227a61d70bdf040",
+    "ranking_validation300_zero_preference_examples": 1,
+    "zero_preference_example_id": "18150__wikidata_simple__train"
+  },
+  "frozen_semantics": {
+    "population": "retain every target-blind selected example; do not replace, reallocate, or drop the zero-preference example from ranking-validation300",
+    "supervision": "an example with zero identifiable pairs supplies no packet-order label, exactly as required by ambiguous-pairs-ignored supervision",
+    "training": "optimize only examples with at least one identifiable pair while retaining the frozen nominal learning-curve population and reporting the supervised count",
+    "checkpoint_validation_loss": "average example-balanced RankNet loss over validation examples on which that loss is defined",
+    "pairwise_accuracy": "micro accuracy over identifiable pairs only",
+    "contract_evaluation": "retain all 300 ranking-validation examples, including zero-preference examples",
+    "gate_population": "unchanged at the same frozen ranking-validation300 IDs"
+  },
+  "prohibited_interpretations": [
+    "inventing an arbitrary pairwise label",
+    "replacing the example with a more convenient candidate",
+    "counting an undefined loss as zero",
+    "removing the example from oracle-cutoff contract evaluation"
+  ],
+  "scientific_hypothesis_changes": false,
+  "threshold_changes": false,
+  "data_role_changes": false,
+  "model_changes": false,
+  "target_inference_changes": false,
+  "implementation_sha256": {
+    "src/data/build_rank_learning_curve.py": "7b105e2d6644b900c5aa0d8d8929519fdef8cf8479c1efb549f6c7d17d7dc273",
+    "src/training/train_atomic_ranker.py": "cddd1851e74385011cd9d261f1c442e410cf0c79a17b28808981546a4272cc8f",
+    "tests/test_atomic_policy.py": "dc742457f6fdc8d0d9ebe073e66bd83aba3ff32b00ccda792a5dbe29d0ce930e"
+  },
+  "test_count_after_amendment": 65,
+  "decision_rule": "This amendment creates no route around the frozen rank-only gate and does not authorize cutoff-head implementation before the same five-metric, three-seed conjunctive pass."
+}

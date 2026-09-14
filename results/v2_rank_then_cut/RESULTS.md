@@ -1,8 +1,8 @@
 # V2 Rank-then-Cut status
 
-Status: **protocol frozen; exact-oracle construction in progress; no training**
+Status: **exact and rank oracles complete; frozen learning curve ready; no training result yet**
 
-Date: 2026-09-13
+Date: 2026-09-14
 
 ## Why this protocol exists
 
@@ -43,6 +43,14 @@ no hypothesis, threshold, data role, Target inference, model, or metric; it
 prevents manual set construction and ensures the already-preregistered
 highest-active-anchor check cannot be omitted.
 
+Pre-training amendment 2,
+`configs/v2_rank_then_cut_pretraining_amendment2.json`, records the only
+zero-identifiable-pair row found in ranking-validation300. That row remains in
+the frozen 300-example contract-evaluation population but contributes no
+undefined RankNet loss. No example is replaced, dropped from contract
+evaluation, or assigned an arbitrary pair label. Train500/1000/2000 contain no
+zero-pair rows. This clarification was frozen before any V2 ranking training.
+
 ## Current data and execution
 
 The target-blind candidate pool contains 5000 certified QAMPARI-train examples
@@ -54,6 +62,7 @@ annotations = 71c50309631b488b252024cc114ff72c1369457166ec85ab2b1cd1c93c0f17b3
 packet tree = d0df345cdf13191a64ea4affc697db6df5d6c73d9bc96a88bc90d6dd31b33364
 protocol config = 2376fd274372ac6c595e1cfeb30a13c36dc23d72c302fcec308f89563e7aeb79
 pre-training amendment 1 = 00e875df1306d049074251da77ab263c7d231e3736be97f52c8a51da927f7a21
+pre-training amendment 2 = ed84f603809f82a1da68b57d3c7153914a26564ef230ee10828114b1dfc2ef7c
 ```
 
 Exact Target inference is defined by six deterministic scientific shards in
@@ -86,6 +95,24 @@ per-example JSONL files; atomic replacement makes a file visible only after all
 No ranker training may start until all 5000 lattices are complete, each lattice
 passes structural validation, and the frozen target-blind role partitions meet
 their required post-exact eligibility counts without cross-role reallocation.
+
+Exact inference completed successfully on 2026-09-14 at 09:24 CST: all 5000
+lattices contain 4096 unique binary states and no temporary output remains. The
+frozen partition-then-attainability filter produced the following counts:
+
+| Role | Attainable in frozen slice | Required/selected |
+|---|---:|---:|
+| Train pool | 3163 | 2000 |
+| Ranking validation | 510 | 300 |
+| Calibration | 485 | 300 |
+| Final test | 487 | 300 |
+
+The 2900 selected IDs are pairwise disjoint. Set-valued oracle construction at
+normalized slack 0.005 produced 89,609 identifiable training pairs over all
+2000 training examples. The nested learning-curve subsets contain 22,227,
+44,864, and 89,609 pairs at sizes 500, 1000, and 2000 respectively. The fixed
+ranking-validation300 contains 13,404 identifiable pairs across 299 supervised
+examples; all 300 remain available for oracle-cutoff contract evaluation.
 
 ## Rank-only decision gate
 

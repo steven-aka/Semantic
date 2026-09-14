@@ -1,0 +1,29 @@
+{
+  "nested": true,
+  "protocol": "v2_rank_then_cut_nested_learning_curve",
+  "sizes": {
+    "1000": {
+      "path": "results/v2_rank_then_cut/rank_learning_curve/train1000_rank_oracle.jsonl",
+      "rows": 1000,
+      "sha256": "530b8dc5e1fd5f6cb0a4e2e8fa6351b1f7094697469f41c71b2cdd0c14a570fb",
+      "supervised_rows": 1000,
+      "zero_preference_rows": 0
+    },
+    "2000": {
+      "path": "results/v2_rank_then_cut/rank_learning_curve/train2000_rank_oracle.jsonl",
+      "rows": 2000,
+      "sha256": "80eb5300a7e0b15b94a224ea9fe0491960398b55cb69fe18603a86019489aee5",
+      "supervised_rows": 2000,
+      "zero_preference_rows": 0
+    },
+    "500": {
+      "path": "results/v2_rank_then_cut/rank_learning_curve/train500_rank_oracle.jsonl",
+      "rows": 500,
+      "sha256": "30f3402108bfe6666326c6f5cc2dea53f413e4cdcd4c15a1922296c465353eb2",
+      "supervised_rows": 500,
+      "zero_preference_rows": 0
+    }
+  },
+  "source": "results/v2_rank_then_cut/train2000_rank_oracle.jsonl",
+  "source_sha256": "80eb5300a7e0b15b94a224ea9fe0491960398b55cb69fe18603a86019489aee5"
+}

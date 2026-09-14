@@ -19,8 +19,6 @@ def build_nested_learning_curve(
     ids = [str(row["example_id"]) for row in rows]
     if len(set(ids)) != len(ids):
         raise ValueError("ranking train set contains duplicate example ids")
-    if any(not row.get("pairwise_preferences") for row in rows):
-        raise ValueError("every ranking row must contain identifiable preferences")
     return {size: rows[:size] for size in SIZES}
 
 
@@ -53,6 +51,8 @@ def main() -> None:
         manifest["sizes"][str(size)] = {
             "path": str(path),
             "rows": len(rows),
+            "supervised_rows": sum(bool(row.get("pairwise_preferences")) for row in rows),
+            "zero_preference_rows": sum(not row.get("pairwise_preferences") for row in rows),
             "sha256": sha256(path),
         }
     write_metadata(args.manifest, manifest)
