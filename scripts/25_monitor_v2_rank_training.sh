@@ -12,6 +12,7 @@ import subprocess
 from pathlib import Path
 
 root = Path("results/v2_rank_then_cut/training")
+log_root = root / "logs"
 processes = subprocess.run(
     ["ps", "-ww", "-eo", "pid,etimes,args"],
     check=True,
@@ -19,11 +20,12 @@ processes = subprocess.run(
     text=True,
 ).stdout.splitlines()
 
-complete = running = 0
+complete = running = interrupted = 0
 for size in (500, 1000, 2000):
     for seed in (20260910, 20260911, 20260912):
         name = f"train{size}_seed{seed}"
         directory = root / name
+        log_path = log_root / f"{name}.log"
         metadata = directory / "training_metadata.json"
         matches = [line.strip() for line in processes if str(directory) in line]
         if metadata.exists():
@@ -38,10 +40,34 @@ for size in (500, 1000, 2000):
             running += 1
             fields = matches[0].split(maxsplit=2)
             elapsed = int(fields[1])
-            print(f"{name}: RUNNING pid={fields[0]} elapsed={elapsed / 3600:.2f}h")
+            epochs = []
+            if log_path.exists():
+                for line in log_path.read_text(encoding="utf-8", errors="replace").splitlines():
+                    if line.startswith('{"epoch"'):
+                        try:
+                            epochs.append(json.loads(line))
+                        except json.JSONDecodeError:
+                            pass
+            progress = ""
+            if epochs:
+                latest = epochs[-1]
+                progress = (
+                    f" epoch={latest['epoch']}/5 "
+                    f"validation_loss={latest['validation_example_mean_pairwise_loss']:.6f}"
+                )
+            print(
+                f"{name}: RUNNING pid={fields[0]} elapsed={elapsed / 3600:.2f}h"
+                f"{progress}"
+            )
+        elif log_path.exists():
+            interrupted += 1
+            print(f"{name}: INTERRUPTED log={log_path}")
         else:
             print(f"{name}: PENDING")
-print(f"summary: complete={complete}/9 running={running} pending={9-complete-running}")
+print(
+    f"summary: complete={complete}/9 running={running} "
+    f"interrupted={interrupted} pending={9-complete-running-interrupted}"
+)
 PY
 
 echo
