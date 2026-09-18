@@ -1117,3 +1117,36 @@ head training is not authorized because it would fit a representation that
 already fails example-held-out and internal transfer. Development, terminal
 reranking, hop two, learned cutoff, confirmation, and all model training remain
 closed.
+
+## V17-D2A 0.90-branch representation-adapter protocol
+
+D2A freezes a shared-trajectory adapter rather than introducing a new
+target-routed decoder. A rank-8, bias-free linear residual correction follows a
+parameter-free LayerNorm on the frozen 3,650-dimensional action representation.
+Only the corrected 0.90 logit replaces its original value; the 0.60, 0.70,
+0.80, and 0.95 logits are copied from the original frozen-head evaluation.
+D1A's force-attainable-0.90-active rule and existing multi-anchor mean
+aggregation remain unchanged. The zero-initialized up projection makes step
+zero an exact no-op.
+
+The architecture audit confirms exact isolation and initialization. All four
+untargeted logits, the 0.90 logit, and the aggregate residual have maximum
+absolute step-zero difference 0.0. Exactly 58,400 parameters are trainable,
+all in the adapter. Canonical internal300 replay produces 300/300 identical
+beam orders and exactly reproduces the D1A baseline: 296/295/294/280/238 by
+anchor and 275 complete trajectories.
+
+The possible D2B training protocol is frozen before any optimization: train2863
+deployed plus hop-at-most-one strict 0.90 boundary states, state-normalized
+pairwise logistic ranking, a dimensionless relative-L2 drift penalty over both
+boundary and train-only reference states, three-fold query-grouped
+out-of-fold evaluation, rank fixed at eight, fixed optimizer and final-epoch
+selection, and no hyperparameter sweep. The train-only opening gate requires
+both primary and query-balanced macro-state accuracy of at least 0.80 and no
+fold below its corresponding D1B baseline before internal data may be read.
+
+The D2A decision is `GO_V17D2B_ADAPTER_TRAINING`; this authorizes the single
+frozen training protocol but does not start it. Internal300 remains
+design-exposed research validation, and the ten historical critical events are
+descriptive only. Development, fresh confirmation, hop two, terminal
+reranking, and learned cutoff remain closed.

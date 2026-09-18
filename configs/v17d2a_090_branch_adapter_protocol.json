@@ -1,0 +1,62 @@
+{
+  "protocol": "V17-D2A_090_BRANCH_REPRESENTATION_ADAPTER_PROTOCOL",
+  "status": "FROZEN_PENDING_ARCHITECTURE_AUDIT",
+  "date": "2026-09-19 Asia/Shanghai",
+  "architecture": {
+    "shared_trajectory": true,
+    "feature_dim": 3650,
+    "rank": 8,
+    "bias": false,
+    "nonlinearity": false,
+    "layer_norm_affine": false,
+    "layer_norm_eps": 1e-5,
+    "initialization": "down normal std=1/sqrt(feature_dim); up exactly zero",
+    "routing": "replace only z_0.90; preserve original z_0.60/z_0.70/z_0.80/z_0.95",
+    "viability_hidden_dim": 128,
+    "scoring": "D1A force attainable 0.90 active; existing multi-anchor mean aggregation"
+  },
+  "data": {
+    "ranking": "train2863 deployed plus hop<=1 strict 0.90 boundary states only",
+    "drift_reference": "all train2863 deployed states plus query-balanced stratified one-hop non-boundary states",
+    "forbidden": ["hop2", "internal states", "development", "confirmation"]
+  },
+  "training_if_authorized": {
+    "objective": "state-normalized pairwise softplus(-[z_0.90(a+)-z_0.90(a-)]) + lambda_drift * relative_l2_drift",
+    "relative_l2_drift": "mean(||delta_h||_2^2 / (||h||_2^2 + 1e-12)) over ranking and reference states",
+    "lambda_drift": 0.1,
+    "split": "three-fold example/query-grouped out-of-fold",
+    "sampling": "state-equal ranking; query-balanced reference; no raw-pair-frequency averaging",
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "epochs": 20,
+    "batch_states": 128,
+    "gradient_clip_norm": 1.0,
+    "seed": 20260919,
+    "checkpoint": "final epoch only; no internal or development selection",
+    "rank_sweep": false
+  },
+  "held_out_query_gate": {
+    "primary_macro_state_accuracy_min": 0.8,
+    "query_balanced_macro_state_accuracy_min": 0.8,
+    "each_fold_not_below_corresponding_d1b_linear_fold": true,
+    "internal_read_allowed_only_after_pass": true
+  },
+  "internal_research_gate": {
+    "baseline": {"0.90": 280, "complete": 275},
+    "other_levels_no_regression": true,
+    "primary_min": 280,
+    "complete_min": 275,
+    "practical_value": "at least one new 0.90 repair and zero 0.90 breaks",
+    "historical_10_events": "descriptive only; never a GO threshold"
+  },
+  "architecture_audit_gate": {
+    "step0_exact_logit_and_residual_equivalence": true,
+    "exact_beam_order_matches": 300,
+    "per_level_successes": {"0.6": 296, "0.7": 295, "0.8": 294, "0.9": 280, "0.95": 238},
+    "complete_successes": 275,
+    "only_adapter_parameters_trainable": true,
+    "development_path_accessible": false
+  },
+  "sealed": ["all training during D2A", "development", "fresh confirmation", "hop2", "terminal reranker", "learned cutoff"]
+}

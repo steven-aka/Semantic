@@ -1,0 +1,41 @@
+{
+  "architecture": {
+    "adapter_parameters": 58400,
+    "feature_dim": 3650,
+    "other_anchor_max_abs_logit_difference": 0.0,
+    "primary_max_abs_logit_difference_at_step0": 0.0,
+    "rank": 8,
+    "residual_max_abs_difference_at_step0": 0.0,
+    "trainable_parameters": {
+      "viability_head.adapter.down.weight": 29200,
+      "viability_head.adapter.up.weight": 29200
+    }
+  },
+  "artifacts": {
+    "embeddings_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+    "internal_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "protocol_sha256": "fa6eeddc955b57e1111ddb8de7a77da152038c198e9c4d48513abdf24cb87715",
+    "viability_head_sha256": "82788e84b930b31feb8d01ee7921cbe88b2a15c677c8c7de482dbbfd80dacf88"
+  },
+  "canonical_internal": {
+    "complete_successes": 275,
+    "exact_beam_order_matches": 300,
+    "examples": 300,
+    "per_level_successes": {
+      "0.6": 296,
+      "0.7": 295,
+      "0.8": 294,
+      "0.9": 280,
+      "0.95": 238
+    }
+  },
+  "complete": true,
+  "gate_passed": true,
+  "sealed": {
+    "confirmation": true,
+    "development": true,
+    "hop2": true,
+    "terminal_reranker": true,
+    "training": true
+  }
+}
