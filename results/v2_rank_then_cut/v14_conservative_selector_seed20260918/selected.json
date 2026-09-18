@@ -1,0 +1,64 @@
+{
+  "fallback": {
+    "complete": 274,
+    "per_anchor": [
+      {
+        "examples": 300,
+        "successes": 296
+      },
+      {
+        "examples": 300,
+        "successes": 295
+      },
+      {
+        "examples": 300,
+        "successes": 294
+      },
+      {
+        "examples": 300,
+        "successes": 279
+      },
+      {
+        "examples": 243,
+        "successes": 238
+      }
+    ],
+    "switches": 0
+  },
+  "internal_validation": {
+    "complete": 277,
+    "per_anchor": [
+      {
+        "examples": 300,
+        "successes": 296
+      },
+      {
+        "examples": 300,
+        "successes": 295
+      },
+      {
+        "examples": 300,
+        "successes": 294
+      },
+      {
+        "examples": 300,
+        "successes": 280
+      },
+      {
+        "examples": 243,
+        "successes": 240
+      }
+    ],
+    "switches": 139
+  },
+  "selection_key": [
+    1,
+    280,
+    277,
+    -139,
+    -0.022469520568847656
+  ],
+  "step": 400,
+  "threshold": -0.022469520568847656,
+  "train_loss": 0.23525260388851166
+}

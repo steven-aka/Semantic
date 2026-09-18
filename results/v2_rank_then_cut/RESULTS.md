@@ -645,3 +645,25 @@ regret. Accordingly the decision is `GO_DOWNSTREAM_DEVELOPMENT`, while fresh
 confirmation remains closed. These oracle results justify training a label-free
 selector/cutoff for the frozen candidate architecture; they are not deployable
 performance claims.
+
+## V14 conservative evidence-sufficiency selector
+
+V14 froze the V13 step300 top-four candidate generator and the V8 fallback,
+then trained only a five-anchor evidence-sufficiency selector. Candidate labels
+came from the train3163 exact lattice; checkpoint and switch-threshold selection
+used only the fixed internal validation300. That internal role had six
+fidelity-0.90 oracle-rescuable failures (279 fallback versus 285 top-four
+oracle). Step400 was selected: it reached 280/300 at fidelity 0.90 versus the
+279 fallback, improved complete trajectories from 274 to 277, and produced no
+aggregate per-anchor regression.
+
+The frozen selector did not transfer enough of the candidate ceiling on
+consumed development300. It switched on 148/300 queries and reached 278/300 at
+fidelity 0.90, 274/300 complete trajectories (0.91333), and 0.02831 regret. It
+rescued one V8 fidelity-0.90 failure and broke no prior success, for only one
+net improvement over the 277 fallback and four fewer successes than the frozen
+282 selector-feasibility gate. The authoritative decision is
+`STOP_CONSERVATIVE_SELECTOR`; the multi-anchor cutoff is not trained from this
+selector and fresh confirmation remains closed. The top-four oracle ceiling of
+286 remains a candidate-space diagnostic, but V11 and V14 now independently
+show that available learned selectors cannot realize enough of it.

@@ -1,0 +1,12 @@
+{
+  "cache_sha256": "b941b71cb92e05f3b476d63e93d9a32e49f9e7cc29794912b5d0cf88673cd012",
+  "candidate_count": 5,
+  "candidate_definition": "V8 fallback plus frozen V13 top-4 mask projections",
+  "complete": true,
+  "data_sha256": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+  "examples": 2863,
+  "head_sha256": "f33fcccda20fb0813a12f54e238c0328444b232a59aa04058e8bb05f1539b431",
+  "locked_roles_used": false,
+  "output_sha256": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684",
+  "rollouts_sha256": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e"
+}

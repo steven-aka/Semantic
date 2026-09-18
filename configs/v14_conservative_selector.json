@@ -1,0 +1,51 @@
+{
+  "protocol": "v14_frozen_v13_top4_conservative_evidence_sufficiency_selector",
+  "status": "APPROVED_TO_RUN",
+  "date": "2026-09-18 Asia/Shanghai",
+  "hypothesis": "A conservative five-anchor evidence-sufficiency selector can exploit frozen V13 top-4 candidate headroom while defaulting to V8 on uncertain queries.",
+  "arguments": {
+    "train_data": "results/v2_rank_then_cut/v14_train2863_top4_candidates.jsonl",
+    "train_cache": "results/v2_rank_then_cut/v14_train2863_v13_embeddings.pt",
+    "validation_data": "results/v2_rank_then_cut/v14_internal_validation300_top4_candidates.jsonl",
+    "validation_cache": "results/v2_rank_then_cut/v14_internal_validation300_v13_embeddings.pt",
+    "initial_head": "results/v2_rank_then_cut/v13_joint_retriever_seed20260918/checkpoints/step300/mask_retrieval_head.pt",
+    "output_dir": "results/v2_rank_then_cut/v14_conservative_selector_seed20260918",
+    "steps": 400,
+    "batch_size": 64,
+    "lr": 0.0001,
+    "seed": 20260918
+  },
+  "frozen": {
+    "candidate_generator": "V8 fallback plus V13 step300 top-4 mask projections",
+    "encoder_and_retriever_trainable": false,
+    "selector_checkpoints": [
+      100,
+      200,
+      300,
+      400
+    ],
+    "threshold_selection": "internal validation only; require aggregate no-regression at every anchor and complete trajectory, then maximize 0.90 successes, complete trajectories, minimize switches",
+    "development_access": "once after selector and threshold freeze"
+  },
+  "development_gate": {
+    "fidelity_0.90_successes": 282,
+    "complete_trajectory_fraction": 0.9,
+    "mean_feasible_regret": 0.03,
+    "other_anchors": "no material regression from V8 fallback",
+    "if_pass": "GO_MULTI_ANCHOR_CUTOFF_DEVELOPMENT",
+    "if_fail": "STOP_CONSERVATIVE_SELECTOR"
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v14_train2863_top4_candidates.jsonl": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684",
+    "results/v2_rank_then_cut/v14_train2863_v13_embeddings.pt": "b941b71cb92e05f3b476d63e93d9a32e49f9e7cc29794912b5d0cf88673cd012",
+    "results/v2_rank_then_cut/v14_internal_validation300_top4_candidates.jsonl": "28dc6bccde8ec868d6eee4fa36839b33bdb832a0ae852867ed4c173fd4e32efa",
+    "results/v2_rank_then_cut/v14_internal_validation300_v13_embeddings.pt": "983dcaa68d445be3c99688732b3271308508a9ada58c5b82851f57647600819b",
+    "results/v2_rank_then_cut/v13_joint_retriever_seed20260918/checkpoints/step300/mask_retrieval_head.pt": "f33fcccda20fb0813a12f54e238c0328444b232a59aa04058e8bb05f1539b431",
+    "src/data/build_v14_top4_supervision.py": "bd8a8318438baaddbc33d4ddb41ac63dc4afcbbd2af11ab23b83d1a22ab1b4e3",
+    "src/model/evidence_sufficiency_selector.py": "f40cda02507adf66a391b983ee4e73f8c0f31dab68c91c7ba662138b748fa8ce",
+    "src/training/train_v14_conservative_selector.py": "d8133289a8903efbe9442f44b9cf00e261b82a799754ab7fc56f68fce48d2e4a",
+    "src/evaluation/evaluate_v14_conservative_selector.py": "631573c2e98210fbf3e6202a29392c45bf6de0efd1b51523fad3dd027f4522ae",
+    "tests/test_evidence_sufficiency_selector.py": "993f4d361fbb812d6b5ef368414b2be668df30aa1b766e8f6fb0b09060fc99f8"
+  },
+  "confirmation_or_calibration_used": false
+}

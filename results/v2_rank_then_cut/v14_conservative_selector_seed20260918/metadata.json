@@ -1,0 +1,13 @@
+{
+  "development300_used": false,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "locked_roles_used": false,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "selector_sha256": "fceed76a51a748996f4bf5d25bc427c5170dc2ce9245b404786c9642c2ad3fbb",
+  "stage": "v14_conservative_evidence_sufficiency_selector",
+  "timestamp_utc": "2026-09-18T06:43:37.996397+00:00"
+}

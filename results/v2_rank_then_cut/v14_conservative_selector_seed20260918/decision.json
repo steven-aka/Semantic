@@ -1,0 +1,29 @@
+{
+  "complete": true,
+  "decision": "STOP_CONSERVATIVE_SELECTOR",
+  "go_multi_anchor_cutoff": false,
+  "fresh_confirmation_opened": false,
+  "checks": {
+    "fidelity_0.90": {
+      "value": 278,
+      "threshold": 282,
+      "pass": false
+    },
+    "complete_trajectory": {
+      "value": 0.9133333333333333,
+      "threshold": 0.9,
+      "pass": true
+    },
+    "regret": {
+      "value": 0.028308662478483147,
+      "threshold": 0.03,
+      "pass": true
+    }
+  },
+  "switches": 148,
+  "rescued_0.90": [
+    "60503__wikitables_composition__train"
+  ],
+  "broken_0.90": [],
+  "interpretation": "The frozen selector improved V8 fallback by only one net 0.90 success and did not reach the preregistered selector feasibility gate. Do not train the downstream cutoff from this selector."
+}
