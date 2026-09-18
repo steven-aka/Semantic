@@ -737,3 +737,37 @@ drop, and swap actions by five-anchor state-action advantage and future minimum
 token cost. Its positive support and train/validation coverage must be audited
 before training a behavior-aware progressive model. Another selector head,
 more top-K candidates, or immediate repacketization is not supported by V16-A.
+
+## V16-B0 boundary-causal data feasibility audit
+
+V16-B0 tested whether the proposed progressive-policy direction contains new,
+usable supervision beyond V9. It scanned every V8 deployed prefix in train2863
+and fixed internal validation against the complete exact lattice. Swaps were
+used only as counterfactual diagnostics and were backtracked to the state before
+the deferred packet first entered; every evaluated deployment order remained
+strictly add-only.
+
+The broad audit found safe fidelity-crossing actions near 15,734/34,356 train
+prefix states (45.80%), 31,050 unique causal preference labels, and 98.71%
+coarse validation-pattern coverage. A nondeployable oracle choosing among
+single-swap-corrected add-only orders reached 299/300 at fidelity 0.90. However,
+only 19.25% of preferred additions were exact-DP optimal at their predecessor.
+Training all immediate crossings would therefore conflict with future trajectory
+quality and is rejected.
+
+The corrected supervision retains only preferences where the proposed earlier
+packet is exact-DP optimal and the deferred packet is not. This leaves 3,520
+train labels over 3,304 predecessor states and 357 internal-validation labels;
+strict validation-pattern coverage remains 92.16%. The corresponding consumed-
+development oracle, restricted to legal add-only orders constructed from these
+DP-consistent single swaps, reaches 291/300 at fidelity 0.90, 291/300 complete
+trajectories, 234/234 at 0.95, and 0.01287 feasible normalized regret.
+
+Every causal predecessor was already present in V9's on-policy supervision.
+Thus V16-B does not discover a new cost-to-go label: its controlled novelty is
+to concentrate training on the small DP-consistent subset whose later
+counterfactual swap crosses a fidelity boundary. The formal decision is
+`GO_V16B_BOUNDARY_FOCUSED_MODEL_DESIGN`. One preregistered model experiment may
+use these 3,304 states with matched non-boundary replay and set-valued DP action
+targets. Unfiltered causal labels, online swap/drop, learned cutoff, and fresh
+confirmation remain closed.

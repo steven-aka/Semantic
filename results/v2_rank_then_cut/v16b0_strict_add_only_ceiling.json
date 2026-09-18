@@ -1,0 +1,62 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15"
+  },
+  "baseline": {
+    "complete": 273,
+    "mean_regret_feasible": 0.027927953196976888,
+    "per_anchor": {
+      "0.6": {
+        "examples": 300,
+        "successes": 298
+      },
+      "0.7": {
+        "examples": 300,
+        "successes": 298
+      },
+      "0.8": {
+        "examples": 300,
+        "successes": 295
+      },
+      "0.9": {
+        "examples": 300,
+        "successes": 277
+      },
+      "0.95": {
+        "examples": 234,
+        "successes": 230
+      }
+    }
+  },
+  "complete": true,
+  "examples_with_alternative": 161,
+  "mean_candidate_orders": 2.25,
+  "scientific_role": "consumed-development oracle ceiling for DP-consistent causal swaps rendered as legal add-only orders",
+  "strict_dp_consistent_single_swap_add_only_oracle": {
+    "complete": 291,
+    "mean_regret_feasible": 0.012867184561011914,
+    "per_anchor": {
+      "0.6": {
+        "examples": 300,
+        "successes": 300
+      },
+      "0.7": {
+        "examples": 300,
+        "successes": 300
+      },
+      "0.8": {
+        "examples": 300,
+        "successes": 300
+      },
+      "0.9": {
+        "examples": 300,
+        "successes": 291
+      },
+      "0.95": {
+        "examples": 234,
+        "successes": 234
+      }
+    }
+  }
+}

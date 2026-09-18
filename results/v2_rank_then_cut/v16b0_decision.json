@@ -1,0 +1,45 @@
+{
+  "decision": "GO_V16B_BOUNDARY_FOCUSED_MODEL_DESIGN",
+  "complete": true,
+  "raw_boundary_gate_passed": true,
+  "safety_correction": "Do not train on every immediate safe crossing. Only retain causal preferences where preferred_add is exact-DP optimal and deferred_add is not exact-DP optimal at the causal predecessor.",
+  "strict_train_labels": 3520,
+  "strict_train_predecessor_states": 3304,
+  "strict_internal_validation_labels": 357,
+  "strict_validation_pattern_coverage": 0.9215686274509803,
+  "strict_add_only_oracle": {
+    "complete": 291,
+    "mean_regret_feasible": 0.012867184561011914,
+    "per_anchor": {
+      "0.6": {
+        "examples": 300,
+        "successes": 300
+      },
+      "0.7": {
+        "examples": 300,
+        "successes": 300
+      },
+      "0.8": {
+        "examples": 300,
+        "successes": 300
+      },
+      "0.9": {
+        "examples": 300,
+        "successes": 291
+      },
+      "0.95": {
+        "examples": 234,
+        "successes": 234
+      }
+    }
+  },
+  "interpretation": "The feasibility hypothesis survives only with the DP-consistency filter. All predecessor states were already present in V9 on-policy supervision, so the new causal information is a boundary-focused sampling/reweighting scheme rather than new action-value labels. This is a controlled correction to V9 supervision dilution, not a new generic advantage objective.",
+  "authorized_next_step": "Design and preregister one V16-B boundary-focused progressive-policy experiment using add-only deployment, set-valued DP targets, the 3,304 strict boundary states, and matched non-boundary replay to prevent regressions.",
+  "not_authorized": [
+    "training on all 31,050 unfiltered causal labels",
+    "online swap/drop actions",
+    "fresh confirmation",
+    "learned cutoff"
+  ],
+  "confirmation_or_calibration_used": false
+}

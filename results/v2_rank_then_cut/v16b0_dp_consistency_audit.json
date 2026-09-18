@@ -1,0 +1,17 @@
+{
+  "train": {
+    "all_causal_labels": 31050,
+    "strict_dp_consistent_labels": 3520,
+    "strict_fraction": 0.11336553945249597,
+    "unique_predecessor_states": 3304,
+    "strict_patterns": 702
+  },
+  "internal_validation": {
+    "all_causal_labels": 3104,
+    "strict_dp_consistent_labels": 357,
+    "strict_fraction": 0.11501288659793814,
+    "unique_predecessor_states": 326,
+    "strict_patterns": 192
+  },
+  "validation_strict_pattern_coverage": 0.9215686274509803
+}

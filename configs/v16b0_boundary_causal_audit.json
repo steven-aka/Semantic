@@ -1,0 +1,46 @@
+{
+  "protocol": "v16b0_boundary_causal_data_feasibility_audit",
+  "status": "APPROVED_TO_RUN",
+  "date": "2026-09-18 Asia/Shanghai",
+  "hypothesis": "Mining safe fidelity crossings and backtracking one-swap repairs to their causal predecessor produces materially denser and better-covered supervision than V9 while preserving add-only deployment.",
+  "arguments": {
+    "train_data": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+    "validation_data": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl",
+    "orders": "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl",
+    "fixed_v9": "results/v2_rank_then_cut/v9_probe_train3163_cost_supervision.jsonl",
+    "on_policy_v9": "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "development_data": "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl",
+    "development_orders": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl",
+    "development_v8_details": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl",
+    "output": "results/v2_rank_then_cut/v16b0_boundary_causal_audit.json",
+    "details": "results/v2_rank_then_cut/v16b0_boundary_causal_details.jsonl",
+    "workers": 12
+  },
+  "frozen": {
+    "deployment_actions": "add-only",
+    "swap_role": "oracle diagnostic and causal backtracking only",
+    "target": "five-anchor crossing vector plus existing exact DP cost-to-go",
+    "model_training": false,
+    "development_role": "consumed oracle ceiling only",
+    "fresh_confirmation": "closed"
+  },
+  "feasibility_gate": {
+    "boundary_positive_density_vs_v15_pair_repairs": "at least 10x 115/11452",
+    "validation_causal_pattern_coverage": 0.6666666666666666,
+    "restricted_add_only_oracle_fidelity_0.90_successes": 286,
+    "if_pass": "AUTHORIZE_V16B_BOUNDARY_PROGRESSIVE_MODEL_DESIGN",
+    "if_fail": "STOP_BOUNDARY_CAUSAL_SUPERVISION"
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e",
+    "results/v2_rank_then_cut/v9_probe_train3163_cost_supervision.jsonl": "b2b9f2a011df3eb6690f0c7e2bb17e11c147d00b5c50fc6a8f9e9778c82a05b0",
+    "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl": "db3aded10e52ea4c825b16c0b7ac926f96b8149d9da121a904a407ba60297564",
+    "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15",
+    "src/evaluation/v16b_boundary_causal_audit.py": "c3ad7dfcd44aec2f29390dba967807a758805df351fb0c2b1bc3c78b848ff9b3"
+  },
+  "confirmation_or_calibration_used": false
+}

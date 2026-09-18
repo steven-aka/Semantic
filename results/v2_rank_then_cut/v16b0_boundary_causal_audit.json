@@ -1,0 +1,105 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+    "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15",
+    "results/v2_rank_then_cut/v9_probe_train3163_cost_supervision.jsonl": "b2b9f2a011df3eb6690f0c7e2bb17e11c147d00b5c50fc6a8f9e9778c82a05b0",
+    "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl": "db3aded10e52ea4c825b16c0b7ac926f96b8149d9da121a904a407ba60297564",
+    "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e"
+  },
+  "comparison_to_v9": {
+    "note": "V9 already supplied cost-to-go advantages; V16-B novelty requires materially denser fidelity-crossing causal labels, not another advantage loss.",
+    "v9_on_policy_deployed_states": 37956,
+    "v9_on_policy_lost_anchor_action_fraction": 0.009063125724523132
+  },
+  "complete": true,
+  "confirmation_or_calibration_used": false,
+  "consumed_development300_ceiling": {
+    "baseline": {
+      "complete": 273,
+      "mean_regret_feasible": 0.027927953196976888,
+      "per_anchor": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      }
+    },
+    "mean_candidate_orders": 13.15,
+    "restricted_single_swap_add_only_oracle": {
+      "complete": 299,
+      "mean_regret_feasible": 0.01338278115467267,
+      "per_anchor": {
+        "0.6": {
+          "examples": 300,
+          "successes": 300
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 300
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 300
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 299
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 234
+        }
+      }
+    }
+  },
+  "internal_validation300": {
+    "boundary_positive_density": 0.4622222222222222,
+    "boundary_positive_states": 1664,
+    "deployed_prefix_states": 3600,
+    "examples": 300,
+    "fixed_v8_pool_coverage": 0.34536082474226804,
+    "mean_optimal_action_count": 2.5705541237113403,
+    "preferred_is_dp_optimal_fraction": 0.1958762886597938,
+    "safe_add_actions": 4829,
+    "safe_swap_actions": 4369,
+    "states_with_safe_add": 1557,
+    "states_with_safe_swap": 470,
+    "unique_causal_predecessor_labels": 3104,
+    "v9_on_policy_coverage": 1.0
+  },
+  "scientific_role": "V16-B0 boundary-causal data feasibility audit; development is consumed and oracle-only",
+  "train2863": {
+    "boundary_positive_density": 0.45796949586680635,
+    "boundary_positive_states": 15734,
+    "deployed_prefix_states": 34356,
+    "examples": 2863,
+    "fixed_v8_pool_coverage": 0.36193236714975846,
+    "mean_optimal_action_count": 2.573268921095008,
+    "preferred_is_dp_optimal_fraction": 0.19249597423510467,
+    "safe_add_actions": 46233,
+    "safe_swap_actions": 43678,
+    "states_with_safe_add": 14765,
+    "states_with_safe_swap": 4684,
+    "unique_causal_predecessor_labels": 31050,
+    "v9_on_policy_coverage": 1.0
+  },
+  "validation_causal_pattern_coverage_from_train": 0.9871134020618557
+}
