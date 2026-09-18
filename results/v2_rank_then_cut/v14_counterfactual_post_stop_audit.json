@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "scientific_role": "V14 post-stop counterfactual audit on frozen candidates; development is consumed and diagnostic only",
+  "roles": {
+    "train2863": {
+      "queries": 2863,
+      "pair_classes": {
+        "both_success": 10476,
+        "both_fail": 765,
+        "repair": 115,
+        "break": 96
+      },
+      "queries_with_repair": 96,
+      "repair_query_groups": {
+        "wikitables_composition": 53,
+        "wikidata_intersection": 6,
+        "wikidata_simple": 37
+      }
+    },
+    "internal_validation300": {
+      "queries": 300,
+      "pair_classes": {
+        "both_success": 1106,
+        "break": 10,
+        "both_fail": 78,
+        "repair": 6
+      },
+      "queries_with_repair": 6,
+      "repair_query_groups": {
+        "wikitables_composition": 3,
+        "wikidata_simple": 3
+      },
+      "switch_classes": {
+        "both_success": 134,
+        "both_fail": 4,
+        "repair": 1
+      },
+      "switches": 139,
+      "selected_repairs": 1,
+      "repair_recall": 0.16666666666666666,
+      "best_repair_score_rank_histogram": {
+        "1": 1,
+        "4": 4,
+        "3": 1
+      },
+      "repair_candidate_score_margin_vs_fallback": [
+        -0.022469520568847656,
+        -2.2320356369018555,
+        -2.2085161209106445,
+        -0.181243896484375,
+        -2.368786573410034,
+        -1.2643651962280273
+      ]
+    },
+    "development300": {
+      "queries": 300,
+      "pair_classes": {
+        "both_success": 1092,
+        "break": 16,
+        "both_fail": 83,
+        "repair": 9
+      },
+      "queries_with_repair": 9,
+      "repair_query_groups": {
+        "wikitables_composition": 9
+      },
+      "switch_classes": {
+        "both_success": 145,
+        "both_fail": 2,
+        "repair": 1
+      },
+      "switches": 148,
+      "selected_repairs": 1,
+      "repair_recall": 0.1111111111111111,
+      "best_repair_score_rank_histogram": {
+        "4": 7,
+        "1": 1,
+        "3": 1
+      },
+      "repair_candidate_score_margin_vs_fallback": [
+        -1.1104998588562012,
+        0.010846138000488281,
+        -2.011488437652588,
+        -0.7380375862121582,
+        -2.509788990020752,
+        -0.33692073822021484,
+        -2.748298406600952,
+        -2.1006052494049072,
+        -0.8596267700195312
+      ]
+    }
+  },
+  "conclusion": "V14 distinguishes destructive switches but assigns most repair candidates scores far below fallback. Explicit counterfactual difference representation and query/class-balanced repair verification have scientific support for one bounded V15 test."
+}
