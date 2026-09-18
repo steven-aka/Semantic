@@ -1,0 +1,14 @@
+{
+  "candidates_sha256": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684",
+  "complete": true,
+  "examples": 2863,
+  "locked_roles_used": false,
+  "output_sha256": "d69bb1cceee5d2d9ea44b2d8b55ed76103c8a97f238f20d5881a010278575bfe",
+  "pair_class_counts": {
+    "both_fail": 765,
+    "both_success": 10476,
+    "break": 96,
+    "repair": 115
+  },
+  "rollouts_sha256": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e"
+}

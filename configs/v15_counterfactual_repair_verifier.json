@@ -1,0 +1,72 @@
+{
+  "protocol": "v15_frozen_v13_top4_counterfactual_repair_verifier",
+  "status": "APPROVED_TO_RUN",
+  "date": "2026-09-18 Asia/Shanghai",
+  "hypothesis": "Explicit candidate-versus-matched-V8-prefix evidence differences can identify rare repairs without accepting breaks.",
+  "arguments": {
+    "train_data": "results/v2_rank_then_cut/v15_train2863_counterfactual_pairs.jsonl",
+    "train_cache": "results/v2_rank_then_cut/v14_train2863_v13_embeddings.pt",
+    "output_dir": "results/v2_rank_then_cut/v15_counterfactual_repair_verifier_seed20260918",
+    "steps": 300,
+    "batch_size": 128,
+    "lr": 0.0001,
+    "seed": 20260918
+  },
+  "frozen": {
+    "candidate_generator": "V8 fallback plus frozen V13 step300 top-4 projections",
+    "trainable_component": "counterfactual verifier only",
+    "folds": 5,
+    "fold_assignment": "stable label-stratified assignment on train2863",
+    "class_target": [
+      "both_fail",
+      "repair",
+      "break",
+      "both_success"
+    ],
+    "continuous_target": "candidate minus fallback maximum fidelity over the complete projected trajectory",
+    "risk_multiplier_grid": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "decision_threshold_grid": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "rule_selection": "OOF train2863 only; require no aggregate regression at all anchors and complete, then maximize 0.90 successes, complete, and minimize switches",
+    "internal_validation": "diagnostic only after rule freeze",
+    "development_access": "once after all models and rule freeze"
+  },
+  "development_gate": {
+    "fidelity_0.90_successes": 282,
+    "complete_trajectory_fraction": 0.9,
+    "mean_feasible_regret": 0.03,
+    "other_anchors": "no material regression from V8 fallback",
+    "if_pass": "GO_MULTI_ANCHOR_CUTOFF_DEVELOPMENT",
+    "if_fail": "STOP_FIXED_REPRESENTATION_SELECTOR_VERIFIER_FAMILY"
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v15_train2863_counterfactual_pairs.jsonl": "d69bb1cceee5d2d9ea44b2d8b55ed76103c8a97f238f20d5881a010278575bfe",
+    "results/v2_rank_then_cut/v14_train2863_v13_embeddings.pt": "b941b71cb92e05f3b476d63e93d9a32e49f9e7cc29794912b5d0cf88673cd012",
+    "results/v2_rank_then_cut/v15_internal_validation300_counterfactual_pairs.jsonl": "9b6ee77ce2a28825cbf7cd7954a4bcae14d1f9141d73d55b788211b88f0635e1",
+    "results/v2_rank_then_cut/v14_internal_validation300_v13_embeddings.pt": "983dcaa68d445be3c99688732b3271308508a9ada58c5b82851f57647600819b",
+    "results/v2_rank_then_cut/v15_development300_counterfactual_pairs.jsonl": "d68770c36c7a217def0808bb05b1411228399caef1bcce3b8a5b8ef3e039e17c",
+    "results/v2_rank_then_cut/v13_joint_retriever_seed20260918/development300_embeddings.pt": "9d629c8b9dd365d497e3f3272cb6bee4352438f734c2859cafd741b931220390",
+    "src/data/build_v15_counterfactual_pairs.py": "d645f64774a8c47a311ab73969b7595c65c22dfcd34bb0eabf6d69299a03a85f",
+    "src/model/counterfactual_repair_verifier.py": "3a37b83a7bf4a94fa31ee1e8f85d45efecc725ab445fe2ef6edf7d6dc04a7d5d",
+    "src/training/train_v15_counterfactual_repair_verifier.py": "6fc9c27e79f3d934c3691f54c545f67f08bf8a8f413066feee0eddd831d7d9ba",
+    "src/evaluation/evaluate_v15_counterfactual_repair_verifier.py": "a2ee49a3679ac40b7b72e9fc2d0ebffaee530b97efdd881c5853c2cab0294488",
+    "tests/test_counterfactual_repair_verifier.py": "249c654f64ad57605d5c776b0da01046f4c594b49a39fcf15e243a2b1997a217"
+  },
+  "confirmation_or_calibration_used": false
+}

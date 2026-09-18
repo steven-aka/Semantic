@@ -1,0 +1,64 @@
+{
+  "fallback": {
+    "complete": 2582,
+    "per_anchor": [
+      {
+        "examples": 2863,
+        "successes": 2840
+      },
+      {
+        "examples": 2863,
+        "successes": 2828
+      },
+      {
+        "examples": 2863,
+        "successes": 2807
+      },
+      {
+        "examples": 2863,
+        "successes": 2643
+      },
+      {
+        "examples": 2248,
+        "successes": 2174
+      }
+    ],
+    "switches": 0
+  },
+  "oof_summary": {
+    "complete": 2591,
+    "per_anchor": [
+      {
+        "examples": 2863,
+        "successes": 2840
+      },
+      {
+        "examples": 2863,
+        "successes": 2828
+      },
+      {
+        "examples": 2863,
+        "successes": 2807
+      },
+      {
+        "examples": 2863,
+        "successes": 2655
+      },
+      {
+        "examples": 2248,
+        "successes": 2176
+      }
+    ],
+    "switches": 339
+  },
+  "risk_multiplier": 2.0,
+  "selection_key": [
+    1,
+    2655,
+    2591,
+    -339,
+    2.0,
+    0.2
+  ],
+  "threshold": 0.2
+}

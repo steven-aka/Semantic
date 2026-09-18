@@ -1,0 +1,72 @@
+{
+  "decision": "STOP_FIXED_REPRESENTATION_SELECTOR_VERIFIER_FAMILY",
+  "gate_passed": false,
+  "gate_checks": {
+    "fidelity_0.90_successes": false,
+    "complete_trajectory_fraction": true,
+    "mean_feasible_regret": true,
+    "other_anchors_no_regression": false
+  },
+  "development_baseline": {
+    "per_level": {
+      "0.6": {
+        "successes": 298,
+        "examples": 300
+      },
+      "0.7": {
+        "successes": 298,
+        "examples": 300
+      },
+      "0.8": {
+        "successes": 295,
+        "examples": 300
+      },
+      "0.9": {
+        "successes": 277,
+        "examples": 300
+      },
+      "0.95": {
+        "successes": 230,
+        "examples": 234
+      }
+    },
+    "complete_trajectory_successes": 273
+  },
+  "development_result": {
+    "complete_trajectory_success_fraction": 0.91,
+    "complete_trajectory_successes": 273,
+    "feasible_examples": 273,
+    "mean_normalized_regret_feasible": 0.028701325136676895,
+    "per_level": {
+      "0.6": {
+        "examples": 300,
+        "successes": 298
+      },
+      "0.7": {
+        "examples": 300,
+        "successes": 296
+      },
+      "0.8": {
+        "examples": 300,
+        "successes": 294
+      },
+      "0.9": {
+        "examples": 300,
+        "successes": 279
+      },
+      "0.95": {
+        "examples": 234,
+        "successes": 228
+      }
+    }
+  },
+  "switches": 24,
+  "selected_pair_classes": {
+    "repair": 2,
+    "break": 0,
+    "both_success": 20,
+    "both_fail": 2
+  },
+  "interpretation": "V15 improved its frozen V8 fallback at 0.90 from 277 to 279, but remained 3 below the preregistered 282 threshold and regressed by 2, 1, and 2 successes at 0.70, 0.80, and 0.95. Rare repair identification did not generalize sufficiently; fixed V13 representations and top-4 candidates no longer justify another selector/verifier variant.",
+  "next_step": "Change the upstream representation/candidate-generation information or research a different compression mechanism before any learned cutoff. Do not tune this V15 rule on consumed development data."
+}

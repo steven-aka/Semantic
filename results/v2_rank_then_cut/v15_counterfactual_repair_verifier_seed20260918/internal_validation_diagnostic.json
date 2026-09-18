@@ -1,0 +1,66 @@
+{
+  "complete": true,
+  "fallback": {
+    "complete": 274,
+    "per_anchor": [
+      {
+        "examples": 300,
+        "successes": 296
+      },
+      {
+        "examples": 300,
+        "successes": 295
+      },
+      {
+        "examples": 300,
+        "successes": 294
+      },
+      {
+        "examples": 300,
+        "successes": 279
+      },
+      {
+        "examples": 243,
+        "successes": 238
+      }
+    ],
+    "switches": 0
+  },
+  "result": {
+    "complete": 275,
+    "per_anchor": [
+      {
+        "examples": 300,
+        "successes": 296
+      },
+      {
+        "examples": 300,
+        "successes": 295
+      },
+      {
+        "examples": 300,
+        "successes": 294
+      },
+      {
+        "examples": 300,
+        "successes": 279
+      },
+      {
+        "examples": 243,
+        "successes": 239
+      }
+    ],
+    "switches": 19
+  },
+  "rule": {
+    "risk_multiplier": 2.0,
+    "threshold": 0.2
+  },
+  "scientific_role": "post-freeze internal-validation diagnostic; not used for model or rule selection",
+  "selected_pair_classes": {
+    "both_fail": 1,
+    "both_success": 18,
+    "break": 0,
+    "repair": 0
+  }
+}

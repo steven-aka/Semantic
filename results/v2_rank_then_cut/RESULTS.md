@@ -667,3 +667,34 @@ net improvement over the 277 fallback and four fewer successes than the frozen
 selector and fresh confirmation remains closed. The top-four oracle ceiling of
 286 remains a candidate-space diagnostic, but V11 and V14 now independently
 show that available learned selectors cannot realize enough of it.
+
+## V15 counterfactual repair verifier
+
+V15 was the preregistered final test of a selector on the frozen V13 top-four
+candidate space. Unlike V14, it represented each candidate relative to the V8
+prefix with the same packet count: candidate evidence, matched-prefix evidence,
+added evidence, removed evidence, and their interactions. The verifier learned
+four explicit outcomes (`repair`, `break`, `both_success`, and `both_fail`) plus
+the change in maximum trajectory fidelity. Five-fold out-of-fold predictions
+on train2863 alone selected a frozen conservative rule with break risk multiplier
+2.0 and threshold 0.2; neither internal validation nor development was used to
+fit the rule.
+
+The out-of-fold estimate improved fidelity 0.90 by 12 examples without aggregate
+regression, but this did not generalize. On the post-freeze internal validation,
+none of six available repairs was selected. On consumed development300, V15
+made 24 switches: two repairs, zero breaks at fidelity 0.90, twenty
+`both_success` selections, and two `both_fail` selections. It improved the
+frozen fallback from 277 to 279 at fidelity 0.90, while decreasing successes by
+2 at fidelity 0.70, by 1 at 0.80, and by 2 at 0.95. It retained 273/300 complete
+trajectories (0.91) and 0.02870 feasible normalized regret.
+
+The formal decision is `STOP_FIXED_REPRESENTATION_SELECTOR_VERIFIER_FAMILY`.
+V15 is three examples below the 282 target and also violates the other-anchor
+no-regression condition. No threshold is retuned on development, no learned
+cutoff is trained from this endpoint, and fresh confirmation remains closed.
+The top-four oracle ceiling remains real, but V11, V14, and V15 now show that
+the fixed V13 representation does not expose enough information to identify
+the rare repair decisions reliably. Further work must change upstream
+representation or candidate construction, or test a different compression
+mechanism, rather than add another selector loss or head to this candidate set.
