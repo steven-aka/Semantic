@@ -1,0 +1,28 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v16b0_boundary_causal_details.jsonl": "c7c96217b5c4d75a91a41695d30c991c1fa7dd9a7222351df09f52771c1f1dfb",
+    "results/v2_rank_then_cut/v16b1_internal_validation300_boundary_replay.jsonl": "44643d3923ad78b48fb35643eb51c57b0e4b0abd0e5b4938199688714f9f9170",
+    "results/v2_rank_then_cut/v16b1_train2863_boundary_replay.jsonl": "6ef511bc7535bafe01b7a69bb65b519510bc4dbbed7e5bc39e02984a00345c2c",
+    "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl": "db3aded10e52ea4c825b16c0b7ac926f96b8149d9da121a904a407ba60297564",
+    "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e"
+  },
+  "complete": true,
+  "locked_roles_used": false,
+  "sampling_contract": "each optimizer step: four uniformly sampled boundary queries x 44 boundary states plus four uniformly sampled all-train retention queries x 44 matched-correct states; within-query sampling uniform with replacement",
+  "train": {
+    "boundary_states": 3304,
+    "queries": 2863,
+    "queries_with_boundary": 1431,
+    "queries_with_retention": 2863,
+    "retention_states": 28111
+  },
+  "validation": {
+    "boundary_states": 326,
+    "queries": 300,
+    "queries_with_boundary": 146,
+    "queries_with_retention": 300,
+    "retention_states": 2944
+  }
+}

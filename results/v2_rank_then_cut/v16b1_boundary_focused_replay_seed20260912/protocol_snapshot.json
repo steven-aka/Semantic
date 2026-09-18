@@ -1,0 +1,64 @@
+{
+  "arguments": {
+    "batch_size": 8,
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "development_data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "internal_validation_data": "results/v2_rank_then_cut/v16b1_internal_validation300_boundary_replay.jsonl",
+    "learning_rate": 0.0002,
+    "max_optimizer_steps": 250,
+    "max_sequence_length": 512,
+    "model": "models/Qwen3-4B",
+    "model_dim": 512,
+    "output_dir": "results/v2_rank_then_cut/v16b1_boundary_focused_replay_seed20260912",
+    "progress_weight": 0.2,
+    "seed": 20260912,
+    "train_data": "results/v2_rank_then_cut/v16b1_train2863_boundary_replay.jsonl",
+    "warmup_steps": 25,
+    "weight_decay": 0.01
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v16b1_boundary_replay_manifest.json": "aa71e2de49b8d7d41e4c3a08e9cfc19208a425412a5fd39fcbd2b60fbe5f2c81",
+    "results/v2_rank_then_cut/v16b1_internal_validation300_boundary_replay.jsonl": "44643d3923ad78b48fb35643eb51c57b0e4b0abd0e5b4938199688714f9f9170",
+    "results/v2_rank_then_cut/v16b1_train2863_boundary_replay.jsonl": "6ef511bc7535bafe01b7a69bb65b519510bc4dbbed7e5bc39e02984a00345c2c",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/training_metadata.json": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+    "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+    "src/data/build_v16b1_boundary_replay.py": "998d59e1fdcb1b1522ddf30d9e1ee95a6987f739b65b7320412957f1bbb09512",
+    "src/training/train_v16b1_boundary_replay.py": "6cdc95b888e99d77285811bbc676805f9b20fcff88c3ac1501efaebdbb56d21a",
+    "tests/test_v16b1_boundary_replay.py": "b6bcd9a6ab1e62861dff17c7566f3807bb0893f47d42a921abb816c9a33c53f0"
+  },
+  "confirmation_or_calibration_used": false,
+  "controlled_change": {
+    "boundary_mass": 0.5,
+    "boundary_sampling": "uniform query among 1431 boundary queries, then uniform strict state with replacement",
+    "histories_per_query": 44,
+    "only_scientific_variable": "training sampling distribution",
+    "retention_mass": 0.5,
+    "retention_sampling": "uniform query among all 2863 train queries, then current-policy-correct state matched to boundary depth and reached-level count"
+  },
+  "date": "2026-09-18 Asia/Shanghai",
+  "development_gate": {
+    "0.60_successes": 298,
+    "0.70_successes": 298,
+    "0.80_successes": 295,
+    "0.90_successes": 282,
+    "0.95_successes": 230,
+    "complete_trajectories": 273,
+    "if_fail": "STOP_RATIO_TUNING_AND_RUN_FIRST_DIVERGENCE_ATTRIBUTION",
+    "if_pass": "GO_MULTI_ANCHOR_CUTOFF_DEVELOPMENT",
+    "mean_feasible_regret": 0.03
+  },
+  "frozen": {
+    "backbone_and_lora": "frozen",
+    "decoder": "beam8 add-only",
+    "development_access": "once at fixed endpoint with oracle cutoff",
+    "endpoint": "fixed final step250 only; no checkpoint selection",
+    "initialization": "V8 step250",
+    "loss": "unchanged V9-B set-valued action cross-entropy plus 0.2 progress",
+    "optimizer": "AdamW, lr 2e-4, weight decay .01, warmup25 cosine",
+    "trainable": "complete sequential head only"
+  },
+  "hypothesis": "V9-B underweighted rare DP-consistent fidelity-boundary states; changing only their sampling mass can improve add-only trajectories without losing retained correct decisions.",
+  "protocol": "v16b1_dp_consistent_boundary_focused_replay",
+  "status": "APPROVED_TO_RUN"
+}

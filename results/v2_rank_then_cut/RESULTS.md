@@ -771,3 +771,33 @@ counterfactual swap crosses a fidelity boundary. The formal decision is
 use these 3,304 states with matched non-boundary replay and set-valued DP action
 targets. Unfiltered causal labels, online swap/drop, learned cutoff, and fresh
 confirmation remain closed.
+
+## V16-B1 DP-consistent boundary-focused replay
+
+V16-B1 isolated the sampling-distribution hypothesis against V9-B. It reused
+V8 step250 initialization, froze the backbone and LoRA, trained only the
+unchanged sequential head for the same 250 steps with the same optimizer and
+set-valued loss, and retained beam-eight add-only decoding. Each optimizer step
+kept the V9-B effective size of eight queries and 44 histories per query: half
+came from query-balanced strict boundary states and half from all-train-query
+current-policy-correct retention states matched by depth and reached level.
+Only the fixed step250 endpoint was evaluated.
+
+The intervention failed. It reached 273/300 at fidelity 0.90, 267/300 complete
+trajectories (0.89), and 0.02800 feasible normalized regret. Relative to V8 it
+repaired one 0.90 failure and broke five successes, for a net loss of four.
+It also fell below the frozen floors at 0.70 (297), 0.80 (293), and 0.95
+(227/234). Relative to V9-B it repaired one and broke three, for a net loss of
+two. Internal-validation top-one set accuracy was 30.98% on strict boundary
+states and 89.27% on retention states.
+
+The post-stop first-divergence audit explains the failure. Mean first-divergence
+depth remained 2.96 versus V8's 3.00, and median oracle-compatible beam
+extinction stayed at depth five. None of the 27 V16-B1 fidelity-0.90 failure
+queries had its actual first-divergence history in the strict boundary pool.
+Thus V16-B0's 92.16% coarse structural-pattern coverage did not imply coverage
+of the deployment states that caused failure. The formal decision is
+`STOP_BOUNDARY_REPLAY_RATIO_TUNING`; no alternative replay ratio, learned
+cutoff, or fresh confirmation is opened. Any further policy work must redefine
+boundary mining around train-role deployed first divergences and demonstrate
+direct heldout first-divergence coverage before training.

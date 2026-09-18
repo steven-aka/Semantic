@@ -1,0 +1,119 @@
+{
+  "decision": "STOP_BOUNDARY_REPLAY_RATIO_TUNING",
+  "gate_passed": false,
+  "gate_checks": {
+    "0.60": true,
+    "0.70": false,
+    "0.80": false,
+    "0.90": false,
+    "0.95": false,
+    "complete": false,
+    "regret": true
+  },
+  "development": {
+    "complete": true,
+    "decoder": "history-aware sequential policy beam width 8",
+    "examples": 300,
+    "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.028000751421116018,
+    "oracle_cutoff_active_contract_success_fraction": 0.9686192468619247,
+    "oracle_cutoff_all_active_contracts_success_fraction": 0.89,
+    "oracle_cutoff_feasible_trajectory_examples": 267,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9966666666666667,
+        "contract_successes": 299,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03228227735617007
+      },
+      "0.7": {
+        "contract_success_fraction": 0.99,
+        "contract_successes": 297,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.0373450371107724
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9766666666666667,
+        "contract_successes": 293,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.045611937685889954
+      },
+      "0.9": {
+        "contract_success_fraction": 0.91,
+        "contract_successes": 273,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03254969611450095
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9700854700854701,
+        "contract_successes": 227,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.005718053253205809
+      }
+    },
+    "validation_action_loss": 0.4916785484866092,
+    "validation_progress_loss": 0.16145004586953865,
+    "validation_set_action_accuracy": 0.8099300986842105
+  },
+  "internal_validation": {
+    "boundary": {
+      "action_loss": 1.5145188427410243,
+      "states": 326,
+      "top1_set_accuracy": 0.3098159509202454
+    },
+    "retention": {
+      "action_loss": 0.32863356701968965,
+      "states": 2944,
+      "top1_set_accuracy": 0.8926630434782609
+    }
+  },
+  "relative_to_v8_0.90": {
+    "repairs": 1,
+    "breaks": 5,
+    "net": -4
+  },
+  "relative_to_v9b_0.90": {
+    "repairs": 1,
+    "breaks": 3,
+    "net": -2
+  },
+  "first_divergence": {
+    "artifacts": {
+      "checkpoint": "results/v2_rank_then_cut/v16b1_boundary_focused_replay_seed20260912/audit_checkpoint",
+      "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+      "data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+      "data_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+      "details": "results/v2_rank_then_cut/v16b1_boundary_focused_replay_seed20260912/development_details.jsonl",
+      "details_sha256": "7b8c1988856d803e2943a8fb3cb73cef4e0dda4ad67581686d43d987c9ad16f1",
+      "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+      "locked_roles_used": false
+    },
+    "beam": {
+      "mean_extinction_depth": 4.846153846153846,
+      "median_extinction_depth": 5.0,
+      "oracle_consistent_path_extinguished": 26,
+      "oracle_consistent_path_survives_to_depth12": 1
+    },
+    "complete": true,
+    "decoded_prefix_fixed_pool_coverage_fraction": 0.1882716049382716,
+    "examples": 27,
+    "examples_with_nonoptimal_decoded_action": 27,
+    "first_divergence": {
+      "fixed_pool_covered": 10,
+      "immediately_loses_reachable_anchor": 5,
+      "mean_depth": 2.962962962962963,
+      "mean_optimal_best_rank": 2.3333333333333335,
+      "mean_optimal_probability_mass": 0.33286045433056577,
+      "median_depth": 3,
+      "median_optimal_best_rank": 2,
+      "median_optimal_probability_mass": 0.2948867380619049,
+      "optimal_best_rank_gt8": 0,
+      "optimal_in_local_top8": 27
+    }
+  },
+  "failed_query_first_divergences_in_strict_boundary_pool": 0,
+  "failed_queries": 27,
+  "interpretation": "Boundary-focused replay increased optimization mass on the intended train states but did not move first causal divergence on development failures: none of 27 failed-query first-divergence histories belongs to the strict boundary pool. Optimal-action mass rose modestly, while failures and cross-anchor regressions increased. Structural pattern coverage was therefore not deployment-state coverage.",
+  "next_step": "Do not tune the 50:50 ratio. Redefine boundary mining around actual first-divergence/recovery states using train-only deployed failures, then require direct heldout first-divergence coverage before another policy training run.",
+  "fresh_confirmation_opened": false,
+  "learned_cutoff_opened": false
+}

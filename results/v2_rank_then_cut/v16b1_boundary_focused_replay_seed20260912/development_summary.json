@@ -1,0 +1,44 @@
+{
+  "complete": true,
+  "decoder": "history-aware sequential policy beam width 8",
+  "examples": 300,
+  "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.028000751421116018,
+  "oracle_cutoff_active_contract_success_fraction": 0.9686192468619247,
+  "oracle_cutoff_all_active_contracts_success_fraction": 0.89,
+  "oracle_cutoff_feasible_trajectory_examples": 267,
+  "per_level": {
+    "0.6": {
+      "contract_success_fraction": 0.9966666666666667,
+      "contract_successes": 299,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.03228227735617007
+    },
+    "0.7": {
+      "contract_success_fraction": 0.99,
+      "contract_successes": 297,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.0373450371107724
+    },
+    "0.8": {
+      "contract_success_fraction": 0.9766666666666667,
+      "contract_successes": 293,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.045611937685889954
+    },
+    "0.9": {
+      "contract_success_fraction": 0.91,
+      "contract_successes": 273,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.03254969611450095
+    },
+    "0.95": {
+      "contract_success_fraction": 0.9700854700854701,
+      "contract_successes": 227,
+      "examples": 234,
+      "mean_rate_regret_normalized_successful": 0.005718053253205809
+    }
+  },
+  "validation_action_loss": 0.4916785484866092,
+  "validation_progress_loss": 0.16145004586953865,
+  "validation_set_action_accuracy": 0.8099300986842105
+}

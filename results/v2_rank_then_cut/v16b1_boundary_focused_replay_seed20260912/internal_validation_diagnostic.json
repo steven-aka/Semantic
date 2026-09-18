@@ -1,0 +1,12 @@
+{
+  "boundary": {
+    "action_loss": 1.5145188427410243,
+    "states": 326,
+    "top1_set_accuracy": 0.3098159509202454
+  },
+  "retention": {
+    "action_loss": 0.32863356701968965,
+    "states": 2944,
+    "top1_set_accuracy": 0.8926630434782609
+  }
+}

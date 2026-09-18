@@ -1,0 +1,34 @@
+{
+  "artifacts": {
+    "checkpoint": "results/v2_rank_then_cut/v16b1_boundary_focused_replay_seed20260912/audit_checkpoint",
+    "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+    "data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+    "data_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+    "details": "results/v2_rank_then_cut/v16b1_boundary_focused_replay_seed20260912/development_details.jsonl",
+    "details_sha256": "7b8c1988856d803e2943a8fb3cb73cef4e0dda4ad67581686d43d987c9ad16f1",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "locked_roles_used": false
+  },
+  "beam": {
+    "mean_extinction_depth": 4.846153846153846,
+    "median_extinction_depth": 5.0,
+    "oracle_consistent_path_extinguished": 26,
+    "oracle_consistent_path_survives_to_depth12": 1
+  },
+  "complete": true,
+  "decoded_prefix_fixed_pool_coverage_fraction": 0.1882716049382716,
+  "examples": 27,
+  "examples_with_nonoptimal_decoded_action": 27,
+  "first_divergence": {
+    "fixed_pool_covered": 10,
+    "immediately_loses_reachable_anchor": 5,
+    "mean_depth": 2.962962962962963,
+    "mean_optimal_best_rank": 2.3333333333333335,
+    "mean_optimal_probability_mass": 0.33286045433056577,
+    "median_depth": 3,
+    "median_optimal_best_rank": 2,
+    "median_optimal_probability_mass": 0.2948867380619049,
+    "optimal_best_rank_gt8": 0,
+    "optimal_in_local_top8": 27
+  }
+}
