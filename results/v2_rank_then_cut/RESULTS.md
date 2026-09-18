@@ -1077,3 +1077,43 @@ representation training remains unauthorized until the existing boundary
 corpus is tested for direction learnability under frozen representations.
 Development, hop two, trajectory loss, terminal reranking, continuous cost,
 learned cutoff, and confirmation remain closed.
+
+## V17-D1B frozen boundary separability audit
+
+D1B extracted the 3,650-dimensional frozen input to the viability head for
+106,986 actions in all 14,087 train-only strict 0.90 boundary states. Diagnostic
+shared scorers used state-equal sampling and antisymmetric pair differences;
+probe weights were neither saved nor used as model checkpoints. All model
+components and development remained sealed.
+
+The linear probe is locally effective but fails the preregistered cross-query
+gate. Macro-state accuracy is 0.826 under state-grouped folds and 0.820 when
+428 structural signatures are held out, but falls to 0.766 under the stricter
+example-grouped split, below the frozen 0.80 threshold. Query-balanced sampling
+does not repair this result (0.765). A matched-capacity nonlinear diagnostic
+improves local and signature-held-out accuracy to 0.883 and 0.859, but worsens
+example-grouped accuracy to 0.732, which is consistent with query-specific
+overfitting rather than insufficient head capacity.
+
+The one-time ten-event internal confirmation also fails decisively. The linear
+probe gets 4/10 correct and preserves only three of the four events already
+correct under D1A. Query-balanced linear training remains at 4/10, while the
+matched-capacity probe reaches only 3/10. Structural support does not explain
+the failures: only 1/5 supported events is corrected, compared with 3/5 events
+without support.
+
+Frozen-feature geometry is not degenerate within individual states. Nearest
+action label consistency is 0.758, no opposite-label pair has cosine similarity
+at least 0.999, median maximum same-label cosine is 0.843 versus 0.721 for the
+nearest opposite label, and the median gap is 0.0814. Thus the representation
+contains useful local information, but it does not yield a boundary direction
+that transfers reliably across queries or to the confirmatory events.
+
+The preregistered pairwise-calibration gate fails, and signature-held-out
+performance does not support the boundary-coverage branch. The formal decision
+is `GO_V17D2_REPRESENTATION_ADAPTER_DESIGN`: design, but do not yet train, a
+minimal adapter aimed specifically at cross-query boundary invariance. Pairwise
+head training is not authorized because it would fit a representation that
+already fails example-held-out and internal transfer. Development, terminal
+reranking, hop two, learned cutoff, confirmation, and all model training remain
+closed.

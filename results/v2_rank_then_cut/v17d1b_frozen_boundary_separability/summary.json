@@ -1,0 +1,115 @@
+{
+  "action_features": 106986,
+  "artifacts": {
+    "embedding_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+    "train_sha256": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c"
+  },
+  "boundary_states": 14087,
+  "complete": true,
+  "decision": "GO_V17D2_REPRESENTATION_ADAPTER_DESIGN",
+  "feature_dim": 3650,
+  "gates": {
+    "example_grouped_linear_min": 0.8,
+    "internal_linear_min": "7/10",
+    "preserve_all_d1a_correct": true,
+    "signature_held_out_linear_min": 0.7
+  },
+  "geometry": {
+    "actions": 106986,
+    "median_max_opposite_cosine": 0.7209375500679016,
+    "median_max_same_cosine": 0.8428478240966797,
+    "median_same_minus_opposite_nearest_cosine": 0.08139944076538086,
+    "opposite_label_cosine_ge_0999": 0,
+    "opposite_label_cosine_ge_0999_fraction": 0.0,
+    "within_state_nearest_label_consistency": 0.758024414409362
+  },
+  "internal_confirmatory": {
+    "d1a_correct_events": 4,
+    "events": 10,
+    "linear_correct": 4,
+    "linear_correct_supported": 1,
+    "linear_preserved_d1a_correct": 3,
+    "matched_capacity_correct": 3,
+    "query_balanced_linear_correct": 4,
+    "query_balanced_preserved_d1a_correct": 3,
+    "supported_events": 5
+  },
+  "probe_policy": {
+    "checkpoint_deployable": false,
+    "diagnostic_only": true,
+    "epochs": 20,
+    "pair_orientation": "shared scorer difference with randomized orientation; no intercept shortcut",
+    "primary_sampling": "state equal weight",
+    "query_balanced_sensitivity": "one state per example per epoch; post-hoc diagnostic, not primary gate",
+    "weight_decay": 0.0001
+  },
+  "sealed": {
+    "all_model_training": true,
+    "confirmation": true,
+    "development": true,
+    "hop2": true,
+    "learned_cutoff": true,
+    "terminal_reranker": true
+  },
+  "splits": {
+    "example_grouped": {
+      "linear": {
+        "macro_signature_accuracy": 0.7869258613584156,
+        "macro_state_accuracy": 0.7657869817645736,
+        "margin_median": 1.6231896877288818,
+        "margin_p10": -1.082138220469157,
+        "pair_accuracy": 0.7835980418298437
+      },
+      "matched_capacity": {
+        "macro_signature_accuracy": 0.7560425997337556,
+        "macro_state_accuracy": 0.731811641819882,
+        "margin_median": 2.217318852742513,
+        "margin_p10": -2.095468759536743,
+        "pair_accuracy": 0.7495753577531534
+      }
+    },
+    "example_grouped_query_balanced": {
+      "linear": {
+        "macro_signature_accuracy": 0.7979962758562364,
+        "macro_state_accuracy": 0.7651643765131861,
+        "margin_median": 1.3619587421417236,
+        "margin_p10": -0.8716516296068827,
+        "pair_accuracy": 0.7831633122888746
+      }
+    },
+    "signature_held_out": {
+      "linear": {
+        "macro_signature_accuracy": 0.8415100047765789,
+        "macro_state_accuracy": 0.8196789202853789,
+        "margin_median": 1.8025978406270344,
+        "margin_p10": -0.5969802538553873,
+        "pair_accuracy": 0.8335443235420478
+      },
+      "matched_capacity": {
+        "macro_signature_accuracy": 0.8686607006714089,
+        "macro_state_accuracy": 0.859393130222763,
+        "margin_median": 3.0513216654459634,
+        "margin_p10": -0.4947510560353597,
+        "pair_accuracy": 0.8659778790978647
+      }
+    },
+    "state_grouped": {
+      "linear": {
+        "macro_signature_accuracy": 0.8401777727609151,
+        "macro_state_accuracy": 0.8255029869818792,
+        "margin_median": 1.7511505285898845,
+        "margin_p10": -0.5132439931233724,
+        "pair_accuracy": 0.8386379004751385
+      },
+      "matched_capacity": {
+        "macro_signature_accuracy": 0.8758750724642734,
+        "macro_state_accuracy": 0.8832955960703686,
+        "margin_median": 2.718344529469808,
+        "margin_p10": -0.14231236775716147,
+        "pair_accuracy": 0.8879898775560893
+      }
+    }
+  },
+  "training_authorized": false
+}

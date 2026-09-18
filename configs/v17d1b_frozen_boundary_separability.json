@@ -1,0 +1,13 @@
+{
+  "protocol": "v17d1b_frozen_boundary_separability_audit",
+  "status": "COMPLETE_GO_V17D2_REPRESENTATION_ADAPTER_DESIGN",
+  "date": "2026-09-19 Asia/Shanghai",
+  "data": "train2863 deployed plus one-hop strict 0.90 boundary states only",
+  "splits": ["state-grouped", "example-grouped", "signature-held-out"],
+  "probes": ["linear shared scorer", "matched-capacity diagnostic shared scorer"],
+  "folds": 3,
+  "epochs": 20,
+  "gate": {"example_grouped_linear": 0.80, "signature_held_out_linear": 0.70, "internal_confirmatory": "at least 7/10 and preserve all D1A-correct events"},
+  "probe_checkpoint_deployable": false,
+  "sealed": ["development", "backbone", "LoRA", "viability head", "terminal reranker", "hop2", "learned cutoff", "confirmation"]
+}

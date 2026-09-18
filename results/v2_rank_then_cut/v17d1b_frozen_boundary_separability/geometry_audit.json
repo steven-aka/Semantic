@@ -1,0 +1,9 @@
+{
+  "actions": 106986,
+  "median_max_opposite_cosine": 0.7209375500679016,
+  "median_max_same_cosine": 0.8428478240966797,
+  "median_same_minus_opposite_nearest_cosine": 0.08139944076538086,
+  "opposite_label_cosine_ge_0999": 0,
+  "opposite_label_cosine_ge_0999_fraction": 0.0,
+  "within_state_nearest_label_consistency": 0.758024414409362
+}

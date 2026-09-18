@@ -1,0 +1,40 @@
+{
+  "adapter_training_authorized": false,
+  "boundary_coverage_redesign_selected": false,
+  "decision": "GO_V17D2_REPRESENTATION_ADAPTER_DESIGN",
+  "decision_scope": "DESIGN_ONLY",
+  "evidence": {
+    "example_grouped_linear_macro_state_accuracy": 0.7657869817645736,
+    "example_grouped_matched_capacity_macro_state_accuracy": 0.731811641819882,
+    "example_grouped_query_balanced_linear_macro_state_accuracy": 0.7651643765131861,
+    "internal_linear_correct": "4/10",
+    "internal_linear_preserves_d1a_correct": "3/4",
+    "internal_matched_capacity_correct": "3/10",
+    "opposite_label_cosine_ge_0_999": 0,
+    "signature_held_out_linear_macro_state_accuracy": 0.8196789202853789,
+    "state_grouped_linear_macro_state_accuracy": 0.8255029869818792,
+    "within_state_nearest_label_consistency": 0.758024414409362
+  },
+  "interpretation": [
+    "The frozen representation contains useful within-state boundary information and has no observed degenerate opposite-label collisions.",
+    "The preregistered example-grouped transfer gate fails, and neither query-balanced sampling nor a matched-capacity nonlinear probe repairs it.",
+    "Strong signature-held-out performance rules out signature coverage as the selected primary branch.",
+    "Internal confirmation fails and one previously correct D1A event is reversed, so pairwise head training is not authorized."
+  ],
+  "next_required": [
+    "Freeze a minimal adapter design aimed at cross-query boundary invariance before any training.",
+    "Preregister adapter location, parameter budget, objectives, splits, and gates.",
+    "Retain the D1A conservative attainable-0.90 scoring rule and multi-anchor aggregation.",
+    "Keep development and confirmation sealed."
+  ],
+  "pairwise_calibration_authorized": false,
+  "sealed": {
+    "all_model_training": true,
+    "confirmation": true,
+    "development": true,
+    "hop2": true,
+    "learned_cutoff": true,
+    "terminal_reranker": true
+  },
+  "stage": "V17-D1B_FROZEN_BOUNDARY_SEPARABILITY_AUDIT"
+}
