@@ -1,0 +1,18 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v16b1_boundary_focused_replay_seed20260912/audit_checkpoint",
+  "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "data_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+  "details": "results/v2_rank_then_cut/v16b1_boundary_focused_replay_seed20260912/development_details.jsonl",
+  "details_sha256": "7b8c1988856d803e2943a8fb3cb73cef4e0dda4ad67581686d43d987c9ad16f1",
+  "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "locked_roles_used": false,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "v8_first_divergence_audit",
+  "timestamp_utc": "2026-09-18T08:30:30.803928+00:00"
+}
