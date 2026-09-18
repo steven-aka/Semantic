@@ -1,0 +1,12 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "data": "results/v2_rank_then_cut/v8_development300_history_supervision.jsonl",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "v8_sequential_policy_evaluation",
+  "timestamp_utc": "2026-09-17T03:07:13.991291+00:00"
+}

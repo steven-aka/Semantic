@@ -1,0 +1,6 @@
+{
+  "complete": true,
+  "peak_gpu_bytes": 38949359104,
+  "trainable_head_parameters": 5258757,
+  "trainable_lora_parameters": 33030144
+}

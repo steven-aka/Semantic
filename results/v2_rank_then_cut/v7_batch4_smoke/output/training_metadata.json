@@ -1,0 +1,31 @@
+{
+  "base_model": "models/Qwen3-4B",
+  "batch_size": 4,
+  "best_optimizer_step": 1,
+  "best_validation_loss": 0.889404296875,
+  "decoder": "unchanged exact maximum-weight total order by subset DP",
+  "elapsed_seconds": 33.37255206296686,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 2,
+  "head_hidden_size": 256,
+  "learning_rate": 0.0001,
+  "max_length": 4096,
+  "max_optimizer_steps": 1,
+  "objective": "unchanged V5-A example-balanced top-quartile weighted safety softplus plus 0.25 weighted cost-sensitive rate softplus",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "rate_lambda": 0.25,
+  "seed": 20260910,
+  "stage": "v7_fixed_update_budget_training_coverage",
+  "tail_fraction": 0.25,
+  "timestamp_utc": "2026-09-16T14:13:04.891020+00:00",
+  "train_data": "results/v2_rank_then_cut/v7_batch4_smoke/train.jsonl",
+  "train_sha256": "770902c1c446953d78b9950d0b79d93445765e2956149acd3de7cb98d050b098",
+  "update_budget_reason": "750 optimizer steps and validation every 250 steps exactly match V6 optimization exposure",
+  "validation_data": "results/v2_rank_then_cut/v7_batch4_smoke/validation.jsonl",
+  "validation_interval_steps": 1,
+  "validation_sha256": "b42ef520f706d65af07fbedb71a78ec647fdc3f3b8ec8cadc0e72de563a10dfa"
+}

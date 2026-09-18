@@ -1,0 +1,36 @@
+{
+  "action_supervision": {
+    "exact_mean_action_set_size": 2,
+    "exact_median_action_set_size": 1.5,
+    "near_optimal_mean_action_set_size": 2.9722222222222223,
+    "near_optimal_median_action_set_size": 2.0,
+    "near_optimal_normalized_slack": 0.005
+  },
+  "artifacts": {
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "oracle": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+    "oracle_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107"
+  },
+  "complete": true,
+  "datasets": {
+    "wikidata_simple": 2,
+    "wikitables_composition": 1
+  },
+  "examples": 3,
+  "history_state_audit": {
+    "examples_with_at_least_one_history_dependent_mask": 3,
+    "fraction_among_multi_history_masks": 0.2694300518134715,
+    "masks_whose_exact_optimal_action_set_depends_on_history": 104,
+    "masks_with_multiple_reachable_history_levels": 386
+  },
+  "objective": {
+    "primary": "maximize number of fidelity anchors reached by any prefix",
+    "secondary": "minimize cumulative tokens at first anchor crossings",
+    "state": "(selected_packet_mask, highest_fidelity_anchor_reached_in_history)"
+  },
+  "oracle_equivalence": {
+    "canonical_rollout_matches_existing_nested_chain": 3,
+    "root_value_matches_existing_nested_chain": 3
+  },
+  "status": "consumed-development preflight; no model selection and no locked roles"
+}

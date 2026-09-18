@@ -1,0 +1,19 @@
+{
+  "complete": true,
+  "representation_hypothesis_decision": "STOP_V13_TOP1_RETRIEVAL",
+  "downstream_feasibility_decision": "GO_DOWNSTREAM_DEVELOPMENT",
+  "fresh_confirmation_decision": "DO_NOT_OPEN",
+  "deployable_top1": {
+    "fidelity_0.90_successes": 276,
+    "complete_trajectory_fraction": 0.9066666666666666,
+    "mean_normalized_regret_feasible": 0.026920530700791055
+  },
+  "top4_oracle_selector_plus_oracle_cutoff_ceiling": {
+    "fidelity_0.90_successes": 286,
+    "complete_trajectory_fraction": 0.9533333333333334,
+    "mean_normalized_regret_feasible": 0.025756458643668725
+  },
+  "interpretation": "Top1 identification did not improve, but the frozen top4 candidate set has margin above the 282 development threshold while passing trajectory and regret feasibility checks. This supports learned downstream selection/cutoff development, not fresh confirmation.",
+  "development300_used_once_after_internal_checkpoint_selection": true,
+  "locked_confirmation_or_calibration_used": false
+}

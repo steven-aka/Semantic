@@ -1,0 +1,81 @@
+{
+  "protocol": "v9a_consumed_development_exact_cost_probe",
+  "status": "frozen after V8 divergence audit, cost-label build, tests, and one-step memory smoke",
+  "date": "2026-09-17 Asia/Shanghai",
+  "scientific_role": "diagnostic probe on already consumed development300; not a confirmation or reportable heldout result",
+  "hypothesis": "V8 retains the correct local action in the candidate set but discards exact downstream severity; a cost-weighted action-ranking head will improve end-to-end trajectories without changing the language-model representation.",
+  "evidence": {
+    "v8_first_divergence": {
+      "examples": 23,
+      "optimal_action_in_local_top8": 23,
+      "mean_optimal_best_rank": 2.4347826086956523,
+      "oracle_consistent_beam_paths_surviving_depth12": 0,
+      "median_oracle_path_extinction_depth": 5,
+      "first_divergence_fixed_pool_covered": 9,
+      "decoded_prefix_fixed_pool_coverage_fraction": 0.19927536231884058,
+      "summary_sha256": "19d7cc4f53f66bf90f1063792a3d00e1b0842fed54ea3b6a79676c3548a6e8aa"
+    },
+    "greedy_control": {
+      "fidelity_0_90_successes": 276,
+      "complete_trajectories": 272,
+      "regret": 0.028858107240164636,
+      "summary_sha256": "5fdd4a630593ab1ed3625b95211e7818150b595bb56ffb747505bcb336a60753"
+    }
+  },
+  "cost": {
+    "source": "exact SequentialTrajectoryDP action values",
+    "lost_anchor_penalty": 2.0,
+    "token_component": "action future cumulative-token difference from the exact best action, divided by active-anchor count times maximum lattice tokens",
+    "guarantee": "one lost reachable anchor dominates the full token-cost range",
+    "loss": "mean over states of cost-weighted softplus(action_logit - logsumexp(zero-cost logits))",
+    "progress_auxiliary_weight": 0.2
+  },
+  "initialization": {
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+    "backbone_and_lora": "frozen",
+    "sequential_head": "all components trainable from selected V8 initialization"
+  },
+  "data": {
+    "train": "results/v2_rank_then_cut/v9_probe_train3163_cost_supervision.jsonl",
+    "train_sha256": "b2b9f2a011df3eb6690f0c7e2bb17e11c147d00b5c50fc6a8f9e9778c82a05b0",
+    "development": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+    "development_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+    "model_induced_augmentation": false,
+    "reason_no_augmentation": "isolate exact-cost supervision before adding the separately observed coverage change",
+    "locked_roles_used": false
+  },
+  "optimization": {
+    "seed": 20260912,
+    "optimizer_steps": 250,
+    "batch_size": 8,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "warmup_steps": 25,
+    "scheduler": "cosine",
+    "gradient_clip": 1.0
+  },
+  "evaluation": {
+    "checkpoint": "only the final step250 head",
+    "diagnostic_decoders": [1, 8],
+    "decoder_selection": "lexicographic fidelity-0.90 successes, complete trajectories, negative regret",
+    "action_accuracy": "diagnostic only"
+  },
+  "decision": {
+    "GO_DESIGN_FORMAL_V9": "best diagnostic decoder has fidelity-0.90 >=282/300, complete trajectories >=0.90, and regret <=0.03",
+    "STOP_COST_HEAD_HYPOTHESIS": "best fidelity-0.90 result <=278/300",
+    "INCONCLUSIVE_NO_FORMAL_RUN": "best fidelity-0.90 result is 279-281/300 or another gate fails"
+  },
+  "preflight": {
+    "unit_tests": 113,
+    "one_step_smoke": "PASS",
+    "implementation_sha256": {
+      "src/search/sequential_trajectory_dp.py": "6673533b1a95175a5205d89581262aa00b2ecffc13835a8f987be536aa7d4935",
+      "src/evaluation/v8_first_divergence_audit.py": "afd22c277f0280009a496cfa409ad6d138043af1c4bccbcc29e2491a6b36dd1e",
+      "src/data/build_v9_cost_supervision.py": "59ee598b9ed42fd7462eaa8bf7d1911bd4984089a403e805a745997234163382",
+      "src/model/cost_sensitive_policy_loss.py": "56ce2e2d0cce4b3ca8eab59624c8034e1c03f15c1daf6eaaa9bd43e061c36546",
+      "src/training/sequential_policy_data.py": "7aa5d5a2ab5bb69dcaa3bf50344a5071fb45b3db611a7e9ffc2bd3041616f274",
+      "src/training/train_v9a_cost_probe.py": "81a96357a79bec5b79f79eed1350abbc26468deae2e770b43d8f1489c0c0e5c7"
+    }
+  }
+}

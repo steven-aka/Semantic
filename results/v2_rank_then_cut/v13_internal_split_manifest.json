@@ -1,0 +1,34 @@
+{
+  "complete": true,
+  "locked_roles_used": false,
+  "scientific_role": "train3163-only internal model-selection split",
+  "seed": 20260918,
+  "source": "results/v2_rank_then_cut/v10_train3163_mask_value.jsonl",
+  "source_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd",
+  "train_examples": 2863,
+  "train_sha256": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+  "train_strata": {
+    "('wikidata_intersection', '5_10')": 32,
+    "('wikidata_intersection', 'gt10')": 88,
+    "('wikidata_intersection', 'le4')": 29,
+    "('wikidata_simple', '5_10')": 104,
+    "('wikidata_simple', 'gt10')": 1616,
+    "('wikidata_simple', 'le4')": 51,
+    "('wikitables_composition', '5_10')": 136,
+    "('wikitables_composition', 'gt10')": 681,
+    "('wikitables_composition', 'le4')": 126
+  },
+  "validation_examples": 300,
+  "validation_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+  "validation_strata": {
+    "('wikidata_intersection', '5_10')": 3,
+    "('wikidata_intersection', 'gt10')": 9,
+    "('wikidata_intersection', 'le4')": 3,
+    "('wikidata_simple', '5_10')": 11,
+    "('wikidata_simple', 'gt10')": 170,
+    "('wikidata_simple', 'le4')": 5,
+    "('wikitables_composition', '5_10')": 14,
+    "('wikitables_composition', 'gt10')": 72,
+    "('wikitables_composition', 'le4')": 13
+  }
+}

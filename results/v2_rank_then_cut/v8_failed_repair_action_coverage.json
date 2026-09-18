@@ -1,0 +1,403 @@
+{
+  "relations": 29,
+  "status_counts": {
+    "winner_in_loser_out": 10,
+    "winner_out_loser_in": 3,
+    "winner_out_loser_out": 14,
+    "winner_in_loser_in": 2
+  },
+  "directly_corrective": 10,
+  "rows": [
+    {
+      "example_id": "28051__wikidata_simple__train",
+      "winner": 0,
+      "loser": 4,
+      "depth_before_loser": 9,
+      "reached_levels": 0,
+      "optimal_actions": [
+        0,
+        1
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "58301__wikitables_composition__train",
+      "winner": 10,
+      "loser": 8,
+      "depth_before_loser": 3,
+      "reached_levels": 0,
+      "optimal_actions": [
+        5,
+        8
+      ],
+      "status": "winner_out_loser_in",
+      "old_supervision": "unlabeled"
+    },
+    {
+      "example_id": "20347__wikidata_simple__train",
+      "winner": 5,
+      "loser": 7,
+      "depth_before_loser": 8,
+      "reached_levels": 3,
+      "optimal_actions": [
+        5,
+        8
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "61891__wikitables_composition__train",
+      "winner": 10,
+      "loser": 6,
+      "depth_before_loser": 7,
+      "reached_levels": 1,
+      "optimal_actions": [
+        11
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "unlabeled"
+    },
+    {
+      "example_id": "59746__wikitables_composition__train",
+      "winner": 0,
+      "loser": 9,
+      "depth_before_loser": 8,
+      "reached_levels": 2,
+      "optimal_actions": [
+        0
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "unlabeled"
+    },
+    {
+      "example_id": "61863__wikitables_composition__train",
+      "winner": 2,
+      "loser": 4,
+      "depth_before_loser": 9,
+      "reached_levels": 2,
+      "optimal_actions": [
+        2,
+        3
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "unlabeled"
+    },
+    {
+      "example_id": "60503__wikitables_composition__train",
+      "winner": 7,
+      "loser": 6,
+      "depth_before_loser": 7,
+      "reached_levels": 2,
+      "optimal_actions": [
+        8
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "56962__wikitables_composition__train",
+      "winner": 2,
+      "loser": 10,
+      "depth_before_loser": 9,
+      "reached_levels": 0,
+      "optimal_actions": [
+        3
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "opposes_repair"
+    },
+    {
+      "example_id": "55581__wikidata_intersection__train",
+      "winner": 2,
+      "loser": 11,
+      "depth_before_loser": 7,
+      "reached_levels": 1,
+      "optimal_actions": [
+        2
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "57702__wikitables_composition__train",
+      "winner": 5,
+      "loser": 1,
+      "depth_before_loser": 9,
+      "reached_levels": 3,
+      "optimal_actions": [
+        5
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "13282__wikidata_simple__train",
+      "winner": 4,
+      "loser": 10,
+      "depth_before_loser": 3,
+      "reached_levels": 0,
+      "optimal_actions": [
+        3,
+        5
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "unlabeled"
+    },
+    {
+      "example_id": "56973__wikitables_composition__train",
+      "winner": 1,
+      "loser": 0,
+      "depth_before_loser": 7,
+      "reached_levels": 3,
+      "optimal_actions": [
+        1,
+        2
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "opposes_repair"
+    },
+    {
+      "example_id": "61116__wikitables_composition__train",
+      "winner": 11,
+      "loser": 0,
+      "depth_before_loser": 6,
+      "reached_levels": 1,
+      "optimal_actions": [
+        3
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "27611__wikidata_simple__train",
+      "winner": 1,
+      "loser": 8,
+      "depth_before_loser": 7,
+      "reached_levels": 2,
+      "optimal_actions": [
+        11
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "28023__wikidata_simple__train",
+      "winner": 5,
+      "loser": 6,
+      "depth_before_loser": 6,
+      "reached_levels": 2,
+      "optimal_actions": [
+        0
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "57659__wikitables_composition__train",
+      "winner": 5,
+      "loser": 1,
+      "depth_before_loser": 1,
+      "reached_levels": 0,
+      "optimal_actions": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "57659__wikitables_composition__train",
+      "winner": 5,
+      "loser": 8,
+      "depth_before_loser": 2,
+      "reached_levels": 0,
+      "optimal_actions": [
+        2,
+        4,
+        6
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "57659__wikitables_composition__train",
+      "winner": 7,
+      "loser": 1,
+      "depth_before_loser": 1,
+      "reached_levels": 0,
+      "optimal_actions": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "57659__wikitables_composition__train",
+      "winner": 7,
+      "loser": 8,
+      "depth_before_loser": 2,
+      "reached_levels": 0,
+      "optimal_actions": [
+        2,
+        4,
+        6
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "57154__wikitables_composition__train",
+      "winner": 9,
+      "loser": 0,
+      "depth_before_loser": 7,
+      "reached_levels": 3,
+      "optimal_actions": [
+        5,
+        8,
+        9,
+        10
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "opposes_repair"
+    },
+    {
+      "example_id": "59256__wikitables_composition__train",
+      "winner": 8,
+      "loser": 10,
+      "depth_before_loser": 0,
+      "reached_levels": 0,
+      "optimal_actions": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "58487__wikitables_composition__train",
+      "winner": 7,
+      "loser": 0,
+      "depth_before_loser": 9,
+      "reached_levels": 2,
+      "optimal_actions": [
+        7
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "20235__wikidata_simple__train",
+      "winner": 9,
+      "loser": 1,
+      "depth_before_loser": 6,
+      "reached_levels": 0,
+      "optimal_actions": [
+        0,
+        8
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "55410__wikidata_intersection__train",
+      "winner": 5,
+      "loser": 7,
+      "depth_before_loser": 8,
+      "reached_levels": 2,
+      "optimal_actions": [
+        5
+      ],
+      "status": "winner_in_loser_out",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "61569__wikitables_composition__train",
+      "winner": 4,
+      "loser": 1,
+      "depth_before_loser": 3,
+      "reached_levels": 3,
+      "optimal_actions": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "winner_in_loser_in",
+      "old_supervision": "supports_repair"
+    },
+    {
+      "example_id": "61569__wikitables_composition__train",
+      "winner": 4,
+      "loser": 3,
+      "depth_before_loser": 0,
+      "reached_levels": 0,
+      "optimal_actions": [
+        3
+      ],
+      "status": "winner_out_loser_in",
+      "old_supervision": "unlabeled"
+    },
+    {
+      "example_id": "61569__wikitables_composition__train",
+      "winner": 10,
+      "loser": 1,
+      "depth_before_loser": 3,
+      "reached_levels": 3,
+      "optimal_actions": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "winner_in_loser_in",
+      "old_supervision": "unlabeled"
+    },
+    {
+      "example_id": "61569__wikitables_composition__train",
+      "winner": 10,
+      "loser": 3,
+      "depth_before_loser": 0,
+      "reached_levels": 0,
+      "optimal_actions": [
+        3
+      ],
+      "status": "winner_out_loser_in",
+      "old_supervision": "opposes_repair"
+    },
+    {
+      "example_id": "57882__wikitables_composition__train",
+      "winner": 10,
+      "loser": 2,
+      "depth_before_loser": 1,
+      "reached_levels": 0,
+      "optimal_actions": [
+        1,
+        3,
+        5,
+        11
+      ],
+      "status": "winner_out_loser_out",
+      "old_supervision": "supports_repair"
+    }
+  ]
+}

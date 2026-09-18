@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "decision": "STOP_V8_ONE_RUN",
+  "fidelity_0_90_successes": 7,
+  "locked_roles_used": false,
+  "mean_feasible_regret": 0.25977367648272953,
+  "passed": false,
+  "requirements": {
+    "fidelity_0_90_successes": 282,
+    "regret": 0.03,
+    "trajectory": 0.9
+  },
+  "selected_checkpoint": "results/v2_rank_then_cut/v8_smoke_batch4_retry/checkpoints/step1",
+  "trajectory_success_fraction": 0.625
+}

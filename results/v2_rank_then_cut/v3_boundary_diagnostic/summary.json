@@ -1,0 +1,1465 @@
+{
+  "artifacts": {
+    "details": "results/v2_rank_then_cut/v3_boundary_diagnostic/details.jsonl",
+    "oracle": "results/v2_rank_then_cut/ranking_validation300_rank_oracle.jsonl",
+    "oracle_sha256": "e92cb0eb7fe9eec5b6645a85b16eb49c6962ae134f363a19d227a61d70bdf040",
+    "runs": [
+      {
+        "details": "results/v2_rank_then_cut/evaluation/train2000_seed20260910_details.jsonl",
+        "details_sha256": "b4cb734891e526bc9a59aad85bd804acb731d658788fb2c98675b61d26bf80a0",
+        "label": "ranknet_20260910"
+      },
+      {
+        "details": "results/v2_rank_then_cut/evaluation/train2000_seed20260911_details.jsonl",
+        "details_sha256": "cfa61054cedd21f769e9709563a9bd76d7e2fa9ddb672e82501d8a5b340166ac",
+        "label": "ranknet_20260911"
+      },
+      {
+        "details": "results/v2_rank_then_cut/evaluation/train2000_seed20260912_details.jsonl",
+        "details_sha256": "26ff57bb0203e84387677f17286d1823b4b95bb77e7032ca2d9f2a68a0d97db8",
+        "label": "ranknet_20260912"
+      },
+      {
+        "details": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260910_details.jsonl",
+        "details_sha256": "a9ec0c558c7ca11c4f2d929fdb11a97af085da59bd383612eb1a60af2a137a42",
+        "label": "listwise_20260910"
+      },
+      {
+        "details": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260911_details.jsonl",
+        "details_sha256": "22af2f424d23dad4be955bcbf6c91d5c51d70ebedc4b4a974afc1ad93e0930e6",
+        "label": "listwise_20260911"
+      },
+      {
+        "details": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260912_details.jsonl",
+        "details_sha256": "09ca58a32d7db48287765a1bd4ba37631ff01e8b94469feaabfecbfc0542f315",
+        "label": "listwise_20260912"
+      }
+    ]
+  },
+  "complete": true,
+  "does_not_modify_frozen_v2_or_v2_1_decisions": true,
+  "examples": 300,
+  "familywise_alpha": 0.05,
+  "local_counterfactual_conflict": {
+    "examples_with_conflicting_pair_directions": 68,
+    "total_conflicting_unordered_pairs": 374
+  },
+  "normalized_slack": 0.005,
+  "per_anchor_alpha": 0.01,
+  "purpose": "test whether set-valued critical-boundary supervision is sufficient before authorizing another training objective",
+  "relation_summary": {
+    "all_identifiable": {
+      "examples_where_all_extensions_succeed": 298,
+      "examples_with_any_successful_extension": 300,
+      "examples_with_no_relations": 1,
+      "mean_relations_per_example": 44.68,
+      "mean_successful_linear_extension_fraction": 0.9959269662921348
+    },
+    "robust_membership": {
+      "examples_where_all_extensions_succeed": 286,
+      "examples_with_any_successful_extension": 300,
+      "examples_with_no_relations": 1,
+      "mean_relations_per_example": 33.22,
+      "mean_successful_linear_extension_fraction": 0.9877522795957145
+    },
+    "stable_counterfactual": {
+      "examples_where_all_extensions_succeed": 261,
+      "examples_with_any_successful_extension": 300,
+      "examples_with_no_relations": 34,
+      "mean_relations_per_example": 18.99,
+      "mean_successful_linear_extension_fraction": 0.9517096591430109
+    }
+  },
+  "required_contract_lower_bound": 0.9,
+  "runs": {
+    "listwise_20260910": {
+      "all_identifiable_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.009825826598715115,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.008633581486209992,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.012386520908779355,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01708297093103549,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.007258520548705794,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0002461471002287929,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "raw": {
+        "active_contract_success_fraction": 0.9686192468619247,
+        "all_active_trajectory_success_fraction": 0.9,
+        "highest_active_anchor_success_fraction": 0.9,
+        "mean_normalized_ranking_regret_feasible": 0.028727562896046825,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.035729605137183186,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9618055465823377,
+            "contract_success_fraction": 0.9866666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.03733629700716426,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 296
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.942896388720771,
+            "contract_success_fraction": 0.9733333333333334,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.04338205985635823,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 292
+          },
+          "0.9": {
+            "additional_successes_needed": 7,
+            "bonferroni_clopper_pearson_lower": 0.8721119626755043,
+            "contract_success_fraction": 0.9166666666666666,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.027832536773749392,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 275
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9388655979119179,
+            "contract_success_fraction": 0.9743589743589743,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.006644539815873628,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 228
+          }
+        }
+      },
+      "robust_membership_projection": {
+        "active_contract_success_fraction": 0.9944211994421199,
+        "all_active_trajectory_success_fraction": 0.9833333333333333,
+        "highest_active_anchor_success_fraction": 0.9833333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.01443549740257004,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.016096522297470856,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01914888816705714,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.022057381328339908,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9568925080117924,
+            "contract_success_fraction": 0.9833333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.011020757606547619,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 295
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0002461471002287929,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "stable_counterfactual_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.018687969686347797,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.014129928161674082,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.020715385089038793,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.027120701421580014,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.020522152711548516,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.004795291727072649,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      }
+    },
+    "listwise_20260911": {
+      "all_identifiable_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.01024150935510833,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.009266120489536392,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01235730691837166,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01801489089868236,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.007769072260968288,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0003318496270822791,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "raw": {
+        "active_contract_success_fraction": 0.9741980474198048,
+        "all_active_trajectory_success_fraction": 0.91,
+        "highest_active_anchor_success_fraction": 0.91,
+        "mean_normalized_ranking_regret_feasible": 0.02779215432572949,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.03161135926295717,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+            "contract_success_fraction": 0.99,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.03788977876843272,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 297
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9618055465823377,
+            "contract_success_fraction": 0.9866666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.04160753570221847,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 296
+          },
+          "0.9": {
+            "additional_successes_needed": 4,
+            "bonferroni_clopper_pearson_lower": 0.8840280533641323,
+            "contract_success_fraction": 0.9266666666666666,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.027762825170776825,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 278
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9388655979119179,
+            "contract_success_fraction": 0.9743589743589743,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0062850792693463645,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 228
+          }
+        }
+      },
+      "robust_membership_projection": {
+        "active_contract_success_fraction": 0.997907949790795,
+        "all_active_trajectory_success_fraction": 0.99,
+        "highest_active_anchor_success_fraction": 0.99,
+        "mean_normalized_ranking_regret_feasible": 0.016315816248593653,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01729402085705927,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.022832711593373987,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.024355841130656534,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+            "contract_success_fraction": 0.99,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.012213493834688179,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 297
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0003318496270822791,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "stable_counterfactual_projection": {
+        "active_contract_success_fraction": 0.99721059972106,
+        "all_active_trajectory_success_fraction": 0.9866666666666667,
+        "highest_active_anchor_success_fraction": 0.9866666666666667,
+        "mean_normalized_ranking_regret_feasible": 0.018371974525558058,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.014006607139651371,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.02024075015578296,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.027892080464859696,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.019728298044611733,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9645653318666235,
+            "contract_success_fraction": 0.9914529914529915,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.005229224251784215,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 232
+          }
+        }
+      }
+    },
+    "listwise_20260912": {
+      "all_identifiable_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.010297236584615269,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.007647553448570877,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01391828301610174,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.017678344977022174,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.008518864718505171,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0002817694988771509,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "raw": {
+        "active_contract_success_fraction": 0.9700139470013946,
+        "all_active_trajectory_success_fraction": 0.9,
+        "highest_active_anchor_success_fraction": 0.9,
+        "mean_normalized_ranking_regret_feasible": 0.0258996054326656,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.027954061719545047,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+            "contract_success_fraction": 0.99,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.035985781876768624,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 297
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.942896388720771,
+            "contract_success_fraction": 0.9733333333333334,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.03945339849432228,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 292
+          },
+          "0.9": {
+            "additional_successes_needed": 7,
+            "bonferroni_clopper_pearson_lower": 0.8721119626755043,
+            "contract_success_fraction": 0.9166666666666666,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.028543034514249607,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 275
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9388655979119179,
+            "contract_success_fraction": 0.9743589743589743,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.006875149046394938,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 228
+          }
+        }
+      },
+      "robust_membership_projection": {
+        "active_contract_success_fraction": 0.99721059972106,
+        "all_active_trajectory_success_fraction": 0.9866666666666667,
+        "highest_active_anchor_success_fraction": 0.9866666666666667,
+        "mean_normalized_ranking_regret_feasible": 0.01382438230887346,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.013147886635005117,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.018988324837776144,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.020180831887380984,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9618055465823377,
+            "contract_success_fraction": 0.9866666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.012483637619647298,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 296
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0002817694988771509,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "stable_counterfactual_projection": {
+        "active_contract_success_fraction": 0.99721059972106,
+        "all_active_trajectory_success_fraction": 0.99,
+        "highest_active_anchor_success_fraction": 0.99,
+        "mean_normalized_ranking_regret_feasible": 0.017944843137000715,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.011632302040059167,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.022060747141639803,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.026150762637474016,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.020529116679878508,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9719703464852761,
+            "contract_success_fraction": 0.9957264957264957,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0042856969914009104,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 233
+          }
+        }
+      }
+    },
+    "ranknet_20260910": {
+      "all_identifiable_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.009473462485351844,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.006551836870774064,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.013032159874391543,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01669885719314423,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.006937034173801994,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0002461471002287929,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "raw": {
+        "active_contract_success_fraction": 0.9714086471408647,
+        "all_active_trajectory_success_fraction": 0.9033333333333333,
+        "highest_active_anchor_success_fraction": 0.9033333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.026421205809486367,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.032405079163881724,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+            "contract_success_fraction": 0.99,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.03666054445625595,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 297
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9474631319739069,
+            "contract_success_fraction": 0.9766666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.039619102692536094,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 293
+          },
+          "0.9": {
+            "additional_successes_needed": 6,
+            "bonferroni_clopper_pearson_lower": 0.8760659656204228,
+            "contract_success_fraction": 0.92,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.024875166025691457,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 276
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9388655979119179,
+            "contract_success_fraction": 0.9743589743589743,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.007221305562169414,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 228
+          }
+        }
+      },
+      "robust_membership_projection": {
+        "active_contract_success_fraction": 0.997907949790795,
+        "all_active_trajectory_success_fraction": 0.99,
+        "highest_active_anchor_success_fraction": 0.99,
+        "mean_normalized_ranking_regret_feasible": 0.014373150297788266,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.013646001811441313,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01982916762415174,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.02269842303755756,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+            "contract_success_fraction": 0.99,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.010605737465466723,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 297
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0002461471002287929,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "stable_counterfactual_projection": {
+        "active_contract_success_fraction": 0.997907949790795,
+        "all_active_trajectory_success_fraction": 0.99,
+        "highest_active_anchor_success_fraction": 0.99,
+        "mean_normalized_ranking_regret_feasible": 0.016964787809556715,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.010840650225114134,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.019440861847005192,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.025428990443991203,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.018686841839468445,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9719703464852761,
+            "contract_success_fraction": 0.9957264957264957,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.004794764401158083,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 233
+          }
+        }
+      }
+    },
+    "ranknet_20260911": {
+      "all_identifiable_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.009938103338527501,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.008794167344283656,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01190650518885048,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.017763363852721616,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.007518255149597195,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.00012750169803895015,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "raw": {
+        "active_contract_success_fraction": 0.9762900976290098,
+        "all_active_trajectory_success_fraction": 0.9133333333333333,
+        "highest_active_anchor_success_fraction": 0.9133333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.028298967817567546,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.02946935909940646,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.03494829393903605,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+            "contract_success_fraction": 0.99,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.04279978848748667,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 297
+          },
+          "0.9": {
+            "additional_successes_needed": 4,
+            "bonferroni_clopper_pearson_lower": 0.8840280533641323,
+            "contract_success_fraction": 0.9266666666666666,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.029461705787481886,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 278
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9449450075709788,
+            "contract_success_fraction": 0.9786324786324786,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0069647711497430615,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 229
+          }
+        }
+      },
+      "robust_membership_projection": {
+        "active_contract_success_fraction": 0.9965132496513249,
+        "all_active_trajectory_success_fraction": 0.9866666666666667,
+        "highest_active_anchor_success_fraction": 0.9866666666666667,
+        "mean_normalized_ranking_regret_feasible": 0.015151613238390938,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.016727214395541003,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.019934325969189787,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.023038487900528915,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9618055465823377,
+            "contract_success_fraction": 0.9866666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.011434195942485136,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 296
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.00012750169803895015,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "stable_counterfactual_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.01784782952883863,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.013979585024604967,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.019451954224775712,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.026512975314725542,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.019060565862032648,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.004761022822740778,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      }
+    },
+    "ranknet_20260912": {
+      "all_identifiable_projection": {
+        "active_contract_success_fraction": 0.99860529986053,
+        "all_active_trajectory_success_fraction": 0.9933333333333333,
+        "highest_active_anchor_success_fraction": 0.9933333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.011009909487643002,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.008874351115026899,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.015756043319390234,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01904378545355331,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.007436481575274216,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.00030007144437395724,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "raw": {
+        "active_contract_success_fraction": 0.9721059972105998,
+        "all_active_trajectory_success_fraction": 0.9033333333333333,
+        "highest_active_anchor_success_fraction": 0.9033333333333333,
+        "mean_normalized_ranking_regret_feasible": 0.026134643970504644,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.032772790663511575,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.03601046462116483,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9474631319739069,
+            "contract_success_fraction": 0.9766666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.04102899832438512,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 293
+          },
+          "0.9": {
+            "additional_successes_needed": 7,
+            "bonferroni_clopper_pearson_lower": 0.8721119626755043,
+            "contract_success_fraction": 0.9166666666666666,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.027022024179777143,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 275
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9449450075709788,
+            "contract_success_fraction": 0.9786324786324786,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.009299884469892489,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 229
+          }
+        }
+      },
+      "robust_membership_projection": {
+        "active_contract_success_fraction": 0.9965132496513249,
+        "all_active_trajectory_success_fraction": 0.9866666666666667,
+        "highest_active_anchor_success_fraction": 0.9866666666666667,
+        "mean_normalized_ranking_regret_feasible": 0.015455211213283122,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.017446583978713442,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.0201174261976414,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.02351557513903743,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9618055465823377,
+            "contract_success_fraction": 0.9866666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.012856766169831266,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 296
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9805121767832361,
+            "contract_success_fraction": 1,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.00030007144437395724,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 234
+          }
+        }
+      },
+      "stable_counterfactual_projection": {
+        "active_contract_success_fraction": 0.99721059972106,
+        "all_active_trajectory_success_fraction": 0.99,
+        "highest_active_anchor_success_fraction": 0.99,
+        "mean_normalized_ranking_regret_feasible": 0.019686735981277296,
+        "per_level": {
+          "0.6": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.014883413607751183,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.7": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9847666521101581,
+            "contract_success_fraction": 1,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.023570260149679195,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 300
+          },
+          "0.8": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+            "contract_success_fraction": 0.9966666666666667,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.029373216095095793,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 299
+          },
+          "0.9": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+            "contract_success_fraction": 0.9933333333333333,
+            "examples": 300,
+            "mean_rate_regret_normalized_successful": 0.01886991626179785,
+            "required_successes_for_target_lower_bound": 282,
+            "successes": 298
+          },
+          "0.95": {
+            "additional_successes_needed": 0,
+            "bonferroni_clopper_pearson_lower": 0.9719703464852761,
+            "contract_success_fraction": 0.9957264957264957,
+            "examples": 234,
+            "mean_rate_regret_normalized_successful": 0.0061209151719149235,
+            "required_successes_for_target_lower_bound": 222,
+            "successes": 233
+          }
+        }
+      }
+    }
+  },
+  "status": "consumed_validation_diagnostic_not_model_selection_or_heldout",
+  "trajectory_transitions": {
+    "listwise_20260910": {
+      "all_identifiable_projection": {
+        "rescued": 28,
+        "unchanged_failure": 2,
+        "unchanged_success": 270
+      },
+      "robust_membership_projection": {
+        "rescued": 25,
+        "unchanged_failure": 5,
+        "unchanged_success": 270
+      },
+      "stable_counterfactual_projection": {
+        "rescued": 28,
+        "unchanged_failure": 2,
+        "unchanged_success": 270
+      }
+    },
+    "listwise_20260911": {
+      "all_identifiable_projection": {
+        "rescued": 25,
+        "unchanged_failure": 2,
+        "unchanged_success": 273
+      },
+      "robust_membership_projection": {
+        "rescued": 24,
+        "unchanged_failure": 3,
+        "unchanged_success": 273
+      },
+      "stable_counterfactual_projection": {
+        "rescued": 23,
+        "unchanged_failure": 4,
+        "unchanged_success": 273
+      }
+    },
+    "listwise_20260912": {
+      "all_identifiable_projection": {
+        "rescued": 28,
+        "unchanged_failure": 2,
+        "unchanged_success": 270
+      },
+      "robust_membership_projection": {
+        "rescued": 26,
+        "unchanged_failure": 4,
+        "unchanged_success": 270
+      },
+      "stable_counterfactual_projection": {
+        "rescued": 27,
+        "unchanged_failure": 3,
+        "unchanged_success": 270
+      }
+    },
+    "ranknet_20260910": {
+      "all_identifiable_projection": {
+        "rescued": 27,
+        "unchanged_failure": 2,
+        "unchanged_success": 271
+      },
+      "robust_membership_projection": {
+        "rescued": 26,
+        "unchanged_failure": 3,
+        "unchanged_success": 271
+      },
+      "stable_counterfactual_projection": {
+        "rescued": 26,
+        "unchanged_failure": 3,
+        "unchanged_success": 271
+      }
+    },
+    "ranknet_20260911": {
+      "all_identifiable_projection": {
+        "rescued": 24,
+        "unchanged_failure": 2,
+        "unchanged_success": 274
+      },
+      "robust_membership_projection": {
+        "rescued": 22,
+        "unchanged_failure": 4,
+        "unchanged_success": 274
+      },
+      "stable_counterfactual_projection": {
+        "rescued": 24,
+        "unchanged_failure": 2,
+        "unchanged_success": 274
+      }
+    },
+    "ranknet_20260912": {
+      "all_identifiable_projection": {
+        "rescued": 27,
+        "unchanged_failure": 2,
+        "unchanged_success": 271
+      },
+      "robust_membership_projection": {
+        "rescued": 25,
+        "unchanged_failure": 4,
+        "unchanged_success": 271
+      },
+      "stable_counterfactual_projection": {
+        "rescued": 26,
+        "unchanged_failure": 3,
+        "unchanged_success": 271
+      }
+    }
+  }
+}

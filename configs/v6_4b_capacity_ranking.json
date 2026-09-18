@@ -1,0 +1,94 @@
+{
+  "protocol": "v6_qwen3_4b_capacity_relational_ranking",
+  "frozen_at": "after completed V5-A consumed-development decoder/distribution audits and 4B memory smoke, before formal V6 training or any new confirmation Target inference",
+  "status": "single controlled backbone-capacity test after STOP_V5A_WITHOUT_FRESH_CONFIRM",
+  "scientific_hypothesis": "The high-confidence, three-seed-consistent precedence errors concentrated in compositional evidence require a stronger semantic representation; increasing only the learner backbone from Qwen3-1.7B to Qwen3-4B can improve critical-edge direction generalization while retaining V5-A rate efficiency.",
+  "parent_decision": {
+    "path": "results/v2_rank_then_cut/v5a_development_headroom_decision.json",
+    "decision": "STOP_V5A_WITHOUT_FRESH_CONFIRM"
+  },
+  "diagnostics": {
+    "decoder_alignment": "results/v2_rank_then_cut/v5a_decoder_alignment_diagnostic/summary.json",
+    "decoder_alignment_sha256": "8dd731cc345d73ab3c77804634d559ee61c2a61eb138007dcb823691f22bc4af",
+    "three_seed_tail": "results/v2_rank_then_cut/v5a_three_seed_tail_diagnostic/summary.json",
+    "three_seed_tail_sha256": "fc77d819f013ba9060f56ca1099bbe6e524b66d647c681139c315080fac8a599",
+    "raw_correct_edges_sacrificed_by_decoder": 0,
+    "failed_repair_edges_raw_wrong": 32,
+    "failed_repair_edges_unanimous_wrong": 30,
+    "failed_repair_median_absolute_margin": 2.296875,
+    "wikitables_composition_failures": 17
+  },
+  "single_controlled_change": {
+    "old_backbone": "Qwen3-1.7B NF4 QLoRA",
+    "new_backbone": "Qwen3-4B NF4 QLoRA"
+  },
+  "preserved_invariants": {
+    "packets": "12 source-preserving lossless binary packets",
+    "relational_head": "same antisymmetric ordered-pair MLP with hidden size 256",
+    "objective": "same V5-A top-25% weighted safety CVaR plus 0.25 rate-dominance loss",
+    "decoder": "same exact maximum-weight total-order subset DP",
+    "target": "frozen Qwen3-8B exact lattice",
+    "training_data": "unchanged train2000",
+    "development_data": "unchanged consumed development300",
+    "cutoff_training": false,
+    "fresh_confirmation_access": false,
+    "calibration_or_final_test_access": false
+  },
+  "data": {
+    "train": "results/v2_rank_then_cut/v5_train2000_tail_cost_oracle.jsonl",
+    "train_sha256": "0b42af0e0263af1072084c4310077f2c8887e85a92c5dd9ebe40ca255cbf8553",
+    "development": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+    "development_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107",
+    "v4_fresh300": "locked and not reused",
+    "future_fresh_confirmation": "unassigned unless the consumed-development gate passes"
+  },
+  "model": {
+    "path": "models/Qwen3-4B",
+    "files_sha256": {
+      "models/Qwen3-4B/config.json": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a",
+      "models/Qwen3-4B/generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "models/Qwen3-4B/merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "models/Qwen3-4B/model-00001-of-00003.safetensors": "328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223",
+      "models/Qwen3-4B/model-00002-of-00003.safetensors": "6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5",
+      "models/Qwen3-4B/model-00003-of-00003.safetensors": "e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1",
+      "models/Qwen3-4B/model.safetensors.index.json": "6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2",
+      "models/Qwen3-4B/tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "models/Qwen3-4B/tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "models/Qwen3-4B/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  },
+  "training": {
+    "seeds": [
+      20260910,
+      20260911,
+      20260912
+    ],
+    "epochs": 3,
+    "batch_size": 2,
+    "gradient_accumulation": 4,
+    "effective_batch_size": 8,
+    "learning_rate": 0.0001,
+    "max_length": 4096,
+    "lora_rank": 32,
+    "head_hidden_size": 256,
+    "tail_fraction": 0.25,
+    "rate_lambda": 0.25,
+    "selection": "minimum consumed-development combined tail-cost objective",
+    "epoch_cap_reason": "all V4 and V5-A seeds selected epoch 1 or 2 and overfit afterward"
+  },
+  "consumed_development_headroom_gate": {
+    "fidelity_0_90_successes": "at least 282/300",
+    "all_active_trajectory_success": "at least 0.90",
+    "mean_feasible_normalized_ranking_regret": "at most 0.03",
+    "if_pass": "freeze a new target-blind confirmation population before Target inference",
+    "if_fail": "STOP_V6_WITHOUT_FRESH_CONFIRM"
+  },
+  "implementation_sha256": {
+    "src/model/relational_packet_ranker.py": "05a3124928bbb8fa1ea704ac3e092fb84ca1cffe1a148833f5aa4d2beb688bce",
+    "src/model/tail_cost_relational_loss.py": "35c82f0f5584c3200b24f5c3cf6923f46366240046887195fd3c9c66cdb764fe",
+    "src/training/train_capacity_relational_ranker.py": "631586b8aab658cf0711759a91428fe122570173e15c4d4b3e827f0e81bf08cb",
+    "src/search/weighted_precedence.py": "3265425d3917d20b856548c19eb28d21fecc68ecdf6dc657d88ae89d6a010925",
+    "src/evaluation/relational_ranker_evaluation.py": "677d8ada51ba5e84986dbdadbea48bbc7324b1174ec7e310d50973fef4c58841",
+    "src/evaluation/v6_capacity_decision.py": "4067af7afc86b47a007f937b1bc3e525cc414da41ae84cf2141403d6d1d32bc0"
+  }
+}

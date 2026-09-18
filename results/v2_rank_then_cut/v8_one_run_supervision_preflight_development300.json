@@ -1,0 +1,40 @@
+{
+  "artifacts": {
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "oracle": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+    "oracle_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107"
+  },
+  "complete": true,
+  "examples": 300,
+  "history_pool": {
+    "first_seen_source_counts": {
+      "oracle": 12980,
+      "random": 12419,
+      "single": 35105
+    },
+    "fraction_from_which_all_active_levels_remain_reachable": 0.9590275023138966,
+    "mean_exact_action_set_size": 1.7280510379479044,
+    "mean_per_example": 201.68,
+    "mean_unique_mask_history_states_per_example": 96.94333333333333,
+    "median_exact_action_set_size": 1.0,
+    "median_per_example": 203.0,
+    "reached_level_counts": {
+      "0": 20402,
+      "1": 6232,
+      "2": 6485,
+      "3": 12850,
+      "4": 7953,
+      "5": 6582
+    },
+    "total_unique_ordered_histories": 60504
+  },
+  "protocol": {
+    "action_slack": 0.0,
+    "deduplication_key": "ordered packet history",
+    "oracle_rollouts": 4,
+    "random_rollouts": 4,
+    "seed": 20260912,
+    "single_nearest_nonoptimal_deviation_rollouts": 12
+  },
+  "status": "consumed-development offline-supervision preflight; no model training"
+}

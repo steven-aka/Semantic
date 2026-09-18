@@ -1,0 +1,23 @@
+{
+  "action_slack": 0.0,
+  "complete": true,
+  "examples": 300,
+  "histories": 60504,
+  "locked_roles_used": false,
+  "maximum_histories_per_example": 210,
+  "mean_histories_per_example": 201.68,
+  "minimum_histories_per_example": 179,
+  "oracle": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+  "oracle_rollouts": 4,
+  "oracle_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107",
+  "output": "results/v2_rank_then_cut/v8_development300_history_supervision.jsonl",
+  "output_sha256": "2b85cda1c81e293941d2e6f979d7cb536fecb0472fc024165de2c3e9a53ea458",
+  "random_rollouts": 4,
+  "seed": 20260912,
+  "single_deviation_rollouts": 12,
+  "source_counts": {
+    "oracle": 12980,
+    "random": 12419,
+    "single": 35105
+  }
+}

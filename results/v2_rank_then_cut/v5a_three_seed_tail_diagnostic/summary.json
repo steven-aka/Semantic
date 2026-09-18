@@ -1,0 +1,105 @@
+{
+  "artifacts": {
+    "oracle": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+    "oracle_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107",
+    "runs": [
+      {
+        "label": "seed20260910",
+        "path": "results/v2_rank_then_cut/v5a_selected_development_evaluation/details.jsonl",
+        "sha256": "32e5c012619b64d321f738ae0a5d3c4bb151d22b5fe08ca368ac0e01e79c0753"
+      },
+      {
+        "label": "seed20260911",
+        "path": "results/v2_rank_then_cut/v5a_seed_diagnostics/seed20260911/details.jsonl",
+        "sha256": "8feafab33e340a7182ac49765252c18d9f9a2c61e7585395e7e9d75b6f954fbe"
+      },
+      {
+        "label": "seed20260912",
+        "path": "results/v2_rank_then_cut/v5a_seed_diagnostics/seed20260912/details.jsonl",
+        "sha256": "3130446a9b0fd30737512a74ad598e6402da326f8dcb630ed68755fa4158d725"
+      }
+    ],
+    "train_oracle": "results/v2_rank_then_cut/v5_train2000_tail_cost_oracle.jsonl",
+    "train_oracle_sha256": "0b42af0e0263af1072084c4310077f2c8887e85a92c5dd9ebe40ca255cbf8553"
+  },
+  "at_least_one_seed_correct_relations": 2,
+  "complete": true,
+  "ensemble": {
+    "examples": 300,
+    "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.026810225047314888,
+    "oracle_cutoff_active_contract_success_fraction": 0.9700139470013946,
+    "oracle_cutoff_all_active_contracts_success_fraction": 0.9,
+    "oracle_cutoff_feasible_trajectory_examples": 270,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9966666666666667,
+        "contract_successes": 299,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02892211333014029
+      },
+      "0.7": {
+        "contract_success_fraction": 0.99,
+        "contract_successes": 297,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03473502986469177
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9733333333333334,
+        "contract_successes": 292,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.042862410612284345
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9166666666666666,
+        "contract_successes": 275,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02759596417104391
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9743589743589743,
+        "contract_successes": 228,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.005614921387710129
+      }
+    }
+  },
+  "lexical_support_proxy": {
+    "description": "Jaccard overlap over query, winner packet, and loser packet; diagnostic only",
+    "median_top_similarity": 0.4292794510102935,
+    "relations_with_neighbor_at_0.25": 30,
+    "relations_with_neighbor_at_0.50": 13
+  },
+  "minimum_boundary_replacements": {
+    "1": 24,
+    "2": 2
+  },
+  "repair_failures": 26,
+  "repair_relations": 32,
+  "repair_supervision": {
+    "opposes_repair": 6,
+    "supports_repair": 20,
+    "unlabeled": 6
+  },
+  "selected_label": "seed20260910",
+  "selected_wrong_edge_absolute_margin": {
+    "max": 8.5625,
+    "mean": 3.083984375,
+    "median": 2.296875,
+    "min": 0.0625
+  },
+  "status": "consumed-development diagnostic; not a confirmatory result",
+  "supporting_seed_count_distribution": {
+    "0": 30,
+    "1": 1,
+    "2": 1
+  },
+  "target_anchor": 0.9,
+  "top_regret": {
+    "examples": 10,
+    "sum_extra_packet_tokens": 9245,
+    "sum_missing_oracle_packet_tokens": 159,
+    "sum_regret": 2.3869390413570706,
+    "sum_total_token_excess": 9089
+  },
+  "unanimous_wrong_relations": 30
+}

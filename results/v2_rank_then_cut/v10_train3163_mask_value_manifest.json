@@ -1,0 +1,28 @@
+{
+  "class_population": {
+    "0": 6189665,
+    "1": 2883573,
+    "2": 2284848,
+    "3": 1504809,
+    "4": 84984,
+    "5": 7769
+  },
+  "class_samples": {
+    "0": 50608,
+    "1": 50592,
+    "2": 50586,
+    "3": 50571,
+    "4": 44175,
+    "5": 7441
+  },
+  "complete": true,
+  "examples": 3163,
+  "locked_roles_used": false,
+  "output": "results/v2_rank_then_cut/v10_train3163_mask_value.jsonl",
+  "output_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd",
+  "per_class_limit": 16,
+  "seed": 20260912,
+  "source": "results/v2_rank_then_cut/v7_train3163_tail_cost_oracle.jsonl",
+  "source_sha256": "f03b166e826dad0bb50bf0224408093a6510d7eead3dff1c918daaa3c1100dda",
+  "states": 253973
+}

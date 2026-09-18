@@ -1,0 +1,18 @@
+{
+  "checkpoint_metadata": "results/v2_rank_then_cut/v5a_tail_cost_training/train2000_seed20260910/training_metadata.json",
+  "checkpoint_metadata_sha256": "27b1e33a0879aaa364baf11baecaf29f36fd8327c30f2891900a5e3dccff078b",
+  "checks": {
+    "all_active_trajectory_success": false,
+    "fidelity_0_90_at_least_282_of_300": false,
+    "normalized_ranking_regret": true
+  },
+  "complete": true,
+  "config": "configs/v5a_tail_risk_cost_aware_ranking.json",
+  "config_sha256": "a428b18950ef45bc9f2b0d08c9aefdbbe68349ef2970721c8906a8117234ff1e",
+  "decision": "STOP_V5A_WITHOUT_FRESH_CONFIRM",
+  "fidelity_0_90_successes": 274,
+  "passed": false,
+  "stage": "consumed_development",
+  "summary": "results/v2_rank_then_cut/v5a_selected_development_evaluation/summary.json",
+  "summary_sha256": "1e88314edcf004a17f0d1b09e301570423f41db7251e1e882ab0e87b0c107e37"
+}

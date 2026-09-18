@@ -1,0 +1,129 @@
+{
+  "locked_roles_evaluated": false,
+  "prediction_sha256": {
+    "confirm210": "afe76cc2d2da43ab7554d65fc2a8ecee3768b8b2e7414e2d14314c891e9a6d9c",
+    "development300": "70b25332c5a8fbb35c10c055e7d45de21ab0412a06ab5023e8ad786aedec9e39"
+  },
+  "slack_definition": "extra cumulative tokens / (active anchor count * full-state tokens)",
+  "slacks": [
+    0.0,
+    0.005,
+    0.01,
+    0.05
+  ],
+  "splits": {
+    "confirm210": {
+      "boundary_sha256": "16518d71cb17e3af8bacbdcf597145dce5cd35eaf910c357f1153b73329fe97c",
+      "examples": 210,
+      "harmfulness_at_frozen_slack_0_005": {
+        "admissible_absent_states": 10469,
+        "contract_crossing_flip_groups": 762,
+        "harmful_packet_anchor_groups": 1179,
+        "harmful_witness_states": 2656,
+        "negative_to_nonnegative_groups": 730,
+        "nonnegative_harmful_witness_groups": 0,
+        "strict_sign_flip_groups": 291
+      },
+      "oracle_sha256": "89932008300ec44d616654946e4fa84dcb958b92cd2e110001fc94ae90071b7b",
+      "selected_v3_prediction": {
+        "boundary_pair_accuracy": 0.9264248704663213,
+        "boundary_pairs": 3860,
+        "complete_boundary_separation": 0.7032967032967034,
+        "examples": 210,
+        "oracle_cutoff_all_active_trajectory_success": 0.8904761904761904,
+        "supervised_examples": 182
+      },
+      "slack_sensitivity": {
+        "0.0": {
+          "fraction_with_direct_local_conflict": 0.01904761904761905,
+          "fraction_with_raw_local_cycle": 0.01904761904761905,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.02115079365079365,
+          "mean_raw_local_edges": 13.466666666666667,
+          "mean_stable_boundary_edges": 13.2
+        },
+        "0.005": {
+          "fraction_with_direct_local_conflict": 0.2523809523809524,
+          "fraction_with_raw_local_cycle": 0.2523809523809524,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.26688492063492064,
+          "mean_raw_local_edges": 22.676190476190477,
+          "mean_stable_boundary_edges": 18.38095238095238
+        },
+        "0.01": {
+          "fraction_with_direct_local_conflict": 0.37142857142857144,
+          "fraction_with_raw_local_cycle": 0.37142857142857144,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.3995238095238095,
+          "mean_raw_local_edges": 30.085714285714285,
+          "mean_stable_boundary_edges": 20.261904761904763
+        },
+        "0.05": {
+          "fraction_with_direct_local_conflict": 0.7428571428571429,
+          "fraction_with_raw_local_cycle": 0.7428571428571429,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.7074603174603175,
+          "mean_raw_local_edges": 63.542857142857144,
+          "mean_stable_boundary_edges": 12.871428571428572
+        }
+      }
+    },
+    "development300": {
+      "boundary_sha256": "767b9db3ac5f8037ae2d871cfdc82b8958080d9093d984c9149075082648c25a",
+      "examples": 300,
+      "harmfulness_at_frozen_slack_0_005": {
+        "admissible_absent_states": 13737,
+        "contract_crossing_flip_groups": 1088,
+        "harmful_packet_anchor_groups": 1734,
+        "harmful_witness_states": 3945,
+        "negative_to_nonnegative_groups": 1039,
+        "nonnegative_harmful_witness_groups": 0,
+        "strict_sign_flip_groups": 391
+      },
+      "oracle_sha256": "e92cb0eb7fe9eec5b6645a85b16eb49c6962ae134f363a19d227a61d70bdf040",
+      "selected_v3_prediction": {
+        "boundary_pair_accuracy": 0.9218887133579077,
+        "boundary_pairs": 5697,
+        "complete_boundary_separation": 0.6691729323308271,
+        "examples": 300,
+        "oracle_cutoff_all_active_trajectory_success": 0.9,
+        "supervised_examples": 266
+      },
+      "slack_sensitivity": {
+        "0.0": {
+          "fraction_with_direct_local_conflict": 0.016666666666666666,
+          "fraction_with_raw_local_cycle": 0.016666666666666666,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.02073611111111111,
+          "mean_raw_local_edges": 14.26,
+          "mean_stable_boundary_edges": 13.873333333333333
+        },
+        "0.005": {
+          "fraction_with_direct_local_conflict": 0.22666666666666666,
+          "fraction_with_raw_local_cycle": 0.22666666666666666,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.26431944444444444,
+          "mean_raw_local_edges": 23.326666666666668,
+          "mean_stable_boundary_edges": 18.99
+        },
+        "0.01": {
+          "fraction_with_direct_local_conflict": 0.36333333333333334,
+          "fraction_with_raw_local_cycle": 0.36333333333333334,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.3960138888888889,
+          "mean_raw_local_edges": 30.843333333333334,
+          "mean_stable_boundary_edges": 20.74
+        },
+        "0.05": {
+          "fraction_with_direct_local_conflict": 0.7733333333333333,
+          "fraction_with_raw_local_cycle": 0.7733333333333333,
+          "fraction_with_stable_relation_cycle": 0,
+          "mean_packet_anchor_ambiguity": 0.7130138888888888,
+          "mean_raw_local_edges": 67.31,
+          "mean_stable_boundary_edges": 11.296666666666667
+        }
+      }
+    }
+  },
+  "status": "post_hoc_consumed_split_diagnostic_not_model_selection"
+}

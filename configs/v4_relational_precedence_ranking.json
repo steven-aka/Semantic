@@ -1,0 +1,115 @@
+{
+  "protocol": "v4_relational_precedence_ranking",
+  "frozen_at": "2026-09-15 after completed consumed-role V3 model-assumption audit and before any Target inference on the new candidate tail or any V4 training",
+  "status": "single controlled representation test after STOP_V3_RANKING",
+  "scientific_hypothesis": "A query-conditioned antisymmetric relational scorer can generalize the sparse stable critical precedence relations more jointly than a shared unary scalar score, while an exact maximum-weight total-order decoder preserves the nested-prefix representation.",
+  "what_the_audit_does_not_prove": [
+    "raw local sign flips do not prove that no feasible static order exists",
+    "raw local cycles do not imply cycles in globally stable supervision",
+    "acyclic stable supervision does not by itself prove that a learned relational decoder will satisfy the fidelity contract"
+  ],
+  "parent_decision": {
+    "path": "results/v2_rank_then_cut/v3_rank_confirm_decision.json",
+    "decision": "STOP_V3_RANKING"
+  },
+  "audit": {
+    "train": "results/v2_rank_then_cut/v3_model_assumption_audit_train_oracle.json",
+    "train_sha256": "40c6a36f902afe14a5ed28072c3a5d04c93041a06fa97f2f1d19bc6653f26d99",
+    "development_confirm": "results/v2_rank_then_cut/v3_model_assumption_audit_dev_confirm.json",
+    "development_confirm_sha256": "c006488eae396ccb3de2eaa181d3fbb90b0f98f759619f6db2e34584be37bf7e",
+    "observed_complete_boundary_separation": {
+      "train2000": 0.7708803611738149,
+      "development300": 0.6691729323308271,
+      "confirm210": 0.7032967032967034
+    },
+    "interpretation": "not a pure fresh-only generalization collapse; optimization/supervision limitations are visible on train and coexist with a modest train-to-heldout gap"
+  },
+  "preserved_invariants": {
+    "packets": "12 source-preserving lossless binary packets",
+    "backbone": "Qwen3-1.7B NF4 QLoRA",
+    "target": "frozen Qwen3-8B, greedy, thinking disabled, exact 4096-state lattice",
+    "nested_representation": "one total order and monotone prefixes",
+    "oracle_slack": 0.005,
+    "oracle_slack_definition": "extra cumulative tokens divided by active-anchor count times full-state tokens",
+    "training_data": "unchanged V3 train2000 stable-boundary oracle",
+    "development_data": "already-consumed development300",
+    "full_fallback": "independent lossless fallback; control 1.0 never forces all packets into the ranked trajectory",
+    "larger_backbone": false,
+    "reinforcement_learning": false,
+    "cutoff_training": false,
+    "calibration_or_final_test_access": false
+  },
+  "single_model_change": {
+    "old": "one shared unary scalar score per packet; pair logit equals score_i minus score_j",
+    "new": "ordered-pair MLP over packet_i, packet_j, their difference/product, and query/global representation; antisymmetric logit z_ij = raw_ij - raw_ji",
+    "backbone_forwards_per_example": 1,
+    "decoder": "exact subset dynamic program maximizing the sum of decoded forward antisymmetric logits over a total order",
+    "decoder_complexity": "O(2^m m^2) with m=12",
+    "confidence_threshold": false,
+    "cycle_edge_deletion": false,
+    "secondary_score": false
+  },
+  "single_primary_objective": {
+    "formula": "mean_over_examples softplus(max_over_stable_boundary_edges(-z_eh))",
+    "margin": 0.0,
+    "ranknet_auxiliary": false,
+    "listwise_auxiliary": false,
+    "never_reveal_auxiliary": false,
+    "cutoff_auxiliary": false
+  },
+  "data": {
+    "train": "results/v2_rank_then_cut/v3_train2000_boundary_oracle.jsonl",
+    "development": "results/v2_rank_then_cut/v3_development300_boundary_oracle.jsonl",
+    "new_candidate_manifest": "results/v2_rank_then_cut/v4_candidates500_manifest.json",
+    "new_candidate_manifest_sha256": "bd0cbe118b8a2df607b76da2bad29bcc711284290528aa433ba6861a50f43ecb",
+    "new_candidate_slice": "canonical target-blind QAMPARI certified ordering indices [5000,5500), disjoint from the complete parent candidate5000",
+    "new_candidate_packets_metadata_sha256": "d4e8b290498b81cbeb2f4302bc95b7209d68c9a45cd9801d556983f1cfb357b4",
+    "new_target_outputs_observed_at_freeze": false,
+    "post_exact_eligibility": "maximum fidelity over any exact subset >= 0.90",
+    "fresh_confirmation": "first 300 eligible examples in the frozen candidate-tail order; protocol fails without replacement if fewer than 300",
+    "calibration300": "locked and forbidden",
+    "final_test300": "locked and forbidden"
+  },
+  "training": {
+    "seeds": [20260910, 20260911, 20260912],
+    "epochs": 5,
+    "batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 0.0001,
+    "max_length": 4096,
+    "lora_rank": 32,
+    "head_hidden_size": 256,
+    "within_seed_selection": "minimum consumed-development example-mean worst relational boundary loss",
+    "across_seed_selection": "minimum selected consumed-development loss, fixed before any evaluation on new confirmation"
+  },
+  "consumed_development_headroom_gate_before_fresh": {
+    "selected_model_only": true,
+    "fidelity_0_90_successes": "at least 282/300",
+    "all_active_trajectory_success": "at least 0.90",
+    "mean_feasible_normalized_ranking_regret": "at most 0.03",
+    "if_fail": "STOP_V4_WITHOUT_EVALUATING_NEW_CONFIRMATION"
+  },
+  "one_shot_fresh_confirmation_gate": {
+    "population_size": 300,
+    "primary": "relational decoded order plus global oracle monotone cutoff",
+    "familywise_alpha": 0.05,
+    "correction": "Bonferroni over all active fidelity anchors",
+    "minimum_per_anchor_one_sided_clopper_pearson_lower_bound": 0.90,
+    "minimum_active_contract_success": 0.97,
+    "minimum_all_active_trajectory_success": 0.90,
+    "maximum_mean_feasible_normalized_ranking_regret": 0.03,
+    "stable_boundary_edge_accuracy": "secondary diagnostic only",
+    "if_pass": "freeze ranker, then separately preregister monotone cutoff",
+    "if_fail": "STOP V4 ranking; do not use calibration300 or final-test300"
+  },
+  "implementation_sha256": {
+    "src/data/select_next_rank_confirm_candidates.py": "b841075a992f74b7c82a1c7543acec66b90593c2784982ebe9dcfe6995b8453f",
+    "src/data/select_v4_rank_confirm.py": "c3c0241d3915eba928738675d6494d320375aed5fd9211e5da2ff838e0c50529",
+    "src/search/atomic_exact_search.py": "f114d03e6a50bbca8128064410f5d64c8c24bc025c3f63f21dda7528c9bfc253",
+    "src/model/relational_packet_ranker.py": "05a3124928bbb8fa1ea704ac3e092fb84ca1cffe1a148833f5aa4d2beb688bce",
+    "src/model/relational_boundary_loss.py": "ac3d70171583e6b51ee2e1d9aa24205c8eb1cf4d22e20bb91b65ab9dceea6043",
+    "src/search/weighted_precedence.py": "3265425d3917d20b856548c19eb28d21fecc68ecdf6dc657d88ae89d6a010925",
+    "src/training/train_relational_boundary_ranker.py": "d839aac3a7ba7ba35e49cd9d228b9fbe490b76ac1049fdf515e175decc94d08b",
+    "src/evaluation/relational_ranker_evaluation.py": "677d8ada51ba5e84986dbdadbea48bbc7324b1174ec7e310d50973fef4c58841"
+  }
+}

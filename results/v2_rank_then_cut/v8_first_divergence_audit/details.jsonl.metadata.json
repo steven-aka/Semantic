@@ -1,0 +1,18 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "data": "results/v2_rank_then_cut/v8_development300_history_supervision.jsonl",
+  "data_sha256": "2b85cda1c81e293941d2e6f979d7cb536fecb0472fc024165de2c3e9a53ea458",
+  "details": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl",
+  "details_sha256": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15",
+  "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "locked_roles_used": false,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "v8_first_divergence_audit",
+  "timestamp_utc": "2026-09-17T03:01:09.384485+00:00"
+}

@@ -1,0 +1,112 @@
+{
+  "protocol": "v5a_tail_risk_cost_aware_relational_ranking",
+  "frozen_at": "2026-09-16 after consumed-development V4 tail/cost diagnostics and before any V5-A formal training or any new confirmation-population Target inference",
+  "status": "single controlled training-objective test after STOP_V4_WITHOUT_FRESH_CONFIRM",
+  "scientific_hypothesis": "Replacing one-worst-edge training with top-quartile critical-edge CVaR and a secondary token-cost-weighted rate-dominance loss will improve joint critical-boundary generalization and suppress catastrophic rate inefficiency without changing the relational model or exact total-order decoder.",
+  "parent_decision": {
+    "path": "results/v2_rank_then_cut/v4_development_headroom_decision.json",
+    "decision": "STOP_V4_WITHOUT_FRESH_CONFIRM",
+    "v4_fresh_confirmation_evaluated": false
+  },
+  "consumed_development_diagnostic": {
+    "path": "results/v2_rank_then_cut/v4_tail_cost_diagnostic/summary.json",
+    "sha256": "efb6cd9a8f85cbab4aed5819db77589519784ff2d1ebf679000fe27f30095d3a",
+    "repair_edges": 32,
+    "unanimous_wrong_across_three_seeds": 25,
+    "at_least_one_seed_correct": 7,
+    "selected_wrong_edge_absolute_margin_median": 0.140625,
+    "selected_wrong_edge_absolute_margin_max": 3.25,
+    "ensemble_fidelity_0_90_successes": 275,
+    "ensemble_mean_feasible_regret": 0.028122808502844706,
+    "top10_total_token_excess": 8366,
+    "top10_extra_packet_tokens": 10192,
+    "interpretation": "variance reduction fixes rate but not safety; systematic critical-edge bias and long-packet early exposure require an objective change rather than an ensemble or a larger confirmation sample"
+  },
+  "preserved_invariants": {
+    "packets": "12 source-preserving lossless binary packets",
+    "backbone": "Qwen3-1.7B NF4 QLoRA",
+    "relational_head": "unchanged V4 ordered-pair antisymmetric MLP",
+    "decoder": "unchanged exact maximum-weight total order subset DP",
+    "target": "frozen Qwen3-8B, greedy, thinking disabled, exact 4096-state lattice",
+    "nested_representation": "one total order and monotone prefixes",
+    "oracle_slack": 0.005,
+    "full_fallback": "independent lossless fallback",
+    "larger_backbone": false,
+    "criticality_head": false,
+    "decoder_change": false,
+    "reinforcement_learning": false,
+    "cutoff_training": false,
+    "calibration_or_final_test_access": false
+  },
+  "single_controlled_change": {
+    "scope": "training objective and its deterministic oracle-derived weights",
+    "old": "per-example softplus of only the single worst unweighted stable critical edge",
+    "new": "per-example top-25% weighted stable-critical edge softplus plus 0.25 times mean weighted rate-dominance softplus",
+    "safety_weight": "within-example mean-normalized 1 + dominance_mass + rate_exposure",
+    "rate_weight": "within-example mean-normalized dominance_mass * loser_packet_token_fraction",
+    "dominance_mass": "sum over active anchors max(0, inclusion_fraction_winner - inclusion_fraction_loser)",
+    "rate_exposure": "dominance_mass * loser_packet_token_fraction",
+    "safety_rate_pool_overlap": false,
+    "reason_for_top_quartile": "give simultaneous gradient to the critical tail without dilution by easy edges or the single-edge bottleneck of max loss",
+    "reason_for_rate_pool": "penalize early placement of long packets that near-optimal nested chains stably place later"
+  },
+  "data": {
+    "train": "results/v2_rank_then_cut/v5_train2000_tail_cost_oracle.jsonl",
+    "train_sha256": "0b42af0e0263af1072084c4310077f2c8887e85a92c5dd9ebe40ca255cbf8553",
+    "development": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+    "development_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107",
+    "train_safety_edges": 38045,
+    "train_rate_edges": 51564,
+    "development_safety_edges": 5697,
+    "development_rate_edges": 7707,
+    "development_role": "already consumed; model/seed selection and diagnostic headroom only",
+    "v4_fresh300": "remains locked and is not reused for V5-A",
+    "future_fresh_confirmation": "unassigned until the development gate passes; then freeze a new target-blind canonical candidate slice beginning at index 5500 before any Target inference"
+  },
+  "training": {
+    "seeds": [
+      20260910,
+      20260911,
+      20260912
+    ],
+    "epochs": 5,
+    "batch_size": 4,
+    "gradient_accumulation": 2,
+    "effective_batch_size": 8,
+    "learning_rate": 0.0001,
+    "max_length": 4096,
+    "lora_rank": 32,
+    "head_hidden_size": 256,
+    "tail_fraction": 0.25,
+    "rate_lambda": 0.25,
+    "within_seed_selection": "minimum consumed-development example-mean combined tail-cost objective",
+    "across_seed_selection": "minimum selected consumed-development combined tail-cost objective before any new confirmation population exists"
+  },
+  "consumed_development_headroom_gate": {
+    "selected_model_only": true,
+    "fidelity_0_90_successes": "at least 282/300",
+    "all_active_trajectory_success": "at least 0.90",
+    "mean_feasible_normalized_ranking_regret": "at most 0.03",
+    "if_pass": "freeze a new target-blind confirmation population and its one-shot protocol before Target inference",
+    "if_fail": "STOP_V5A_WITHOUT_FRESH_CONFIRM"
+  },
+  "future_confirmation_principles": {
+    "population_size": 300,
+    "familywise_alpha": 0.05,
+    "correction": "Bonferroni over active fidelity anchors",
+    "minimum_per_anchor_one_sided_clopper_pearson_lower_bound": 0.9,
+    "minimum_active_contract_success": 0.97,
+    "minimum_all_active_trajectory_success": 0.9,
+    "maximum_mean_feasible_normalized_ranking_regret": 0.03,
+    "note": "these principles do not authorize Target inference until a disjoint candidate manifest and implementation hashes are frozen after development pass"
+  },
+  "implementation_sha256": {
+    "src/data/tail_cost_boundary_dataset.py": "68db0af1e7e8c5ba12b18b0c1d327b4b7da0ee0629aa7e3b3d6026dbbee22b69",
+    "src/model/tail_cost_relational_loss.py": "35c82f0f5584c3200b24f5c3cf6923f46366240046887195fd3c9c66cdb764fe",
+    "src/model/relational_packet_ranker.py": "05a3124928bbb8fa1ea704ac3e092fb84ca1cffe1a148833f5aa4d2beb688bce",
+    "src/training/train_tail_cost_relational_ranker.py": "ce3e0b6c811d380a726966e49ec05d1725a61c829553edbffc5453b28d519d11",
+    "src/search/weighted_precedence.py": "3265425d3917d20b856548c19eb28d21fecc68ecdf6dc657d88ae89d6a010925",
+    "src/evaluation/relational_ranker_evaluation.py": "677d8ada51ba5e84986dbdadbea48bbc7324b1174ec7e310d50973fef4c58841",
+    "src/evaluation/v5_tail_cost_decision.py": "02c972e9abc7ea59cefd97a1ce9296bb7e4c4c04c34afb152318097475836538"
+  }
+}

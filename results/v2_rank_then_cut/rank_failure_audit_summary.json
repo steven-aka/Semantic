@@ -1,0 +1,254 @@
+{
+  "artifacts": {
+    "oracle": "results/v2_rank_then_cut/ranking_validation300_rank_oracle.jsonl",
+    "oracle_sha256": "e92cb0eb7fe9eec5b6645a85b16eb49c6962ae134f363a19d227a61d70bdf040",
+    "runs": [
+      {
+        "details": "results/v2_rank_then_cut/evaluation/train2000_seed20260910_details.jsonl",
+        "label": "20260910",
+        "sha256": "b4cb734891e526bc9a59aad85bd804acb731d658788fb2c98675b61d26bf80a0"
+      },
+      {
+        "details": "results/v2_rank_then_cut/evaluation/train2000_seed20260911_details.jsonl",
+        "label": "20260911",
+        "sha256": "cfa61054cedd21f769e9709563a9bd76d7e2fa9ddb672e82501d8a5b340166ac"
+      },
+      {
+        "details": "results/v2_rank_then_cut/evaluation/train2000_seed20260912_details.jsonl",
+        "label": "20260912",
+        "sha256": "26ff57bb0203e84387677f17286d1823b4b95bb77e7032ca2d9f2a68a0d97db8"
+      }
+    ]
+  },
+  "common_failed_example_ids": [
+    "13282__wikidata_simple__train",
+    "20235__wikidata_simple__train",
+    "20347__wikidata_simple__train",
+    "27611__wikidata_simple__train",
+    "28023__wikidata_simple__train",
+    "28051__wikidata_simple__train",
+    "55410__wikidata_intersection__train",
+    "55581__wikidata_intersection__train",
+    "56962__wikitables_composition__train",
+    "56973__wikitables_composition__train",
+    "57090__wikitables_composition__train",
+    "57154__wikitables_composition__train",
+    "57659__wikitables_composition__train",
+    "57702__wikitables_composition__train",
+    "577__wikidata_simple__train",
+    "57882__wikitables_composition__train",
+    "58301__wikitables_composition__train",
+    "58487__wikitables_composition__train",
+    "59256__wikitables_composition__train",
+    "60503__wikitables_composition__train",
+    "61569__wikitables_composition__train",
+    "61863__wikitables_composition__train",
+    "61891__wikitables_composition__train"
+  ],
+  "common_failed_examples": 23,
+  "complete": true,
+  "does_not_modify_frozen_rank_only_gate": true,
+  "evaluated_run_trajectories": 900,
+  "failed_run_trajectories": 84,
+  "repair": {
+    "identifiable_model_violation_fraction": 0.7156862745098039,
+    "intruder_packets": 90,
+    "mean_fidelity_shortfall": 0.0836070135773999,
+    "minimum_adjacent_swaps": {
+      "1": 25,
+      "2": 22,
+      "3": 13,
+      "4": 3,
+      "5": 1,
+      "6": 3,
+      "7": 4,
+      "8": 4,
+      "9": 1,
+      "10": 2,
+      "12": 2,
+      "13": 1,
+      "15": 1,
+      "16": 2
+    },
+    "minimum_boundary_replacements": {
+      "1": 78,
+      "2": 6
+    },
+    "one_edit_counterfactual_counts": {
+      "add": 27,
+      "drop": 75,
+      "swap": 78
+    },
+    "repair_pair_relation_counts": {
+      "identifiable_model_violation": 73,
+      "supervision_opposes_repair": 16,
+      "unlabeled": 13
+    },
+    "robust_never_reveal_intruder_packets": 67
+  },
+  "risk_headroom": {
+    "bonferroni_families": 5,
+    "familywise_alpha": 0.05,
+    "per_anchor_alpha": 0.01,
+    "required_contract_lower_bound": 0.9,
+    "rows": [
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+        "examples": 300,
+        "fidelity_level": 0.6,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260910",
+        "success_fraction": 0.9966666666666667,
+        "successes": 299
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+        "examples": 300,
+        "fidelity_level": 0.7,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260910",
+        "success_fraction": 0.99,
+        "successes": 297
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9474631319739069,
+        "examples": 300,
+        "fidelity_level": 0.8,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260910",
+        "success_fraction": 0.9766666666666667,
+        "successes": 293
+      },
+      {
+        "additional_successes_needed": 6,
+        "bonferroni_clopper_pearson_lower": 0.8760659656204228,
+        "examples": 300,
+        "fidelity_level": 0.9,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260910",
+        "success_fraction": 0.92,
+        "successes": 276
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9388655979119179,
+        "examples": 234,
+        "fidelity_level": 0.95,
+        "required_successes_for_target_lower_bound": 222,
+        "run_label": "20260910",
+        "success_fraction": 0.9743589743589743,
+        "successes": 228
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+        "examples": 300,
+        "fidelity_level": 0.6,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260911",
+        "success_fraction": 0.9933333333333333,
+        "successes": 298
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+        "examples": 300,
+        "fidelity_level": 0.7,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260911",
+        "success_fraction": 0.9933333333333333,
+        "successes": 298
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9669072577930897,
+        "examples": 300,
+        "fidelity_level": 0.8,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260911",
+        "success_fraction": 0.99,
+        "successes": 297
+      },
+      {
+        "additional_successes_needed": 4,
+        "bonferroni_clopper_pearson_lower": 0.8840280533641323,
+        "examples": 300,
+        "fidelity_level": 0.9,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260911",
+        "success_fraction": 0.9266666666666666,
+        "successes": 278
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9449450075709788,
+        "examples": 234,
+        "fidelity_level": 0.95,
+        "required_successes_for_target_lower_bound": 222,
+        "run_label": "20260911",
+        "success_fraction": 0.9786324786324786,
+        "successes": 229
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9780789553505743,
+        "examples": 300,
+        "fidelity_level": 0.6,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260912",
+        "success_fraction": 0.9966666666666667,
+        "successes": 299
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9722776570227922,
+        "examples": 300,
+        "fidelity_level": 0.7,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260912",
+        "success_fraction": 0.9933333333333333,
+        "successes": 298
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9474631319739069,
+        "examples": 300,
+        "fidelity_level": 0.8,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260912",
+        "success_fraction": 0.9766666666666667,
+        "successes": 293
+      },
+      {
+        "additional_successes_needed": 7,
+        "bonferroni_clopper_pearson_lower": 0.8721119626755043,
+        "examples": 300,
+        "fidelity_level": 0.9,
+        "required_successes_for_target_lower_bound": 282,
+        "run_label": "20260912",
+        "success_fraction": 0.9166666666666666,
+        "successes": 275
+      },
+      {
+        "additional_successes_needed": 0,
+        "bonferroni_clopper_pearson_lower": 0.9449450075709788,
+        "examples": 234,
+        "fidelity_level": 0.95,
+        "required_successes_for_target_lower_bound": 222,
+        "run_label": "20260912",
+        "success_fraction": 0.9786324786324786,
+        "successes": 229
+      }
+    ]
+  },
+  "runs": [
+    "20260910",
+    "20260911",
+    "20260912"
+  ],
+  "status": "post_hoc_validation_diagnostic_not_a_new_gate",
+  "unique_failed_examples": 33
+}

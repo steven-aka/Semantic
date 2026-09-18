@@ -1,0 +1,31 @@
+{
+  "base_model": "models/Qwen3-4B",
+  "batch_size": 4,
+  "best_optimizer_step": 500,
+  "best_validation_loss": 0.294368869684213,
+  "decoder": "unchanged exact maximum-weight total order by subset DP",
+  "elapsed_seconds": 8261.310532515054,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 2,
+  "head_hidden_size": 256,
+  "learning_rate": 0.0001,
+  "max_length": 4096,
+  "max_optimizer_steps": 750,
+  "objective": "unchanged V5-A example-balanced top-quartile weighted safety softplus plus 0.25 weighted cost-sensitive rate softplus",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "rate_lambda": 0.25,
+  "seed": 20260912,
+  "stage": "v7_fixed_update_budget_training_coverage",
+  "tail_fraction": 0.25,
+  "timestamp_utc": "2026-09-16T16:33:32.302490+00:00",
+  "train_data": "results/v2_rank_then_cut/v7_train3163_tail_cost_oracle.jsonl",
+  "train_sha256": "f03b166e826dad0bb50bf0224408093a6510d7eead3dff1c918daaa3c1100dda",
+  "update_budget_reason": "750 optimizer steps and validation every 250 steps exactly match V6 optimization exposure",
+  "validation_data": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+  "validation_interval_steps": 250,
+  "validation_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107"
+}

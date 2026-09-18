@@ -1,0 +1,169 @@
+{
+  "artifacts": {
+    "cache_sha256": "9455d3c0893076a911098cd6fee9fc548dce65d2086567ffeb73e56c88f6eefd",
+    "data_sha256": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+    "sequential_heads": {
+      "v8": "0e3d5022868a619e246fd759de82d3891dcf552922dc8ffd8434dfe38814ddb5",
+      "v9a": "8812050b28aec3f24c5d654732fbcd967c421fce85784ad569efd1fa15530540",
+      "v9b": "b18523abcc7f7e03a6529ddb75188da2ff51c484fcdd66349722b9eaab3b4a14"
+    },
+    "v10_head_sha256": "bd9741f2b5ec9ac3a98f91b0d1b4af32151be20785dd4839ea51a0a04b5fe1cd"
+  },
+  "candidate_pool": "union of terminal beam-8 orders from frozen sequential heads",
+  "complete": true,
+  "mean_unique_candidate_orders": 19.766666666666666,
+  "results": {
+    "candidate_oracle": {
+      "active_contract_success_fraction": 0.9797768479776848,
+      "complete_trajectory_success_fraction": 0.9233333333333333,
+      "complete_trajectory_successes": 277,
+      "examples": 300,
+      "feasible_trajectory_examples": 277,
+      "mean_normalized_regret_feasible": 0.013942352166961125,
+      "per_level": {
+        "0.6": {
+          "contract_successes": 299,
+          "examples": 300
+        },
+        "0.7": {
+          "contract_successes": 298,
+          "examples": 300
+        },
+        "0.8": {
+          "contract_successes": 297,
+          "examples": 300
+        },
+        "0.9": {
+          "contract_successes": 280,
+          "examples": 300
+        },
+        "0.95": {
+          "contract_successes": 231,
+          "examples": 234
+        }
+      }
+    },
+    "v10_rerank": {
+      "active_contract_success_fraction": 0.9755927475592747,
+      "complete_trajectory_success_fraction": 0.91,
+      "complete_trajectory_successes": 273,
+      "examples": 300,
+      "feasible_trajectory_examples": 273,
+      "mean_normalized_regret_feasible": 0.025098100565297238,
+      "per_level": {
+        "0.6": {
+          "contract_successes": 299,
+          "examples": 300
+        },
+        "0.7": {
+          "contract_successes": 298,
+          "examples": 300
+        },
+        "0.8": {
+          "contract_successes": 295,
+          "examples": 300
+        },
+        "0.9": {
+          "contract_successes": 277,
+          "examples": 300
+        },
+        "0.95": {
+          "contract_successes": 230,
+          "examples": 234
+        }
+      }
+    },
+    "v8": {
+      "active_contract_success_fraction": 0.9741980474198048,
+      "complete_trajectory_success_fraction": 0.9066666666666666,
+      "complete_trajectory_successes": 272,
+      "examples": 300,
+      "feasible_trajectory_examples": 272,
+      "mean_normalized_regret_feasible": 0.026644166245131957,
+      "per_level": {
+        "0.6": {
+          "contract_successes": 298,
+          "examples": 300
+        },
+        "0.7": {
+          "contract_successes": 298,
+          "examples": 300
+        },
+        "0.8": {
+          "contract_successes": 295,
+          "examples": 300
+        },
+        "0.9": {
+          "contract_successes": 276,
+          "examples": 300
+        },
+        "0.95": {
+          "contract_successes": 230,
+          "examples": 234
+        }
+      }
+    },
+    "v9a": {
+      "active_contract_success_fraction": 0.9721059972105998,
+      "complete_trajectory_success_fraction": 0.9,
+      "complete_trajectory_successes": 270,
+      "examples": 300,
+      "feasible_trajectory_examples": 270,
+      "mean_normalized_regret_feasible": 0.02473087647616555,
+      "per_level": {
+        "0.6": {
+          "contract_successes": 299,
+          "examples": 300
+        },
+        "0.7": {
+          "contract_successes": 297,
+          "examples": 300
+        },
+        "0.8": {
+          "contract_successes": 296,
+          "examples": 300
+        },
+        "0.9": {
+          "contract_successes": 274,
+          "examples": 300
+        },
+        "0.95": {
+          "contract_successes": 228,
+          "examples": 234
+        }
+      }
+    },
+    "v9b": {
+      "active_contract_success_fraction": 0.9755927475592747,
+      "complete_trajectory_success_fraction": 0.91,
+      "complete_trajectory_successes": 273,
+      "examples": 300,
+      "feasible_trajectory_examples": 273,
+      "mean_normalized_regret_feasible": 0.025552725504465298,
+      "per_level": {
+        "0.6": {
+          "contract_successes": 299,
+          "examples": 300
+        },
+        "0.7": {
+          "contract_successes": 298,
+          "examples": 300
+        },
+        "0.8": {
+          "contract_successes": 295,
+          "examples": 300
+        },
+        "0.9": {
+          "contract_successes": 277,
+          "examples": 300
+        },
+        "0.95": {
+          "contract_successes": 230,
+          "examples": 234
+        }
+      }
+    }
+  },
+  "scientific_role": "post-stop consumed-development diagnostic; no fresh role opened",
+  "selector": "frozen V10 hard five-anchor mask values; lexicographic reached anchors then cumulative first-crossing tokens"
+}

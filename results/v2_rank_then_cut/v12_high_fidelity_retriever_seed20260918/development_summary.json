@@ -1,0 +1,157 @@
+{
+  "artifacts": {
+    "cache_sha256": "9455d3c0893076a911098cd6fee9fc548dce65d2086567ffeb73e56c88f6eefd",
+    "data_sha256": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+    "head_sha256": "320453b125195ce2344b48fc5bf28c7bae82d3e45a523f912ff42fa2281a4d6f",
+    "v8_details_sha256": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15"
+  },
+  "complete": true,
+  "results": {
+    "top16_oracle": {
+      "complete_trajectory_success_fraction": 0.98,
+      "complete_trajectory_successes": 294,
+      "feasible_examples": 294,
+      "mean_normalized_regret_feasible": 0.020234732853023858,
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 300
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 300
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 300
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 294
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 234
+        }
+      }
+    },
+    "top1_oracle": {
+      "complete_trajectory_success_fraction": 0.9233333333333333,
+      "complete_trajectory_successes": 277,
+      "feasible_examples": 277,
+      "mean_normalized_regret_feasible": 0.027585172173246075,
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 278
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 233
+        }
+      }
+    },
+    "top1_retrieval": {
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "complete_trajectory_successes": 274,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707,
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      }
+    },
+    "top4_oracle": {
+      "complete_trajectory_success_fraction": 0.94,
+      "complete_trajectory_successes": 282,
+      "feasible_examples": 282,
+      "mean_normalized_regret_feasible": 0.025831161746827605,
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 299
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 282
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 234
+        }
+      }
+    },
+    "v8_baseline": {
+      "complete_trajectory_success_fraction": 0.91,
+      "complete_trajectory_successes": 273,
+      "feasible_examples": 273,
+      "mean_normalized_regret_feasible": 0.027927953196976878,
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      }
+    }
+  },
+  "retrieval": {
+    "queries_with_true_0.90_in_top16": 291,
+    "queries_with_true_0.90_in_top4": 274,
+    "top1_true_0.90_masks": 239
+  },
+  "scientific_role": "post-stop consumed-development retrieval audit; oracle top-k rows are nondeployable upper bounds"
+}

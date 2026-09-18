@@ -1,0 +1,817 @@
+{
+  "scientific_role": "post-stop consumed-development deterministic rule audit; exploratory only",
+  "results": {
+    "baseline": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 273,
+      "complete_trajectory_success_fraction": 0.91,
+      "feasible_examples": 273,
+      "mean_normalized_regret_feasible": 0.027927953196976878
+    },
+    "top2_score": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top2_min_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 229
+        }
+      },
+      "complete_trajectory_successes": 272,
+      "complete_trajectory_success_fraction": 0.9066666666666666,
+      "feasible_examples": 272,
+      "mean_normalized_regret_feasible": 0.028373772539429812
+    },
+    "top2_max_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 276
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027075285431471485
+    },
+    "top2_min_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 273,
+      "complete_trajectory_success_fraction": 0.91,
+      "feasible_examples": 273,
+      "mean_normalized_regret_feasible": 0.028234147046905644
+    },
+    "top2_max_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top2_union": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.02774695461076578
+    },
+    "top2_intersection": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.028694349656440264
+    },
+    "top4_score": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top4_min_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 275
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 222
+        }
+      },
+      "complete_trajectory_successes": 263,
+      "complete_trajectory_success_fraction": 0.8766666666666667,
+      "feasible_examples": 263,
+      "mean_normalized_regret_feasible": 0.03805378638743513
+    },
+    "top4_max_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 294
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 274
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 229
+        }
+      },
+      "complete_trajectory_successes": 272,
+      "complete_trajectory_success_fraction": 0.9066666666666666,
+      "feasible_examples": 272,
+      "mean_normalized_regret_feasible": 0.02654044688329575
+    },
+    "top4_min_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 278
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.03490672877075624
+    },
+    "top4_max_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top4_union": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 273,
+      "complete_trajectory_success_fraction": 0.91,
+      "feasible_examples": 273,
+      "mean_normalized_regret_feasible": 0.027927953196976878
+    },
+    "top4_intersection": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 276
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 272,
+      "complete_trajectory_success_fraction": 0.9066666666666666,
+      "feasible_examples": 272,
+      "mean_normalized_regret_feasible": 0.041518424281558546
+    },
+    "top8_score": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top8_min_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 296
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 276
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 226
+        }
+      },
+      "complete_trajectory_successes": 268,
+      "complete_trajectory_success_fraction": 0.8933333333333333,
+      "feasible_examples": 268,
+      "mean_normalized_regret_feasible": 0.03376300596773719
+    },
+    "top8_max_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 296
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 294
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 274
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 224
+        }
+      },
+      "complete_trajectory_successes": 267,
+      "complete_trajectory_success_fraction": 0.89,
+      "feasible_examples": 267,
+      "mean_normalized_regret_feasible": 0.02834037985180258
+    },
+    "top8_min_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 276
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 272,
+      "complete_trajectory_success_fraction": 0.9066666666666666,
+      "feasible_examples": 272,
+      "mean_normalized_regret_feasible": 0.040054300725766476
+    },
+    "top8_max_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top8_union": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 273,
+      "complete_trajectory_success_fraction": 0.91,
+      "feasible_examples": 273,
+      "mean_normalized_regret_feasible": 0.027927953196976878
+    },
+    "top8_intersection": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 294
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 273,
+      "complete_trajectory_success_fraction": 0.91,
+      "feasible_examples": 273,
+      "mean_normalized_regret_feasible": 0.05852769702880414
+    },
+    "top16_score": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top16_min_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 279
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 229
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.029072666753895044
+    },
+    "top16_max_tokens": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 299
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 276
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 218
+        }
+      },
+      "complete_trajectory_successes": 262,
+      "complete_trajectory_success_fraction": 0.8733333333333333,
+      "feasible_examples": 262,
+      "mean_normalized_regret_feasible": 0.03151863754781972
+    },
+    "top16_min_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.04143390053783296
+    },
+    "top16_max_packets": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 231
+        }
+      },
+      "complete_trajectory_successes": 274,
+      "complete_trajectory_success_fraction": 0.9133333333333333,
+      "feasible_examples": 274,
+      "mean_normalized_regret_feasible": 0.027764985361865707
+    },
+    "top16_union": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 298
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 295
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 277
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 273,
+      "complete_trajectory_success_fraction": 0.91,
+      "feasible_examples": 273,
+      "mean_normalized_regret_feasible": 0.027927953196976878
+    },
+    "top16_intersection": {
+      "per_level": {
+        "0.6": {
+          "examples": 300,
+          "successes": 299
+        },
+        "0.7": {
+          "examples": 300,
+          "successes": 299
+        },
+        "0.8": {
+          "examples": 300,
+          "successes": 297
+        },
+        "0.9": {
+          "examples": 300,
+          "successes": 280
+        },
+        "0.95": {
+          "examples": 234,
+          "successes": 230
+        }
+      },
+      "complete_trajectory_successes": 276,
+      "complete_trajectory_success_fraction": 0.92,
+      "feasible_examples": 276,
+      "mean_normalized_regret_feasible": 0.05151522707902403
+    }
+  }
+}

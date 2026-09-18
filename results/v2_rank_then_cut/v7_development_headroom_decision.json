@@ -1,0 +1,18 @@
+{
+  "checkpoint_metadata": "results/v2_rank_then_cut/v7_4b_training/train3163_seed20260912/training_metadata.json",
+  "checkpoint_metadata_sha256": "145782deee14712e848c512b86591e595c728c0bd6ab5559b67982bd06ade0df",
+  "checks": {
+    "all_active_trajectory_success": true,
+    "fidelity_0_90_at_least_282_of_300": false,
+    "normalized_ranking_regret": true
+  },
+  "complete": true,
+  "config": "configs/v7_train3163_data_scale.json",
+  "config_sha256": "2c3a6fee9b8bd0f8ac314d808c094f62d2c85d9d8983e1d829f25326a4e2904f",
+  "decision": "STOP_STATIC_ONE_SHOT_RANKING_AFTER_V7",
+  "fidelity_0_90_successes": 277,
+  "passed": false,
+  "stage": "consumed_development",
+  "summary": "results/v2_rank_then_cut/v7_selected_development_evaluation/summary.json",
+  "summary_sha256": "d5019265e5b5d4ad8fc2e472ea3b6e52d927229e81c77a88d68fe5bccee2ae0a"
+}

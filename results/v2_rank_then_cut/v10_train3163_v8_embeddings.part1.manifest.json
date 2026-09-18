@@ -1,0 +1,32 @@
+{
+  "adapter_tree_sha256": "c95f1b7c5e79b6744345e6e9473b936886c3a4bf32ec137b2976663ae71e8c02",
+  "batch_size": 64,
+  "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "data": "results/v2_rank_then_cut/v10_train3163_mask_value.jsonl",
+  "data_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd",
+  "dtype": "torch.bfloat16",
+  "examples": 791,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "num_shards": 4,
+  "output_sha256": "0ee1cccca9747ce574d8f0f1ebfcf75d49bb3f23caa303b454144c581662daf6",
+  "peak_gpu_bytes": 10449543680,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "sequential_head_sha256": "0e3d5022868a619e246fd759de82d3891dcf552922dc8ffd8434dfe38814ddb5",
+  "shape_packets": [
+    791,
+    12,
+    512
+  ],
+  "shape_questions": [
+    791,
+    512
+  ],
+  "shard_index": 1,
+  "stage": "v10_frozen_v8_embedding_cache",
+  "timestamp_utc": "2026-09-17T06:45:11.478594+00:00"
+}

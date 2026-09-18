@@ -1,0 +1,24 @@
+{
+  "complete": true,
+  "data": "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl",
+  "data_sha256": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+  "dtype": "torch.bfloat16",
+  "examples": 300,
+  "output": "results/v2_rank_then_cut/v10_development300_v8_embeddings.pt",
+  "output_sha256": "9455d3c0893076a911098cd6fee9fc548dce65d2086567ffeb73e56c88f6eefd",
+  "parts": {
+    "results/v2_rank_then_cut/v10_development300_v8_embeddings.part0.pt": "7d30ee3725ac2857fb6f8cd6aa4135aee5a7a550a459d0aa01184ef00429ca65",
+    "results/v2_rank_then_cut/v10_development300_v8_embeddings.part1.pt": "e86a47dc787e49842aa19cfa906db58e97c2f51e1b1d18d576996e8020b67d1e",
+    "results/v2_rank_then_cut/v10_development300_v8_embeddings.part2.pt": "6a9b9c513bf1cd325444b485ab6d11c01ed02c4ea60cde9522f860093c103cb5",
+    "results/v2_rank_then_cut/v10_development300_v8_embeddings.part3.pt": "682088c1cd02dc479d26a9aadc4ce01b69815a84968396ef1a644b5378230c02"
+  },
+  "shape_packets": [
+    300,
+    12,
+    512
+  ],
+  "shape_questions": [
+    300,
+    512
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "approximate_epochs": 2.023395510591211,
+  "base_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "base_checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "batch_size": 16,
+  "decision": {
+    "complete_trajectory_fraction": 0.82,
+    "complete_trajectory_gate": false,
+    "decision": "STOP_MASK_VALUE_HYPOTHESIS",
+    "feasible_normalized_regret": 0.02453399910082136,
+    "fidelity_0.90_gate": false,
+    "fidelity_0.90_successes": 269,
+    "regret_gate": true
+  },
+  "decoder": "exact DP over predicted ordinal mask-attainment lattice",
+  "dropout": 0.1,
+  "elapsed_seconds": 553.5246787860524,
+  "encoder_frozen_and_cached": true,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_clip": 1.0,
+  "learning_rate": 0.0002,
+  "locked_roles_used": false,
+  "mask_heads": 8,
+  "mask_layers": 2,
+  "optimizer_steps": 400,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "prediction_threshold": 0.5,
+  "protocol_config": "configs/v10_mask_value_probe.json",
+  "protocol_config_sha256": "3f417d101a315e264f2a0e7101d26c53217d759c342b836beef0127dbffeeca0",
+  "python": "3.11.16",
+  "scheduler": "cosine",
+  "seed": 20260912,
+  "stage": "v10_frozen_encoder_mask_value_probe",
+  "summary": {
+    "complete": true,
+    "decoder": "label-free exact DP over five fixed predicted ordinal anchors",
+    "exact_attained_class_accuracy": 0.8214013671875,
+    "examples": 300,
+    "mask_classification": {
+      "0": {
+        "fn": 5769,
+        "fp": 116093,
+        "precision": 0.8466267070578428,
+        "recall": 0.9910780427678636,
+        "tn": 466100,
+        "tp": 640838
+      },
+      "1": {
+        "fn": 7896,
+        "fp": 86461,
+        "precision": 0.8081185807241964,
+        "recall": 0.9787759622182023,
+        "tn": 770308,
+        "tp": 364135
+      },
+      "2": {
+        "fn": 8283,
+        "fp": 52364,
+        "precision": 0.7354859241373388,
+        "recall": 0.9461730416812882,
+        "tn": 1022554,
+        "tp": 145599
+      },
+      "3": {
+        "fn": 1218,
+        "fp": 3307,
+        "precision": 0.6990353112486348,
+        "recall": 0.8631306888414428,
+        "tn": 1216594,
+        "tp": 7681
+      },
+      "4": {
+        "fn": 383,
+        "fp": 180,
+        "precision": 0.6477495107632094,
+        "recall": 0.4635854341736695,
+        "tn": 1227906,
+        "tp": 331
+      }
+    },
+    "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.02453399910082136,
+    "oracle_cutoff_active_contract_success_fraction": 0.9532775453277545,
+    "oracle_cutoff_all_active_contracts_success_fraction": 0.82,
+    "oracle_cutoff_feasible_trajectory_examples": 246,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9966666666666667,
+        "contract_successes": 299,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.028395054902789842
+      },
+      "0.7": {
+        "contract_success_fraction": 0.99,
+        "contract_successes": 297,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03406238076888002
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9833333333333333,
+        "contract_successes": 295,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.043501291397546396
+      },
+      "0.9": {
+        "contract_success_fraction": 0.8966666666666666,
+        "contract_successes": 269,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.025063890241681198
+      },
+      "0.95": {
+        "contract_success_fraction": 0.8846153846153846,
+        "contract_successes": 207,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.02375437605200353
+      }
+    },
+    "predicted_cutoff_active_contract_success_fraction": 0.7133891213389121,
+    "predicted_cutoff_all_active_contracts_success_fraction": 0.3466666666666667
+  },
+  "timestamp_utc": "2026-09-17T11:03:35.824458+00:00",
+  "train_cache": "results/v2_rank_then_cut/v10_train3163_v8_embeddings.pt",
+  "train_cache_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+  "train_data": "results/v2_rank_then_cut/v10_train3163_mask_value.jsonl",
+  "train_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd",
+  "trainable_parameters": 5258757,
+  "validation_cache": "results/v2_rank_then_cut/v10_development300_v8_embeddings.pt",
+  "validation_cache_sha256": "9455d3c0893076a911098cd6fee9fc548dce65d2086567ffeb73e56c88f6eefd",
+  "validation_data": "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl",
+  "validation_sha256": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+  "warmup_steps": 40,
+  "weight_decay": 0.01
+}

@@ -1,0 +1,9 @@
+{
+  "best_epoch": 2,
+  "best_validation_loss": 0.574748166521689,
+  "checkpoint": "results/v2_rank_then_cut/v3_boundary_training/train2000_seed20260911",
+  "seed": 20260911,
+  "selection_rule": "minimum consumed-development validation worst-boundary loss across frozen seeds",
+  "selection_status": "selected before any rank-confirm model evaluation",
+  "training_metadata_sha256": "572ca894bf6d7bb91402bc4f726089fc39fc022891d4b419b7c26df2dcc7ec53"
+}

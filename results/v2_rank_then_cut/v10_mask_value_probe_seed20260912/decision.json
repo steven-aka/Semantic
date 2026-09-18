@@ -1,0 +1,9 @@
+{
+  "complete_trajectory_fraction": 0.82,
+  "complete_trajectory_gate": false,
+  "decision": "STOP_MASK_VALUE_HYPOTHESIS",
+  "feasible_normalized_regret": 0.02453399910082136,
+  "fidelity_0.90_gate": false,
+  "fidelity_0.90_successes": 269,
+  "regret_gate": true
+}

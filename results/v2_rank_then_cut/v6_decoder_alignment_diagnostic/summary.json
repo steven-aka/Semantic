@@ -1,0 +1,124 @@
+{
+  "artifacts": {
+    "details": "results/v2_rank_then_cut/v6_selected_development_evaluation/details.jsonl",
+    "details_sha256": "c061cb620e7f324ab8c2b94cf4b71cdf150f07a3d21203a13c7436a76eb876f5",
+    "oracle": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+    "oracle_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107"
+  },
+  "complete": true,
+  "failed_target_repairs": {
+    "examples": 23,
+    "mean_absolute_logit": 3.9110991379310347,
+    "raw_opposes_repair": 29,
+    "raw_supports_repair": 0,
+    "relations": 29,
+    "supervision": {
+      "opposes_repair": 5,
+      "supports_repair": 18,
+      "unlabeled": 6
+    }
+  },
+  "oracle_safety_projection": {
+    "active_contract_success_fraction": 0.99721059972106,
+    "all_active_trajectory_success_fraction": 0.99,
+    "highest_active_anchor_success_fraction": 0.99,
+    "mean_normalized_ranking_regret_feasible": 0.018100119137368254,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 1,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.01442214001485826,
+        "successes": 300
+      },
+      "0.7": {
+        "contract_success_fraction": 1,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.018520591216909625,
+        "successes": 300
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9966666666666667,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.027798159473255712,
+        "successes": 299
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9933333333333333,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.020927446398623338,
+        "successes": 298
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9957264957264957,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.0033191245135198682,
+        "successes": 233
+      }
+    }
+  },
+  "projection_transitions": {
+    "target_anchor_breaks": 0,
+    "target_anchor_rescues": 21,
+    "trajectory_breaks": 0,
+    "trajectory_rescues": 24
+  },
+  "rate_edge_alignment": {
+    "contingency": {
+      "raw_0_decoded_0": 335,
+      "raw_0_decoded_1": 1,
+      "raw_1_decoded_1": 7371
+    },
+    "edges": 7707
+  },
+  "raw": {
+    "active_contract_success_fraction": 0.9728033472803347,
+    "all_active_trajectory_success_fraction": 0.91,
+    "highest_active_anchor_success_fraction": 0.91,
+    "mean_normalized_ranking_regret_feasible": 0.026217006182882863,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9966666666666667,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02766873420167791,
+        "successes": 299
+      },
+      "0.7": {
+        "contract_success_fraction": 0.99,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.028891148554205163,
+        "successes": 297
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9766666666666667,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.040673601690053775,
+        "successes": 293
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9233333333333333,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.029838967278727244,
+        "successes": 277
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9786324786324786,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.0052804831825495795,
+        "successes": 229
+      }
+    }
+  },
+  "safety_edge_alignment": {
+    "contingency": {
+      "raw_0_decoded_0": 361,
+      "raw_0_decoded_1": 2,
+      "raw_1_decoded_1": 5334
+    },
+    "decoded_order_accuracy": 0.9366333157802352,
+    "edges": 5697,
+    "fraction_of_raw_correct_edges_sacrificed": 0.0,
+    "raw_correct_but_decoder_sacrificed": 0,
+    "raw_sign_accuracy": 0.9362822538177988
+  },
+  "status": "consumed-development oracle-label diagnostic only"
+}

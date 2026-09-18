@@ -1,0 +1,13 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v5a_tail_cost_training/train2000_seed20260911",
+  "data": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+  "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "v4_relational_precedence_oracle_cutoff_evaluation",
+  "timestamp_utc": "2026-09-16T06:25:54.378103+00:00"
+}

@@ -1,0 +1,72 @@
+{
+  "base_model": "models/Qwen3-4B",
+  "batch_size": 8,
+  "beam_width": 8,
+  "effective_batch_size": 8,
+  "elapsed_seconds": 2813.3755519350525,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 1,
+  "gradient_checkpointing": true,
+  "head_learning_rate": 0.0002,
+  "lora_learning_rate": 2e-05,
+  "max_optimizer_steps": 750,
+  "model_dim": 512,
+  "optimizer_step": 250,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "progress_weight": 0.2,
+  "python": "3.11.16",
+  "seed": 20260912,
+  "stage": "v8_one_run_history_aware_sequential_policy",
+  "timestamp_utc": "2026-09-17T00:53:28.691826+00:00",
+  "train_data": "results/v2_rank_then_cut/v8_train3163_history_supervision.jsonl",
+  "train_sha256": "98976778a186374d6ce12d27092e392a844ee0db9f5407650b4fef35e2dfa271",
+  "validation_data": "results/v2_rank_then_cut/v8_development300_history_supervision.jsonl",
+  "validation_sha256": "2b85cda1c81e293941d2e6f979d7cb536fecb0472fc024165de2c3e9a53ea458",
+  "validation_summary": {
+    "complete": true,
+    "decoder": "history-aware sequential policy beam width 8",
+    "examples": 300,
+    "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.027927953196976878,
+    "oracle_cutoff_active_contract_success_fraction": 0.9748953974895398,
+    "oracle_cutoff_all_active_contracts_success_fraction": 0.91,
+    "oracle_cutoff_feasible_trajectory_examples": 273,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9933333333333333,
+        "contract_successes": 298,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.0248008517035642
+      },
+      "0.7": {
+        "contract_success_fraction": 0.9933333333333333,
+        "contract_successes": 298,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03572518745981434
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9833333333333333,
+        "contract_successes": 295,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.047025305471391665
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9233333333333333,
+        "contract_successes": 277,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.029574977267870974
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9829059829059829,
+        "contract_successes": 230,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.004904287598555675
+      }
+    },
+    "validation_action_loss": 0.4599256774312572,
+    "validation_progress_loss": 0.1298553865206869,
+    "validation_set_action_accuracy": 0.8280222039473685
+  }
+}

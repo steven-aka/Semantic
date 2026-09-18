@@ -1,0 +1,42 @@
+{
+  "artifacts": {
+    "checkpoint_metadata_sha256": "1e9cd3a4544e3ef2d6207bc6128ce156764050d6fa07aac1030d2faba0fe1058",
+    "data_sha256": "e92cb0eb7fe9eec5b6645a85b16eb49c6962ae134f363a19d227a61d70bdf040"
+  },
+  "complete": true,
+  "exact_trajectory_fraction_is_not_a_primary_metric": true,
+  "examples": 300,
+  "identifiable_pairs": 13404,
+  "identifiable_pairwise_accuracy": 0.9467323187108326,
+  "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.028298967817567546,
+  "oracle_cutoff_active_contract_success_fraction": 0.9762900976290098,
+  "oracle_cutoff_all_active_contracts_success_fraction": 0.9133333333333333,
+  "oracle_cutoff_feasible_trajectory_examples": 274,
+  "per_level": {
+    "0.6": {
+      "contract_success_fraction": 0.9933333333333333,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.02946935909940646
+    },
+    "0.7": {
+      "contract_success_fraction": 0.9933333333333333,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.03494829393903605
+    },
+    "0.8": {
+      "contract_success_fraction": 0.99,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.04279978848748667
+    },
+    "0.9": {
+      "contract_success_fraction": 0.9266666666666666,
+      "examples": 300,
+      "mean_rate_regret_normalized_successful": 0.029461705787481886
+    },
+    "0.95": {
+      "contract_success_fraction": 0.9786324786324786,
+      "examples": 234,
+      "mean_rate_regret_normalized_successful": 0.0069647711497430615
+    }
+  }
+}

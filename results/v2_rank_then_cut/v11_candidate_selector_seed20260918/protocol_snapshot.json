@@ -1,0 +1,63 @@
+{
+  "data": {
+    "development_cache": "results/v2_rank_then_cut/v10_development300_v8_embeddings.pt",
+    "development_cache_sha256": "9455d3c0893076a911098cd6fee9fc548dce65d2086567ffeb73e56c88f6eefd",
+    "development_candidates": "results/v2_rank_then_cut/v11_development300_candidates.jsonl",
+    "development_candidates_sha256": "7f396a56c99698a1997b3e83c696f4bf46f860d2ada0bf17cf365f182a2fef8d",
+    "examples": {
+      "development": 300,
+      "train": 3163
+    },
+    "locked_roles_used": false,
+    "train_cache": "results/v2_rank_then_cut/v10_train3163_v8_embeddings.pt",
+    "train_cache_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+    "train_candidates": "results/v2_rank_then_cut/v11_train3163_candidates.jsonl",
+    "train_candidates_sha256": "1de2bec02e3e583332990ac88df9c0b70bab667fbfd2855978068ff0b7d5f8ed"
+  },
+  "date": "2026-09-18 Asia/Shanghai",
+  "decision": {
+    "GO": "fidelity-0.90 >=282/300, complete trajectories >=0.90, feasible regret <=0.03",
+    "otherwise": "STOP V11; do not open confirmation"
+  },
+  "frozen": {
+    "candidate_definition": "mask 0 V8 fallback plus stable top16 fidelity-0.90 logits from frozen V10; projection preserves V8 relative order inside and outside mask",
+    "v10_head": "results/v2_rank_then_cut/v10_mask_value_probe_seed20260912/mask_value_head.pt",
+    "v10_head_sha256": "bd9741f2b5ec9ac3a98f91b0d1b4af32151be20785dd4839ea51a0a04b5fe1cd",
+    "v8_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "v8_development_details": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl",
+    "v8_train_rollouts": "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl"
+  },
+  "hypothesis": "The repeated 0.90 failures are sparse-mask retrieval failures. A query-balanced selector over frozen V8 fallback plus frozen V10 top16 mask projections can recover high-fidelity trajectories without sacrificing lower anchors or regret.",
+  "implementation_sha256": {
+    "scripts/66_launch_v11_candidate_selector.sh": "5bc0f34808c26c1fa6103247fa3c2071530a978d74be868c532fc534bb08a261",
+    "src/data/build_v11_candidate_supervision.py": "24d6423cfa7a94a720344ca5883dd8a442cb161681843e6efd9c148843d81fd4",
+    "src/evaluation/evaluate_v11_candidate_selector.py": "d36b07b2cdc9f34311ac0c14eca2b2edf24cd6b17fcfda406cc0b0cdb302999e",
+    "src/model/trajectory_candidate_head.py": "338ceb09992f1a1d8838337d1e06aff2ffc462802356dae81e0fe5b6a5287820",
+    "src/training/train_v11_candidate_selector.py": "8d5f8953e18bb01f373df164db882817a13d4e99adb9aca4977e3194fa7598b7",
+    "tests/test_trajectory_candidate_head.py": "ee08f89aec9c49e895c60293922dfc4d3a9e4521abd25c00a1a8c2dce2c1749a"
+  },
+  "optimization": {
+    "batch_size": 32,
+    "learning_rate": 0.0002,
+    "loss": "query-balanced set-valued negative log probability of exact lexicographic-optimal candidates",
+    "scheduler": "cosine",
+    "seed": 20260918,
+    "steps": 400,
+    "weight_decay": 0.01
+  },
+  "output": "results/v2_rank_then_cut/v11_candidate_selector_seed20260918",
+  "preflight": {
+    "development_manifest_sha256": "1c1cbfe529d35390afb679e684ddd1d194f3ae9123765eb3357ae6ccc31ebdbf",
+    "tests": "133/133 PASS",
+    "train_manifest_sha256": "a7dcce5a78d53e09877fe6a9dfc9352d5f55f09763090b62251ef9f120a96f0e"
+  },
+  "protocol": "v11_v8_safe_fallback_top16_mask_projection_selector",
+  "scientific_role": "single head-only probe on consumed development300; confirmation remains unopened",
+  "status": "APPROVED_TO_RUN",
+  "upper_bound": {
+    "complete_trajectories": "294/300",
+    "fidelity_0.90": "294/300",
+    "fidelity_0.95": "234/234",
+    "regret": 0.02055728580154495
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "cache_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+  "complete": true,
+  "data": "results/v2_rank_then_cut/v10_train3163_mask_value.jsonl",
+  "data_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd",
+  "examples": 3163,
+  "output_sha256": "1de2bec02e3e583332990ac88df9c0b70bab667fbfd2855978068ff0b7d5f8ed",
+  "rollouts_sha256": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e",
+  "top_k": 16,
+  "v10_head_sha256": "bd9741f2b5ec9ac3a98f91b0d1b4af32151be20785dd4839ea51a0a04b5fe1cd"
+}

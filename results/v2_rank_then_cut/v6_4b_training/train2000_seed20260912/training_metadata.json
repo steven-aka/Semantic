@@ -1,0 +1,29 @@
+{
+  "base_model": "models/Qwen3-4B",
+  "batch_size": 2,
+  "best_epoch": 1,
+  "best_validation_loss": 0.31963685608428455,
+  "decoder": "unchanged exact maximum-weight total order by subset DP",
+  "elapsed_seconds": 7159.387043513008,
+  "epochs": 3,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 4,
+  "head_hidden_size": 256,
+  "learning_rate": 0.0001,
+  "max_length": 4096,
+  "objective": "example-balanced top-quartile weighted safety softplus plus 0.25 weighted cost-sensitive rate softplus",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "rate_lambda": 0.25,
+  "seed": 20260912,
+  "stage": "v6_backbone_capacity_relational_ranking",
+  "tail_fraction": 0.25,
+  "timestamp_utc": "2026-09-16T09:36:31.367357+00:00",
+  "train_data": "results/v2_rank_then_cut/v5_train2000_tail_cost_oracle.jsonl",
+  "train_sha256": "0b42af0e0263af1072084c4310077f2c8887e85a92c5dd9ebe40ca255cbf8553",
+  "validation_data": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+  "validation_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107"
+}

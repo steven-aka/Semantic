@@ -1,0 +1,26 @@
+{
+  "backbone_and_lora_frozen": true,
+  "base_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "base_checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "batch_size": 8,
+  "complete_sequential_head_trainable": true,
+  "decoder_comparison": "diagnostic beam widths 1 and 8; not formal model selection",
+  "elapsed_seconds": 79.34946923807729,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "learning_rate": 0.0002,
+  "locked_roles_used": false,
+  "optimizer_steps": 1,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 20260912,
+  "stage": "v9a_frozen_backbone_exact_cost_probe",
+  "summaries": {},
+  "timestamp_utc": "2026-09-17T03:13:22.287091+00:00",
+  "train_data": "results/v2_rank_then_cut/v9_probe_train3163_cost_supervision.jsonl",
+  "train_sha256": "b2b9f2a011df3eb6690f0c7e2bb17e11c147d00b5c50fc6a8f9e9778c82a05b0",
+  "validation_data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "validation_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196"
+}

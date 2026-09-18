@@ -1,0 +1,68 @@
+{
+  "protocol": "v2_1_post_gate_exact_partial_order_listwise_revision",
+  "frozen_at": "2026-09-14 after the preregistered V2 rank-only gate and validation-only failure audit; before any V2.1 training",
+  "status": "post-hoc development amendment; does not alter or replace the passed preregistered V2 rank-only result",
+  "parent_protocol": "configs/v2_rank_then_cut_hypothesis.json",
+  "parent_protocol_sha256": "2376fd274372ac6c595e1cfeb30a13c36dc23d72c302fcec308f89563e7aeb79",
+  "trigger": {
+    "rank_only_gate": "results/v2_rank_then_cut/rank_only_gate_result.json",
+    "rank_only_gate_sha256": "ecd292857090d8c3aff49a95f33106f4b883beeb2a036fcc8b29a31293e311ce",
+    "rank_failure_audit": "results/v2_rank_then_cut/rank_failure_audit_summary.json",
+    "rank_failure_audit_sha256": "92fc1387e05543a064a2f91bb9d402c208b6b20fbfa52f3f91914ea032997f1f",
+    "projection_diagnostic": "results/v2_rank_then_cut/rank_projection_diagnostic_summary.json",
+    "projection_diagnostic_sha256": "c22ba139290dfd4ab41bad70829f9e1fd70b061dd39667ee2ccac83bdea06b03"
+  },
+  "measured_problem": {
+    "rank_gate": "passed all five frozen mean-across-seed checks",
+    "risk_headroom": "at fidelity 0.90 the three learned-order oracle-cutoff runs reached 276/300, 278/300, and 275/300; Bonferroni one-sided CP lower bounds were below 0.90",
+    "minimum_successes_for_existing_risk_target": "282/300 at per-anchor alpha 0.01",
+    "failure_locality": "78/84 failed seed-trajectories require one boundary replacement; 73/102 closest-repair relations are identifiable model violations; 67/90 closest-repair intruders are robust never-reveal packets",
+    "counterfactual": "stable projection onto existing partial-order labels reached 298/300 at fidelity 0.90 for every seed and reduced feasible regret to 0.00947-0.01101",
+    "diagnosis": "the nested-prefix representation and set-valued oracle contain sufficient solutions, but mean pairwise RankNet underweights joint satisfaction of the small number of contract-critical constraints"
+  },
+  "single_scientific_change": {
+    "from": "example-balanced mean RankNet logistic loss over identifiable pairs",
+    "to": "exact Plackett-Luce marginal negative log-likelihood of the complete set of linear extensions satisfying the identifiable partial order",
+    "interpretation": "replace pointwise averaging of constraints with one structured listwise probability that all known constraints hold",
+    "new_neural_modules": false,
+    "new_labels": false,
+    "oracle_tie_breaking": false
+  },
+  "preserved": {
+    "train_data": "results/v2_rank_then_cut/rank_learning_curve/train2000_rank_oracle.jsonl",
+    "train_data_sha256": "80eb5300a7e0b15b94a224ea9fe0491960398b55cb69fe18603a86019489aee5",
+    "validation_data": "results/v2_rank_then_cut/ranking_validation300_rank_oracle.jsonl",
+    "validation_data_sha256": "e92cb0eb7fe9eec5b6645a85b16eb49c6962ae134f363a19d227a61d70bdf040",
+    "backbone": "models/Qwen3-1.7B NF4 QLoRA",
+    "rank_head": "shared 2-layer MLP over local packet mean plus global final hidden",
+    "head_hidden_size": 256,
+    "lora_rank": 32,
+    "epochs": 5,
+    "batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 0.0001,
+    "seeds": [20260910, 20260911, 20260912],
+    "checkpoint_selection_within_seed": "minimum validation example-mean exact listwise NLL",
+    "packets": "12 source-preserving lossless binary packets",
+    "target": "frozen Qwen3-8B exact lattices; no new Target inference",
+    "calibration300": "untouched",
+    "final_test300": "untouched"
+  },
+  "development_decision_after_training": {
+    "evaluate": "learned order plus global oracle monotone cutoff on the already-consumed ranking-validation300",
+    "required_original_rank_gate": "all five V2 rank-only checks must still pass as a three-seed mean",
+    "risk_headroom_check": "at least one seed must reach at least 282/300 contract success at fidelity 0.90",
+    "cutoff_backbone_selection": "among runs satisfying the risk-headroom check, choose the checkpoint with minimum validation exact listwise NLL",
+    "if_pass": "freeze the selected ranker and the monotone token-aware cutoff specification before touching calibration300",
+    "if_fail": "stop V2.1 ranking revision and reconsider the structured ranking objective; do not append another loss mechanism"
+  },
+  "implementation_sha256": {
+    "src/model/partial_order_plackett_luce.py": "318b151b390bde64774e605b21257c128faad992c78f5f15fd1d5338385f8ce5",
+    "src/training/train_atomic_listwise_ranker.py": "53976cdfd7f480d645cf0e6844f2bef84fd5fe25412c9d1a889cc28b2015dd4a",
+    "tests/test_partial_order_plackett_luce.py": "e3501b56cc89d1429d1211ae5ee7cb9ff868fd33e51e8887949aa950de452744",
+    "src/evaluation/rank_failure_audit.py": "840cdce835267198edd31b6857c4b61b5b151838bce7444950e80d0fd1fa5f93",
+    "tests/test_rank_failure_audit.py": "980c498bb6ee4934e0140783107e18686bfa4b57c50340a0a042131ec700bf93",
+    "src/evaluation/rank_projection_diagnostic.py": "716447a88dd998df2e2862113bf2ebd78875cd192a817514be311a35f76c7c6e",
+    "tests/test_rank_projection_diagnostic.py": "dfc6eccf56229b19022a316fc2a1b4b3811c5c1fc228f5d67bedb29e87fe866b"
+  }
+}

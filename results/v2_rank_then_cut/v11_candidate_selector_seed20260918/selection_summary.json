@@ -1,0 +1,12 @@
+{
+  "examples": 300,
+  "optimal_candidate_selected": 172,
+  "outcome_contract_histogram": {
+    "0": 2,
+    "1": 0,
+    "2": 3,
+    "3": 18,
+    "4": 47,
+    "5": 230
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "cost": {
+    "ordering": "primary dominates the complete secondary-cost range",
+    "primary": "two units per lost reachable anchor",
+    "secondary": "future cumulative-token difference divided by active anchors times maximum lattice tokens"
+  },
+  "critical_state_fraction": 0.16326193309533255,
+  "critical_states": 9878,
+  "examples": 300,
+  "histories": 60504,
+  "input": "results/v2_rank_then_cut/v8_development300_history_supervision.jsonl",
+  "input_sha256": "2b85cda1c81e293941d2e6f979d7cb536fecb0472fc024165de2c3e9a53ea458",
+  "locked_roles_used": false,
+  "output": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "output_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196"
+}

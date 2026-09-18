@@ -1,0 +1,8 @@
+{
+  "stage": "v13_joint_representation_retrieval_checkpoint",
+  "optimizer_step": 300,
+  "internal_validation_retrieval_loss": 0.08046124313688396,
+  "base_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "development300_used_for_selection": false,
+  "locked_roles_used": false
+}

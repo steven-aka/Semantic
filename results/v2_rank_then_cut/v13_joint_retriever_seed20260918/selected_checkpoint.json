@@ -1,0 +1,5 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v13_joint_retriever_seed20260918/checkpoints/step300",
+  "internal_validation_retrieval_loss": 0.08046124313688396,
+  "step": 300
+}

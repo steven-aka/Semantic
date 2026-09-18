@@ -1,0 +1,117 @@
+{
+  "protocol": "v8_one_run_history_aware_sequential_policy",
+  "status": "frozen after DP/data/model/unit/memory preflights and before formal training",
+  "frozen_at": "2026-09-17 Asia/Shanghai",
+  "hypothesis": "A history-aware set-conditioned action policy trained on exact expert and offline recovery states fixes the systematic high-confidence compositional decisions missed by V7.",
+  "single_formal_run": true,
+  "seed": 20260912,
+  "representation": {
+    "backbone": "Qwen3-4B NF4 fresh LoRA",
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "packet_encoding": "12 order-independent question-packet sequences plus one question sequence; no packet ID text",
+    "length_buckets": 4,
+    "model_dim": 512,
+    "set_layers": 2,
+    "set_heads": 8,
+    "gru_dim": 512,
+    "explicit_source_coordinate_embedding": true,
+    "true_history_anchor_is_model_input": false
+  },
+  "supervision": {
+    "oracle_state": "selected mask plus offline highest anchor reached",
+    "action_slack": 0.0,
+    "oracle_rollouts": 4,
+    "single_deviation_rollouts": 12,
+    "random_rollouts": 4,
+    "sampled_histories_per_example": {
+      "oracle": 12,
+      "single_deviation": 12,
+      "random": 8
+    },
+    "progress_auxiliary_weight": 0.2
+  },
+  "optimization": {
+    "max_optimizer_steps": 750,
+    "checkpoint_steps": [
+      250,
+      500,
+      750
+    ],
+    "micro_batch_size": 8,
+    "gradient_accumulation": 1,
+    "effective_batch_size": 8,
+    "gradient_checkpointing": true,
+    "lora_learning_rate": 2e-05,
+    "head_learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "warmup_steps": 50,
+    "scheduler": "cosine",
+    "gradient_clip": 1.0,
+    "systems_reason": "longest-input smoke passed batch8 with gradient checkpointing; no-checkpoint variants exhausted 47.4 GiB"
+  },
+  "decoding": {
+    "beam_width": 8,
+    "score": "maximum cumulative conditional action log probability"
+  },
+  "selection": [
+    "restrict to checkpoints passing all three gates if any",
+    "otherwise maximize number of gates passed",
+    "maximize fidelity-0.90 successes",
+    "maximize complete trajectories",
+    "minimize regret",
+    "minimize action loss"
+  ],
+  "development_gate": {
+    "fidelity_0_90_successes": 282,
+    "complete_trajectory_fraction": 0.9,
+    "mean_feasible_normalized_regret": 0.03
+  },
+  "if_pass": "GO_FREEZE_NEW_CONFIRMATION",
+  "if_fail": "STOP_V8_ONE_RUN",
+  "data": {
+    "train": "results/v2_rank_then_cut/v8_train3163_history_supervision.jsonl",
+    "train_sha256": "98976778a186374d6ce12d27092e392a844ee0db9f5407650b4fef35e2dfa271",
+    "train_manifest": "results/v2_rank_then_cut/v8_train3163_history_manifest.json",
+    "train_manifest_sha256": "a6ef14d146f18f67cd2566708efe13356a3c04024ac575bce0488abdf2e006c5",
+    "development": "results/v2_rank_then_cut/v8_development300_history_supervision.jsonl",
+    "development_sha256": "2b85cda1c81e293941d2e6f979d7cb536fecb0472fc024165de2c3e9a53ea458",
+    "development_manifest": "results/v2_rank_then_cut/v8_development300_history_manifest.json",
+    "development_manifest_sha256": "26ed00fd4f5f92c30af562753059e1ccf1b49f0c96c2896a04c05879e601c874",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "locked_roles_used": false
+  },
+  "implementation_sha256": {
+    "src/search/sequential_trajectory_dp.py": "433154295fd2e784127603f445b3df2b553e488ac9a38aa571a57f4a31d570d3",
+    "src/data/build_v8_history_supervision.py": "e716957141c80501854d89c2228f8c1dd816a987af5043843496318c288f3dd9",
+    "src/model/sequential_packet_policy.py": "909909224cda85853109093b81d2d10e2166abe55f710d4186e2c5b1d7e6fac0",
+    "src/model/sequential_policy_loss.py": "96e5011710fe43079ab807b10df29d90535ade252acaa98dcb3b5face9a4116a",
+    "src/training/sequential_policy_data.py": "c7f12dadee5b03ba612176401fa33c75bf90689d324ea173e8a5879f27f1ade0",
+    "src/training/train_v8_sequential_policy.py": "74f61ad2c89c5ac0afd4448707f6d14e76f0ddbb1094384ff4cfa47a57e1f959",
+    "src/evaluation/sequential_policy_evaluation.py": "7af69f4ac59bdd6b661601926f1078bbc5525d0444beea8060cb74ec24a496f9",
+    "tests/test_sequential_trajectory_dp.py": "ce131fffcfa65881d7ecc2e54c66ffd21bf52dc7de9067c816eada0a3959b509",
+    "tests/test_v8_sequential_policy.py": "7aaf88fcbe0574977dfb105744300482fe20b4bf58c611b15ae145f947762891"
+  },
+  "model": {
+    "path": "models/Qwen3-4B",
+    "files_sha256": {
+      "models/Qwen3-4B/config.json": "8ba006f74fecfaaeb392872a60f4a480e7ec9860153d2e1b769ec81f9a147f8a",
+      "models/Qwen3-4B/generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "models/Qwen3-4B/merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "models/Qwen3-4B/model-00001-of-00003.safetensors": "328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223",
+      "models/Qwen3-4B/model-00002-of-00003.safetensors": "6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5",
+      "models/Qwen3-4B/model-00003-of-00003.safetensors": "e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1",
+      "models/Qwen3-4B/model.safetensors.index.json": "6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2",
+      "models/Qwen3-4B/tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "models/Qwen3-4B/tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "models/Qwen3-4B/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  },
+  "preflight": {
+    "unit_tests": 108,
+    "batch8_gradient_checkpointing": "PASS",
+    "batch8_no_gradient_checkpointing": "OOM at 45.75 GiB process allocation plus external use",
+    "batch4_no_gradient_checkpointing": "OOM at 42.76 GiB process allocation plus external use"
+  }
+}

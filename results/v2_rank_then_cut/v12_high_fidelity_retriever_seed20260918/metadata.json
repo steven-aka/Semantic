@@ -1,0 +1,12 @@
+{
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "protocol_sha256": "63ef8e13e04a7f4aa961eba7e4b798a47b0692358db89977c8418526a5b3064f",
+  "python": "3.11.16",
+  "selector_sha256": "320453b125195ce2344b48fc5bf28c7bae82d3e45a523f912ff42fa2281a4d6f",
+  "stage": "v12_high_fidelity_retrieval_probe",
+  "timestamp_utc": "2026-09-18T01:38:55.609901+00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "protocol": "v9b_consumed_development_one_round_coverage_probe",
+  "status": "frozen after train-role on-policy audit, tests, and one-step smoke",
+  "date": "2026-09-17 Asia/Shanghai",
+  "scientific_role": "diagnostic probe on consumed development300; isolates state coverage from the stopped V9-A cost-loss hypothesis",
+  "hypothesis": "V8 errors concentrate on policy-induced histories absent from the fixed expert/deviation/random pool; one bounded aggregation round improves the original set-valued imitation policy.",
+  "evidence": {
+    "train_examples": 3163,
+    "policy_visited_states": 37956,
+    "fixed_pool_coverage_fraction": 0.22476024870903152,
+    "covered_optimal_action_fraction": 0.9372875395615988,
+    "uncovered_optimal_action_fraction": 0.7836533559898046,
+    "covered_lost_anchor_action_fraction": 0.003868245223303247,
+    "uncovered_lost_anchor_action_fraction": 0.010569243840271877,
+    "audit_summary_sha256": "91b34c5176216d0e113d7b4b5078ce1f2a62dfc52ce5fdf8306c8eb723905302"
+  },
+  "controlled_change": {
+    "loss": "restore unchanged V8 set-valued action cross-entropy plus 0.2 progress auxiliary",
+    "new_history_source": "twelve prefixes from the selected V8 step250 beam8 deployment order per train example",
+    "rounds": 1,
+    "samples_per_example": {
+      "oracle": 12,
+      "single_deviation": 12,
+      "random": 8,
+      "model_induced_v8_beam8": 12
+    },
+    "cost_loss_used": false
+  },
+  "initialization": {
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+    "backbone_and_lora": "frozen",
+    "sequential_head": "all components trainable from selected V8 initialization"
+  },
+  "data": {
+    "train": "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl",
+    "train_sha256": "db3aded10e52ea4c825b16c0b7ac926f96b8149d9da121a904a407ba60297564",
+    "development": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+    "development_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+    "locked_roles_used": false
+  },
+  "optimization": {
+    "seed": 20260912,
+    "optimizer_steps": 250,
+    "batch_size": 8,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "warmup_steps": 25,
+    "scheduler": "cosine",
+    "gradient_clip": 1.0
+  },
+  "evaluation": {
+    "checkpoint": "only final step250 head",
+    "decoder": "beam width 8",
+    "selection": "none; one diagnostic endpoint",
+    "action_accuracy": "diagnostic only"
+  },
+  "decision": {
+    "GO_DESIGN_FORMAL_COVERAGE_POLICY": "fidelity-0.90 >=282/300, complete trajectories >=0.90, and regret <=0.03",
+    "STOP_COVERAGE_ONLY_HYPOTHESIS": "fidelity-0.90 <=278/300",
+    "INCONCLUSIVE_NO_FORMAL_RUN": "fidelity-0.90 is 279-281/300 or another gate fails"
+  },
+  "preflight": {
+    "unit_tests": 115,
+    "one_step_smoke": "PASS",
+    "implementation_sha256": {
+      "src/training/sequential_policy_data.py": "9ad3fd299c1561030c894221cd004519a72bf2590524d9b4d03769782982cf9e",
+      "src/training/train_v9b_coverage_probe.py": "2be491ed12067f831449c05d8d529ec88b76280868228c52705153504e4dec27",
+      "src/evaluation/rollout_v8_policy.py": "4f86af02dbc04ea10a45c05574f812648fb7f264b19b9aa8838b0303c41d0833",
+      "src/data/build_v9_on_policy_supervision.py": "3d6465e60e18f59511c12fe7b921a31c2414c5d5f283a6fa1b91e73d6b2a5d0a",
+      "tests/test_v8_sequential_policy.py": "9aac6f2bda132ddfc1787642803c7ee84e7dd98a354755ead41adbe96e635a34",
+      "tests/test_v9_on_policy_supervision.py": "34972fbda55091442185438c855507e3681a5fa21044ad5eaa6d90f40cef270c"
+    }
+  }
+}

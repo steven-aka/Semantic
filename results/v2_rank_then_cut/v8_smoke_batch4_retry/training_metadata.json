@@ -1,0 +1,18 @@
+{
+  "decision": "STOP_V8_ONE_RUN",
+  "elapsed_seconds": 17.91179086896591,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 20260912,
+  "selected_checkpoint": "results/v2_rank_then_cut/v8_smoke_batch4_retry/checkpoints/step1",
+  "stage": "v8_one_run_complete",
+  "timestamp_utc": "2026-09-16T23:56:21.751114+00:00",
+  "train_data": "results/v2_rank_then_cut/v8_smoke_data/train.jsonl",
+  "train_sha256": "7a87a2331fad2ed686fa4052d7241c42fa1838ac30a2c5f09a423c424a339100",
+  "validation_data": "results/v2_rank_then_cut/v8_smoke_data/validation.jsonl",
+  "validation_sha256": "901274c0f921a2705d7f8389aa475cc86501ed1741f95c631eefb862176a64e2"
+}

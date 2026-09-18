@@ -1,0 +1,31 @@
+{
+  "backbone_and_lora_frozen": true,
+  "base_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "base_checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "batch_size": 8,
+  "complete_sequential_head_trainable": true,
+  "elapsed_seconds": 90.62763936596457,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "history_samples": {
+    "model": 12,
+    "oracle": 12,
+    "random": 8,
+    "single": 12
+  },
+  "learning_rate": 0.0002,
+  "locked_roles_used": false,
+  "optimizer_steps": 1,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 20260912,
+  "stage": "v9b_frozen_backbone_one_round_coverage_probe",
+  "summary": null,
+  "timestamp_utc": "2026-09-17T04:17:10.331728+00:00",
+  "train_data": "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl",
+  "train_sha256": "db3aded10e52ea4c825b16c0b7ac926f96b8149d9da121a904a407ba60297564",
+  "validation_data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "validation_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196"
+}

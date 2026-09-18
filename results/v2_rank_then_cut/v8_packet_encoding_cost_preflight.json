@@ -1,0 +1,44 @@
+{
+  "artifacts": {
+    "development300": {
+      "path": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+      "sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107"
+    },
+    "train3163": {
+      "path": "results/v2_rank_then_cut/v7_train3163_tail_cost_oracle.jsonl",
+      "sha256": "f03b166e826dad0bb50bf0224408093a6510d7eead3dff1c918daaa3c1100dda"
+    }
+  },
+  "complete": true,
+  "input_format": "one order-invariant (question, packet) sequence per packet plus one question sequence; four length buckets avoid padding waste",
+  "model": "models/Qwen3-4B",
+  "splits": {
+    "development300": {
+      "attention_sum_squared_length_ratio_mean": 0.1456070676695279,
+      "attention_sum_squared_length_ratio_median": 0.13381180086645766,
+      "examples": 300,
+      "four_length_bucket_padded_attention_ratio_mean": 0.20391090915305143,
+      "four_length_bucket_padded_linear_ratio_mean": 1.5159574329228058,
+      "joint_tokens_mean": 926.9466666666667,
+      "joint_tokens_median": 907.5,
+      "linear_token_ratio_mean": 1.2844299755171498,
+      "naive_single_batch_padded_attention_ratio_mean": 0.4042709703064803,
+      "naive_single_batch_padded_linear_ratio_mean": 2.232340218479019,
+      "packet_batch_total_tokens_mean": 1170.9766666666667
+    },
+    "train3163": {
+      "attention_sum_squared_length_ratio_mean": 0.1508088164066207,
+      "attention_sum_squared_length_ratio_median": 0.13558714416896236,
+      "examples": 3163,
+      "four_length_bucket_padded_attention_ratio_mean": 0.20534436312058502,
+      "four_length_bucket_padded_linear_ratio_mean": 1.5251202314761485,
+      "joint_tokens_mean": 899.7502371166614,
+      "joint_tokens_median": 887,
+      "linear_token_ratio_mean": 1.3062603764426892,
+      "naive_single_batch_padded_attention_ratio_mean": 0.3962059215116402,
+      "naive_single_batch_padded_linear_ratio_mean": 2.209159456214613,
+      "packet_batch_total_tokens_mean": 1154.0094846664558
+    }
+  },
+  "status": "tokenizer-only cost preflight; no Target or model inference"
+}

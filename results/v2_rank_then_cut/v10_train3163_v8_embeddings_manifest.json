@@ -1,0 +1,24 @@
+{
+  "complete": true,
+  "data": "results/v2_rank_then_cut/v10_train3163_mask_value.jsonl",
+  "data_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd",
+  "dtype": "torch.bfloat16",
+  "examples": 3163,
+  "output": "results/v2_rank_then_cut/v10_train3163_v8_embeddings.pt",
+  "output_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+  "parts": {
+    "results/v2_rank_then_cut/v10_train3163_v8_embeddings.part0.pt": "2b244a250e9041cd810f010de94469c10e8b76c83daf0de636e371bdf4be688a",
+    "results/v2_rank_then_cut/v10_train3163_v8_embeddings.part1.pt": "0ee1cccca9747ce574d8f0f1ebfcf75d49bb3f23caa303b454144c581662daf6",
+    "results/v2_rank_then_cut/v10_train3163_v8_embeddings.part2.pt": "13f02f7099698a882a55e055756e2b0b74df5efabbaf6aef5ff64e7c99632625",
+    "results/v2_rank_then_cut/v10_train3163_v8_embeddings.part3.pt": "20de050caf54d7cc43c800819ad1cf11cd755b631fa9cd3888bdc9b99eaf0e66"
+  },
+  "shape_packets": [
+    3163,
+    12,
+    512
+  ],
+  "shape_questions": [
+    3163,
+    512
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "protocol": "v13_joint_lora_high_fidelity_retrieval",
+  "status": "APPROVED_TO_RUN",
+  "date": "2026-09-18 Asia/Shanghai",
+  "scientific_role": "single representation-changing experiment; checkpoint selection uses train3163 internal validation only; consumed development300 evaluated once after endpoint freeze",
+  "hypothesis": "Frozen V8 representations fail to encode query-conditioned compatibility of sparse fidelity-0.90 packet combinations; jointly adapting only the V8 LoRA and V12 retrieval head improves top-1 identification.",
+  "arguments": {
+    "train_data": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+    "validation_data": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl",
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "initial_head": "results/v2_rank_then_cut/v12_high_fidelity_retriever_seed20260918/mask_retrieval_head.pt",
+    "output_dir": "results/v2_rank_then_cut/v13_joint_retriever_seed20260918",
+    "model": "models/Qwen3-4B",
+    "model_dim": 512,
+    "max_sequence_length": 512,
+    "steps": 300,
+    "validation_interval": 100,
+    "batch_size": 16,
+    "gradient_accumulation": 1,
+    "lora_lr": 1e-05,
+    "head_lr": 0.0001,
+    "seed": 20260918
+  },
+  "frozen_design": {
+    "trainable": [
+      "V8 LoRA adapter",
+      "V12 mask retrieval head"
+    ],
+    "frozen": [
+      "Qwen3-4B NF4 base",
+      "V8 input projection/set encoder/sequential head",
+      "candidate projection rule"
+    ],
+    "checkpoint_steps": [
+      100,
+      200,
+      300
+    ],
+    "selection": "minimum internal-validation query-balanced retrieval loss, earliest step on tie",
+    "development_access": "once after selected checkpoint is frozen"
+  },
+  "development_reporting": {
+    "required": [
+      "all five anchor counts",
+      "complete trajectories",
+      "regret",
+      "top1/top4/top16 decomposed oracle ceilings"
+    ],
+    "fresh_opening": "not decided by training; requires a separate frozen end-to-end protocol"
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v13_internal_split_manifest.json": "5754f8411e61991a83c04124f5b3195ddd16c23aad3ff5fc106ffe0a1fad798b",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/adapter/adapter_model.safetensors": "1bf97e55d390988fbd5f74a9fbf7a311a24c28816d043ea85a4d6d496db1e132",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/sequential_head.pt": "0e3d5022868a619e246fd759de82d3891dcf552922dc8ffd8434dfe38814ddb5",
+    "results/v2_rank_then_cut/v12_high_fidelity_retriever_seed20260918/mask_retrieval_head.pt": "320453b125195ce2344b48fc5bf28c7bae82d3e45a523f912ff42fa2281a4d6f",
+    "src/data/build_v13_internal_split.py": "aa47e35d4bb7164a04d50db4eb90c86591e031cba0448dbc1baef95fae48e535",
+    "src/training/train_v13_joint_retriever.py": "894314a18ffb3195b42571bc220e6a05146425f8257ff7eb4d63936d732b0e99",
+    "src/model/high_fidelity_retrieval_loss.py": "d3756eabb62864d586f0e0164686e30df9a4a9c96d39179ff489672efc71a64f",
+    "tests/test_v13_internal_split.py": "50a07eaa2217feb0b7063d493dca3cb2ecc4020bb98fe367ff7c4b696adb6b7d"
+  },
+  "locked_confirmation_or_calibration_used": false,
+  "preflight_amendment": {
+    "reason": "batch4 backward peaked at 8.10 GB on a 49.14 GB A6000; increase utilization before the formal run",
+    "old_micro_batch": 4,
+    "old_gradient_accumulation": 2,
+    "new_micro_batch": 16,
+    "new_gradient_accumulation": 1,
+    "formal_optimizer_steps_started": 0,
+    "development300_accessed": false
+  },
+  "preflight_amendment_2": {
+    "reason": "batch16 backward peaked at 20.60 GB; batch32 keeps the same 4800-example exposure while increasing GPU utilization and halves optimizer steps",
+    "old_micro_batch": 16,
+    "old_steps": 300,
+    "new_micro_batch": 32,
+    "new_steps": 150,
+    "formal_optimizer_steps_started": 0,
+    "development300_accessed": false
+  },
+  "preflight_amendment_3": {
+    "reason": "formal batch32 encountered a length-dependent OOM after step10 at 46.63 GiB process use; no checkpoint or development access occurred",
+    "failed_run_disposition": "non-endpoint systems failure archived; restart from original V8+V12 initialization",
+    "old_micro_batch": 32,
+    "old_steps": 150,
+    "new_micro_batch": 16,
+    "new_steps": 300,
+    "sample_exposure_preserved": 4800,
+    "development300_accessed": false,
+    "checkpoint_created": false,
+    "allocator": "expandable_segments:True"
+  }
+}

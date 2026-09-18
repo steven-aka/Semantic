@@ -1,0 +1,36 @@
+{
+  "all": {
+    "lost_anchor_action_fraction": 0.009063125724523132,
+    "mean_chosen_advantage": 0.02413271091276203,
+    "optimal_action_fraction": 0.8181842132996101,
+    "states": 37956
+  },
+  "artifacts": {
+    "details_sha256": "1bb4f46418710dbc0d58fc579c4f1f56d19f69fbb7baab4405845275ed9abf53",
+    "input": "results/v2_rank_then_cut/v9_probe_train3163_cost_supervision.jsonl",
+    "input_sha256": "b2b9f2a011df3eb6690f0c7e2bb17e11c147d00b5c50fc6a8f9e9778c82a05b0",
+    "locked_roles_used": false,
+    "output": "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl",
+    "output_sha256": "db3aded10e52ea4c825b16c0b7ac926f96b8149d9da121a904a407ba60297564",
+    "rollouts": "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl",
+    "rollouts_sha256": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e"
+  },
+  "complete": true,
+  "covered": {
+    "lost_anchor_action_fraction": 0.003868245223303247,
+    "mean_chosen_advantage": 0.010706610058927573,
+    "optimal_action_fraction": 0.9372875395615988,
+    "states": 8531
+  },
+  "examples": 3163,
+  "examples_with_uncovered_state": 3162,
+  "fixed_pool_coverage_fraction": 0.22476024870903152,
+  "fixed_pool_covered_states": 8531,
+  "uncovered": {
+    "lost_anchor_action_fraction": 0.010569243840271877,
+    "mean_chosen_advantage": 0.028025253525644323,
+    "optimal_action_fraction": 0.7836533559898046,
+    "states": 29425
+  },
+  "visited_states": 37956
+}

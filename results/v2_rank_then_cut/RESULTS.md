@@ -1,8 +1,8 @@
 # V2 Rank-then-Cut status
 
-Status: **exact and rank oracles complete; frozen learning curve ready; no training result yet**
+Status: **V8 one-run sequential policy completed and stopped at the consumed-development gate**
 
-Date: 2026-09-14
+Date: 2026-09-17
 
 ## Why this protocol exists
 
@@ -130,7 +130,405 @@ condition below under learned ordering plus a global oracle monotone cutoff:
 Only a conjunctive pass permits implementation or training of the cutoff head.
 If it fails, V2 stops at ranking diagnosis rather than adding mechanisms.
 
+## Observed rank-only result
+
+All nine frozen RankNet runs completed without interruption: train sizes
+500/1000/2000, each with seeds 20260910/20260911/20260912. Checkpoint selection
+restored the minimum-validation-loss epoch, so the consistent loss increase
+after epoch 1--2 did not replace the selected weights. Mean results were:
+
+| Train size | Active success | Full active trajectory | Ranking regret | Pair accuracy |
+|---:|---:|---:|---:|---:|
+| 500 | 0.96676 | 0.88556 | 0.03206 | 0.92967 |
+| 1000 | 0.96885 | 0.89556 | 0.02705 | 0.94422 |
+| 2000 | 0.97327 | 0.90667 | 0.02695 | 0.94706 |
+
+The train2000 mean passed all five frozen checks. The authoritative decision
+is `results/v2_rank_then_cut/rank_only_gate_result.json` with
+`decision=GO_IMPLEMENT_CUTOFF`. This is a ranking-stage result under oracle
+cutoffs, not an end-to-end learned-cutoff or final-test claim.
+
+## Post-gate validation diagnosis
+
+The existing final risk target requires a Bonferroni-corrected one-sided
+Clopper--Pearson lower bound of at least 0.90 at every anchor. At fidelity 0.90,
+the three learned-order oracle-cutoff runs obtained 276/300, 278/300, and
+275/300; 282/300 is required for that lower bound. A learned cutoff cannot
+exceed its oracle-cutoff ceiling, so the already-consumed validation set was
+used for diagnosis before cutoff implementation.
+
+Across 84 failed seed-trajectories, 78 require only one boundary replacement,
+75 have a one-packet-drop rescue, and 67/90 closest-repair intruders are robust
+never-reveal packets. Of 102 missing--intruder repair relations, 73 were already
+identifiable preferences that the model violated, 16 opposed the selected
+closest repair, and 13 were unlabeled. Twenty-three examples failed under all
+three seeds. Exact details are in
+`results/v2_rank_then_cut/rank_failure_audit_summary.json`.
+
+Two oracle-label counterfactuals isolate the cause. Stable projection of each
+learned order onto its existing partial-order labels reached 298/300 at the
+0.90 anchor for every seed, 99.33% complete-trajectory success, and
+0.00947--0.01101 feasible normalized regret. Merely moving robust never-reveal
+packets to the tail reached 296--297/300 and 98.67--99.00% trajectory success
+without material regret inflation. These are non-deployable diagnostics on
+consumed validation, not new heldout results. They show that the representation
+and oracle are sufficient; mean pairwise RankNet underweights joint constraint
+satisfaction.
+
+`configs/v2_1_listwise_ranking_amendment.json` therefore froze one controlled
+post-gate revision: replace mean RankNet with the exact Plackett--Luce marginal
+likelihood of all linear extensions satisfying the same set-valued partial
+order. All three train2000 seeds completed. Their 0.90-anchor results were
+275/300, 278/300, and 275/300, so none reached the frozen 282/300 risk-headroom
+check. The authoritative decision is
+`results/v2_rank_then_cut/v2_1_listwise_decision.json` with
+`decision=STOP_V2_1_RANKING`. Best checkpoints came from epochs 2, 1, and 1;
+later validation-NLL deterioration did not replace them.
+
+## V3 critical-boundary hypothesis
+
+The stopped V2.1 result rules out merely replacing an average pair surrogate
+with a whole-partial-order surrogate. Before any further training, an
+exhaustive consumed-validation diagnostic tested whether failure is localized
+to critical prefix boundaries. For every admissible state at every anchor, it
+labels a local positive as critical when deleting it violates the anchor and a
+local excluded packet as harmful when adding it violates the anchor. A
+direction is retained only if it is also identifiable across the complete set
+of near-optimal nested chains.
+
+This set-valued filter is necessary: naive local counterfactual directions
+conflicted on 68/300 development examples. After filtering, stable-boundary
+projection reached 298/300 at fidelity 0.90 for all six existing RankNet and
+listwise runs. It rescued 23--28 failed trajectories per run without breaking
+any previously successful trajectory. This is an oracle-label diagnostic on
+consumed data, not a deployable result.
+
+`configs/v3_critical_boundary_ranking.json` freezes V3 before training. It
+keeps Qwen3-1.7B, the scalar rank head, lossless packets, and all Target
+lattices fixed. Its sole primary objective is the example-balanced softplus of
+the worst stable critical--harmful score violation; no RankNet, listwise, or
+never-reveal auxiliary loss is added. Train2000 supplies 38,045 stable boundary
+pairs across 1,772 supervised examples.
+
+The unused tail of the originally frozen ranking-validation role contains 210
+eligible examples and is frozen as rank-confirm210. It overlaps none of the
+previous train, validation, calibration, or final-test selections. Three V3
+seeds are selected using only the already consumed development300; exactly one
+selected checkpoint will then be evaluated once on rank-confirm210. Cutoff
+implementation is permitted only if every per-anchor Bonferroni
+Clopper--Pearson lower bound reaches 0.90 and the frozen contract/regret checks
+also pass. Calibration300 and final-test300 remain untouched.
+
 ## Authoritative inputs
+
+V3 completed all three seeds without training errors. The seed selected using
+consumed development loss was 20260911. Its one-shot rank-confirm210
+oracle-cutoff evaluation gave active contract success 0.97126, feasible ranking
+regret 0.02351, and all-active trajectory success 187/210 (0.89048). At the
+0.90 anchor it reached 197/210 versus 199/210 required; at 0.95 it reached
+156/169 versus 162/169 required. The frozen decision is `STOP_V3_RANKING`,
+not permission to train a cutoff or use locked roles.
+
+Boundary-pair accuracy on the consumed confirmation was 3576/3860 (0.9264),
+but complete stable-boundary separation was only 128/182 (0.7033). An
+oracle-label projection rescued 22/23 failed trajectories; this is a
+non-deployable counterfactual, not evidence that the ranker can infer those
+corrections. V3 already optimizes the worst retained boundary inversion, so
+another margin or auxiliary loss is not justified by these results alone.
+
+The next post-hoc audit on consumed roles measures within-anchor marginal
+effect and contract-crossing flips, raw local versus globally stable
+precedence cycles, near-optimal slack sensitivity, and train/development/fresh
+joint-boundary generalization. Neither sign flips nor raw local cycles alone
+prove that no static total order can reach a feasible prefix. Any new model
+formulation requires a separately frozen protocol and new confirmation
+population. Calibration300 and final-test300 remain locked.
+
+The completed consumed-role audit is
+`results/v2_rank_then_cut/V3_MODEL_ASSUMPTION_AUDIT.md`. It finds strict
+within-anchor marginal sign flips in about 23--25% of harmful packet-anchor
+groups, raw local cycles in about 23--25% of examples, but zero cycles in
+globally stable relations. Selected V3 complete boundary separation is 77.09%
+on train2000, 66.92% on development300, and 70.33% on confirm210. This is not
+evidence that static total orders are mathematically impossible, nor a pure
+fresh-only generalization collapse. The audit keeps V3 stopped and does not
+authorize V4 architecture selection from these rates alone.
+
+After that audit, `configs/v4_relational_precedence_ranking.json` froze one
+controlled representation test before any new-candidate Target output. V4
+replaces unary scalar differences with antisymmetric pairwise precedence
+logits, then uses an exact subset DP to produce the maximum-weight total order.
+It retains one Qwen3-1.7B forward, the same stable-boundary worst-edge objective,
+lossless packets, nested prefixes, and frozen Qwen3-8B Target. It adds no
+margin, auxiliary loss, confidence threshold, cycle deletion, RL, larger
+backbone, or cutoff head.
+
+A new target-blind candidate tail of 500 QAMPARI-train examples was frozen at
+canonical source-order positions [5000,5500), with zero overlap against the
+entire parent candidate5000. All 500 complete exact lattices finished and the
+first 300 eligible examples were frozen as V4 rank-confirm300. This role was
+never evaluated because V4 failed its preceding consumed-development gate.
+
+All three V4 seeds selected epoch 2. The chosen seed 20260912 achieved
+279/300 at fidelity 0.90, 275/300 complete trajectories, and 0.03397 feasible
+normalized ranking regret. The frozen gate required 282/300 and regret at most
+0.03, so the authoritative decision is `STOP_V4_WITHOUT_FRESH_CONFIRM`.
+Calibration300 and final-test300 remain untouched.
+
+The consumed-development tail audit localizes the remaining problem. Of 32
+closest-repair relations for the 21 fidelity-0.90 failures, 24 are supported
+by the frozen critical-edge labels, but 25/32 are predicted in the wrong
+direction by all three seeds. Averaging the three seed logits gives only
+275/300 at fidelity 0.90, although its regret falls to 0.02812. The error is
+therefore mostly systematic rather than seed variance. Separately, the ten
+largest-regret examples accumulate 10,192 early extra-packet tokens and 8,366
+net excess tokens. The reproducible diagnostic is in
+`results/v2_rank_then_cut/v4_tail_cost_diagnostic/`.
+
+`configs/v5a_tail_risk_cost_aware_ranking.json` freezes the resulting V5-A
+test. The model, 1.7B backbone, packet representation, and exact decoder are
+unchanged. Its only controlled change is the training objective: top-quartile
+CVaR over cost-weighted stable safety edges plus a 0.25-weighted rate-dominance
+loss. Train2000 contains 38,045 safety and 51,564 non-overlapping rate edges.
+Three seeds are running concurrently on GPUs 3, 0, and 2. Seed selection and
+the gate use only the already consumed development300. V4 rank-confirm300 is
+not reused; a new target-blind confirmation population may be frozen only if
+V5-A first reaches 282/300 at fidelity 0.90, at least 90% complete trajectory
+success, and regret at most 0.03. Monitor with
+`bash scripts/55_monitor_v5a_pipeline.sh`.
+
+V5-A completed and selected seed 20260910 at epoch 2. Rate alignment improved:
+feasible normalized regret fell to 0.02979 and passed its 0.03 threshold.
+However, fidelity 0.90 reached only 274/300 and complete-trajectory success
+was 267/300 (0.89). The frozen decision is
+`STOP_V5A_WITHOUT_FRESH_CONFIRM`; no fresh role was opened.
+
+The post-stop decoder audit rules out the proposed criticality-aware decoder
+as the next isolated change. Across all 5,697 development safety edges, the
+decoded total order agreed exactly with every raw pair-logit sign: zero edges
+were predicted correctly and then sacrificed by the maximum-weight decoder.
+For the 26 failed 0.90 examples, all 32 closest-repair logits pointed in the
+wrong direction, with median absolute margin 2.30; 30/32 were wrong for all
+three seeds. An oracle-label safety projection reaches 298/300, but that is a
+non-deployable upper bound because it supplies the missing directions.
+
+Failure is concentrated in harder evidence-composition groups. V5-A reaches
+81/98 at fidelity 0.90 on `wikitables_composition`, versus 183/190 on
+`wikidata_simple`; 17/26 failures are table-composition examples. The train
+and development group proportions are similar, so simple resampling does not
+explain the gap. These results motivate a controlled backbone-capacity test
+while keeping the V5-A objective and decoder fixed.
+
+V6 completed that controlled capacity test with Qwen3-4B. The selected
+seed 20260912 checkpoint came from epoch 1; its validation objective then
+worsened from 0.31964 to 0.35136 and 0.48348 while training loss continued to
+fall. On consumed development300 it reached 277/300 at fidelity 0.90,
+273/300 complete trajectories, and 0.02622 feasible normalized regret. The
+trajectory and regret checks passed, but the frozen fidelity gate required
+282/300. The authoritative decision is `STOP_V6_WITHOUT_FRESH_CONFIRM`.
+No fresh, calibration, or final-test role was opened.
+
+The completed V6 post-stop audit again rules out variance and decoding as the
+next bottlenecks. All 29 closest-repair relations for the 23 failed 0.90
+examples were predicted in the wrong direction by all three 4B seeds; their
+selected-seed median absolute margin was 2.45 and mean absolute margin was
+3.91. The three-seed logit ensemble remained at 277/300. The decoder
+sacrificed zero raw-correct safety edges. Fifteen of the 23 failures are
+`wikitables_composition`, and 20 failures persist from V4 to V6. The
+diagnostics are reproducible under
+`results/v2_rank_then_cut/v6_three_seed_tail_diagnostic/` and
+`results/v2_rank_then_cut/v6_decoder_alignment_diagnostic/`.
+
+Backbone scaling alone is therefore stopped. The remaining target-blind
+training-role reserve offers one clean coverage experiment: the originally
+frozen train candidate slice contains 3,163 attainable examples, of which
+only the first 2,000 were used. A V7 data-scaling hypothesis may use all
+3,163 in the same deterministic training role while holding the V6 backbone,
+objective, and decoder fixed. If that isolated coverage test does not reach
+the consumed-development gate, further seed ensembles, larger backbones, or
+decoder weighting are not supported by these audits; the next model family
+should condition each reveal decision on the already selected packet set so
+that compositional and redundancy effects are represented directly.
+
+V7 is frozen in `configs/v7_train3163_data_scale.json`. It deterministically
+uses all 3,163 attainable examples in the original training candidate slice;
+the original train2000 is verified as its exact prefix. This expands safety
+supervision from 38,045 to 59,562 edges and rate supervision from 51,564 to
+82,160 edges. To isolate coverage from additional optimization exposure, V7
+uses the same 750 optimizer updates and the same three checkpoint-selection
+times as V6. Its batch size is four with gradient accumulation two, preserving
+the effective batch size of eight while using available GPU memory.
+
+V7 completed and selected seed 20260912 at optimizer step 500. It reached
+277/300 at fidelity 0.90, 273/300 complete trajectories, and 0.02578 feasible
+normalized regret. The latter two checks passed, but the frozen fidelity gate
+again required 282/300. The authoritative decision is
+`STOP_STATIC_ONE_SHOT_RANKING_AFTER_V7`; no fresh role was opened. Relative to
+V6, 22/23 fidelity-0.90 failures persisted, one table-composition example was
+rescued, and one different table-composition example broke. Failure counts
+remain 15 table-composition, six simple, and two intersection examples.
+Expanding training coverage by 58% therefore improved rate slightly but did
+not improve the primary fidelity result; stable-boundary edge accuracy also
+fell from 0.93628 to 0.93260. This closes the tested one-shot relational scorer
+family. The next supported method test is an autoregressive ordering policy
+whose next-packet score conditions on the already selected set, while retaining
+one backbone encoding and the same nested total-order output space.
+
+The V7 decoder audit confirms that this change must happen before decoding.
+The exact total-order decoder sacrificed zero raw-correct safety edges. All 29
+closest-repair relations for the 23 failed 0.90 examples already had the wrong
+raw sign, with mean absolute margin 2.69. Of those repair relations, 18 are
+supported by current safety labels, seven are unlabeled, and four are labeled
+in the opposite direction. Supplying oracle safety directions to the unchanged
+decoder raises fidelity-0.90 success from 277/300 to 298/300 and complete
+trajectories from 273/300 to 298/300. The failure is therefore in inference of
+the context-dependent relation and partly in the static pair-label target, not
+in the maximum-weight decoder.
+
+The history-aware V8 preflight is recorded in
+`results/v2_rank_then_cut/v8_sequential_preflight_development300.json`. Its
+exact dynamic program uses state `(selected mask, highest anchor reached in
+the reveal history)`, maximizes anchors reached, and then minimizes cumulative
+tokens at first anchor crossings. It matches the existing globally optimal
+nested-chain cost on 300/300 consumed-development examples, both at the root
+and after reconstructing a canonical total order. Exact optimal action sets
+contain 2.12 packets on average; the frozen 0.005 near-optimal slack raises
+this to 2.97, supporting a set-valued next-action loss.
+
+The history component cannot be dropped from the oracle definition. Among
+105,602 selected masks reachable with more than one prior highest-anchor
+state, 43,930 (41.60%) have different exact optimal next-action sets across
+those histories; 292/300 examples contain at least one such mask. A model that
+receives only an unordered selected-set mean would therefore be trained on
+conflicting labels during off-policy rollouts. The proposed V8 policy should
+combine selected-set pooling with a small recurrent history state. The exact
+anchor history is used only to compute offline labels and must never be an
+inference input.
+
+The subsequent pretraining review is recorded in
+`results/v2_rank_then_cut/V8_ONE_RUN_DESIGN_REVIEW.md`. It removes the proposed
+train--DAgger--retrain sequence: four exact-oracle rollouts, twelve fixed
+single-deviation recovery rollouts, and four random recovery rollouts are all
+labeled before training. On development300 this deterministic construction
+produces 60,504 unique ordered histories (201.68 per example). Formal labels
+use zero per-step slack to prevent tolerance from accumulating across twelve
+actions. The reviewed encoder also removes packet IDs from packet text and adds
+a question-only vector. To avoid a frozen-head failure followed by a second
+formal run, the recommended single run jointly trains a fresh Qwen3-4B LoRA
+and the new sequential head with one seed.
+
+All 23 V7 fidelity-0.90 failures leave the exact optimal action set before
+their failed order is complete; the median first divergence is reveal step 3.
+Only 10/29 closest final-order repair relations are direct next-action
+corrections at the prefix before the intruder. This confirms that another loss
+over those pair repairs would remain locally misaligned, while the sequential
+teacher directly labels the earlier causal decision in every failed example.
+
+The reviewed V8 implementation and data are now frozen in
+`configs/v8_one_run_sequential.json`. Train3163 contains 638,403 deduplicated
+ordered-history labels; development300 contains 60,504. All 108 unit tests and
+all frozen implementation, data, and Qwen3-4B hashes passed. Longest-input
+memory tests established batch eight with gradient checkpointing as the
+largest stable effective-batch-eight configuration. Disabling checkpointing
+exhausted a 47.4 GiB A6000 even at batch four, so the formal run keeps
+checkpointing rather than accepting an OOM-prone configuration. The single
+formal seed 20260912 started on physical GPU2 at 2026-09-17 08:05 CST, with
+checkpoints fixed at optimizer steps 250, 500, and 750 and beam width eight.
+
+V8 completed all 750 optimizer steps without an OOM or training error in
+8418.74 seconds. The fixed checkpoint results were:
+
+| Step | Fidelity-0.90 success | Complete trajectories | Feasible normalized regret | Validation action accuracy |
+|---:|---:|---:|---:|---:|
+| 250 | 277/300 | 273/300 (0.9100) | 0.02793 | 0.82802 |
+| 500 | 274/300 | 273/300 (0.9100) | 0.02360 | 0.86575 |
+| 750 | 273/300 | 272/300 (0.90667) | 0.02287 | 0.86873 |
+
+The preregistered selector chose step 250. It passed the trajectory threshold
+of 0.90 and regret threshold of 0.03, but missed the required fidelity-0.90
+count of 282/300 by five examples. The authoritative decision is
+`STOP_V8_ONE_RUN`; no fresh confirmation, calibration, or final-test role was
+opened. Twenty-two of V7's 23 fidelity-0.90 failures persisted at the selected
+V8 checkpoint; one was repaired and one different table-composition example
+failed. Validation action loss improved from 0.45993 at step 250 to 0.37197 at
+step 750, while fidelity-0.90 success fell from 277 to 273. This establishes a
+surrogate-to-contract mismatch rather than a failure of optimizer convergence.
+The authoritative artifacts are under
+`results/v2_rank_then_cut/v8_one_run_seed20260912/`.
+
+## V8 post-stop audits and bounded V9 probes
+
+The V8 first-divergence audit found that all 23 fidelity-0.90 failures had an
+exact optimal action in the local top eight at their first nonoptimal action;
+the mean best-optimal rank was 2.43 and mean optimal probability mass was
+0.286. Nevertheless, every exact-oracle-consistent path was eventually pruned
+from beam eight, at median reveal depth five. Only 9/23 first-divergence
+histories and 19.93% of all decoded-prefix histories were present in the fixed
+V8 supervision pool. Greedy decoding was not a remedy: it reached 276/300 at
+fidelity 0.90 versus beam eight's 277/300, with 272 complete trajectories and
+0.02886 regret.
+
+The exact DP was extended to retain each action's downstream severity: lost
+reachable anchors first, then normalized future cumulative-token excess. This
+produced cost labels for all 638,403 train histories and 60,504 consumed-
+development histories. A frozen-backbone V9-A probe retrained the complete
+sequential head for 250 steps with a cost-weighted ranking loss. Beam one and
+beam eight both reached only 274/300 at fidelity 0.90 and 270/300 complete
+trajectories; regret was 0.03528 and 0.03360. It repaired three V8 failures but
+broke six previous successes. The preregistered probe decision therefore stops
+the fixed-pool cost-head hypothesis.
+
+A separate train-role coverage audit rolled the selected V8 beam-eight policy
+over all 3,163 training examples. Only 8,531/37,956 (22.48%) deployed prefix
+states were present in the fixed pool. Optimal-action accuracy was 93.73% on
+covered states and 78.37% on uncovered states; lost-anchor actions occurred in
+0.387% and 1.057% respectively. A V9-B probe therefore isolated one bounded
+aggregation round while restoring the original V8 set-valued loss. It reached
+275/300 at fidelity 0.90, 272/300 complete trajectories, and 0.02392 regret,
+so the coverage-only hypothesis also stops.
+
+The two probes do not justify a post-hoc combination. Their failure sets share
+22 examples; even an oracle that chooses per example between V9-A and V9-B
+would reach only 278/300, and an oracle over V8, V9-A, and V9-B would reach only
+280/300. Twenty fidelity-0.90 failures persist across all three. No fresh,
+calibration, or final-test role was opened. Authoritative probe artifacts are
+under `results/v2_rank_then_cut/v8_first_divergence_audit/`,
+`results/v2_rank_then_cut/v9a_cost_probe_step250/`, and
+`results/v2_rank_then_cut/v9b_coverage_probe_step250/`.
+
+## V10 mask-value probe: ready for pretraining review
+
+The next bounded diagnostic is frozen in `configs/v10_mask_value_probe.json`
+and documented in `results/v2_rank_then_cut/V10_PRETRAINING_REVIEW.md`. It
+reuses the selected V8 step250 encoder without updating the backbone, LoRA, or
+existing sequential head. A new mask-conditioned ordinal head predicts the
+active fidelity anchors for any of the 4096 packet subsets, after which an
+exact subset DP constructs the nested total order. Train3163 contributes
+253,973 deterministic attained-class-stratified states; consumed
+development300 retains its complete 1,228,800-state lattice for one final
+evaluation only. Calibration and final-test roles remain untouched.
+
+The frozen endpoint is batch 16 for 400 optimizer steps (about 2.02 epochs),
+with no intermediate checkpoint selection. The same 282/300 fidelity-0.90,
+0.90 complete-trajectory, and 0.03 regret gates apply. All 123 unit tests and
+the data-integrity audit pass. The protocol status is
+`READY_FOR_REVIEW_NOT_STARTED`; the launch script is deliberately locked and
+no V10 training process, optimizer step, checkpoint, or result exists.
+
+The subsequent scientific review in `V10_SCIENTIFIC_REVIEW.md` **does not
+approve this frozen version for training**. The decoder currently receives
+the true per-example active-anchor count from the Target lattice; a synthetic
+counterexample proves that this information can alter both order and success.
+Unweighted stratified supervision also changes the 0.90 positive rate from
+0.7159% to 20.3234%, without defining a corresponding inference correction.
+The CPU-only oracle-value positive control is encouraging: the new planner
+recovers all anchors and matches the exact oracle cost on 300/300 consumed
+development examples. This validates the planner with true values, not a
+learned value model. See `v10_pretraining_audit.json` for evidence. The review
+leaves training and configuration unchanged and requires label-free decoding,
+an explicit sampling/loss interpretation, strict gate validation, and a
+fresh-confirmation protocol before scientific progression.
+
 
 - `configs/v2_rank_then_cut_hypothesis.json`
 - `results/v1_atomic/RANK_CUT_DIAGNOSTIC.md`
@@ -138,3 +536,112 @@ If it fails, V2 stops at ranking diagnosis rather than adding mechanisms.
 - `data/units/qampari_rank_v2_candidates5000.jsonl`
 - `data/units/qampari_rank_v2_candidates5000_annotations.jsonl`
 - `data/packets_qampari_rank_v2_candidates5000/`
+
+## V10 result and fidelity-0.90 root cause
+
+The corrected V10 frozen-encoder mask-value probe completed its single frozen
+400-step endpoint. It reached 269/300 at fidelity 0.90, 246/300 complete
+trajectories (0.82), and 0.02453 feasible normalized regret. The regret gate
+passed, while both contract gates failed; the authoritative decision is
+`STOP_MASK_VALUE_HYPOTHESIS`. Its direct predicted-cutoff trajectory success
+was only 0.3467, so this result does not support cutoff or calibration work.
+The preregistered confirmation300 role remains unopened.
+
+A post-stop audit compared ten endpoints spanning V4, V5-A, V6, V7, all three
+V8 checkpoints, V9-A, V9-B, and V10. Sixteen development examples fail at
+fidelity 0.90 under every endpoint; nine are table-composition examples. Their
+0.90-feasible subset is exceptionally sparse: 3.75 of 4096 masks on average
+and two at the median, versus 33.17 and 37 among 260 examples that never fail.
+All sixteen have full-context fidelity below 0.90. A uniformly random packet
+order visits a 0.90-feasible prefix with median probability 5.68%, versus 100%
+for the never-failed group. The issue is therefore not ordinary rate ranking:
+the compressor must assemble a narrow evidence combination before revealing a
+harmful packet.
+
+The training population already contains this tail: 227/3163 examples have at
+most four fidelity-0.90-positive masks, close to the development prevalence.
+This explains why data scaling alone did not help. It also exposes the V10
+estimand mismatch. Its inverse-probability loss correctly estimates uniform
+full-lattice classification risk, under which only 0.724% of development
+masks are 0.90-positive. That objective can improve aggregate mask accuracy
+without learning to retrieve the one or two masks that determine query-level
+success. V8 provides a second independent negative control: from step250 to
+step500 and step750 it rescued zero 0.90 failures and broke three, then one
+more, even while action loss and accuracy improved.
+
+A union of the terminal beam-eight candidates from V8, V9-A, and V9-B contains
+19.77 unique orders per query on average. Even a nondeployable Target oracle
+selecting among them reaches only 280/300 at fidelity 0.90, below the 282 gate.
+A learned V10 reranker reaches 277/300. Candidate reranking or a modest beam
+increase therefore lacks sufficient support.
+
+A different bounded construction has real headroom. Starting from the frozen
+V8 order, place the packets in a candidate 0.90 mask before the remaining
+packets while preserving V8's relative order within both groups. An oracle over
+all true 0.90 masks reaches every active anchor on every development example,
+300/300 complete trajectories, and 0.01894 regret. More relevantly, V10 already
+retrieves a true 0.90 mask in its top 16 for 289/300 queries. The fixed candidate
+set consisting of V8 plus those sixteen mask projections has an oracle result
+of 294/300 at fidelity 0.90, 294/300 complete trajectories, 234/234 at 0.95,
+and 0.02056 regret. This supports one V11 selector test: freeze V8 and V10,
+train only a query-balanced candidate head to select among those seventeen
+orders using a strict contracts-first, cumulative-token-second target.
+Reproducible diagnostics are in `v10_high_fidelity_root_cause.json`,
+`v11_candidate_rerank_audit/`, and `v11_mask_retrieval_audit/`.
+
+## V11 selector and V12 direct-retrieval results
+
+The frozen V11 candidate selector did not convert the mask-projection oracle
+headroom into a deployable improvement. It reached 277/300 at fidelity 0.90,
+273/300 complete trajectories (0.91), and 0.02800 feasible normalized regret.
+Among 126 development queries where the frozen candidate set had a strictly
+better choice than the baseline, it selected a true optimum only six times.
+The learned selector almost always changed the order, but repaired one
+contract and broke one. This stops the frozen-representation candidate-selector
+hypothesis; no confirmation role was opened.
+
+V12 then tested the more direct estimand: a query-balanced multiple-positive
+softmax loss over masks attaining fidelity 0.90, initialized from V10 and with
+the V8 encoder and projection rule frozen. The single 400-step endpoint placed
+a true 0.90 mask in its top 16 for 291/300 queries, but its deployable top-one
+projection reached only 277/300 at fidelity 0.90, 274/300 complete trajectories
+(0.91333), and 0.02776 regret. It therefore passes the complete-trajectory and
+regret gates but fails the preregistered 282/300 fidelity-0.90 gate. The formal
+decision is `STOP_RETRIEVAL_HYPOTHESIS`, recorded in
+`v12_high_fidelity_retriever_seed20260918/decision.json`; no confirmation role
+was opened.
+
+The V12 top-four candidate oracle reaches exactly 282/300 at fidelity 0.90,
+282/300 complete trajectories (0.94), 234/234 at fidelity 0.95, and 0.02583
+regret. The top-16 oracle reaches 294/300 and 0.98 complete trajectories. These
+are nondeployable upper bounds. Together with V11, they locate the remaining
+problem more narrowly: candidate generation has adequate headroom, while the
+current frozen query/mask representation and contracts-first supervision do
+not reliably identify which retrieved mask should control the order.
+
+## V13 joint representation-retrieval result
+
+V13 jointly adapted the selected V8 LoRA encoder and the V12 high-fidelity
+retrieval head. Its endpoint was selected without development300: among steps
+100, 200, and 300, the fixed train3163 internal-validation retrieval losses
+were 0.08131, 0.08477, and 0.08046, selecting step300. A batch-32 systems
+attempt stopped after step10 from a length-dependent OOM, before any checkpoint
+or development access; the formal run restarted from the original initialization
+at batch16 and completed all 300 steps.
+
+The single frozen development evaluation does not validate the direct top-one
+hypothesis. Its projected top-one order reached 276/300 at fidelity 0.90, 272/300
+complete trajectories (0.90667), and 0.02692 feasible normalized regret, versus
+V12's 277/300, 274/300, and 0.02776. The formal representation decision is
+`STOP_V13_TOP1_RETRIEVAL`.
+
+The candidate-space result supports the separately defined downstream
+feasibility gate. Oracle selection plus oracle cutoff over the frozen top four
+reached 286/300 at fidelity 0.90, 286/300 complete trajectories (0.95333),
+234/234 at fidelity 0.95, and 0.02576 regret. This improves the V12 top-four
+ceiling from 282 to 286 and gives real margin above the 282 development target.
+The top-16 ceiling was 293/300 with 0.97667 complete trajectories and 0.01917
+regret. Accordingly the decision is `GO_DOWNSTREAM_DEVELOPMENT`, while fresh
+confirmation remains closed. These oracle results justify training a label-free
+selector/cutoff for the frozen candidate architecture; they are not deployable
+performance claims.

@@ -130,8 +130,13 @@ def main() -> None:
     store = AtomicPacketStore(args.packet_dir)
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    metadata_name = (
+        "metadata.json"
+        if args.num_shards == 1
+        else f"metadata.shard-{args.shard_index}-of-{args.num_shards}.json"
+    )
     write_metadata(
-        output_dir / "metadata.json",
+        output_dir / metadata_name,
         experiment_metadata(
             stage="m0_qampari_atomic_binary_exact_search",
             model=args.model,

@@ -1,0 +1,31 @@
+{
+  "base_model": "models/Qwen3-1.7B",
+  "batch_size": 1,
+  "best_epoch": 2,
+  "best_validation_loss": 0.14778280980810274,
+  "checkpoint_selection": "minimum validation example-mean pairwise loss",
+  "elapsed_seconds": 26830.807461332006,
+  "epochs": 5,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 8,
+  "head_hidden_size": 256,
+  "learning_rate": 0.0001,
+  "lora_rank": 32,
+  "loss": "example-balanced RankNet logistic loss on set-identifiable pairs",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 20260912,
+  "stage": "v2_rank_then_cut_ranking_only_training",
+  "timestamp_utc": "2026-09-14T11:58:26.924718+00:00",
+  "train_data": "results/v2_rank_then_cut/rank_learning_curve/train2000_rank_oracle.jsonl",
+  "train_data_sha256": "80eb5300a7e0b15b94a224ea9fe0491960398b55cb69fe18603a86019489aee5",
+  "train_examples": 2000,
+  "train_supervised_examples": 2000,
+  "train_zero_preference_examples": 0,
+  "validation_data": "results/v2_rank_then_cut/ranking_validation300_rank_oracle.jsonl",
+  "validation_data_sha256": "e92cb0eb7fe9eec5b6645a85b16eb49c6962ae134f363a19d227a61d70bdf040",
+  "validation_examples": 300
+}

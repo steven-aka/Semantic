@@ -1,0 +1,9 @@
+{
+  "status": "RUNNING_FORMAL_V8_ONE_RUN",
+  "physical_gpu": 2,
+  "started_at": "2026-09-17T08:05:13.320547+08:00",
+  "config": "configs/v8_one_run_sequential.json",
+  "pid": 1024473,
+  "exec_session_id": 20374,
+  "verified_running_at": "2026-09-17T08:06:25.777128+08:00"
+}

@@ -1,0 +1,18 @@
+{
+  "development300_used_during_training": false,
+  "elapsed_seconds": 7292.183833841933,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "locked_roles_used": false,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "selected": {
+    "checkpoint": "results/v2_rank_then_cut/v13_joint_retriever_seed20260918/checkpoints/step300",
+    "internal_validation_retrieval_loss": 0.08046124313688396,
+    "step": 300
+  },
+  "stage": "v13_joint_representation_retrieval",
+  "timestamp_utc": "2026-09-18T06:02:28.528352+00:00"
+}

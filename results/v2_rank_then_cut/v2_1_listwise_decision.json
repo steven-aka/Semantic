@@ -1,0 +1,96 @@
+{
+  "artifacts": [
+    {
+      "details": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260910_details.jsonl",
+      "details_sha256": "a9ec0c558c7ca11c4f2d929fdb11a97af085da59bd383612eb1a60af2a137a42",
+      "seed": 20260910,
+      "summary": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260910_summary.json",
+      "summary_sha256": "b91a1d61e73d4e76d0c25b8e31f432aa24adbef5e63594bdd5d50e8698ad8cb4",
+      "training_metadata": "results/v2_rank_then_cut/listwise_training/train2000_seed20260910/training_metadata.json",
+      "training_metadata_sha256": "4a6047297a1ef2a185d0f3310d87f5feaf2c828611aa93ad878cde9982a016fc"
+    },
+    {
+      "details": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260911_details.jsonl",
+      "details_sha256": "22af2f424d23dad4be955bcbf6c91d5c51d70ebedc4b4a974afc1ad93e0930e6",
+      "seed": 20260911,
+      "summary": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260911_summary.json",
+      "summary_sha256": "2982c8eaa240201255eedf179707a8d0008b0a309f7840d865edff42b07bdf9d",
+      "training_metadata": "results/v2_rank_then_cut/listwise_training/train2000_seed20260911/training_metadata.json",
+      "training_metadata_sha256": "fc3f52d785d00af070852813b89c53ec79a117ce651583040feddd79a154c897"
+    },
+    {
+      "details": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260912_details.jsonl",
+      "details_sha256": "09ca58a32d7db48287765a1bd4ba37631ff01e8b94469feaabfecbfc0542f315",
+      "seed": 20260912,
+      "summary": "results/v2_rank_then_cut/listwise_evaluation/train2000_seed20260912_summary.json",
+      "summary_sha256": "3ce4b0f544b5ab11af01d654afe1911684d2acb06afcfa7af0be77fccdc364e3",
+      "training_metadata": "results/v2_rank_then_cut/listwise_training/train2000_seed20260912/training_metadata.json",
+      "training_metadata_sha256": "010ae0cd7301ff67127ba99b13b85075272788f150a8ad1f0ca5724001f0fbfd"
+    }
+  ],
+  "complete": true,
+  "config": "configs/v2_1_listwise_ranking_amendment.json",
+  "config_sha256": "8f55715ab5adacb74de2fa748992db37b2e8813e02f48f2edf4450dc0300a4d0",
+  "decision": "STOP_V2_1_RANKING",
+  "original_rank_gate_recheck": {
+    "checks": {
+      "active_contract_success": true,
+      "all_active_trajectory_success": true,
+      "highest_active_anchor_success": true,
+      "identifiable_pairwise_accuracy": true,
+      "normalized_ranking_regret_feasible": true
+    },
+    "decision": "GO_IMPLEMENT_CUTOFF",
+    "mean_across_seeds": {
+      "active_contract_success": 0.9709437470943747,
+      "all_active_trajectory_success": 0.9033333333333333,
+      "highest_active_anchor_success": 0.9033333333333333,
+      "identifiable_pairwise_accuracy": 0.9478513876454789,
+      "normalized_ranking_regret_feasible": 0.02747310755148064
+    },
+    "scientific_gate_passed": true
+  },
+  "risk_headroom": {
+    "at_least_one_seed_passed": false,
+    "familywise_alpha": 0.05,
+    "fidelity_families": 5,
+    "per_anchor_alpha": 0.01,
+    "required_contract_lower_bound": 0.9,
+    "runs": [
+      {
+        "bonferroni_clopper_pearson_lower": 0.8721119626755043,
+        "examples": 300,
+        "passed": false,
+        "required_successes": 282,
+        "seed": 20260910,
+        "successes": 275
+      },
+      {
+        "bonferroni_clopper_pearson_lower": 0.8840280533641323,
+        "examples": 300,
+        "passed": false,
+        "required_successes": 282,
+        "seed": 20260911,
+        "successes": 278
+      },
+      {
+        "bonferroni_clopper_pearson_lower": 0.8721119626755043,
+        "examples": 300,
+        "passed": false,
+        "required_successes": 282,
+        "seed": 20260912,
+        "successes": 275
+      }
+    ]
+  },
+  "seeds": [
+    20260910,
+    20260911,
+    20260912
+  ],
+  "selected_checkpoint": null,
+  "selected_seed": null,
+  "selected_validation_listwise_nll": null,
+  "status": "post_hoc_development_decision_not_a_new_preregistered_gate",
+  "validation_examples": 300
+}

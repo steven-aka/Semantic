@@ -1,0 +1,124 @@
+{
+  "artifacts": {
+    "details": "results/v2_rank_then_cut/v7_selected_development_evaluation/details.jsonl",
+    "details_sha256": "6a8b641dd64d8de564821a28df0d2e3a5fdf26f8f0b7e7f28083cb4e76828300",
+    "oracle": "results/v2_rank_then_cut/v5_development300_tail_cost_oracle.jsonl",
+    "oracle_sha256": "66ee513bb5f5f082d3c9e654f6d1116faef0dc87a01bac1323e7300bda30f107"
+  },
+  "complete": true,
+  "failed_target_repairs": {
+    "examples": 23,
+    "mean_absolute_logit": 2.6918103448275863,
+    "raw_opposes_repair": 29,
+    "raw_supports_repair": 0,
+    "relations": 29,
+    "supervision": {
+      "opposes_repair": 4,
+      "supports_repair": 18,
+      "unlabeled": 7
+    }
+  },
+  "oracle_safety_projection": {
+    "active_contract_success_fraction": 0.99860529986053,
+    "all_active_trajectory_success_fraction": 0.9933333333333333,
+    "highest_active_anchor_success_fraction": 0.9933333333333333,
+    "mean_normalized_ranking_regret_feasible": 0.017027602582230267,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 1,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.013112544249595064,
+        "successes": 300
+      },
+      "0.7": {
+        "contract_success_fraction": 1,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.015137518761938631,
+        "successes": 300
+      },
+      "0.8": {
+        "contract_success_fraction": 1,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02698268862284147,
+        "successes": 300
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9933333333333333,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02001080505643199,
+        "successes": 298
+      },
+      "0.95": {
+        "contract_success_fraction": 1,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.004636859910481842,
+        "successes": 234
+      }
+    }
+  },
+  "projection_transitions": {
+    "target_anchor_breaks": 0,
+    "target_anchor_rescues": 21,
+    "trajectory_breaks": 0,
+    "trajectory_rescues": 25
+  },
+  "rate_edge_alignment": {
+    "contingency": {
+      "raw_0_decoded_0": 342,
+      "raw_0_decoded_1": 2,
+      "raw_1_decoded_1": 7363
+    },
+    "edges": 7707
+  },
+  "raw": {
+    "active_contract_success_fraction": 0.9728033472803347,
+    "all_active_trajectory_success_fraction": 0.91,
+    "highest_active_anchor_success_fraction": 0.91,
+    "mean_normalized_ranking_regret_feasible": 0.025776106714095186,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9966666666666667,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03212646741385493,
+        "successes": 299
+      },
+      "0.7": {
+        "contract_success_fraction": 0.9933333333333333,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03592645526635854,
+        "successes": 298
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9733333333333334,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.04083358265050758,
+        "successes": 292
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9233333333333333,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02754484814687241,
+        "successes": 277
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9786324786324786,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.006276545987534699,
+        "successes": 229
+      }
+    }
+  },
+  "safety_edge_alignment": {
+    "contingency": {
+      "raw_0_decoded_0": 383,
+      "raw_0_decoded_1": 1,
+      "raw_1_decoded_1": 5313
+    },
+    "decoded_order_accuracy": 0.9327716341934351,
+    "edges": 5697,
+    "fraction_of_raw_correct_edges_sacrificed": 0.0,
+    "raw_correct_but_decoder_sacrificed": 0,
+    "raw_sign_accuracy": 0.932596103212217
+  },
+  "status": "consumed-development oracle-label diagnostic only"
+}

@@ -1,0 +1,34 @@
+{
+  "complete": true,
+  "config": "configs/v4_relational_precedence_ranking.json",
+  "config_sha256": "657fc4d33d32cc19d76a35f060d1de4220987c8419e5c18f268a1eb5eafa9412",
+  "criterion": "minimum recorded best development worst-relational-boundary loss",
+  "fresh_confirmation_evaluations_before_selection": 0,
+  "runs": [
+    {
+      "best_validation_loss": 0.5740776187495181,
+      "checkpoint": "results/v2_rank_then_cut/v4_relational_training/train2000_seed20260910",
+      "label": "seed20260910",
+      "metadata_sha256": "6de8dd83392551113b5cd4b1385ac716f69cbf29897189587e8d9eb561ab1c2b"
+    },
+    {
+      "best_validation_loss": 0.6330933736151879,
+      "checkpoint": "results/v2_rank_then_cut/v4_relational_training/train2000_seed20260911",
+      "label": "seed20260911",
+      "metadata_sha256": "63e8535d2db3cf4f98c95cb612b1e203b81a3c924ffd036beac9310d0e0c1a39"
+    },
+    {
+      "best_validation_loss": 0.5553130529876938,
+      "checkpoint": "results/v2_rank_then_cut/v4_relational_training/train2000_seed20260912",
+      "label": "seed20260912",
+      "metadata_sha256": "51ebba2f6bad5389a27de4d80bf27c700a33aa05e729bcf118b4e3c59aba099f"
+    }
+  ],
+  "selected": {
+    "best_validation_loss": 0.5553130529876938,
+    "checkpoint": "results/v2_rank_then_cut/v4_relational_training/train2000_seed20260912",
+    "label": "seed20260912",
+    "metadata_sha256": "51ebba2f6bad5389a27de4d80bf27c700a33aa05e729bcf118b4e3c59aba099f"
+  },
+  "selection_role": "consumed development300 only"
+}

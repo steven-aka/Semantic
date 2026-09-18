@@ -1,0 +1,74 @@
+{
+  "backbone_and_lora_frozen": true,
+  "base_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "base_checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "batch_size": 8,
+  "complete_sequential_head_trainable": true,
+  "elapsed_seconds": 1266.9377989849309,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "history_samples": {
+    "model": 12,
+    "oracle": 12,
+    "random": 8,
+    "single": 12
+  },
+  "learning_rate": 0.0002,
+  "locked_roles_used": false,
+  "optimizer_steps": 250,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 20260912,
+  "stage": "v9b_frozen_backbone_one_round_coverage_probe",
+  "summary": {
+    "complete": true,
+    "decoder": "history-aware sequential policy beam width 8",
+    "examples": 300,
+    "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.02391837343570819,
+    "oracle_cutoff_active_contract_success_fraction": 0.9721059972105998,
+    "oracle_cutoff_all_active_contracts_success_fraction": 0.9066666666666666,
+    "oracle_cutoff_feasible_trajectory_examples": 272,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9966666666666667,
+        "contract_successes": 299,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.024917913630989393
+      },
+      "0.7": {
+        "contract_success_fraction": 0.99,
+        "contract_successes": 297,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02901192413726203
+      },
+      "0.8": {
+        "contract_success_fraction": 0.9766666666666667,
+        "contract_successes": 293,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.0409429058296953
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9166666666666666,
+        "contract_successes": 275,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.02766511987844821
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9829059829059829,
+        "contract_successes": 230,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.0039555541557278785
+      }
+    },
+    "validation_action_loss": 0.39385378988165604,
+    "validation_progress_loss": 0.09029764348739072,
+    "validation_set_action_accuracy": 0.8649259868421053
+  },
+  "timestamp_utc": "2026-09-17T04:39:33.892260+00:00",
+  "train_data": "results/v2_rank_then_cut/v9_train3163_cost_plus_v8_on_policy.jsonl",
+  "train_sha256": "db3aded10e52ea4c825b16c0b7ac926f96b8149d9da121a904a407ba60297564",
+  "validation_data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "validation_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196"
+}

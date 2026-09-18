@@ -1,0 +1,329 @@
+{
+  "artifacts": {
+    "development_sha256": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+    "model_detail_sha256": {
+      "v10": "66fa6c6f074db52501394e0a052058a32736496cf4ba853114f5d8f275c0ac41",
+      "v4": "1924148c70708d5f48c4fecc2ae6ab9ddef50a66d25b74e507577cec17a2e21f",
+      "v5a": "32e5c012619b64d321f738ae0a5d3c4bb151d22b5fe08ca368ac0e01e79c0753",
+      "v6": "c061cb620e7f324ab8c2b94cf4b71cdf150f07a3d21203a13c7436a76eb876f5",
+      "v7": "6a8b641dd64d8de564821a28df0d2e3a5fdf26f8f0b7e7f28083cb4e76828300",
+      "v8_step250": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15",
+      "v8_step500": "5e710a24db52d2d6db93bcd228bdbe2d127f4fe6c3b0ee8af244ec689d78d851",
+      "v8_step750": "bcd65f56f9f7775cb6288a8fefb8baf94a83e2e35edf7263a1be21146ba9ad97",
+      "v9a": "cea8f571b7cc67bc44ba70d7bfb2f3c9f1fb2dad513d4e09218c273dd6f89890",
+      "v9b": "efdc298a683989390363fdb8e6610f20c5719006c6c4f2911fb88115482ca244"
+    },
+    "train_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd"
+  },
+  "complete": true,
+  "failure_frequency_histogram": {
+    "1": 12,
+    "2": 2,
+    "3": 1,
+    "5": 1,
+    "7": 1,
+    "8": 3,
+    "9": 4,
+    "10": 16
+  },
+  "groups": {
+    "intermittent_failure": {
+      "examples": 24,
+      "forbidden_packets_in_every_positive_mask": {
+        "max": 3,
+        "mean": 0.4583333333333333,
+        "median": 0.0,
+        "min": 0
+      },
+      "full_mask_positive": {
+        "max": false,
+        "mean": 0,
+        "median": 0.0,
+        "min": false
+      },
+      "groups": {
+        "wikidata_intersection": 1,
+        "wikidata_simple": 7,
+        "wikitables_composition": 16
+      },
+      "harmful_downward_boundary_edges": {
+        "max": 25,
+        "mean": 10.041666666666666,
+        "median": 10.0,
+        "min": 1
+      },
+      "maximum_positive_mask_size": {
+        "max": 11,
+        "mean": 10.875,
+        "median": 11.0,
+        "min": 9
+      },
+      "minimum_positive_mask_size": {
+        "max": 11,
+        "mean": 9.291666666666666,
+        "median": 9.0,
+        "min": 9
+      },
+      "positive_fraction": {
+        "max": 0.0078125,
+        "mean": 0.0021769205729166665,
+        "median": 0.001953125,
+        "min": 0.000244140625
+      },
+      "positive_masks": {
+        "max": 32,
+        "mean": 8.916666666666666,
+        "median": 8.0,
+        "min": 1
+      },
+      "random_order_hits_positive_prefix_probability": {
+        "max": 0.4636363636363636,
+        "mean": 0.22828282828282828,
+        "median": 0.18977272727272726,
+        "min": 0.004545454545454519
+      },
+      "required_packets_in_every_positive_mask": {
+        "max": 11,
+        "mean": 6.208333333333333,
+        "median": 6.0,
+        "min": 0
+      },
+      "upward_boundary_edges": {
+        "max": 263,
+        "mean": 81.375,
+        "median": 76.0,
+        "min": 9
+      }
+    },
+    "never_failed": {
+      "examples": 260,
+      "forbidden_packets_in_every_positive_mask": {
+        "max": 2,
+        "mean": 0.007692307692307693,
+        "median": 0.0,
+        "min": 0
+      },
+      "full_mask_positive": {
+        "max": true,
+        "mean": 0.8384615384615385,
+        "median": 1.0,
+        "min": false
+      },
+      "groups": {
+        "wikidata_intersection": 9,
+        "wikidata_simple": 178,
+        "wikitables_composition": 73
+      },
+      "harmful_downward_boundary_edges": {
+        "max": 32,
+        "mean": 7.696153846153846,
+        "median": 6.0,
+        "min": 0
+      },
+      "maximum_positive_mask_size": {
+        "max": 12,
+        "mean": 11.834615384615384,
+        "median": 12.0,
+        "min": 10
+      },
+      "minimum_positive_mask_size": {
+        "max": 12,
+        "mean": 9.026923076923078,
+        "median": 9.0,
+        "min": 6
+      },
+      "positive_fraction": {
+        "max": 0.012451171875,
+        "mean": 0.008098895733173076,
+        "median": 0.009033203125,
+        "min": 0.000244140625
+      },
+      "positive_masks": {
+        "max": 51,
+        "mean": 33.17307692307692,
+        "median": 37.0,
+        "min": 1
+      },
+      "random_order_hits_positive_prefix_probability": {
+        "max": 1.0,
+        "mean": 0.9243864931364931,
+        "median": 1.0,
+        "min": 0.018181818181818188
+      },
+      "required_packets_in_every_positive_mask": {
+        "max": 12,
+        "mean": 1.0846153846153845,
+        "median": 0.0,
+        "min": 0
+      },
+      "upward_boundary_edges": {
+        "max": 402,
+        "mean": 277.43461538461537,
+        "median": 309.0,
+        "min": 12
+      }
+    },
+    "persistent_all_ten": {
+      "examples": 16,
+      "forbidden_packets_in_every_positive_mask": {
+        "max": 3,
+        "mean": 1,
+        "median": 0.5,
+        "min": 0
+      },
+      "full_mask_positive": {
+        "max": false,
+        "mean": 0,
+        "median": 0.0,
+        "min": false
+      },
+      "groups": {
+        "wikidata_intersection": 2,
+        "wikidata_simple": 5,
+        "wikitables_composition": 9
+      },
+      "harmful_downward_boundary_edges": {
+        "max": 34,
+        "mean": 7.3125,
+        "median": 4.5,
+        "min": 1
+      },
+      "maximum_positive_mask_size": {
+        "max": 11,
+        "mean": 10.25,
+        "median": 10.5,
+        "min": 9
+      },
+      "minimum_positive_mask_size": {
+        "max": 11,
+        "mean": 9.4375,
+        "median": 9.5,
+        "min": 6
+      },
+      "positive_fraction": {
+        "max": 0.004150390625,
+        "mean": 0.00091552734375,
+        "median": 0.00048828125,
+        "min": 0.000244140625
+      },
+      "positive_masks": {
+        "max": 17,
+        "mean": 3.75,
+        "median": 2.0,
+        "min": 1
+      },
+      "random_order_hits_positive_prefix_probability": {
+        "max": 0.75,
+        "mean": 0.12252265963203463,
+        "median": 0.05681818181818182,
+        "min": 0.004545454545454519
+      },
+      "required_packets_in_every_positive_mask": {
+        "max": 11,
+        "mean": 7.75,
+        "median": 8.0,
+        "min": 2
+      },
+      "upward_boundary_edges": {
+        "max": 156,
+        "mean": 35.5625,
+        "median": 20.0,
+        "min": 9
+      }
+    }
+  },
+  "models": {
+    "v10": {
+      "failures": 31,
+      "fidelity_0.90_successes": 269
+    },
+    "v4": {
+      "failures": 21,
+      "fidelity_0.90_successes": 279
+    },
+    "v5a": {
+      "failures": 26,
+      "fidelity_0.90_successes": 274
+    },
+    "v6": {
+      "failures": 23,
+      "fidelity_0.90_successes": 277
+    },
+    "v7": {
+      "failures": 23,
+      "fidelity_0.90_successes": 277
+    },
+    "v8_step250": {
+      "failures": 23,
+      "fidelity_0.90_successes": 277
+    },
+    "v8_step500": {
+      "failures": 26,
+      "fidelity_0.90_successes": 274
+    },
+    "v8_step750": {
+      "failures": 27,
+      "fidelity_0.90_successes": 273
+    },
+    "v9a": {
+      "failures": 26,
+      "fidelity_0.90_successes": 274
+    },
+    "v9b": {
+      "failures": 25,
+      "fidelity_0.90_successes": 275
+    }
+  },
+  "persistent_failure_count": 16,
+  "persistent_failures_all_ten_models": [
+    "13282__wikidata_simple__train",
+    "20235__wikidata_simple__train",
+    "20347__wikidata_simple__train",
+    "28023__wikidata_simple__train",
+    "28051__wikidata_simple__train",
+    "55410__wikidata_intersection__train",
+    "55581__wikidata_intersection__train",
+    "56973__wikitables_composition__train",
+    "57659__wikitables_composition__train",
+    "57702__wikitables_composition__train",
+    "57882__wikitables_composition__train",
+    "58301__wikitables_composition__train",
+    "58487__wikitables_composition__train",
+    "59256__wikitables_composition__train",
+    "61569__wikitables_composition__train",
+    "61891__wikitables_composition__train"
+  ],
+  "population_coverage": {
+    "development300": {
+      "examples": 300,
+      "full_mask_below_0.90": 82,
+      "positive_mask_count_mean": 29.663333333333334,
+      "positive_mask_count_median": 35.5,
+      "positive_mask_count_strata": {
+        "2_4": 18,
+        "5_10": 20,
+        "gt_10": 252,
+        "le_1": 10
+      }
+    },
+    "train3163": {
+      "examples": 3163,
+      "full_mask_below_0.90": 782,
+      "positive_mask_count_mean": 29.324375592791654,
+      "positive_mask_count_median": 35,
+      "positive_mask_count_strata": {
+        "2_4": 161,
+        "5_10": 300,
+        "gt_10": 2636,
+        "le_1": 66
+      }
+    }
+  },
+  "scientific_role": "post-stop consumed-development root-cause audit; not a selection or confirmation result",
+  "v8_checkpoint_dynamics": {
+    "step250_to_step500_broken": 3,
+    "step250_to_step500_rescued": 0,
+    "step500_to_step750_broken": 1,
+    "step500_to_step750_rescued": 0
+  }
+}

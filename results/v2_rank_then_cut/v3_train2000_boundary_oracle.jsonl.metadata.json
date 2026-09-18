@@ -1,0 +1,19 @@
+{
+  "boundary_pairs": 38045,
+  "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+  "examples": 2000,
+  "examples_with_raw_local_direction_conflicts": 460,
+  "filtering": "retain only local critical-harmful directions identifiable across the complete near-optimal chain set",
+  "git_commit": "unversioned",
+  "gpu_names": [],
+  "mean_boundary_pairs": 19.0225,
+  "normalized_slack": 0.005,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "source_oracle": "results/v2_rank_then_cut/rank_learning_curve/train2000_rank_oracle.jsonl",
+  "source_oracle_sha256": "80eb5300a7e0b15b94a224ea9fe0491960398b55cb69fe18603a86019489aee5",
+  "stage": "v3_set_valued_stable_critical_boundary_oracle",
+  "supervised_examples": 1772,
+  "timestamp_utc": "2026-09-15T00:50:19.572619+00:00",
+  "zero_boundary_examples": 228
+}

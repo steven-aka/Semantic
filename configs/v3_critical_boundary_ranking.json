@@ -1,0 +1,103 @@
+{
+  "protocol": "v3_set_valued_critical_boundary_ranking",
+  "frozen_at": "2026-09-15 after consumed-validation boundary sufficiency diagnosis and before any V3 model training",
+  "status": "new post-V2 scientific hypothesis; not a retroactive modification of the passed V2 rank gate or failed V2.1 revision",
+  "scientific_hypothesis": "For a non-monotone fidelity Target, generalizable prefix feasibility is controlled by the worst stable critical-positive versus harmful-negative boundary, not mean global pair accuracy or probability of the complete partial order.",
+  "parent_protocol": {
+    "path": "configs/v2_rank_then_cut_hypothesis.json",
+    "sha256": "2376fd274372ac6c595e1cfeb30a13c36dc23d72c302fcec308f89563e7aeb79"
+  },
+  "trigger": {
+    "v2_1_decision": "results/v2_rank_then_cut/v2_1_listwise_decision.json",
+    "v2_1_decision_sha256": "7ab9337f8d0ff48ee601f3d92e0fcbaf43a163e8754ddd837c031f9ccc1d09f7",
+    "boundary_diagnostic": "results/v2_rank_then_cut/v3_boundary_diagnostic/summary.json",
+    "boundary_diagnostic_sha256": "e7e05e294d9f0d10ed0cf2b0f854de4bc8fa2a4c8923c9f16b095a87ceb74b47",
+    "observed_sufficiency": "stable set-valued counterfactual projection reached 298/300 at fidelity 0.90 for all six RankNet/listwise runs; robust-membership projection reached 295-297/300",
+    "observed_naive_label_conflict": "single-state local counterfactual directions conflicted in 68/300 consumed development examples",
+    "interpretation": "boundary supervision is promising only after filtering local witnesses through the complete near-optimal-chain identifiable precedence relation"
+  },
+  "preserved_invariants": {
+    "packets": "12 source-preserving lossless binary packets",
+    "backbone": "Qwen3-1.7B NF4 QLoRA",
+    "rank_head": "the unchanged shared scalar two-layer MLP",
+    "target": "frozen Qwen3-8B exact 4096-state lattices; no new Target inference",
+    "representation": "one total packet order with monotone prefixes",
+    "full": "independent lossless fallback; control 1.0 never forces all packets into the ranked trajectory",
+    "larger_backbone": false,
+    "reinforcement_learning": false,
+    "additional_head": false,
+    "generative_residual": false
+  },
+  "boundary_oracle": {
+    "near_optimal_normalized_slack": 0.005,
+    "local_critical": "packet e is present in an admissible state S at anchor c and fidelity(S minus e) is below c",
+    "local_harmful": "packet h is absent from S and fidelity(S plus h) is below c",
+    "stable_relation": "retain e before h only when that direction is identifiable across the complete set of globally near-optimal nested chains",
+    "all_admissible_states": true,
+    "sampled_hard_negatives": false,
+    "ambiguous_or_conflicting_directions": "discarded",
+    "single_tie_broken_oracle_state": false,
+    "train_examples": 2000,
+    "train_supervised_examples": 1772,
+    "train_zero_boundary_examples": 228,
+    "train_boundary_pairs": 38045
+  },
+  "single_primary_objective": {
+    "formula": "mean_over_examples softplus(max_over_stable_boundary_pairs(score_h - score_e))",
+    "interpretation": "optimize the worst contract-critical boundary inversion per example",
+    "added_margin": 0.0,
+    "ranknet_auxiliary_loss": false,
+    "listwise_auxiliary_loss": false,
+    "never_reveal_auxiliary_loss": false
+  },
+  "data": {
+    "train": "results/v2_rank_then_cut/v3_train2000_boundary_oracle.jsonl",
+    "train_sha256": "fd0dbeae977bf51f660dbc013092bc899a1fd772fae7fb99c572fed54a21ce53",
+    "consumed_development": "results/v2_rank_then_cut/v3_development300_boundary_oracle.jsonl",
+    "consumed_development_sha256": "767b9db3ac5f8037ae2d871cfdc82b8958080d9093d984c9149075082648c25a",
+    "rank_confirm_manifest": "results/v2_rank_then_cut/v3_rank_confirm_manifest.json",
+    "rank_confirm_manifest_sha256": "8af6fd68b684516326721086f9363ac1de825ebd9a960628e82154f8791af0c6",
+    "rank_confirm": "results/v2_rank_then_cut/rank_confirm210_rank_oracle.jsonl",
+    "rank_confirm_sha256": "89932008300ec44d616654946e4fa84dcb958b92cd2e110001fc94ae90071b7b",
+    "rank_confirm_examples": 210,
+    "rank_confirm_role": "all unused attainable examples after the consumed 300-example prefix of the originally frozen ranking-validation slice",
+    "rank_confirm_model_evaluations_before_freeze": 0,
+    "calibration300": "untouched and forbidden during V3 ranking",
+    "final_test300": "untouched and forbidden during V3 ranking"
+  },
+  "training": {
+    "seeds": [20260910, 20260911, 20260912],
+    "epochs": 5,
+    "batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 0.0001,
+    "max_length": 4096,
+    "lora_rank": 32,
+    "head_hidden_size": 256,
+    "within_seed_checkpoint_selection": "minimum example-mean worst-boundary loss on the already-consumed development300",
+    "across_seed_checkpoint_selection": "minimum selected development worst-boundary loss; selection is written before any model is evaluated on rank-confirm210"
+  },
+  "one_shot_rank_confirmation_gate": {
+    "population": "rank-confirm210",
+    "model_runs": 1,
+    "primary": "selected learned order plus global oracle monotone cutoff",
+    "familywise_alpha": 0.05,
+    "correction": "Bonferroni across all active fidelity anchors",
+    "minimum_per_anchor_contract_lower_bound": 0.90,
+    "minimum_active_contract_success": 0.97,
+    "minimum_all_active_trajectory_success": 0.90,
+    "maximum_normalized_ranking_regret_feasible": 0.03,
+    "fidelity_0_9_reference_requirement": "199/210 if all 210 examples contribute and five anchors are tested",
+    "pairwise_accuracy": "secondary diagnostic only",
+    "if_pass": "freeze the selected V3 ranker and implement the monotone token-aware cutoff head before touching calibration300",
+    "if_fail": "stop V3 ranking; do not add another boundary or global-ranking loss; reconsider a direct exact trajectory objective under a separately frozen protocol"
+  },
+  "implementation_sha256": {
+    "src/data/select_v3_rank_confirm.py": "bf78ff399f1291447e63ef765618b89a042c1671015e10d7a8ad498c4587fefa",
+    "src/evaluation/critical_boundary_diagnostic.py": "65c7a1d7ffc6720f56379a81960cdad91ee10bbd8e6557aa36ba52a358b8c19c",
+    "src/data/critical_boundary_dataset.py": "52044c8ba880259d95aa930e4057ef1e53d35edda6e305bd911fe48089ec146d",
+    "src/model/critical_boundary_loss.py": "47aced94a899d49f655031658793002341f59f01d8bbd8cea72d4f11bdfc5af4",
+    "src/training/train_critical_boundary_ranker.py": "f82486b80eed5a251db957f5e31a4065f79b7cb3e31f353586d03aed4e9f7206",
+    "src/evaluation/v3_boundary_decision.py": "6cab3c6f4b257a366c3bfa311ba11ed5f06e1f1d2d1303bf24b3c64eaa305291"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+  "examples": "data/units/qampari_rank_v3_splits/rank_confirm210.jsonl",
+  "git_commit": "unversioned",
+  "gpu_names": [],
+  "normalized_slack": 0.005,
+  "packet_dir": "data/packets_qampari_rank_v2_candidates5000",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "rows": 210,
+  "stage": "v2_set_valued_near_optimal_rank_oracle",
+  "supervision": "identifiable partial-order pairs; ambiguous pairs ignored",
+  "timestamp_utc": "2026-09-15T00:34:59.296889+00:00"
+}

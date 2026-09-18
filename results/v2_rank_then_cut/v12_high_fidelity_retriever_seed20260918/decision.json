@@ -1,0 +1,24 @@
+{
+  "decision": "STOP_RETRIEVAL_HYPOTHESIS",
+  "deployable_endpoint": "top1_retrieval",
+  "checks": {
+    "fidelity_0.90": {
+      "value": 277,
+      "threshold": 282,
+      "pass": false
+    },
+    "complete_trajectory_fraction": {
+      "value": 0.9133333333333333,
+      "threshold": 0.9,
+      "pass": true
+    },
+    "mean_normalized_regret_feasible": {
+      "value": 0.027764985361865707,
+      "threshold": 0.03,
+      "pass": true
+    }
+  },
+  "confirmation_opened": false,
+  "reason": "The preregistered fidelity-0.90 gate failed; top-k oracle results are diagnostic upper bounds and are not deployable.",
+  "summary_file": "development_summary.json"
+}

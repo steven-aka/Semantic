@@ -1,6 +1,6 @@
 # V1/V2 readiness handoff
 
-## Latest authoritative status (2026-09-10)
+## Latest authoritative status (2026-09-15)
 
 The atomic M0 scientific prerequisite remains passed. The first learned V1
 absolute-threshold policy was subsequently trained and evaluated, and is a
@@ -26,23 +26,68 @@ threshold regression with set-valued near-optimal partial-order ranking. The
 official QAMPARI train pool was partitioned target-blind into disjoint training,
 ranking-validation, calibration, and final-test roles.
 
-V2 is currently constructing exact 4096-state oracle lattices for the frozen
-5000-candidate pool. **No V2 ranker has been trained, the cutoff head has not
-been implemented, and calibration/final test remain untouched.** Ranking is
-trained first on the frozen 500/1000/2000 learning curve only after exact
-construction and split eligibility checks finish. A conjunctive rank-only gate
-on train2000, evaluated as learned order + global oracle cutoff, must pass before
-cutoff work is permitted. FULL remains a separate lossless fallback and is not
-the endpoint of the learned control trajectory.
+V2 completed all 5000 exact 4096-state lattices and the frozen 500/1000/2000
+three-seed learning curve. The train2000 learned-order + global-oracle-cutoff
+mean passed all five preregistered checks: 97.33% active contract success,
+90.67% full active-trajectory and highest-anchor success, 0.02695 feasible
+normalized ranking regret, and 94.71% identifiable pair accuracy. The
+authoritative artifact is
+`results/v2_rank_then_cut/rank_only_gate_result.json`.
+
+This pass permitted cutoff implementation, but a validation-only risk-headroom
+audit found that the 0.90 anchor reached only 275--278/300 per seed, below the
+282/300 needed for the already-frozen Bonferroni Clopper--Pearson lower-bound
+target. Exact counterfactual projection onto the existing partial-order labels
+reached 298/300 for every seed and sharply reduced regret, localizing the issue
+to mean RankNet's failure to enforce a few critical known relations rather than
+to nested-prefix expressivity. A single V2.1 revision replacing mean RankNet
+with exact set-valued Plackett--Luce linear-extension likelihood completed on
+the same train2000/development300 and three seeds. It reached 275/300, 278/300,
+and 275/300 at fidelity 0.90, so its authoritative decision is
+`STOP_V2_1_RANKING`.
+
+An exhaustive no-training diagnostic then tested critical--harmful boundary
+supervision over every admissible near-optimal state. Naive local labels were
+directionally inconsistent on 68/300 examples, but filtering them through the
+set-identifiable complete near-optimal-chain relation produced a stable
+boundary projection of 298/300 for all six existing V2/V2.1 runs. V3 was
+frozen in `configs/v3_critical_boundary_ranking.json`, trained three seeds
+with the unchanged Qwen3-1.7B scalar ranker and only a worst-boundary loss,
+then selected seed 20260911 on consumed development. The one-shot
+rank-confirm210 gave 187/210 full trajectories; fidelity 0.90 was 197/210
+versus 199 required and fidelity 0.95 was 156/169 versus 162 required.
+The authoritative `v3_rank_confirm_decision.json` is `STOP_V3_RANKING`.
+Further work is a consumed-role model-assumption audit before choosing any
+new formulation; a new confirmation population would be required for V4.
+That audit is now complete in
+`results/v2_rank_then_cut/V3_MODEL_ASSUMPTION_AUDIT.md`. At the frozen slack,
+train/development/confirm strict marginal sign flips are about 24/23/25%,
+raw local cycles about 23/23/25%, and globally stable relation cycles zero.
+Complete boundary separation is only 77.09% even on train, versus 66.92% on
+development and 70.33% on confirmation. Neither a static-order impossibility
+claim nor a fresh-only overfitting claim follows. V4 is now frozen as the
+single relational-precedence representation test in
+`configs/v4_relational_precedence_ranking.json`. Its disjoint target-blind
+candidate500 tail and lossless packets passed verification, and exact
+Qwen3-8B lattice inference is running as detached workers on physical GPUs 0
+and 1, after a turn-scoped worker exit at 93/500 was diagnosed and recovered
+without rewriting any complete lattice. V4 training
+has not started. The new confirmation will not be evaluated unless the
+pre-registered consumed-development risk-headroom gate passes. Calibration300
+and final-test300 remain untouched.
+The cutoff head remains unimplemented; calibration300 and final-test300 remain
+untouched. FULL remains a separate lossless fallback.
 
 Current decision:
 
 ```text
 M0_ATOMIC_GATE=PASS
 V1_ABSOLUTE_THRESHOLD_POLICY=NO_GO_FROZEN
-V2_RANK_THEN_CUT=ORACLE_CONSTRUCTION_IN_PROGRESS
-V2_TRAINING=NOT_STARTED
-V2_CUTOFF_HEAD=NOT_IMPLEMENTED_PENDING_RANKING_GATE
+V2_RANK_THEN_CUT_RANK_GATE=PASS
+V2_1_LISTWISE_RANKING=NO_GO_FROZEN
+V3_CRITICAL_BOUNDARY_RANKING=NO_GO_FROZEN
+V4_RELATIONAL_PRECEDENCE=FROZEN_EXACT_CONFIRM_POOL_RUNNING
+V2_CUTOFF_HEAD=NOT_IMPLEMENTED_PENDING_RISK_HEADROOM
 ```
 
 ## Current gate

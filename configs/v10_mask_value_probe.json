@@ -1,0 +1,149 @@
+{
+  "protocol": "v10_consumed_development_mask_value_probe",
+  "status": "APPROVED_TO_RUN",
+  "date": "2026-09-17 Asia/Shanghai",
+  "authorization": "User explicitly requested continuation after reviewing the corrected scientific plan.",
+  "scientific_role": "One diagnostic endpoint on already-consumed development300. This tests ranking under oracle cutoff only; predicted-cutoff metrics are diagnostics and no calibration or final-test role is opened.",
+  "hypothesis": "Persistent V8/V9 failures arise because action imitation does not directly estimate the nonmonotonic Target fidelity of the current selected packet set. A frozen V8 encoder plus a mask-conditioned ordinal value head can rank all 4096 masks well enough for exact trajectory planning.",
+  "controlled_change": {
+    "frozen_components": [
+      "Qwen3-4B 4-bit base model",
+      "selected V8 step250 LoRA adapter and packet/question encoder",
+      "all V8 encoder embeddings cached before optimizer step 1",
+      "selected V8 sequential policy head retained only as provenance and not called by V10"
+    ],
+    "trainable_component": "new two-layer permutation-equivariant mask-value head only",
+    "prediction_target": "five fixed ordinal events: current mask reaches fidelity 0.60, 0.70, 0.80, 0.90, and 0.95; the decoder never receives per-example attainable-level count",
+    "decoder": "exact subset dynamic program over all 4096 predicted mask values; maximize fixed levels reached, then minimize cumulative first-crossing tokens",
+    "prediction_threshold": 0.5,
+    "intermediate_checkpoint_selection": false,
+    "development_evaluations": 1
+  },
+  "initialization": {
+    "model": "models/Qwen3-4B",
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+    "sequential_head_sha256": "0e3d5022868a619e246fd759de82d3891dcf552922dc8ffd8434dfe38814ddb5",
+    "adapter_tree_sha256": "c95f1b7c5e79b6744345e6e9473b936886c3a4bf32ec137b2976663ae71e8c02"
+  },
+  "data": {
+    "train": "results/v2_rank_then_cut/v10_train3163_mask_value.jsonl",
+    "train_sha256": "b3f9ebcd11960268c1699faf689836da1ba89e350f82b8c5b9d35b894b5c58dd",
+    "train_examples": 3163,
+    "train_states": 253973,
+    "sampling": "up to 16 deterministic masks per attained-level class per example; empty and full masks mandatory; each row stores its exact inclusion probability",
+    "loss_estimand": "query-balanced inverse-inclusion-probability estimate of uniform full-4096-lattice BCE, averaged equally over all five anchors",
+    "train_cache": "results/v2_rank_then_cut/v10_train3163_v8_embeddings.pt",
+    "train_cache_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+    "development": "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl",
+    "development_sha256": "4f9f28d5d9046e45790eb40dd2e4c69b985cdf52e857ab90a30b75ff67e76c62",
+    "development_examples": 300,
+    "development_states": 1228800,
+    "development_cache": "results/v2_rank_then_cut/v10_development300_v8_embeddings.pt",
+    "development_cache_sha256": "9455d3c0893076a911098cd6fee9fc548dce65d2086567ffeb73e56c88f6eefd",
+    "cache_dtype": "bfloat16",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "locked_roles_used": false
+  },
+  "model": {
+    "model_dim": 512,
+    "max_sequence_length": 512,
+    "mask_transformer_layers": 2,
+    "attention_heads": 8,
+    "trainable_parameters": 5258757,
+    "dropout": 0.1,
+    "ordinal_logits_monotone_by_construction": true,
+    "optimizer_parameter_dtype": "float32",
+    "compute_autocast_dtype": "bfloat16"
+  },
+  "optimization": {
+    "seed": 20260912,
+    "optimizer": "AdamW",
+    "optimizer_steps": 400,
+    "batch_size": 16,
+    "approximate_epochs": 2.0234,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "warmup_steps": 40,
+    "scheduler": "cosine",
+    "gradient_clip": 1.0,
+    "loss": "inverse-probability-weighted ordinal BCE over five fixed anchors, normalized within query then averaged across queries"
+  },
+  "evaluation": {
+    "endpoint": "final step400 only",
+    "mask_lattice": "all 4096 masks for every development example",
+    "mask_chunk_size": 256,
+    "encoder_batch_size": 16,
+    "primary_gate_interpretation": "ranking quality with a truth-based oracle cutoff, kept comparable with V8/V9",
+    "reported_metrics": [
+      "per-anchor precision and recall on all five fixed anchors",
+      "exact attained-class accuracy",
+      "oracle-cutoff fidelity-0.90 contract success count",
+      "oracle-cutoff complete-trajectory success fraction",
+      "oracle-cutoff feasible normalized ranking regret",
+      "predicted-cutoff active-contract and complete-trajectory success as non-gating deployment diagnostics"
+    ]
+  },
+  "decision": {
+    "GO_FREEZE_SAME_HEAD_FOR_NEW_CONFIRMATION": "fidelity-0.90 >=282/300, oracle-cutoff complete trajectories >=0.90, and feasible normalized ranking regret <=0.03",
+    "STOP_MASK_VALUE_HYPOTHESIS": "fidelity-0.90 <=278/300 or either secondary gate fails",
+    "INCONCLUSIVE_NO_FRESH_ROLE": "fidelity-0.90 is 279-281/300 while both secondary gates pass",
+    "after_go": "freeze the exact head and evaluate once, without retraining, on the preregistered never-model-evaluated confirmation300 role"
+  },
+  "fresh_confirmation_preregistration": {
+    "may_run_only_after_development_go": true,
+    "manifest": "results/v2_rank_then_cut/v4_rank_confirm300_manifest.json",
+    "manifest_sha256": "3c8cb30a3f4085a8b1bcebb7f48b637749606495b7b174ddb7f4169a1e9a41eb",
+    "source_rank_oracle": "results/v2_rank_then_cut/v4_rank_confirm300_rank_oracle.jsonl",
+    "source_rank_oracle_sha256": "659150a0437bc5b61703f6165c126392d5f6e950a87fbe710cca88c51407c12b",
+    "selected_examples_sha256": "e6b4e5b69e6a1972e41b21f5ea4cab680a13ee71d9ca9b201f58c3b1d16de19c",
+    "examples": 300,
+    "model_evaluations_before_selection": 0,
+    "exact_dir": "results/v2_rank_then_cut/v4_candidates500_exact",
+    "exact_tree_sha256_current": "3e23564b103a0962f3bba3059542888bf2c699f4a937fef3211947fbccc966f9",
+    "role_disjointness": "train3163, consumed development300, and confirmation300 IDs verified pairwise disjoint",
+    "gate": "Bonferroni-corrected one-sided Clopper-Pearson lower bound >=0.90 at every anchor; oracle-cutoff active contracts >=0.97; complete trajectories >=0.90; normalized regret <=0.03",
+    "after_pass": "open cutoff and calibration work; do not claim an end-to-end calibrated compressor yet"
+  },
+  "output": "results/v2_rank_then_cut/v10_mask_value_probe_seed20260912",
+  "implementation_sha256": {
+    "src/data/build_v10_mask_value_supervision.py": "3e81d8a878f604122a65acce3bae7678ec94f1ff84eb71134d5e9c3a29aacc10",
+    "src/data/cache_v10_encoder_embeddings.py": "9317ea38ae0323002fe05cddf1979b7471736f253cfd6bc640dd83c0e29272f5",
+    "src/data/merge_v10_encoder_embeddings.py": "057421dd14ad6aa5580f378f0d7c21431be7c2f6e0610506207da918ea431cc2",
+    "src/model/mask_value_head.py": "bba097d562e0bfcf74df231a9c31d470b154850952e9425fccbfbe23f8a76c2f",
+    "src/search/predicted_mask_trajectory.py": "b3760f65af51443992c2b8441f36556a9d45adf14e9e1941fce5e581c93e927e",
+    "src/training/mask_value_data.py": "bdfc281c0d2d366527b778c0fb6098b3995a8bac201987877619cd63b1ed43ee",
+    "src/training/train_v10_mask_value_probe.py": "d844fb3a639559bdc675576f5442be4691991d10bc758f913f335535b095a94d",
+    "src/evaluation/mask_value_evaluation.py": "b97059813dd8cd3af0fc1ad40948140376b66340003bee40cd5247bc3c7f05a4",
+    "src/evaluation/evaluate_v10_mask_value.py": "c31600c2267b66c6468ffb29220ef570488f95ba263fe79577cd7d98d8cb82e6",
+    "src/evaluation/v10_mask_value_decision.py": "64f6796896d39f4a651bba887d130eb628c77ef573a1cc00d56656cdc5c889a2",
+    "src/evaluation/v10_fresh_confirmation_decision.py": "f7af02799edd039a9993afcce02e5edef9bb03c5783e7d44274ffd9df40b5022",
+    "src/evaluation/v10_pretraining_audit.py": "def7c208c66063aec45325495c4d1dae62bab462227f379191ae988250f4528a",
+    "src/evaluation/v4_relational_decision.py": "44c4bc5a9a16ce9ef73e3f23c5165298780a916709e0a9392dc335bad51debe2",
+    "scripts/64_launch_v10_mask_value_probe.sh": "17e1f21f30548fceb968fbab59609a797035e546f83a3c4676fc006596700712",
+    "tests/test_v10_mask_value_supervision.py": "0bd4f42b8606c73cd7d4e0db63e79205ede2ea59e380fe4094c97996777826ca",
+    "tests/test_mask_value_data.py": "6610e4d62993b8d17cff52c649b60247f6a4627358d39cd3256fe160a9010039",
+    "tests/test_mask_value_head.py": "42d6a02d15ee9c03eec71d7d60db6fca60aebd30f5ad5c49f44c52f51cf4579b",
+    "tests/test_predicted_mask_trajectory.py": "de70b5645c12e058a7822a1b9d7b8f9c060436e4086a190a81c612ca3c286c93",
+    "tests/test_mask_value_evaluation.py": "4973d16fdefeb171d83f394a6df684cdc56def460fea89f910a5ab2dd855cd62",
+    "tests/test_v10_mask_value_decision.py": "3f408192ee4fe94412736b8ea1395cace8b46c8eca078251d4118945e3ac973f",
+    "tests/test_v10_fresh_confirmation_decision.py": "7fed03984ff3db7f45da9f22f9a1377da91c0ca53e7686cab14bcac079049f78"
+  },
+  "preflight": {
+    "full_test_suite": "131/131 PASS with scripts/cuda_env.sh loaded",
+    "data_integrity": "PASS: pairwise-disjoint roles, exact inclusion probabilities, complete ordered development lattices, matching embedding-cache IDs, and exact files present",
+    "positive_control": "300/300 complete trajectories and 300/300 exact oracle-cost matches with fixed-five-level decoding",
+    "strict_gate_negative_controls": "PASS: incomplete/wrong population and null regret return INVALID_SUMMARY",
+    "gpu_memory_smoke": "PASS: real batch16, 1273 sampled states, finite loss/gradients, zero optimizer steps, peak allocated 883035648 bytes",
+    "optimizer_steps_before_launch": 0,
+    "frozen_artifact_sha256": {
+      "results/v2_rank_then_cut/v10_train3163_mask_value_manifest.json": "281236ec74b2208c333a558cf12258d2ee41e093c6013a82e8392b4bc20d99d6",
+      "results/v2_rank_then_cut/v10_development300_mask_value_full_manifest.json": "e72621f10f0d38543c99fb4382e533fe213f166de03745be0152529e55f89e43",
+      "results/v2_rank_then_cut/v10_train3163_v8_embeddings_manifest.json": "5bd083a4718283f3fe53f878c8efc6dbd1e9df6e9f9d9bd82b0c9f1789672346",
+      "results/v2_rank_then_cut/v10_development300_v8_embeddings_manifest.json": "9eae80ec51d356ef97298b1f6b9a7b5153c6e01abfbd9e0261bb0dc373566cc0",
+      "results/v2_rank_then_cut/v10_pretraining_audit.json": "6cc601fe633aae71617924a5f56f0c4d38df110ea82a4a288e2934c09236f98f",
+      "results/v2_rank_then_cut/v4_rank_confirm300_manifest.json": "3c8cb30a3f4085a8b1bcebb7f48b637749606495b7b174ddb7f4169a1e9a41eb",
+      "results/v2_rank_then_cut/v4_rank_confirm300_rank_oracle.jsonl": "659150a0437bc5b61703f6165c126392d5f6e950a87fbe710cca88c51407c12b"
+    }
+  }
+}

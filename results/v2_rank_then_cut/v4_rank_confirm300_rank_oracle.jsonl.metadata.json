@@ -1,0 +1,16 @@
+{
+  "exact_dir": "results/v2_rank_then_cut/v4_candidates500_exact",
+  "examples": "data/units/qampari_rank_v4_splits/rank_confirm300.jsonl",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "normalized_slack": 0.005,
+  "packet_dir": "data/packets_qampari_rank_v4_candidates500",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "rows": 300,
+  "stage": "v2_set_valued_near_optimal_rank_oracle",
+  "supervision": "identifiable partial-order pairs; ambiguous pairs ignored",
+  "timestamp_utc": "2026-09-16T01:21:30.596671+00:00"
+}

@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+root=results/v2_rank_then_cut/listwise_training
+complete=0
+running=0
+pending=0
+
+echo "V2.1 exact-listwise rank training ($(date '+%F %T %Z'))"
+for seed in 20260910 20260911 20260912; do
+  name="train2000_seed${seed}"
+  output="$root/$name"
+  log="$root/logs/$name.log"
+  if [[ -s "$output/training_metadata.json" ]]; then
+    value=$(.venv/bin/python -c \
+      'import json,sys; x=json.load(open(sys.argv[1])); print("best_epoch={} validation_listwise_nll={:.6f} elapsed={:.2f}h".format(x["best_epoch"], x["best_validation_loss"], x["elapsed_seconds"]/3600))' \
+      "$output/training_metadata.json")
+    echo "$name: COMPLETE $value"
+    complete=$((complete + 1))
+  elif pid=$(ps -ww -eo pid=,args= | grep '[s]rc.training.train_atomic_listwise_ranker' \
+      | grep -F -- "--output-dir $output" | awk 'NR==1 {print $1}'); [[ -n "$pid" ]]; then
+    epoch=$(tr '\r' '\n' < "$log" 2>/dev/null | grep '^{"epoch"' | tail -n 1 || true)
+    if [[ -n "$epoch" ]]; then
+      value=$(printf '%s' "$epoch" | .venv/bin/python -c \
+        'import json,sys; x=json.load(sys.stdin); print("epoch={}/5 validation_listwise_nll={:.6f}".format(x["epoch"], x["validation_example_mean_listwise_nll"]))')
+    else
+      value="initializing_or_epoch1"
+    fi
+    elapsed=$(ps -p "$pid" -o etime= | xargs)
+    echo "$name: RUNNING pid=$pid elapsed=$elapsed $value"
+    running=$((running + 1))
+  else
+    echo "$name: PENDING_OR_STOPPED"
+    pending=$((pending + 1))
+  fi
+done
+echo "summary: complete=$complete/3 running=$running pending_or_stopped=$pending"
+echo
+echo "Post-training validation evaluation"
+for seed in 20260910 20260911 20260912; do
+  summary="results/v2_rank_then_cut/listwise_evaluation/train2000_seed${seed}_summary.json"
+  if [[ -s "$summary" ]]; then
+    echo "seed${seed}: COMPLETE"
+  elif ps -ww -eo args | grep '[s]rc.evaluation.atomic_ranker_evaluation' \
+      | grep -F "listwise_evaluation/train2000_seed${seed}" >/dev/null; then
+    echo "seed${seed}: RUNNING"
+  else
+    echo "seed${seed}: WAITING_FOR_CHECKPOINT"
+  fi
+done
+if [[ -s results/v2_rank_then_cut/v2_1_listwise_decision.json ]]; then
+  decision=$(.venv/bin/python -c \
+    'import json; x=json.load(open("results/v2_rank_then_cut/v2_1_listwise_decision.json")); print(x["decision"])')
+  echo "decision: $decision"
+elif pid=$(pgrep -f '^bash scripts/35_wait_v2_1_then_evaluate[.]sh$' | head -n 1); [[ -n "$pid" ]]; then
+  echo "scheduler: RUNNING pid=$pid"
+else
+  echo "scheduler: NOT_RUNNING"
+fi
+echo
+echo "GPU index, used MiB, free MiB, utilization %, temperature C"
+nvidia-smi --query-gpu=index,memory.used,memory.free,utilization.gpu,temperature.gpu \
+  --format=csv,noheader,nounits
+echo "Physical GPU4 is excluded from this project by operator instruction."
+echo
+echo "Refresh with: watch -n 10 bash scripts/33_monitor_v2_1_listwise_training.sh"

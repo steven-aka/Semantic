@@ -1,0 +1,26 @@
+{
+  "batch_size": 1,
+  "best_epoch": 2,
+  "best_validation_loss": 0.6330933736151879,
+  "decoder": "exact maximum-weight total order by subset DP",
+  "elapsed_seconds": 7442.112588061951,
+  "epochs": 5,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "gradient_accumulation": 8,
+  "head_hidden_size": 256,
+  "learning_rate": 0.0001,
+  "max_length": 4096,
+  "objective": "example-mean softplus(worst negative stable-boundary antisymmetric edge logit)",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 20260911,
+  "stage": "v4_relational_precedence_ranking",
+  "timestamp_utc": "2026-09-16T03:29:17.379455+00:00",
+  "train_data": "results/v2_rank_then_cut/v3_train2000_boundary_oracle.jsonl",
+  "train_sha256": "fd0dbeae977bf51f660dbc013092bc899a1fd772fae7fb99c572fed54a21ce53",
+  "validation_data": "results/v2_rank_then_cut/v3_development300_boundary_oracle.jsonl",
+  "validation_sha256": "767b9db3ac5f8037ae2d871cfdc82b8958080d9093d984c9149075082648c25a"
+}

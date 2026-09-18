@@ -1,0 +1,18 @@
+{
+  "dominance_mass": "sum over active anchors of max(0, inclusion_fraction_winner - inclusion_fraction_loser)",
+  "examples": 300,
+  "examples_with_rate": 292,
+  "examples_with_safety": 266,
+  "git_commit": "unversioned",
+  "gpu_names": [],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "rate_edges": 7707,
+  "rate_weight": "within-example mean-normalized dominance_mass * loser packet token fraction",
+  "safety_edges": 5697,
+  "safety_weight": "within-example mean-normalized 1 + dominance_mass + rate_exposure",
+  "source_boundary_oracle": "results/v2_rank_then_cut/v3_development300_boundary_oracle.jsonl",
+  "source_boundary_oracle_sha256": "767b9db3ac5f8037ae2d871cfdc82b8958080d9093d984c9149075082648c25a",
+  "stage": "v5_tail_risk_cost_aware_supervision",
+  "timestamp_utc": "2026-09-16T04:00:49.972917+00:00"
+}

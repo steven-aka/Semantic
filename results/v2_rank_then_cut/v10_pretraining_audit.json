@@ -1,0 +1,104 @@
+{
+  "training_started": false,
+  "role": "consumed development and train only; ground-truth planner control, not learned-model evaluation",
+  "train_statistics": {
+    "examples_by_true_active_count": {
+      "4": 672,
+      "5": 2491
+    },
+    "fixed_anchor_positive_fraction_population": [
+      0.5222419596457082,
+      0.29966930253122037,
+      0.12331008066906418,
+      0.0071592713849589,
+      0.0005996612442696807
+    ],
+    "fixed_anchor_positive_fraction_sample": [
+      0.8007347237698496,
+      0.6015324463624087,
+      0.4023537935134837,
+      0.203234202060849,
+      0.02929838998633713
+    ],
+    "loss_terms_per_example_min": 200,
+    "loss_terms_per_example_max": 480
+  },
+  "development_statistics": {
+    "examples_by_true_active_count": {
+      "5": 234,
+      "4": 66
+    },
+    "fixed_anchor_positive_fraction_population": [
+      0.5262101236979166,
+      0.3027596028645833,
+      0.1252294921875,
+      0.0072420247395833335,
+      0.0005810546875
+    ],
+    "fixed_anchor_positive_fraction_sample": [
+      0.5262101236979166,
+      0.3027596028645833,
+      0.1252294921875,
+      0.0072420247395833335,
+      0.0005810546875
+    ],
+    "loss_terms_per_example_min": 20480,
+    "loss_terms_per_example_max": 20480
+  },
+  "counterexamples": {
+    "active_count_inference_leak": {
+      "predicted_attainment": [
+        0,
+        4,
+        5,
+        0
+      ],
+      "tokens": [
+        0,
+        1,
+        10,
+        11
+      ],
+      "true_attainment": [
+        0,
+        4,
+        0,
+        0
+      ],
+      "order_with_true_active_count_4": [
+        0,
+        1
+      ],
+      "order_with_fixed_count_5": [
+        1,
+        0
+      ],
+      "true_reached_with_oracle_count": 4,
+      "true_reached_with_fixed_count": 0
+    },
+    "gate_incomplete_282_of_400": {
+      "decision": "INVALID_SUMMARY",
+      "validation_errors": [
+        "summary is not complete",
+        "development gate requires exactly 300 examples",
+        "fidelity-0.90 gate requires exactly 300 examples"
+      ]
+    },
+    "gate_no_feasible_trajectory_regret_null": {
+      "decision": "INVALID_SUMMARY",
+      "validation_errors": [
+        "summary is not complete",
+        "development gate requires exactly 300 examples",
+        "fidelity-0.90 gate requires exactly 300 examples",
+        "feasible normalized regret is missing or non-finite"
+      ]
+    }
+  },
+  "ground_truth_value_positive_control": {
+    "examples": 300,
+    "all_anchor_successes": 300,
+    "exact_oracle_cost_matches": 300,
+    "decreasing_token_edges": 0,
+    "mismatches": []
+  }
+}

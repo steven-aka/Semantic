@@ -1,0 +1,34 @@
+{
+  "complete": true,
+  "config": "configs/v5a_tail_risk_cost_aware_ranking.json",
+  "config_sha256": "a428b18950ef45bc9f2b0d08c9aefdbbe68349ef2970721c8906a8117234ff1e",
+  "criterion": "minimum recorded best development tail-cost objective",
+  "fresh_confirmation_evaluations_before_selection": 0,
+  "runs": [
+    {
+      "best_validation_loss": 0.3161106169921499,
+      "checkpoint": "results/v2_rank_then_cut/v5a_tail_cost_training/train2000_seed20260910",
+      "label": "seed20260910",
+      "metadata_sha256": "27b1e33a0879aaa364baf11baecaf29f36fd8327c30f2891900a5e3dccff078b"
+    },
+    {
+      "best_validation_loss": 0.35378300670811197,
+      "checkpoint": "results/v2_rank_then_cut/v5a_tail_cost_training/train2000_seed20260911",
+      "label": "seed20260911",
+      "metadata_sha256": "c85b43c821d26f5e6029060f8b45e20385f91ca79c314731e8e88fbcecf80d1b"
+    },
+    {
+      "best_validation_loss": 0.3308809470372854,
+      "checkpoint": "results/v2_rank_then_cut/v5a_tail_cost_training/train2000_seed20260912",
+      "label": "seed20260912",
+      "metadata_sha256": "158eba70e1ed026e26718a9a8f472af8416dd764373b45b10d516c98e66264a5"
+    }
+  ],
+  "selected": {
+    "best_validation_loss": 0.3161106169921499,
+    "checkpoint": "results/v2_rank_then_cut/v5a_tail_cost_training/train2000_seed20260910",
+    "label": "seed20260910",
+    "metadata_sha256": "27b1e33a0879aaa364baf11baecaf29f36fd8327c30f2891900a5e3dccff078b"
+  },
+  "selection_role": "consumed development300 objective only"
+}

@@ -1,0 +1,21 @@
+{
+  "boundary_pairs": 5186,
+  "exact_dir": "results/v2_rank_then_cut/v4_candidates500_exact",
+  "examples": 300,
+  "examples_with_raw_local_direction_conflicts": 58,
+  "filtering": "retain only local critical-harmful directions identifiable across the complete near-optimal chain set",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "mean_boundary_pairs": 17.286666666666665,
+  "normalized_slack": 0.005,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "source_oracle": "results/v2_rank_then_cut/v4_rank_confirm300_rank_oracle.jsonl",
+  "source_oracle_sha256": "659150a0437bc5b61703f6165c126392d5f6e950a87fbe710cca88c51407c12b",
+  "stage": "v3_set_valued_stable_critical_boundary_oracle",
+  "supervised_examples": 260,
+  "timestamp_utc": "2026-09-16T01:23:37.362827+00:00",
+  "zero_boundary_examples": 40
+}

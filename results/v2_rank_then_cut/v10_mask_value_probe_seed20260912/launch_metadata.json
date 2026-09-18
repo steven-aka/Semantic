@@ -1,0 +1,6 @@
+{
+  "physical_gpu": 0,
+  "config": "configs/v10_mask_value_probe.json",
+  "config_sha256_at_launch": "3f417d101a315e264f2a0e7101d26c53217d759c342b836beef0127dbffeeca0",
+  "launched_at_utc": "2026-09-17T10:54:17.256313+00:00"
+}

@@ -1,0 +1,115 @@
+{
+  "backbone_and_lora_frozen": true,
+  "base_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "base_checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "batch_size": 8,
+  "complete_sequential_head_trainable": true,
+  "decoder_comparison": "diagnostic beam widths 1 and 8; not formal model selection",
+  "elapsed_seconds": 1305.0381089239381,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "learning_rate": 0.0002,
+  "locked_roles_used": false,
+  "optimizer_steps": 250,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "seed": 20260912,
+  "stage": "v9a_frozen_backbone_exact_cost_probe",
+  "summaries": {
+    "beam1": {
+      "complete": true,
+      "decoder": "history-aware sequential policy beam width 1",
+      "examples": 300,
+      "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.03527584213158431,
+      "oracle_cutoff_active_contract_success_fraction": 0.9741980474198048,
+      "oracle_cutoff_all_active_contracts_success_fraction": 0.9,
+      "oracle_cutoff_feasible_trajectory_examples": 270,
+      "per_level": {
+        "0.6": {
+          "contract_success_fraction": 0.9966666666666667,
+          "contract_successes": 299,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.04061833391028601
+        },
+        "0.7": {
+          "contract_success_fraction": 0.9933333333333333,
+          "contract_successes": 298,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.04040355315509884
+        },
+        "0.8": {
+          "contract_success_fraction": 0.99,
+          "contract_successes": 297,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.052649978938598324
+        },
+        "0.9": {
+          "contract_success_fraction": 0.9133333333333333,
+          "contract_successes": 274,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.05334196407349497
+        },
+        "0.95": {
+          "contract_success_fraction": 0.9786324786324786,
+          "contract_successes": 229,
+          "examples": 234,
+          "mean_rate_regret_normalized_successful": 0.006875808840865547
+        }
+      },
+      "validation_action_loss": 0.5445841942962847,
+      "validation_progress_loss": 0.0838120092490786,
+      "validation_set_action_accuracy": 0.7737458881578947
+    },
+    "beam8": {
+      "complete": true,
+      "decoder": "history-aware sequential policy beam width 8",
+      "examples": 300,
+      "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.033596565669333237,
+      "oracle_cutoff_active_contract_success_fraction": 0.9741980474198048,
+      "oracle_cutoff_all_active_contracts_success_fraction": 0.9,
+      "oracle_cutoff_feasible_trajectory_examples": 270,
+      "per_level": {
+        "0.6": {
+          "contract_success_fraction": 0.9966666666666667,
+          "contract_successes": 299,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.04053501628438075
+        },
+        "0.7": {
+          "contract_success_fraction": 0.9933333333333333,
+          "contract_successes": 298,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.039060444377978815
+        },
+        "0.8": {
+          "contract_success_fraction": 0.99,
+          "contract_successes": 297,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.04866191153230259
+        },
+        "0.9": {
+          "contract_success_fraction": 0.9133333333333333,
+          "contract_successes": 274,
+          "examples": 300,
+          "mean_rate_regret_normalized_successful": 0.05283596888686213
+        },
+        "0.95": {
+          "contract_success_fraction": 0.9786324786324786,
+          "contract_successes": 229,
+          "examples": 234,
+          "mean_rate_regret_normalized_successful": 0.006875808840865547
+        }
+      },
+      "validation_action_loss": 0.5445841942962847,
+      "validation_progress_loss": 0.0838120092490786,
+      "validation_set_action_accuracy": 0.7737458881578947
+    }
+  },
+  "timestamp_utc": "2026-09-17T03:37:08.227981+00:00",
+  "train_data": "results/v2_rank_then_cut/v9_probe_train3163_cost_supervision.jsonl",
+  "train_sha256": "b2b9f2a011df3eb6690f0c7e2bb17e11c147d00b5c50fc6a8f9e9778c82a05b0",
+  "validation_data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "validation_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196"
+}

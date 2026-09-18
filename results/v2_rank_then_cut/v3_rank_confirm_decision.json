@@ -1,0 +1,55 @@
+{
+  "checkpoint_metadata": "results/v2_rank_then_cut/v3_boundary_training/train2000_seed20260911/training_metadata.json",
+  "checkpoint_metadata_sha256": "572ca894bf6d7bb91402bc4f726089fc39fc022891d4b419b7c26df2dcc7ec53",
+  "checks": {
+    "active_contract_success": true,
+    "all_active_trajectory_success": false,
+    "all_per_anchor_risk_bounds": false,
+    "normalized_ranking_regret": true
+  },
+  "complete": true,
+  "config": "configs/v3_critical_boundary_ranking.json",
+  "config_sha256": "2828df23db28771b2c6c97abefbc75da547b0944becf6852253d04dbba12e829",
+  "decision": "STOP_V3_RANKING",
+  "per_anchor_risk": {
+    "0.6": {
+      "bonferroni_clopper_pearson_lower": 0.9783093190178288,
+      "examples": 210,
+      "passed": true,
+      "required_successes": 199,
+      "successes": 210
+    },
+    "0.7": {
+      "bonferroni_clopper_pearson_lower": 0.9688098353961702,
+      "examples": 210,
+      "passed": true,
+      "required_successes": 199,
+      "successes": 209
+    },
+    "0.8": {
+      "bonferroni_clopper_pearson_lower": 0.960577326377502,
+      "examples": 210,
+      "passed": true,
+      "required_successes": 199,
+      "successes": 208
+    },
+    "0.9": {
+      "bonferroni_clopper_pearson_lower": 0.8880914826859587,
+      "examples": 210,
+      "passed": false,
+      "required_successes": 199,
+      "successes": 197
+    },
+    "0.95": {
+      "bonferroni_clopper_pearson_lower": 0.861855343809089,
+      "examples": 169,
+      "passed": false,
+      "required_successes": 162,
+      "successes": 156
+    }
+  },
+  "scientific_gate_passed": false,
+  "status": "one_shot_fresh_rank_confirm_before_cutoff",
+  "summary": "results/v2_rank_then_cut/v3_rank_confirm_evaluation/summary.json",
+  "summary_sha256": "95f829406020c88de7a4dc091adc7a6bc77f398b31ad7a8e18a2c9b046f2a344"
+}
