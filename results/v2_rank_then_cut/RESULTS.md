@@ -1007,3 +1007,37 @@ only 9/19 prune events have residual help in the correct direction, while
 The result instead requires returning to viability calibration and explicitly
 auditing terminal selection. Development, hop two, continuous cost prediction,
 learned cutoff, and fresh confirmation remain closed.
+
+## V17-D0 canonical harness and two-bottleneck audit
+
+V17-D0 freezes the cached-bfloat16-embedding/float32-head replay as the causal
+V17 harness. Its residual-off 0.90 baseline is 279/300; the historical online
+bfloat16 V8 result of 280/300 remains a deployment reference and is not used
+for repair/break attribution. Beam width, candidate enumeration, cumulative
+normalized-log-probability scoring, lexicographic tie-breaking, and terminal
+top-1 selection are recorded in a regression-tested manifest.
+
+The ten wrong-direction first-prune events do not support immediate critical
+pairwise training. Nine have strict 0.90 target separation between the viable
+action and boundary competitor, but the learned 0.90 logit favors the viable
+action in only four events. Three of those four become wrong after multi-anchor
+aggregation. Five events have no training-state structural analogue for at
+least one side of the comparison, and five have zero raw residual at the
+critical step because the frozen predicted-progress deployment mask suppresses
+all relevant anchor contributions. Neither exact internal query state appears
+in train2863, as required by the role split.
+
+The terminal audit confirms that a standalone terminal reranker has a ceiling
+of only 2/21 current failures. Those two standard-beam failures naturally retain
+two and four viable terminal candidates respectively. The other 19 failures
+contain no viable candidate in the standard terminal beam and therefore require
+a survival repair before any terminal reranker can help. Terminal candidate
+records use first-attainment depth/tokens and cumulative trajectory cost rather
+than the uninformative full-mask terminal state.
+
+The D0 decision is to design a critical calibration/coverage correction first.
+Critical pairwise training is not yet authorized because the dominant evidence
+is wrong per-level prediction, missing structural coverage, and progress-mask
+suppression. A standalone terminal reranker is also not authorized from only
+two directly repairable examples. Development, hop two, continuous cost
+prediction, learned cutoff, and fresh confirmation remain closed.

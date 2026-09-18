@@ -1,0 +1,9 @@
+{
+  "protocol": "v17d0_canonical_harness_and_two_bottleneck_audit",
+  "status": "COMPLETE_GO_CRITICAL_CALIBRATION_DESIGN_STOP_PAIRWISE_AND_TERMINAL_TRAINING",
+  "date": "2026-09-18 Asia/Shanghai",
+  "canonical_causal_baseline": "same-harness residual-off 279/300",
+  "historical_deployed_reference": "online-bfloat16 V8 280/300; reference only",
+  "audits": ["10 wrong-direction first-prune events", "all standard-beam terminal candidates"],
+  "sealed": ["development", "hop2", "continuous token cost", "learned cutoff", "fresh confirmation", "all training"]
+}

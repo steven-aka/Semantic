@@ -1,0 +1,33 @@
+{
+  "critical_pairwise_authorized": false,
+  "decision": "GO_V17D1_CRITICAL_CALIBRATION_PROTOCOL_DESIGN",
+  "evidence": {
+    "at_least_one_side_structurally_uncovered": 5,
+    "both_sides_have_equivalent_training_structure": 5,
+    "critical_raw_residual_zero": 5,
+    "natural_viable_terminal_failures": 2,
+    "primary_correct_but_multi_anchor_aggregation_wrong": 3,
+    "primary_logit_correct": 4,
+    "primary_logit_wrong": 6,
+    "standard_terminal_failures": 21,
+    "strict_primary_label_separation": 9,
+    "survival_repair_required_before_terminal_rerank": 19,
+    "wrong_direction_events": 10
+  },
+  "interpretation": "Wrong-direction events are primarily a per-level calibration, structural coverage, and predicted-progress masking problem. Pairwise margin training would act downstream of unresolved target and mask errors.",
+  "next_required_work": [
+    "audit frozen progress false-resolved decisions at the five zero-residual events",
+    "construct critical boundary calibration set without using internal examples for training",
+    "separate multi-anchor aggregation conflicts from per-level logit errors",
+    "reassess representation separability against a depth/anchor-matched reference distribution"
+  ],
+  "sealed": {
+    "continuous_token_cost": true,
+    "development": true,
+    "fresh_confirmation": true,
+    "hop2": true,
+    "learned_cutoff": true
+  },
+  "standalone_terminal_reranker_authorized": false,
+  "training_authorized": false
+}

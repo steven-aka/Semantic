@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "checkpoint_head_sha256": "0e3d5022868a619e246fd759de82d3891dcf552922dc8ffd8434dfe38814ddb5",
+    "data_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "embeddings_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+    "viability_head_sha256": "82788e84b930b31feb8d01ee7921cbe88b2a15c677c8c7de482dbbfd80dacf88"
+  },
+  "canonical_harness": {
+    "beam_width": 8,
+    "candidate_order": "packet index ascending before score/history deterministic sort",
+    "causal_baseline_primary_090": "residual-off 279/300",
+    "embedding_dtype": "torch.bfloat16",
+    "embedding_mode": "frozen cached V8 packets/questions",
+    "head_dtype": "torch.float32",
+    "historical_deployed_reference": "online-bfloat16 V8 280/300; not causal repair/break baseline",
+    "terminal_selection": "highest cumulative search score",
+    "tie_breaking": "descending cumulative normalized log probability, then lexicographic history"
+  },
+  "complete": true,
+  "sealed": {
+    "development": true,
+    "fresh_confirmation": true,
+    "hop2": true,
+    "learned_cutoff": true,
+    "training": true
+  },
+  "terminal": {
+    "failures_requiring_survival_repair_before_reranking": 19,
+    "failures_with_naturally_surviving_viable_terminal": 2,
+    "standalone_terminal_reranker_ceiling_on_current_failures": 2,
+    "standard_beam_primary_failures": 21
+  },
+  "wrong_direction": {
+    "both_states_seen_exact": 0,
+    "events": 10,
+    "exact_primary_label_separation": 9,
+    "mean_feature_cosine_similarity": 0.8264202356338501,
+    "median_feature_l2": 49.533796310424805,
+    "primary_logit_correct_but_aggregate_wrong": 3,
+    "primary_logit_favors_viable": 4
+  }
+}

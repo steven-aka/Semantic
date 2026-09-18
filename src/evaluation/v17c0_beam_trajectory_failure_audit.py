@@ -43,7 +43,7 @@ def replay(
             if row[3]: selected[i,list(row[3])]=True
         ps=packets[None].expand(count,-1,-1); qs=question[None].expand(count,-1); indices=torch.arange(count,device=packets.device); fs=fractions[None].expand(count,-1)
         features,progress=model.action_features(ps,qs,states,selected,indices,fs); base_logits=model.action_head(features).squeeze(-1).masked_fill(selected,-torch.inf)
-        active=model.deployment_active_target_mask(progress,torch.full((count,),len(dp.levels),device=packets.device)); _,raw_residual=model.viability_head(features,active)
+        active=model.deployment_active_target_mask(progress,torch.full((count,),len(dp.levels),device=packets.device)); viability_logits,raw_residual=model.viability_head(features,active)
         combined_logits=base_logits+raw_residual if residual_enabled else base_logits
         base_logp=torch.log_softmax(base_logits.float(),dim=-1).cpu(); combined_logp=torch.log_softmax(combined_logits.float(),dim=-1).cpu()
         next_states=model.history_gru(ps.reshape(-1,model.model_dim),states[:,None,:].expand(-1,12,-1).reshape(-1,model.model_dim)).reshape(count,12,model.model_dim)
@@ -53,7 +53,7 @@ def replay(
                 if selected[i,packet]: continue
                 next_mask=mask|(1<<packet); next_reached=max(reached,dp.attained[next_mask]); bp=float(base_logp[i,packet]); cp=float(combined_logp[i,packet])
                 viable=dp.value(next_mask,next_reached).reached_levels>=primary+1
-                expanded.append({"total":total+cp,"base":base+bp,"residual_effect":effect+(cp-bp),"history":history+(packet,),"state":next_states[i,packet],"mask":next_mask,"reached":next_reached,"viable":viable,"parent_history":history,"action":packet,"base_increment":bp,"raw_residual_logit":float(raw_residual[i,packet]),"combined_increment":cp,"normalized_residual_increment":cp-bp})
+                expanded.append({"total":total+cp,"base":base+bp,"residual_effect":effect+(cp-bp),"history":history+(packet,),"state":next_states[i,packet],"mask":next_mask,"reached":next_reached,"viable":viable,"parent_history":history,"action":packet,"base_increment":bp,"raw_residual_logit":float(raw_residual[i,packet]),"combined_increment":cp,"normalized_residual_increment":cp-bp,"per_level_viability_logits":[float(v) for v in viability_logits[i,packet]],"active_target_mask":[bool(v) for v in active[i,packet]],"action_feature":features[i,packet].detach()})
         expanded.sort(key=lambda row:(-row["total"],row["history"])); cutoff=expanded[min(beam_width,len(expanded))-1]; viable_expanded=[row for row in expanded if row["viable"]]; best_viable=max(viable_expanded,key=lambda row:(row["total"],tuple(-x for x in row["history"])),default=None)
         kept=expanded[:beam_width]; forced=False
         if oracle_keep_one and best_viable is not None and not any(row["viable"] for row in kept):
@@ -61,17 +61,18 @@ def replay(
         viable_before=sum(row["viable"] for row in expanded); viable_after=sum(row["viable"] for row in kept)
         event=None
         if best_viable is not None:
-            event={"base_margin":best_viable["base"]-cutoff["base"],"residual_margin":best_viable["residual_effect"]-cutoff["residual_effect"],"total_margin":best_viable["total"]-cutoff["total"],"minimum_rescue_margin":max(0.0,cutoff["total"]-best_viable["total"]+1e-9),"best_viable_history":list(best_viable["history"]),"boundary_history":list(cutoff["history"]),"residual_direction":"positive" if best_viable["residual_effect"]-cutoff["residual_effect"]>0 else "nonpositive"}
+            vf=best_viable["action_feature"]; cf=cutoff["action_feature"]
+            event={"base_margin":best_viable["base"]-cutoff["base"],"residual_margin":best_viable["residual_effect"]-cutoff["residual_effect"],"total_margin":best_viable["total"]-cutoff["total"],"minimum_rescue_margin":max(0.0,cutoff["total"]-best_viable["total"]+1e-9),"best_viable_history":list(best_viable["history"]),"boundary_history":list(cutoff["history"]),"residual_direction":"positive" if best_viable["residual_effect"]-cutoff["residual_effect"]>0 else "nonpositive","viable_parent_history":list(best_viable["parent_history"]),"viable_action":best_viable["action"],"boundary_parent_history":list(cutoff["parent_history"]),"boundary_action":cutoff["action"],"viable_per_level_logits":best_viable["per_level_viability_logits"],"boundary_per_level_logits":cutoff["per_level_viability_logits"],"viable_active_target_mask":best_viable["active_target_mask"],"boundary_active_target_mask":cutoff["active_target_mask"],"viable_raw_residual_logit":best_viable["raw_residual_logit"],"boundary_raw_residual_logit":cutoff["raw_residual_logit"],"viable_normalized_residual_increment":best_viable["normalized_residual_increment"],"boundary_normalized_residual_increment":cutoff["normalized_residual_increment"],"feature_cosine_similarity":float(torch.nn.functional.cosine_similarity(vf[None],cf[None])) ,"feature_l2":float(torch.linalg.vector_norm(vf-cf))}
         if first_prune is None and viable_before and not viable_after:
             first_prune={"step":depth,"viable_count_before":viable_before,"viable_count_after":viable_after,**(event or {})}
         row={"step":depth,"beam_cutoff_total":cutoff["total"],"viable_count_before":viable_before,"viable_count_after":viable_after,"forced_keep":forced,"best_viable_margin":event,"beam":[{"history":list(x["history"]),"total":x["total"],"base":x["base"],"residual_effect":x["residual_effect"],"viable":x["viable"],"rank":j+1} for j,x in enumerate(kept)]}
-        if full_trace: row["expanded"]=[{k:(list(v) if isinstance(v,tuple) else v) for k,v in x.items() if k!="state"} for x in expanded]
+        if full_trace: row["expanded"]=[{k:(list(v) if isinstance(v,tuple) else v) for k,v in x.items() if k not in ("state","action_feature")} for x in expanded]
         trace.append(row); beams=[(x["total"],x["base"],x["residual_effect"],x["history"],x["state"],x["mask"],x["reached"]) for x in kept]
     terminal=[]
     for row in beams:
         viable=dp.value(row[5],row[6]).reached_levels>=primary+1
-        terminal.append({"history":list(row[3]),"score":row[0],"viable":viable})
-    return {"decoded_order":list(beams[0][3]),"top1_success":terminal[0]["viable"],"any_terminal_viable":any(x["viable"] for x in terminal),"oracle_terminal_select_success":any(x["viable"] for x in terminal),"first_irreversible_prune":first_prune,"trace":trace}
+        terminal.append({"history":list(row[3]),"total_search_score":row[0],"base_cumulative_score":row[1],"cumulative_residual_effect":row[2],"viable":viable})
+    return {"decoded_order":list(beams[0][3]),"top1_success":terminal[0]["viable"],"any_terminal_viable":any(x["viable"] for x in terminal),"oracle_terminal_select_success":any(x["viable"] for x in terminal),"terminal":terminal,"first_irreversible_prune":first_prune,"trace":trace}
 
 
 def main() -> None:
