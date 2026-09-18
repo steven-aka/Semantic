@@ -187,6 +187,23 @@ class SequentialPacketPolicy(nn.Module):
         example_indices: torch.Tensor,
         packet_token_fractions: torch.Tensor,
     ) -> tuple[torch.Tensor, torch.Tensor]:
+        features, progress_logits = self.action_features(
+            packets, question, history_state, selected_mask, example_indices, packet_token_fractions
+        )
+        logits = self.action_head(features).squeeze(-1)
+        logits = logits.masked_fill(selected_mask, torch.finfo(logits.dtype).min)
+        return logits, progress_logits
+
+    def action_features(
+        self,
+        packets: torch.Tensor,
+        question: torch.Tensor,
+        history_state: torch.Tensor,
+        selected_mask: torch.Tensor,
+        example_indices: torch.Tensor,
+        packet_token_fractions: torch.Tensor,
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        """Expose the frozen V8 state-action representation for residual heads."""
         candidates = packets[example_indices]
         query = question[example_indices]
         selected_float = selected_mask.to(candidates.dtype)
@@ -221,9 +238,7 @@ class SequentialPacketPolicy(nn.Module):
             ),
             dim=-1,
         )
-        logits = self.action_head(features).squeeze(-1)
-        logits = logits.masked_fill(selected_mask, torch.finfo(logits.dtype).min)
-        return logits, progress_logits
+        return features, progress_logits
 
     def forward_states(
         self,

@@ -1,0 +1,150 @@
+{
+  "artifact_audit": {
+    "artifact": "results/v2_rank_then_cut/v17b0_multi_anchor_viability_protocol/train2863_deployed_hop1_viability_states.jsonl.gz",
+    "artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+    "canonical_states": 47318,
+    "complete": true,
+    "contract_examples": {
+      "five_anchor": 2248,
+      "four_anchor": 615
+    },
+    "dedup_key": [
+      "example_id",
+      "ordered_history"
+    ],
+    "examples": 2863,
+    "four_anchor_095": "undefined_and_masked",
+    "inputs": {
+      "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+      "rollouts": "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl",
+      "rollouts_sha256": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e",
+      "train_data": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+      "train_data_sha256": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669"
+    },
+    "locked_roles_used": false,
+    "state_row_schema": "actions nested within each state; no action-row expansion",
+    "states_by_provenance": {
+      "deployed": 6200,
+      "one_hop": 41118
+    },
+    "target_semantics": {
+      "active": "exact future reachability after action",
+      "resolved": "anchor already attained; excluded from main loss",
+      "undefined": "anchor absent from attainable_levels; never a negative"
+    }
+  },
+  "complete": true,
+  "corrected_v16c1_internal_baseline": {
+    "complete": true,
+    "complete_trajectory_successes": 279,
+    "data": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl",
+    "data_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "examples": 300,
+    "label": "v16c1_internal_corrected_attainable_levels",
+    "locked_roles_used": false,
+    "mean_complete_regret": 0.02749218318915873,
+    "orders": "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/internal_validation_fid_details.jsonl.gz",
+    "orders_sha256": "81f2d89c2c1eeae26850f22031c89121bf1868b4500fb7ed13d62a5fb16adb4d",
+    "per_level": {
+      "0.6": {
+        "examples": 300,
+        "successes": 298
+      },
+      "0.7": {
+        "examples": 300,
+        "successes": 296
+      },
+      "0.8": {
+        "examples": 300,
+        "successes": 295
+      },
+      "0.9": {
+        "examples": 300,
+        "successes": 284
+      },
+      "0.95": {
+        "examples": 243,
+        "successes": 238
+      }
+    },
+    "semantics": "attainable_levels; absent anchors undefined, never negative"
+  },
+  "decision": "READY_FOR_V17B1_SINGLE_FORMAL_RUN",
+  "engineering_smoke": {
+    "active_anchor_output_gradient_l1_at_step0": [
+      0.11041244119405746,
+      0.08785096555948257,
+      0.13590918481349945,
+      0.09654501080513,
+      0.12608255445957184
+    ],
+    "all_active_anchors_receive_gradient": true,
+    "artifact": "results/v2_rank_then_cut/v17b0_multi_anchor_viability_protocol/train2863_deployed_hop1_viability_states.jsonl.gz",
+    "artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+    "complete": true,
+    "development_used": false,
+    "engineering_only": true,
+    "fresh_zero_residual_max_abs": 0.0,
+    "loss_decreased": true,
+    "loss_final": 0.034546852111816406,
+    "loss_initial": 0.7779582142829895,
+    "sampler_batch_layer_counts": {
+      "deployed": 16,
+      "one_hop": 16
+    },
+    "set_valued_loss_finite": true,
+    "zero_residual_preserves_v8": true
+  },
+  "formal_training_started": false,
+  "hard_assertions": {
+    "combined_affected_examples": 672,
+    "deployed_feasibility_critical_states": 6200,
+    "deployed_primary_090_critical_states": 1834,
+    "development_feasibility_signature_coverage_through_hop1": "147/151",
+    "internal_feasibility_signature_coverage_through_hop1": "129/129",
+    "internal_four_anchor_examples": 57,
+    "one_hop_feasibility_critical_states": 41118,
+    "one_hop_primary_090_critical_states": 12253,
+    "train_four_anchor_examples": 615
+  },
+  "restrictions": {
+    "continuous_cost_regression": false,
+    "development_used_for_b0": false,
+    "fresh_confirmation": false,
+    "hop2": false,
+    "learned_cutoff": false,
+    "locked_roles_used": false
+  },
+  "v8_to_v16c1_anchor_changes": {
+    "0.6": {
+      "breaks": 0,
+      "examples": 300,
+      "net": 2,
+      "repairs": 2
+    },
+    "0.7": {
+      "breaks": 0,
+      "examples": 300,
+      "net": 1,
+      "repairs": 1
+    },
+    "0.8": {
+      "breaks": 0,
+      "examples": 300,
+      "net": 1,
+      "repairs": 1
+    },
+    "0.9": {
+      "breaks": 1,
+      "examples": 300,
+      "net": 4,
+      "repairs": 5
+    },
+    "0.95": {
+      "breaks": 0,
+      "examples": 243,
+      "net": 0,
+      "repairs": 0
+    }
+  }
+}

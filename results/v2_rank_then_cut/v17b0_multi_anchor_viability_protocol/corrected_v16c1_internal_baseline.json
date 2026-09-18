@@ -1,0 +1,35 @@
+{
+  "complete": true,
+  "complete_trajectory_successes": 279,
+  "data": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl",
+  "data_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+  "examples": 300,
+  "label": "v16c1_internal_corrected_attainable_levels",
+  "locked_roles_used": false,
+  "mean_complete_regret": 0.02749218318915873,
+  "orders": "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/internal_validation_fid_details.jsonl.gz",
+  "orders_sha256": "81f2d89c2c1eeae26850f22031c89121bf1868b4500fb7ed13d62a5fb16adb4d",
+  "per_level": {
+    "0.6": {
+      "examples": 300,
+      "successes": 298
+    },
+    "0.7": {
+      "examples": 300,
+      "successes": 296
+    },
+    "0.8": {
+      "examples": 300,
+      "successes": 295
+    },
+    "0.9": {
+      "examples": 300,
+      "successes": 284
+    },
+    "0.95": {
+      "examples": 243,
+      "successes": 238
+    }
+  },
+  "semantics": "attainable_levels; absent anchors undefined, never negative"
+}

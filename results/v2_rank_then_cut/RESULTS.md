@@ -914,3 +914,35 @@ It must use `attainable_levels`, keep the V8 backbone and LoRA frozen, use one
 fixed endpoint, and gate only on the fixed internal role. Hop-two expansion
 is not selected from the consumed-development result, continuous future-token
 cost prediction remains closed, and fresh confirmation is unopened.
+
+## V17-B0 frozen multi-anchor viability protocol
+
+V17-B0 converts the V17-A mechanism result into an audited training contract
+without running the formal V17-B1 optimization. The canonical train artifact
+contains one row per `(example_id, ordered_history)`, with legal actions nested
+inside the row. It reproduces exactly 6,200 deployed and 41,118 one-hop
+feasibility-critical states. The train role contains 2,248 five-anchor and 615
+four-anchor examples; every 0.95 entry for the four-anchor group is undefined
+and masked. Anchors already reached by the state are also masked from the main
+future-viability loss rather than becoming trivial positive targets.
+
+The frozen model change is a five-anchor action-viability head over V8's
+state-action features and a zero-initialized residual scale. The V8 backbone,
+LoRA, and sequential policy head remain frozen. The primary target is exact
+per-anchor future reachability, macro-averaged across active anchors; the
+auxiliary target marginalizes the complete lexicographic exact-DP optimal
+action set. Sampling is query-balanced with an exact 50/50 split between
+deployed and one-hop states. Hop two, continuous cost regression, learned
+cutoff, selector expansion, and fresh confirmation remain disabled.
+
+The engineering-only smoke test used no development examples. Its loss fell
+from 0.77796 to 0.03455, every active anchor output received a nonzero gradient,
+the set-valued loss stayed finite, and the zero residual reproduced the V8
+score exactly. The corrected attainable-level recomputation of V16-C1 internal
+results is 284/300 at 0.90, 279/300 complete trajectories, and mean complete
+regret 0.02749. Relative to corrected V8 it has five 0.90 repairs and one
+break; lower anchors have no breaks.
+
+The B0 decision is `READY_FOR_V17B1_SINGLE_FORMAL_RUN`. This authorizes one
+fixed-endpoint train2863 run followed by the preregistered internal opening
+gate. It does not authorize development-driven tuning or confirmation access.

@@ -1,0 +1,25 @@
+{
+  "active_anchor_output_gradient_l1_at_step0": [
+    0.11041244119405746,
+    0.08785096555948257,
+    0.13590918481349945,
+    0.09654501080513,
+    0.12608255445957184
+  ],
+  "all_active_anchors_receive_gradient": true,
+  "artifact": "results/v2_rank_then_cut/v17b0_multi_anchor_viability_protocol/train2863_deployed_hop1_viability_states.jsonl.gz",
+  "artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+  "complete": true,
+  "development_used": false,
+  "engineering_only": true,
+  "fresh_zero_residual_max_abs": 0.0,
+  "loss_decreased": true,
+  "loss_final": 0.034546852111816406,
+  "loss_initial": 0.7779582142829895,
+  "sampler_batch_layer_counts": {
+    "deployed": 16,
+    "one_hop": 16
+  },
+  "set_valued_loss_finite": true,
+  "zero_residual_preserves_v8": true
+}

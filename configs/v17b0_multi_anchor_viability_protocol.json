@@ -1,0 +1,51 @@
+{
+  "protocol": "v17b0_multi_anchor_viability_protocol",
+  "status": "FROZEN_AUDITED_READY_FOR_V17B1_SINGLE_FORMAL_RUN",
+  "date": "2026-09-18 Asia/Shanghai",
+  "data_manifest": {
+    "training_role": "train2863 only",
+    "states": ["deployed decision-critical", "one-hop decision-critical"],
+    "dedup_key": ["example_id", "ordered_history"],
+    "dedup_precedence": "deployed",
+    "internal_validation": "opening gate only",
+    "consumed_development": "single final development gate only",
+    "confirmation": "closed"
+  },
+  "target_schema": {
+    "grid": [0.60, 0.70, 0.80, 0.90, 0.95],
+    "contract_source": "attainable_levels",
+    "undefined": "level absent from attainable_levels; masked and never negative",
+    "resolved": "level already attained by the history; masked from main viability loss",
+    "active": "label one iff the action leaves a legal add-only continuation that reaches the level"
+  },
+  "supervision": {
+    "primary": "macro-averaged per-active-anchor future viability plus beam8 survival",
+    "auxiliary": "set-valued lexicographic exact-DP action loss",
+    "exact_dp_set_loss": "-log sum_{a in A*} p(a|s)"
+  },
+  "sampling": {
+    "batch_split": {"deployed": 0.5, "one_hop": 0.5},
+    "outer_unit": "query-balanced",
+    "recorded_strata": ["anchor", "depth", "viability_pattern", "critical_levels"],
+    "frozen_before_development": true
+  },
+  "model": {
+    "initialization": "V8 step250",
+    "frozen": ["backbone", "existing LoRA", "V8 sequential policy head"],
+    "trainable": ["per-action five-anchor viability head", "zero-initialized residual scale"],
+    "deployment_score": "score_v8 + residual_scale * masked_mean(viability_logits_over_active_targets)",
+    "deployment_active_mask": "known attainable-level count AND frozen V8 progress sigmoid < 0.5; threshold fixed at 0.5",
+    "decoder": "add-only cumulative-log-probability beam8"
+  },
+  "explicitly_off": ["hop2", "continuous future-token-cost regression", "learned cutoff", "fresh confirmation", "selector/top-K expansion", "checkpoint selection on development"],
+  "engineering_smoke": ["finite decreasing loss", "nonzero gradient for every active anchor", "finite set-valued loss", "zero residual preserves V8 scores"],
+  "internal_opening_gate": {
+    "baseline": "corrected V8 internal: 0.90=280/300, complete=275/300, mean complete regret=0.0250974",
+    "requirements": ["0.90 successes >= 283", "0.90 repairs-minus-breaks >= 3", "0.90 breaks <= 1", "each other active anchor and complete regress by at most 1", "mean complete regret <= 0.03"]
+  },
+  "consumed_development_end_to_end_gate": {
+    "requirements": ["0.60 >= 298/300", "0.70 >= 298/300", "0.80 >= 295/300", "0.90 >= 282/300", "0.95 >= 230/234", "complete trajectory >= 273/300", "mean complete regret <= 0.03"],
+    "if_pass": "GO_FRESH_CONFIRM",
+    "if_fail": "STOP_V17B1"
+  }
+}

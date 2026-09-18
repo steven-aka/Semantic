@@ -1,0 +1,34 @@
+{
+  "artifact": "results/v2_rank_then_cut/v17b0_multi_anchor_viability_protocol/train2863_deployed_hop1_viability_states.jsonl.gz",
+  "artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+  "canonical_states": 47318,
+  "complete": true,
+  "contract_examples": {
+    "five_anchor": 2248,
+    "four_anchor": 615
+  },
+  "dedup_key": [
+    "example_id",
+    "ordered_history"
+  ],
+  "examples": 2863,
+  "four_anchor_095": "undefined_and_masked",
+  "inputs": {
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "rollouts": "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl",
+    "rollouts_sha256": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e",
+    "train_data": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+    "train_data_sha256": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669"
+  },
+  "locked_roles_used": false,
+  "state_row_schema": "actions nested within each state; no action-row expansion",
+  "states_by_provenance": {
+    "deployed": 6200,
+    "one_hop": 41118
+  },
+  "target_semantics": {
+    "active": "exact future reachability after action",
+    "resolved": "anchor already attained; excluded from main loss",
+    "undefined": "anchor absent from attainable_levels; never a negative"
+  }
+}
