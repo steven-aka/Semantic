@@ -1,0 +1,94 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/internal_validation300_details.jsonl": "7e47402019264f27504d7c1ca797ad8a04cd4703ac776d840b6ccf632a4653d4",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/internal_validation300_details.jsonl.gz": "4e6760a971ac261253d38d4a237b59521d34ef1b1bccae960c6fc1d79c458e75",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/internal_validation300_summary.json": "8df5e33971519cf98d34d11523ff5a72ddb19be0a5e2b5edf769ae1066cb8661",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_details.jsonl": "27d02c5ee2a3872340c63118c1d7ec7348a3b4291a58052262a8516cd6bac012",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_details.jsonl.gz": "e822f0ae65cde7b0af7d82732206ddb8fa8bade38c7462747158a506c0b26503",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_summary.json": "2ffb0131b1529dde0a1d66fcc17273bf9c2457075644d7c0b3379da2b0c791a0"
+  },
+  "decision": "GO_V16C1_PROTOCOL_DESIGN",
+  "development300_used": false,
+  "fresh_confirmation_opened": false,
+  "internal_validation300": {
+    "beam_extinction_failures": 19,
+    "beam_extinction_fraction_of_failures": 0.95,
+    "best_viable_child_margin_to_beam8_threshold": {
+      "maximum": -0.004938334226608276,
+      "mean": -0.7401934221239859,
+      "median": -0.2607511281967163,
+      "minimum": -5.189331990201026,
+      "nonnegative": 0
+    },
+    "examples": 300,
+    "expanded_viable_children": {
+      "maximum": 35,
+      "mean": 15.947368421052632,
+      "median": 16,
+      "minimum": 1
+    },
+    "fid_depth_histogram": {
+      "10": 1,
+      "3": 1,
+      "4": 1,
+      "5": 1,
+      "7": 2,
+      "8": 3,
+      "9": 10
+    },
+    "fid_depth_mean": 7.894736842105263,
+    "fid_depth_median": 9,
+    "primary_090_failures": 20,
+    "terminal_selection_failures": 1
+  },
+  "interpretation_limits": [
+    "The audit establishes mechanism alignment, not that a learned correction will generalize.",
+    "Exact-DP-optimal path extinction is not used as FID because it is stricter than contract viability.",
+    "Complete-trajectory failures with no oracle-feasible nested trajectory are excluded from policy FID.",
+    "Twenty-two failures across the two roles are terminal-selection failures and require separate handling."
+  ],
+  "locked_roles_used": false,
+  "reason": "Primary fidelity-0.90 failure is consistently dominated by loss of every 0.90-viable beam path: 197 train-role and 19 internal-validation failures. The extinction depth and number of viable expansions align across roles, and every best viable child was below the beam-eight threshold. This supports designing a failure-triggered beam-survival objective, but its retention mix and bounded aggregation protocol must be frozen before training.",
+  "required_v16c1_controls": [
+    "train only on train2863 failure-triggered states",
+    "use primary-0.90 viable beam children as survival positives and preserve global-DP labels as an auxiliary constraint",
+    "pair corrections with same-rollout pre-FID retention states",
+    "freeze the replay ratio, optimizer endpoint, and at most two aggregation rounds before training",
+    "evaluate first on internal-validation300; do not use development300 for iteration"
+  ],
+  "train2863": {
+    "beam_extinction_failures": 197,
+    "beam_extinction_fraction_of_failures": 0.9036697247706422,
+    "best_viable_child_margin_to_beam8_threshold": {
+      "maximum": -0.0010148286819458008,
+      "mean": -1.1698561186108813,
+      "median": -0.4100552797317505,
+      "minimum": -10.298372030716564,
+      "nonnegative": 0
+    },
+    "examples": 2863,
+    "expanded_viable_children": {
+      "maximum": 70,
+      "mean": 14.868020304568528,
+      "median": 10,
+      "minimum": 1
+    },
+    "fid_depth_histogram": {
+      "10": 42,
+      "11": 15,
+      "2": 7,
+      "3": 11,
+      "4": 11,
+      "5": 10,
+      "6": 13,
+      "7": 20,
+      "8": 26,
+      "9": 42
+    },
+    "fid_depth_mean": 7.766497461928934,
+    "fid_depth_median": 9,
+    "primary_090_failures": 218,
+    "terminal_selection_failures": 21
+  },
+  "training_authorized_by_this_audit": false
+}

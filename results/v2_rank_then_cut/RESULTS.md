@@ -801,3 +801,39 @@ of the deployment states that caused failure. The formal decision is
 cutoff, or fresh confirmation is opened. Any further policy work must redefine
 boundary mining around train-role deployed first divergences and demonstrate
 direct heldout first-divergence coverage before training.
+
+## V16-C0 deployed first-irreversible-divergence audit
+
+V16-C0 froze the selected V8 step250 policy and reproduced its beam-eight
+add-only deployment on train2863 and the fixed internal-validation300. It
+corrected the earlier extinction definition by separating paths that remain
+strictly exact-DP optimal, paths that can still attain fidelity 0.90, paths
+that can complete all active anchors, and paths that can additionally finish
+within per-trajectory normalized regret 0.03. Development300 and all locked
+roles remained untouched.
+
+The primary fidelity-0.90 failure mechanism is consistent across the two
+roles. On train2863, 197/218 failures (90.37%) first lost every 0.90-viable
+beam path, while 21 retained a viable path but failed terminal top-one
+selection. On internal-validation300, the corresponding counts were 19/20
+(95%) and 1. FID depth was also aligned: train mean 7.77 and median 9 versus
+validation mean 7.89 and median 9. At the extinction step, the expansion still
+contained a median of 10 viable children on train and 16 on validation, but
+the best such child was below the beam-eight pruning threshold in every case.
+Median score deficits were 0.410 and 0.261 log-probability units respectively.
+
+This audit also invalidates a broader interpretation of the old
+oracle-compatible extinction statistic. Exact-DP paths became extinct for
+1947/2863 train examples and 211/300 validation examples, far more often than
+the primary contract failed. In addition, 615 train and 57 validation examples
+had no nested trajectory capable of completing every active anchor, so their
+complete-trajectory failures cannot be caused by the policy. These cases are
+excluded from policy FID rather than recorded as depth-one extinction.
+
+The decision is `GO_V16C1_PROTOCOL_DESIGN`, not authorization to train an
+unfrozen objective. There are 197 train-role causal beam-extinction examples,
+and validation independently exhibits the same mechanism. V16-C1 may therefore
+be designed around primary-0.90 path survival with same-rollout pre-FID
+retention and an auxiliary global-DP constraint. Its replay ratio, endpoint,
+and bounded aggregation rule must be frozen before training; development300,
+learned cutoff, and fresh confirmation remain closed.

@@ -1,0 +1,69 @@
+{
+  "complete": true,
+  "definition": {
+    "contract_viable": "some suffix can still attain every active fidelity anchor",
+    "exact_optimal": "prefix has selected only exact lexicographic DP-optimal actions",
+    "regret_qualified": "contract viable and minimum final per-trajectory normalized regret <= 0.03"
+  },
+  "examples": 2863,
+  "extinction_depth": {
+    "contract_viable": {
+      "count": 60,
+      "maximum": 11,
+      "mean": 10.183333333333334,
+      "median": 11.0,
+      "minimum": 3
+    },
+    "exact_dp_optimal": {
+      "count": 1947,
+      "maximum": 11,
+      "mean": 6.170518746789933,
+      "median": 6,
+      "minimum": 1
+    },
+    "primary_090_viable": {
+      "count": 197,
+      "maximum": 11,
+      "mean": 7.766497461928934,
+      "median": 9,
+      "minimum": 2
+    },
+    "regret_qualified_contract_viable": {
+      "count": 372,
+      "maximum": 11,
+      "mean": 7.53494623655914,
+      "median": 7.0,
+      "minimum": 1
+    }
+  },
+  "failure_mechanism": {
+    "among_complete_contract_failures": {
+      "beam_pruning_extinction": 60,
+      "oracle_infeasible": 615,
+      "survived_but_terminal_top1_failed": 14
+    },
+    "among_primary_090_failures": {
+      "beam_pruning_extinction": 197,
+      "survived_but_terminal_top1_failed": 21
+    },
+    "complete_contract_failures": 689,
+    "intrinsically_no_complete_contract_trajectory": 615,
+    "primary_090_failures": 218,
+    "regret_qualified_failures": 1128
+  },
+  "input_sha256": {
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_shard0_details.jsonl": "6bd670d74ec2df7fe9e84bcdf555fb49003a3e7f8498a61ade74f11699c6329a",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_shard1_details.jsonl": "0f0f46c2b78cd30a702f93eec55c0f6693a5e187e120164d85fb072906d3b9d4",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_shard2_details.jsonl": "8e62458689dcd5f1b8739b3d969a3c354f1b9a5214e3177f2eaf2bc61e2f9e56",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_shard3_details.jsonl": "596dfe39d301e2b9b50251386ef843707c2d4c69ecf796cbdbafa63457cb487a"
+  },
+  "merged_shards": 4,
+  "role": "train2863",
+  "top1": {
+    "complete_contract_successes": 2174,
+    "mean_regret_among_complete": 0.020630301203684167,
+    "primary_090_active_examples": 2863,
+    "primary_090_successes": 2645,
+    "regret_qualified_successes": 1735
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "protocol": "v16c0_deployed_first_irreversible_divergence_audit",
+  "status": "COMPLETE_GO_V16C1_PROTOCOL_DESIGN",
+  "date": "2026-09-18 Asia/Shanghai",
+  "hypothesis": "V16-B1 failed because its supervision states did not match the deployed states where beam-eight first loses every contract-viable continuation.",
+  "baseline": "V8 step250",
+  "roles": {
+    "train": "train2863; may support a later C1 training set",
+    "internal_validation": "fixed internal-validation300; audit and feasibility gate only",
+    "development": "not accessed by C0",
+    "confirmation": "closed"
+  },
+  "frozen": {
+    "decoder": "beam8 add-only with cumulative log probability",
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "representation_and_policy": "fully frozen",
+    "regret_limit": 0.03
+  },
+  "outputs": [
+    "exact-DP-optimal path extinction",
+    "all-active-anchor contract path extinction",
+    "regret-qualified contract path extinction",
+    "beam-pruning extinction versus terminal top-one selection failure"
+  ],
+  "restrictions": {
+    "training": false,
+    "development300_used": false,
+    "locked_roles_used": false,
+    "exact_state_overlap_is_not_a_transfer_gate": true
+  }
+}

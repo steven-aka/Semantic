@@ -1,0 +1,74 @@
+{
+  "artifacts": {
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+    "data": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl",
+    "data_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "locked_roles_used": false
+  },
+  "complete": true,
+  "definition": {
+    "contract_viable": "some suffix can still attain every active fidelity anchor",
+    "exact_optimal": "prefix has selected only exact lexicographic DP-optimal actions",
+    "regret_qualified": "contract viable and minimum final per-trajectory normalized regret <= 0.03"
+  },
+  "examples": 300,
+  "extinction_depth": {
+    "contract_viable": {
+      "count": 3,
+      "maximum": 11,
+      "mean": 11,
+      "median": 11,
+      "minimum": 11
+    },
+    "exact_dp_optimal": {
+      "count": 211,
+      "maximum": 11,
+      "mean": 6.180094786729858,
+      "median": 6,
+      "minimum": 1
+    },
+    "primary_090_viable": {
+      "count": 19,
+      "maximum": 10,
+      "mean": 7.894736842105263,
+      "median": 9,
+      "minimum": 3
+    },
+    "regret_qualified_contract_viable": {
+      "count": 37,
+      "maximum": 11,
+      "mean": 6.972972972972973,
+      "median": 7,
+      "minimum": 1
+    }
+  },
+  "failure_mechanism": {
+    "among_complete_contract_failures": {
+      "beam_pruning_extinction": 3,
+      "oracle_infeasible": 57,
+      "survived_but_terminal_top1_failed": 2
+    },
+    "among_primary_090_failures": {
+      "beam_pruning_extinction": 19,
+      "survived_but_terminal_top1_failed": 1
+    },
+    "complete_contract_failures": 62,
+    "intrinsically_no_complete_contract_trajectory": 57,
+    "primary_090_failures": 20,
+    "regret_qualified_failures": 110
+  },
+  "role": "internal_validation300",
+  "shard": {
+    "count": 1,
+    "index": 0,
+    "source_examples": 300
+  },
+  "top1": {
+    "complete_contract_successes": 238,
+    "mean_regret_among_complete": 0.021229095015256733,
+    "primary_090_active_examples": 300,
+    "primary_090_successes": 280,
+    "regret_qualified_successes": 190
+  }
+}
