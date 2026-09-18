@@ -1,0 +1,12 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/audit_checkpoint",
+  "data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "stage": "v8_sequential_policy_evaluation",
+  "timestamp_utc": "2026-09-18T09:57:54.872455+00:00"
+}

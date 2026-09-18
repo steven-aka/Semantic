@@ -1,0 +1,106 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/internal_validation300_details.jsonl.gz": "4e6760a971ac261253d38d4a237b59521d34ef1b1bccae960c6fc1d79c458e75",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/decision.json": "04890bbdd8253811a5dcae5054ff744ab4259e22e864a054b93d5a630b35ad26",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/development_details.jsonl": "ec11c275d390bf630f80e2a4784478b854cf97cb7f103172529ba931a4ebd3da",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/development_details.jsonl.gz": "6d81302412c355e1e13ad921d41402d260840eaeb728de9ea50a1df0646cd65c",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/development_summary.json": "2bde0c4850be56f40244fefc80d964e09e8e39b5367ff0c9f497dfdf1d0b2b5f",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/development_v16c1_fid_summary.json": "3248eb9cdabb3013603f04d93534f96c3e30c280a87c097f10963069603f4dad",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/development_v8_fid_summary.json": "c5e1f687a279183bd521e4f5c3afa94587c79eeade6b29514d83f82dff6df4eb",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/internal_validation_fid_details.jsonl": "97d60bbf6d97694515b714730801dd4ed8c418f66431bea3c86b1200de139c31",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/internal_validation_fid_details.jsonl.gz": "81f2d89c2c1eeae26850f22031c89121bf1868b4500fb7ed13d62a5fb16adb4d",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/internal_validation_fid_summary.json": "5d4e35815f6a0e63a2dc6879a8862c7c995fa62a57eed7bf0eed44b396271987",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15"
+  },
+  "decision": "STOP_STATIC_FID_CORRECTION",
+  "development": {
+    "artifacts": {
+      "checkpoint_metadata_sha256": "911cb7d6a37bd0ca6a20c73d9260d7ef725bdc1ed7d0009d8011f979d4e52cf6",
+      "data_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196"
+    },
+    "complete": true,
+    "decoder": "history-aware sequential policy beam width 8",
+    "examples": 300,
+    "mean_oracle_cutoff_ranking_regret_normalized_feasible": 0.02902713055879965,
+    "oracle_cutoff_active_contract_success_fraction": 0.9735006973500697,
+    "oracle_cutoff_all_active_contracts_success_fraction": 0.9133333333333333,
+    "oracle_cutoff_feasible_trajectory_examples": 274,
+    "per_level": {
+      "0.6": {
+        "contract_success_fraction": 0.9966666666666667,
+        "contract_successes": 299,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.030010943684772785
+      },
+      "0.7": {
+        "contract_success_fraction": 0.9866666666666667,
+        "contract_successes": 296,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03452940949929966
+      },
+      "0.8": {
+        "contract_success_fraction": 0.98,
+        "contract_successes": 294,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.046302755592913525
+      },
+      "0.9": {
+        "contract_success_fraction": 0.9233333333333333,
+        "contract_successes": 277,
+        "examples": 300,
+        "mean_rate_regret_normalized_successful": 0.03290469749704341
+      },
+      "0.95": {
+        "contract_success_fraction": 0.9829059829059829,
+        "contract_successes": 230,
+        "examples": 234,
+        "mean_rate_regret_normalized_successful": 0.005328282615292438
+      }
+    },
+    "validation_action_loss": 0.5640185710630918,
+    "validation_progress_loss": 0.15150489481656174,
+    "validation_set_action_accuracy": 0.7953330592105263
+  },
+  "development_gate_passed": false,
+  "development_relative_to_v8_0.90": {
+    "breaks": 1,
+    "net": 0,
+    "repairs": 1
+  },
+  "fresh_confirmation_opened": false,
+  "internal_validation": {
+    "complete": {
+      "baseline": 238,
+      "candidate": 238
+    },
+    "fidelity_090_breaks": 1,
+    "fidelity_090_net": 4,
+    "fidelity_090_repairs": 5,
+    "per_level": {
+      "baseline": {
+        "0.6": 296,
+        "0.7": 295,
+        "0.8": 294,
+        "0.9": 280,
+        "0.95": 238
+      },
+      "candidate": {
+        "0.6": 298,
+        "0.7": 296,
+        "0.8": 295,
+        "0.9": 284,
+        "0.95": 238
+      }
+    }
+  },
+  "internal_validation_gate_passed": true,
+  "learned_cutoff_opened": false,
+  "next_step": "Do not tune the static FID loss. Reassess whether query-specific viable-child supervision can generalize from only 197 train failures, and separate terminal candidate selection from path survival before another model run.",
+  "post_stop_mechanism_audit": {
+    "interpretation": "The static correction changed only one consumed-development beam-extinction outcome and did not improve authoritative 0.90 success. Internal-validation gains did not transfer.",
+    "v16c1_primary_090_beam_extinctions": 21,
+    "v8_primary_090_beam_extinctions": 22
+  },
+  "second_aggregation_round_opened": false
+}

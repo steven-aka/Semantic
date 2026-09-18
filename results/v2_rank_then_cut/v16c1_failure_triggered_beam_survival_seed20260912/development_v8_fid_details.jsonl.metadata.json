@@ -1,0 +1,16 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "checkpoint_metadata_sha256": "e5408532745a43400370fd64f1e687c032cde1b432bc41f3cc4e042bc096b0c8",
+  "data": "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl",
+  "data_sha256": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "locked_roles_used": false,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "role": "internal_validation300",
+  "stage": "v16c0_first_irreversible_divergence",
+  "timestamp_utc": "2026-09-18T10:03:42.713830+00:00"
+}

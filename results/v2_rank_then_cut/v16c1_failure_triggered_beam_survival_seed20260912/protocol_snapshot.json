@@ -1,0 +1,56 @@
+{
+  "aggregation": {
+    "maximum_rounds": 2,
+    "second_round_not_automatically_authorized": true,
+    "this_run": 1
+  },
+  "arguments": {
+    "batch_size": 4,
+    "beam_width": 8,
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "dp_weight": 0.1,
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "fid_details": "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_details.jsonl.gz",
+    "learning_rate": 5e-05,
+    "max_optimizer_steps": 150,
+    "max_sequence_length": 512,
+    "model": "models/Qwen3-4B",
+    "model_dim": 512,
+    "output_dir": "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912",
+    "retention_weight": 1.0,
+    "seed": 20260912,
+    "survival_margin": 0.1,
+    "train_data": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+    "warmup_steps": 15,
+    "weight_decay": 0.01
+  },
+  "date": "2026-09-18 Asia/Shanghai",
+  "development300_used": false,
+  "frozen": {
+    "backbone_and_lora": true,
+    "decoder": "beam8 add-only cumulative log probability",
+    "development300": "closed until the internal-validation gate passes",
+    "endpoint": "fixed step150; no checkpoint selection",
+    "initialization": "V8 step250"
+  },
+  "hypothesis": "A head-only cumulative-score margin at train-role primary-0.90 FID expansions can preserve at least one viable path in beam8 without damaging the nearby V8 policy distribution.",
+  "internal_validation_gate": {
+    "fidelity_090_breaks_maximum": 1,
+    "fidelity_090_repairs_minus_breaks_minimum": 3,
+    "fidelity_090_successes_minimum": 283,
+    "if_fail": "STOP_STATIC_FID_CORRECTION",
+    "if_pass": "evaluate once on consumed development300",
+    "mean_complete_regret_maximum": 0.025,
+    "other_anchor_and_complete_allowed_regression": 1
+  },
+  "locked_roles_used": false,
+  "protocol": "v16c1_failure_triggered_beam_survival",
+  "status": "APPROVED_TO_RUN",
+  "training_population": {
+    "auxiliary": "exact-DP set-valued next action at every FID parent",
+    "queries": 197,
+    "retention": "all retained beam states one reveal step before the FID parent set, distilled from frozen V8",
+    "source": "train2863 V8 primary-0.90 beam-extinction failures only",
+    "survival_positive": "any expanded child that can still reach fidelity 0.90"
+  }
+}

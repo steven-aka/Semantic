@@ -1,0 +1,21 @@
+{
+  "backbone_and_lora_frozen": true,
+  "base_checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+  "complete_sequential_head_trainable": true,
+  "development300_used": false,
+  "elapsed_seconds": 195.7072565740673,
+  "fid_details_sha256": "e822f0ae65cde7b0af7d82732206ddb8fa8bade38c7462747158a506c0b26503",
+  "fid_examples": 197,
+  "git_commit": "unversioned",
+  "gpu_names": [
+    "NVIDIA RTX A6000"
+  ],
+  "locked_roles_used": false,
+  "optimizer_steps": 150,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.11.16",
+  "sequential_head_sha256": "40bf3eb1840f28ecd2261339d4bb7b2f1d6dd40376624b75831cc498b321c5ef",
+  "stage": "v16c1_failure_triggered_beam_survival",
+  "timestamp_utc": "2026-09-18T09:50:56.356963+00:00",
+  "train_data_sha256": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669"
+}

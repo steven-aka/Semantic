@@ -837,3 +837,37 @@ be designed around primary-0.90 path survival with same-rollout pre-FID
 retention and an auxiliary global-DP constraint. Its replay ratio, endpoint,
 and bounded aggregation rule must be frozen before training; development300,
 learned cutoff, and fresh confirmation remain closed.
+
+## V16-C1 failure-triggered beam-survival policy
+
+V16-C1 tested the mechanism isolated by C0 rather than another local
+next-action loss. Starting from V8 step250, it froze the backbone and LoRA and
+trained the complete sequential head for one fixed 150-step endpoint. Each
+update used train2863 FID beam parents, a cumulative-score margin requiring at
+least one fidelity-0.90-viable child to clear the beam-eight pruning threshold,
+same-rollout pre-FID V8 distribution retention, and a low-weight exact-DP
+set-valued auxiliary loss. No development example entered training or endpoint
+selection.
+
+The preregistered internal-validation gate passed. Fidelity-0.90 success rose
+from 280/300 to 284/300, comprising five repairs and one break. The other
+anchors changed from 296/295/294/238 to 298/296/295/238 at fidelity
+0.60/0.70/0.80/0.95, complete trajectories remained 238/300, and mean regret
+among complete trajectories was 0.02405, below the frozen 0.025 limit. This
+authorized one evaluation of the fixed endpoint on consumed development300.
+
+The improvement did not transfer. Development fidelity-0.90 remained 277/300:
+one V8 failure was repaired and one V8 success broke. Fidelity 0.60 improved
+to 299, but 0.70 fell from 298 to 296 and 0.80 from 295 to 294; 0.95 remained
+230/234. Complete trajectories increased by one to 274/300 and mean feasible
+regret remained acceptable at 0.02903, but the joint gate failed. A post-stop
+mechanism audit found only a one-example reduction in primary beam-extinction
+failures, from 22 to 21, consistent with the absence of deployable gain.
+
+The formal decision is `STOP_STATIC_FID_CORRECTION`. C0 correctly identified
+the deployment failure mechanism, and C1 showed that direct static correction
+can improve the fixed internal role, but supervision from only 197 rare,
+query-specific train failures did not generalize to the consumed development
+role. No margin, learning-rate, step-count, or replay retuning is allowed; the
+second aggregation round is not opened. Learned cutoff and fresh confirmation
+remain closed.

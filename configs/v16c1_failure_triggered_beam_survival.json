@@ -1,0 +1,56 @@
+{
+  "protocol": "v16c1_failure_triggered_beam_survival",
+  "status": "COMPLETE_STOP_STATIC_FID_CORRECTION",
+  "date": "2026-09-18 Asia/Shanghai",
+  "hypothesis": "A head-only cumulative-score margin at train-role primary-0.90 FID expansions can preserve at least one viable path in beam8 without damaging the nearby V8 policy distribution.",
+  "arguments": {
+    "train_data": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+    "fid_details": "results/v2_rank_then_cut/v16c0_deployed_fid_audit_v8_step250/train2863_details.jsonl.gz",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "output_dir": "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912",
+    "model": "models/Qwen3-4B",
+    "model_dim": 512,
+    "max_sequence_length": 512,
+    "max_optimizer_steps": 150,
+    "batch_size": 4,
+    "learning_rate": 0.00005,
+    "weight_decay": 0.01,
+    "warmup_steps": 15,
+    "survival_margin": 0.1,
+    "retention_weight": 1.0,
+    "dp_weight": 0.1,
+    "beam_width": 8,
+    "seed": 20260912
+  },
+  "training_population": {
+    "queries": 197,
+    "source": "train2863 V8 primary-0.90 beam-extinction failures only",
+    "survival_positive": "any expanded child that can still reach fidelity 0.90",
+    "retention": "all retained beam states one reveal step before the FID parent set, distilled from frozen V8",
+    "auxiliary": "exact-DP set-valued next action at every FID parent"
+  },
+  "frozen": {
+    "backbone_and_lora": true,
+    "initialization": "V8 step250",
+    "decoder": "beam8 add-only cumulative log probability",
+    "endpoint": "fixed step150; no checkpoint selection",
+    "development300": "closed until the internal-validation gate passes"
+  },
+  "internal_validation_gate": {
+    "fidelity_090_successes_minimum": 283,
+    "fidelity_090_repairs_minus_breaks_minimum": 3,
+    "fidelity_090_breaks_maximum": 1,
+    "other_anchor_and_complete_allowed_regression": 1,
+    "mean_complete_regret_maximum": 0.025,
+    "if_pass": "evaluate once on consumed development300",
+    "if_fail": "STOP_STATIC_FID_CORRECTION"
+  },
+  "aggregation": {
+    "maximum_rounds": 2,
+    "this_run": 1,
+    "second_round_not_automatically_authorized": true
+  },
+  "development300_used": false,
+  "locked_roles_used": false
+}
