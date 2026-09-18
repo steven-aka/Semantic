@@ -1,6 +1,6 @@
 import unittest
 
-from src.evaluation.v16c0_first_irreversible_divergence import first_zero_depth, state_viability
+from src.evaluation.v16c0_first_irreversible_divergence import first_zero_depth, state_viability, trajectory_levels
 from src.search.sequential_trajectory_dp import SequentialTrajectoryDP
 from tests.test_sequential_trajectory_dp import row
 
@@ -21,6 +21,10 @@ class V16C0Test(unittest.TestCase):
         trace = [{"depth": 1, "alive": 2}, {"depth": 2, "alive": 0}, {"depth": 3, "alive": 0}]
         self.assertEqual(first_zero_depth(trace, "alive"), 2)
         self.assertIsNone(first_zero_depth(trace, "missing") if False else first_zero_depth([{"depth": 1, "alive": 1}], "alive"))
+
+    def test_attainable_levels_override_fixed_value_grid(self):
+        source = {"active_levels": [.6, .7, .8, .9, .95], "attainable_levels": [.6, .7, .8, .9]}
+        self.assertEqual(trajectory_levels(source), [.6, .7, .8, .9])
 
 
 if __name__ == "__main__":

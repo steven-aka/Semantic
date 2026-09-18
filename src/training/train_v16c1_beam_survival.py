@@ -15,6 +15,7 @@ import torch.nn.functional as F
 
 from src.data.schemas import ExactSearchResult, read_jsonl, write_jsonl
 from src.evaluation.sequential_policy_evaluation import head_state_dict, load_model
+from src.evaluation.v16c0_first_irreversible_divergence import trajectory_levels
 from src.model.sequential_packet_policy import build_sequential_encoder_input
 from src.reproducibility import experiment_metadata, sha256, write_metadata
 from src.search.sequential_trajectory_dp import SequentialTrajectoryDP
@@ -41,7 +42,7 @@ def prepare_records(details: Sequence[dict[str, Any]], rows: dict[str, dict[str,
             continue
         source = rows[detail["example_id"]]
         exact = list(read_jsonl(Path(exact_dir) / f"{detail['example_id']}.jsonl", ExactSearchResult))
-        dp = SequentialTrajectoryDP(exact, source["active_levels"])
+        dp = SequentialTrajectoryDP(exact, trajectory_levels(source))
         primary = next(i for i, level in enumerate(dp.levels) if abs(level - 0.9) < 1e-9)
         parents = [()] if depth == 1 else [tuple(x) for x in detail["trace"][depth - 2]["histories"]]
         retention_depth = max(0, depth - 2)

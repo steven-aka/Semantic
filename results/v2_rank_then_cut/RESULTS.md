@@ -825,10 +825,11 @@ Median score deficits were 0.410 and 0.261 log-probability units respectively.
 This audit also invalidates a broader interpretation of the old
 oracle-compatible extinction statistic. Exact-DP paths became extinct for
 1947/2863 train examples and 211/300 validation examples, far more often than
-the primary contract failed. In addition, 615 train and 57 validation examples
-had no nested trajectory capable of completing every active anchor, so their
-complete-trajectory failures cannot be caused by the policy. These cases are
-excluded from policy FID rather than recorded as depth-one extinction.
+the primary contract failed. The original report also classified 615 train
+and 57 validation examples as lacking a complete trajectory. V17-A later
+showed that this was an artifact of reading V10/V13's fixed five-class
+`active_levels` grid instead of its role-specific `attainable_levels` field;
+the corrected complete-trajectory counts are recorded below.
 
 The decision is `GO_V16C1_PROTOCOL_DESIGN`, not authorization to train an
 unfrozen objective. There are 197 train-role causal beam-extinction examples,
@@ -849,11 +850,13 @@ same-rollout pre-FID V8 distribution retention, and a low-weight exact-DP
 set-valued auxiliary loss. No development example entered training or endpoint
 selection.
 
-The preregistered internal-validation gate passed. Fidelity-0.90 success rose
+Under the then-preregistered interpretation, the internal-validation gate
+passed. Fidelity-0.90 success rose
 from 280/300 to 284/300, comprising five repairs and one break. The other
 anchors changed from 296/295/294/238 to 298/296/295/238 at fidelity
-0.60/0.70/0.80/0.95, complete trajectories remained 238/300, and mean regret
-among complete trajectories was 0.02405, below the frozen 0.025 limit. This
+0.60/0.70/0.80/0.95. Complete trajectories were reported as 238/300 and mean
+regret as 0.02405. V17-A later invalidated these complete/regret diagnostics
+because 0.95-unattainable examples were evaluated as five-anchor examples. This
 authorized one evaluation of the fixed endpoint on consumed development300.
 
 The improvement did not transfer. Development fidelity-0.90 remained 277/300:
@@ -871,3 +874,43 @@ query-specific train failures did not generalize to the consumed development
 role. No margin, learning-rate, step-count, or replay retuning is allowed; the
 second aggregation round is not opened. Learned cutoff and fresh confirmation
 remain closed.
+
+## V17-A counterfactual decision-critical branch audit
+
+V17-A first uncovered a data-semantics error that affects the interpretation
+of V16-B/C train and internal diagnostics. The V10/V13 mask-value files use
+`active_levels` for the fixed five-class value-head grid and preserve the
+actual role-specific contracts in `attainable_levels`. Later DP audits treated
+the fixed grid as the contract set. This incorrectly added unattainable 0.95
+to 672/3163 examples. The original V8 and consumed-development files retained
+the correct four- versus five-anchor distinction. C0/C1's primary 0.90 counts
+are unchanged, and C1's fixed development result remains empirical, but its
+auxiliary DP labels and earlier complete/regret causal interpretation are not
+valid. The shared level-selection code now prefers `attainable_levels`.
+
+After correcting the contract set, V17-A froze an exact decision-critical
+rule and scanned every V8 deployed prefix in train2863 plus one- and two-hop
+add-only counterfactual branches. The deployed train prefixes contain 6,200
+feasibility-critical states, 1,834 primary-0.90-critical states, and 201,413
+critical state-action examples. One-hop expansion raises these counts to
+41,118, 12,253, and 1,382,109. Two-hop expansion is much larger at 315,204
+feasibility-critical states and over ten million critical action examples.
+
+The rule covers the actual failure mechanism across roles. All 19 internal
+validation FID queries and all 22 consumed-development FID queries contain at
+least one decision-critical beam parent. Using consequence signatures that
+exclude query type, depth, and packet identity, deployed plus one-hop train
+states exactly cover 129/129 critical internal FID-parent feasibility
+signatures and 147/151 development signatures. Two hops increase development
+coverage only to 149/151. Fine-grained token-cost signatures remain much less
+covered: even through two hops they cover only 67/129 internal and 75/151
+development critical parents.
+
+The decision is `GO_V17B_MULTI_ANCHOR_VIABILITY_DESIGN`, not immediate model
+training and not approval for continuous cost-Q regression. A V17-B protocol
+may use train2863 deployed plus one-hop critical states, per-anchor future
+viability targets, and beam-survival loss with add-only beam-eight decoding.
+It must use `attainable_levels`, keep the V8 backbone and LoRA frozen, use one
+fixed endpoint, and gate only on the fixed internal role. Hop-two expansion
+is not selected from the consumed-development result, continuous future-token
+cost prediction remains closed, and fresh confirmation is unopened.

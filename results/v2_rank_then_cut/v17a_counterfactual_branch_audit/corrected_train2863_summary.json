@@ -1,0 +1,69 @@
+{
+  "complete": true,
+  "definition": {
+    "contract_viable": "some suffix can still attain every active fidelity anchor",
+    "exact_optimal": "prefix has selected only exact lexicographic DP-optimal actions",
+    "regret_qualified": "contract viable and minimum final per-trajectory normalized regret <= 0.03"
+  },
+  "examples": 2863,
+  "extinction_depth": {
+    "contract_viable": {
+      "count": 246,
+      "maximum": 11,
+      "mean": 8.24390243902439,
+      "median": 9.0,
+      "minimum": 2
+    },
+    "exact_dp_optimal": {
+      "count": 1947,
+      "maximum": 11,
+      "mean": 6.170518746789933,
+      "median": 6,
+      "minimum": 1
+    },
+    "primary_090_viable": {
+      "count": 197,
+      "maximum": 11,
+      "mean": 7.766497461928934,
+      "median": 9,
+      "minimum": 2
+    },
+    "regret_qualified_contract_viable": {
+      "count": 753,
+      "maximum": 11,
+      "mean": 7.00531208499336,
+      "median": 7,
+      "minimum": 1
+    }
+  },
+  "failure_mechanism": {
+    "among_complete_contract_failures": {
+      "beam_pruning_extinction": 246,
+      "oracle_infeasible": 0,
+      "survived_but_terminal_top1_failed": 33
+    },
+    "among_primary_090_failures": {
+      "beam_pruning_extinction": 197,
+      "survived_but_terminal_top1_failed": 21
+    },
+    "complete_contract_failures": 279,
+    "intrinsically_no_complete_contract_trajectory": 0,
+    "primary_090_failures": 218,
+    "regret_qualified_failures": 955
+  },
+  "input_sha256": {
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_train_shard0_details.jsonl": "e282de8fff12053336fd85f07a998e6a9375e4e56285f5ef7a8410cb5ba59f99",
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_train_shard1_details.jsonl": "0ae1a557578b7f32459ad44b0b730dc10931bee38848cdf25275d30c531a74c9",
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_train_shard2_details.jsonl": "d8a6dcf28788f6691f94b4ce7cd104db3cd7e128390609cf39edcbe00b6ca48b",
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_train_shard3_details.jsonl": "01083b0f9ed74e8da1a18ca90b7e3006ddc6becbb72ae321f9ced69ccc8aef26"
+  },
+  "merged_shards": 4,
+  "role": "train2863",
+  "top1": {
+    "complete_contract_successes": 2584,
+    "mean_regret_among_complete": 0.027263327452273847,
+    "primary_090_active_examples": 2863,
+    "primary_090_successes": 2645,
+    "regret_qualified_successes": 1908
+  }
+}

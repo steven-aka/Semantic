@@ -1,0 +1,177 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v16c1_failure_triggered_beam_survival_seed20260912/development_v8_fid_details.jsonl": "7ddffa30311b2fd6572f6df3efb82a84aa731b6bfdad0d2a44c26aa77408a9f2",
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_internal_validation300_details.jsonl.gz": "b7546c3bb1e527d58ccac648fe08b40ee7096775f324556bfe6c90c204d25616",
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_train2863_details.jsonl.gz": "0d5abf4409d9420d82abd7d7753fd3b23e3b0c76e858643490cfc2c68887342e",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl": "294fbdedfe4984634d32fe0b75b22337663cbecf7f6457aab64552f945203f15",
+    "results/v2_rank_then_cut/v9_probe_development300_cost_supervision.jsonl": "aa94df035c1f531fc1612463146a13a22e0c193696915734eeff0fd78e03e196",
+    "results/v2_rank_then_cut/v9_v8_train3163_beam8_rollouts.jsonl": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e"
+  },
+  "complete": true,
+  "critical_rule": {
+    "cost": "all actions preserve maximum reach but normalized exact-DP future-cost range >= 0.03",
+    "feasibility": "legal next actions differ in maximum eventually reachable active-anchor count",
+    "primary_090": "legal next actions differ in whether fidelity 0.90 remains reachable"
+  },
+  "restrictions": {
+    "development_consumed_diagnostic_only": true,
+    "internal_validation_not_training": true,
+    "locked_roles_used": false,
+    "train_role_examples": 2863
+  },
+  "roles": {
+    "consumed_development300": {
+      "by_hop": [
+        {
+          "action_examples": 20517,
+          "cost_critical": 1999,
+          "feasibility_critical": 569,
+          "primary_090_critical": 210,
+          "states": 3600
+        },
+        {
+          "action_examples": 141977,
+          "cost_critical": 13353,
+          "feasibility_critical": 4001,
+          "primary_090_critical": 1358,
+          "states": 19800
+        },
+        {
+          "action_examples": 1081390,
+          "cost_critical": 104565,
+          "feasibility_critical": 31009,
+          "primary_090_critical": 10363,
+          "states": 151500
+        }
+      ],
+      "examples": 300,
+      "fid_cost_critical_parents": 27,
+      "fid_feasibility_critical_parents": 124,
+      "fid_parents": 176,
+      "fid_primary_critical_parents": 107,
+      "fid_q_structure_coverage": {
+        "through_hop_0": {
+          "critical_parent_cost_signature_exact": 47,
+          "critical_parent_cost_signature_total": 151,
+          "critical_parent_feasibility_signature_exact": 141,
+          "critical_parent_feasibility_signature_total": 151
+        },
+        "through_hop_1": {
+          "critical_parent_cost_signature_exact": 69,
+          "critical_parent_cost_signature_total": 151,
+          "critical_parent_feasibility_signature_exact": 147,
+          "critical_parent_feasibility_signature_total": 151
+        },
+        "through_hop_2": {
+          "critical_parent_cost_signature_exact": 75,
+          "critical_parent_cost_signature_total": 151,
+          "critical_parent_feasibility_signature_exact": 149,
+          "critical_parent_feasibility_signature_total": 151
+        }
+      },
+      "fid_queries": 22,
+      "fid_queries_with_any_critical_parent": 22
+    },
+    "internal_validation300": {
+      "by_hop": [
+        {
+          "action_examples": 21296,
+          "cost_critical": 2070,
+          "feasibility_critical": 615,
+          "primary_090_critical": 178,
+          "states": 3600
+        },
+        {
+          "action_examples": 145834,
+          "cost_critical": 13640,
+          "feasibility_critical": 4314,
+          "primary_090_critical": 1303,
+          "states": 19800
+        },
+        {
+          "action_examples": 1103470,
+          "cost_critical": 105629,
+          "feasibility_critical": 33503,
+          "primary_090_critical": 10583,
+          "states": 151500
+        }
+      ],
+      "examples": 300,
+      "fid_cost_critical_parents": 30,
+      "fid_feasibility_critical_parents": 99,
+      "fid_parents": 152,
+      "fid_primary_critical_parents": 96,
+      "fid_q_structure_coverage": {
+        "through_hop_0": {
+          "critical_parent_cost_signature_exact": 48,
+          "critical_parent_cost_signature_total": 129,
+          "critical_parent_feasibility_signature_exact": 122,
+          "critical_parent_feasibility_signature_total": 129
+        },
+        "through_hop_1": {
+          "critical_parent_cost_signature_exact": 60,
+          "critical_parent_cost_signature_total": 129,
+          "critical_parent_feasibility_signature_exact": 129,
+          "critical_parent_feasibility_signature_total": 129
+        },
+        "through_hop_2": {
+          "critical_parent_cost_signature_exact": 67,
+          "critical_parent_cost_signature_total": 129,
+          "critical_parent_feasibility_signature_exact": 129,
+          "critical_parent_feasibility_signature_total": 129
+        }
+      },
+      "fid_queries": 19,
+      "fid_queries_with_any_critical_parent": 19
+    },
+    "train2863": {
+      "by_hop": [
+        {
+          "action_examples": 201413,
+          "cost_critical": 19160,
+          "feasibility_critical": 6200,
+          "primary_090_critical": 1834,
+          "states": 34356
+        },
+        {
+          "action_examples": 1382109,
+          "cost_critical": 128325,
+          "feasibility_critical": 41118,
+          "primary_090_critical": 12253,
+          "states": 188958
+        },
+        {
+          "action_examples": 10488752,
+          "cost_critical": 1002678,
+          "feasibility_critical": 315204,
+          "primary_090_critical": 96610,
+          "states": 1445815
+        }
+      ],
+      "examples": 2863,
+      "fid_cost_critical_parents": 271,
+      "fid_feasibility_critical_parents": 1028,
+      "fid_parents": 1576,
+      "fid_primary_critical_parents": 911,
+      "fid_queries": 197,
+      "fid_queries_with_any_critical_parent": 196
+    }
+  },
+  "state": "query plus ordered history, selected mask, and reached-anchor count",
+  "train_unique_q_signatures": {
+    "through_hop_0": {
+      "cost_binned_005": 21920,
+      "feasibility": 304
+    },
+    "through_hop_1": {
+      "cost_binned_005": 129113,
+      "feasibility": 587
+    },
+    "through_hop_2": {
+      "cost_binned_005": 425172,
+      "feasibility": 857
+    }
+  }
+}

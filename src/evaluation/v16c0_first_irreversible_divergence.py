@@ -15,6 +15,11 @@ from src.reproducibility import experiment_metadata, sha256, write_metadata
 from src.search.sequential_trajectory_dp import SequentialTrajectoryDP
 
 
+def trajectory_levels(row: dict[str, Any]) -> list[float]:
+    """Use attainable contracts rather than V10's fixed classifier grid."""
+    return [float(value) for value in row.get("attainable_levels", row["active_levels"])]
+
+
 def state_viability(
     dp: SequentialTrajectoryDP,
     mask: int,
@@ -238,7 +243,7 @@ def main() -> None:
             encoded_packets, encoded_questions = model.encode(inputs, pad_token_id=int(tokenizer.pad_token_id), device=device)
             for index, row in enumerate(batch):
                 exact = list(read_jsonl(Path(args.exact_dir) / f"{row['example_id']}.jsonl", ExactSearchResult))
-                dp = SequentialTrajectoryDP(exact, row["active_levels"])
+                dp = SequentialTrajectoryDP(exact, trajectory_levels(row))
                 fractions = torch.tensor(row["packet_tokens"], device=device, dtype=torch.float32)
                 fractions /= fractions.sum()
                 result = beam_trace(model, encoded_packets[index], encoded_questions[index], fractions, dp, beam_width=args.beam_width, regret_limit=args.regret_limit)

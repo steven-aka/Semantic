@@ -1,0 +1,24 @@
+{
+  "protocol": "v17a_counterfactual_decision_critical_branch_audit",
+  "status": "COMPLETE_GO_V17B_MULTI_ANCHOR_VIABILITY_DESIGN",
+  "date": "2026-09-18 Asia/Shanghai",
+  "purpose": "Test whether exact-lattice action-consequence expansion supplies transferable multi-anchor supervision beyond 197 query-specific FID instances before any V17 model training.",
+  "state_definition": "query, ordered history, selected mask, reached-anchor count",
+  "critical_rules": {
+    "feasibility": "legal actions differ in maximum eventually reachable active-anchor count",
+    "primary_090": "legal actions differ in whether fidelity 0.90 remains reachable",
+    "cost": "all actions preserve maximum reach but normalized global future-cost range is at least 0.03"
+  },
+  "branch_expansion": [0, 1, 2],
+  "roles": {
+    "train": "train2863 only",
+    "internal_validation": "coverage audit only",
+    "development": "already consumed; diagnostic coverage only",
+    "confirmation": "closed"
+  },
+  "restrictions": {
+    "training": false,
+    "swap_or_drop_deployment_actions": false,
+    "locked_roles_used": false
+  }
+}

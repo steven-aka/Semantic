@@ -1,0 +1,41 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_internal_validation300_summary.json": "3be2b63af6c1280676b3e23821ad9e09a1d7a91b73d7db35309a2c25daf0ea42",
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_train2863_summary.json": "b0ef5efcbb53d56fc067debec829dd82c9f3ade1c6e98512db39da64679d9412",
+    "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/summary.json": "2198f8883a69dd1e47307e26a22f56c8549ae2a34fbcc39c1d28986bda72cd08"
+  },
+  "data_semantics_correction": {
+    "affected_train3163_examples": 672,
+    "corrected_train_complete_successes": "see corrected_train2863_summary.json",
+    "finding": "V10/V13 active_levels is the fixed five-class value grid; attainable_levels is the role-specific contract set.",
+    "impact": "Earlier V16-B/C train and internal DP audits treated unattainable 0.95 as active for these examples. V16-C1 primary-0.90 empirical development result remains observed, but its auxiliary DP labels and complete/regret causal interpretation are not valid."
+  },
+  "decision": "GO_V17B_MULTI_ANCHOR_VIABILITY_DESIGN",
+  "evidence": {
+    "development_cost_q_coverage_through_hop2": "75/151",
+    "development_feasibility_q_coverage_through_hop1": "147/151",
+    "development_fid_queries_critical": "22/22",
+    "internal_cost_q_coverage_through_hop2": "67/129",
+    "internal_feasibility_q_coverage_through_hop1": "129/129",
+    "internal_fid_queries_critical": "19/19",
+    "train_deployed_critical_action_examples": 201413,
+    "train_deployed_feasibility_critical_states": 6200,
+    "train_deployed_primary_090_critical_states": 1834,
+    "train_through_hop1_critical_action_examples": 1382109,
+    "train_through_hop1_feasibility_critical_states": 41118
+  },
+  "fresh_confirmation_opened": false,
+  "full_cost_regression_authorized": false,
+  "interpretation": "Counterfactual expansion resolves the sparse structural feasibility coverage problem, including the four-anchor development failure class that the erroneous five-level labels hid. Fine-grained token-cost consequence signatures remain only about half covered, so the next model may test multi-anchor viability and beam survival but must not claim or optimize a fully transferable continuous cost Q-function.",
+  "learned_cutoff_opened": false,
+  "locked_roles_used": false,
+  "model_training_authorized_by_this_audit": false,
+  "required_v17b_controls": [
+    "use attainable_levels whenever present and assert it is a subset of the fixed classifier grid",
+    "train on train2863 only; internal validation is the sole opening gate and consumed development is not used for iteration",
+    "use deployed plus one-hop decision-critical states; do not add hop2 based on consumed-development coverage",
+    "predict per-anchor future viability with an auxiliary exact-DP set target and optimize beam survival",
+    "defer continuous future-token-cost regression until its train-to-validation coverage is improved",
+    "keep add-only deployment, V8 initialization, frozen backbone/LoRA, beam8, and one fixed endpoint"
+  ]
+}
