@@ -1041,3 +1041,39 @@ is wrong per-level prediction, missing structural coverage, and progress-mask
 suppression. A standalone terminal reranker is also not authorized from only
 two directly repairable examples. Development, hop two, continuous cost
 prediction, learned cutoff, and fresh confirmation remain closed.
+
+## V17-D1A scoring counterfactual and boundary-coverage audit
+
+D1A replayed six frozen scoring modes over the canonical internal300 without
+training or threshold selection. Forcing the 0.90 residual active increased
+the original ten fixed-event correct residual directions from 1/10 to 4/10.
+Using only the 0.90 head while retaining the predicted progress mask remained
+at 1/10; forcing 0.90 active and using target-local scoring also reached 4/10.
+Thus the gain comes from repairing progress-mask suppression rather than from
+discarding multi-anchor aggregation.
+
+Full beam8 replay gives the same conclusion. Both force-0.90-active modes and
+the exact-unresolved diagnostic ceiling repair one canonical failure with zero
+breaks: 0.90 improves from 279/300 to 280/300 and complete trajectories from
+274 to 275. Fidelity 0.60/0.70/0.80/0.95 remains exactly
+296/295/294/238. Target-local scoring without the mask repair changes no
+contract outcome. The repaired example is `56847__wikitables_composition__train`.
+Mean complete regret remains below the frozen 0.03 limit, although it rises
+from 0.02370 to 0.02469 under the selected multi-anchor force-active mode.
+
+The repair is real but limited. The remaining first-prune median rescue margin
+does not improve, and even the exact-unresolved target-local ceiling stops at
+280/300. Therefore the mask accounts for one failure but cannot explain the
+remaining learned 0.90 ranking errors. The allowed train2863 deployed plus
+one-hop pool contains 14,087 strict 0.90 boundary states, comprising 1,834
+deployed and 12,253 one-hop states, 117,153 positive-negative action pairs,
+and 428 strict structural signatures.
+
+The D1A decision is `STOP_TRAINING_APPLY_SCORING_PROTOCOL_FIX_FIRST`. The
+deployable scoring fix keeps the existing multi-anchor aggregation but treats
+attainable 0.90 as conservatively active instead of allowing frozen predicted
+progress to suppress it. Target-local scoring is not adopted. Pairwise or
+representation training remains unauthorized until the existing boundary
+corpus is tested for direction learnability under frozen representations.
+Development, hop two, trajectory loss, terminal reranking, continuous cost,
+learned cutoff, and confirmation remain closed.

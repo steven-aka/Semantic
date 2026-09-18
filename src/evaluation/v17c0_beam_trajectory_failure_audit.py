@@ -29,10 +29,13 @@ def replay(
     dp: SequentialTrajectoryDP,
     *,
     residual_enabled: bool,
+    scoring_mode: str = "current",
     oracle_keep_one: bool = False,
     full_trace: bool = False,
     beam_width: int = 8,
 ) -> dict[str, Any]:
+    if scoring_mode not in {"current", "force_target_090", "target_local_090", "force_target_local_090", "oracle_unresolved_target_local_090"}:
+        raise ValueError(f"unknown scoring mode: {scoring_mode}")
     primary = next(i for i, level in enumerate(dp.levels) if abs(level - .9) < 1e-9)
     # total score, base score, normalized residual effect, history, recurrent state, mask, reached
     beams = [(0.0, 0.0, 0.0, (), torch.tanh(model.initial_history(question[None]))[0], 0, dp.attained[0])]
@@ -43,7 +46,18 @@ def replay(
             if row[3]: selected[i,list(row[3])]=True
         ps=packets[None].expand(count,-1,-1); qs=question[None].expand(count,-1); indices=torch.arange(count,device=packets.device); fs=fractions[None].expand(count,-1)
         features,progress=model.action_features(ps,qs,states,selected,indices,fs); base_logits=model.action_head(features).squeeze(-1).masked_fill(selected,-torch.inf)
-        active=model.deployment_active_target_mask(progress,torch.full((count,),len(dp.levels),device=packets.device)); viability_logits,raw_residual=model.viability_head(features,active)
+        active=model.deployment_active_target_mask(progress,torch.full((count,),len(dp.levels),device=packets.device)).clone()
+        if scoring_mode in {"force_target_090", "force_target_local_090"}:
+            active[:,:,3]=True
+        elif scoring_mode=="oracle_unresolved_target_local_090":
+            active=torch.zeros_like(active)
+            for beam_index,row in enumerate(beams):
+                for local,level in enumerate(dp.levels):
+                    grid_index=next(j for j,x in enumerate((.6,.7,.8,.9,.95)) if abs(x-level)<1e-9)
+                    active[beam_index,:,grid_index]=local>=row[6]
+        viability_logits,raw_residual=model.viability_head(features,active)
+        if scoring_mode in {"target_local_090", "force_target_local_090", "oracle_unresolved_target_local_090"}:
+            raw_residual=model.viability_head.residual_scale*viability_logits[:,:,3]*active[:,:,3].to(viability_logits.dtype)
         combined_logits=base_logits+raw_residual if residual_enabled else base_logits
         base_logp=torch.log_softmax(base_logits.float(),dim=-1).cpu(); combined_logp=torch.log_softmax(combined_logits.float(),dim=-1).cpu()
         next_states=model.history_gru(ps.reshape(-1,model.model_dim),states[:,None,:].expand(-1,12,-1).reshape(-1,model.model_dim)).reshape(count,12,model.model_dim)

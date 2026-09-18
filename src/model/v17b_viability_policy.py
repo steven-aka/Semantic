@@ -55,6 +55,7 @@ class V17BViabilityPolicy(SequentialPacketPolicy):
         *,
         active_level_count: int,
         beam_width: int = 8,
+        force_primary_090_active: bool = False,
     ) -> tuple[int, ...]:
         dtype = self.initial_history.weight.dtype
         packets, question = packets.to(dtype), question.to(dtype)
@@ -70,6 +71,9 @@ class V17BViabilityPolicy(SequentialPacketPolicy):
             fractions = packet_token_fractions[None].expand(count, -1)
             features, progress = self.action_features(expanded_packets, expanded_questions, states, selected, indices, fractions)
             active = self.deployment_active_target_mask(progress, torch.full((count,), active_level_count, device=packets.device))
+            if force_primary_090_active:
+                active = active.clone()
+                active[:, :, 3] = True
             base = self.action_head(features).squeeze(-1)
             _, residual = self.viability_head(features, active)
             logits = (base + residual).masked_fill(selected, torch.finfo(base.dtype).min)

@@ -1,0 +1,37 @@
+{
+  "decision": "STOP_TRAINING_APPLY_SCORING_PROTOCOL_FIX_FIRST",
+  "evidence": {
+    "breaks": 0,
+    "canonical_090_after": 280,
+    "canonical_090_before": 279,
+    "complete_after": 275,
+    "complete_before": 274,
+    "fixed_event_direction_current": 1,
+    "fixed_event_direction_force_090": 4,
+    "fixed_event_direction_target_local": 1,
+    "oracle_unresolved_ceiling_090": 280,
+    "other_anchor_regressions": 0,
+    "repairs": 1,
+    "strict_boundary_pairs": 117153,
+    "strict_boundary_states": 14087
+  },
+  "interpretation": "The hard predicted-progress mask causally hides useful 0.90 signal for one failure. Target-local aggregation adds no benefit. Most remaining failures are learned ranking/calibration failures, not mask failures.",
+  "next_required_work": [
+    "implement the frozen force-0.90-active decoder protocol without changing checkpoint",
+    "regression-test canonical 280/300 and zero lower-anchor breaks",
+    "audit frozen-representation direction learnability on the existing train-only critical boundary corpus before authorizing pairwise training"
+  ],
+  "sealed": {
+    "confirmation": true,
+    "continuous_cost": true,
+    "development": true,
+    "hop2": true,
+    "learned_cutoff": true,
+    "terminal_reranker": true,
+    "training": true,
+    "trajectory_loss": true
+  },
+  "selected_scoring_protocol": "force attainable 0.90 active; retain multi-anchor aggregation",
+  "target_local_scoring_adopted": false,
+  "training_authorized": false
+}

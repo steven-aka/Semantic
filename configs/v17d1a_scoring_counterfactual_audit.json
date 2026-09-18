@@ -1,0 +1,8 @@
+{
+  "protocol": "v17d1a_scoring_counterfactual_and_boundary_coverage_audit",
+  "status": "COMPLETE_STOP_TRAINING_APPLY_FORCE_090_ACTIVE_SCORING_FIX_FIRST",
+  "date": "2026-09-18 Asia/Shanghai",
+  "modes": ["residual_off", "current", "force_target_090", "target_local_090", "force_target_local_090", "oracle_unresolved_target_local_090"],
+  "weights_and_thresholds_tuned": false,
+  "sealed": ["development", "hop2", "all training", "trajectory loss", "terminal reranker", "continuous token cost", "learned cutoff", "confirmation"]
+}

@@ -1,0 +1,10 @@
+{
+  "allowed_states": 47318,
+  "by_provenance": {
+    "deployed": 1834,
+    "one_hop": 12253
+  },
+  "strict_primary_action_pairs": 117153,
+  "strict_primary_boundary_states": 14087,
+  "unique_strict_signatures": 428
+}

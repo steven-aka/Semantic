@@ -1,0 +1,408 @@
+{
+  "artifacts": {
+    "data_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "embeddings_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+    "viability_head_sha256": "82788e84b930b31feb8d01ee7921cbe88b2a15c677c8c7de482dbbfd80dacf88"
+  },
+  "boundary_coverage": {
+    "allowed_states": 47318,
+    "by_provenance": {
+      "deployed": 1834,
+      "one_hop": 12253
+    },
+    "strict_primary_action_pairs": 117153,
+    "strict_primary_boundary_states": 14087,
+    "unique_strict_signatures": 428
+  },
+  "complete": true,
+  "fixed_wrong_direction_sign_accuracy": {
+    "current": 1,
+    "force_target_090": 4,
+    "force_target_local_090": 4,
+    "target_local_090": 1
+  },
+  "modes": {
+    "current": {
+      "complete_successes": 274,
+      "first_prune_events": 19,
+      "mean_complete_regret": 0.02370130029092933,
+      "median_minimum_rescue_margin": 0.26134056697948077,
+      "per_level": {
+        "0.6": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 296
+        },
+        "0.7": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 295
+        },
+        "0.8": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 294
+        },
+        "0.9": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 279
+        },
+        "0.95": {
+          "breaks_vs_residual_off": 0,
+          "examples": 243,
+          "repairs_vs_residual_off": 0,
+          "successes": 238
+        }
+      },
+      "primary_failure_ids": [
+        "15276__wikidata_simple__train",
+        "15318__wikidata_simple__train",
+        "15579__wikidata_simple__train",
+        "17593__wikidata_simple__train",
+        "26039__wikidata_simple__train",
+        "55218__wikidata_intersection__train",
+        "55233__wikidata_intersection__train",
+        "55252__wikidata_intersection__train",
+        "55391__wikidata_intersection__train",
+        "55895__wikidata_intersection__train",
+        "56763__wikitables_composition__train",
+        "56847__wikitables_composition__train",
+        "56871__wikitables_composition__train",
+        "57031__wikitables_composition__train",
+        "57495__wikitables_composition__train",
+        "59267__wikitables_composition__train",
+        "59563__wikitables_composition__train",
+        "59679__wikitables_composition__train",
+        "59720__wikitables_composition__train",
+        "60237__wikitables_composition__train",
+        "61907__wikitables_composition__train"
+      ]
+    },
+    "force_target_090": {
+      "complete_successes": 275,
+      "first_prune_events": 18,
+      "mean_complete_regret": 0.024693695233328043,
+      "median_minimum_rescue_margin": 0.29178482766611674,
+      "per_level": {
+        "0.6": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 296
+        },
+        "0.7": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 295
+        },
+        "0.8": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 294
+        },
+        "0.9": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 1,
+          "successes": 280
+        },
+        "0.95": {
+          "breaks_vs_residual_off": 0,
+          "examples": 243,
+          "repairs_vs_residual_off": 0,
+          "successes": 238
+        }
+      },
+      "primary_breaks_vs_current_b1": 0,
+      "primary_failure_ids": [
+        "15276__wikidata_simple__train",
+        "15318__wikidata_simple__train",
+        "15579__wikidata_simple__train",
+        "17593__wikidata_simple__train",
+        "26039__wikidata_simple__train",
+        "55218__wikidata_intersection__train",
+        "55233__wikidata_intersection__train",
+        "55252__wikidata_intersection__train",
+        "55391__wikidata_intersection__train",
+        "55895__wikidata_intersection__train",
+        "56763__wikitables_composition__train",
+        "56871__wikitables_composition__train",
+        "57031__wikitables_composition__train",
+        "57495__wikitables_composition__train",
+        "59267__wikitables_composition__train",
+        "59563__wikitables_composition__train",
+        "59679__wikitables_composition__train",
+        "59720__wikitables_composition__train",
+        "60237__wikitables_composition__train",
+        "61907__wikitables_composition__train"
+      ],
+      "primary_repairs_vs_current_b1": 1
+    },
+    "force_target_local_090": {
+      "complete_successes": 275,
+      "first_prune_events": 18,
+      "mean_complete_regret": 0.024439292525634048,
+      "median_minimum_rescue_margin": 0.30868765066726306,
+      "per_level": {
+        "0.6": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 296
+        },
+        "0.7": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 295
+        },
+        "0.8": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 294
+        },
+        "0.9": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 1,
+          "successes": 280
+        },
+        "0.95": {
+          "breaks_vs_residual_off": 0,
+          "examples": 243,
+          "repairs_vs_residual_off": 0,
+          "successes": 238
+        }
+      },
+      "primary_breaks_vs_current_b1": 0,
+      "primary_failure_ids": [
+        "15276__wikidata_simple__train",
+        "15318__wikidata_simple__train",
+        "15579__wikidata_simple__train",
+        "17593__wikidata_simple__train",
+        "26039__wikidata_simple__train",
+        "55218__wikidata_intersection__train",
+        "55233__wikidata_intersection__train",
+        "55252__wikidata_intersection__train",
+        "55391__wikidata_intersection__train",
+        "55895__wikidata_intersection__train",
+        "56763__wikitables_composition__train",
+        "56871__wikitables_composition__train",
+        "57031__wikitables_composition__train",
+        "57495__wikitables_composition__train",
+        "59267__wikitables_composition__train",
+        "59563__wikitables_composition__train",
+        "59679__wikitables_composition__train",
+        "59720__wikitables_composition__train",
+        "60237__wikitables_composition__train",
+        "61907__wikitables_composition__train"
+      ],
+      "primary_repairs_vs_current_b1": 1
+    },
+    "oracle_unresolved_target_local_090": {
+      "complete_successes": 275,
+      "first_prune_events": 18,
+      "mean_complete_regret": 0.02436569031636708,
+      "median_minimum_rescue_margin": 0.30868765066726306,
+      "per_level": {
+        "0.6": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 296
+        },
+        "0.7": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 295
+        },
+        "0.8": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 294
+        },
+        "0.9": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 1,
+          "successes": 280
+        },
+        "0.95": {
+          "breaks_vs_residual_off": 0,
+          "examples": 243,
+          "repairs_vs_residual_off": 0,
+          "successes": 238
+        }
+      },
+      "primary_breaks_vs_current_b1": 0,
+      "primary_failure_ids": [
+        "15276__wikidata_simple__train",
+        "15318__wikidata_simple__train",
+        "15579__wikidata_simple__train",
+        "17593__wikidata_simple__train",
+        "26039__wikidata_simple__train",
+        "55218__wikidata_intersection__train",
+        "55233__wikidata_intersection__train",
+        "55252__wikidata_intersection__train",
+        "55391__wikidata_intersection__train",
+        "55895__wikidata_intersection__train",
+        "56763__wikitables_composition__train",
+        "56871__wikitables_composition__train",
+        "57031__wikitables_composition__train",
+        "57495__wikitables_composition__train",
+        "59267__wikitables_composition__train",
+        "59563__wikitables_composition__train",
+        "59679__wikitables_composition__train",
+        "59720__wikitables_composition__train",
+        "60237__wikitables_composition__train",
+        "61907__wikitables_composition__train"
+      ],
+      "primary_repairs_vs_current_b1": 1
+    },
+    "residual_off": {
+      "complete_successes": 274,
+      "first_prune_events": 18,
+      "mean_complete_regret": 0.02413289770733401,
+      "median_minimum_rescue_margin": 0.31102570991380313,
+      "per_level": {
+        "0.6": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 296
+        },
+        "0.7": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 295
+        },
+        "0.8": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 294
+        },
+        "0.9": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 279
+        },
+        "0.95": {
+          "breaks_vs_residual_off": 0,
+          "examples": 243,
+          "repairs_vs_residual_off": 0,
+          "successes": 238
+        }
+      },
+      "primary_failure_ids": [
+        "15276__wikidata_simple__train",
+        "15318__wikidata_simple__train",
+        "15579__wikidata_simple__train",
+        "17593__wikidata_simple__train",
+        "26039__wikidata_simple__train",
+        "55218__wikidata_intersection__train",
+        "55233__wikidata_intersection__train",
+        "55252__wikidata_intersection__train",
+        "55391__wikidata_intersection__train",
+        "55895__wikidata_intersection__train",
+        "56763__wikitables_composition__train",
+        "56847__wikitables_composition__train",
+        "56871__wikitables_composition__train",
+        "57031__wikitables_composition__train",
+        "57495__wikitables_composition__train",
+        "59267__wikitables_composition__train",
+        "59563__wikitables_composition__train",
+        "59679__wikitables_composition__train",
+        "59720__wikitables_composition__train",
+        "60237__wikitables_composition__train",
+        "61907__wikitables_composition__train"
+      ]
+    },
+    "target_local_090": {
+      "complete_successes": 274,
+      "first_prune_events": 19,
+      "mean_complete_regret": 0.023684028159992963,
+      "median_minimum_rescue_margin": 0.2729526321159134,
+      "per_level": {
+        "0.6": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 296
+        },
+        "0.7": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 295
+        },
+        "0.8": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 294
+        },
+        "0.9": {
+          "breaks_vs_residual_off": 0,
+          "examples": 300,
+          "repairs_vs_residual_off": 0,
+          "successes": 279
+        },
+        "0.95": {
+          "breaks_vs_residual_off": 0,
+          "examples": 243,
+          "repairs_vs_residual_off": 0,
+          "successes": 238
+        }
+      },
+      "primary_breaks_vs_current_b1": 0,
+      "primary_failure_ids": [
+        "15276__wikidata_simple__train",
+        "15318__wikidata_simple__train",
+        "15579__wikidata_simple__train",
+        "17593__wikidata_simple__train",
+        "26039__wikidata_simple__train",
+        "55218__wikidata_intersection__train",
+        "55233__wikidata_intersection__train",
+        "55252__wikidata_intersection__train",
+        "55391__wikidata_intersection__train",
+        "55895__wikidata_intersection__train",
+        "56763__wikitables_composition__train",
+        "56847__wikitables_composition__train",
+        "56871__wikitables_composition__train",
+        "57031__wikitables_composition__train",
+        "57495__wikitables_composition__train",
+        "59267__wikitables_composition__train",
+        "59563__wikitables_composition__train",
+        "59679__wikitables_composition__train",
+        "59720__wikitables_composition__train",
+        "60237__wikitables_composition__train",
+        "61907__wikitables_composition__train"
+      ],
+      "primary_repairs_vs_current_b1": 0
+    }
+  },
+  "sealed": {
+    "confirmation": true,
+    "continuous_cost": true,
+    "development": true,
+    "hop2": true,
+    "learned_cutoff": true,
+    "terminal_reranker": true,
+    "training": true,
+    "trajectory_loss": true
+  }
+}
