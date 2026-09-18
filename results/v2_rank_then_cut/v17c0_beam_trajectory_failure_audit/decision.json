@@ -1,0 +1,33 @@
+{
+  "causal_baseline_correction": {
+    "b1_induced_breaks": 0,
+    "finding": "56847 is not a residual-induced break under the paired harness.",
+    "historical_v8_order_matches": 202,
+    "same_harness_residual_off_090_successes": 279
+  },
+  "decision": "STOP_V17C1_TRAJECTORY_OBJECTIVE_RETURN_TO_VIABILITY_AND_TERMINAL_SELECTION",
+  "next_required_work": [
+    "audit viability calibration at the 10 wrong-direction first-prune events",
+    "separate terminal beam survival from top-1 terminal selection",
+    "do not implement trajectory loss until the wrong-direction residual cases are resolved"
+  ],
+  "reason": {
+    "first_irreversible_prune_events": 19,
+    "median_minimum_rescue_margin": 0.26134056697948077,
+    "nonpositive_residual_direction": 10,
+    "oracle_keep_one_plus_terminal_select_repairs": 21,
+    "oracle_keep_one_terminal_survival": 21,
+    "oracle_keep_one_top1_repairs": 0,
+    "persistent_failures": 21,
+    "positive_residual_direction": 9,
+    "terminal_selection_failures": 2
+  },
+  "sealed": {
+    "continuous_token_cost": true,
+    "development": true,
+    "fresh_confirmation": true,
+    "hop2": true,
+    "learned_cutoff": true
+  },
+  "trajectory_objective_authorized": false
+}

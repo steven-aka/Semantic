@@ -1,0 +1,10 @@
+{
+  "protocol": "v17c0_beam_trajectory_failure_audit",
+  "status": "COMPLETE_STOP_TRAJECTORY_OBJECTIVE_RETURN_TO_VIABILITY_AND_TERMINAL_SELECTION",
+  "date": "2026-09-18 Asia/Shanghai",
+  "population": "internal_validation300 with full paired replay; detailed failure table for all V17-B1 0.90 failures",
+  "paired_break": "56847__wikitables_composition__train",
+  "score_decomposition": "normalized log-prob residual effect = log p_B1(action|state) - log p_V8(action|state)",
+  "counterfactuals": ["residual off", "oracle keep one viable", "oracle keep one viable plus terminal viable selection"],
+  "sealed": ["development", "confirmation", "hop2", "continuous token cost", "learned cutoff", "all training"]
+}

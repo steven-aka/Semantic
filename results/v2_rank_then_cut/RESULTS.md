@@ -975,3 +975,35 @@ The unchanged or worse exact-DP auxiliary supports the same interpretation.
 The formal decision is `STOP_V17B1_INTERNAL_GATE`; development300, learned
 cutoff, and fresh confirmation remain closed. No learning-rate, loss-weight,
 step-count, or residual-scale retuning is authorized from this run.
+
+## V17-C0 beam trajectory failure audit
+
+V17-C0 replayed residual-off and V17-B1 beam8 under one deterministic harness
+before attributing any order change to the learned residual. This exposed an
+important evaluation-path confound: residual-off reproduced only 202/300 full
+historical V8 orders. The historical traces used online bfloat16 encoding,
+whereas B1 used cached embeddings and a float32 frozen head. Under the shared
+C0 harness, residual-off and B1 both reached 279/300 at fidelity 0.90 and had
+the same 21 failures. Thus the apparent `56847` clean break was not caused by
+the residual; residual-off also fails that example in the paired harness.
+
+Of the 21 shared failures, 19 lose their last 0.90-viable beam branch and two
+retain a viable terminal branch but select a non-viable top-1. At the 19 first
+irreversible prune events, nine have a positive normalized residual margin and
+ten have a nonpositive residual margin. The mean base margin is -0.7220, the
+mean normalized residual margin is -0.00136, and the median minimum rescue
+margin is 0.26134 cumulative log-probability. The most common extinction depth
+is nine, accounting for 9/19 events.
+
+`oracle-keep-one-viable` leaves at least one viable terminal trajectory in all
+21 cases, but it repairs zero top-1 outputs by itself. Adding oracle terminal
+selection repairs all 21. This validates the exact-DP 0.90 labels and decoder
+state semantics, while showing that branch survival and terminal selection are
+separate bottlenecks.
+
+The frozen decision rule does not authorize a V17-C1 trajectory objective:
+only 9/19 prune events have residual help in the correct direction, while
+10/19 show the local viability residual worsening the critical comparison.
+The result instead requires returning to viability calibration and explicitly
+auditing terminal selection. Development, hop two, continuous cost prediction,
+learned cutoff, and fresh confirmation remain closed.

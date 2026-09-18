@@ -1,0 +1,26 @@
+{
+  "artifacts": {
+    "data_sha256": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "embeddings_sha256": "54c1ae3e39cdbdfd6edf71d6ace5a3f0f33e387a9ee792fa129ce7c02901dd00",
+    "viability_head_sha256": "82788e84b930b31feb8d01ee7921cbe88b2a15c677c8c7de482dbbfd80dacf88"
+  },
+  "b1_failures_that_are_persistent_under_residual_off": 21,
+  "b1_induced_breaks_under_same_harness": 0,
+  "b1_primary_090_failures": 21,
+  "complete": true,
+  "development_used": false,
+  "examples": 300,
+  "failure_classes": {
+    "A_inherited_cumulative_deficit": 9,
+    "B_residual_wrong_direction": 10,
+    "terminal_selection": 2
+  },
+  "fresh_confirmation_opened": false,
+  "hop2_used": false,
+  "learned_cutoff_opened": false,
+  "oracle_keep_one_plus_terminal_select_repairs": 21,
+  "positive_residual_direction_at_first_prune": 9,
+  "same_harness_b1_matches_saved_b1_orders_in_audited_subset": 21,
+  "same_harness_residual_off_matches_historical_v8_orders": 202,
+  "same_harness_residual_off_primary_090_successes": 279
+}
