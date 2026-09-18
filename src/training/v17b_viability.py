@@ -51,6 +51,26 @@ def set_valued_action_loss(action_logits: torch.Tensor, optimal_mask: torch.Tens
     return (denominator - numerator).mean()
 
 
+def viability_mass_loss(
+    action_logits: torch.Tensor,
+    viability_targets: torch.Tensor,
+    target_mask: torch.Tensor,
+    legal_mask: torch.Tensor,
+) -> torch.Tensor:
+    """Local beam-survival surrogate: retain probability mass on every viable action set."""
+    log_probs = torch.log_softmax(action_logits.float().masked_fill(~legal_mask, -torch.inf), dim=1)
+    losses = []
+    for state in range(action_logits.shape[0]):
+        for anchor in range(viability_targets.shape[-1]):
+            active = target_mask[state, :, anchor] & legal_mask[state]
+            positive = active & viability_targets[state, :, anchor].bool()
+            if bool(active.any()) and bool(positive.any()):
+                losses.append(-torch.logsumexp(log_probs[state].masked_fill(~positive, -torch.inf), dim=0))
+    if not losses:
+        raise ValueError("batch has no viable active-anchor action set")
+    return torch.stack(losses).mean()
+
+
 @dataclass(frozen=True)
 class StratifiedStateSampler:
     """Query-balanced 50/50 deployed/one-hop sampling frozen for V17-B1."""

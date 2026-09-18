@@ -1,0 +1,26 @@
+{
+  "protocol": "v17b1_multi_anchor_viability",
+  "status": "COMPLETE_STOP_INTERNAL_GATE",
+  "date": "2026-09-18 Asia/Shanghai",
+  "arguments": {
+    "artifact": "results/v2_rank_then_cut/v17b0_multi_anchor_viability_protocol/train2863_deployed_hop1_viability_states.jsonl.gz",
+    "train_data": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+    "internal_data": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl",
+    "embeddings": "results/v2_rank_then_cut/v10_train3163_v8_embeddings.pt",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "checkpoint": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250",
+    "v8_internal_details": "results/v2_rank_then_cut/v17a_counterfactual_branch_audit/corrected_internal_validation300_details.jsonl.gz",
+    "output_dir": "results/v2_rank_then_cut/v17b1_multi_anchor_viability_seed20260918",
+    "steps": 750,
+    "batch_size": 64,
+    "learning_rate": 0.0002,
+    "warmup_steps": 50,
+    "hidden_dim": 128,
+    "survival_weight": 0.25,
+    "dp_weight": 0.1,
+    "seed": 20260918
+  },
+  "endpoint": "single fixed step750; no checkpoint selection",
+  "development": "closed unless the preregistered internal gate passes",
+  "confirmation": "closed"
+}

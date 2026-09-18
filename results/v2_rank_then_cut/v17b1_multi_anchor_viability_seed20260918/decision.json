@@ -1,0 +1,67 @@
+{
+  "changes_from_v8": {
+    "0.6": {
+      "breaks": 0,
+      "examples": 300,
+      "net": 0,
+      "repairs": 0
+    },
+    "0.7": {
+      "breaks": 0,
+      "examples": 300,
+      "net": 0,
+      "repairs": 0
+    },
+    "0.8": {
+      "breaks": 0,
+      "examples": 300,
+      "net": 0,
+      "repairs": 0
+    },
+    "0.9": {
+      "breaks": 1,
+      "examples": 300,
+      "net": -1,
+      "repairs": 0
+    },
+    "0.95": {
+      "breaks": 0,
+      "examples": 243,
+      "net": 0,
+      "repairs": 0
+    }
+  },
+  "decision": "STOP_V17B1_INTERNAL_GATE",
+  "development_used": false,
+  "fresh_confirmation_opened": false,
+  "gate_passed": false,
+  "internal": {
+    "complete": true,
+    "complete_trajectory_successes": 274,
+    "decoder": "V17 viability residual add-only beam8",
+    "examples": 300,
+    "mean_complete_regret": 0.02370130029092933,
+    "per_level": {
+      "0.6": {
+        "contract_successes": 296,
+        "examples": 300
+      },
+      "0.7": {
+        "contract_successes": 295,
+        "examples": 300
+      },
+      "0.8": {
+        "contract_successes": 294,
+        "examples": 300
+      },
+      "0.9": {
+        "contract_successes": 279,
+        "examples": 300
+      },
+      "0.95": {
+        "contract_successes": 238,
+        "examples": 243
+      }
+    }
+  }
+}

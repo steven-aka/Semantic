@@ -1,0 +1,47 @@
+{
+  "complete": true,
+  "decision": "STOP_V17B1_INTERNAL_GATE",
+  "decoded_orders_changed": 105,
+  "development_used": false,
+  "failed_queries_repaired": 0,
+  "failed_queries_with_changed_order": 10,
+  "first_changed_depth_distribution": {
+    "1": 13,
+    "2": 12,
+    "3": 16,
+    "4": 12,
+    "5": 13,
+    "6": 12,
+    "7": 9,
+    "8": 7,
+    "9": 9,
+    "11": 2
+  },
+  "fresh_confirmation_opened": false,
+  "interpretation": "The local viability residual materially changed decoding but did not repair any primary-0.90 failure. The next diagnostic must test local-label calibration against cumulative beam competition; endpoint retuning is not justified.",
+  "new_primary_090_breaks": [
+    {
+      "example_id": "56847__wikitables_composition__train",
+      "first_changed_depth": 5
+    }
+  ],
+  "training_window_means": {
+    "dp": {
+      "first5": 0.6390022277832031,
+      "last5": 0.7217567205429077
+    },
+    "loss": {
+      "first5": 0.29815271198749543,
+      "last5": 0.1783874124288559
+    },
+    "survival": {
+      "first5": 0.059934528172016145,
+      "last5": 0.030099738016724588
+    },
+    "viability": {
+      "first5": 0.2192688524723053,
+      "last5": 0.09868680238723755
+    }
+  },
+  "v8_primary_090_failures": 20
+}

@@ -5,7 +5,7 @@ from torch import nn
 
 from src.data.build_v17b0_viability_artifact import build_state
 from src.search.sequential_trajectory_dp import SequentialTrajectoryDP
-from src.training.v17b_viability import StratifiedStateSampler, ViabilityResidualHead, masked_viability_loss, set_valued_action_loss
+from src.training.v17b_viability import StratifiedStateSampler, ViabilityResidualHead, masked_viability_loss, set_valued_action_loss, viability_mass_loss
 from src.model.v17b_viability_policy import V17BViabilityPolicy
 from tests.test_sequential_trajectory_dp import row
 
@@ -33,6 +33,8 @@ class V17BViabilityTest(unittest.TestCase):
         self.assertTrue(torch.isfinite(loss)); loss.backward()
         self.assertIsNotNone(head.viability[0].weight.grad)
         self.assertIsNotNone(head.residual_scale.grad)
+        survival = viability_mass_loss(action_logits, targets, target_mask, legal)
+        self.assertTrue(torch.isfinite(survival))
 
     def test_sampler_is_exactly_half_each_layer(self):
         rows = [{"provenance": layer, "example_id": f"q{i}"} for layer in ("deployed", "one_hop") for i in range(3)]

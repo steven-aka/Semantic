@@ -946,3 +946,32 @@ break; lower anchors have no breaks.
 The B0 decision is `READY_FOR_V17B1_SINGLE_FORMAL_RUN`. This authorizes one
 fixed-endpoint train2863 run followed by the preregistered internal opening
 gate. It does not authorize development-driven tuning or confirmation access.
+
+## V17-B1 multi-anchor viability residual
+
+V17-B1 ran the single frozen step750 endpoint on the 47,318-state B0 artifact.
+It used cached V8 embeddings and updated only the five-anchor viability head
+and its zero-initialized residual scale. The viability objective fell from
+0.663 at step one to 0.082 at the endpoint; the mean of the final five logged
+viability losses was 0.099 versus 0.219 for the first five. The local survival
+term also decreased from 0.060 to 0.030 across those windows. The exact-DP
+auxiliary did not improve (0.639 to 0.722), and the learned residual scale
+remained modest at 0.0633.
+
+The preregistered internal gate failed. Relative to corrected V8, fidelity
+0.60/0.70/0.80/0.95 stayed exactly at 296/295/294/238, while 0.90 fell from
+280 to 279 through zero repairs and one break. Complete trajectories fell from
+275 to 274, although mean complete regret improved from 0.02510 to 0.02370.
+The endpoint changed 105/300 decoded orders and changed ten of the twenty V8
+0.90-failure orders, yet repaired none. The sole new failure was
+`56847__wikitables_composition__train`, whose first order difference occurred
+at reveal depth five.
+
+This rules out the narrow explanation that the residual was simply too small
+to alter decoding: it changed one third of the orders and half of the existing
+0.90 failures. The evidence instead points to a mismatch between state-local
+future-viability supervision and cumulative beam-level trajectory competition.
+The unchanged or worse exact-DP auxiliary supports the same interpretation.
+The formal decision is `STOP_V17B1_INTERNAL_GATE`; development300, learned
+cutoff, and fresh confirmation remain closed. No learning-rate, loss-weight,
+step-count, or residual-scale retuning is authorized from this run.

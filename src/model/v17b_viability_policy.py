@@ -46,3 +46,42 @@ class V17BViabilityPolicy(SequentialPacketPolicy):
     def freeze_v8(self) -> None:
         for name, parameter in self.named_parameters():
             parameter.requires_grad = name.startswith("viability_head.")
+
+    def beam_order_v17(
+        self,
+        packets: torch.Tensor,
+        question: torch.Tensor,
+        packet_token_fractions: torch.Tensor,
+        *,
+        active_level_count: int,
+        beam_width: int = 8,
+    ) -> tuple[int, ...]:
+        dtype = self.initial_history.weight.dtype
+        packets, question = packets.to(dtype), question.to(dtype)
+        beams = [(0.0, (), torch.tanh(self.initial_history(question[None]))[0])]
+        for _ in range(12):
+            count = len(beams); states = torch.stack([row[2] for row in beams])
+            selected = torch.zeros((count, 12), dtype=torch.bool, device=packets.device)
+            for index, (_, history, _) in enumerate(beams):
+                if history: selected[index, list(history)] = True
+            expanded_packets = packets[None].expand(count, -1, -1)
+            expanded_questions = question[None].expand(count, -1)
+            indices = torch.arange(count, device=packets.device)
+            fractions = packet_token_fractions[None].expand(count, -1)
+            features, progress = self.action_features(expanded_packets, expanded_questions, states, selected, indices, fractions)
+            active = self.deployment_active_target_mask(progress, torch.full((count,), active_level_count, device=packets.device))
+            base = self.action_head(features).squeeze(-1)
+            _, residual = self.viability_head(features, active)
+            logits = (base + residual).masked_fill(selected, torch.finfo(base.dtype).min)
+            log_prob = torch.log_softmax(logits.float(), dim=-1).cpu()
+            next_states = self.history_gru(
+                expanded_packets.reshape(-1, self.model_dim),
+                states[:, None, :].expand(-1, 12, -1).reshape(-1, self.model_dim),
+            ).reshape(count, 12, self.model_dim)
+            expanded = []
+            for index, (score, history, _) in enumerate(beams):
+                for packet in range(12):
+                    if not selected[index, packet]:
+                        expanded.append((score + float(log_prob[index, packet]), history + (packet,), next_states[index, packet]))
+            expanded.sort(key=lambda row: (-row[0], row[1])); beams = expanded[:beam_width]
+        return beams[0][1]
