@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "elapsed_seconds": 682.1954708079575,
+  "max_break_repair_probability": 0.31393057107925415,
+  "repair_probabilities": [
+    0.1934429258108139,
+    0.5903714299201965,
+    0.41104263067245483,
+    0.12902314960956573,
+    0.1357785165309906,
+    0.17830201983451843
+  ],
+  "repair_recall_at_zero_pair_break": 0.3333333333333333,
+  "repairs": 6,
+  "repairs_recovered": 2,
+  "scientific_role": "raw-text LoRA positive control on fixed internal validation; diagnostic only"
+}

@@ -1,0 +1,107 @@
+{
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v15_development300_counterfactual_pairs.jsonl": "d68770c36c7a217def0808bb05b1411228399caef1bcce3b8a5b8ef3e039e17c",
+    "results/v2_rank_then_cut/v15_internal_validation300_counterfactual_pairs.jsonl": "9b6ee77ce2a28825cbf7cd7954a4bcae14d1f9141d73d55b788211b88f0635e1",
+    "results/v2_rank_then_cut/v15_train2863_counterfactual_pairs.jsonl": "d69bb1cceee5d2d9ea44b2d8b55ed76103c8a97f238f20d5881a010278575bfe"
+  },
+  "complete": true,
+  "conclusion": "Top-4 masks have low diversity and nearly all repairs are one-packet swaps. Every validation/development repair is trajectory-safe, so the immediate failure is identifying necessary swaps and avoiding unnecessary cross-anchor-harmful switches, not unsafe repair candidates.",
+  "development300": {
+    "candidate_diversity": {
+      "mean_pairwise_hamming_distance": 1.6155555555555556,
+      "mean_pairwise_jaccard_distance": 0.1422965768799102,
+      "median_pairwise_jaccard_distance": 0.16666666666666663
+    },
+    "examples": 300,
+    "multi_anchor_delta_patterns": {
+      "(0, -1, -1, 0, 0)": 2,
+      "(0, 0, 0, -1, -1)": 7,
+      "(0, 0, 0, -1, 0)": 9,
+      "(0, 0, 0, 0, -1)": 20,
+      "(0, 0, 0, 0, 0)": 1147,
+      "(0, 0, 0, 0, 1)": 5,
+      "(0, 0, 0, 1, 0)": 7,
+      "(0, 0, 1, 1, 0)": 2,
+      "(1, 1, 1, 0, 0)": 1
+    },
+    "pairs": 1200,
+    "queries_with_trajectory_safe_repair": 9,
+    "repair_edit_patterns": {
+      "add1_remove1": 9
+    },
+    "repair_pairs": 9,
+    "trajectory_safe_repair_pairs": 9
+  },
+  "internal_validation300": {
+    "candidate_diversity": {
+      "mean_pairwise_hamming_distance": 1.603888888888889,
+      "mean_pairwise_jaccard_distance": 0.14153956228956227,
+      "median_pairwise_jaccard_distance": 0.16666666666666663
+    },
+    "examples": 300,
+    "multi_anchor_delta_patterns": {
+      "(0, -1, -1, 0, 0)": 2,
+      "(0, 0, -1, -1, -1)": 1,
+      "(0, 0, -1, 0, 0)": 1,
+      "(0, 0, 0, -1, -1)": 1,
+      "(0, 0, 0, -1, 0)": 8,
+      "(0, 0, 0, 0, -1)": 20,
+      "(0, 0, 0, 0, 0)": 1152,
+      "(0, 0, 0, 0, 1)": 8,
+      "(0, 0, 0, 1, 0)": 5,
+      "(1, 0, 0, 0, 0)": 1,
+      "(1, 1, 1, 1, 0)": 1
+    },
+    "pairs": 1200,
+    "queries_with_trajectory_safe_repair": 6,
+    "repair_edit_patterns": {
+      "add1_remove1": 6
+    },
+    "repair_pairs": 6,
+    "trajectory_safe_repair_pairs": 6
+  },
+  "scientific_role": "V16-A structural audit; development is consumed and diagnostic only",
+  "train2863": {
+    "candidate_diversity": {
+      "mean_pairwise_hamming_distance": 1.61811619513331,
+      "mean_pairwise_jaccard_distance": 0.1423954294369942,
+      "median_pairwise_jaccard_distance": 0.16666666666666663
+    },
+    "examples": 2863,
+    "multi_anchor_delta_patterns": {
+      "(-1, -1, -1, -1, -1)": 2,
+      "(-1, -1, -1, -1, 0)": 5,
+      "(-1, 0, 0, 0, 0)": 1,
+      "(0, -1, -1, -1, 0)": 1,
+      "(0, -1, -1, 0, 0)": 8,
+      "(0, -1, 0, 0, 0)": 1,
+      "(0, 0, -1, -1, -1)": 1,
+      "(0, 0, -1, -1, 0)": 3,
+      "(0, 0, -1, 0, 0)": 3,
+      "(0, 0, 0, -1, -1)": 25,
+      "(0, 0, 0, -1, 0)": 59,
+      "(0, 0, 0, 0, -1)": 238,
+      "(0, 0, 0, 0, 0)": 10911,
+      "(0, 0, 0, 0, 1)": 66,
+      "(0, 0, 0, 1, 0)": 82,
+      "(0, 0, 0, 1, 1)": 15,
+      "(0, 0, 1, 0, 0)": 4,
+      "(0, 0, 1, 1, 0)": 7,
+      "(0, 1, 0, 0, 0)": 2,
+      "(0, 1, 1, 0, 0)": 3,
+      "(0, 1, 1, 1, 0)": 4,
+      "(1, 0, 0, 0, 0)": 1,
+      "(1, 1, 0, 0, 0)": 2,
+      "(1, 1, 1, 0, 0)": 1,
+      "(1, 1, 1, 1, 0)": 7
+    },
+    "pairs": 11452,
+    "queries_with_trajectory_safe_repair": 96,
+    "repair_edit_patterns": {
+      "add1_remove1": 109,
+      "add2_remove2": 6
+    },
+    "repair_pairs": 115,
+    "trajectory_safe_repair_pairs": 115
+  }
+}

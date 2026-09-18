@@ -698,3 +698,42 @@ the fixed V13 representation does not expose enough information to identify
 the rare repair decisions reliably. Further work must change upstream
 representation or candidate construction, or test a different compression
 mechanism, rather than add another selector loss or head to this candidate set.
+
+## V16-A root-cause representation audit
+
+V16-A separated three possible causes of V15's failure without opening fresh
+confirmation. A structural audit found that 109/115 train repair pairs and all
+six internal-validation and nine consumed-development repair pairs were
+one-packet swaps. Every validation and development repair was trajectory-safe.
+The top-four masks were highly redundant, with mean pairwise Hamming distance
+1.62, but they still contained enough safe repairs to cross the 282 gate.
+Consequently, unsafe repair candidates and packet granularity are not the
+immediate bottleneck.
+
+Three representation controls used the same train2863 labels and fixed internal
+validation. The V15 pooled representation recovered 2/6 repair pairs above all
+break pairs by repair probability, although its frozen decision rule selected
+none. A three-layer packet-interaction transformer over the unpooled frozen V13
+packet embeddings recovered only 1/6 and selected none. Its failure shows that
+a simple pooling replacement is insufficient. A raw-text Qwen3-4B LoRA
+cross-encoder was then trained as a positive control. Its first run was declared
+invalid because the prompt placed swap evidence after retained context and
+truncated 5/6 repair inputs. The corrected swap-first endpoint recovered only
+1/6 repairs above all breaks and also failed its preregistered 3/6 diagnostic
+gate.
+
+A frozen-V13 nearest-neighbor audit provides evidence of local label conflict:
+five of six validation repairs had no repair among their ten closest train
+pairs, whose labels were overwhelmingly `both_success`. However, because the
+corrected raw-text model did not improve this result, V16-A cannot attribute the
+failure to V13 information loss alone. The formal decision is
+`DO_NOT_ATTRIBUTE_FAILURE_TO_V13_REPRESENTATION_ALONE`.
+
+The common bottleneck is more consistent with only 115 repair pairs among
+11,452 train pairs, neutral-class dominance, and discontinuous frozen-Target
+behavior around one-packet swaps. The next experiment should first construct a
+near-policy decision-boundary dataset from the exact lattice, labeling add,
+drop, and swap actions by five-anchor state-action advantage and future minimum
+token cost. Its positive support and train/validation coverage must be audited
+before training a behavior-aware progressive model. Another selector head,
+more top-K candidates, or immediate repacketization is not supported by V16-A.

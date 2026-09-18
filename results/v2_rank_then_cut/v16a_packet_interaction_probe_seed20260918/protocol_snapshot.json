@@ -1,0 +1,55 @@
+{
+  "arguments": {
+    "batch_size": 96,
+    "lr": 0.0001,
+    "output_dir": "results/v2_rank_then_cut/v16a_packet_interaction_probe_seed20260918",
+    "seed": 20260918,
+    "steps": 300,
+    "train_cache": "results/v2_rank_then_cut/v14_train2863_v13_embeddings.pt",
+    "train_data": "results/v2_rank_then_cut/v15_train2863_counterfactual_pairs.jsonl"
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v14_train2863_v13_embeddings.pt": "b941b71cb92e05f3b476d63e93d9a32e49f9e7cc29794912b5d0cf88673cd012",
+    "results/v2_rank_then_cut/v15_train2863_counterfactual_pairs.jsonl": "d69bb1cceee5d2d9ea44b2d8b55ed76103c8a97f238f20d5881a010278575bfe",
+    "src/model/packet_interaction_probe.py": "afe4dc452ef2aa042cb1cb2455e6f0cff8b63c14e01398a7cee60cbac019ae01",
+    "src/training/train_v16a_packet_interaction_probe.py": "dc593912b2c023028504eefcc7502b087a005a8b2d16627264e7318355465293",
+    "tests/test_packet_interaction_probe.py": "c58a1239044119c2664bc762b8713aa9ef678f2e926357bb477b7422ebd9a25e"
+  },
+  "confirmation_or_calibration_used": false,
+  "date": "2026-09-18 Asia/Shanghai",
+  "diagnostic_gate": {
+    "if_fail": "RUN_RAW_TEXT_POSITIVE_CONTROL",
+    "if_pass": "DESIGN_FROZEN_PACKET_INTERACTION_METHOD_BEFORE_FORMAL_TEST",
+    "primary": "internal-validation repair recall at zero fidelity-0.90 breaks",
+    "support_for_pooling_bottleneck": "at least 3 of 6 repairs at zero breaks and no cross-anchor aggregate regression"
+  },
+  "frozen": {
+    "candidate_space": "V13 top-4 plus V8 matched prefix",
+    "decision_threshold_grid": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "development_access": "none; internal validation diagnostic only",
+    "encoder": "V13 step300",
+    "folds": 5,
+    "risk_multiplier_grid": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "selection": "train2863 OOF only"
+  },
+  "hypothesis": "Frozen V13 packet embeddings retain repair information that V15 candidate-level pooling discards.",
+  "protocol": "v16a_frozen_v13_packet_interaction_diagnostic",
+  "status": "APPROVED_TO_RUN"
+}

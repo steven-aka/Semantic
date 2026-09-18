@@ -1,0 +1,27 @@
+{
+  "decision": "DO_NOT_ATTRIBUTE_FAILURE_TO_V13_REPRESENTATION_ALONE",
+  "complete": true,
+  "scientific_role": "V16-A root-cause representation audit; no fresh confirmation access",
+  "findings": {
+    "P1_v15_pooled_repair_recall_at_zero_pair_break": 0.3333333333333333,
+    "P1_deployed_repairs": 0,
+    "P2_packet_interaction_repair_recall_at_zero_pair_break": 0.16666666666666666,
+    "P2_deployed_repairs": 0,
+    "P3_raw_text_repair_recall_at_zero_pair_break": 0.16666666666666666,
+    "knn_repairs_with_no_repair_neighbor_at_10": 5,
+    "validation_repair_pairs": 6,
+    "validation_trajectory_safe_repair_pairs": 6,
+    "development_repair_pairs": 9,
+    "development_trajectory_safe_repair_pairs": 9,
+    "mean_top4_pairwise_hamming_distance": 1.6155555555555556
+  },
+  "causal_interpretation": "Packet-level interaction does not improve frozen-V13 separability, but a trainable raw-text cross-encoder also fails the preregistered positive-control gate. Therefore the evidence does not isolate V13 information loss. The shared failure is more consistent with rare repair supervision, neutral-class dominance, and locally discontinuous target behavior.",
+  "ruled_out_or_deprioritized": [
+    "another selector head on frozen V13 top-4",
+    "simple pooling replacement",
+    "increasing top-4 to top-16 before fixing the estimand",
+    "changing 12-packet granularity before a boundary-state audit"
+  ],
+  "next_experiment": "Build a V16-B feasibility dataset from exact-lattice near-policy decision-boundary states. Label add/drop/swap actions with five-anchor state-action advantage and future minimum token cost. Audit positive support and train/validation coverage before authorizing a behavior-aware progressive model.",
+  "fresh_confirmation_opened": false
+}

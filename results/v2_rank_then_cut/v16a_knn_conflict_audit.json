@@ -1,0 +1,185 @@
+{
+  "complete": true,
+  "scientific_role": "V16-A frozen-V13 nearest-neighbor conflict audit; internal validation diagnostic only",
+  "feature": "normalized concatenation of question, added, removed, candidate-minus-baseline, added-minus-removed V13 embeddings",
+  "repair_pairs": 6,
+  "mean_repair_neighbors_at_10": 0.16666666666666666,
+  "mean_break_neighbors_at_10": 0.3333333333333333,
+  "zero_repair_neighbor_pairs": 5,
+  "records": [
+    {
+      "example_id": "56847__wikitables_composition__train",
+      "similarities": [
+        0.998485803604126,
+        0.9980798959732056,
+        0.9978690147399902,
+        0.9978665113449097,
+        0.9973766803741455,
+        0.9973276853561401,
+        0.9969261884689331,
+        0.9968863725662231,
+        0.9963467717170715,
+        0.9961930513381958
+      ],
+      "neighbor_classes": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        0,
+        3,
+        3,
+        3
+      ],
+      "repair_neighbors": 0,
+      "break_neighbors": 0
+    },
+    {
+      "example_id": "15318__wikidata_simple__train",
+      "similarities": [
+        0.9942325949668884,
+        0.9920288324356079,
+        0.9917153120040894,
+        0.9917142391204834,
+        0.9915035963058472,
+        0.9914805889129639,
+        0.991258978843689,
+        0.9911534786224365,
+        0.9910348057746887,
+        0.9909638166427612
+      ],
+      "neighbor_classes": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        0,
+        3,
+        3
+      ],
+      "repair_neighbors": 1,
+      "break_neighbors": 0
+    },
+    {
+      "example_id": "15579__wikidata_simple__train",
+      "similarities": [
+        0.9966109991073608,
+        0.994585394859314,
+        0.9931502342224121,
+        0.9926484227180481,
+        0.9925782084465027,
+        0.9925707578659058,
+        0.9925017356872559,
+        0.9924469590187073,
+        0.9923390746116638,
+        0.9921326637268066
+      ],
+      "neighbor_classes": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ],
+      "repair_neighbors": 0,
+      "break_neighbors": 1
+    },
+    {
+      "example_id": "59563__wikitables_composition__train",
+      "similarities": [
+        0.9964137077331543,
+        0.9958926439285278,
+        0.9947117567062378,
+        0.9944804906845093,
+        0.9939256906509399,
+        0.9939236640930176,
+        0.9935914278030396,
+        0.9935405850410461,
+        0.9934941530227661,
+        0.9928268194198608
+      ],
+      "neighbor_classes": [
+        3,
+        3,
+        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "repair_neighbors": 0,
+      "break_neighbors": 0
+    },
+    {
+      "example_id": "17593__wikidata_simple__train",
+      "similarities": [
+        0.9988906979560852,
+        0.9931185245513916,
+        0.9927139282226562,
+        0.9924373626708984,
+        0.9921595454216003,
+        0.9918583631515503,
+        0.9907035827636719,
+        0.9901453256607056,
+        0.9897778034210205,
+        0.9896314740180969
+      ],
+      "neighbor_classes": [
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "repair_neighbors": 0,
+      "break_neighbors": 1
+    },
+    {
+      "example_id": "59267__wikitables_composition__train",
+      "similarities": [
+        0.9903379678726196,
+        0.9896131157875061,
+        0.9892526268959045,
+        0.9891983270645142,
+        0.9869289398193359,
+        0.9865887761116028,
+        0.9859097003936768,
+        0.9838341474533081,
+        0.9823554754257202,
+        0.9823497533798218
+      ],
+      "neighbor_classes": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "repair_neighbors": 0,
+      "break_neighbors": 0
+    }
+  ]
+}

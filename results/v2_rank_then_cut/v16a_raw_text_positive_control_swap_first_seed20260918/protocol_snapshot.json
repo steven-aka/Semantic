@@ -1,0 +1,49 @@
+{
+  "arguments": {
+    "batch_size": 4,
+    "checkpoint": "results/v2_rank_then_cut/v13_joint_retriever_seed20260918/checkpoints/step300",
+    "eval_batch_size": 8,
+    "gradient_accumulation": 2,
+    "head_lr": 0.0001,
+    "lora_lr": 1e-05,
+    "max_length": 512,
+    "model": "models/Qwen3-4B",
+    "output_dir": "results/v2_rank_then_cut/v16a_raw_text_positive_control_swap_first_seed20260918",
+    "seed": 20260918,
+    "steps": 200,
+    "train_pairs": "results/v2_rank_then_cut/v15_train2863_counterfactual_pairs.jsonl",
+    "train_text": "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl",
+    "validation_pairs": "results/v2_rank_then_cut/v15_internal_validation300_counterfactual_pairs.jsonl",
+    "validation_text": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl"
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v13_joint_retriever_seed20260918/checkpoints/step300/selection_record.json": "a1d805fbddc257f94f182f28c5400dd1c4f1430fa8b46784c12a9ff6d3c4c5cc",
+    "results/v2_rank_then_cut/v15_internal_validation300_counterfactual_pairs.jsonl": "9b6ee77ce2a28825cbf7cd7954a4bcae14d1f9141d73d55b788211b88f0635e1",
+    "results/v2_rank_then_cut/v15_train2863_counterfactual_pairs.jsonl": "d69bb1cceee5d2d9ea44b2d8b55ed76103c8a97f238f20d5881a010278575bfe",
+    "src/training/train_v16a_raw_text_positive_control.py": "e64aeefd58897ed00c3687a1c364706c9ab30b65a37a461af422b95d6ff9d2bc"
+  },
+  "confirmation_or_calibration_used": false,
+  "date": "2026-09-18 Asia/Shanghai",
+  "diagnostic_gate": {
+    "if_fail": "DO_NOT_ATTRIBUTE_FAILURE_TO_V13_ALONE; investigate rare-event generalization and candidate/packet construction",
+    "if_pass": "DESIGN_BEHAVIOR_AWARE_REPRESENTATION",
+    "support_for_representation_bottleneck": "at least 3 of 6 internal-validation repairs above every break by repair probability"
+  },
+  "frozen": {
+    "data": "train2863 labels; fixed internal validation diagnostic",
+    "development_access": "none",
+    "endpoint": "single fixed step200; no checkpoint selection",
+    "input": "question, added evidence, removed evidence, then retained evidence; truncation may affect only retained tail",
+    "sampling_class_weights": [
+      0.35,
+      0.25,
+      0.25,
+      0.15
+    ]
+  },
+  "hypothesis": "Repair-relevant information exists in raw question/evidence swap text but is not recoverable from frozen V13 packet representations.",
+  "protocol": "v16a_raw_text_cross_encoder_positive_control_swap_first",
+  "status": "APPROVED_TO_RUN"
+}

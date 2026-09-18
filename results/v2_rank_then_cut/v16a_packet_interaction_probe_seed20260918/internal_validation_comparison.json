@@ -1,0 +1,110 @@
+{
+  "complete": true,
+  "scientific_role": "V16-A fixed internal-validation comparison; diagnostic only",
+  "P1_v15_pooled": {
+    "frozen_rule": {
+      "risk_multiplier": 2.0,
+      "threshold": 0.2
+    },
+    "summary": {
+      "per_anchor": [
+        {
+          "examples": 300,
+          "successes": 296
+        },
+        {
+          "examples": 300,
+          "successes": 295
+        },
+        {
+          "examples": 300,
+          "successes": 294
+        },
+        {
+          "examples": 300,
+          "successes": 279
+        },
+        {
+          "examples": 243,
+          "successes": 239
+        }
+      ],
+      "complete": 275,
+      "switches": 19
+    },
+    "selected_pair_classes": {
+      "repair": 0,
+      "break": 0,
+      "both_success": 18,
+      "both_fail": 1
+    },
+    "pair_repair_probability_at_zero_break": {
+      "repair_recall": 0.3333333333333333,
+      "repairs_recovered": 2,
+      "repairs": 6,
+      "threshold": 0.42413049936394553,
+      "max_break_probability": 0.42413049936294556,
+      "repair_probabilities": [
+        0.16633422672748566,
+        0.5059822797775269,
+        0.47660166025161743,
+        0.10549056529998779,
+        0.31858915090560913,
+        0.27613896131515503
+      ]
+    }
+  },
+  "P2_packet_interaction": {
+    "frozen_rule": {
+      "risk_multiplier": 8.0,
+      "threshold": 0.7
+    },
+    "summary": {
+      "per_anchor": [
+        {
+          "examples": 300,
+          "successes": 296
+        },
+        {
+          "examples": 300,
+          "successes": 295
+        },
+        {
+          "examples": 300,
+          "successes": 294
+        },
+        {
+          "examples": 300,
+          "successes": 279
+        },
+        {
+          "examples": 243,
+          "successes": 238
+        }
+      ],
+      "complete": 274,
+      "switches": 0
+    },
+    "selected_pair_classes": {
+      "repair": 0,
+      "break": 0,
+      "both_success": 0,
+      "both_fail": 0
+    },
+    "pair_repair_probability_at_zero_break": {
+      "repair_recall": 0.16666666666666666,
+      "repairs_recovered": 1,
+      "repairs": 6,
+      "threshold": 0.4781452715406881,
+      "max_break_probability": 0.4781452715396881,
+      "repair_probabilities": [
+        0.15876775979995728,
+        0.5001569986343384,
+        0.4654253125190735,
+        0.1269630342721939,
+        0.30321651697158813,
+        0.2309546172618866
+      ]
+    }
+  }
+}

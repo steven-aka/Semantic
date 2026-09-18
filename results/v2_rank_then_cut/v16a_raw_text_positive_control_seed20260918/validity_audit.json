@@ -1,0 +1,5 @@
+{
+  "valid": false,
+  "reason": "1063/1200 internal-validation prompts exceeded max_length=512 and the original prompt placed added/removed evidence after retained context; 5/6 repair prompts exceeded the limit, so causal swap evidence could be truncated.",
+  "action": "Retain this run as an invalid systems diagnostic and rerun with question/added/removed placed before retained context."
+}
