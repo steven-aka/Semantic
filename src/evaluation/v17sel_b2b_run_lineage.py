@@ -49,6 +49,23 @@ def write_config(name: str, payload: dict) -> Path:
     return path
 
 
+def publish_results(audit: Path) -> None:
+    """Publish only small review artifacts; bulky checkpoints and JSONL remain local."""
+    git = ["git", "--git-dir=.git-sync", "--work-tree=."]
+    artifacts = [
+        ROOT / "manifest.json", ROOT / "v8_clean_selected_checkpoint.json",
+        ROOT / "v10_protocol.json", ROOT / "v12_protocol.json",
+        ROOT / "v13_protocol.json", audit / "summary.json",
+    ]
+    subprocess.run([*git, "add", "--", *(str(path) for path in artifacts)], check=True)
+    changed = subprocess.run([*git, "diff", "--cached", "--quiet", "--", *(str(path) for path in artifacts)], check=False)
+    if changed.returncode == 1:
+        subprocess.run([*git, "commit", "-m", "Record lineage-clean SEL-B2B pool coverage result", "--", *(str(path) for path in artifacts)], check=True)
+    elif changed.returncode != 0:
+        raise RuntimeError("could not inspect staged B2B artifacts")
+    subprocess.run([*git, "push", "origin", "main"], check=True)
+
+
 def check_manifest() -> dict:
     config = json.loads(CONFIG.read_text())
     if config["status"] != "FROZEN_APPROVED_TO_BUILD_AND_RUN":
@@ -159,6 +176,12 @@ def main() -> None:
             run("topk_pool_audit", [PYTHON, "-u", "-m", "src.evaluation.v17sel_b2b_clean_pool_audit", "--data", str(holdout), "--cache", str(holdout_cache), "--head", str(Path(v13_selected) / "mask_retrieval_head.pt"), "--rollouts", str(rollouts), "--exact-dir", "results/v2_rank_then_cut/candidates5000_exact", "--config", str(CONFIG), "--output-dir", str(audit)], env)
         result = json.loads((audit / "summary.json").read_text())
         status("pipeline", "complete", decision=result["decision"], counts=result["oracle_pool_090_by_top_k"])
+        try:
+            publish_results(audit)
+            status("pipeline", "complete_published", decision=result["decision"], counts=result["oracle_pool_090_by_top_k"])
+        except Exception as exc:
+            status("pipeline", "complete_publication_failed", decision=result["decision"], error=str(exc))
+            raise
         print(json.dumps(result, indent=2), flush=True)
 
 
@@ -166,5 +189,7 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as exc:
-        status("pipeline", "failed", error=str(exc))
+        previous = json.loads((ROOT / "pipeline_status.json").read_text()) if (ROOT / "pipeline_status.json").is_file() else {}
+        if previous.get("state") != "complete_publication_failed":
+            status("pipeline", "failed", error=str(exc))
         raise
