@@ -1650,3 +1650,21 @@ nominal cross-fit would still leak the held-out queries. A full upstream
 cross-fit is expensive and must have its own costed, frozen protocol before
 launch. B2A's per-query repairs, breaks, and choices are under
 `results/v2_rank_then_cut/v17sel_b2a_frozen_selector_replay/`.
+
+## V17-SEL-B2B lineage-clean top-K pool gate (running)
+
+The frozen B2B split reserves 581 train-slice queries as a lineage-clean
+holdout and 550 separate queries for upstream checkpoint selection. V8 is
+currently training on the remaining 2,032 train-slice examples. An automatic
+runner waits for V8 completion, selects its checkpoint under the preregistered
+inner-validation rule, and then rebuilds V10, V12, and V13 from clean inputs.
+Only after those endpoints are frozen does it encode and decode the 581
+holdout queries, then count oracle 0.90 pool coverage at top-4, top-10, and
+top-20. V10's historical single endpoint is used as initialization without
+opening its old development evaluation. The runner stops on any failed stage
+or lineage/hash check; a stopped stage must be inspected before resuming.
+
+The run status and stage logs are under
+`results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/`. Monitor with
+`watch -n 10 bash scripts/93_monitor_v17sel_b2b.sh`. This run does not train a
+selector or cutoff, and it does not access development or confirmation data.

@@ -75,7 +75,14 @@ def main() -> None:
         data=args.data,
         data_sha256=sha256(args.data),
         checkpoint=args.checkpoint,
-        checkpoint_metadata_sha256=sha256(Path(args.checkpoint) / "training_metadata.json"),
+        checkpoint_metadata_sha256=sha256(
+            next(
+                path for path in (
+                    Path(args.checkpoint) / "training_metadata.json",
+                    Path(args.checkpoint) / "selection_record.json",
+                ) if path.is_file()
+            )
+        ),
         adapter_tree_sha256=tree_sha256(Path(args.checkpoint) / "adapter"),
         sequential_head_sha256=sha256(Path(args.checkpoint) / "sequential_head.pt"),
         examples=len(rows),
