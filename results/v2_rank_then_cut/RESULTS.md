@@ -1558,3 +1558,57 @@ stopping model. H0's cutoff cannot be assumed to transfer to changed orders.
 The existing internal300 is already design-exposed; any future claim of
 generalization requires a properly held-out role and the unresolved G0
 Target/cache reproducibility check.
+
+## V17-SEL-B0 projected-trajectory coverage localization
+
+SEL-B0 computed, for each frozen V14 proposal prefix, whether any successful
+exact-lattice mask is a superset. A proposal that had already reached a
+successful prefix was counted as covered thereafter, so later fidelity
+rollback could not erase earlier coverage. This is a structural reachability
+diagnostic, not a learned selector evaluation or a beam causal trace.
+
+All 2863 train queries have some successful exact 0.90 mask, but 124 have no
+successful prefix in the five current projected orders. Their first depth at
+which *all* proposals lost successful completions is distributed from 1 to 11:
+8, 9, 4, 7, 13, 8, 14, 12, 19, 28, and 2 queries, respectively. At that
+first loss, 123/124 had only one distinct viable parent prefix remaining;
+this describes narrow proposal coverage at the bottleneck but does not prove
+that a diversity rule would repair it. The prior design-exposed internal300
+shows 15 pool misses, with first-loss depths 2:2, 4:1, 6:3, 7:1, 8:2, 9:5,
+and 10:1. All 15 also have globally successful exact masks, reproducing
+SEL-A0. Because V14 candidates are V13-mask projections of one V8 order,
+first loss cannot by itself distinguish original generator shortlist recall
+from beam pruning.
+
+## V17-SEL-B1 frozen V13 proposal-pool expansion ceiling
+
+SEL-B1 replayed the **unchanged** V13 step300 mask retrieval head with V14's
+original batch32/bfloat16 inference path. It asserted exact agreement with
+the saved top-four mask rankings on all 606 H0 hash-fold queries before
+evaluating any additional proposals. Under the same V8-order projection,
+oracle 0.90 coverage was 567/606 for V8 alone, 582/606 for top-four,
+599/606 for top-ten, 602/606 for top-sixteen, and 605/606 for top-twenty;
+the full exact lattice reached 606/606. Among the 24 top-four misses, 17
+first acquire a successful projection at ranks 5–10, six at ranks 12–20,
+and one remains uncovered at top-twenty. This is a large candidate-space
+headroom gain without retraining the generator.
+
+The numbers are **oracle-pool ceilings**, not deployable results. For the
+single 0.90 existential metric, oracle selecting five from top-twenty has
+the same ceiling as oracle selecting one: both merely ask whether any
+successful proposal exists. A learned, label-free five-slot selector may be
+harder with twenty candidates than with four. The hash fold was held out from
+H0 cutoff training but **was not held out from V13 retriever training**;
+therefore SEL-B1 is a mechanism/capacity audit, not an end-to-end
+generalization estimate. It did not use internal300 to choose K, did not
+train, and did not access development, confirmation, or the Target. The
+frozen top-K list and per-query outcomes are under
+`results/v2_rank_then_cut/v17sel_b1_frozen_topk_coverage/`.
+
+The next useful experiment is a train-only, query-grouped protocol for
+selecting a small proposal set from the expanded frozen pool, with explicit
+checks that the retriever's prior exposure to these queries does not get
+misrepresented as independent validation. Oracle coverage, deployable
+selection, multi-anchor complete trajectory, and later learned-cutoff error
+must be reported separately. No top-K expansion is yet authorized as a
+deployed improvement.

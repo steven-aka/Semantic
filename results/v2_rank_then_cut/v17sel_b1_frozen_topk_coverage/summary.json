@@ -1,0 +1,20 @@
+{
+  "artifact_sha256": {
+    "candidates": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684",
+    "checkpoint": "f33fcccda20fb0813a12f54e238c0328444b232a59aa04058e8bb05f1539b431",
+    "config": "0b7cdf99ea0b7598d0cabef6475f9aadb87eeefd1cc9be44bff9158fa378ec56",
+    "embeddings": "b941b71cb92e05f3b476d63e93d9a32e49f9e7cc29794912b5d0cf88673cd012"
+  },
+  "confirmation_used": false,
+  "decision": "FROZEN_PROPOSAL_POOL_DIAGNOSIS_ONLY",
+  "development_used": false,
+  "full_lattice_090": 606,
+  "oracle_pool_090_by_top_k": {
+    "10": 599,
+    "16": 602,
+    "20": 605,
+    "4": 582
+  },
+  "queries": 606,
+  "v8_fallback_090": 567
+}

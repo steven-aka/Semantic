@@ -1,0 +1,11 @@
+{
+  "protocol": "V17-SEL-B0_PROJECTION_COVERAGE_AUDIT",
+  "status": "FROZEN_READ_ONLY",
+  "primary_role": "train2863 candidate-space mechanism audit, not selector generalization",
+  "secondary_role": "previously design-exposed internal300, descriptive replication only",
+  "target": "0.90 exact-cache fidelity",
+  "definition": "A prefix is viable if it is a subset of at least one successful exact mask; success already found on a proposal is absorbing for coverage.",
+  "first_loss": "first depth with no successful proposal prefix observed yet and no current proposal prefix with a successful exact supermask",
+  "attribution_limit": "Projected V13 masks are not beam traces; first-loss depth does not identify shortlist recall or beam pruning causally.",
+  "sealed": ["development", "fresh confirmation", "training", "Target calls", "new candidate generation"]
+}

@@ -1,0 +1,11 @@
+{
+  "protocol": "V17-SEL-B1_FROZEN_V13_TOPK_COVERAGE",
+  "status": "FROZEN_READ_ONLY",
+  "population": "train2863 hash fold 0/5 only (606 queries); not independent for frozen V13 retriever training",
+  "checkpoint": "V13 step300 mask retrieval head, unchanged",
+  "candidate_semantics": "V8 fallback plus V13-ranked mask projections preserving V8 relative order",
+  "top_k": [4, 10, 16, 20],
+  "metric": "oracle existential 0.90 prefix reachability of candidate pool; oracle pick-five is identical to oracle pick-one for this metric",
+  "purpose": "Estimate whether extra frozen proposals add candidate coverage; no learned selector or cutoff conclusion",
+  "sealed": ["internal300 selection", "development", "fresh confirmation", "training", "Target calls"]
+}

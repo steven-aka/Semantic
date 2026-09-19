@@ -1,0 +1,79 @@
+{
+  "artifacts": {
+    "config_sha256": "18697af4e8f9cf0c2b6d9887bd72571a890f1d370ef8970334fee948d71abc2f",
+    "internal_candidates_sha256": "28dc6bccde8ec868d6eee4fa36839b33bdb832a0ae852867ed4c173fd4e32efa",
+    "rollouts_sha256": "8c845c4890264ce32c82e490c2a2c6ffb9eb896ac8481971ae669c8b05161c8e",
+    "train_candidates_sha256": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684"
+  },
+  "confirmation_used": false,
+  "decision": "PROJECTION_COVERAGE_DIAGNOSIS_ONLY",
+  "development_used": false,
+  "internal300_design_exposed": {
+    "alive_proposal_fraction_by_depth_all_global_reachable": [
+      1.0,
+      1.0,
+      0.9933333333333333,
+      0.9933333333333333,
+      0.99,
+      0.99,
+      0.98,
+      0.9766666666666667,
+      0.97,
+      0.9533333333333334,
+      0.95,
+      0.95,
+      0.95
+    ],
+    "candidate_pool_success": 285,
+    "examples": 300,
+    "first_loss_depth_histogram_pool_misses": {
+      "10": 1,
+      "2": 2,
+      "4": 1,
+      "6": 3,
+      "7": 1,
+      "8": 2,
+      "9": 5
+    },
+    "global_exact_success": 300,
+    "global_reachable_pool_misses": 15,
+    "multiple_viable_parents_at_first_loss": 0,
+    "single_viable_parent_at_first_loss": 15
+  },
+  "train2863": {
+    "alive_proposal_fraction_by_depth_all_global_reachable": [
+      1.0,
+      0.997205728257073,
+      0.9940621725462802,
+      0.9926650366748166,
+      0.9902200488997555,
+      0.9856793573174991,
+      0.9828850855745721,
+      0.9779951100244498,
+      0.9738037024100594,
+      0.9671673070206077,
+      0.9573873559203633,
+      0.9566887879846315,
+      0.9566887879846315
+    ],
+    "candidate_pool_success": 2739,
+    "examples": 2863,
+    "first_loss_depth_histogram_pool_misses": {
+      "1": 8,
+      "10": 28,
+      "11": 2,
+      "2": 9,
+      "3": 4,
+      "4": 7,
+      "5": 13,
+      "6": 8,
+      "7": 14,
+      "8": 12,
+      "9": 19
+    },
+    "global_exact_success": 2863,
+    "global_reachable_pool_misses": 124,
+    "multiple_viable_parents_at_first_loss": 1,
+    "single_viable_parent_at_first_loss": 123
+  }
+}
