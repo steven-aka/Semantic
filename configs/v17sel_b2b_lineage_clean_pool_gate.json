@@ -6,6 +6,13 @@
   "lineage": ["fresh V8 from Qwen3-4B base", "new V10 initialized from clean V8", "new V12 initialized from clean V10", "new V13 initialized from clean V8 and clean V12"],
   "exclusion": "holdout and inner-validation IDs absent from all V8/V10/V12/V13 training; holdout absent from all checkpoint-selection data and used only after all upstream checkpoints frozen",
   "checkpoint_selection": "reuse historical step budgets, optimizer settings, model architecture, and selection rules, but use fold-2 inner validation; development and holdout remain sealed",
+  "v8_inner_validation_checkpoint_selection": {
+    "reason": "Historical V8 uses an absolute 282/300 gate; fold-2 inner validation has 550 queries, so the equivalent preregistered rate gate is ceil(0.94 * n). Ignore the training script's own size-specific selected_checkpoint.json and select from saved 250/500/750 checkpoints using this normalized rule.",
+    "fidelity_090_min_fraction": 0.94,
+    "complete_min_fraction": 0.90,
+    "max_normalized_regret": 0.03,
+    "tie_order": "all gates, number of gates passed, 0.90 success count, complete fraction, negative regret, negative validation action loss"
+  },
   "candidate_semantics": "new clean V8 beam8 fallback plus new clean V13 ranked-mask projections, V8 relative order preserved",
   "top_k": [4, 10, 20],
   "primary_gate": {"top10_absolute_coverage_min": 0.97, "top10_minus_top4_min": 0.015},

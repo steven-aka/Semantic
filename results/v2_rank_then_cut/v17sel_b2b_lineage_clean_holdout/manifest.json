@@ -1216,10 +1216,11 @@
     "9781__wikidata_simple__train",
     "9885__wikidata_simple__train"
   ],
-  "protocol_sha256": "e4129efb13bf3f0491f3cde3b1692ed66f6d679025c86721129100264f4b9d58",
+  "protocol_sha256": "1fe55b499706553d668944f5b0c010bfbac7a3290ab1b25c1d59fbd71e6042e3",
   "sealed_existing_roles": {
     "v10_development": "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl",
     "v13_internal_validation": "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl",
     "v8_development": "results/v2_rank_then_cut/v8_development300_history_supervision.jsonl"
-  }
+  },
+  "selection_override_preregistered_before_first_v8_checkpoint": true
 }
