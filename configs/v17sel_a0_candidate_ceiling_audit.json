@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-SEL-A0_CANDIDATE_CEILING_AUDIT",
+  "status": "FROZEN_READ_ONLY",
+  "population": "design-exposed internal300 and train2863 candidate files",
+  "purpose": "Separate chosen-order miss, current five-candidate pool miss, and full exact-lattice infeasibility at 0.90",
+  "selection": "use frozen V14 selected indices only; no retuning",
+  "train_role": "candidate-space descriptive counts only; V14 selector was trained on train2863 and is not train-heldout valid",
+  "internal_role": "design-exposed research diagnosis only, no model selection or confirmation",
+  "sealed": ["development", "fresh confirmation", "training", "target model calls"]
+}

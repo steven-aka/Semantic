@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-CUT-A0_FIXED_TRAJECTORY_STOP_ERROR_AUDIT",
+  "status": "FROZEN_READ_ONLY",
+  "checkpoint": "V17-H0 step400 only",
+  "population": "train2863 hash fold 0/5 only, V8 fallback candidate order",
+  "purpose": "Diagnose fixed-order cutoff failure; no model or threshold selection",
+  "sweep_thresholds": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95],
+  "primary_threshold": 0.9,
+  "nonmonotone_rule": "distinguish prior-anchor blockade from available but missed successful prefix; late stopping may fail",
+  "sweep_role": "descriptive optimistic same-holdout scan only; no chosen threshold or independent validation claim",
+  "sealed": ["internal300", "development", "fresh confirmation", "target model calls", "training"]
+}

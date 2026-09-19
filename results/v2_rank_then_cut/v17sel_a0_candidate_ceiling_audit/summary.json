@@ -1,0 +1,22 @@
+{
+  "artifacts": {
+    "config_sha256": "0c577f7b9e1368d8c28a7e8c9454537f8b368c56e79a0476fd7a22dcb60e130b",
+    "internal_candidates_sha256": "28dc6bccde8ec868d6eee4fa36839b33bdb832a0ae852867ed4c173fd4e32efa",
+    "selection_sha256": "0ad7f59acd627b54881ad863a03bf81f2181a365beefd64098ed9e43aac823ac",
+    "train_candidates_sha256": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684"
+  },
+  "confirmation_used": false,
+  "decision": "CANDIDATE_CEILING_DIAGNOSIS_ONLY",
+  "development_used": false,
+  "internal300_design_exposed": {
+    "candidate_pool_miss_global_reachable": 15,
+    "chosen_order_reachable": 280,
+    "five_candidate_oracle_090": 285,
+    "selector_miss_existing_candidate": 5,
+    "v8_fallback_oracle_090": 279
+  },
+  "train2863_descriptive": {
+    "five_candidate_oracle_090": 2739,
+    "v8_fallback_oracle_090": 2643
+  }
+}

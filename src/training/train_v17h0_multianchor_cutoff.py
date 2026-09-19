@@ -22,6 +22,12 @@ LEVELS = (.6, .7, .8, .9, .95)
 WIDTH = 12
 CHOICES = 5
 PREFIXES = WIDTH + 1
+FIDELITY_EPS = 1e-6
+
+
+def meets_fidelity(value: float, level: float) -> bool:
+    """Match float32 tensor labels when exact-cache decimals lie on a threshold."""
+    return float(value) + FIDELITY_EPS >= level
 
 
 def project(order: list[int], mask: int) -> list[int]:
@@ -74,7 +80,7 @@ class PrefixData:
                     self.fidelity[index, candidate_index, depth] = full_fidelity[mask]
                     self.tokens[index, candidate_index, depth] = full_tokens[mask]
                 for anchor, level in enumerate(LEVELS):
-                    observed = bool((self.fidelity[index, candidate_index] + 1e-12 >= level).any())
+                    observed = bool((self.fidelity[index, candidate_index] + FIDELITY_EPS >= level).any())
                     if observed != bool(candidate["success"][anchor]):
                         raise ValueError(f"candidate oracle ceiling mismatch {query} candidate {candidate_index} anchor {anchor}")
             if (index + 1) % 500 == 0:
@@ -140,7 +146,7 @@ def summarize_predictions(data: PrefixData, probabilities: torch.Tensor, chosen_
                 successes.append(None)
                 selected_tokens.append(None)
                 continue
-            success = bool(float(data.fidelity[index, candidate_index, count]) + 1e-12 >= LEVELS[anchor])
+            success = meets_fidelity(float(data.fidelity[index, candidate_index, count]), LEVELS[anchor])
             successes.append(success)
             selected_tokens.append(int(data.tokens[index, candidate_index, count]))
             per_anchor[anchor]["examples"] += 1
@@ -206,7 +212,7 @@ def main() -> None:
         indices = random.sample(train_indices, config["batch_queries"])
         batch = train.batch(indices, device)
         logits = model(batch)
-        target = batch["fidelity"][..., None] + 1e-12 >= torch.tensor(LEVELS, device=device)
+        target = batch["fidelity"][..., None] + FIDELITY_EPS >= torch.tensor(LEVELS, device=device)
         valid = batch["active"][:, None, None, :].expand_as(target).clone()
         valid[..., 3] &= ~ambiguous[indices].to(device)
         loss = F.binary_cross_entropy_with_logits(logits[valid], target.float()[valid])

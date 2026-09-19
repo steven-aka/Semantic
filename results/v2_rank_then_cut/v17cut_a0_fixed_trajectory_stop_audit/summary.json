@@ -1,0 +1,143 @@
+{
+  "artifacts": {
+    "candidates_sha256": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684",
+    "checkpoint_sha256": "7c7956b611911dca18e5598b7e6e1759cb00edf0097baace967b036aef7c171b",
+    "config_sha256": "42f206be4df204ac042094a23088dc1f30fcb7e24d4ae4d54841a00e5740f8f0"
+  },
+  "baseline_090": 510,
+  "baseline_complete": 360,
+  "best_scanned_090_descriptive_only": 516,
+  "decision": "DIAGNOSTIC_ONLY_NO_THRESHOLD_SELECTED",
+  "error_categories": {
+    "0.6": {
+      "active": 606,
+      "categories": {
+        "early_failure": 31,
+        "late_nonmonotone_failure": 24,
+        "same_order_infeasible": 4,
+        "success_exact_first": 75,
+        "success_later": 472
+      },
+      "median_probability_at_first_available_success_for_failures": 0.9328334331512451,
+      "recoverable_same_order_failures": 55
+    },
+    "0.7": {
+      "active": 606,
+      "categories": {
+        "blocked_by_prior_cutoff": 1,
+        "early_failure": 43,
+        "late_nonmonotone_failure": 14,
+        "same_order_infeasible": 11,
+        "success_exact_first": 240,
+        "success_later": 297
+      },
+      "median_probability_at_first_available_success_for_failures": 0.9512162804603577,
+      "recoverable_same_order_failures": 58
+    },
+    "0.8": {
+      "active": 606,
+      "categories": {
+        "blocked_by_prior_cutoff": 6,
+        "early_failure": 37,
+        "late_nonmonotone_failure": 21,
+        "same_order_infeasible": 14,
+        "success_exact_first": 142,
+        "success_later": 386
+      },
+      "median_probability_at_first_available_success_for_failures": 0.8925946652889252,
+      "recoverable_same_order_failures": 64
+    },
+    "0.9": {
+      "active": 606,
+      "categories": {
+        "blocked_by_prior_cutoff": 5,
+        "early_failure": 35,
+        "late_nonmonotone_failure": 17,
+        "same_order_infeasible": 39,
+        "success_exact_first": 142,
+        "success_later": 368
+      },
+      "median_probability_at_first_available_success_for_failures": 0.7785605788230896,
+      "recoverable_same_order_failures": 57
+    },
+    "0.95": {
+      "active": 485,
+      "categories": {
+        "blocked_by_prior_cutoff": 5,
+        "early_failure": 29,
+        "late_nonmonotone_failure": 64,
+        "same_order_infeasible": 16,
+        "success_exact_first": 156,
+        "success_later": 215
+      },
+      "median_probability_at_first_available_success_for_failures": 0.6951888799667358,
+      "recoverable_same_order_failures": 98
+    }
+  },
+  "oracle_same_order_090": 567,
+  "oracle_same_order_complete": 552,
+  "population": 606,
+  "sealed_roles_used": [],
+  "threshold_scan_same_holdout_optimistic": [
+    {
+      "complete": 1,
+      "regret_if_complete": 0.0034034653465346535,
+      "success_090": 29,
+      "threshold": 0.1
+    },
+    {
+      "complete": 7,
+      "regret_if_complete": 0.02146726697131779,
+      "success_090": 108,
+      "threshold": 0.2
+    },
+    {
+      "complete": 19,
+      "regret_if_complete": 0.023755356535018948,
+      "success_090": 169,
+      "threshold": 0.3
+    },
+    {
+      "complete": 49,
+      "regret_if_complete": 0.031733400673261164,
+      "success_090": 244,
+      "threshold": 0.4
+    },
+    {
+      "complete": 91,
+      "regret_if_complete": 0.03859400453847204,
+      "success_090": 320,
+      "threshold": 0.5
+    },
+    {
+      "complete": 144,
+      "regret_if_complete": 0.04933940070129433,
+      "success_090": 377,
+      "threshold": 0.6
+    },
+    {
+      "complete": 211,
+      "regret_if_complete": 0.06585313427124224,
+      "success_090": 429,
+      "threshold": 0.7
+    },
+    {
+      "complete": 280,
+      "regret_if_complete": 0.08935723712302983,
+      "success_090": 480,
+      "threshold": 0.8
+    },
+    {
+      "complete": 360,
+      "regret_if_complete": 0.13442988266891787,
+      "success_090": 510,
+      "threshold": 0.9
+    },
+    {
+      "complete": 391,
+      "regret_if_complete": 0.18169672493099884,
+      "success_090": 516,
+      "threshold": 0.95
+    }
+  ]
+}

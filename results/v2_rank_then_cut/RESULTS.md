@@ -1463,21 +1463,29 @@ success against the exact cache before training. No Target calls, development,
 or confirmation were used. The internal300 replay is design-exposed and is
 reported once for diagnosis, not for choosing a threshold or checkpoint.
 
-The cutoff head failed decisively. On the train-only holdout, the V8 fallback
-reached 0.90 on 447/606 versus 567/606 with an oracle cutoff on the **same
-fixed orders**; complete was 325/606 versus 552/606. On internal300, the
-frozen V14 candidate selector plus H0 cutoff reached 0.90 on 223/300 versus
-280/300 with same-order oracle cutoff; complete was 154/300 versus 277/300.
-The V8 fallback was 224/300 versus 279/300 at 0.90. Even the nondeployable
-oracle candidate choice plus H0 cutoff reached only 232/300 versus its
-same-order oracle ceiling of 285/300. Mean regret among complete V14/H0
-trajectories was 0.1315, above the 0.03 target.
+**Evaluation correction.** The original H0 summary converted exact-cache
+fidelity to float32 and then compared Python scalars using `+1e-12`. Values
+equal to a threshold, notably 0.900000, could then be misclassified as below
+it. The checkpoint was not retrained. A read-only replay uses `1e-6` tolerance,
+consistent with the exact-cache and tensor labels; the original summary is
+preserved as `original_summary_before_float32_correction.json`. All figures
+below are corrected. The earlier 223/300 and 57-gap statement is superseded.
+
+The cutoff head still fails the contract. On the train-only holdout, the V8
+fallback reached 0.90 on 510/606 versus 567/606 with an oracle cutoff on the
+**same fixed orders**; complete was 360/606 versus 552/606. On internal300,
+the frozen V14 candidate selector plus H0 cutoff reached 0.90 on 243/300
+versus 280/300 with same-order oracle cutoff; complete was 165/300 versus
+277/300. The V8 fallback was 245/300 versus 279/300 at 0.90. Even the
+nondeployable oracle candidate choice plus H0 cutoff reached only 252/300
+versus its same-order oracle ceiling of 285/300. Mean regret among complete
+V14/H0 trajectories was 0.13147, above the 0.03 target.
 
 This separates two bottlenecks. The V14-selected fixed-order oracle ceiling of
 280/300 is below the 282/300 0.90 gate, so **a cutoff-only replacement cannot
 clear that gate with this selector**, even if its cutoff were perfect. H0 also
-falls far below its own fixed-order oracle: 57 additional 0.90 failures and
-123 additional incomplete cases on the V14-selected internal trajectories.
+falls far below its own fixed-order oracle: 37 additional 0.90 failures and
+112 additional incomplete cases on the V14-selected internal trajectories.
 For 0.90, 209/300 chosen cutoffs were at packet 10 and 60/300 were at packets
 11–12; late stopping can still fail because observed fidelity is not monotone
 along add-only trajectories. These are diagnostic counts, not proof that timing
@@ -1496,3 +1504,57 @@ also remains unresolved for any eventual fresh confirmation. The H0 protocol,
 checkpoint, history, internal per-example outcomes, and machine-readable
 summary are in `configs/v17h0_multianchor_cutoff_pilot.json` and
 `results/v2_rank_then_cut/v17h0_multianchor_cutoff_pilot/`.
+
+## V17-CUT-A0 fixed-trajectory stop-error audit
+
+CUT-A0 used only H0's 606-query train2863 holdout and the unchanged H0
+checkpoint. With the corrected threshold comparison, it reproduced 510/606
+0.90 successes and 360/606 complete, versus fixed-order oracle counts of
+567/606 and 552/606. Its 57 recoverable 0.90 failures split into 35 early
+stops, 17 late stops where fidelity had fallen back below 0.90, and five cases
+where an earlier-anchor cutoff blocked every later 0.90-successful prefix.
+Another 39 trajectories had no 0.90-successful prefix at all. The median
+predicted 0.90 sufficiency at the first available successful prefix among the
+52 failures with such a prefix was 0.779, below the frozen decision threshold
+of 0.90.
+
+The prespecified same-holdout threshold scan reached at most 516/606 0.90
+successes at threshold 0.95, still well short of the 567/606 fixed-order
+oracle. Complete improved to 391/606 there, while mean regret among complete
+trajectories increased from 0.1344 to 0.1817. These are optimistic,
+non-independent diagnostics on the same holdout, **not** a selected new
+threshold or a validation result. The scan does not support a simple
+probability-threshold fix; observed errors include both early and
+nonmonotone-late failures. No internal300, development, confirmation, Target
+calls, or training were used in CUT-A0. Results and per-query classifications
+are under `results/v2_rank_then_cut/v17cut_a0_fixed_trajectory_stop_audit/`.
+
+## V17-SEL-A0 candidate ceiling audit
+
+SEL-A0 separated the frozen V14 selector from the five-candidate pool at 0.90.
+In the design-exposed internal300, the selected order is reachable for 280
+queries; another five have a successful order in the frozen candidate pool but
+the selector chose a failing one. For the remaining 15, none of the five
+candidate orders has a successful prefix, yet **all 15 have at least one
+successful state somewhere in the complete 4096-mask exact lattice**. Thus the
+current 285/300 candidate-pool ceiling is a generator/order coverage limit,
+not an impossibility of the 12-packet add-only action space. The 20 selected
+failures are exactly five selector misses plus 15 candidate-pool misses. This
+audit cannot attribute those 15 to a specific beam prune without replaying the
+generator's beam trace.
+
+Train2863 candidate-space counts are 2643/2863 for the V8 fallback order and
+2739/2863 for the five-candidate oracle, but they are descriptive only: V14's
+selector was trained on train2863 and its checkpoint was selected using the
+internal role. Neither count validates a new selector. The full-lattice check
+was restricted to the 15 internal pool misses. No model was trained and no
+development or confirmation data were used. The per-query categories are in
+`results/v2_rank_then_cut/v17sel_a0_candidate_ceiling_audit/`.
+
+Together CUT-A0 and SEL-A0 support the next research order: first improve
+candidate coverage/selection under oracle cutoff using a train-only grouped
+protocol, then freeze that candidate policy and train a selector-matched
+stopping model. H0's cutoff cannot be assumed to transfer to changed orders.
+The existing internal300 is already design-exposed; any future claim of
+generalization requires a properly held-out role and the unresolved G0
+Target/cache reproducibility check.

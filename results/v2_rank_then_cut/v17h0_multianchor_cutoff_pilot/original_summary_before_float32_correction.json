@@ -9,17 +9,10 @@
   "confirmation_used": false,
   "decision": "CUTOFF_PILOT_COMPLETE_NO_CONFIRMATION",
   "development_used": false,
-  "evaluation_revision": {
-    "checkpoint_retrained": false,
-    "checkpoint_sha256": "7c7956b611911dca18e5598b7e6e1759cb00edf0097baace967b036aef7c171b",
-    "corrected_replay_script_sha256": "e9e72d3d8630689648af7081dcbfba8abea373d18fd3f73fc50b420d0fb613d9",
-    "original_summary": "original_summary_before_float32_correction.json",
-    "reason": "Original Python scalar comparisons used float32 fidelity + 1e-12, misclassifying exact threshold values such as 0.900000; replay uses a 1e-6 tolerance consistent with exact-cache labels."
-  },
   "heldout_queries": 606,
   "heldout_v8_fallback": {
-    "complete": 360,
-    "mean_regret_if_complete": 0.13442988266891787,
+    "complete": 325,
+    "mean_regret_if_complete": 0.13402788809745014,
     "oracle_same_order_complete": 552,
     "per_anchor": [
       {
@@ -30,7 +23,7 @@
       {
         "examples": 606,
         "oracle_same_order_successes": 595,
-        "successes": 537
+        "successes": 536
       },
       {
         "examples": 606,
@@ -40,7 +33,7 @@
       {
         "examples": 606,
         "oracle_same_order_successes": 567,
-        "successes": 510
+        "successes": 447
       },
       {
         "examples": 485,
@@ -51,8 +44,8 @@
   },
   "internal_design_exposed": {
     "oracle_candidate_diagnostic": {
-      "complete": 173,
-      "mean_regret_if_complete": 0.12901905705228522,
+      "complete": 161,
+      "mean_regret_if_complete": 0.1286014835243282,
       "oracle_same_order_complete": 285,
       "per_anchor": [
         {
@@ -73,7 +66,7 @@
         {
           "examples": 300,
           "oracle_same_order_successes": 285,
-          "successes": 252
+          "successes": 232
         },
         {
           "examples": 243,
@@ -83,8 +76,8 @@
       ]
     },
     "v14_frozen_selector": {
-      "complete": 165,
-      "mean_regret_if_complete": 0.13146760492641973,
+      "complete": 154,
+      "mean_regret_if_complete": 0.13150491855701488,
       "oracle_same_order_complete": 277,
       "per_anchor": [
         {
@@ -105,7 +98,7 @@
         {
           "examples": 300,
           "oracle_same_order_successes": 280,
-          "successes": 243
+          "successes": 223
         },
         {
           "examples": 243,
@@ -115,8 +108,8 @@
       ]
     },
     "v8_fallback": {
-      "complete": 161,
-      "mean_regret_if_complete": 0.1311866122912196,
+      "complete": 151,
+      "mean_regret_if_complete": 0.13070509003588238,
       "oracle_same_order_complete": 274,
       "per_anchor": [
         {
@@ -137,7 +130,7 @@
         {
           "examples": 300,
           "oracle_same_order_successes": 279,
-          "successes": 245
+          "successes": 224
         },
         {
           "examples": 243,
