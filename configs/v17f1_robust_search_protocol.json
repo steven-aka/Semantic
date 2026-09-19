@@ -1,0 +1,23 @@
+{
+  "protocol": "V17-F1_ROBUST_SEARCH_WITH_WEAK_HEURISTIC",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "date": "2026-09-19 Asia/Shanghai",
+  "population": "train2863 examples contributing at least one strict 0.90 boundary state",
+  "scoring": "D1A force attainable 0.90 active with unchanged multi-anchor mean residual",
+  "beam_width": 8,
+  "rules": {
+    "global_topk": "current canonical top 8",
+    "top6_parent_rescue": "top 6 globally then best child from up to two unrepresented parents",
+    "parent_balanced": "best child from each current parent before global fill",
+    "random_parent_control": "top 6 globally then two randomly selected unrepresented parents with fixed per-example seed"
+  },
+  "selection": "rules fixed before replay; no post-result composition or parameter tuning",
+  "opening_gate": {
+    "primary_090_net_repairs_min": 1,
+    "primary_090_breaks_max": 0,
+    "complete_breaks_max": 0,
+    "mean_complete_regret_max": 0.03,
+    "must_outperform_random_parent_control": true
+  },
+  "sealed": ["training", "internal300", "development", "confirmation", "hop2", "terminal reranker", "learned cutoff"]
+}

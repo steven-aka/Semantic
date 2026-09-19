@@ -1302,3 +1302,26 @@ scalar. Binary viability, local progress, frontier summaries, and shallow
 robustness all remain inadequate as learned standalone controllers. Internal300,
 development, confirmation, hop two, terminal reranking, and learned cutoff
 remain closed.
+
+## V17-F1 robust-search replay
+
+F1 replayed four preregistered beam8 pruning rules on all 546 train-only
+queries contributing a strict 0.90 boundary state, with unchanged D1A scoring
+and terminal selection. The canonical global rule succeeds at 0.90 on 328
+queries and completes 312 trajectories, with 195 first irreversible prunes.
+
+Top-six plus two uncovered-parent slots produces exactly zero repairs and zero
+breaks, while increasing first prunes to 198. The fixed random-parent control
+has the same contract counts and 198 first prunes. Full parent balancing makes
+one 0.90 repair but also one 0.90 break, loses one complete trajectory, and
+increases first prunes to 213. It therefore fails both the zero-break gate and
+the requirement to outperform the random structural control.
+
+The decision is `STOP_V17F1_ROBUST_SEARCH_BRANCH`. Parent coverage by itself is
+not the missing search invariant: mild protection has no effect, while strong
+protection displaces useful high-score branches and causes harm. No internal or
+development replay is authorized. Together F0 and F1 show that shallow branch
+robustness exists in a minority of states, cannot be reliably predicted, and
+is not repaired by generic parent-diversity allocation. The next stage must
+reassess the controller/input contract rather than add another scalar target or
+beam-allocation heuristic.

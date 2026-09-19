@@ -1,0 +1,60 @@
+{
+  "artifacts": {
+    "protocol_sha256": "97fa2d5cef1736e81c427854e958913677eae37577f70694553a0702051cd9e4",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+    "viability_head_sha256": "82788e84b930b31feb8d01ee7921cbe88b2a15c677c8c7de482dbbfd80dacf88"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "decision": "STOP_V17F1_ROBUST_SEARCH_BRANCH",
+  "development_used": false,
+  "internal_used": false,
+  "passing_rules": [],
+  "population_examples": 546,
+  "summaries": {
+    "global_topk": {
+      "complete_breaks": 0,
+      "complete_repairs": 0,
+      "complete_successes": 312,
+      "examples": 546,
+      "first_irreversible_prunes": 195,
+      "mean_complete_regret": 0.05787899956972647,
+      "primary_090_successes": 328,
+      "primary_breaks": 0,
+      "primary_repairs": 0
+    },
+    "parent_balanced": {
+      "complete_breaks": 1,
+      "complete_repairs": 0,
+      "complete_successes": 311,
+      "examples": 546,
+      "first_irreversible_prunes": 213,
+      "mean_complete_regret": 0.05711479080208605,
+      "primary_090_successes": 328,
+      "primary_breaks": 1,
+      "primary_repairs": 1
+    },
+    "random_parent_control": {
+      "complete_breaks": 0,
+      "complete_repairs": 0,
+      "complete_successes": 312,
+      "examples": 546,
+      "first_irreversible_prunes": 198,
+      "mean_complete_regret": 0.05808829664950485,
+      "primary_090_successes": 328,
+      "primary_breaks": 0,
+      "primary_repairs": 0
+    },
+    "top6_parent_rescue": {
+      "complete_breaks": 0,
+      "complete_repairs": 0,
+      "complete_successes": 312,
+      "examples": 546,
+      "first_irreversible_prunes": 198,
+      "mean_complete_regret": 0.05809159120125755,
+      "primary_090_successes": 328,
+      "primary_breaks": 0,
+      "primary_repairs": 0
+    }
+  }
+}

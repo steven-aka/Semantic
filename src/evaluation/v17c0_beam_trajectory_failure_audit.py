@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import gzip
+import random
 import json
 from collections import Counter
 from pathlib import Path
@@ -33,6 +34,8 @@ def replay(
     oracle_keep_one: bool = False,
     full_trace: bool = False,
     beam_width: int = 8,
+    selection_rule: str = "global_topk",
+    selection_seed: int = 0,
 ) -> dict[str, Any]:
     if scoring_mode not in {"current", "force_target_090", "target_local_090", "force_target_local_090", "oracle_unresolved_target_local_090"}:
         raise ValueError(f"unknown scoring mode: {scoring_mode}")
@@ -69,7 +72,25 @@ def replay(
                 viable=dp.value(next_mask,next_reached).reached_levels>=primary+1
                 expanded.append({"total":total+cp,"base":base+bp,"residual_effect":effect+(cp-bp),"history":history+(packet,),"state":next_states[i,packet],"mask":next_mask,"reached":next_reached,"viable":viable,"parent_history":history,"action":packet,"base_increment":bp,"raw_residual_logit":float(raw_residual[i,packet]),"combined_increment":cp,"normalized_residual_increment":cp-bp,"per_level_viability_logits":[float(v) for v in viability_logits[i,packet]],"active_target_mask":[bool(v) for v in active[i,packet]],"action_feature":features[i,packet].detach()})
         expanded.sort(key=lambda row:(-row["total"],row["history"])); cutoff=expanded[min(beam_width,len(expanded))-1]; viable_expanded=[row for row in expanded if row["viable"]]; best_viable=max(viable_expanded,key=lambda row:(row["total"],tuple(-x for x in row["history"])),default=None)
-        kept=expanded[:beam_width]; forced=False
+        if selection_rule == "global_topk":
+            kept=expanded[:beam_width]
+        elif selection_rule in {"top6_parent_rescue", "random_parent_control"}:
+            core=min(6,beam_width);kept=expanded[:core];represented={row["parent_history"] for row in kept};candidates=[];seen=set()
+            for row in expanded[core:]:
+                parent=row["parent_history"]
+                if parent not in represented and parent not in seen:candidates.append(row);seen.add(parent)
+            if selection_rule == "random_parent_control":random.Random(selection_seed+depth).shuffle(candidates)
+            kept.extend(candidates[:beam_width-len(kept)])
+            kept.extend(row for row in expanded if row not in kept and len(kept)<beam_width)
+            kept.sort(key=lambda row:(-row["total"],row["history"]))
+        elif selection_rule == "parent_balanced":
+            kept=[];seen=set()
+            for row in expanded:
+                if row["parent_history"] not in seen:kept.append(row);seen.add(row["parent_history"])
+                if len(kept)==beam_width:break
+            kept.extend(row for row in expanded if row not in kept and len(kept)<beam_width);kept.sort(key=lambda row:(-row["total"],row["history"]))
+        else:raise ValueError(f"unknown selection rule: {selection_rule}")
+        forced=False
         if oracle_keep_one and best_viable is not None and not any(row["viable"] for row in kept):
             kept[-1]=best_viable; kept.sort(key=lambda row:(-row["total"],row["history"])); forced=True
         viable_before=sum(row["viable"] for row in expanded); viable_after=sum(row["viable"] for row in kept)
