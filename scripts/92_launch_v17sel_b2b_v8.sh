@@ -10,6 +10,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 root=results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout
 out="$root/v8_run"
+train_data="$root/data/v8_train_train_clean.jsonl"
+validation_data="$root/data/v8_train_inner_validation.jsonl"
+[[ -s "$train_data" && -s "$validation_data" ]] || { echo "Lineage data file missing" >&2; exit 66; }
 
 .venv/bin/python - <<'PY'
 import json
@@ -36,8 +39,8 @@ fi
 mkdir -p "$out"
 
 exec .venv/bin/python -u -m src.training.train_v8_sequential_policy \
-  --train-data "$root/data/v8_train_clean.jsonl" \
-  --validation-data "$root/data/v8_train_inner_validation.jsonl" \
+  --train-data "$train_data" \
+  --validation-data "$validation_data" \
   --exact-dir results/v2_rank_then_cut/candidates5000_exact \
   --model models/Qwen3-4B \
   --output-dir "$out" \

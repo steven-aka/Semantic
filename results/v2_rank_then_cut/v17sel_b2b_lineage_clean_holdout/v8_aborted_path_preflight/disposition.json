@@ -1,0 +1,10 @@
+{
+  "status": "ABORTED_DURING_DATA_PATH_PREFLIGHT",
+  "reason": "Launcher used v8_train_clean.jsonl while frozen builder generated v8_train_train_clean.jsonl.",
+  "model_loaded": false,
+  "optimizer_steps": 0,
+  "validation_calls": 0,
+  "checkpoints_created": 0,
+  "holdout_accessed": false,
+  "disposition": "Correct launcher path to match the manifest; original failed log retained locally."
+}
