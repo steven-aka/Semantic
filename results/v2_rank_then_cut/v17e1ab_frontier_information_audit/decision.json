@@ -1,0 +1,9 @@
+{
+  "confirmation_used": false,
+  "decision": "GO_V17E2_EVIDENCE_PROGRESS_TARGET_AUDIT",
+  "development_used": false,
+  "frontier_passing_taps": [],
+  "internal_used": false,
+  "robust_search_opening_taps": [],
+  "training_authorized": false
+}

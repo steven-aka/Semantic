@@ -1,0 +1,39 @@
+{
+  "protocol": "V17-E1AB_FRONTIER_INFORMATION_AUDIT",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "date": "2026-09-19 Asia/Shanghai",
+  "population": "train2863 deployed plus hop<=1 strict 0.90 boundary states",
+  "frontier": {
+    "semantics": "execute candidate with frozen history GRU, rebuild selected/remaining state, and rescore every legal successor",
+    "scalar": ["remaining_count", "successor_base_top4", "mean", "std", "entropy", "top1_top2_margin"],
+    "pooled": ["remaining frozen candidate embedding mean", "remaining frozen candidate embedding max"],
+    "oracle_or_label_features_forbidden": true
+  },
+  "probe": {
+    "taps": ["local_full", "frontier_scalar", "frontier_pooled", "local_plus_scalar", "local_plus_pooled"],
+    "folds": 3,
+    "split": "frozen example/query-grouped D1B folds",
+    "standardization": "training-fold per-dimension mean/std; std clamp 1e-6",
+    "kind": "shared bias-free linear scorer",
+    "epochs": 20,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_states": 512,
+    "seed": 20260919,
+    "checkpoint": "final epoch only",
+    "per_tap_tuning": false
+  },
+  "frontier_gate": {
+    "macro_state_accuracy_min": 0.8,
+    "macro_query_accuracy_min": 0.8,
+    "every_fold_macro_state_min": 0.8,
+    "paired_query_bootstrap_lower_improvement_over_local": 0.0,
+    "bootstrap_replicates": 2000
+  },
+  "robust_search_opening_gate": {
+    "oof_best_viable_recall_at_4_min": 0.95,
+    "random_adjusted_lift_at_4_min": 0.02
+  },
+  "sealed": ["model training", "internal300", "development", "confirmation", "hop2", "terminal reranker", "learned cutoff", "robust beam rule selection"]
+}

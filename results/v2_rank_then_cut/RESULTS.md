@@ -1208,3 +1208,35 @@ The next admissible work is a train-only audit of label consistency, query-type
 conditional structure, and whether the frozen inputs contain the information
 needed to distinguish exact-DP future viability. Internal300, development,
 confirmation, hop two, terminal reranking, and learned cutoff remain closed.
+
+## V17-E1A/B frontier information and local rank profile
+
+E1A/B constructed deployment-available successor frontiers for every strict
+0.90 boundary action. Each candidate was executed through the frozen history
+GRU, the resulting selected/remaining state was rebuilt, and all legal next
+actions were rescored. The audit compared local features, ten scalar successor
+score statistics, mean/max pooled remaining candidate embeddings, and both
+frontier variants concatenated with the local representation under the same
+query-grouped out-of-fold probe protocol.
+
+Frontier information does not improve held-out-query viability. The local
+baseline reaches 0.770 macro-state and 0.751 macro-query. Frontier scalar alone
+falls to 0.697/0.705; pooled frontier reaches 0.769/0.751. Local plus scalar is
+0.771/0.751, with paired-query improvement 0.0010 and a 95% bootstrap interval
+of [-0.0002, 0.0022]. Local plus pooled falls to 0.764/0.750. No frontier tap
+passes the preregistered 0.80 gate or shows a reliable paired improvement.
+
+The local OOF scorer has best-viable recall of 0.934/0.998/1.000/1.000 at
+top 1/2/4/8. Those large top-k values are not evidence for protected beam
+allocation: strict boundary states contain 79.0% viable actions on average, so
+the random expected recall is already 0.790/0.974/0.99998/1.000. Recall@4 lift
+is only 0.000018, far below the frozen 0.02 robust-search opening gate. A
+state-local top-k policy would therefore add almost no selectivity at beam4 or
+beam8, and does not justify choosing a protected/Pareto rule.
+
+The decision is `GO_V17E2_EVIDENCE_PROGRESS_TARGET_AUDIT`. Frontier-aware
+critic design and robust-beam rule selection remain closed. The next experiment
+must test whether a more local, decomposable evidence-progress target is
+consistent and learnable across queries, while separately auditing exact-DP
+viability label ambiguity. Internal300, development, confirmation, hop two,
+terminal reranking, and learned cutoff remain closed.
