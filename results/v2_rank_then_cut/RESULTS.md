@@ -1612,3 +1612,41 @@ misrepresented as independent validation. Oracle coverage, deployable
 selection, multi-anchor complete trajectory, and later learned-cutoff error
 must be reported separately. No top-K expansion is yet authorized as a
 deployed improvement.
+
+## V17-SEL-B2A frozen V14 selector on expanded proposals
+
+B2A asked whether the existing selector could directly exploit the B1
+candidate-pool headroom. V14's rank embedding has indices 0–4 only, so ranks
+5–20 cannot literally use the unchanged input contract. This diagnostic kept
+all V13/V14 weights and the selected V14 utility threshold fixed, mapped
+every new rank to the last trained rank bucket (4), and used oracle cutoff
+only to isolate selection. V13's original batch32/bfloat16 path reproduced
+all saved top-four masks on the 606 H0 hash-fold queries before expansion.
+The fold was seen during V13 and V14 training, and rank clamping is outside
+V14's training support; results are strictly mechanistic.
+
+For top-four, the frozen selector selected a 0.90-successful order on 567/606
+queries and a complete order on 553/606, versus pool oracle coverage 582/606.
+With top-ten, pool coverage rose to 599/606 and the selector chose a new
+candidate on 29 queries, yet 0.90 remained 567/606 and complete remained
+553/606: zero repairs and zero breaks. With top-twenty, pool coverage was
+605/606 and it chose a new candidate on 63 queries, but 0.90 fell to
+566/606 and complete to 552/606: one repair and two breaks. Oracle-pool
+utilization fell from 97.4% at top-four to 94.7% at top-ten and 93.6% at
+top-twenty. The mask-retrieval head still scored all 4096 masks per query;
+selector inference grew from 5 to 11 or 21 scored candidates. No additional
+Target calls were made.
+
+This does **not** prove a new selector cannot exploit the larger pool: old
+V14 supervision, rank vocabulary, and threshold were all designed for top-four.
+It does show that simply widening the pool under this frozen selector and
+rank-clamp protocol fails to convert additional oracle coverage into useful
+decisions, even on training-exposed queries. Because neither B1 nor B2A gives
+clean cross-query evidence for V13 top-K coverage, the next generalization
+test requires a query-held-out **upstream refit**, not just a V13-head refit:
+V13 initialized from V8 and V12 artifacts that were themselves trained on
+train3163, including the H0 hash fold. Reusing those initial weights in a
+nominal cross-fit would still leak the held-out queries. A full upstream
+cross-fit is expensive and must have its own costed, frozen protocol before
+launch. B2A's per-query repairs, breaks, and choices are under
+`results/v2_rank_then_cut/v17sel_b2a_frozen_selector_replay/`.

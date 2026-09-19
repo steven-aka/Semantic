@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-SEL-B2A_FROZEN_V14_SELECTOR_EXPANDED_POOL_RANK_CLAMP_REPLAY",
+  "status": "FROZEN_DIAGNOSTIC_ONLY",
+  "population": "train2863 H0 hash fold 0/5, 606 queries; V13 and V14 both saw these queries during training",
+  "retriever": "frozen V13 step300, original batch32/bfloat16 inference",
+  "selector": "frozen V14 selected step400 checkpoint, original five-anchor utility and frozen threshold",
+  "rank_mapping": "V14 rank embedding has only indices 0..4; map retrieval ranks 5..20 to bucket 4; no weights updated",
+  "top_k": [4, 10, 20],
+  "cutoff": "oracle same-order prefix reachability only; learned cutoff off",
+  "interpretation": "mechanism pilot with out-of-support candidate ranks and in-sample retriever/selector; neither positive nor negative result establishes deployment generalization",
+  "sealed": ["internal300", "development", "fresh confirmation", "training", "Target calls"]
+}
