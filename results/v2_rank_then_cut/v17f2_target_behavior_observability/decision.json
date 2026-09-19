@@ -1,0 +1,8 @@
+{
+  "all_candidate_behavior_is_upper_bound_only": true,
+  "confirmation_used": false,
+  "controller_training_authorized": false,
+  "decision": "STOP_V17F2_CACHED_ANSWER_OBSERVABILITY",
+  "development_used": false,
+  "internal_used": false
+}

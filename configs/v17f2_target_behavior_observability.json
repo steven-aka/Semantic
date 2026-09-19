@@ -1,0 +1,38 @@
+{
+  "protocol": "V17-F2_TARGET_BEHAVIOR_OBSERVABILITY_AUDIT",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "population": "train2863 strict 0.90 boundary states; D1B example-grouped folds",
+  "target_response_source": "cached parsed prediction at current and one-action successor masks",
+  "behavior_features": "64-dimensional signed hashed answer tokens, answer length/digits, answer-question overlap, answer-change and answer-current token overlap; no gold answer, F1, fact recall or fidelity",
+  "comparisons": ["local", "candidate_behavior", "local_plus_candidate_behavior", "local_plus_shuffled_candidate_behavior"],
+  "probe": {
+    "kind": "bias-free linear pairwise scorer",
+    "folds": 3,
+    "split": "D1B example/query-grouped stable hash",
+    "standardization": "training-fold per-dimension mean/std with 1e-6 floor",
+    "epochs": 20,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_states": 512,
+    "seed": 20260919,
+    "checkpoint": "final epoch only",
+    "per_mode_tuning": false
+  },
+  "identifiability_gate": {
+    "macro_state_min": 0.8,
+    "macro_query_min": 0.8,
+    "all_folds_macro_state_min": 0.8,
+    "paired_query_bootstrap_lower_vs_local_min": 0.0,
+    "paired_query_bootstrap_replicates": 2000,
+    "shuffled_control_margin_min": 0.02
+  },
+  "cost_policy": {
+    "report": ["current_state_calls", "all_candidate_calls", "unique_mask_calls_with_per_query_memoization", "context_tokens_lower_bound"],
+    "cache_is_offline_only": true,
+    "generated_output_tokens_available": false,
+    "prompt_and_question_tokens_available": false,
+    "controller_design_requires_separate_bounded_call_protocol": true
+  },
+  "sealed": ["deployable training", "internal300", "development", "confirmation", "hop2", "learned cutoff"]
+}

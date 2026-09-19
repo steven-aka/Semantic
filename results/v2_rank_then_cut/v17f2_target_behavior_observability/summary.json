@@ -1,0 +1,85 @@
+{
+  "aggregates": {
+    "candidate_behavior": {
+      "fold_macro_state": [
+        0.6108175683121779,
+        0.5836744189083265,
+        0.5922900108962167
+      ],
+      "macro_query_accuracy": 0.610828856353051,
+      "macro_state_accuracy": 0.5955939993722403,
+      "paired_vs_local": {
+        "lower_95": -0.1629179417312181,
+        "mean_query_improvement": -0.13943868227868042,
+        "upper_95": -0.1158759067134431
+      }
+    },
+    "local": {
+      "fold_macro_state": [
+        0.7689596533189273,
+        0.7660857330577651,
+        0.7761792895173976
+      ],
+      "macro_query_accuracy": 0.7505269331411302,
+      "macro_state_accuracy": 0.77040822529803,
+      "paired_vs_local": {
+        "lower_95": 0.0,
+        "mean_query_improvement": 0.0,
+        "upper_95": 0.0
+      }
+    },
+    "local_plus_candidate_behavior": {
+      "fold_macro_state": [
+        0.7645092225747018,
+        0.7611481061648433,
+        0.7720008542018917
+      ],
+      "macro_query_accuracy": 0.7486620226309766,
+      "macro_state_accuracy": 0.765886060980479,
+      "paired_vs_local": {
+        "lower_95": -0.00968139100938642,
+        "mean_query_improvement": -0.0016204080219746027,
+        "upper_95": 0.006624342102488866
+      }
+    },
+    "local_plus_shuffled_candidate_behavior": {
+      "fold_macro_state": [
+        0.7652657962968209,
+        0.7646806081345047,
+        0.7732637849303838
+      ],
+      "macro_query_accuracy": 0.7460863811314984,
+      "macro_state_accuracy": 0.7677367297872365,
+      "paired_vs_local": {
+        "lower_95": -0.008283336509965981,
+        "mean_query_improvement": -0.00449888111117233,
+        "upper_95": -0.0010712927755409177
+      }
+    }
+  },
+  "artifacts": {
+    "boundary_features_sha256": "6a4ab70b24faa4d3e7337535028474b9c42ae7b429489711e53ba70c0ca36f32",
+    "protocol_sha256": "f92145da4012be0a2f4008d537bc513c24c188a2a54dc685c87a23c701755f40",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "cost": {
+    "all_candidate_calls_without_memoization": 106986,
+    "all_candidate_context_tokens_lower_bound": 32009024,
+    "boundary_states": 14087,
+    "cost_scope": "context text tokens from exact cache only; excludes prompt/question and generated output tokens, latency and KV reuse",
+    "current_context_tokens_lower_bound": 3897666,
+    "current_plus_all_candidate_calls_without_memoization": 121073,
+    "current_state_calls_without_memoization": 14087,
+    "examples": 546,
+    "unique_mask_calls_with_per_query_memoization": 71960,
+    "unique_mask_context_tokens_lower_bound": 21796977
+  },
+  "decision": "STOP_V17F2_CACHED_ANSWER_OBSERVABILITY",
+  "development_used": false,
+  "identifiability_gate_passed": false,
+  "internal_used": false,
+  "scope_limit": "Only cached parsed-answer behavior is tested; log-probabilities, hidden states and bounded rollouts remain untested.",
+  "training_authorized": false
+}

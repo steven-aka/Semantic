@@ -1,0 +1,12 @@
+{"tap":"local","fold":0,"dimension":3650,"pair_accuracy":0.781761170629736,"macro_state_accuracy":0.7689596533189273,"macro_query_accuracy":0.7397885314249438}
+{"tap":"local","fold":1,"dimension":3650,"pair_accuracy":0.7856651155106424,"macro_state_accuracy":0.7660857330577651,"macro_query_accuracy":0.7571238254063514}
+{"tap":"local","fold":2,"dimension":3650,"pair_accuracy":0.7948362542874595,"macro_state_accuracy":0.7761792895173976,"macro_query_accuracy":0.7546684425920954}
+{"tap":"candidate_behavior","fold":0,"dimension":71,"pair_accuracy":0.6215573556310426,"macro_state_accuracy":0.6108175683121779,"macro_query_accuracy":0.6217324332434159}
+{"tap":"candidate_behavior","fold":1,"dimension":71,"pair_accuracy":0.6097419941074428,"macro_state_accuracy":0.5836744189083265,"macro_query_accuracy":0.6009888764104289}
+{"tap":"candidate_behavior","fold":2,"dimension":71,"pair_accuracy":0.6151623361368228,"macro_state_accuracy":0.5922900108962167,"macro_query_accuracy":0.6097652594053081}
+{"tap":"local_plus_candidate_behavior","fold":0,"dimension":3721,"pair_accuracy":0.7748889469558401,"macro_state_accuracy":0.7645092225747018,"macro_query_accuracy":0.7351656699459159}
+{"tap":"local_plus_candidate_behavior","fold":1,"dimension":3721,"pair_accuracy":0.7824434837679324,"macro_state_accuracy":0.7611481061648433,"macro_query_accuracy":0.7524649409582974}
+{"tap":"local_plus_candidate_behavior","fold":2,"dimension":3721,"pair_accuracy":0.7870600949114317,"macro_state_accuracy":0.7720008542018917,"macro_query_accuracy":0.7583554569887163}
+{"tap":"local_plus_shuffled_candidate_behavior","fold":0,"dimension":3721,"pair_accuracy":0.7779984321923178,"macro_state_accuracy":0.7652657962968209,"macro_query_accuracy":0.7353984563331721}
+{"tap":"local_plus_shuffled_candidate_behavior","fold":1,"dimension":3721,"pair_accuracy":0.7844535616928711,"macro_state_accuracy":0.7646806081345047,"macro_query_accuracy":0.7536829373269616}
+{"tap":"local_plus_shuffled_candidate_behavior","fold":2,"dimension":3721,"pair_accuracy":0.7921580604238124,"macro_state_accuracy":0.7732637849303838,"macro_query_accuracy":0.7491777497343615}

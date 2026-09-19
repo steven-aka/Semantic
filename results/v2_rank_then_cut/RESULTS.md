@@ -1325,3 +1325,38 @@ robustness exists in a minority of states, cannot be reliably predicted, and
 is not repaired by generic parent-diversity allocation. The next stage must
 reassess the controller/input contract rather than add another scalar target or
 beam-allocation heuristic.
+
+## V17-F2 cached target-behavior observability audit
+
+F2 tested the distinct information-source hypothesis on the same 14,087
+train-only strict-0.90 boundary states from 546 queries. It used cached parsed
+frozen-target predictions at each current state and one-action successor, never
+gold answers or cached F1/fidelity as inputs. Four linear pairwise probes used
+the frozen three-fold example/query split and fixed training protocol. This is
+an offline all-candidate information ceiling, not a deployable controller.
+
+The local-only probe reached macro-state 0.7704 and macro-query 0.7505.
+Candidate-answer behavior alone reached 0.5956 and 0.6108. Adding it to local
+features reached 0.7659 and 0.7487; the paired query improvement was -0.0016
+with 95% bootstrap interval [-0.0097, 0.0066]. Shuffling candidate behavior
+within each state reached 0.7677 and 0.7461. The added answer signal fails the
+predeclared 0.80 state/query/fold thresholds, the positive paired-improvement
+criterion, and the 0.02 margin over the shuffled control.
+
+The probe cost is substantial even before model design: 14,087 current-state
+and 106,986 successor calls without memoization (121,073 total), or 71,960
+unique masks with per-query memoization. Cached context text alone accounts for
+at least 35.9 million tokens without memoization, or 21.8 million with
+memoization; these are lower bounds excluding question/prompt and generated
+output tokens, latency, and any KV reuse. The cache does not make calls free at
+deployment.
+
+The decision is `STOP_V17F2_CACHED_ANSWER_OBSERVABILITY`. Parsed answer text did
+not improve cross-query boundary identification. This does not rule out
+log-probability, hidden-state, or bounded-rollout behavior, which the current
+cache does not contain; nor does it prove that every closed-loop method fails.
+No controller training or internal300/development/confirmation access occurred.
+The D1A 280/300 and complete 275/300 remain the canonical internal baseline.
+Protocol, folds, cost ledger, and decision are in
+`configs/v17f2_target_behavior_observability.json` and
+`results/v2_rank_then_cut/v17f2_target_behavior_observability/`.
