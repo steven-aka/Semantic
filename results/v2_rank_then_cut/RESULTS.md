@@ -1360,3 +1360,37 @@ The D1A 280/300 and complete 275/300 remain the canonical internal baseline.
 Protocol, folds, cost ledger, and decision are in
 `configs/v17f2_target_behavior_observability.json` and
 `results/v2_rank_then_cut/v17f2_target_behavior_observability/`.
+
+## V17-F3 bounded logprob observability pilot
+
+F3 tested a richer frozen-Target signal without changing the deployable policy.
+The protocol selected 180 distinct train-only strict-0.90 boundary queries by
+hash and one deployed-preferred boundary state per query. It reran Qwen3-8B
+with the atomic QAMPARI prompt, deterministic generation, and top-two generated
+token logprobs. The first 12-query preflight reached 65/70 (92.9%) exact parsed
+answer agreement with the old cache, above the frozen 90% opening criterion.
+The full 1,191 calls reached 88.9% agreement, however, so this pilot also
+exposes a nontrivial old-cache/new-run reproducibility limit.
+
+On the same 180 one-state-per-query grouped folds, the local-only linear probe
+reached macro-query 0.7101. The five-number logprob signal alone reached 0.5200.
+Local plus logprob reached 0.7028, a paired query difference of -0.0060 with
+95% bootstrap interval [-0.0202, 0.0033]. It fails the predeclared 0.80
+absolute gate, +0.03 paired improvement, and positive lower confidence bound.
+This local baseline is lower than F2's 0.751 because F3 uses only one selected
+state per query; only within-F3 comparisons are causal.
+
+The signal consisted of mean/minimum chosen-token logprob, mean top-two token
+margin, generated length, and current-to-candidate mean-logprob change. These
+whole-generation values include fixed answer tags and are not calibrated
+probabilities of a set-valued answer or full-vocabulary entropy. The 1,191
+Target calls consumed 601,972 prompt tokens and 40,254 generated tokens. This
+cost was offline only; no Target feature enters deployment.
+
+The decision is `STOP_V17F3_LOGPROB_PILOT_NO_TEACHER_SIGNAL`: the tested
+low-dimensional logprob summary does not justify student distillation or an
+internal replay. The decision is scoped to this one-state-per-query pilot and
+these features. The 88.9% cache agreement and small grouped folds preclude a
+general claim that richer Target state or all uncertainty measures fail. No
+student/controller was trained, and internal300, development, and confirmation
+remained sealed. The D1A 280/300 canonical internal baseline is unchanged.

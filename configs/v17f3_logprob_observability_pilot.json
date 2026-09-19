@@ -1,0 +1,33 @@
+{
+  "protocol": "V17-F3_TRAIN_ONLY_LOGPROB_OBSERVABILITY_PILOT",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "selection": "sha256-ranked 180 distinct strict-0.90 boundary train queries; one deployed-preferred state per query, then lowest sha256 history",
+  "query_count": 180,
+  "preflight_queries": 12,
+  "preflight_parsed_agreement_min": 0.9,
+  "target_model": "models/Qwen3-8B",
+  "gpu": 0,
+  "gpu_memory_utilization": 0.55,
+  "max_model_len": 4096,
+  "max_new_tokens": 256,
+  "batch_size": 64,
+  "logprobs_top_k": 2,
+  "signal": ["mean_chosen_logprob", "minimum_chosen_logprob", "mean_top2_margin", "generated_token_count", "current_to_candidate_mean_logprob_change"],
+  "probe": {
+    "kind": "bias-free linear pairwise scorer",
+    "folds": 3,
+    "epochs": 20,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_states": 64,
+    "seed": 20260919
+  },
+  "teacher_gate": {
+    "macro_state_min": 0.8,
+    "paired_query_improvement_min": 0.03,
+    "paired_query_bootstrap_lower_min": 0.0,
+    "bootstrap_replicates": 2000
+  },
+  "interpretation": "Pilot only; one state per query. A negative result does not close all Target-behavior signals. No student or controller training unless teacher gate passes.",
+  "sealed": ["internal300", "development", "confirmation", "student training", "deployable training", "hop2", "learned cutoff"]
+}

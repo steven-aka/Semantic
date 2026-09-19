@@ -1,0 +1,68 @@
+{
+  "actions": 1011,
+  "aggregates": {
+    "local": {
+      "folds": [
+        0.7157911101325614,
+        0.7627823278307915,
+        0.6516965168387923
+      ],
+      "macro_query_accuracy": 0.7100899849340484,
+      "macro_state_accuracy": 0.7100899849340484,
+      "paired_vs_local": {
+        "lower_95": 0.0,
+        "mean_query_improvement": 0.0,
+        "upper_95": 0.0
+      }
+    },
+    "local_plus_logprob": {
+      "folds": [
+        0.7157911101325614,
+        0.7434586561892343,
+        0.6490501906365564
+      ],
+      "macro_query_accuracy": 0.7027666523194507,
+      "macro_state_accuracy": 0.7027666523194507,
+      "paired_vs_local": {
+        "lower_95": -0.02021604941950904,
+        "mean_query_improvement": -0.00601150393486023,
+        "upper_95": 0.00333193043867747
+      }
+    },
+    "logprob": {
+      "folds": [
+        0.5010166082714425,
+        0.5824236160387164,
+        0.4764348513459506
+      ],
+      "macro_query_accuracy": 0.5199583585520364,
+      "macro_state_accuracy": 0.5199583585520364,
+      "paired_vs_local": {
+        "lower_95": -0.2585154107047452,
+        "mean_query_improvement": -0.18995470520522859,
+        "upper_95": -0.11711970807777511
+      }
+    }
+  },
+  "artifacts": {
+    "boundary_features_sha256": "6a4ab70b24faa4d3e7337535028474b9c42ae7b429489711e53ba70c0ca36f32",
+    "protocol_sha256": "934cb3d5ff355daa74b75d9fd4cc793409d7d0fa5541f94fed55bd0406edf10e",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "cost": {
+    "generated_tokens": 40254,
+    "parsed_agreement": 0.889168765743073,
+    "prompt_tokens": 601972,
+    "target_calls": 1191
+  },
+  "decision": "STOP_V17F3_LOGPROB_PILOT_NO_TEACHER_SIGNAL",
+  "development_used": false,
+  "internal_used": false,
+  "preflight_agreement": 0.9285714285714286,
+  "queries": 180,
+  "states": 180,
+  "student_trained": false,
+  "teacher_gate_passed": false
+}

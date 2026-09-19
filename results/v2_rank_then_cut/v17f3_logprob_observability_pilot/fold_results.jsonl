@@ -1,0 +1,9 @@
+{"signal":"local","fold":0,"pair_accuracy":0.7602739726027398,"macro_state_accuracy":0.7157911101325614,"macro_query_accuracy":0.7157911101325614}
+{"signal":"local","fold":1,"pair_accuracy":0.7538461538461538,"macro_state_accuracy":0.7627823278307915,"macro_query_accuracy":0.7627823278307915}
+{"signal":"local","fold":2,"pair_accuracy":0.6452442159383034,"macro_state_accuracy":0.6516965168387923,"macro_query_accuracy":0.6516965168387923}
+{"signal":"logprob","fold":0,"pair_accuracy":0.5342465753424658,"macro_state_accuracy":0.5010166082714425,"macro_query_accuracy":0.5010166082714425}
+{"signal":"logprob","fold":1,"pair_accuracy":0.5615384615384615,"macro_state_accuracy":0.5824236160387164,"macro_query_accuracy":0.5824236160387164}
+{"signal":"logprob","fold":2,"pair_accuracy":0.5398457583547558,"macro_state_accuracy":0.4764348513459506,"macro_query_accuracy":0.4764348513459506}
+{"signal":"local_plus_logprob","fold":0,"pair_accuracy":0.7602739726027398,"macro_state_accuracy":0.7157911101325614,"macro_query_accuracy":0.7157911101325614}
+{"signal":"local_plus_logprob","fold":1,"pair_accuracy":0.7538461538461538,"macro_state_accuracy":0.7434586561892343,"macro_query_accuracy":0.7434586561892343}
+{"signal":"local_plus_logprob","fold":2,"pair_accuracy":0.6503856041131105,"macro_state_accuracy":0.6490501906365564,"macro_query_accuracy":0.6490501906365564}
