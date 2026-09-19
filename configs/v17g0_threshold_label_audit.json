@@ -1,0 +1,20 @@
+{
+  "protocol": "V17-G0A_TRAIN_ONLY_THRESHOLD_LABEL_REPRODUCIBILITY",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "population": "F3's 180 hash-selected train queries; no internal, development or confirmation",
+  "complete_boundary_groups": 12,
+  "stratum_size": 20,
+  "strata": ["f1_0888889", "f1_0900000", "f1_0909091", "f1_0947368", "far_below_070"],
+  "selection": "first 12 F3 queries with all current and legal successor masks, plus smallest sha256 query/mask keys per F1 stratum with at most two masks per query and stratum",
+  "repeat_generations": 3,
+  "target_model": "models/Qwen3-8B",
+  "gpu": 0,
+  "gpu_memory_utilization": 0.55,
+  "max_model_len": 4096,
+  "max_new_tokens": 256,
+  "batch_size": 64,
+  "threshold": 0.9,
+  "primary": ["parsed_string_agreement", "order_insensitive_normalized_set_agreement", "list_f1_agreement", "threshold_label_agreement"],
+  "scope": "same-process greedy reruns versus original exact cache; no conclusion about cross-process stochasticity or full-DP viability until those are separately audited",
+  "sealed": ["student training", "controller training", "internal300", "development", "confirmation", "learned cutoff"]
+}

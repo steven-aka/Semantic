@@ -1,0 +1,22 @@
+{
+  "artifacts": {
+    "g0a_results_sha256": "f665c890123f6a02b833cfb87230e7fb328e57d45e51ec31843143ac61e41e82",
+    "protocol_sha256": "783a6c7f9a2af628925a0f0aad881492583d8ce25759e5587c9fc5d8a4179775"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "decision": "AUDIT_TARGET_REPRODUCIBILITY_BEFORE_SUPERVISION_REDESIGN",
+  "development_used": false,
+  "distinct_queries_with_critical_action_flip": 3,
+  "internal_used": false,
+  "interpretation": "localized sensitivity lower bound, not an estimate of fully rerun exact-lattice variability",
+  "queries": 7,
+  "scenarios": 21,
+  "scenarios_with_critical_action_flip": 6,
+  "scenarios_with_reachability_flip": 6,
+  "scenarios_with_strict_pair_change": 6,
+  "sum_of_per_query_max_critical_action_flips": 33,
+  "sum_of_per_query_max_deployed_action_flips": 1,
+  "total_critical_action_flips_across_repeated_scenarios": 58,
+  "training_authorized": false
+}

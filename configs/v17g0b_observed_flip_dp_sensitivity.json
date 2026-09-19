@@ -1,0 +1,9 @@
+{
+  "protocol": "V17-G0B_OBSERVED_MASK_FLIP_DP_SENSITIVITY",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "population": "train-only queries with at least one G0A observed 0.90 threshold flip",
+  "counterfactual": "for each G0A rerun index, replace only observed G0A mask threshold labels in the old exact cache; leave all unobserved masks fixed, then recompute 0.90 existential reachability",
+  "report": ["all_4096_mask_reachability_flips", "critical_state_action_target_flips", "strict_pair_direction_changes", "deployed_critical_state_action_target_flips"],
+  "interpretation": "localized sensitivity lower bound, not an estimate of fully rerun exact-lattice variability",
+  "sealed": ["model training", "internal300", "development", "confirmation"]
+}

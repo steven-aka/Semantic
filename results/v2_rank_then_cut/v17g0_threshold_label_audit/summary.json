@@ -1,0 +1,72 @@
+{
+  "artifacts": {
+    "exact_cache_metadata_sha256": "45c28c2349841e48e7d62486fb142ecffc11ddf3ed61eb90bb237e3faad7b4b9",
+    "protocol_sha256": "b1d05a3e4db845a1dba7fcc862e65232d7dae2efae21bedc0e29bcbfedbf299d"
+  },
+  "by_stratum": {
+    "f1_0888889": {
+      "cache_to_rerun_threshold_flip_masks": 1,
+      "masks": 20,
+      "within_process_threshold_flip_masks": 1
+    },
+    "f1_0900000": {
+      "cache_to_rerun_threshold_flip_masks": 3,
+      "masks": 20,
+      "within_process_threshold_flip_masks": 2
+    },
+    "f1_0909091": {
+      "cache_to_rerun_threshold_flip_masks": 1,
+      "masks": 4,
+      "within_process_threshold_flip_masks": 0
+    },
+    "f1_0947368": {
+      "cache_to_rerun_threshold_flip_masks": 1,
+      "masks": 20,
+      "within_process_threshold_flip_masks": 0
+    },
+    "far_below_070": {
+      "cache_to_rerun_threshold_flip_masks": 0,
+      "masks": 20,
+      "within_process_threshold_flip_masks": 0
+    }
+  },
+  "cache_to_rerun_threshold_flip_masks": 7,
+  "comparisons": 462,
+  "complete": true,
+  "confirmation_used": false,
+  "cost": {
+    "generated_tokens": 20965,
+    "prompt_tokens": 305697,
+    "target_calls": 462
+  },
+  "decision": "GO_V17G0B_DP_LABEL_SENSITIVITY_AUDIT",
+  "development_used": false,
+  "internal_used": false,
+  "masks": 154,
+  "metrics": {
+    "list_f1_agreement": 0.8614718614718615,
+    "normalized_set_agreement": 0.8614718614718615,
+    "parsed_string_agreement": 0.829004329004329,
+    "threshold_label_agreement": 0.9675324675324676
+  },
+  "queries": 70,
+  "scope": "same-process greedy reruns versus original exact cache; no conclusion about cross-process stochasticity or full-DP viability until those are separately audited",
+  "selection": {
+    "available_strata": {
+      "f1_0888889": 11096,
+      "f1_0900000": 379,
+      "f1_0909091": 4,
+      "f1_0947368": 1716,
+      "far_below_070": 582307
+    },
+    "selected_roles": {
+      "complete_boundary_group": 70,
+      "f1_0888889": 20,
+      "f1_0900000": 20,
+      "f1_0909091": 4,
+      "f1_0947368": 20,
+      "far_below_070": 20
+    }
+  },
+  "within_process_threshold_flip_masks": 4
+}

@@ -1394,3 +1394,58 @@ these features. The 88.9% cache agreement and small grouped folds preclude a
 general claim that richer Target state or all uncertainty measures fail. No
 student/controller was trained, and internal300, development, and confirmation
 remained sealed. The D1A 280/300 canonical internal baseline is unchanged.
+
+## V17-G0A threshold-label reproducibility audit
+
+G0A held all model training and validation roles sealed. From F3's 180
+train-only queries, it selected 154 masks across 70 queries: all current and
+legal successor masks for 12 strict-boundary states, plus hash-selected masks
+at actual list-F1 values 0.888889, 0.900000, 0.909091, 0.947368, and at most
+0.70. Each prompt was regenerated three times in one Qwen3-8B/vLLM process
+using the original atomic QAMPARI prompt and greedy 256-token contract.
+
+Against the original exact cache, 462 comparisons agree on exact parsed answer
+string 82.9%, order-insensitive normalized answer set 86.1%, list-F1 86.1%,
+and the 0.90 success label 96.75%. Seven of 154 masks cross the success
+threshold in at least one rerun; four masks cross it among the three new runs
+themselves. This demonstrates real threshold-label instability in the sampled
+environment, beyond harmless answer-string changes. It does not estimate a
+population flip rate because the sample deliberately enriches boundary values.
+The changes are not solely tiny 0.899-to-0.901 perturbations: one cached
+0.947368 mask reran at 0.181818, and another at 0.736842.
+
+The fidelity support is discrete: with ten answer atoms, list-F1 is
+`2 * correct / (10 + predicted)`. In the 180-query exact lattice there are only
+four 0.909091 masks, compared with 379 at exactly 0.900000 and 11,096 at
+0.888889. Therefore an arbitrary continuous `[0.89, 0.91]` gray zone is not
+appropriate without first checking which discrete answer-count configurations
+it actually removes. G0A used 462 Target calls, 305,697 prompt tokens, and
+20,965 generated tokens. It did not use internal300 or development.
+
+## V17-G0B localized DP-label sensitivity
+
+G0B held all unobserved exact-lattice masks fixed and substituted only the
+seven masks whose G0A reruns crossed 0.90, one rerun index at a time. It then
+recomputed exact 0.90 existential reachability and compared the train2863
+critical state-action targets. The baseline recomputation reproduced every
+checked stored viability label (692/692 on the three affected queries).
+
+Three of the seven queries cause any critical-label change. Taking each
+affected query's most sensitive rerun separately, 33 critical action labels
+change in total, including
+one deployed-state action label; the remainder are one-hop states. Repeated
+scenarios count 58 action-label changes, but those are correlated repeats of
+the same query/mask perturbations and must not be treated as 58 independent
+examples. The other four query flips are absorbed by alternative successful
+continuations and change no reachability label. This shows both that a real
+mask-level flip *can* propagate into strict boundary supervision and that DP
+redundancy often protects it.
+
+This is a localized sensitivity test, not a second exact lattice generation or
+an estimate of stochastic viability prevalence. The formal decision is
+`AUDIT_TARGET_REPRODUCIBILITY_BEFORE_SUPERVISION_REDESIGN`: first distinguish
+same-prompt batch/numeric variation from environment or cache-contract drift,
+then decide whether probabilistic labels are warranted. The 0.90 final
+evaluation contract and D1A baseline are unchanged. No training or sealed-role
+replay was authorized. Protocols and per-mask/per-query audit rows are under
+`configs/v17g0*.json` and `results/v2_rank_then_cut/v17g0*/`.
