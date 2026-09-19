@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "protocol_sha256": "fa6eeddc955b57e1111ddb8de7a77da152038c198e9c4d48513abdf24cb87715",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c",
+    "viability_head_sha256": "82788e84b930b31feb8d01ee7921cbe88b2a15c677c8c7de482dbbfd80dacf88"
+  },
+  "complete": true,
+  "folds": [
+    {
+      "d1b_macro_state_accuracy": 0.7628489915399072,
+      "fold": 0,
+      "macro_query_accuracy": 0.7328851604213729,
+      "macro_state_accuracy": 0.7487597795600017,
+      "not_below_d1b": false,
+      "pair_accuracy": 0.7655082309903318
+    },
+    {
+      "d1b_macro_state_accuracy": 0.7593694843865557,
+      "fold": 1,
+      "macro_query_accuracy": 0.7266113553723684,
+      "macro_state_accuracy": 0.720634801000235,
+      "not_below_d1b": false,
+      "pair_accuracy": 0.7387724757000853
+    },
+    {
+      "d1b_macro_state_accuracy": 0.7751424693672578,
+      "fold": 2,
+      "macro_query_accuracy": 0.7396603996454669,
+      "macro_state_accuracy": 0.7630978952678075,
+      "not_below_d1b": false,
+      "pair_accuracy": 0.7877413898416576
+    }
+  ],
+  "held_out_query_gate_passed": false,
+  "internal_read": false,
+  "oof_macro_query_accuracy": 0.7330523051464027,
+  "oof_macro_state_accuracy": 0.744164158609348,
+  "reference_by_provenance": {
+    "deployed": 6200,
+    "one_hop": 28865
+  },
+  "reference_states": 35065
+}

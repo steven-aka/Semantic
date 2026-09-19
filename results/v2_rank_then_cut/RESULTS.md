@@ -1150,3 +1150,27 @@ frozen training protocol but does not start it. Internal300 remains
 design-exposed research validation, and the ten historical critical events are
 descriptive only. Development, fresh confirmation, hop two, terminal
 reranking, and learned cutoff remain closed.
+
+## V17-D2B 0.90-branch adapter train-only gate
+
+D2B executed the single frozen rank-8 adapter protocol. The drift reference
+corpus was made deterministic before optimization: all 6,200 deployed states
+and all 28,865 one-hop non-boundary states, with the smallest legal action used
+per state and deployed/one-hop query-balanced sampling during training. No
+intermediate epoch or alternative rank was selected.
+
+The adapter fails the train-only held-out-query gate in every fold. Macro-state
+accuracy is 0.749, 0.721, and 0.763 versus the corresponding D1B linear-probe
+baselines of 0.763, 0.759, and 0.775. The three-fold mean is 0.744, below the
+frozen 0.80 threshold and below D1B's 0.766 mean. Macro-query accuracy is only
+0.733, also below 0.80. Thus neither the absolute gate nor the no-regression
+gate passes.
+
+The formal decision is `STOP_V17D2B_HELD_OUT_QUERY_GATE`. By protocol, no
+all-data checkpoint was trained and canonical internal300 was not read. The
+result strengthens the D1B diagnosis: a rank-8 input correction passed through
+the frozen nonlinear viability head does not create transferable 0.90 boundary
+geometry. It does not justify opening a larger adapter automatically; the next
+stage must first distinguish missing query-action interaction information from
+an objective/head-coordinate mismatch. Development, confirmation, hop two,
+terminal reranking, and learned cutoff remain closed.
