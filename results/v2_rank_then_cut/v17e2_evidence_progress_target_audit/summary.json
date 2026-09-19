@@ -1,0 +1,60 @@
+{
+  "artifacts": {
+    "boundary_features_sha256": "6a4ab70b24faa4d3e7337535028474b9c42ae7b429489711e53ba70c0ca36f32",
+    "protocol_sha256": "3900c045f7a89d02a5fa5d948f92f4ba20688ee6830a8a74ec4fd41df7c37b02",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "decision": "STOP_EVIDENCE_PROGRESS_AUDIT_LABEL_AND_INPUT_SUFFICIENCY",
+  "development_used": false,
+  "internal_used": false,
+  "passing_targets": [],
+  "targets": {
+    "clipped_090_gap_reduction": {
+      "fold_macro_state": [
+        0.7502815304896826,
+        0.7269615826871069,
+        0.7285597826593418
+      ],
+      "greedy_all_best_preserve_090_viability": 0.8038475767665557,
+      "greedy_any_best_preserves_090_viability": 0.9778764335923048,
+      "macro_query_accuracy": 0.7335153509811,
+      "macro_state_accuracy": 0.7352676319453771,
+      "non_tied_state_fraction": 0.9593951870518919,
+      "non_tied_states": 13515,
+      "opening_gate_passed": false,
+      "states": 14087
+    },
+    "fidelity_delta": {
+      "fold_macro_state": [
+        0.74929341276713,
+        0.7255405838069107,
+        0.7269738514275115
+      ],
+      "greedy_all_best_preserve_090_viability": 0.8038475767665557,
+      "greedy_any_best_preserves_090_viability": 0.9778764335923048,
+      "macro_query_accuracy": 0.7292501855746124,
+      "macro_state_accuracy": 0.7339359493338508,
+      "non_tied_state_fraction": 0.9593951870518919,
+      "non_tied_states": 13515,
+      "opening_gate_passed": false,
+      "states": 14087
+    },
+    "new_anchor_gain": {
+      "fold_macro_state": [
+        0.753045479066721,
+        0.7150201010442669,
+        0.7186788808433263
+      ],
+      "greedy_all_best_preserve_090_viability": 0.8474883089455423,
+      "greedy_any_best_preserves_090_viability": 0.9802383466586212,
+      "macro_query_accuracy": 0.7287511631675158,
+      "macro_state_accuracy": 0.7289148203181047,
+      "non_tied_state_fraction": 0.47057570809966637,
+      "non_tied_states": 6629,
+      "opening_gate_passed": false,
+      "states": 14087
+    }
+  }
+}

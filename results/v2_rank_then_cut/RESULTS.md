@@ -1240,3 +1240,33 @@ must test whether a more local, decomposable evidence-progress target is
 consistent and learnable across queries, while separately auditing exact-DP
 viability label ambiguity. Internal300, development, confirmation, hop two,
 terminal reranking, and learned cutoff remain closed.
+
+## V17-E2 evidence-progress target audit
+
+E2 tested three preregistered local targets without training a deployable
+model: raw next-state fidelity gain, fidelity gain clipped at the 0.90 target,
+and immediate newly attained anchor count. Each used the same frozen local
+representation, query-grouped folds, standardized linear pairwise probe, and
+fixed optimization protocol.
+
+Raw and clipped fidelity progress are non-tied in 13,515/14,087 states (95.9%)
+but reach only 0.734/0.729 and 0.735/0.734 macro-state/macro-query accuracy.
+New-anchor gain is non-tied in only 6,629 states (47.1%) and reaches
+0.729/0.729. Every fold remains below 0.80 for every target.
+
+The local targets also have a consequential tie problem. At least one
+maximum-progress action preserves exact 0.90 viability in 97.8--98.0% of
+non-tied states, but all tied maximum-progress actions are safe in only 80.4%
+for fidelity progress and 84.7% for anchor gain. A controller would therefore
+need another unavailable tie-breaking signal and could not safely treat local
+progress as a replacement objective.
+
+The decision is
+`STOP_EVIDENCE_PROGRESS_AUDIT_LABEL_AND_INPUT_SUFFICIENCY`. No progress
+controller is authorized. Together E0--E2 show that local viability, explicit
+successor-frontier summaries, and immediate evidence progress all fail clean
+cross-query gates. The next admissible stage is a label/input sufficiency audit:
+measure observational conflicts, query-family dependence, and whether distinct
+exact-DP outcomes are distinguishable from deployment-available inputs before
+designing another learned controller. Internal300, development, confirmation,
+hop two, terminal reranking, and learned cutoff remain closed.

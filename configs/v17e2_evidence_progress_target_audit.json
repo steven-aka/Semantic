@@ -1,0 +1,35 @@
+{
+  "protocol": "V17-E2_EVIDENCE_PROGRESS_TARGET_AUDIT",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "date": "2026-09-19 Asia/Shanghai",
+  "population": "train2863 deployed plus hop<=1 strict 0.90 boundary states",
+  "targets": {
+    "fidelity_delta": "fidelity(s+a)-fidelity(s)",
+    "clipped_090_gap_reduction": "min(0.90,fidelity(s+a))-min(0.90,fidelity(s))",
+    "new_anchor_gain": "attained_anchor_count(s+a)-attained_anchor_count(s)"
+  },
+  "tie_epsilon": {"fidelity_delta": 1e-9, "clipped_090_gap_reduction": 1e-9, "new_anchor_gain": 0.0},
+  "probe": {
+    "features": "frozen 3650-dimensional local action representation",
+    "kind": "shared bias-free linear pairwise scorer",
+    "folds": 3,
+    "split": "frozen example/query-grouped D1B folds",
+    "standardization": "training-fold per-dimension mean/std; std clamp 1e-6",
+    "epochs": 20,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_states": 512,
+    "seed": 20260919,
+    "checkpoint": "final epoch only",
+    "per_target_tuning": false
+  },
+  "opening_gate": {
+    "non_tied_state_fraction_min": 0.5,
+    "macro_state_accuracy_min": 0.8,
+    "macro_query_accuracy_min": 0.8,
+    "every_fold_macro_state_min": 0.8,
+    "greedy_best_preserves_090_viability_min": 0.95
+  },
+  "sealed": ["model training", "internal300", "development", "confirmation", "hop2", "terminal reranker", "learned cutoff"]
+}
