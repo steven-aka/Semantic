@@ -1,0 +1,145 @@
+{
+  "artifacts": {
+    "g0a_results_sha256": "f665c890123f6a02b833cfb87230e7fb328e57d45e51ec31843143ac61e41e82",
+    "internal_candidates_sha256": "28dc6bccde8ec868d6eee4fa36839b33bdb832a0ae852867ed4c173fd4e32efa",
+    "protocol_sha256": "3369cbab85c04712e351ed7bfffb1883ecd8651f541b9180d0873f70d47c289a",
+    "train_candidates_sha256": "12ee25f7b3726177443e49b7d207ad42284df21550f2b566336b618292b2f684"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "decision": "CUTOFF_PILOT_COMPLETE_NO_CONFIRMATION",
+  "development_used": false,
+  "heldout_queries": 606,
+  "heldout_v8_fallback": {
+    "complete": 325,
+    "mean_regret_if_complete": 0.13402788809745014,
+    "oracle_same_order_complete": 552,
+    "per_anchor": [
+      {
+        "examples": 606,
+        "oracle_same_order_successes": 602,
+        "successes": 547
+      },
+      {
+        "examples": 606,
+        "oracle_same_order_successes": 595,
+        "successes": 536
+      },
+      {
+        "examples": 606,
+        "oracle_same_order_successes": 592,
+        "successes": 528
+      },
+      {
+        "examples": 606,
+        "oracle_same_order_successes": 567,
+        "successes": 447
+      },
+      {
+        "examples": 485,
+        "oracle_same_order_successes": 469,
+        "successes": 371
+      }
+    ]
+  },
+  "internal_design_exposed": {
+    "oracle_candidate_diagnostic": {
+      "complete": 161,
+      "mean_regret_if_complete": 0.1286014835243282,
+      "oracle_same_order_complete": 285,
+      "per_anchor": [
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 297,
+          "successes": 276
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 295,
+          "successes": 269
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 293,
+          "successes": 265
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 285,
+          "successes": 232
+        },
+        {
+          "examples": 243,
+          "oracle_same_order_successes": 243,
+          "successes": 182
+        }
+      ]
+    },
+    "v14_frozen_selector": {
+      "complete": 154,
+      "mean_regret_if_complete": 0.13150491855701488,
+      "oracle_same_order_complete": 277,
+      "per_anchor": [
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 296,
+          "successes": 272
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 295,
+          "successes": 264
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 294,
+          "successes": 255
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 280,
+          "successes": 223
+        },
+        {
+          "examples": 243,
+          "oracle_same_order_successes": 240,
+          "successes": 177
+        }
+      ]
+    },
+    "v8_fallback": {
+      "complete": 151,
+      "mean_regret_if_complete": 0.13070509003588238,
+      "oracle_same_order_complete": 274,
+      "per_anchor": [
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 296,
+          "successes": 271
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 295,
+          "successes": 261
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 294,
+          "successes": 255
+        },
+        {
+          "examples": 300,
+          "oracle_same_order_successes": 279,
+          "successes": 224
+        },
+        {
+          "examples": 243,
+          "oracle_same_order_successes": 238,
+          "successes": 174
+        }
+      ]
+    }
+  },
+  "masked_known_unstable_090_prefixes": 1,
+  "train_queries": 2257
+}

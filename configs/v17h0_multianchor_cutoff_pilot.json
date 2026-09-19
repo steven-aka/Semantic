@@ -1,0 +1,22 @@
+{
+  "protocol": "V17-H0_FROZEN_V13_TOP4_MULTI_ANCHOR_CUTOFF_PILOT",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "purpose": "Measure learned cutoff error separately from frozen V14 candidate-selection error; research development only, not confirmation",
+  "candidate_generator": "V8 fallback plus frozen V13 top-four mask projections, exactly as V14",
+  "selector": "V14 selected index is the sole deployable candidate choice; oracle candidate choice is diagnostic only",
+  "training_role": "train2863 only, with sha256 example-grouped holdout fold 0/5",
+  "training_examples": "all five candidate trajectories and thirteen prefixes per query",
+  "targets": "per-prefix exact-lattice F1 >= each attainable fidelity anchor; unattainable anchors masked",
+  "known_ambiguity": "mask 0.90 loss for train prefix masks shown to flip 0.90 in G0A; preserve final evaluation contract",
+  "model": "frozen V13 question/packet embeddings; mean selected packet embedding, query interaction, prefix length/token fraction; 128-hidden MLP with five anchor outputs",
+  "steps": 400,
+  "batch_queries": 32,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "seed": 20260919,
+  "endpoint": "step400 only; no checkpoint or threshold search",
+  "decision_rule": "for each active anchor choose earliest prefix at or after previous cutoff with predicted sufficiency >=0.90; if none choose highest predicted sufficiency, tie earliest; enforce nondecreasing cutoffs",
+  "sufficiency_probability_threshold": 0.9,
+  "evaluation": "one fixed train-heldout and one design-exposed internal300 replay; report learned versus same-order oracle cutoff for V8 fallback, V14 selector, and oracle candidate diagnostic",
+  "sealed": ["consumed development retuning", "fresh confirmation", "target-model inference", "candidate generator changes", "selector changes"]
+}

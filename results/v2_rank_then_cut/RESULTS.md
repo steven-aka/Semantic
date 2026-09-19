@@ -1449,3 +1449,50 @@ then decide whether probabilistic labels are warranted. The 0.90 final
 evaluation contract and D1A baseline are unchanged. No training or sealed-role
 replay was authorized. Protocols and per-mask/per-query audit rows are under
 `configs/v17g0*.json` and `results/v2_rank_then_cut/v17g0*/`.
+
+## V17-H0 frozen-candidate multi-anchor cutoff pilot
+
+To test cutoff development separately from upstream ranking, H0 froze the V13
+top-four/V8-fallback candidate trajectories, V13 embedding cache, and V14
+candidate choices. It trained one five-anchor cutoff head for 400 fixed steps
+on train2863 prefix states, with a hash-grouped 606-query train-only holdout.
+Labels came from the exact prefix cache; unattainable anchors were masked. The
+one training prefix already known from G0A to have an unstable 0.90 label was
+masked for that loss. The loader verified every candidate's per-anchor oracle
+success against the exact cache before training. No Target calls, development,
+or confirmation were used. The internal300 replay is design-exposed and is
+reported once for diagnosis, not for choosing a threshold or checkpoint.
+
+The cutoff head failed decisively. On the train-only holdout, the V8 fallback
+reached 0.90 on 447/606 versus 567/606 with an oracle cutoff on the **same
+fixed orders**; complete was 325/606 versus 552/606. On internal300, the
+frozen V14 candidate selector plus H0 cutoff reached 0.90 on 223/300 versus
+280/300 with same-order oracle cutoff; complete was 154/300 versus 277/300.
+The V8 fallback was 224/300 versus 279/300 at 0.90. Even the nondeployable
+oracle candidate choice plus H0 cutoff reached only 232/300 versus its
+same-order oracle ceiling of 285/300. Mean regret among complete V14/H0
+trajectories was 0.1315, above the 0.03 target.
+
+This separates two bottlenecks. The V14-selected fixed-order oracle ceiling of
+280/300 is below the 282/300 0.90 gate, so **a cutoff-only replacement cannot
+clear that gate with this selector**, even if its cutoff were perfect. H0 also
+falls far below its own fixed-order oracle: 57 additional 0.90 failures and
+123 additional incomplete cases on the V14-selected internal trajectories.
+For 0.90, 209/300 chosen cutoffs were at packet 10 and 60/300 were at packets
+11–12; late stopping can still fail because observed fidelity is not monotone
+along add-only trajectories. These are diagnostic counts, not proof that timing
+alone caused every failure. The fixed per-prefix BCE and 0.90 probability
+crossing rule is therefore not validated as a deployable cutoff protocol.
+
+Decision: **STOP_V17H0_CUTOFF_PILOT; no confirmation or deployment claim.** Do
+not tune the probability threshold on internal300. The fastest scientifically
+useful follow-up is a train-only error decomposition of H0 probabilities and
+oracle-first-success positions, followed by a *new frozen protocol* that
+optimizes ordered stopping under nonmonotone fidelity. That protocol must pass
+query-held-out cutoff success and regret before one internal replay. Separately,
+the fixed candidate selector must gain at least two 0.90 successes to reach
+282/300 even under oracle cutoff. G0's Target/cache reproducibility concern
+also remains unresolved for any eventual fresh confirmation. The H0 protocol,
+checkpoint, history, internal per-example outcomes, and machine-readable
+summary are in `configs/v17h0_multianchor_cutoff_pilot.json` and
+`results/v2_rank_then_cut/v17h0_multianchor_cutoff_pilot/`.
