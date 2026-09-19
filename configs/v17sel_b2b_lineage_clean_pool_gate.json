@@ -1,0 +1,16 @@
+{
+  "protocol": "V17-SEL-B2B_LINEAGE_CLEAN_SINGLE_HOLDOUT_POOL_GATE",
+  "status": "FROZEN_APPROVED_TO_BUILD_AND_RUN",
+  "selection": "sha256(example_id) first eight bytes modulo 5 equals 1 on V13 train2863 IDs",
+  "holdout_role": "lineage-clean research holdout; design-exposed after one top-K coverage read; never confirmation",
+  "lineage": ["fresh V8 from Qwen3-4B base", "new V10 initialized from clean V8", "new V12 initialized from clean V10", "new V13 initialized from clean V8 and clean V12"],
+  "exclusion": "all holdout IDs absent from all V8/V10/V12/V13 training and checkpoint-selection data; holdout raw examples only used after all upstream checkpoints frozen",
+  "checkpoint_selection": "reuse historical step budgets, optimizer settings, model architecture, and non-holdout validation roles; no checkpoint or hyperparameter selected by holdout top-K result",
+  "candidate_semantics": "new clean V8 beam8 fallback plus new clean V13 ranked-mask projections, V8 relative order preserved",
+  "top_k": [4, 10, 20],
+  "primary_gate": {"top10_absolute_coverage_min": 0.97, "top10_minus_top4_min": 0.015},
+  "clear_stop": {"top10_absolute_coverage_below": 0.95, "top10_minus_top4_below": 0.005},
+  "otherwise": "INCONCLUSIVE_NO_SELECTOR_TRAINING",
+  "interpretation": "research feasibility gate, not an inferential confidence guarantee or final end-to-end success claim",
+  "explicitly_off": ["new selector training", "cutoff training", "development retuning", "fresh confirmation", "Target calls"]
+}
