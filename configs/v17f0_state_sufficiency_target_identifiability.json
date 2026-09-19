@@ -1,0 +1,34 @@
+{
+  "protocol": "V17-F0_STATE_SUFFICIENCY_AND_TARGET_IDENTIFIABILITY_AUDIT",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "date": "2026-09-19 Asia/Shanghai",
+  "population": "train2863 deployed plus hop<=1 strict 0.90 boundary states; robustness comparisons restricted to binary-viable actions",
+  "oracle_targets": {
+    "r1": "fraction of legal one-step descendants retaining exact 0.90 reachability",
+    "r2": "fraction of ordered legal two-step descendants retaining exact 0.90 reachability",
+    "successful_families": "number of immediate successor packets retaining exact 0.90 reachability"
+  },
+  "oracle_role": "targets and explanatory statistics only; never model inputs",
+  "deployment_features": ["local_full", "frontier_pooled", "local_plus_frontier_pooled"],
+  "probe": {
+    "kind": "shared bias-free linear scorer",
+    "folds": 3,
+    "split": "frozen example/query-grouped D1B folds",
+    "standardization": "training-fold mean/std",
+    "epochs": 20,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_states": 512,
+    "seed": 20260919,
+    "checkpoint": "final epoch only",
+    "per_target_or_feature_tuning": false
+  },
+  "opening_gate": {
+    "heterogeneous_positive_state_fraction_min": 0.2,
+    "macro_state_accuracy_min": 0.8,
+    "macro_query_accuracy_min": 0.8,
+    "every_fold_macro_state_min": 0.8
+  },
+  "sealed": ["deployable model training", "internal300", "development", "confirmation", "hop2", "terminal reranker", "learned cutoff"]
+}

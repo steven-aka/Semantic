@@ -1,0 +1,131 @@
+{
+  "artifacts": {
+    "boundary_features_sha256": "6a4ab70b24faa4d3e7337535028474b9c42ae7b429489711e53ba70c0ca36f32",
+    "frontier_features_sha256": "97bde8b58307412d159812f8de4fb84b372229234b628e6cfce0e331221d7308",
+    "protocol_sha256": "e9da6dfc2489f78e13cb91dbcd68cd26380d4326c6faf491d0e0147e38086edb",
+    "training_artifact_sha256": "64686476533284d7672e20974742c6e039bd3f85d4e19e7c78e4b3363e567a6c"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "decision": "GO_V17F1_ROBUST_SEARCH_WITH_WEAK_HEURISTIC_DESIGN",
+  "development_used": false,
+  "internal_used": false,
+  "oracle_features_used_as_inputs": false,
+  "passing_target_features": [],
+  "targets": {
+    "r1": {
+      "features": {
+        "frontier_pooled": {
+          "fold_macro_state": [
+            0.7610308020784143,
+            0.7467840801189106,
+            0.7570618095000585
+          ],
+          "macro_query_accuracy": 0.7108677825714145,
+          "macro_state_accuracy": 0.7549588972324611,
+          "opening_gate_passed": false
+        },
+        "local_full": {
+          "fold_macro_state": [
+            0.7745564311724109,
+            0.7313771830980793,
+            0.7406676295851217
+          ],
+          "macro_query_accuracy": 0.72407935526825,
+          "macro_state_accuracy": 0.748867081285204,
+          "opening_gate_passed": false
+        },
+        "local_plus_frontier_pooled": {
+          "fold_macro_state": [
+            0.7743157503244124,
+            0.7295002248178594,
+            0.7439872542655829
+          ],
+          "macro_query_accuracy": 0.7256370239562624,
+          "macro_state_accuracy": 0.7492677431359516,
+          "opening_gate_passed": false
+        }
+      },
+      "heterogeneous_positive_state_fraction": 0.1479378150067438,
+      "heterogeneous_positive_states": 2084,
+      "median_within_state_range": 0.0,
+      "positive_states": 14087
+    },
+    "r2": {
+      "features": {
+        "frontier_pooled": {
+          "fold_macro_state": [
+            0.737542201862184,
+            0.7165400403539627,
+            0.7268409068910873
+          ],
+          "macro_query_accuracy": 0.7045596516694557,
+          "macro_state_accuracy": 0.7269743830357447,
+          "opening_gate_passed": false
+        },
+        "local_full": {
+          "fold_macro_state": [
+            0.7524921908529837,
+            0.7374316625264723,
+            0.7168069672246223
+          ],
+          "macro_query_accuracy": 0.7190343432292149,
+          "macro_state_accuracy": 0.7355769402013594,
+          "opening_gate_passed": false
+        },
+        "local_plus_frontier_pooled": {
+          "fold_macro_state": [
+            0.7472498015875915,
+            0.7257296199736478,
+            0.7123462920669511
+          ],
+          "macro_query_accuracy": 0.7103652857933014,
+          "macro_state_accuracy": 0.7284419045427302,
+          "opening_gate_passed": false
+        }
+      },
+      "heterogeneous_positive_state_fraction": 0.20707034854830694,
+      "heterogeneous_positive_states": 2917,
+      "median_within_state_range": 0.0,
+      "positive_states": 14087
+    },
+    "successful_families": {
+      "features": {
+        "frontier_pooled": {
+          "fold_macro_state": [
+            0.7610308020784143,
+            0.7467840801189106,
+            0.7570618095000585
+          ],
+          "macro_query_accuracy": 0.7108677825714145,
+          "macro_state_accuracy": 0.7549588972324611,
+          "opening_gate_passed": false
+        },
+        "local_full": {
+          "fold_macro_state": [
+            0.7745564311724109,
+            0.7313771830980793,
+            0.7406676295851217
+          ],
+          "macro_query_accuracy": 0.72407935526825,
+          "macro_state_accuracy": 0.748867081285204,
+          "opening_gate_passed": false
+        },
+        "local_plus_frontier_pooled": {
+          "fold_macro_state": [
+            0.7743157503244124,
+            0.7295002248178594,
+            0.7439872542655829
+          ],
+          "macro_query_accuracy": 0.7256370239562624,
+          "macro_state_accuracy": 0.7492677431359516,
+          "opening_gate_passed": false
+        }
+      },
+      "heterogeneous_positive_state_fraction": 0.1479378150067438,
+      "heterogeneous_positive_states": 2084,
+      "median_within_state_range": 0.0,
+      "positive_states": 14087
+    }
+  }
+}

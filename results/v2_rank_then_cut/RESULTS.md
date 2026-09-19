@@ -1270,3 +1270,35 @@ measure observational conflicts, query-family dependence, and whether distinct
 exact-DP outcomes are distinguishable from deployment-available inputs before
 designing another learned controller. Internal300, development, confirmation,
 hop two, terminal reranking, and learned cutoff remain closed.
+
+## V17-F0 state sufficiency and target identifiability
+
+F0 tested the hypothesis that existential binary viability hides a widespread
+thin-versus-robust distinction. Oracle tree information was used only to define
+diagnostic targets, never as a model input. Within binary-viable actions, R1 and
+R2 are the fractions of ordered one- and two-step descendants that retain exact
+0.90 reachability; successful-family count is the number of viable immediate
+successor packets.
+
+Shallow robustness heterogeneity is limited at one step but becomes material at
+two steps. 2,084/14,087 states (14.8%) distinguish viable actions by R1 or
+successful-family count, while 2,917 (20.7%) distinguish them by R2. The median
+within-state range remains zero for all three targets. Thus existential labels
+usually agree at immediate depth, but just over the preregistered 20% threshold
+expose a thin-versus-robust distinction after two further actions.
+
+The heterogeneous minority is also poorly identifiable from deployment inputs.
+For R1, the best macro-state is 0.755 and the best macro-query is 0.726. For R2,
+the best macro-state is 0.736 and the best macro-query is 0.719. Concatenating
+local and frontier features does not reliably improve either target.
+Successful-family results equal R1 because the number of legal next actions is
+fixed within each state.
+
+The decision is `GO_V17F1_ROBUST_SEARCH_WITH_WEAK_HEURISTIC_DESIGN`. This does
+not authorize a robustness critic: no target/feature pair passes the prediction
+gate. It authorizes only a protocol design for explicit search that does not
+assume shallow robustness can be compressed into another accurate local
+scalar. Binary viability, local progress, frontier summaries, and shallow
+robustness all remain inadequate as learned standalone controllers. Internal300,
+development, confirmation, hop two, terminal reranking, and learned cutoff
+remain closed.
