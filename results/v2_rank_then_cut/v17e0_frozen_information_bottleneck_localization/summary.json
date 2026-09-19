@@ -1,0 +1,151 @@
+{
+  "aggregates": {
+    "candidate": {
+      "fold_macro_state": [
+        0.7748175985265546,
+        0.7626117651119919,
+        0.7949748815102506
+      ],
+      "macro_query_accuracy": 0.7565019789113794,
+      "macro_state_accuracy": 0.7774680817162657,
+      "paired_vs_full": {
+        "lower_95": -0.004223317913555271,
+        "mean_query_improvement": 0.0067802567251277045,
+        "upper_95": 0.01877140844969151
+      },
+      "sidecar_gate_passed": false
+    },
+    "candidate_query_interaction": {
+      "fold_macro_state": [
+        0.7711299624454024,
+        0.7610128700875133,
+        0.7865564225938668
+      ],
+      "macro_query_accuracy": 0.7531874858123386,
+      "macro_state_accuracy": 0.7728997517089276,
+      "paired_vs_full": {
+        "lower_95": -0.008664174996413183,
+        "mean_query_improvement": 0.0032320355688677765,
+        "upper_95": 0.015251299568555405
+      },
+      "sidecar_gate_passed": false
+    },
+    "candidate_times_history": {
+      "fold_macro_state": [
+        0.7624319451310125,
+        0.7552597724377812,
+        0.7910987866614823
+      ],
+      "macro_query_accuracy": 0.752281587481948,
+      "macro_state_accuracy": 0.7695968347434253,
+      "paired_vs_full": {
+        "lower_95": -0.006839005135592065,
+        "mean_query_improvement": 0.0021731428218297656,
+        "upper_95": 0.011580460967852977
+      },
+      "sidecar_gate_passed": false
+    },
+    "candidate_times_selected": {
+      "fold_macro_state": [
+        0.7540793656440914,
+        0.753571026034807,
+        0.7726767811535227
+      ],
+      "macro_query_accuracy": 0.7393863996246183,
+      "macro_state_accuracy": 0.760109057610807,
+      "paired_vs_full": {
+        "lower_95": -0.021213650778345687,
+        "mean_query_improvement": -0.010657495978359,
+        "upper_95": -0.0005794310936810684
+      },
+      "sidecar_gate_passed": false
+    },
+    "frozen_head_090": {
+      "fold_macro_state": [
+        0.8057114564463509,
+        0.7969313982944284,
+        0.8222739984502445
+      ],
+      "macro_query_accuracy": 0.7986421986389545,
+      "macro_state_accuracy": 0.8083056177303413,
+      "paired_vs_full": {
+        "lower_95": 0.036124956423278606,
+        "mean_query_improvement": 0.04914321635793034,
+        "upper_95": 0.06347821041778975
+      },
+      "sidecar_gate_passed": false
+    },
+    "full_action_features": {
+      "fold_macro_state": [
+        0.7689596533189273,
+        0.7660857330577651,
+        0.7761792895173976
+      ],
+      "macro_query_accuracy": 0.7505269331411302,
+      "macro_state_accuracy": 0.77040822529803,
+      "paired_vs_full": {
+        "lower_95": 0.0,
+        "mean_query_improvement": 0.0,
+        "upper_95": 0.0
+      },
+      "sidecar_gate_passed": false
+    },
+    "transition_delta": {
+      "fold_macro_state": [
+        0.7671905752078783,
+        0.7458295262260052,
+        0.7876772593282889
+      ],
+      "macro_query_accuracy": 0.7540863010392387,
+      "macro_state_accuracy": 0.7668991202540575,
+      "paired_vs_full": {
+        "lower_95": -0.005528073429689432,
+        "mean_query_improvement": 0.004671583855994415,
+        "upper_95": 0.016092838714710882
+      },
+      "sidecar_gate_passed": false
+    },
+    "transition_next": {
+      "fold_macro_state": [
+        0.7726808467865199,
+        0.7466255032298353,
+        0.7887410790159407
+      ],
+      "macro_query_accuracy": 0.756992847865706,
+      "macro_state_accuracy": 0.7693491430107653,
+      "paired_vs_full": {
+        "lower_95": -0.0027862915235288923,
+        "mean_query_improvement": 0.007458145187621672,
+        "upper_95": 0.018506334839589085
+      },
+      "sidecar_gate_passed": false
+    },
+    "transition_query_interaction": {
+      "fold_macro_state": [
+        0.7644177477261562,
+        0.7442544239158532,
+        0.775238773178369
+      ],
+      "macro_query_accuracy": 0.7404923366331267,
+      "macro_state_accuracy": 0.7613036482734594,
+      "paired_vs_full": {
+        "lower_95": -0.019530613720190965,
+        "mean_query_improvement": -0.00906445321175965,
+        "upper_95": 0.001277555530231958
+      },
+      "sidecar_gate_passed": false
+    }
+  },
+  "artifacts": {
+    "boundary_features_sha256": "6a4ab70b24faa4d3e7337535028474b9c42ae7b429489711e53ba70c0ca36f32",
+    "protocol_sha256": "b128205a5035f58ac38953e9e43513291e44b5330f14fcfae98caebfa3b57043",
+    "viability_head_sha256": "82788e84b930b31feb8d01ee7921cbe88b2a15c677c8c7de482dbbfd80dacf88"
+  },
+  "complete": true,
+  "confirmation_used": false,
+  "decision": "STOP_FROZEN_LINEAR_TAP_BRANCH_AUDIT_TARGET_AND_FEATURE_SUFFICIENCY",
+  "development_used": false,
+  "frozen_head_role": "descriptive in-sample reference only; B1 trained it on all train2863 queries, so it is not an out-of-fold gate candidate",
+  "internal_used": false,
+  "passing_taps": []
+}

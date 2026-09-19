@@ -1,0 +1,48 @@
+{
+  "protocol": "V17-E0_FROZEN_INFORMATION_BOTTLENECK_LOCALIZATION",
+  "status": "FROZEN_APPROVED_TO_RUN",
+  "date": "2026-09-19 Asia/Shanghai",
+  "population": "train2863 deployed plus hop<=1 strict 0.90 boundary states",
+  "feature_dim": 3650,
+  "model_dim": 512,
+  "taps": [
+    "candidate",
+    "candidate_times_history",
+    "candidate_times_selected",
+    "candidate_query_interaction",
+    "transition_next",
+    "transition_delta",
+    "transition_query_interaction",
+    "full_action_features"
+  ],
+  "tap_semantics": "candidate-query and transition-query interactions are deterministic diagnostics constructed from existing frozen tensors, not native learned taps",
+  "probe": {
+    "kind": "shared bias-free linear scorer",
+    "folds": 3,
+    "split": "example/query-grouped using frozen D1B stable hash",
+    "standardization": "training-fold per-dimension mean/std; std clamp 1e-6",
+    "sampling": "one uniformly sampled positive and negative action per state per epoch",
+    "epochs": 20,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_states": 512,
+    "seed": 20260919,
+    "checkpoint": "final epoch only",
+    "per_tap_tuning": false
+  },
+  "sidecar_gate": {
+    "macro_state_accuracy_min": 0.8,
+    "macro_query_accuracy_min": 0.8,
+    "every_fold_macro_state_min": 0.8,
+    "paired_query_bootstrap_lower_improvement_over_full": 0.0,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20260919
+  },
+  "decisions": [
+    "GO_V17E1_UPSTREAM_BOUNDARY_SIDECAR_DESIGN",
+    "GO_V17E1_QUERY_CONDITIONED_REPRESENTATION_DESIGN",
+    "STOP_FROZEN_LINEAR_TAP_BRANCH_AUDIT_TARGET_AND_FEATURE_SUFFICIENCY"
+  ],
+  "sealed": ["all model training", "internal300", "development", "confirmation", "hop2", "terminal reranker", "learned cutoff"]
+}

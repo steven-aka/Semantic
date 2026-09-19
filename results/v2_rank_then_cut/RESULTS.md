@@ -1174,3 +1174,37 @@ geometry. It does not justify opening a larger adapter automatically; the next
 stage must first distinguish missing query-action interaction information from
 an objective/head-coordinate mismatch. Development, confirmation, hop two,
 terminal reranking, and learned cutoff remain closed.
+
+## V17-E0 frozen information-bottleneck localization
+
+E0 compared eight preregistered frozen action-dependent taps under the same
+three query-grouped folds, per-dimension training-fold standardization, linear
+probe, optimizer, and final-epoch rule. It included native candidate and
+interaction tensors, the frozen GRU next-state and transition delta, explicit
+candidate-query and transition-query diagnostic interactions, and the complete
+3,650-dimensional action representation. No model component was updated.
+
+No clean held-out-query tap passes the 0.80 gate. Candidate is best by
+macro-state at 0.777, with macro-query 0.757 and fold macro-state values
+0.775/0.763/0.795. The complete action representation reaches 0.770/0.751.
+Transition-next reaches 0.769/0.757; transition delta reaches 0.767/0.754; and
+transition-query interaction falls to 0.761/0.740. Paired query bootstrap
+intervals show no reliable improvement over the complete representation for
+candidate, transition-next, transition-delta, or either query interaction.
+
+The existing frozen B1 0.90 head scores 0.808 macro-state and 0.799 macro-query,
+but this is an in-sample descriptive reference: that head was trained on all
+train2863 queries, including every diagnostic fold. It is therefore excluded
+from the sidecar gate and cannot establish cross-query generalization. Its
+relative strength is evidence that the labels can be fitted within the observed
+queries, while the clean probes show that the learned direction does not
+transfer reliably.
+
+The decision is
+`STOP_FROZEN_LINEAR_TAP_BRANCH_AUDIT_TARGET_AND_FEATURE_SUFFICIENCY`. There is
+no evidence for an upstream scalar sidecar, and simple query/action or
+query/transition products do not justify opening a new representation module.
+The next admissible work is a train-only audit of label consistency, query-type
+conditional structure, and whether the frozen inputs contain the information
+needed to distinguish exact-DP future viability. Internal300, development,
+confirmation, hop two, terminal reranking, and learned cutoff remain closed.

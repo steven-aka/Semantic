@@ -1,0 +1,8 @@
+{
+  "confirmation_used": false,
+  "decision": "STOP_FROZEN_LINEAR_TAP_BRANCH_AUDIT_TARGET_AND_FEATURE_SUFFICIENCY",
+  "development_used": false,
+  "internal_used": false,
+  "model_training_authorized": false,
+  "passing_taps": []
+}
