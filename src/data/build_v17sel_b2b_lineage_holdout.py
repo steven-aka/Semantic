@@ -17,7 +17,7 @@ def fold(value: str) -> int:
     return int.from_bytes(hashlib.sha256(value.encode()).digest()[:8], "big") % 5
 
 
-def filter_jsonl(source: Path, output: Path, excluded: set[str], include: bool) -> dict:
+def filter_jsonl(source: Path, output: Path, selected: set[str]) -> dict:
     seen = set()
     count = 0
     with source.open(encoding="utf-8") as reader, output.open("w", encoding="utf-8") as writer:
@@ -27,7 +27,7 @@ def filter_jsonl(source: Path, output: Path, excluded: set[str], include: bool) 
             if query in seen:
                 raise ValueError(f"duplicate ID in {source}: {query}")
             seen.add(query)
-            if (query in excluded) == include:
+            if query in selected:
                 writer.write(line)
                 count += 1
     return {"source": str(source), "source_sha256": sha256(source), "output": str(output), "output_sha256": sha256(output), "source_count": len(seen), "output_count": count}
@@ -43,8 +43,11 @@ def main() -> None:
     if len(train_ids) != 2863 or len(set(train_ids)) != 2863:
         raise ValueError("unexpected V13 source population")
     holdout = {query for query in train_ids if fold(query) == 1}
+    inner_validation = {query for query in train_ids if fold(query) == 2}
     if not 450 <= len(holdout) <= 700:
         raise ValueError(f"unexpected holdout count {len(holdout)}")
+    if not 450 <= len(inner_validation) <= 700 or holdout & inner_validation:
+        raise ValueError(f"invalid inner validation count {len(inner_validation)}")
     data_dir = OUTPUT / "data"
     data_dir.mkdir(exist_ok=True)
     sources = {
@@ -52,30 +55,34 @@ def main() -> None:
         "v10_v12_train": ROOT / "v10_train3163_mask_value.jsonl",
         "v13_train": train_source,
     }
-    manifest = {"protocol_sha256": sha256(CONFIG), "holdout_ids": sorted(holdout), "holdout_count": len(holdout), "files": {}}
+    manifest = {"protocol_sha256": sha256(CONFIG), "holdout_ids": sorted(holdout), "holdout_count": len(holdout), "inner_validation_ids": sorted(inner_validation), "inner_validation_count": len(inner_validation), "files": {}}
     for name, source in sources.items():
-        train_out = data_dir / f"{name}_without_holdout.jsonl"
+        source_ids = {row["example_id"] for row in read_jsonl(source)}
+        train_out = data_dir / f"{name}_train_clean.jsonl"
         holdout_out = data_dir / f"{name}_holdout.jsonl"
-        train_record = filter_jsonl(source, train_out, holdout, include=False)
-        holdout_record = filter_jsonl(source, holdout_out, holdout, include=True)
+        inner_out = data_dir / f"{name}_inner_validation.jsonl"
+        train_record = filter_jsonl(source, train_out, source_ids - holdout - inner_validation)
+        holdout_record = filter_jsonl(source, holdout_out, holdout)
+        inner_record = filter_jsonl(source, inner_out, inner_validation)
         if holdout_record["output_count"] != len(holdout):
             raise ValueError(f"holdout incomplete in {name}")
-        if train_record["output_count"] + holdout_record["output_count"] != train_record["source_count"]:
+        if inner_record["output_count"] != len(inner_validation):
+            raise ValueError(f"inner validation incomplete in {name}")
+        if train_record["output_count"] + holdout_record["output_count"] + inner_record["output_count"] != train_record["source_count"]:
             raise ValueError(f"split count mismatch in {name}")
-        manifest["files"][name] = {"train": train_record, "holdout": holdout_record}
-    validation_paths = {
-        "v8_development": ROOT / "v8_development300_history_supervision.jsonl",
-        "v10_development": ROOT / "v10_development300_mask_value_full.jsonl",
-        "v13_internal_validation": ROOT / "v13_internal_validation300_mask_value.jsonl",
+        manifest["files"][name] = {"train": train_record, "holdout": holdout_record, "inner_validation": inner_record}
+    for name in ("v8_train", "v10_v12_train", "v13_train"):
+        actual_train = {row["example_id"] for row in read_jsonl(manifest["files"][name]["train"]["output"])}
+        actual_inner = {row["example_id"] for row in read_jsonl(manifest["files"][name]["inner_validation"]["output"])}
+        if actual_train & (holdout | inner_validation) or actual_inner != inner_validation:
+            raise ValueError(f"lineage role overlap for {name}")
+    manifest["sealed_existing_roles"] = {
+        "v8_development": str(ROOT / "v8_development300_history_supervision.jsonl"),
+        "v10_development": str(ROOT / "v10_development300_mask_value_full.jsonl"),
+        "v13_internal_validation": str(ROOT / "v13_internal_validation300_mask_value.jsonl"),
     }
-    manifest["validation"] = {}
-    for name, path in validation_paths.items():
-        ids = {row["example_id"] for row in read_jsonl(path)}
-        if ids & holdout:
-            raise ValueError(f"holdout enters checkpoint selection: {name}")
-        manifest["validation"][name] = {"path": str(path), "sha256": sha256(path), "count": len(ids), "holdout_overlap": 0}
     write_metadata(OUTPUT / "manifest.json", manifest)
-    print(json.dumps({"holdout_count": len(holdout), "train_counts": {name: value["train"]["output_count"] for name, value in manifest["files"].items()}, "validation_overlap": 0}, indent=2), flush=True)
+    print(json.dumps({"holdout_count": len(holdout), "inner_validation_count": len(inner_validation), "train_counts": {name: value["train"]["output_count"] for name, value in manifest["files"].items()}}, indent=2), flush=True)
 
 
 if __name__ == "__main__":

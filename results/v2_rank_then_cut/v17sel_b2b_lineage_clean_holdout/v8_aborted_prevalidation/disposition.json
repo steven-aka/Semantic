@@ -1,0 +1,9 @@
+{
+  "status": "ABORTED_BEFORE_VALIDATION",
+  "pid": 1721913,
+  "reason": "Initial launcher pointed V8 checkpoint validation at consumed development300, conflicting with the SEL-B2B sealed-role protocol.",
+  "validation_calls_completed": 0,
+  "checkpoints_created": 0,
+  "holdout_top_k_read": false,
+  "disposition": "Process terminated; original log retained locally; clean fold-2 inner validation replaces development300 in the amended launcher."
+}

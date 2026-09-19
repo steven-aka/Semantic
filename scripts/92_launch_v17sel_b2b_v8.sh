@@ -21,10 +21,11 @@ manifest=json.loads((root/'manifest.json').read_text())
 config=Path('configs/v17sel_b2b_lineage_clean_pool_gate.json')
 assert manifest['protocol_sha256']==sha256(config)
 assert manifest['holdout_count']==581
-assert manifest['files']['v8_train']['train']['output_count']==2582
-assert manifest['validation']['v8_development']['holdout_overlap']==0
+assert manifest['files']['v8_train']['train']['output_count'] + manifest['holdout_count'] + manifest['inner_validation_count']==3163
 train=Path(manifest['files']['v8_train']['train']['output'])
 assert sha256(train)==manifest['files']['v8_train']['train']['output_sha256']
+validation=Path(manifest['files']['v8_train']['inner_validation']['output'])
+assert sha256(validation)==manifest['files']['v8_train']['inner_validation']['output_sha256']
 print('SEL-B2B V8 lineage preflight passed')
 PY
 
@@ -35,8 +36,8 @@ fi
 mkdir -p "$out"
 
 exec .venv/bin/python -u -m src.training.train_v8_sequential_policy \
-  --train-data "$root/data/v8_train_without_holdout.jsonl" \
-  --validation-data results/v2_rank_then_cut/v8_development300_history_supervision.jsonl \
+  --train-data "$root/data/v8_train_clean.jsonl" \
+  --validation-data "$root/data/v8_train_inner_validation.jsonl" \
   --exact-dir results/v2_rank_then_cut/candidates5000_exact \
   --model models/Qwen3-4B \
   --output-dir "$out" \
