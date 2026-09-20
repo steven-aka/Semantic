@@ -2766,3 +2766,10 @@ does not override the predeclared STOP decision or authorize opening the
 611/581/internal/development sets. In particular, 21 newly broken 0.90
 queries make a small aggregate gain too fragile to treat as a solved
 compression method.
+
+The decision decomposition clarifies the learning gap: 354/1,421 queries
+have at least one no-break anchor-repairing local swap, yet A1 chooses such
+an action on only **69** of them and misses **285**. Of its 637 selected
+swaps, 511 change no anchor outcome, 69 safely repair at least one anchor,
+and 57 break at least one. Thus the OOF failure is mainly poor targeting of
+the rare beneficial state/action pairs, not an optimizer that never switches.
