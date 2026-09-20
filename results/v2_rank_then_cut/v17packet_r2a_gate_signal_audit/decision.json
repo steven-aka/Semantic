@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-PACKET-R2A_FROZEN_SCORE_GATE_SIGNAL_AUDIT",
+  "decision": "STOP_REUSE_R2_ABSOLUTE_SCORE_AS_INTERVENTION_GATE",
+  "reason": "At 5% and 10% of all 512 queries, the saved R2 top score retrieves 1/39 and 3/39 repair opportunities, below random expectation within the 422 score-eligible queries, and yields 4 and 8 quality breaks. This is insufficient evidence to justify expanding expensive Target labels solely for this gate.",
+  "scope": "Only the saved R2 best-action absolute-success score is tested. No full candidate-bag scores or encoder checkpoint were saved; no claim about all deployment-visible features or paired models.",
+  "next": "Freeze one cheap candidate-set, relative-to-V8 signal audit on existing 512 train-side labels before deciding whether to spend Target calls on the remaining training queries. Keep quality repair and token-only saving separate.",
+  "new_target_calls": 0,
+  "checkpoint_selected": false,
+  "sealed_sets_read": false
+}

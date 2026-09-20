@@ -1,0 +1,65 @@
+{
+  "protocol": "V17-PACKET-R2A_FROZEN_SCORE_GATE_SIGNAL_AUDIT",
+  "queries": 512,
+  "baseline_success_queries": 381,
+  "baseline_failure_queries": 131,
+  "repairable_failure_queries": 39,
+  "unrepairable_failure_queries": 92,
+  "eligible_scored_queries": 422,
+  "random_baseline_population": "422 score-eligible queries, including all 39 repairable failures",
+  "budgets": {
+    "0.01": {
+      "switch_budget_queries": 6,
+      "opportunities_found": 0,
+      "opportunity_recall": 0.0,
+      "opportunity_precision": 0.0,
+      "random_expected_opportunities": 0.5545023696682464,
+      "random_enrichment_ratio": 0.0,
+      "hypergeometric_p_enrichment": 1.0,
+      "actual_repairs": 0,
+      "actual_breaks": 0,
+      "baseline_failures_selected": 1
+    },
+    "0.05": {
+      "switch_budget_queries": 26,
+      "opportunities_found": 1,
+      "opportunity_recall": 0.02564102564102564,
+      "opportunity_precision": 0.038461538461538464,
+      "random_expected_opportunities": 2.4028436018957344,
+      "random_enrichment_ratio": 0.4161735700197239,
+      "hypergeometric_p_enrichment": 0.9259590480481743,
+      "actual_repairs": 1,
+      "actual_breaks": 4,
+      "baseline_failures_selected": 4
+    },
+    "0.1": {
+      "switch_budget_queries": 52,
+      "opportunities_found": 3,
+      "opportunity_recall": 0.07692307692307693,
+      "opportunity_precision": 0.057692307692307696,
+      "random_expected_opportunities": 4.805687203791469,
+      "random_enrichment_ratio": 0.6242603550295859,
+      "hypergeometric_p_enrichment": 0.8867898172747132,
+      "actual_repairs": 3,
+      "actual_breaks": 8,
+      "baseline_failures_selected": 7
+    },
+    "0.15": {
+      "switch_budget_queries": 77,
+      "opportunities_found": 8,
+      "opportunity_recall": 0.20512820512820512,
+      "opportunity_precision": 0.1038961038961039,
+      "random_expected_opportunities": 7.11611374407583,
+      "random_enrichment_ratio": 1.124209124209124,
+      "hypergeometric_p_enrichment": 0.41929494773608733,
+      "actual_repairs": 7,
+      "actual_breaks": 9,
+      "baseline_failures_selected": 15
+    }
+  },
+  "decision": "NO_ENRICHMENT_FROM_SAVED_R2_TOP_SCORE",
+  "interpretation": "This rejects the saved absolute-success top-score as a useful low-budget repair gate on these exposed queries. It does not test candidate-bag features or a paired model: R2 did not save all candidate scores or checkpoints.",
+  "new_target_calls": 0,
+  "new_training": false,
+  "sealed_sets_read": false
+}

@@ -3483,3 +3483,31 @@ and use a fresh train-side query gate where feasible. Do not open sealed
 sets or claim that an oracle gate is implementable. [Summary](v17packet_r2a_paired_label_audit/summary.json),
 [per-query audit](v17packet_r2a_paired_label_audit/per_query.jsonl), and
 [decision](v17packet_r2a_paired_label_audit/decision.json) record the audit.
+
+### V17-PACKET-R2A frozen-score intervention gate audit
+
+We ranked the same 512 design-exposed train queries by R2's **saved best-action
+absolute-success score**, without model inference or Target calls. Of 512
+queries, 381 already succeed at 0.90, 39 are repairable by an eligible R1
+sentence, and 92 fail with no eligible repair. R2 had scores for 422 eligible
+queries, including all 39 repairable failures. Random expectations below
+therefore sample from those **same 422 score-eligible queries**.
+
+| Budget among 512 | Repair opportunities found | Random expectation | Actual repair/break |
+|---|---:|---:|---:|
+| 1% (6) | 0/39 | 0.55 | 0 / 0 |
+| 5% (26) | 1/39 | 2.40 | 1 / 4 |
+| 10% (52) | 3/39 | 4.81 | 3 / 8 |
+| 15% (77) | 8/39 | 7.12 | 7 / 9 |
+
+There is no useful low-budget enrichment from **this saved score**. The 15%
+point is close to random opportunity capture and still loses net 0.90
+success. This does not disprove a new paired, candidate-aware representation:
+the R2 OOF artifact contains only the best candidate score, no full score
+distribution or saved encoder checkpoint. Nor does this audit justify
+immediate expansion of costly Target labels purely to improve the old gate.
+The next inexpensive diagnostic is a separately frozen candidate-set,
+relative-to-V8 signal test on existing training-side outcomes. Quality
+repair and token-only saving must remain separate labels. No sealed set was
+opened. [Summary](v17packet_r2a_gate_signal_audit/summary.json) and
+[decision](v17packet_r2a_gate_signal_audit/decision.json) retain the result.
