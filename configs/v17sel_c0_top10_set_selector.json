@@ -1,0 +1,62 @@
+{
+  "protocol": "V17-SEL-C0_TRAIN_ONLY_TOPK_SET_SELECTOR",
+  "status": "FROZEN_APPROVED_TO_BUILD_TRAIN_ONLY",
+  "upstream": {
+    "v8_checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_run/checkpoints/step500",
+    "v13_checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v13_run/checkpoints/step100",
+    "source_data": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_train_clean.jsonl",
+    "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
+    "candidate_semantics": "V8 beam8 fallback followed by V13 top-10 ranked-mask projections, stable descending 0.90 logit rank and V8 relative order",
+    "holdout": "581 B2B lineage-clean queries; no read during C0 or train-only C1"
+  },
+  "split": {
+    "rule": "sha256(example_id) first eight bytes modulo 5",
+    "selector_validation_fold": 4,
+    "selector_train_folds": [0, 1, 2, 3],
+    "scope": "only B2B clean-train source; no B2B inner-validation or 581-query holdout"
+  },
+  "candidate_budget": {
+    "final_selected_trajectories": 1,
+    "fallback_always_present": true,
+    "arms": {"top4": 4, "top10": 10},
+    "reason": "same deployable top-1 budget for top4 and top10; pool oracle coverage is a separate ceiling"
+  },
+  "feature_schema": [
+    "frozen V13 packet and query embeddings",
+    "candidate mask selected/unselected packet means",
+    "all five frozen V13 retrieval logits",
+    "normalized retrieval rank",
+    "0.90 score gap from top-1",
+    "candidate mask token fraction"
+  ],
+  "model": {
+    "architecture": "shared candidate MLP 128 hidden then one 4-head self-attention layer across candidate set, scalar output per candidate",
+    "same_architecture_both_arms": true,
+    "frozen": ["Qwen3-4B", "clean V8", "clean V13"],
+    "trainable": "selector only",
+    "temperature": 1.0,
+    "deployment": "argmax selector score; lowest candidate rank breaks ties"
+  },
+  "optimization": {
+    "loss": "negative log probability mass of all candidates with an exact 0.90-successful prefix; examples with no successful candidate excluded from gradient but included in evaluation",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "batch_size": 64,
+    "steps": 300,
+    "seed": 20260920,
+    "validation_checkpoints": [100, 200, 300],
+    "selection_rule": "maximum selector-validation top-1 0.90 success, then Complete, then lower mean penalized 0.90 token fraction, then earliest step"
+  },
+  "train_only_gate": {
+    "top10_vs_top4_same_architecture_min_net_successes": 1,
+    "top10_vs_fixed_v8_fallback_min_net_successes": 1,
+    "top10_vs_top4_complete_min_delta": 0,
+    "top10_vs_top4_mean_penalized_090_token_fraction_max_delta": 0.0,
+    "penalized_cost": "earliest 0.90 token fraction when successful; 1.0 when not successful",
+    "failure_policy": "STOP_SEL_C1_TRAIN_ONLY_GATE; do not evaluate 581 B2B holdout"
+  },
+  "holdout_policy_after_train_gate": "Freeze model, checkpoint, features, top1 decision and metrics; then exactly one 581-query evaluation. This holdout is design-exposed because B2B selected top10; it is not confirmation.",
+  "report": ["top1 0.90 success", "Complete on attainable levels", "repairs/breaks", "same-query earliest 0.90 tokens", "median/P90 successful tokens", "penalized token fraction", "oracle pool ceilings", "rank1 and V8 fallback baselines"],
+  "explicitly_off": ["cutoff training", "internal300", "development", "fresh confirmation", "Target calls", "threshold sweep", "selector architecture sweep"]
+}
