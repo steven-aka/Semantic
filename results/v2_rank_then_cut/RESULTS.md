@@ -1946,3 +1946,37 @@ next cutoff question more specific: recover the robust depth-10 successes
 while spending much less context on the easier queries. Any such method must
 demonstrate per-query stopping information beyond depth and report both
 Complete and all-query context cost against the fixed-depth and CUT-B0 controls.
+
+## V17-CUT-C1 frozen V13 mask-value stopping signal audit
+
+CUT-C1 evaluated the existing clean-lineage V13 ordinal mask-value head on
+each prefix of the unchanged V8 trajectory. The head sees only frozen query and
+packet embeddings plus the current mask; exact fidelity is used solely to
+score the resulting decisions. A four-fold query-grouped linear calibration
+using the five head logits, depth, token fraction, and 0.90 logit change was
+fit only on the 1,421 train-side queries, with out-of-fold predictions for
+every query. V13 itself had ancestry exposure to these queries, so a positive
+result would have required lineage-clean verification. No Target calls were
+made and 611, 581, internal300, development, and confirmation stayed sealed.
+
+| Train-side 0.90 policy | Success / 1,421 | Mean context fraction | One-safe-prefix hits / 86 |
+| --- | ---: | ---: | ---: |
+| Fixed depth 10 | 1,195 | 0.820 | 33 |
+| Direct V13 logit, first nonnegative prefix | 961 | 0.681 | 13 |
+| Grouped-OOF calibrated logit, first nonnegative prefix | 1,060 | 0.726 | 18 |
+
+The direct and fitted safe-prefix average precisions were 0.794 and 0.803,
+below DEP-A0's depth-only prior AP 0.815. Even an optimistic *offline* argmax
+over all 13 prefix scores hit only 1,159 and 1,139 safe 0.90 prefixes,
+respectively, below the fixed depth-10 hit count. The online policies save
+context by stopping earlier but lose many more successes; neither dominates
+the fixed control. This was a 0.90 signal audit, not a five-anchor Complete or
+regret evaluation. The preregistered train-only opening gate failed, so the
+611-query fold was not opened for CUT-C1.
+
+Decision: `STOP_CUT_C1_V13_MASK_SIGNAL`. The existing retriever head's score
+does not supply the missing safe-window observability. A threshold sweep on
+the same role would turn a diagnostic into post-hoc tuning. Further stopping
+work must introduce a distinct deployment-visible signal or a redesigned
+stopping contract, and still beat fixed-depth quality at materially lower
+context cost before it can support the final Pareto claim.

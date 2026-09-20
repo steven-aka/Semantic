@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-CUT-C1_FROZEN_MASK_VALUE_STOP_SIGNAL_AUDIT",
+  "status": "FROZEN_TRAIN_ONLY_DIAGNOSTIC",
+  "population": "B2B clean-train folds0-3 only (1421 fixed V8 trajectories); fold4=611 and B2B 581 sealed",
+  "signal": "frozen clean-lineage V13 ordinal mask-value logits at each V8 prefix; no Target calls, gold answer, exact fidelity, or attainable mask in the signal",
+  "probe": "four query-grouped out-of-fold linear logistic fits of depth fraction, token fraction, five V13 logits and 0.90 logit change from prior prefix; fixed 100 epochs and training-fold standardization as DEP-A0",
+  "online_decoding": "first prefix whose direct or fitted 0.90 logit is nonnegative, else depth12; stop only on current or past prefixes",
+  "offline_diagnostic": "argmax safe-window score across all 13 prefix states as an optimistic upper bound, never called an online cutoff",
+  "baselines": ["fixed depth10", "DEP-A0 depth-only prior", "direct uncalibrated V13 0.90 logit"],
+  "train_only_go_gate": "fitted online first-crossing must improve fixed-depth10 0.90 success and reduce mean context fraction on the 1421, while query-grouped optimistic hit must exceed DEP-A0 depth-only prior; otherwise do not access fold4=611",
+  "interpretation": "V13 has ancestry exposure to these train queries, so any positive result requires a lineage-clean test before a deployment claim; negative result is limited to this frozen head and linear calibration",
+  "sealed": ["fold4=611", "B2B 581", "internal300", "development", "confirmation", "new Target calls", "cutoff checkpoint training"]
+}
