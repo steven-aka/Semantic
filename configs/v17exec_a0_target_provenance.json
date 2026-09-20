@@ -1,0 +1,42 @@
+{
+  "protocol": "V17-EXEC-A0_TARGET_PROVENANCE_FREEZE",
+  "status": "TARGET_IDENTITY_CONFIRMED_EXECUTION_CONTRACT_PARTIAL",
+  "old_exact_cache": {
+    "path": "results/v2_rank_then_cut/candidates5000_exact",
+    "metadata_model": "models/Qwen3-8B",
+    "metadata_revision": "main",
+    "metadata_stage": "m0_qampari_atomic_binary_exact_search",
+    "metadata_git_commit": "unversioned",
+    "metadata_does_not_record": ["weight hashes at generation", "tokenizer hashes at generation", "vllm/torch/transformers versions", "effective batch size per example", "GPU index per example", "resolved prompt token IDs", "sampling and attention kernel details"],
+    "source_default_batch_size": 512,
+    "located_shard4_launch_batch_size": 512,
+    "source_model_default": "models/Qwen3-8B",
+    "source_max_new_tokens_default": 256,
+    "source_max_model_len_default": 4096,
+    "source_generation": "vLLM, bfloat16, temperature=0.0, max_tokens=256; no explicit seed/stop override",
+    "source_prompt": "src/target/qampari_runner.py:QAMPARI_SYSTEM_PROMPT/build_qampari_prompt; Qwen chat template with enable_thinking=False",
+    "source_context": "src/representation/state_builder.py:build_atomic_representation; selected packet text stripped and joined by two newlines in source packet order",
+    "source_parser_scorer": "src/evaluation/qampari_metrics.py:parse_list_prediction/qampari_list_metrics; official alias-aware list-F1"
+  },
+  "current_target": {
+    "model": "models/Qwen3-8B",
+    "weights_sha256_by_shard": [
+      "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+      "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+      "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+      "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+      "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff"
+    ],
+    "tokenizer_json_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config_sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "config_sha256": "f7c4eadfbbf522470667b797248dc304fff447c30",
+    "generation_config_sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+    "runtime": {"torch": "2.8.0+cu128", "transformers": "4.55.2", "vllm": "0.10.2", "dtype": "bfloat16", "gpu": "NVIDIA RTX A6000"},
+    "qampari_runner_sha256": "41f7ba11db73f4f4a6f763afb2b4c4de774b2cb299577581a01704ab0ed5b9a5",
+    "qwen_runner_sha256": "2897f2c82f7478c9b5130ecd50dc39ca1ec38e19ef2bd70f94aa6aff2b308921",
+    "qampari_metrics_sha256": "3c880f20cf35570c6c366b2d62d871c50451f8dbd04f9a14e82df77c93180c63"
+  },
+  "historical_code_check": "The three current prompt/generation/scorer files have the same SHA256 as files in git commit d2e576a8bd3c1dc5f885300299e430ca41995481; the exact-search code only changed the shard metadata filename afterward.",
+  "interpretation": "Old cache and current replay both name Qwen3-8B; Qwen3-4B is the V8 representation model. Current weight hashes cannot prove old files were byte-identical because old hashes were not recorded. This manifest is not yet a fully reproduced canonical execution contract.",
+  "next_gate": "Resolve paired decision mismatches under controlled prompt/token, model-file and batching checks before ACT-C1 training or a 5684-state fresh cache."
+}

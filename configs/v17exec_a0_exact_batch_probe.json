@@ -1,0 +1,16 @@
+{
+  "protocol": "V17-EXEC-A0_ONE_ORIGINAL_512_STATE_BATCH_PROBE",
+  "status": "FROZEN_TRAIN_ONLY",
+  "example_id": "57509__wikitables_composition__train",
+  "selected_masks": [3327, 3455],
+  "original_product_order_batch_index": 7,
+  "batch_size": 512,
+  "model": "models/Qwen3-8B",
+  "gpu": 0,
+  "gpu_memory_utilization": 0.55,
+  "max_model_len": 4096,
+  "max_new_tokens": 256,
+  "temperature": 0.0,
+  "purpose": "One bounded replay using the exact-search product-state ordering and its 512-state submission batch; compare two selected masks with old cache and current batch1/24",
+  "sealed": ["training", "611", "581", "internal300", "development", "confirmation"]
+}

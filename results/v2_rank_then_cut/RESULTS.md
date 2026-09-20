@@ -2519,3 +2519,46 @@ pending a small exact-contract replication on these four pairs, including
 prompt/token hashes, model artifact hashes, runtime versions and batch
 conditions. Do not treat the 4/12 as a general error rate or tune a new
 label threshold against it.
+
+## V17-EXEC-A0 Target provenance and execution contract
+
+The old 4,096-mask exact cache was generated for **Qwen3-8B**, not Qwen3-4B:
+its metadata names `models/Qwen3-8B`, the exact-search CLI defaults to that
+model, and a located shard launch script explicitly passes it. Qwen3-4B was
+the frozen V8 representation model. Thus the paired label disagreements are
+not explained by accidentally applying 4B oracle labels to an 8B Target.
+
+The QAMPARI prompt/generation wrapper and parser/metric source files are
+byte-identical to the initial atomic exact-search implementation in Git. The
+current 8B weight shards, tokenizer, config, runtime versions, GPU type and
+prompt fingerprint for all 24 rerun masks are recorded in
+`configs/v17exec_a0_target_provenance.json` and the paired rerun artifacts.
+Historical exact-cache metadata has `git_commit=unversioned` and did not
+record historical weight/tokenizer hashes, resolved prompt token IDs,
+effective per-example batch size, or runtime versions. The current hashes
+therefore identify today's Target but cannot prove byte-for-byte equivalence
+to the old run.
+
+A controlled current-runtime submission-batch probe compared batch size 1
+with the earlier 24-mask batch for all four changed pairs and four stable
+controls. All eight pairs reproduced the same F1 and decision label at both
+batch sizes. Then one changed query, `57509__wikitables_composition__train`,
+was replayed in the exact-search `product` order with the full 512-state
+submission batch containing both masks. The current F1 remained
+`STAY=1.0, edit=0.947368`, versus old-cache `0.947368, 0.947368`. The old
+STAY prediction omitted `Dragons Forever`; the current STAY prediction added
+it, while the edit prediction stayed the same. This directly locates this
+one disagreement in Target generation, upstream of parsing, scoring and the
+threshold. It does not establish that batching was irrelevant for every
+query or recover the unrecorded historical execution environment. Costs:
+16 calls/14,734 prompt tokens/1,109 generated tokens for batch-1, plus
+512 calls/296,192 prompt tokens/19,360 generated tokens for the original-
+geometry batch probe.
+
+Since the old cache cannot currently be reproduced on a disputed pair even
+with its original submission-batch geometry, a new train-only four-action
+depth-10 cache under a fully recorded *current* 8B contract is the smallest
+decisive next step. It contains 1,421 × 4 = 5,684 contexts, not 1,421 ×
+4,096 lattice states. It must first re-establish the A2 V8-versus-local-oracle
+quality/token headroom; no selector/editor training or sealed-set reads are
+authorized by this audit.

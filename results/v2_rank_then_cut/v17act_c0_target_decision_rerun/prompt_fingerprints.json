@@ -1,0 +1,222 @@
+{
+  "protocol": "V17-EXEC-A0_CURRENT_PROMPT_FINGERPRINTS",
+  "model": "models/Qwen3-8B",
+  "records": [
+    {
+      "example_id": "25284__wikidata_simple__train",
+      "role": "stay",
+      "mask": 3327,
+      "context_sha256": "62a966f8124d14ef716ea7a1a68c3b838f2fbac67d14395abb4f2685ac61bccc",
+      "prompt_sha256": "a8655b17084a60c16cf3f759bc4d153bd279e46c291d1a149988dd8e4e20eec6",
+      "prompt_token_ids_sha256": "5caefdff7507013cab3847e19a3c988f66da05c5a70f1e197021727ccb7f6571",
+      "prompt_tokens": 689
+    },
+    {
+      "example_id": "25284__wikidata_simple__train",
+      "role": "edit",
+      "mask": 3551,
+      "context_sha256": "6e35d9bb27a46ca1ef6399a312f580b619a01326391734429f5b04a9d80a79e5",
+      "prompt_sha256": "0142f0b9f1c043cd9ff58e646bd995431aaf92dba6b7cefb08f08447c3badc85",
+      "prompt_token_ids_sha256": "3bb18d74fae2ff393484d6467ca3be181f6d6f610e028f4d49e5543b8f17014e",
+      "prompt_tokens": 678
+    },
+    {
+      "example_id": "1374__wikidata_simple__train",
+      "role": "stay",
+      "mask": 4092,
+      "context_sha256": "a5baff810deb235a65d56df9da31ae8eb6a0edb709f8cc75e89c526f1f6c0c76",
+      "prompt_sha256": "c0e10a15060ff8b18e4f46ead4fbb324dff0ab21e6d0f1b09ad771e9df31e982",
+      "prompt_token_ids_sha256": "cbd829f215787acaf7caac9ff911fc188fdbe876b4e39832bd86bbd368aa2dda",
+      "prompt_tokens": 727
+    },
+    {
+      "example_id": "1374__wikidata_simple__train",
+      "role": "edit",
+      "mask": 4078,
+      "context_sha256": "5a4fc1f9983c383a3aaa9defad4e14a118cde415de2468637fd0127ca42c961a",
+      "prompt_sha256": "069aa78e944554f418036d6a6a3ba9d3da564f5624d4a40caf233e8097e90b85",
+      "prompt_token_ids_sha256": "a39cf28caf37d12f3fa678394673c3f2dc84036d76f17a10077d4117dd33a67a",
+      "prompt_tokens": 699
+    },
+    {
+      "example_id": "23261__wikidata_simple__train",
+      "role": "stay",
+      "mask": 3327,
+      "context_sha256": "e48fbbb1b5f93f806f2ca4fdb7bb892d2c74b935710724706f5da644cedc04e6",
+      "prompt_sha256": "a157ecb1675a078af1f0db1a0efa628225559111619fbeb16d1622d6b5ef9809",
+      "prompt_token_ids_sha256": "8521eb91ef3c0a6af17f5f5d68d0fac015279228e5d2c6f563a6f1730ee89477",
+      "prompt_tokens": 823
+    },
+    {
+      "example_id": "23261__wikidata_simple__train",
+      "role": "edit",
+      "mask": 1791,
+      "context_sha256": "6f20b3d3f414d6cb8698fd05001f512f4a0ffb61a8f1685cf1da2ed3274f636f",
+      "prompt_sha256": "864699f94466aa94656c0dda094bca00c0e14e0989dfc1502ddf853f4d5afda0",
+      "prompt_token_ids_sha256": "71a119585431de1237376ee515be1c2b4a771b69865a965df3a9b03e13b9185c",
+      "prompt_tokens": 769
+    },
+    {
+      "example_id": "57509__wikitables_composition__train",
+      "role": "stay",
+      "mask": 3327,
+      "context_sha256": "82d7250b2ab6a9b1057f214354ad5a3902ee32bf447ea2ce6d43fe9e786edb5c",
+      "prompt_sha256": "389f08dc630257a0791d7b6f8be8ef1acf1a72cb887213a27d2a27548e2240a0",
+      "prompt_token_ids_sha256": "9884f2546cabb1dd10458822ab641cca925b0d1d9ee90bac26386a0c1accfcba",
+      "prompt_tokens": 706
+    },
+    {
+      "example_id": "57509__wikitables_composition__train",
+      "role": "edit",
+      "mask": 3455,
+      "context_sha256": "191ef675e2d65da6518d0bfd6330aa5e79dbdb2f5dd0246a6657cb67b7e46834",
+      "prompt_sha256": "10c366eaab19570d9d5472f063fbe39cd63061acbfd1596e29b801808cd9e864",
+      "prompt_token_ids_sha256": "66aba38de823589a72f7a7508839c7ace25f36dd9d2ca3f5f692531a711c6673",
+      "prompt_tokens": 677
+    },
+    {
+      "example_id": "59078__wikitables_composition__train",
+      "role": "stay",
+      "mask": 3327,
+      "context_sha256": "e4e77829e5aa6bfd9f67e8048754faac553e4f713bdd95bdd45ec66eac2415ff",
+      "prompt_sha256": "5e05df1b1c2294a1c1745846b8461d2616962e29751053d0a817ebe58f06b8e9",
+      "prompt_token_ids_sha256": "7a0574070a395da7b116a9d1a3738103ee0e62f15b993cc08ce5cfdeefd6a6d4",
+      "prompt_tokens": 1770
+    },
+    {
+      "example_id": "59078__wikitables_composition__train",
+      "role": "edit",
+      "mask": 3582,
+      "context_sha256": "be43d3a1e09cc4db4fed0b8f1cfca12af4d7be0d122700a13a453cad394ecc1d",
+      "prompt_sha256": "9aa77e89dc7bd213d5738c6a4c9eb66d6fd2e83aeb7d50b349dad4e3f5aa5348",
+      "prompt_token_ids_sha256": "d6f99f92784077c47735c6f92713b4e83f2dce14c2343506202dead745177787",
+      "prompt_tokens": 1543
+    },
+    {
+      "example_id": "58829__wikitables_composition__train",
+      "role": "stay",
+      "mask": 4083,
+      "context_sha256": "809b0fe27aa982bc2f5aa9e6055e5125eea4030990b842cb8f495fc059fe5ed9",
+      "prompt_sha256": "2b895fc7893dad6b9f7492a6c146e92f674315077e6b189bc68544444b0e5d37",
+      "prompt_token_ids_sha256": "07a67f9943ae6eb51f9c828d848405f1f47979df46292b52f850f49803823f3d",
+      "prompt_tokens": 604
+    },
+    {
+      "example_id": "58829__wikitables_composition__train",
+      "role": "edit",
+      "mask": 3831,
+      "context_sha256": "39d5d1882ffba05d7185f34ca8bd119c22492002005a8a5396801b2183eb86e6",
+      "prompt_sha256": "cbde62948ccd683033822563ae01e6115d4f38388be21bcec5ad4439a04554cb",
+      "prompt_token_ids_sha256": "10f498882f901b4f01e40d3a54cadf38b5401feb71ad110470d37162f2c9342b",
+      "prompt_tokens": 594
+    },
+    {
+      "example_id": "27694__wikidata_simple__train",
+      "role": "stay",
+      "mask": 3903,
+      "context_sha256": "eb8babaf07c47dab52a584ac2dacff5def09caf9acc1ce7228815ccb4d754e47",
+      "prompt_sha256": "67ae8a659d27686caf86ccf6bb486591b2196a779e6e6508e302c9fd662c42db",
+      "prompt_token_ids_sha256": "c04077c909fc2bb1c11aa02cb49eb58272ba1c1a55dfa79cca795b1a0d15bc67",
+      "prompt_tokens": 759
+    },
+    {
+      "example_id": "27694__wikidata_simple__train",
+      "role": "edit",
+      "mask": 4027,
+      "context_sha256": "571b8117994d2441ce6fe41108cc6a288a03d2f5b8e9dec3b41cada84eab954e",
+      "prompt_sha256": "cdbe8e0960d74613cd094a28c6f989f9df5b975211785500a3165c79fd72468c",
+      "prompt_token_ids_sha256": "e5b302c7675cb31337e6c6cb131cc3894326af50f61355ee1d418e944718d89b",
+      "prompt_tokens": 758
+    },
+    {
+      "example_id": "25672__wikidata_simple__train",
+      "role": "stay",
+      "mask": 1023,
+      "context_sha256": "be674f8b9b5a7b8279d3910c277c943dc8bf5964a4119878b763bd7910946832",
+      "prompt_sha256": "a9d8c255179201bfca257110ec65352e217ec72575d4f41a4973a14a68812799",
+      "prompt_token_ids_sha256": "e6ee1ba5bc98b8315389cbb134702e52152f9826b9d62dabe4336aba2659477f",
+      "prompt_tokens": 560
+    },
+    {
+      "example_id": "25672__wikidata_simple__train",
+      "role": "edit",
+      "mask": 2015,
+      "context_sha256": "fd95c657c447e51ea780c9efa88896e421bfc9e09ecbfc00882499fe7c81ca5f",
+      "prompt_sha256": "8143f612899d7b0891d767e8f49edf3ae3a012e27e72221b4044625f4eb4f77e",
+      "prompt_token_ids_sha256": "bf63b66334537c2d724e45606fd127958bfb6df05f21ad7507f956af79d495d9",
+      "prompt_tokens": 537
+    },
+    {
+      "example_id": "22710__wikidata_simple__train",
+      "role": "stay",
+      "mask": 1023,
+      "context_sha256": "71877634ad3810945af87fa2016a742e61bb388e0679d4d0f37fb012ba80d6a1",
+      "prompt_sha256": "dc889328a4ee0fb43c4095acc72b39e8d9be08259f7ba5ebb6043245b223a86e",
+      "prompt_token_ids_sha256": "97700039aaf062365d92101105ba0c2400f24d0de4edd453ff95caa1c34c8fac",
+      "prompt_tokens": 947
+    },
+    {
+      "example_id": "22710__wikidata_simple__train",
+      "role": "edit",
+      "mask": 2031,
+      "context_sha256": "e2b8a9229b9d990dfe42b43fd2477e710777926d7f2f10a1545d8d380f6cad68",
+      "prompt_sha256": "857049ded0c6f101750fa8631426876fe8529a7129d7b5957e4ba7f38f103d66",
+      "prompt_token_ids_sha256": "a86d5e03967f07844818b25808cd079d4fc176733ce5e7ae75be518e85cdafd7",
+      "prompt_tokens": 851
+    },
+    {
+      "example_id": "55876__wikidata_intersection__train",
+      "role": "stay",
+      "mask": 3327,
+      "context_sha256": "359d84d5c3e06deed92072eb51308caa9cd7e8cc6bcb03faadc4cab352ef6e20",
+      "prompt_sha256": "2b906d1c82248dac4777dc83b6db41cbdfd7d9f23e5ccd82828c45067e275094",
+      "prompt_token_ids_sha256": "770d1ad84a31c18619b8af36090f23d046a4fa566669cdd20432f1e9cecdd15a",
+      "prompt_tokens": 1331
+    },
+    {
+      "example_id": "55876__wikidata_intersection__train",
+      "role": "edit",
+      "mask": 3575,
+      "context_sha256": "bf83289fbdbaad300d93ac6aae9d24685dea40c6c25ab628f9107d9e7b6f6f38",
+      "prompt_sha256": "5893d1bc3de9e4f830b1340dc1cfd7d6aec56ff47f43b8a83c9eb7edb93886ef",
+      "prompt_token_ids_sha256": "b29e7983e5b2191984846a067097d74194f9bb261092ab0d6980f6f6549aebfb",
+      "prompt_tokens": 1326
+    },
+    {
+      "example_id": "21270__wikidata_simple__train",
+      "role": "stay",
+      "mask": 1023,
+      "context_sha256": "c87d77a065488c88fcff1e253e80bcfad358ce34fd1dbf6aa95901cce1e06bce",
+      "prompt_sha256": "e2060593cf947ada1d2f307a764add9e979142cd5e2878cc658b17e11ac7caa9",
+      "prompt_token_ids_sha256": "118f5bf420eb0a34fc7dcedce837ced7643bb136ab2c88e3102a86d230be77a5",
+      "prompt_tokens": 846
+    },
+    {
+      "example_id": "21270__wikidata_simple__train",
+      "role": "edit",
+      "mask": 2031,
+      "context_sha256": "5cd16fda99dd51c0340b82d5f97d866a4adb7e531c343e76ef600cbc17c51164",
+      "prompt_sha256": "560ad5d780fba569ee4741bbf2072c3c7d8641e6bc58d06931975a1556d32c70",
+      "prompt_token_ids_sha256": "1a95ae4bfea8e75cd97ecad1e1d930dbe84c565a906b83faf1a273bc229945e4",
+      "prompt_tokens": 804
+    },
+    {
+      "example_id": "60634__wikitables_composition__train",
+      "role": "stay",
+      "mask": 4047,
+      "context_sha256": "6515601492acfb03c7daaef14ff3a70024c1751a66e72ed1e25bf2a59afbc775",
+      "prompt_sha256": "8cf730aea750e532d4c2c9d3c4508ca930de760721485f00ac12894d8f5c1bd0",
+      "prompt_token_ids_sha256": "c21a8f28a8b40965b5aefef0bcc69873ddcee01433ff10f9e202e7d5bc5f0692",
+      "prompt_tokens": 635
+    },
+    {
+      "example_id": "60634__wikitables_composition__train",
+      "role": "edit",
+      "mask": 3999,
+      "context_sha256": "c43b6fa24c1ce3f8c4b93598331492eca8cd7a8dad479a40008493863076a0e6",
+      "prompt_sha256": "57d0eec912259e8f47ae7fbd5a9219f5ae8118b36b7ff1fdea0d7f3d2ca5d929",
+      "prompt_token_ids_sha256": "fcc573ce03cdeeec1e7d089ba90f3fdc045886e8481840077e14a24ef045b3e4",
+      "prompt_tokens": 611
+    }
+  ]
+}

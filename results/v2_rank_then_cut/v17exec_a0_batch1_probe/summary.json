@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-EXEC-A0_BATCH1_SINGLE_VARIABLE_PROBE",
+  "queries": 8,
+  "batch1_vs_batch24_f1_disagreement_pairs": [],
+  "batch1_vs_batch24_label_disagreement_pairs": [],
+  "batch1_vs_old_cache_label_disagreement_pairs": [
+    "57509__wikitables_composition__train",
+    "59078__wikitables_composition__train",
+    "22710__wikidata_simple__train",
+    "55876__wikidata_intersection__train"
+  ],
+  "cost": {
+    "target_calls": 16,
+    "prompt_tokens": 14734,
+    "generated_tokens": 1109
+  },
+  "interpretation": "Batch-1 versus batch-24 on the current Target is a controlled submission-batch test, not a replication of the old unknown full execution environment."
+}
