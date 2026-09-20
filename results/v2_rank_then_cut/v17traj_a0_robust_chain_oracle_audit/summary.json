@@ -1,0 +1,184 @@
+{
+  "protocol": "V17-TRAJ-A0_ROBUST_CHAIN_ORACLE_AUDIT",
+  "queries": 1421,
+  "roles": "B2B clean-train folds 0-3 (1421 queries); fold4=611, B2B581, internal300, development and confirmation sealed",
+  "levels": {
+    "0.6": {
+      "v8": {
+        "defined": 1421,
+        "success": 1411,
+        "first_window_width_1": 84,
+        "first_window_width_2": 40,
+        "first_window_width_3plus": 1287,
+        "any_window_3plus": 1365,
+        "persistent_from_first": 1212,
+        "rollback_events": 232,
+        "mean_earliest_token_fraction": 0.3478398686272037,
+        "median_earliest_token_fraction": 0.3317422434367542
+      },
+      "pool_oracle_envelope": {
+        "defined": 1421,
+        "success": 1419,
+        "first_window_width_1": 35,
+        "first_window_width_2": 17,
+        "first_window_width_3plus": 1367,
+        "any_window_3plus": 1399,
+        "persistent_from_first": 1298,
+        "rollback_events": 101,
+        "mean_earliest_token_fraction": 0.33538394785716796,
+        "median_earliest_token_fraction": 0.3272532188841202
+      },
+      "lattice_per_anchor_ceiling": {
+        "defined": 1421,
+        "any_window_1": 1421,
+        "any_window_2plus": 1421,
+        "any_window_3plus": 1421,
+        "mean_min_start_token_fraction_for_3run": 0.31886252549169547
+      }
+    },
+    "0.7": {
+      "v8": {
+        "defined": 1421,
+        "success": 1402,
+        "first_window_width_1": 93,
+        "first_window_width_2": 48,
+        "first_window_width_3plus": 1261,
+        "any_window_3plus": 1339,
+        "persistent_from_first": 1192,
+        "rollback_events": 236,
+        "mean_earliest_token_fraction": 0.4356010660541189,
+        "median_earliest_token_fraction": 0.41737091594882514
+      },
+      "pool_oracle_envelope": {
+        "defined": 1421,
+        "success": 1416,
+        "first_window_width_1": 26,
+        "first_window_width_2": 24,
+        "first_window_width_3plus": 1366,
+        "any_window_3plus": 1383,
+        "persistent_from_first": 1289,
+        "rollback_events": 98,
+        "mean_earliest_token_fraction": 0.41978686268297727,
+        "median_earliest_token_fraction": 0.41112311494576076
+      },
+      "lattice_per_anchor_ceiling": {
+        "defined": 1421,
+        "any_window_1": 1421,
+        "any_window_2plus": 1421,
+        "any_window_3plus": 1421,
+        "mean_min_start_token_fraction_for_3run": 0.4001464905987702
+      }
+    },
+    "0.8": {
+      "v8": {
+        "defined": 1421,
+        "success": 1388,
+        "first_window_width_1": 115,
+        "first_window_width_2": 63,
+        "first_window_width_3plus": 1210,
+        "any_window_3plus": 1270,
+        "persistent_from_first": 1129,
+        "rollback_events": 288,
+        "mean_earliest_token_fraction": 0.5299254087540012,
+        "median_earliest_token_fraction": 0.5107296137339056
+      },
+      "pool_oracle_envelope": {
+        "defined": 1421,
+        "success": 1412,
+        "first_window_width_1": 28,
+        "first_window_width_2": 32,
+        "first_window_width_3plus": 1352,
+        "any_window_3plus": 1362,
+        "persistent_from_first": 1237,
+        "rollback_events": 127,
+        "mean_earliest_token_fraction": 0.5107395347686959,
+        "median_earliest_token_fraction": 0.5006595354576342
+      },
+      "lattice_per_anchor_ceiling": {
+        "defined": 1421,
+        "any_window_1": 1421,
+        "any_window_2plus": 1421,
+        "any_window_3plus": 1420,
+        "mean_min_start_token_fraction_for_3run": 0.49008074717996575
+      }
+    },
+    "0.9": {
+      "v8": {
+        "defined": 1421,
+        "success": 1315,
+        "first_window_width_1": 144,
+        "first_window_width_2": 140,
+        "first_window_width_3plus": 1031,
+        "any_window_3plus": 1031,
+        "persistent_from_first": 982,
+        "rollback_events": 344,
+        "mean_earliest_token_fraction": 0.7212218207846368,
+        "median_earliest_token_fraction": 0.7153846153846154
+      },
+      "pool_oracle_envelope": {
+        "defined": 1421,
+        "success": 1395,
+        "first_window_width_1": 88,
+        "first_window_width_2": 129,
+        "first_window_width_3plus": 1178,
+        "any_window_3plus": 1178,
+        "persistent_from_first": 1064,
+        "rollback_events": 157,
+        "mean_earliest_token_fraction": 0.7060395644697798,
+        "median_earliest_token_fraction": 0.7109004739336493
+      },
+      "lattice_per_anchor_ceiling": {
+        "defined": 1421,
+        "any_window_1": 1421,
+        "any_window_2plus": 1368,
+        "any_window_3plus": 1276,
+        "mean_min_start_token_fraction_for_3run": 0.6951256852296244
+      }
+    },
+    "0.95": {
+      "v8": {
+        "defined": 1131,
+        "success": 1106,
+        "first_window_width_1": 310,
+        "first_window_width_2": 275,
+        "first_window_width_3plus": 521,
+        "any_window_3plus": 521,
+        "persistent_from_first": 648,
+        "rollback_events": 458,
+        "mean_earliest_token_fraction": 0.8352019299900327,
+        "median_earliest_token_fraction": 0.8479515999566594
+      },
+      "pool_oracle_envelope": {
+        "defined": 1131,
+        "success": 1129,
+        "first_window_width_1": 220,
+        "first_window_width_2": 331,
+        "first_window_width_3plus": 578,
+        "any_window_3plus": 578,
+        "persistent_from_first": 728,
+        "rollback_events": 89,
+        "mean_earliest_token_fraction": 0.8348142750732285,
+        "median_earliest_token_fraction": 0.8484349258649094
+      },
+      "lattice_per_anchor_ceiling": {
+        "defined": 1131,
+        "any_window_1": 1131,
+        "any_window_2plus": 910,
+        "any_window_3plus": 578,
+        "mean_min_start_token_fraction_for_3run": 0.8126174249227592
+      }
+    }
+  },
+  "complete": {
+    "v8_oracle": 1294,
+    "pool_oracle": 1393,
+    "v8_mean_cumulative_tokens_given_complete": 2186.6908809891806,
+    "pool_mean_cumulative_tokens_given_complete": 2160.6611629576455,
+    "paired_cumulative_saving_both_complete": 34.4629057187017
+  },
+  "limitations": [
+    "Per-anchor full-lattice DP can select a different path for each anchor; it is not a joint Complete oracle.",
+    "Pool oracle can select a different order per query, and even a different order per reported metric; no learned deployment gain is implied.",
+    "Stability width is number of consecutive prefix states, not repeated Target-run reliability."
+  ]
+}

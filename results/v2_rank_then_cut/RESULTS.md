@@ -2145,3 +2145,49 @@ No new Target calls were made, and the 611/581/internal/development/
 confirmation roles stayed closed. Packet granularity may still matter via a
 different mechanism; any future half-packet test must target a predeclared
 causal question rather than this overturned size association.
+## V17-TRAJ-A0 robust-chain oracle audit (train-only)
+
+The frozen read-only protocol is `configs/v17traj_a0_robust_chain_oracle_audit.json`;
+the exact 4096-mask audit is implemented in
+`src/evaluation/v17traj_a0_robust_chain_oracle_audit.py`. It uses only the
+lineage-clean train folds 0–3 (1,421 queries), existing V8 orders and V13
+top-10 projected orders, and cached Target results. No new Target calls,
+training, or sealed-set reads occurred. Per-anchor undefined levels are masked.
+
+| Anchor | Defined | V8 success | Pool oracle success | Lattice success ceiling | V8 any width ≥3 | Pool oracle any width ≥3 | Lattice width ≥3 ceiling |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 0.60 | 1421 | 1411 | 1419 | 1421 | 1287 | 1367 | 1421 |
+| 0.70 | 1421 | 1402 | 1416 | 1421 | 1261 | 1366 | 1421 |
+| 0.80 | 1421 | 1388 | 1412 | 1421 | 1210 | 1352 | 1420 |
+| 0.90 | 1421 | 1315 | 1395 | 1421 | 1031 | 1178 | 1276 |
+| 0.95 | 1131 | 1106 | 1129 | 1131 | 521 | 578 | 578 |
+
+An exact subset-DAG DP computes the maximum number of consecutive successful
+prefixes attainable after any mask and the minimum token cost at which a run
+of length 1, 2, or 3 can start. At 0.90, a three-prefix stable run is possible
+in 1,276/1,421 lattices, versus 1,031 on the actual V8 chain and 1,178 in the
+top-10 pool oracle. The lattice's mean *minimum starting context fraction* for
+such a run is 0.6951 among feasible queries. The pool oracle improves 0.90
+reachability from 1,315 to 1,395; its mean earliest-success context fraction
+among its successes is 0.7060 versus V8's 0.7212 among V8 successes. These
+means have different success populations and are not a paired Pareto claim.
+
+The ordered-cutoff Complete oracle is 1,294/1,421 for the V8 chain and
+1,393/1,421 in the candidate-pool envelope. This is a per-query oracle
+selection with oracle stopping, not a deployable model. The 0.95 stable-run
+ceiling is already met by the pool (578/1,131); the extra full-lattice
+stability headroom is mainly at 0.90. Moreover, the full-lattice results above
+are **separate per-anchor ceilings**: they need not arise on one trajectory
+that satisfies all five ordered cutoffs. A width-3 run is three adjacent
+prefix states, not a guarantee across repeated stochastic Target calls.
+
+**Decision:** the current packet set contains real 0.90 stability headroom,
+so it would be premature to redesign packets or buy new Target verifier calls.
+This audit does **not** yet authorize a learned ordering claim: it has not
+shown that a single joint five-anchor, low-token stable trajectory can be
+selected from deployment-visible information across held-out queries. The
+next bounded step is a train-only joint-chain witness and learnability audit,
+with ordered cutoffs and paired token cost; only then freeze a stability-aware
+trajectory-generation protocol. Selector and current-feature cutoff training
+stay closed; fold4=611, B2B581, internal300, development and confirmation
+remain sealed.

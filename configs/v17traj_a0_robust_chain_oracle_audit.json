@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-TRAJ-A0_ROBUST_CHAIN_ORACLE_AUDIT",
+  "status": "FROZEN_TRAIN_ONLY_READ_ONLY",
+  "population": "B2B clean-train folds 0-3 (1421 queries); fold4=611, B2B581, internal300, development and confirmation sealed",
+  "threshold": "Existing meets_fidelity(value, level), epsilon=1e-6; only attainable_levels are defined",
+  "trajectory": "12 distinct add-only packets, 13 prefixes including empty and full; V8 and projected V13 top10 use the same V8 relative packet order",
+  "window": "Consecutive successful prefix states in one order; first window begins at first successful prefix, max window may start later; persistence means all remaining prefixes through full context succeed",
+  "lattice": "Exact subset-DAG DP for existence and minimum starting tokens of a k-consecutive-success path (k=1,2,3); per-anchor ceilings can use different paths and do not imply one jointly deployable trajectory",
+  "candidate_pool": "Per-query maximum over fixed V8 plus V13 top10 projected orders is an oracle envelope, not a deployable selector",
+  "decision": "Describe paired quality/token/stability headroom; no numerical GO threshold or new model is selected on these data",
+  "explicitly_off": ["training", "new Target calls", "selector", "learned cutoff", "new holdout reads"]
+}
