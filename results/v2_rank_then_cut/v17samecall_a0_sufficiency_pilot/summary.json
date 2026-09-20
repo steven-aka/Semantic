@@ -1,0 +1,44 @@
+{
+  "protocol": "V17-SAMECALL-A0_BINARY_SUFFICIENCY_PILOT",
+  "queries": 128,
+  "calls": 512,
+  "historical_class_counts": {
+    "SS": 37,
+    "SF": 17,
+    "FS": 37,
+    "FF": 37
+  },
+  "answer_tag_fraction": 1.0,
+  "status_valid_fraction": 1.0,
+  "repeat_status_agreement_depth9": 1.0,
+  "repeat_answer_agreement_depth9": 0.9921875,
+  "repeat_090_label_agreement_depth9": 1.0,
+  "repeat_answer_agreement_depth10": 1.0,
+  "repeat_090_label_agreement_depth10": 1.0,
+  "elapsed_seconds_excluding_model_init": null,
+  "analyzed_from_cached_calls": true,
+  "repeat_metrics": {
+    "0": {
+      "new_prompt_depth9_success_090": 75,
+      "new_prompt_depth10_success_090": 98,
+      "selfreport_policy_success_090": 76,
+      "selfreport_stop_count": 121,
+      "selfreport_current_success_true_yes": 72,
+      "selfreport_current_failure_false_yes": 49,
+      "mean_target_tokens_policy": 944.5625,
+      "mean_target_tokens_direct_depth10": 1005.09375,
+      "mean_extra_output_tokens_vs_historical_depth9": 19.4140625
+    },
+    "1": {
+      "new_prompt_depth9_success_090": 75,
+      "new_prompt_depth10_success_090": 98,
+      "selfreport_policy_success_090": 76,
+      "selfreport_stop_count": 121,
+      "selfreport_current_success_true_yes": 72,
+      "selfreport_current_failure_false_yes": 49,
+      "mean_target_tokens_policy": 944.5703125,
+      "mean_target_tokens_direct_depth10": 1005.09375,
+      "mean_extra_output_tokens_vs_historical_depth9": 19.421875
+    }
+  }
+}

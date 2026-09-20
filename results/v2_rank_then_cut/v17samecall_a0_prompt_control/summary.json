@@ -1,0 +1,28 @@
+{
+  "protocol": "V17-SAMECALL-A0_OLD_PROMPT_PAIRED_CONTROL",
+  "queries": 128,
+  "target_calls": 256,
+  "depths": {
+    "9": {
+      "old_prompt_rerun_090_success": 54,
+      "new_prompt_repeat0_090_success": 75,
+      "historical_cache_090_success": 54,
+      "new_vs_old_repairs": 23,
+      "new_vs_old_breaks": 2,
+      "old_rerun_vs_cache_answer_agreement": 121,
+      "mean_old_prompt_target_tokens": 742.0078125,
+      "mean_new_prompt_target_tokens": 888.671875
+    },
+    "10": {
+      "old_prompt_rerun_090_success": 81,
+      "new_prompt_repeat0_090_success": 98,
+      "historical_cache_090_success": 77,
+      "new_vs_old_repairs": 22,
+      "new_vs_old_breaks": 5,
+      "old_rerun_vs_cache_answer_agreement": 109,
+      "mean_old_prompt_target_tokens": 864.234375,
+      "mean_new_prompt_target_tokens": 1005.09375
+    }
+  },
+  "sealed_outcome_sets_read": false
+}

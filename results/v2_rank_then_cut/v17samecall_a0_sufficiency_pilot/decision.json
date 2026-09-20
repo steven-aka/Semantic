@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-SAMECALL-A0_BINARY_SUFFICIENCY_PILOT",
+  "decision": "STOP_BINARY_SELF_REPORT_GO_PROMPT_QUALITY_VALIDATION",
+  "basis": "The YES/NO field was perfectly repeatable but said YES for 121/128 depth9 queries, including 49/53 actual current failures. It lost 22 successes versus new-prompt direct depth10 (76 vs 98), so it is not a useful stopper. Separately, the new prompt improved depth9 and depth10 answer quality on this deliberately enriched sample. A matched old-prompt rerun gives 54->75 depth9 and 81->98 depth10 0.90 successes. This possible answer-generation benefit must be tested on a fresh, unstratified train-side sample and across all attainable anchors with full Target cost.",
+  "limits": "The 128 IDs were enriched for historical SF/FS/FF and cannot estimate population prevalence or deployable quality. The modified prompt changes the Target answer contract and costs roughly 141-147 extra Target tokens per call on this sample.",
+  "new_target_calls": 512,
+  "sealed_outcome_sets_read": false
+}

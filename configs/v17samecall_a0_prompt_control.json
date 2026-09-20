@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-SAMECALL-A0_OLD_PROMPT_PAIRED_CONTROL",
+  "status": "FROZEN_TRAIN_SIDE_CONTROL",
+  "sample": "the same 128 design-exposed IDs as SAMECALL-A0; one canonical old-prompt rerun at depth9 and depth10",
+  "target_model": "models/Qwen3-8B",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "temperature": 0.0,
+  "batch_size": 32,
+  "comparison": "old-prompt rerun vs samecall new-prompt repeat0 in the current runtime; old CANON-P0 cache remains a secondary reference",
+  "sealed_outcome_sets_read": false
+}

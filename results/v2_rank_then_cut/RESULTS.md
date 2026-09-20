@@ -3137,3 +3137,43 @@ and [decision](v17stop_d0_multi_probe_oracle/decision.json) close these
 fixed 0.90 multi-probe schedules. This does not rule out every other depth
 or an adaptive information-gathering action, but it sharply limits the
 economics of the proposed 6/7→9→10 path. No sealed set was read.
+
+### V17-SAMECALL-A0 binary self-report and matched prompt control
+
+We froze a minimally modified Qwen3-8B prompt that requests the ordinary
+QAMPARI `<answer>` list followed by `<sufficient_090>YES/NO</sufficient_090>`
+in **the same call**. The pilot deliberately included all 17 historical SF
+queries and 37 each from SS/FS/FF (128 distinct train-side queries), with
+two runs at each of depth9 and depth10. This enrichment tests rare errors;
+it is not a representative population sample. The 512 new-prompt calls had
+100% valid answer/status tags. Across the two repeats, depth9 status agreed
+128/128 and the 0.90 answer label agreed 128/128; the parsed answer agreed
+127/128. Depth10 answers and 0.90 labels agreed 128/128.
+
+Despite that stability, the self-report said YES for **121/128** depth9
+queries, including **49/53 actual 0.90 failures**. A policy stopping on YES
+achieved only 76/128 versus 98/128 for direct depth10 under the *same new
+prompt*. It is a highly overconfident insufficiency signal, not a working
+stopper. The [summary](v17samecall_a0_sufficiency_pilot/summary.json),
+[per-call outputs](v17samecall_a0_sufficiency_pilot/per_call.jsonl), and
+[replay](v17samecall_a0_sufficiency_pilot/replay.jsonl) record both repeats.
+
+An unexpected separate result concerns the **answer prompt itself**. We
+reran the canonical old prompt on the same 128 queries at both depths (256
+additional Target calls), using the same current Qwen3-8B runner. At depth9,
+old-prompt rerun had 54/128 0.90 successes and the new prompt had 75/128:
+23 paired repairs and two breaks. At depth10, it was 81→98, with 22 repairs
+and five breaks. The historical cache was 54 and 77 respectively, so rerun
+drift explains part of the old-vs-cache depth10 difference, **not** all the
+matched prompt difference. The new prompt cost 888.67 versus 742.01 Target
+tokens/call at depth9, and 1005.09 versus 864.23 at depth10. Of this,
+roughly 19 extra tokens came from generated output at depth9; the remainder
+mostly comes from the longer prompt. See the
+[matched-control summary](v17samecall_a0_prompt_control/summary.json).
+
+Decision: `STOP_BINARY_SELF_REPORT_GO_PROMPT_QUALITY_VALIDATION`. The
+self-report cannot guide early stopping. The apparent answer-quality gain is
+a new hypothesis requiring a **fresh unstratified train-side sample**, all
+attainable anchors and full Target-cost accounting before any claim about the
+final quality–token Pareto. The 611/581/internal/development/confirmation
+sets remain sealed.

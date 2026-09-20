@@ -1,0 +1,21 @@
+{
+  "protocol": "V17-SAMECALL-A0_BINARY_SUFFICIENCY_PILOT",
+  "status": "FROZEN_TRAIN_SIDE_PILOT",
+  "target_model": "models/Qwen3-8B",
+  "source_population": "CANON-P0 fresh train1421",
+  "selection": "all 17 historical SF plus 37 lowest SHA256 IDs each from SS, FS, FF; 128 distinct queries, deliberately enriched and not population representative",
+  "repeat_count": 2,
+  "depths": [9, 10],
+  "batch_size": 32,
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "prompt_suffix_system": "After the normal <answer>...</answer> list, write exactly <sufficient_090>YES</sufficient_090> or <sufficient_090>NO</sufficient_090>. YES means you believe the answer list contains at least 90% of all correct answers to the question, not merely 90% of answers visible in the supplied context. If uncertain, write NO. Do not add any other text.",
+  "prompt_suffix_user": "After the answer, provide the required <sufficient_090>YES or NO</sufficient_090> self-assessment.",
+  "new_prompt_answer_scoring": "extract only <answer> content and score QAMPARI list F1; status and output tokens are not answers",
+  "status_regex": "<sufficient_090>\\s*(YES|NO)\\s*</sufficient_090>",
+  "retention": "depth10 answers plus depth9-only answers supported by old depth9 context",
+  "no_training": true,
+  "sealed_outcome_sets_read": false
+}
