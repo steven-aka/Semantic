@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-SEL-D0B_BASELINE_RELATIVE_CANDIDATE_VALUE_AUDIT",
+  "status": "FROZEN_READ_ONLY",
+  "source": "SEL-C0 clean-train 2032 candidate records and the same exact lattices",
+  "anchor": "clean-lineage V8 fallback, candidate rank 0; chosen using the 1421-query selector-training fold only",
+  "actions": "STAY plus unique projected orders from V13 ranks 1 through 10; ranks 5 through 10 reported separately",
+  "candidate_value": "exact-cache oracle legal monotone stop contract, never H0 predictions",
+  "strong_repair": "no loss at any attainable anchor or Complete, and a gain at an attainable anchor or Complete",
+  "strong_token_saving": "same attainable-anchor success vector and Complete=true for both, with lower oracle legal cumulative multi-anchor tokens",
+  "break": "any previously successful attainable anchor or Complete becomes false",
+  "other": "no_gain or mixed/undefined cost; no strong positive label",
+  "stability": "flag observed G0A threshold flips when their mask is on a candidate trajectory; no new Target calls",
+  "evaluation_role": "train-only descriptive opportunity audit; prior C1 611 fold is design-exposed and is not a clean gate",
+  "sealed": ["B2B 581 outcomes", "internal300", "development", "confirmation", "cutoff training", "selector training", "new Target inference"]
+}

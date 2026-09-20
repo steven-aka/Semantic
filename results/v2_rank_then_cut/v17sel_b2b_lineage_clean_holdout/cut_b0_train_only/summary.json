@@ -1,0 +1,54 @@
+{
+  "artifacts": {
+    "cache_sha256": "945fe4bbaa7561c5706f5e006cf7a4575b17fa3acdde9aca8d26bad5baca502b",
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "3743d6edd37f766509e7ca5c7d103221cd3e8f652efdd02b1dede4adc369c19f",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+  },
+  "complete": 179,
+  "confirmation_read": false,
+  "development_read": false,
+  "endpoint": "step400 only",
+  "evaluation_role": "design-exposed C1 fold; not independent confirmation",
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "mean_cumulative_tokens_on_complete": 2271.1396648044692,
+  "mean_regret_on_complete": 0.057521188458519557,
+  "new_target_calls": 0,
+  "per_anchor": [
+    {
+      "eligible": 611,
+      "level": 0.6,
+      "same_order_oracle_success": 604,
+      "success": 531
+    },
+    {
+      "eligible": 611,
+      "level": 0.7,
+      "same_order_oracle_success": 602,
+      "success": 431
+    },
+    {
+      "eligible": 611,
+      "level": 0.8,
+      "same_order_oracle_success": 598,
+      "success": 265
+    },
+    {
+      "eligible": 611,
+      "level": 0.9,
+      "same_order_oracle_success": 565,
+      "success": 501
+    },
+    {
+      "eligible": 481,
+      "level": 0.95,
+      "same_order_oracle_success": 463,
+      "success": 394
+    }
+  ],
+  "protocol": "V17-CUT-B0_FIXED_V8_STRUCTURED_STOPPING",
+  "queries": 611,
+  "same_order_oracle_complete": 551,
+  "trained_complete_orders": 1294
+}

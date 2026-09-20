@@ -1,0 +1,20 @@
+{
+  "protocol": "V17-SEL-D1_CONSERVATIVE_BASELINE_RELATIVE_SWITCH",
+  "status": "FROZEN_TRAIN_ONCE",
+  "source": "SEL-C0 clean-lineage candidate and V13 embedding artifacts plus SEL-D0B exact value labels",
+  "anchor": "V8 fallback rank 0",
+  "actions": "STAY or unique projected ranks 1 through 10; head 1-4 and tail 5-10 reported separately",
+  "target_priority": [
+    "non-breaking Complete repair actions, preferring actions that also repair 0.90 when any exist",
+    "non-breaking 0.90 repair actions",
+    "cheapest legal cumulative-token safe-saving actions among those with identical quality and Complete",
+    "STAY"
+  ],
+  "model": "unchanged SEL-C1 TopKSetSelector architecture and feature schema",
+  "loss": "set-valued negative log probability mass on the frozen preferred action set; one query has unit weight",
+  "optimization": {"steps": 300, "batch_size": 64, "learning_rate": 0.0003, "weight_decay": 0.01, "seed": 20260920, "endpoint": "step300 only"},
+  "split": "train on pre-existing hash folds 0-3 (1421 queries); read fold4 (611 queries) once as design-exposed diagnostic, not an independent gate",
+  "candidate_evaluation": "exact-cache oracle legal stopping on selected trajectory, not H0 cutoff predictions",
+  "decision": "report every attainable-anchor count, Complete, 0.90 repairs/breaks, legal cumulative tokens where Complete, and paired earliest-0.90 tokens; claim no deployable improvement without a later matched learned cutoff and fresh confirmation",
+  "sealed": ["B2B 581 outcomes", "internal300", "development", "confirmation", "new Target calls", "cutoff training", "checkpoint selection", "weight or threshold sweep"]
+}

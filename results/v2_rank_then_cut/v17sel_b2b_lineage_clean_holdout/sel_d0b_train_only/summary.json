@@ -1,0 +1,119 @@
+{
+  "all_clean_train": {
+    "head_rank_1_to_4": {
+      "mean_repair_first_run_length_090": 1.71900826446281,
+      "novel_action_classes": {
+        "break": 252,
+        "no_gain": 3378,
+        "repair": 126,
+        "safe_token_saving": 247
+      },
+      "novel_actions": 4003,
+      "queries": 2032,
+      "queries_with_any_strong_benefit": 297,
+      "queries_with_only_one_repair_rank": 65,
+      "queries_with_repair": 94,
+      "queries_with_safe_token_saving": 203,
+      "repair_actions_known_unstable": 1
+    },
+    "tail_rank_5_to_10": {
+      "mean_repair_first_run_length_090": 1.4813559322033898,
+      "novel_action_classes": {
+        "break": 1161,
+        "no_gain": 8645,
+        "repair": 328,
+        "safe_token_saving": 1044
+      },
+      "novel_actions": 11178,
+      "queries": 2032,
+      "queries_with_any_strong_benefit": 653,
+      "queries_with_only_one_repair_rank": 45,
+      "queries_with_repair": 151,
+      "queries_with_safe_token_saving": 502,
+      "repair_actions_known_unstable": 0
+    }
+  },
+  "anchor": "clean-lineage V8 fallback, candidate rank 0; chosen using the 1421-query selector-training fold only",
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "815ee88b6e8ad35f86fb3eab643da46e99b4fc08f6314e0173204485b97beb5a",
+    "g0a_sha256": "f665c890123f6a02b833cfb87230e7fb328e57d45e51ec31843143ac61e41e82",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+  },
+  "confirmation_read": false,
+  "decision": "DESCRIPTIVE_ONLY_REQUIRE_CAUSAL_SELECTOR_PROTOCOL_BEFORE_TRAINING",
+  "design_exposed_611_fold": {
+    "head_rank_1_to_4": {
+      "mean_repair_first_run_length_090": 1.6734693877551021,
+      "novel_action_classes": {
+        "break": 77,
+        "no_gain": 997,
+        "repair": 50,
+        "safe_token_saving": 81
+      },
+      "novel_actions": 1205,
+      "queries": 611,
+      "queries_with_any_strong_benefit": 107,
+      "queries_with_only_one_repair_rank": 25,
+      "queries_with_repair": 37,
+      "queries_with_safe_token_saving": 70,
+      "repair_actions_known_unstable": 0
+    },
+    "tail_rank_5_to_10": {
+      "mean_repair_first_run_length_090": 1.514018691588785,
+      "novel_action_classes": {
+        "break": 326,
+        "no_gain": 2615,
+        "repair": 113,
+        "safe_token_saving": 293
+      },
+      "novel_actions": 3347,
+      "queries": 611,
+      "queries_with_any_strong_benefit": 192,
+      "queries_with_only_one_repair_rank": 12,
+      "queries_with_repair": 49,
+      "queries_with_safe_token_saving": 143,
+      "repair_actions_known_unstable": 0
+    }
+  },
+  "development_read": false,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "new_target_calls": 0,
+  "protocol": "V17-SEL-D0B_BASELINE_RELATIVE_CANDIDATE_VALUE_AUDIT",
+  "role": "train-only descriptive opportunity audit; prior C1 611 fold is design-exposed and is not a clean gate",
+  "selector_training_fold": {
+    "head_rank_1_to_4": {
+      "mean_repair_first_run_length_090": 1.75,
+      "novel_action_classes": {
+        "break": 175,
+        "no_gain": 2381,
+        "repair": 76,
+        "safe_token_saving": 166
+      },
+      "novel_actions": 2798,
+      "queries": 1421,
+      "queries_with_any_strong_benefit": 190,
+      "queries_with_only_one_repair_rank": 40,
+      "queries_with_repair": 57,
+      "queries_with_safe_token_saving": 133,
+      "repair_actions_known_unstable": 1
+    },
+    "tail_rank_5_to_10": {
+      "mean_repair_first_run_length_090": 1.4627659574468086,
+      "novel_action_classes": {
+        "break": 835,
+        "no_gain": 6030,
+        "repair": 215,
+        "safe_token_saving": 751
+      },
+      "novel_actions": 7831,
+      "queries": 1421,
+      "queries_with_any_strong_benefit": 461,
+      "queries_with_only_one_repair_rank": 33,
+      "queries_with_repair": 102,
+      "queries_with_safe_token_saving": 359,
+      "repair_actions_known_unstable": 0
+    }
+  }
+}

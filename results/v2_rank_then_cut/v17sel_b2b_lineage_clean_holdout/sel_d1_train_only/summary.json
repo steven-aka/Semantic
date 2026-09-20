@@ -1,0 +1,136 @@
+{
+  "artifacts": {
+    "cache_sha256": "945fe4bbaa7561c5706f5e006cf7a4575b17fa3acdde9aca8d26bad5baca502b",
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "5c9802642db851dafe062a3cdadaf031df0b411edc195ab2b1e08710d7579754",
+    "value_audit_sha256": "d22a89ec4e1feb8f0bffb8db82bf97528129c9d6c4f23df6277f0a461d798d89"
+  },
+  "baseline_v8": {
+    "complete": 551,
+    "mean_earliest_090_tokens_on_success": 589.670796460177,
+    "mean_legal_cumulative_tokens_on_complete": 2171.511796733212,
+    "mean_penalized_090_token_fraction": 0.7408795155996873,
+    "per_anchor": [
+      {
+        "eligible": 611,
+        "level": 0.6,
+        "success": 604
+      },
+      {
+        "eligible": 611,
+        "level": 0.7,
+        "success": 602
+      },
+      {
+        "eligible": 611,
+        "level": 0.8,
+        "success": 598
+      },
+      {
+        "eligible": 611,
+        "level": 0.9,
+        "success": 565
+      },
+      {
+        "eligible": 481,
+        "level": 0.95,
+        "success": 463
+      }
+    ],
+    "queries": 611,
+    "selected_rank_histogram": {
+      "0": 611
+    },
+    "success_090": 565
+  },
+  "breaks_090_vs_v8": 0,
+  "confirmation_read": false,
+  "conservative_switch": {
+    "complete": 551,
+    "mean_earliest_090_tokens_on_success": 589.670796460177,
+    "mean_legal_cumulative_tokens_on_complete": 2171.511796733212,
+    "mean_penalized_090_token_fraction": 0.7408795155996873,
+    "per_anchor": [
+      {
+        "eligible": 611,
+        "level": 0.6,
+        "success": 604
+      },
+      {
+        "eligible": 611,
+        "level": 0.7,
+        "success": 602
+      },
+      {
+        "eligible": 611,
+        "level": 0.8,
+        "success": 598
+      },
+      {
+        "eligible": 611,
+        "level": 0.9,
+        "success": 565
+      },
+      {
+        "eligible": 481,
+        "level": 0.95,
+        "success": 463
+      }
+    ],
+    "queries": 611,
+    "selected_rank_histogram": {
+      "0": 611
+    },
+    "success_090": 565
+  },
+  "cutoff_trained": false,
+  "development_read": false,
+  "endpoint": "step300 only",
+  "evaluation_role": "design-exposed C1 fold; not an independent gate",
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "new_target_calls": 0,
+  "paired_earliest_090_token_delta_when_both_success": 0,
+  "paired_legal_cumulative_token_delta_when_both_complete": 0,
+  "protocol": "V17-SEL-D1_CONSERVATIVE_BASELINE_RELATIVE_SWITCH",
+  "queries": 611,
+  "reference_v13_rank1": {
+    "complete": 559,
+    "mean_earliest_090_tokens_on_success": 589.5626102292769,
+    "mean_legal_cumulative_tokens_on_complete": 2177.881932021467,
+    "mean_penalized_090_token_fraction": 0.7405277074940372,
+    "per_anchor": [
+      {
+        "eligible": 611,
+        "level": 0.6,
+        "success": 605
+      },
+      {
+        "eligible": 611,
+        "level": 0.7,
+        "success": 603
+      },
+      {
+        "eligible": 611,
+        "level": 0.8,
+        "success": 599
+      },
+      {
+        "eligible": 611,
+        "level": 0.9,
+        "success": 567
+      },
+      {
+        "eligible": 481,
+        "level": 0.95,
+        "success": 469
+      }
+    ],
+    "queries": 611,
+    "selected_rank_histogram": {
+      "1": 611
+    },
+    "success_090": 567
+  },
+  "repairs_090_vs_v8": 0
+}

@@ -1758,3 +1758,76 @@ insufficient. Its train-only criterion must compare actual repairs, breaks,
 Complete, failure-penalized context tokens, and added inference cost against
 the V13 rank-1, V8 fallback, and learned top-4 baselines. No D0 oracle number
 is evidence that the C1 top-4 selector is a Pareto-dominant deployed anchor.
+
+## V17-SEL-D0B baseline-relative value and SEL-D1 conservative switch
+
+D0B fixed the clean-lineage V8 rank-0 trajectory as STAY. On the 1,421-query
+selector-training fold it had 1,315 oracle 0.90 successes and 1,294 complete
+trajectories, versus 1,314 and 1,290 for V13 rank-1. The other 611 queries
+had already been used in C1 and are explicitly design-exposed, so neither this
+anchor choice nor D1's later result gets a fresh-gate interpretation. D0B
+re-read only the 2,032 train-side exact lattices, verified every candidate's
+cached success/complete/cumulative-token labels, and flagged known G0A 0.90
+flips on candidate prefixes. It made no Target calls.
+
+Relative to STAY, 151/2,032 queries have a unique rank-5--10 action with a
+non-breaking oracle repair at some attainable anchor or Complete; 113 can
+repair 0.90 and 140 can repair Complete (these categories overlap). Another
+502 queries have a unique tail action with the same success vector and
+Complete but lower *legal cumulative multi-anchor* tokens. These are
+candidate-wise oracle opportunities, not learned-policy results. A rank-1--4
+action offers a repair on 94 queries and safe token saving on 203, so a V8
+anchor cannot scientifically restrict its action set to tail ranks alone.
+Among the 295 tail repair actions that reach 0.90, 194 have only one
+consecutive successful prefix beginning at first attainment. This is a
+descriptive stopping-robustness warning, not a training feature or a repeated
+Target stability estimate. The per-query D0B table and summary are under
+`v17sel_b2b_lineage_clean_holdout/sel_d0b_train_only/`.
+
+D1 then executed **one** frozen 300-step run of the unchanged C1 set scorer,
+now trained with baseline-relative, set-valued preferred actions and STAY in
+the action set. A read-only endpoint replay found STAY on **1,421/1,421**
+training queries as well as **611/611** design-exposed queries. Thus this is
+an objective/prevalence collapse, not only a held-out generalization miss. Its
+oracle-cutoff 0.90/Complete counts were therefore exactly the V8 reference
+565/611 and 551/611, with zero repairs, zero breaks, and zero paired token
+change. V13 rank-1 alone had 567/611 and 559/611 on those same queries.
+This is `STOP_SEL_D1_CONSERVATIVE_SWITCH_PROTOCOL`: the particular frozen
+supervision/architecture produced no realized improvement. It does not prove
+tail evidence has no value or that every conservative selector must fail. No
+threshold, class weight, checkpoint, or rank sweep follows from this run.
+The 581-query B2B role was not read; neither was internal300, development, or
+confirmation. D1's frozen checkpoint and choices remain local; its protocol,
+code, and summary are in the repository.
+
+## V17-CUT-B0 fixed-V8 structured stopping pilot
+
+CUT-B0 independently tested the proposed structured stopping objective on the
+same clean-lineage fixed V8 trajectory. Its training label is the *set* of
+minimum-cumulative-token, fidelity-valid, nondecreasing five-anchor stopping
+vectors. The model partitions over all nondecreasing vectors; inference uses
+only its scores and the known attainable-level mask, never exact fidelity.
+It trained one fixed step-400 endpoint on the 1,294 complete trajectories in
+the 1,421-query training fold. Incomplete orders were excluded from gradient
+but kept in evaluation. All 2,032 rows were checked against the frozen exact
+candidate labels before training.
+
+On the design-exposed 611, its selected stops attained 0.90 on **501/611**
+versus **565/611** for a same-order oracle cutoff; Complete was **179/611**
+versus **551/611**. Per-anchor successes were 531/611, 431/611, 265/611,
+501/611, and 394/481 at 0.60 through 0.95 respectively. Most predicted
+stops clustered at depths 6--8 for the first three anchors and depth 10 for
+0.90. The endpoint is `STOP_CUT_B0_STRUCTURED_MIN_COST_IMITATION`: this
+specific objective did not solve nonmonotone stopping and cannot be deployed.
+The H0 numbers came from a different candidate lineage/split and are not a
+paired quantitative comparator. No second objective, hyperparameter sweep,
+581 read, internal replay, development, or confirmation was performed. The
+protocol, code, summary, and local checkpoint are under
+`v17sel_b2b_lineage_clean_holdout/cut_b0_train_only/`.
+
+These independent negative results leave the final Pareto claim unachieved.
+The next design should first test whether a deployment-visible statistic can
+discriminate rare beneficial candidate switches and whether the optimum stop
+vector is learnable rather than merely minimizing cached oracle cost. More
+training of these two frozen protocols is not justified by their present
+train-only evidence.

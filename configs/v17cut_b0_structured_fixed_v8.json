@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-CUT-B0_FIXED_V8_STRUCTURED_STOPPING",
+  "status": "FROZEN_TRAIN_ONCE",
+  "candidate_policy": "clean-lineage V8 fallback rank0, fixed for all queries",
+  "data": "SEL-C0 clean-train 2032 queries; exact-prefix cache for targets only; frozen clean V13 question/packet embeddings for features",
+  "roles": "hash folds0-3 train (1421 queries); previously design-exposed fold4 diagnostic (611 queries)",
+  "model": "128-hidden MLP on query, selected-packet mean, query-product, normalized depth, and normalized prefix tokens; emits five level-by-prefix scores",
+  "objective": "structured negative log probability of all minimum-cumulative-token fidelity-valid monotone stop vectors, with partition over every monotone vector; incomplete-order queries excluded from gradient and retained in evaluation",
+  "inference": "Viterbi over nondecreasing prefix depths and attainable levels only; no exact fidelity or oracle path in inference",
+  "optimization": {"steps": 400, "batch_size": 32, "learning_rate": 0.001, "weight_decay": 0.0001, "seed": 20260920, "endpoint": "step400 only"},
+  "evaluation": "per-anchor success, Complete, 0.90, legal cumulative tokens and regret on Complete, compared with same-order oracle; no threshold or checkpoint selection",
+  "sealed": ["B2B 581 outcomes", "internal300", "development", "confirmation", "new Target calls", "candidate-policy training", "threshold or architecture sweep"]
+}
