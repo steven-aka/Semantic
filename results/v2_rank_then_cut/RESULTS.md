@@ -2298,3 +2298,49 @@ Other two schedules remain fixed sensitivity checks. Evaluate actual generated
 orders end to end against same-query V8 for all five anchors, Complete,
 paired repairs/breaks, and tokens; stop if no held-out-query Pareto gain.
 Keep fold4=611, B2B581, internal300, development, and confirmation sealed.
+
+## V17-TRAJ-A3-0 local-edit label-structure audit (train-only)
+
+Before training an editor, A3-0 enumerated all 76 Kendall-distance-≤2 V8
+edits on the same 1,421 training queries and all three frozen A2 schedules.
+An edit is strictly beneficial only if it breaks no previously successful
+attainable anchor, costs no more cumulative context than V8, and either
+repairs an anchor or saves tokens. Outcome and edit signatures use only the
+existing exact cache; no Target calls or sealed-set reads occurred.
+
+| Schedule | Queries with ≥1 beneficial edit | Median positive edit IDs among positive queries | Mean distinct stop-mask outcomes among all 77 actions | Mean beneficial stop-mask outcomes among positive queries |
+|---|---:|---:|---:|---:|
+| Quality `[10,10,10,10,10]` | 366 | 12 | **4** | **2.12** |
+| Balanced `[9,9,9,10,10]` | 506 | 11 | **7** | **2.48** |
+| Compression `[8,8,9,9,10]` | 569 | 10 | **11** | **2.37** |
+
+The primary quality schedule's 77 nominal actions collapse to exactly four
+distinct depth-10 packet subsets for **every** query: STAY, replace V8 rank 9
+with rank 10, replace rank 9 with rank 11, or replace rank 8 with rank 10
+(zero-based ranks). Sixty-four different orders reproduce STAY's depth-10
+subset; their extra within-prefix permutations are invisible to this primary
+evaluation. Thus training a 77-way classifier would create redundant action
+labels and squander data. Among the 366 queries with a beneficial primary
+edit, 79 have some local edit that repairs 0.90, 38 repair Complete, and 301
+have a token-only edit. Different beneficial edit IDs frequently share the
+same stop-mask outcome; the 12-ID median is misleading without this quotient.
+
+Across schedules, positive-query overlap is 353/519 between quality and
+balanced, with mean edit-set Jaccard 0.821 where both are positive. Quality
+versus compression is less stable: 293/642 positive-query overlap, mean
+Jaccard 0.420 where both are positive. Therefore a policy trained on the
+quality schedule should not be assumed to transfer unchanged to aggressive
+compression; those schedules are sensitivity checks rather than selectable
+post-hoc winners.
+
+**Decision:** the guidance's set-valued principle is correct, but the proposed
+77-action residual ranker is too redundant under fixed depth 10. The next
+bounded train-only test should score the **four distinct stop-mask choices**
+with a canonical minimum-edit order per mask, explicit STAY, and frozen V8
+query/packet embeddings plus packet-token features. Labels are set-valued
+strict Pareto improvements on the primary quality schedule; quality-breaking
+edits must be negative for a quality-constrained primary objective. Query-
+grouped out-of-fold *rollout quality and token cost*, not edit-ID accuracy,
+must decide whether this representation can capture any A2 oracle headroom.
+The existing V8 lineage uses frozen Qwen3-4B; the supplied guidance's
+“Qwen3-8B” description does not match the current checkpoint.

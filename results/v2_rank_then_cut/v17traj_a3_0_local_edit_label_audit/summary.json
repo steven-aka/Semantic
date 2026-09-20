@@ -1,0 +1,245 @@
+{
+  "protocol": "V17-TRAJ-A3_0_LOCAL_EDIT_LABEL_STRUCTURE_AUDIT",
+  "queries": 1421,
+  "primary_schedule": "quality_depth10",
+  "schedules": {
+    "quality_depth10": {
+      "queries_with_beneficial_edit": 366,
+      "beneficial_edit_count_total": 3527,
+      "beneficial_count_buckets": {
+        "0": 1055,
+        "4+": 275,
+        "1": 77,
+        "2-3": 14
+      },
+      "median_beneficial_count_when_positive": 12.0,
+      "mean_distinct_stop_mask_outcomes": 4,
+      "mean_beneficial_outcome_classes_when_positive": 2.122950819672131,
+      "label_counts": {
+        "neutral": 89526,
+        "tradeoff": 10986,
+        "harmful": 3957,
+        "beneficial": 3527
+      },
+      "benefit_type_edit_counts": {
+        "repair_090": 618,
+        "repair_complete": 248,
+        "token_only": 2632,
+        "repair_and_saving": 881
+      },
+      "distinct_beneficial_structural_signatures": 13,
+      "top_beneficial_signatures": [
+        [
+          "0-1-2-3-4-5-7-6-8-10-9-11",
+          275
+        ],
+        [
+          "0-1-2-3-4-5-6-8-7-10-9-11",
+          275
+        ],
+        [
+          "0-2-1-3-4-5-6-7-8-10-9-11",
+          275
+        ],
+        [
+          "1-0-2-3-4-5-6-7-8-10-9-11",
+          275
+        ],
+        [
+          "0-1-2-3-4-5-6-7-8-10-9-11",
+          275
+        ],
+        [
+          "0-1-2-3-4-5-6-7-8-10-11-9",
+          275
+        ],
+        [
+          "0-1-2-3-4-5-6-7-10-8-9-11",
+          275
+        ],
+        [
+          "0-1-3-2-4-5-6-7-8-10-9-11",
+          275
+        ],
+        [
+          "0-1-2-3-4-6-5-7-8-10-9-11",
+          275
+        ],
+        [
+          "0-1-2-3-5-4-6-7-8-10-9-11",
+          275
+        ]
+      ],
+      "signature_entropy_nats": 2.564337683784299,
+      "signature_effective_count": 12.992050673640604
+    },
+    "balanced_lower_early": {
+      "queries_with_beneficial_edit": 506,
+      "beneficial_edit_count_total": 5600,
+      "beneficial_count_buckets": {
+        "0": 915,
+        "4+": 439,
+        "1": 63,
+        "2-3": 4
+      },
+      "median_beneficial_count_when_positive": 11.0,
+      "mean_distinct_stop_mask_outcomes": 7,
+      "mean_beneficial_outcome_classes_when_positive": 2.4762845849802373,
+      "label_counts": {
+        "neutral": 74529,
+        "harmful": 16698,
+        "tradeoff": 11169,
+        "beneficial": 5600
+      },
+      "benefit_type_edit_counts": {
+        "repair_090": 589,
+        "repair_complete": 238,
+        "token_only": 4803,
+        "repair_and_saving": 743
+      },
+      "distinct_beneficial_structural_signatures": 24,
+      "top_beneficial_signatures": [
+        [
+          "0-1-2-3-4-5-7-6-8-10-9-11",
+          312
+        ],
+        [
+          "0-1-2-3-4-5-6-8-7-10-9-11",
+          312
+        ],
+        [
+          "0-2-1-3-4-5-6-7-8-10-9-11",
+          312
+        ],
+        [
+          "1-0-2-3-4-5-6-7-8-10-9-11",
+          312
+        ],
+        [
+          "0-1-2-3-4-5-6-7-8-10-9-11",
+          312
+        ],
+        [
+          "0-1-2-3-4-5-6-7-8-10-11-9",
+          312
+        ],
+        [
+          "0-1-3-2-4-5-6-7-8-10-9-11",
+          312
+        ],
+        [
+          "0-1-2-3-4-6-5-7-8-10-9-11",
+          312
+        ],
+        [
+          "0-1-2-3-5-4-6-7-8-10-9-11",
+          312
+        ],
+        [
+          "0-1-2-4-3-5-6-7-8-10-9-11",
+          312
+        ]
+      ],
+      "signature_entropy_nats": 3.123600275276208,
+      "signature_effective_count": 22.728059791181025
+    },
+    "compression_lower_early": {
+      "queries_with_beneficial_edit": 569,
+      "beneficial_edit_count_total": 5415,
+      "beneficial_count_buckets": {
+        "0": 852,
+        "4+": 458,
+        "1": 109,
+        "2-3": 2
+      },
+      "median_beneficial_count_when_positive": 10,
+      "mean_distinct_stop_mask_outcomes": 11,
+      "mean_beneficial_outcome_classes_when_positive": 2.374340949033392,
+      "label_counts": {
+        "neutral": 63975,
+        "harmful": 26635,
+        "tradeoff": 11971,
+        "beneficial": 5415
+      },
+      "benefit_type_edit_counts": {
+        "repair_090": 275,
+        "repair_complete": 222,
+        "token_only": 4965,
+        "repair_and_saving": 331
+      },
+      "distinct_beneficial_structural_signatures": 34,
+      "top_beneficial_signatures": [
+        [
+          "0-1-2-3-4-5-6-8-7-10-9-11",
+          185
+        ],
+        [
+          "0-1-2-3-4-5-6-7-10-8-9-11",
+          183
+        ],
+        [
+          "0-1-2-3-4-5-6-8-7-9-10-11",
+          182
+        ],
+        [
+          "0-1-2-3-4-5-6-8-7-9-11-10",
+          182
+        ],
+        [
+          "0-2-1-3-4-5-6-8-7-9-10-11",
+          182
+        ],
+        [
+          "1-0-2-3-4-5-6-8-7-9-10-11",
+          182
+        ],
+        [
+          "0-1-2-3-4-6-5-8-7-9-10-11",
+          182
+        ],
+        [
+          "0-1-2-4-3-5-6-8-7-9-10-11",
+          182
+        ],
+        [
+          "0-1-2-3-5-4-6-8-7-9-10-11",
+          182
+        ],
+        [
+          "0-1-2-3-4-5-8-6-7-9-10-11",
+          182
+        ]
+      ],
+      "signature_entropy_nats": 3.4995433523204444,
+      "signature_effective_count": 33.10033331660708
+    }
+  },
+  "overlap": {
+    "quality_depth10__balanced_lower_early": {
+      "positive_both_queries": 353,
+      "positive_either_queries": 519,
+      "positive_query_overlap_fraction": 0.6801541425818882,
+      "mean_jaccard_given_both": 0.8207075543416226,
+      "queries_with_any_shared_beneficial_edit": 346
+    },
+    "quality_depth10__compression_lower_early": {
+      "positive_both_queries": 293,
+      "positive_either_queries": 642,
+      "positive_query_overlap_fraction": 0.45638629283489096,
+      "mean_jaccard_given_both": 0.41958831345238823,
+      "queries_with_any_shared_beneficial_edit": 259
+    },
+    "balanced_lower_early__compression_lower_early": {
+      "positive_both_queries": 417,
+      "positive_either_queries": 658,
+      "positive_query_overlap_fraction": 0.6337386018237082,
+      "mean_jaccard_given_both": 0.583650525291949,
+      "queries_with_any_shared_beneficial_edit": 395
+    }
+  },
+  "limitations": [
+    "A beneficial edit uses exact cached outcomes as a label, not a deployment input.",
+    "Many edits can share the same stop-mask outcome; raw edit count overstates distinct decisions.",
+    "Schedule overlap measures label consistency on design-exposed train queries, not learned generalization."
+  ]
+}

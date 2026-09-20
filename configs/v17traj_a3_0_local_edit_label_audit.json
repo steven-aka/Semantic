@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-TRAJ-A3_0_LOCAL_EDIT_LABEL_STRUCTURE_AUDIT",
+  "status": "FROZEN_TRAIN_ONLY_READ_ONLY",
+  "population": "B2B clean-train folds0-3 (1421 queries); fold4=611, B2B581, internal300, development and confirmation sealed",
+  "primary_schedule": "quality_depth10",
+  "schedules": {
+    "quality_depth10": [10, 10, 10, 10, 10],
+    "balanced_lower_early": [9, 9, 9, 10, 10],
+    "compression_lower_early": [8, 8, 9, 9, 10]
+  },
+  "primary_reason": "Depth10 is the previously frozen C0 high-quality control and the A2 primary baseline; changing the primary after seeing A2 would add design freedom. Other schedules are prespecified sensitivity checks.",
+  "edit_family": "STAY plus 76 unique permutations at Kendall inversion distance at most two from the frozen V8 order; signatures are relative V8 positions, not packet IDs",
+  "strict_beneficial": "No previously successful attainable anchor breaks, per-query cumulative tokens <= V8, and either at least one anchor repair or strictly lower cumulative tokens",
+  "tradeoff": "A quality repair with higher cumulative tokens, or a quality break with lower cumulative tokens, is incomparable under the strict Pareto label and remains unlabeled for pairwise training",
+  "audit": "Per-query strict-beneficial edit count, distinct stop-mask outcome count, structural edit-signature frequency/entropy, schedule overlap/Jaccard, and benefit type (0.90 repair, Complete repair, token-only, repair plus saving)",
+  "interpretation": "Labels are derived from exact cached Target outcomes solely for train-side design; none is a deployment feature. This audit cannot demonstrate cross-query learnability.",
+  "explicitly_off": ["training", "new Target calls", "new holdout reads", "selector", "cutoff", "packet redesign"]
+}
