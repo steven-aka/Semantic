@@ -1,0 +1,28 @@
+{
+  "protocol": "V17-ACT-C0_A3_SMALL_FIT_SANITY",
+  "queries": 64,
+  "labels": {
+    "positive": 47,
+    "negative": 143,
+    "ignored": 2
+  },
+  "checkpoints": {
+    "300": {
+      "loss": 0.07446365803480148,
+      "labeled_sign_accuracy": 0.9947368502616882,
+      "selected_non_stay": 22,
+      "selected_positive": 21,
+      "selected_negative": 0,
+      "selected_ignored": 1
+    },
+    "3000": {
+      "loss": 0.002098032971844077,
+      "labeled_sign_accuracy": 1.0,
+      "selected_non_stay": 22,
+      "selected_positive": 21,
+      "selected_negative": 0,
+      "selected_ignored": 1
+    }
+  },
+  "interpretation": "This reuses the A3 linear head on 64 selected train queries. Failure to memorize does not by itself establish a plumbing bug or absence of generalizable signal."
+}

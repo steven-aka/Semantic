@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-ACT-C0_LEARNING_CHAIN_SPOT_AUDIT",
+  "sample_queries": 64,
+  "edited_queries": 32,
+  "near_threshold_queries": 50,
+  "actions": 256,
+  "non_stay_label_histogram": {
+    "-1": 143,
+    "0": 2,
+    "1": 47
+  },
+  "label_mismatches": [],
+  "distinct_mask_same_rendered_context_queries": [],
+  "limitations": [
+    "Independent label arithmetic checks cache-to-label plumbing, not cache-to-Target reproducibility.",
+    "Only four fixed-depth endpoints are compared; other schedules may have different action equivalence."
+  ]
+}

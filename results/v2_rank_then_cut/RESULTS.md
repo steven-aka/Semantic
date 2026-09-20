@@ -2457,3 +2457,34 @@ quality and tokens, not pair accuracy. A negative result would close this
 specific cheap-feature branch; the all-66 oracle does not justify a 66-way
 classifier. The read-only artifacts and audit test are under
 `v17act_c0_depth10_omission_audit`.
+
+## V17-ACT-C0 learning-chain spot audit
+
+Before ACT-C1, a hash-stable 64-query train-side spot check sampled 32 A3
+OOF-edited and 32 STAY queries. It independently read the raw exact-cache
+masks, reconstructed the fixed-depth-10 five-anchor outcomes and cumulative
+tokens, and assigned benefit/harm labels without calling the A3 label builder.
+All 192 non-STAY labels matched that builder. The four action masks were
+distinct for every sampled query, and no two distinct masks rendered the
+same packet context text. This checks the sampled cache-to-label and
+mask-to-rendering paths, not all 1,421 queries or Target reproducibility.
+
+The same 64 queries were used only for a training-set memorization diagnostic
+with the original A3 frozen features and linear head. At 300 full-batch steps,
+189/190 labeled directions were correct (loss 0.0745); 21 selected edits were
+positive, zero negative, and one ignored/incomparable. At 3,000 steps all
+190/190 directions were correct (loss 0.00210), with the same selected-label
+counts. This argues against a gross gradient, sign, or STAY-plumbing failure.
+It does not establish held-out query generalization; deliberately fitting
+the training sample is not a model-selection result.
+
+The A3 training loss compares each edit with the fixed-zero STAY score. When
+those binary directions are correct, the argmax cannot choose a labeled
+negative edit, as this memorization check confirms. It does not explicitly
+rank multiple positive or ignored edits against one another, so the chosen
+edit can still be incomparable with the desired quality-token trade-off.
+The earlier G0A Target rerun already found threshold-label instability on a
+boundary-enriched sample; any further Target reruns should target rare
+beneficial-edit versus STAY *decision flips*, use the Qwen3-8B Target
+(not the Qwen3-4B V8 encoder), and report call/token costs. They are not
+silently replaced by this cache arithmetic check.
