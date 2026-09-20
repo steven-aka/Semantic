@@ -1,0 +1,23 @@
+{
+  "protocol": "V17-DEP-A0_DEPLOYMENT_DECISION_IDENTIFIABILITY_AUDIT",
+  "status": "FROZEN_TRAIN_ONLY_DIAGNOSTIC",
+  "role": "diagnostic probes only; no checkpoint selected for deployment",
+  "population": "SEL-C0 clean-train folds 0-3; fold4=611 and B2B 581 remain unread",
+  "folds": "four query-grouped out-of-fold rounds, each fold held out once, using existing sha256 modulo-five roles 0-3",
+  "selector": {
+    "actions": "unique V13 ranks 5-10 relative to frozen clean-lineage V8 STAY",
+    "positive": "D0B repair or safe_token_saving; break and no_gain are nonpositive",
+    "features": ["frozen retrieval/size/rank scalar difference", "complete frozen C1 candidate feature difference"],
+    "deployment": "select the highest-scoring unique tail per query, then switch exactly the top 1%, 2%, or 5% queries by that score; no oracle action filtering",
+    "metrics": ["action average precision", "repairs/breaks", "Complete gain/loss", "paired oracle legal cumulative-token change", "first 0.90 success-window strata"]
+  },
+  "cutoff": {
+    "scope": "easier unconditional 0.90 window-identifiability upper-bound probe on fixed V8 order; no previous-anchor oracle stop as feature",
+    "features": ["depth prior", "frozen query/current-prefix representation and token fraction", "same plus last-packet history"],
+    "decision": "argmax predicted safe-window score over thirteen deployment-computable prefix states, with stable earliest-depth tie break",
+    "metrics": ["safe-prefix average precision", "top-one safe-window hit among reachable orders", "early versus post-first rollback misses", "one-safe-prefix versus multiple-safe-prefix strata"]
+  },
+  "probe": {"model": "linear logistic only", "standardization": "training fold mean and standard deviation only", "epochs": 100, "batch_size": 512, "learning_rate": 0.01, "weight_decay": 0.001, "seed": 20260920},
+  "interpretation": "negative result applies only to tested frozen features and linear diagnostic probes, not information-theoretic impossibility; positive result does not establish deployable multi-anchor cutoff",
+  "sealed": ["fold4=611", "B2B 581", "internal300", "development", "confirmation", "new Target calls", "final selector/cutoff training"]
+}

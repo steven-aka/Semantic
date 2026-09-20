@@ -1843,3 +1843,47 @@ Complete in both. Thus this particular result is numerically unaffected,
 but future deployment-identifiability audits must not treat exact-derived
 attainability as an observable input. The unchanged frozen protocol and the
 separate replay summary are preserved under `cut_b0_mask_replay/`.
+
+## V17-DEP-A0 train-only deployment-decision identifiability audit
+
+DEP-A0 used only the 1,421 clean-lineage training queries (four query-grouped
+out-of-fold rounds). Fold 4's 611, B2B's 581, internal300, development, and
+confirmation were not read. It made no Target calls and produced diagnostic
+linear probes, not deployable checkpoints. The frozen protocol and compact
+summaries are under `v17sel_b2b_lineage_clean_holdout/dep_a0_train_only/`.
+
+For candidate switching, 7,831 unique rank-5--10 tail actions had a 12.34%
+beneficial-action prevalence under D0B's baseline-relative oracle labels.
+Frozen retrieval/rank/size scalars reached action AP 0.185; the full frozen C1
+feature difference reached AP 0.157. At the prespecified 5% query-switch
+budget, the scalar probe's *oracle-stopped* replay yielded 5 repairs and 1
+break at 0.90, also 5 Complete gains and 1 loss, among 69 switches. For the
+50 switched queries Complete under both actions, the mean legal cumulative
+token change was **+79** (more tokens). The full-feature probe yielded zero
+0.90 repairs and two breaks at the same budget. These results show weak
+ranking signal but no demonstrated quality--token Pareto gain; oracle stopping
+also makes them an upper-bound candidate diagnostic, not deployed behavior.
+The fixed-rank-5 control occasionally matched or beat the learned tail choice,
+so the probe has not established reliable *which-tail* selection.
+
+For stopping, DEP-A0 used the fixed V8 order and the easier unconditional 0.90
+safe-prefix label. There were 1,315 reachable orders among 1,421 queries and
+86 orders with exactly one safe prefix. A depth-only prior, fitted in the
+other three training folds, hit 1,195/1,315 reachable safe windows, including
+33/86 one-prefix windows. A linear probe using query, selected-prefix mean,
+depth, and token fraction hit 1,184/1,315 and 30/86; adding the last packet
+hit 1,180/1,315 and 31/86. Its safe-prefix AP improved slightly (0.826 versus
+depth prior 0.815), but the final stop decision worsened. The probe chose the
+highest-scoring prefix among all 13 positions, so it already assumes the
+whole candidate order can be inspected before stopping. A truly online
+cutoff has no stronger observability under this setup. These are 0.90-only
+diagnostics and cannot replace the five-anchor Complete evaluation.
+
+Decision: `STOP_CURRENT_FEATURE_SEL_CUT_VARIANTS`. D1's STAY collapse and
+CUT-B0's depth collapse are consistent with weak conditional decision signal,
+but DEP-A0 does not establish an information-theoretic impossibility. It only
+tests the frozen feature sets and linear diagnostics above; finite-sample
+uncertainty also matters for the five rare selector repairs. The next
+experiment must change the *deployment-visible evidence or action/stopping
+contract* and compare end-to-end quality and context-token cost, rather than
+train another local scorer or tune a threshold on the same information.
