@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-CUT-F3_V8_PACKET_JUMP_AND_ROLLBACK_AUDIT",
+  "status": "FROZEN_TRAIN_ONLY_READ_ONLY",
+  "population": "clean-lineage B2B train1421 folds0-3, one fixed V8 order per query",
+  "events": "all 12 add-only transitions; exact fidelity change; exact rendered-token increment; 0.90 rollback if prior prefix succeeds and successor fails; large negative change if delta fidelity <= -0.10",
+  "size_stratum": "top three packet-token increments within each 12-step query versus other nine; no global token cutoff fitted from outcome",
+  "narrow_window": "first consecutive run of 0.90 success contains exactly one prefix; audit the next packet that terminates that first run",
+  "association_gate": "at least 20 0.90 rollback transitions and top-three size-stratum rollback rate at least twice the other-nine rate to justify designing a bounded split-packet Target-call pilot; correlation alone does not prove split benefit",
+  "sealed": ["fold4=611", "B2B581", "internal300", "development", "confirmation", "new Target calls", "packet rewrite or training"]
+}

@@ -1,0 +1,46 @@
+{
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "fb17629489f21b73e49e9beaa8bab56625a2a27bfab770f2fd60d25c43174cbb",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+  },
+  "bounded_split_pilot_design_gate_passed": true,
+  "causal_limit": "association between packet length and rollback cannot establish that splitting preserves or improves fidelity; half-packet states require new Target calls",
+  "confirmation_read": false,
+  "development_read": false,
+  "fold4_611_read": false,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "large_to_other_rollback_rate_ratio": 2.2653061224489797,
+  "new_target_calls": 0,
+  "one_prefix_terminators": 124,
+  "one_prefix_terminators_in_large_packets": 69,
+  "protocol": "V17-CUT-F3_V8_PACKET_JUMP_AND_ROLLBACK_AUDIT",
+  "queries": 1421,
+  "queries_with_one_prefix_first_success_run": 144,
+  "rollback_090_by_depth": {
+    "10": 56,
+    "11": 133,
+    "12": 155
+  },
+  "rollback_090_total": 344,
+  "size_groups": {
+    "other_nine": {
+      "large_negative_jump": 460,
+      "mean_token_increment": 55.75385096567363,
+      "median_token_increment": 52,
+      "rollback_090": 196,
+      "rollback_090_rate": 0.01532567049808429,
+      "transitions": 12789
+    },
+    "top_three_large": {
+      "large_negative_jump": 205,
+      "mean_token_increment": 101.109781843772,
+      "median_token_increment": 94,
+      "rollback_090": 148,
+      "rollback_090_rate": 0.03471733520994605,
+      "transitions": 4263
+    }
+  },
+  "transitions": 17052
+}

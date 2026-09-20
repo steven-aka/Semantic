@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-CUT-F3B_DEPTH_AND_RISK_SET_ROLLBACK_CORRECTION",
+  "status": "READ_ONLY_CORRECTION_TO_F3",
+  "source": "F3 train1421 transition table only; no new exact-cache or Target reads",
+  "problem": "0.90 rollback is impossible before the previous prefix has reached 0.90, and within-query large packets are concentrated at later V8 depths",
+  "comparison": "compare top-three-large versus other-nine packet transitions within the already-successful 0.90 risk set, separately at depths10/11/12, and report a depth-standardized risk ratio",
+  "uncertainty": "1000 query-cluster bootstrap resamples, seed20260920; original risk-set depth weights held fixed",
+  "decision": "F3's preregistered unadjusted size association remains historically reported but cannot authorize a half-packet Target-call pilot when the at-risk depth-adjusted association does not support higher large-packet rollback risk",
+  "sealed": ["fold4=611", "B2B581", "internal300", "development", "confirmation", "new Target calls"]
+}

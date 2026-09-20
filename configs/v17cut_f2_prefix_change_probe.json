@@ -1,0 +1,14 @@
+{
+  "protocol": "V17-CUT-F2_PREFIX_CHANGE_IDENTIFIABILITY_PROBE",
+  "status": "FROZEN_TRAIN_ONLY_GROUPED_OOF",
+  "population": "clean-lineage V8 train1421 folds0-3 only; fold4=611 and B2B581 sealed",
+  "decision": "default all anchors depth10; only lower anchors 0.60/0.70/0.80 may stop at depth9",
+  "label": "unsafe if that early exit breaks any lower-anchor success relative to the same-query fixed-depth10 baseline",
+  "features": "frozen V13 ordinal 0.80 logit at depths8 and9, their difference, and depth8-to9 normalized packet-token increment; no Target call or exact fidelity at deployment",
+  "model": "one linear logistic risk probe, four query-grouped out-of-fold rounds on train1421, train-fold standardization only, fixed 100 epochs AdamW lr0.01 weight_decay0.001 seed20260920",
+  "comparator": "F1 frozen V13 depth9 raw-logit top10% early exit on the same queries",
+  "risk_curve": "top 1%,2%,5%,10%,20% lowest out-of-fold predicted risk; the 10% point is the sole predeclared opening candidate",
+  "opening_gate": "at 10%, zero paired break at every active anchor and Complete, at least 100 early exits, and mean legal five-anchor context reduction at least 0.005 against fixed depth10",
+  "interpretation": "a positive train-only result would authorize a separately frozen final probe fit and one design-exposed 611 replay; it is not itself a deployable checkpoint or ancestry-clean evidence",
+  "sealed": ["fold4=611", "B2B581", "internal300", "development", "confirmation", "new Target calls", "selector training"]
+}

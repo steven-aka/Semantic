@@ -2094,3 +2094,54 @@ measure a genuinely new deployment-visible sequential signal with full
 Target-call accounting, or audit selective packet refinement; it must not
 relabel the F1 curve as a successful cutoff by changing its threshold after
 inspection.
+
+## V17-CUT-F2 prefix-change signal and F3 packet-granularity audit
+
+F2 tested one new deployment-visible sequential feature class while keeping
+the V8 trajectory and depth-10 fallback unchanged: frozen V13 0.80 logits at
+depths 8 and 9, their difference, and the known packet-token increment. A
+four-fold query-grouped linear risk probe predicted whether stopping the
+0.60--0.80 anchors at depth 9 would break any baseline anchor success. It
+used only the 1,421 train-side queries and out-of-fold scores; 611, B2B581,
+internal300, development, and confirmation remained sealed. Unsafe early
+exits had 6.12% prevalence. The grouped probe's unsafe-event AP was 0.134,
+above prevalence but insufficient to make sparse early exits reliably safe.
+
+| Train-only top score coverage | Static V13 Complete breaks | Sequential probe Complete breaks | Sequential mean final-context fraction |
+| --- | ---: | ---: | ---: |
+| 1% | 0 | 0 | 0.8195 |
+| 2% | 0 | 0 | 0.8188 |
+| 5% | 2 | 3 | 0.8165 |
+| 10% precommitted candidate | 5 | 5 | 0.8130 |
+| 20% | 6 | 9 | 0.8065 |
+
+At 10%, the sequential probe also broke 6, 7, and 7 successes at
+0.60/0.70/0.80 respectively. Its preregistered zero-break gate failed, so no
+checkpoint or exposed-role replay followed. Decision:
+`STOP_CUT_F2_FROZEN_PREFIX_DELTA_SIGNAL`. This does not rule out every
+sequential observation, but the tested free prefix-change statistic adds no
+safe early-exit region over the static score.
+
+F3 next audited all **17,052** V8 add-only packet transitions on the same
+train-side queries. There were **344** transitions from a 0.90-successful
+prefix to a failing successor, all at depths 10--12 (56, 133, and 155).
+The three largest within-query token increments had an unadjusted rollback
+rate of 3.47%, versus 1.53% for the other nine, a ratio of **2.27**. This
+crossed F3's initially frozen *unadjusted* association gate and would appear
+to support a bounded split-packet pilot. It does **not** support that causal
+decision because the gate omitted two requirements: rollback is only possible
+after the previous prefix reaches 0.90, and large packets are not uniformly
+distributed by depth.
+
+F3B corrected the comparison using only F3's saved transitions. Within the
+already-0.90-successful risk set, the large-to-other rollback risk ratios
+were **0.53 at depth 10, 0.93 at depth 11, and 0.97 at depth 12**. Holding
+the original risk-set depth distribution fixed gives a standardized ratio
+of **0.85**, with query-cluster bootstrap 95% interval **[0.67, 1.09]**.
+This is a concrete confounding reversal, not evidence that large packets
+protect against rollback. The unadjusted F3 gate is preserved as an audit
+trail, but `NO_SIZE_TARGETED_SPLIT_PILOT` is the correct current decision.
+No new Target calls were made, and the 611/581/internal/development/
+confirmation roles stayed closed. Packet granularity may still matter via a
+different mechanism; any future half-packet test must target a predeclared
+causal question rather than this overturned size association.

@@ -1,0 +1,56 @@
+{
+  "artifacts": {
+    "config_sha256": "4d810c699f53dc227d9ed46a130b48a0daf0adeb6b212dab30eaed6691761e7a",
+    "transitions_sha256": "44e27ae2ff1754cbd730ae7ea69312c3fbda27ec5e365469e27e025265dcd02a"
+  },
+  "at_risk_depth10_12": {
+    "10": {
+      "large_at_risk": 934,
+      "large_risk": 0.05139186295503212,
+      "large_rollbacks": 48,
+      "large_to_other_risk_ratio": 0.5331905781584582,
+      "other_at_risk": 83,
+      "other_risk": 0.0963855421686747,
+      "other_rollbacks": 8
+    },
+    "11": {
+      "large_at_risk": 387,
+      "large_risk": 0.10594315245478036,
+      "large_rollbacks": 41,
+      "large_to_other_risk_ratio": 0.930457251994158,
+      "other_at_risk": 808,
+      "other_risk": 0.11386138613861387,
+      "other_rollbacks": 92
+    },
+    "12": {
+      "large_at_risk": 442,
+      "large_risk": 0.1334841628959276,
+      "large_rollbacks": 59,
+      "large_to_other_risk_ratio": 0.9677601809954751,
+      "other_at_risk": 696,
+      "other_risk": 0.13793103448275862,
+      "other_rollbacks": 96
+    }
+  },
+  "confirmation_read": false,
+  "decision": "F3_UNADJUSTED_GATE_CONFOUNDED_NO_SPLIT_PILOT_AUTHORIZATION",
+  "depth_standardization_weights": {
+    "10": 0.3035820895522388,
+    "11": 0.3567164179104478,
+    "12": 0.3397014925373134
+  },
+  "depth_standardized_large_to_other_risk_ratio": 0.8458488968450448,
+  "development_read": false,
+  "fold4_611_read": false,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "new_target_calls": 0,
+  "protocol": "V17-CUT-F3B_DEPTH_AND_RISK_SET_ROLLBACK_CORRECTION",
+  "queries": 1421,
+  "query_cluster_bootstrap_95": [
+    0.6695196019282468,
+    1.0867917658251596
+  ],
+  "transitions": 17052,
+  "unadjusted_large_to_other_rollback_rate_ratio": 2.2653061224489797
+}
