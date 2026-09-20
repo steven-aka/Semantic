@@ -1651,18 +1651,32 @@ cross-fit is expensive and must have its own costed, frozen protocol before
 launch. B2A's per-query repairs, breaks, and choices are under
 `results/v2_rank_then_cut/v17sel_b2a_frozen_selector_replay/`.
 
-## V17-SEL-B2B lineage-clean top-K pool gate (running)
+## V17-SEL-B2B lineage-clean top-K pool gate
 
-The frozen B2B split reserves 581 train-slice queries as a lineage-clean
-holdout and 550 separate queries for upstream checkpoint selection. V8 is
-currently training on the remaining 2,032 train-slice examples. An automatic
-runner waits for V8 completion, selects its checkpoint under the preregistered
-inner-validation rule, and then rebuilds V10, V12, and V13 from clean inputs.
-Only after those endpoints are frozen does it encode and decode the 581
-holdout queries, then count oracle 0.90 pool coverage at top-4, top-10, and
-top-20. V10's historical single endpoint is used as initialization without
-opening its old development evaluation. The runner stops on any failed stage
-or lineage/hash check; a stopped stage must be inspected before resuming.
+The frozen B2B split reserved 581 train-slice queries as a lineage-clean
+holdout and 550 separate queries for upstream checkpoint selection. V8 was
+trained on the remaining 2,032 train-slice examples, followed by new V10,
+V12, and V13 runs initialized only from clean predecessors. V10's historical
+single endpoint was used as initialization without opening its old development
+evaluation. V8 step500 was selected on inner validation: 0.90 success was
+508/550, below its rate-normalized gate of 517/550, so this is a best
+available checkpoint rather than a passed V8 end-to-end gate. V13 step100
+had the minimum inner-validation retrieval loss and was selected before the
+holdout was accessed. An initial V13 attempt had a GPU-contention OOM before
+its first checkpoint; the run was restarted from the same frozen inputs and
+hyperparameters on an otherwise free GPU.
+
+On the 581 lineage-clean queries, oracle 0.90 pool coverage was **552/581
+(95.0%)** at top-4, **565/581 (97.25%)** at top-10, and **572/581 (98.45%)**
+at top-20. V8 fallback alone covered 539/581. Top-10 improved on top-4 by
+13/581 = 2.24 percentage points, passing the preregistered 1.5-point gain
+and 97% absolute-ceiling gates. The resulting decision is
+`GO_SEL_C0_TOPK_SET_SELECTOR_PROTOCOL`: an authorization to design a
+selector-training protocol, **not** evidence that a deployable selector or
+cutoff works. The absolute gate was passed by only 0.25 percentage points;
+this single design-exposed holdout should not be presented as a precise
+generalization guarantee. No development, confirmation, or Target calls were
+used in B2B.
 
 The run status and stage logs are under
 `results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/`. Monitor with
