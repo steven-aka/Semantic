@@ -66,14 +66,16 @@ def main() -> None:
     parser.add_argument("--exact-dir", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--manifest", required=True)
+    parser.add_argument("--role", choices=("train", "holdout"), default="train")
     parser.add_argument("--limit", type=int)
     args = parser.parse_args()
     config = json.loads(Path(args.config).read_text())
     if config["status"] != "FROZEN_APPROVED_TO_BUILD_TRAIN_ONLY":
         raise ValueError("C0 protocol is not frozen")
     expected = config["upstream"]
+    source = expected["source_data"] if args.role == "train" else expected["holdout_source_data"]
     if (args.data, args.head, args.exact_dir) != (
-        expected["source_data"], str(Path(expected["v13_checkpoint"]) / "mask_retrieval_head.pt"), expected["exact_dir"]
+        source, str(Path(expected["v13_checkpoint"]) / "mask_retrieval_head.pt"), expected["exact_dir"]
     ):
         raise ValueError("inputs differ from frozen C0 protocol")
     rows = list(read_jsonl(args.data))
@@ -133,7 +135,8 @@ def main() -> None:
         "complete": args.limit is None,
         "examples": len(output),
         "candidate_count": 11,
-        "holdout_read": False,
+        "holdout_read": args.role == "holdout",
+        "role": args.role,
         "config_sha256": sha256(args.config),
         "data_sha256": sha256(args.data),
         "cache_sha256": sha256(args.cache),

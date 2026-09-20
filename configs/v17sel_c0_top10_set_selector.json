@@ -5,6 +5,7 @@
     "v8_checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_run/checkpoints/step500",
     "v13_checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v13_run/checkpoints/step100",
     "source_data": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_train_clean.jsonl",
+    "holdout_source_data": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_holdout.jsonl",
     "exact_dir": "results/v2_rank_then_cut/candidates5000_exact",
     "candidate_semantics": "V8 beam8 fallback followed by V13 top-10 ranked-mask projections, stable descending 0.90 logit rank and V8 relative order",
     "holdout": "581 B2B lineage-clean queries; no read during C0 or train-only C1"
@@ -57,6 +58,13 @@
     "failure_policy": "STOP_SEL_C1_TRAIN_ONLY_GATE; do not evaluate 581 B2B holdout"
   },
   "holdout_policy_after_train_gate": "Freeze model, checkpoint, features, top1 decision and metrics; then exactly one 581-query evaluation. This holdout is design-exposed because B2B selected top10; it is not confirmation.",
+  "holdout_research_gate": {
+    "top10_min_090_success_fraction": 0.94,
+    "top10_vs_top4_same_architecture_min_net_successes": 1,
+    "top10_vs_top4_complete_min_delta": 0,
+    "top10_vs_top4_mean_penalized_090_token_fraction_max_delta": 0.0,
+    "otherwise": "STOP_SEL_C1_NO_CANDIDATE_FREEZE"
+  },
   "report": ["top1 0.90 success", "Complete on attainable levels", "repairs/breaks", "same-query earliest 0.90 tokens", "median/P90 successful tokens", "penalized token fraction", "oracle pool ceilings", "rank1 and V8 fallback baselines"],
   "explicitly_off": ["cutoff training", "internal300", "development", "fresh confirmation", "Target calls", "threshold sweep", "selector architecture sweep"]
 }
