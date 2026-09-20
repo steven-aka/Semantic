@@ -1,0 +1,55 @@
+{
+  "protocol": "SLOT-A0_CACHED_FUNCTIONAL_PROVENANCE",
+  "safety_queries": 32,
+  "safety_actions": 153,
+  "selected_stable_repair_queries": 13,
+  "new_target_calls": 0,
+  "new_training": false,
+  "sealed_sets_read": false,
+  "by_outcome": {
+    "break": {
+      "actions": 33,
+      "queries": 16,
+      "answer_loss_types": {
+        "late_acquired_answer_loss_only": 11,
+        "early_answer_loss_only": 6,
+        "mixed_early_and_late_loss": 15,
+        "no_correct_answer_loss": 1
+      },
+      "any_new_correct": 5,
+      "fewer_false_answers": 4,
+      "more_false_answers": 2,
+      "depth8_success_090": 0
+    },
+    "safe": {
+      "actions": 120,
+      "queries": 26,
+      "answer_loss_types": {
+        "no_correct_answer_loss": 113,
+        "late_acquired_answer_loss_only": 7
+      },
+      "any_new_correct": 42,
+      "fewer_false_answers": 3,
+      "more_false_answers": 2,
+      "depth8_success_090": 0
+    },
+    "selected_repair": {
+      "actions": 13,
+      "queries": 13,
+      "answer_loss_types": {
+        "no_correct_answer_loss": 11,
+        "late_acquired_answer_loss_only": 2
+      },
+      "any_new_correct": 13,
+      "fewer_false_answers": 1,
+      "more_false_answers": 0,
+      "depth8_success_090": 0
+    }
+  },
+  "contract_notes": [
+    "The depth-10 context is canonically re-rendered; there is no carried Target state, so a depth-10 answer difference cannot establish persistent reveal-order effects.",
+    "Depth-9 swaps simultaneously defer default text and add candidate text. These answer transitions do not causally separate the two interventions.",
+    "The 13 repair actions are outcome-selected oracle examples; the 153 safety actions cluster within 32 queries. Counts are descriptive, not independent-query estimates.",
+    "Gold matching is retrospective and cannot be used as a deployment-visible feature."
+  ]
+}

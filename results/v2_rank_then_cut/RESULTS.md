@@ -3724,3 +3724,39 @@ retaining a useful quality–token frontier. This remains train-side mechanism
 work, not deployment validation. [Summary](v17packet_evict_a0_gold_diagnostic/summary.json),
 [per-action audit](v17packet_evict_a0_gold_diagnostic/per_action.jsonl), and
 [decision](v17packet_evict_a0_gold_diagnostic/decision.json) record it.
+
+### V17-PACKET-SLOT-A0 cached functional provenance
+
+We audited parsed answer transitions for all 153 budget-neutral A3 actions
+on 32 V8-success train queries, plus one retrospectively selected successful
+action for each of 13 repeat-stable A2 repair queries. This required **zero**
+new Target calls and did not read sealed sets. Correct-answer losses at depth9
+were classified relative to the cached depth8 and V8 depth9 outputs:
+
+| Depth9 action outcome | Actions | Late-acquired loss only | Depth8-present loss only | Both | No correct-answer loss |
+|---|---:|---:|---:|---:|---:|
+| Break | 33 | 11 | 6 | 15 | 1 |
+| Safe | 120 | 7 | 0 | 0 | 113 |
+| Selected repair | 13 | 2 | 0 | 0 | 11 |
+
+All 13 selected repairs add at least one correct answer compared with V8
+depth9. However, these are outcome-selected oracle examples, not an estimate
+of a deployment policy's repair rate. The break categories are observations,
+not causal diagnoses: each action both defers default rank9 text and adds
+candidate text. In particular, losing an answer already present at depth8
+does not by itself establish candidate interference. A separate omission-only
+arm is needed to identify this distinction. The 153 safety actions are
+clustered within 32 queries, so action counts are not independent samples.
+
+The depth10 context is canonically re-rendered from the full packet set and
+does not carry forward depth9 Target state. Differences between identical
+depth10 contexts cannot be called persistent reveal-order effects; they
+would require an execution-reproducibility investigation. These findings
+support a small targeted factorial replay before any dual-sided slot-value
+training. The previously proposed +8/+16/+32 slack audit remains a separate
+Pareto question; the present answer audit does not supersede it.
+
+[Reproducible audit](../../src/evaluation/v17packet_slot_a0_functional_provenance.py),
+[summary](v17packet_slot_a0_functional_provenance/summary.json), and
+[per-action transitions](v17packet_slot_a0_functional_provenance/per_action.jsonl)
+preserve the result.
