@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-DEP-B0_FROZEN_LEXICAL_ORDER_CONTROL",
+  "status": "FROZEN_TRAIN_ONLY_READ_ONLY",
+  "population": "B2B clean-train folds 0-3 only (1421 queries); fold4=611 and B2B 581 sealed",
+  "question_and_packets": "original source text available at deployment; no answer labels or Target outputs used for ordering",
+  "scoring": "per-query BM25 on 12 source packet texts; lowercase ASCII alphanumeric tokens; k1=1.2, b=0.75; IDF log(1+(N-df+0.5)/(df+0.5)); no stemming, stopword tuning, title boost, or feedback",
+  "ties": "V8 packet order, then packet id",
+  "decoder": "single add-only 12-packet trajectory; frozen exact lattice used only for read-only evaluation",
+  "comparators": ["lineage-clean V8 fallback on the same query", "fixed V13 rank-1 trajectory on the same query"],
+  "metrics": ["oracle 0.90 reachability", "same-order oracle five-anchor Complete", "paired earliest 0.90 tokens", "failure-penalized earliest 0.90 token fraction", "cumulative five-anchor oracle cost among paired Complete"],
+  "decision": "If lexical ordering does not improve both reachability and penalized token cost against at least V8 on train-only, close this simple text-ranking branch; no validation role may be used to tune tokenization or weights",
+  "explicitly_off": ["selector training", "cutoff training", "new Target calls", "fold4=611", "B2B 581", "internal300", "development", "confirmation"]
+}

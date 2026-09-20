@@ -1,0 +1,49 @@
+{
+  "arms": {
+    "lexical": {
+      "mean_earliest_090_token_fraction_if_success": 0.8270199521125586,
+      "mean_failure_penalized_090_token_fraction": 0.846618676750052,
+      "oracle_090_success": 1260,
+      "oracle_complete": 1142,
+      "queries": 1421
+    },
+    "v13_rank1": {
+      "mean_earliest_090_token_fraction_if_success": 0.7213229773100347,
+      "mean_failure_penalized_090_token_fraction": 0.7423071021712777,
+      "oracle_090_success": 1314,
+      "oracle_complete": 1290,
+      "queries": 1421
+    },
+    "v8": {
+      "mean_earliest_090_token_fraction_if_success": 0.7212218207846368,
+      "mean_failure_penalized_090_token_fraction": 0.742017378136381,
+      "oracle_090_success": 1315,
+      "oracle_complete": 1294,
+      "queries": 1421
+    }
+  },
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "4e158887a2cd4da0c2f7b93e60beb5cc6e9d2cfc214a2da1211fc69ee2ac1f94",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5",
+    "source_sha256": "173168ae2d446b8819a07814b524e299cd68caed87de039ecd4bf0274c882568"
+  },
+  "confirmation_read": false,
+  "development_read": false,
+  "fold4_611_read": false,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "lexical_vs_v8": {
+    "break_090": 74,
+    "complete_break": 177,
+    "complete_gain": 25,
+    "mean_paired_earliest_090_token_delta": 83.85092667203868,
+    "mean_paired_oracle_cumulative_token_delta": 470.5102954341987,
+    "paired_090_queries": 1241,
+    "paired_complete_queries": 1117,
+    "repair_090": 19
+  },
+  "new_target_calls": 0,
+  "protocol": "V17-DEP-B0_FROZEN_LEXICAL_ORDER_CONTROL",
+  "role": "train-only exact-oracle trajectory control, not deployed cutoff"
+}

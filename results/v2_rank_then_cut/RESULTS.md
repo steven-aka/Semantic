@@ -1887,3 +1887,32 @@ uncertainty also matters for the five rare selector repairs. The next
 experiment must change the *deployment-visible evidence or action/stopping
 contract* and compare end-to-end quality and context-token cost, rather than
 train another local scorer or tune a threshold on the same information.
+
+## V17-DEP-B0 frozen raw-text lexical order control
+
+DEP-B0 tested a different deployment-visible evidence path without training:
+standard BM25 word overlap between the question and each of the 12 original
+packet texts, with fixed constants and V8 order only for ties. It produced a
+single add-only order per query. Evaluation read the exact lattice only after
+the orders were fixed. As in DEP-A0, only the 1,421 clean-lineage training
+queries were read; 611, 581, internal300, development, and confirmation remain
+sealed, and no new Target calls were made. All values below are *oracle-cutoff*
+trajectory properties, not deployed stopping results.
+
+| Train-only order | 0.90 reachable | Five-anchor Complete | Failure-penalized earliest-0.90 token fraction |
+| --- | ---: | ---: | ---: |
+| Clean V8 fallback | 1,315/1,421 | 1,294/1,421 | 0.7420 |
+| Frozen V13 rank-1 | 1,314/1,421 | 1,290/1,421 | 0.7423 |
+| Raw-text BM25 | 1,260/1,421 | 1,142/1,421 | 0.8466 |
+
+Relative to V8, BM25 repaired 19 and broke 74 queries at 0.90; it gained 25
+and broke 177 Complete trajectories. Among the 1,241 queries where both orders
+could reach 0.90, BM25 first success required 83.9 more context tokens on
+average. Among 1,117 paired Complete queries, its ordered five-anchor oracle
+cost was 470.5 tokens higher. Decision:
+`STOP_DEP_B0_SIMPLE_LEXICAL_ORDER`. Raw question--packet overlap alone is not
+an improvement to candidate ordering or semantic compression, and this
+negative result forbids adapting BM25 constants on the untouched fold. It does
+not rule out a different packet representation or a richer causal evidence
+signal, but such a proposal now needs a new train-only test that can preserve
+V8's already successful trajectories.
