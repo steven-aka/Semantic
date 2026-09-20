@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-PACKET-MECH-A3_V8_SUCCESS_SAFETY_AUDIT",
+  "sample_queries": 64,
+  "eligible_queries": 32,
+  "new_target_calls": 153,
+  "prompt_tokens": 117652,
+  "generated_tokens": 7480,
+  "breaking_actions": 33,
+  "queries_with_any_safe_action": 26,
+  "queries_where_all_actions_break": 6,
+  "frozen_min_token_policy_breaks": 11,
+  "frozen_min_token_policy_mean_token_delta_all_64": -12.09375,
+  "limitations": "Training-side R1-exposed sample; safety of a deterministic action rule, not a trained selector or fresh confirmation.",
+  "sealed_sets_read": false
+}

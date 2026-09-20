@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-PACKET-MECH-A3_V8_SUCCESS_SAFETY_AUDIT",
+  "decision": "STOP_UNCONDITIONAL_BUDGET_NEUTRAL_SWAP",
+  "reason": "On 64 SHA-selected V8-0.90-success train queries, 32 permit a budget-neutral sentence swap. Of 153 feasible actions, 33 break 0.90. Six of the 32 eligible queries have no safe action. The frozen minimum-token rule breaks 11/64 overall while saving a mean 12.09 depth9 context tokens/query. This is not a quality-token Pareto improvement.",
+  "next": "Before any learned selector, audit candidate-level safety mechanisms using existing A3 outcomes and deployment-visible evidence structure. Test whether omitting a uniquely answer-bearing rank9 sentence explains breaks; report gold-based measures only as retrospective diagnostics. A new policy must default STAY and demonstrate paired repair-over-break plus real context-token improvement on query-held-out data.",
+  "new_target_calls": 153,
+  "sealed_sets_read": false
+}

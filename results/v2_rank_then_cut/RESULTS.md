@@ -3656,3 +3656,42 @@ opening sealed data. [Protocol](../../configs/v17packet_mech_a2_budget_neutral_s
 [per-action Target outcomes](v17packet_mech_a2_budget_neutral_swap/per_action.jsonl),
 and [decision](v17packet_mech_a2_budget_neutral_swap/decision.json) record
 the pilot.
+
+### V17-PACKET-MECH-A3 V8-success safety audit
+
+Before learning or deploying partial replacement, we froze the SHA256-first
+64 queries from the R1 train-side sample on which V8 already succeeds at
+0.90. This sample was not selected using A3 outcomes; earlier R1 outcomes on
+the same train queries are design-exposed. We enumerated every original
+rank-10 sentence paired with every one-sentence rank-9 omission that keeps
+actual depth-9 context tokens no greater than V8. Thirty-two queries admit
+153 actions. An unconditional, deployment-visible rule was frozen in advance:
+choose the feasible action with fewest context tokens, then lowest sentence
+indices; otherwise STAY.
+
+| Safety diagnostic | Result |
+|---|---:|
+| Feasible actions that break V8's 0.90 success | 33/153 |
+| Eligible queries with at least one oracle-safe action | 26/32 |
+| Eligible queries where every action breaks | 6/32 |
+| Frozen minimum-token rule breaks | 11/64 queries |
+| Frozen rule mean depth-9 context-token change | -12.09/query |
+
+The 11/64 break rate is 17.2% (descriptive 95% Wilson interval roughly
+9.9%–28.2%). We made 153 Qwen3-8B calls, consuming 117,652 prompt and 7,480
+generated tokens. The token saving under this fixed rule comes with a large
+quality loss; it is not a Pareto improvement. A2's 13/18 selected-case
+oracle repairs remain genuine action-space headroom, but A3 shows the
+countervailing safety constraint. Even a perfect selector must STAY on at
+least 6/32 eligible already-successful queries.
+
+Decision: `STOP_UNCONDITIONAL_BUDGET_NEUTRAL_SWAP`. Before another selector
+training run, use these existing action outcomes to test whether harm is
+associated with deferring uniquely answer-bearing rank-9 text versus other
+evidence interactions. Any gold-based analysis is retrospective only. A
+future deployment rule must default STAY and demonstrate paired repair-over-
+break plus token improvement on query-held-out data; no sealed set was read.
+[Protocol](../../configs/v17packet_mech_a3_success_safety.json),
+[summary](v17packet_mech_a3_success_safety/summary.json),
+[per-action outcomes](v17packet_mech_a3_success_safety/per_action.jsonl), and
+[decision](v17packet_mech_a3_success_safety/decision.json) preserve this audit.

@@ -1,0 +1,19 @@
+{
+  "protocol": "V17-PACKET-MECH-A3_V8_SUCCESS_SAFETY_AUDIT",
+  "status": "FROZEN_TRAIN_SIDE_SAFETY",
+  "sample": "SHA256(example_id)-first 64 V8-0.90-success queries from R1 label-scale512, chosen without A3 outcome labels",
+  "action": "For each query enumerate every rank10 original sentence and every one-sentence rank9 omission satisfying depth9 Qwen3-8B context tokens <= V8; restore full original context at depth10.",
+  "deterministic_policy": "Among feasible actions choose minimum context tokens, then lowest rank10 sentence index, then lowest rank9 omission index; STAY if none feasible. Policy frozen before Target calls.",
+  "sample_queries": 64,
+  "expected_eligible_queries": 32,
+  "expected_new_calls": 153,
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 64,
+  "fidelity_epsilon": 0.000001,
+  "sealed_sets_read": false
+}

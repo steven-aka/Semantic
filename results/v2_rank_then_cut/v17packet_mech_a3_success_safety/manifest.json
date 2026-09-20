@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-PACKET-MECH-A3_V8_SUCCESS_SAFETY_AUDIT",
+  "sample_queries": 64,
+  "eligible_queries": 32,
+  "new_target_calls": 153,
+  "ids_sha256": "2623a3f130fbfed64047f8fbca72b8f9c8212cd85a267e704d7b0f2e983592b5",
+  "task_signature_sha256": "4ee8710f028f55b0eec33f2ff019429b2b73f0e37eca54e74dd455a3fe9b8f4d"
+}
