@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-STOP-C1.2_SEMANTIC_CONTINUATION_CRITIC",
+  "decision": "STOP_CURRENT_DEPTH9_SEMANTIC_CRITIC_BRANCH",
+  "reason": "The one frozen 66M encoder and four-fold OOF replay did not yield a quality-preserving, compute-saving policy against direct depth10. At threshold 0.1 it used 1233.47 Target tokens/request with only 1173/1421 successes, strictly worse than direct depth10 at 840.12 and 1223. At threshold 0.2 it saved compute but fell to 1063 successes. Thresholds at or below 0.05 always continued, recovering the C0 two-call result with no learned decision value.",
+  "scope": "Reject this fixed model/input/objective/depth9->10 contract as a useful deployable continuation critic. This is not proof that semantic observation is information-theoretically insufficient or that every model/data scale fails.",
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

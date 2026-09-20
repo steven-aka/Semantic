@@ -3054,3 +3054,37 @@ must freeze the query-grouped training split, policy loss/threshold rule and
 full STOP/retained-CONTINUE replay before fitting anything. The 0.95 case is
 excluded under this depth9 probe contract. No Target calls or sealed outcome
 sets were used.
+
+### V17-STOP-C1.2 frozen semantic continuation critic
+
+We trained exactly one 66.36M-parameter pretrained DistilBERT sequence
+classifier on the frozen 0.90 `SS/SF/FS/FF` contract. Four query-hash folds
+gave one OOF prediction per train1421 query. Every fold used two epochs,
+batch size 16, learning rate 2e-5, no class weighting or OOF-tuned
+hyperparameters. The true class population was SS=1033, SF=17, FS=215,
+FF=156. Training loss fell on all four folds; OOF multiclass NLL was 0.734.
+The [summary](v17stop_c1_2_semantic_critic/summary.json) and
+[OOF predictions](v17stop_c1_2_semantic_critic/oof.jsonl) provide the exact
+replay. No deployable checkpoint was selected.
+
+| Policy | Continue count | 0.90 success | Target tokens/request | Final context tokens/request |
+|---|---:|---:|---:|---:|
+| Direct depth10, one Target call | — | 1223 | 840.12 | 667.50 |
+| Critic threshold ≤0.05 (always continue) | 1421 | 1248 | 1564.45 | 667.50 |
+| Critic threshold 0.10 | 832 | 1173 | 1233.47 | 625.61 |
+| Critic threshold 0.20 | 57 | 1063 | 758.39 | 563.22 |
+| Critic threshold ≥0.50 (always stop) | 0 | 1050 | 724.33 | 558.68 |
+
+At threshold 0.10, direct depth10 is better on success and Target compute.
+At 0.20, the critic reduces both Target compute and final context, but loses
+160 successes relative to direct depth10; it finds only 14 of the 215
+`FS` opportunities among 57 continuations. Lower thresholds recover C0's
+two-call answer-retention gain without making any learned decisions. These
+are train-side OOF results, not independent confirmation. The observed
+failure applies to this one fixed input, model and objective; it does not
+prove that continuation value is unlearnable. Decision:
+`STOP_CURRENT_DEPTH9_SEMANTIC_CRITIC_BRANCH`. Do not sweep model size,
+epochs or thresholds on the exposed OOF outcomes. The fixed-depth and
+earlier five-anchor schedules remain the defensible deployable baselines
+while the next method question is reconsidered. No new Target calls or
+sealed outcome sets were used.

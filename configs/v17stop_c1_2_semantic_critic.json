@@ -1,0 +1,22 @@
+{
+  "protocol": "V17-STOP-C1.2_SEMANTIC_CONTINUATION_CRITIC",
+  "status": "FROZEN_TRAIN_SIDE_090_ONLY",
+  "population": "fresh Qwen3-8B lineage-clean train1421 depth9/depth10",
+  "encoder_repo": "distilbert/distilbert-base-uncased",
+  "input": "[QUERY] question [TARGET] 0.90 [ANSWER9] cached parsed answer list [NEW_PACKET] actual depth10 packet text",
+  "classes": ["SS", "SF", "FS", "FF"],
+  "label": "0.90 success of STOP depth9 versus fixed retained-CONTINUE output; gold is used only for training labels",
+  "fold": "sha256(example_id) first eight bytes big-endian modulo 4",
+  "seed": 20260920,
+  "epochs": 2,
+  "batch_size": 16,
+  "learning_rate": 0.00002,
+  "weight_decay": 0.01,
+  "max_tokens": 512,
+  "precision": "fp16 autocast",
+  "policy": "CONTINUE iff p(FS)-p(SF)>threshold; otherwise STOP",
+  "thresholds": [-1.0, -0.5, -0.2, -0.1, 0.0, 0.05, 0.1, 0.2, 0.5, 1.0],
+  "primary": "OOF 0.90 success versus total Target tokens and final context tokens, with fixed depth10 and always-CONTINUE baselines",
+  "no_model_selection_on_oof": true,
+  "sealed_outcome_sets_read": false
+}
