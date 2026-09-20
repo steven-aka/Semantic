@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-STOP-C0_PREFIX_OUTPUT_RETENTION",
+  "status": "FROZEN_READ_ONLY_TRAIN_SIDE",
+  "population": "lineage-clean train1421; current-contract Qwen3-8B CANON-P0 V8 prefixes; all exposed and final outcome roles sealed",
+  "prefix_depths": [9, 10],
+  "global_gold_free_rules": [
+    "depth9_only",
+    "depth10_only",
+    "union_latest_first",
+    "intersection",
+    "depth9_plus_new_packet_supported_depth10",
+    "depth10_plus_old_context_supported_depth9"
+  ],
+  "support": "Exact normalized answer-string substring in the packet added at depth10 or the context already revealed at depth9. No gold aliases or answer atoms are used to choose an output.",
+  "evaluation": "Score each global output with the frozen QAMPARI list-F1 parser and all attainable fidelity anchors; separately report original depth9-success/depth10-failure repairs, depth10-success breaks, Complete, answer counts and one-call versus two-call Target prompt+generation cost.",
+  "interpretation": "This is an offline counterfactual from cached outputs. At deployment, a two-output rule requires both Target calls. Combining answer strings changes the final-answer contract and must be disclosed. No per-query oracle rule selection is allowed.",
+  "new_target_calls": 0
+}

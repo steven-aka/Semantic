@@ -1,0 +1,171 @@
+{
+  "protocol": "V17-STOP-C0_PREFIX_OUTPUT_RETENTION",
+  "population": 1421,
+  "rules": {
+    "depth9_only": {
+      "success": {
+        "0.6": 1331,
+        "0.7": 1312,
+        "0.8": 1274,
+        "0.9": 1050,
+        "0.95": 1
+      },
+      "complete": 95,
+      "mean_f1": 0.8797614535781092,
+      "mean_answer_count": 8.584799437016185,
+      "090_repairs_vs_depth10": 50,
+      "090_breaks_vs_depth10": 223,
+      "complete_repairs_vs_depth10": 26,
+      "complete_breaks_vs_depth10": 1054,
+      "090_net_paired_bootstrap_95ci": [
+        -205.0,
+        -142.0
+      ],
+      "complete_net_paired_bootstrap_95ci": [
+        -1064.0,
+        -992.0
+      ],
+      "rescued_090_success9_fail10": 50,
+      "mean_target_tokens_per_090_request": 724.3328641801548,
+      "target_calls_per_090_request": 1
+    },
+    "depth10_only": {
+      "success": {
+        "0.6": 1347,
+        "0.7": 1337,
+        "0.8": 1311,
+        "0.9": 1223,
+        "0.95": 973
+      },
+      "complete": 1123,
+      "mean_f1": 0.9307958729815942,
+      "mean_answer_count": 9.534834623504574,
+      "090_repairs_vs_depth10": 0,
+      "090_breaks_vs_depth10": 0,
+      "complete_repairs_vs_depth10": 0,
+      "complete_breaks_vs_depth10": 0,
+      "090_net_paired_bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "complete_net_paired_bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "rescued_090_success9_fail10": 0,
+      "mean_target_tokens_per_090_request": 840.1203377902885,
+      "target_calls_per_090_request": 1
+    },
+    "union_latest_first": {
+      "success": {
+        "0.6": 1375,
+        "0.7": 1352,
+        "0.8": 1315,
+        "0.9": 1243,
+        "0.95": 1006
+      },
+      "complete": 1177,
+      "mean_f1": 0.9428355428786552,
+      "mean_answer_count": 9.973961998592541,
+      "090_repairs_vs_depth10": 45,
+      "090_breaks_vs_depth10": 25,
+      "complete_repairs_vs_depth10": 83,
+      "complete_breaks_vs_depth10": 29,
+      "090_net_paired_bootstrap_95ci": [
+        4.0,
+        36.0
+      ],
+      "complete_net_paired_bootstrap_95ci": [
+        33.0,
+        75.0
+      ],
+      "rescued_090_success9_fail10": 35,
+      "mean_target_tokens_per_090_request": 1564.4532019704434,
+      "target_calls_per_090_request": 2
+    },
+    "intersection": {
+      "success": {
+        "0.6": 1297,
+        "0.7": 1278,
+        "0.8": 1235,
+        "0.9": 939,
+        "0.95": 1
+      },
+      "complete": 43,
+      "mean_f1": 0.8591768074773437,
+      "mean_answer_count": 8.14567206192822,
+      "090_repairs_vs_depth10": 7,
+      "090_breaks_vs_depth10": 291,
+      "complete_repairs_vs_depth10": 0,
+      "complete_breaks_vs_depth10": 1080,
+      "090_net_paired_bootstrap_95ci": [
+        -314.0,
+        -253.97500000000036
+      ],
+      "complete_net_paired_bootstrap_95ci": [
+        -1112.0,
+        -1048.0
+      ],
+      "rescued_090_success9_fail10": 6,
+      "mean_target_tokens_per_090_request": 1564.4532019704434,
+      "target_calls_per_090_request": 2
+    },
+    "depth9_plus_new_packet_supported_depth10": {
+      "success": {
+        "0.6": 1350,
+        "0.7": 1323,
+        "0.8": 1296,
+        "0.9": 1209,
+        "0.95": 934
+      },
+      "complete": 1091,
+      "mean_f1": 0.9296893276456379,
+      "mean_answer_count": 9.544686840253343,
+      "090_repairs_vs_depth10": 52,
+      "090_breaks_vs_depth10": 66,
+      "complete_repairs_vs_depth10": 83,
+      "complete_breaks_vs_depth10": 115,
+      "090_net_paired_bootstrap_95ci": [
+        -35.0,
+        7.0
+      ],
+      "complete_net_paired_bootstrap_95ci": [
+        -59.0,
+        -4.0
+      ],
+      "rescued_090_success9_fail10": 47,
+      "mean_target_tokens_per_090_request": 1564.4532019704434,
+      "target_calls_per_090_request": 2
+    },
+    "depth10_plus_old_context_supported_depth9": {
+      "success": {
+        "0.6": 1375,
+        "0.7": 1354,
+        "0.8": 1319,
+        "0.9": 1248,
+        "0.95": 1009
+      },
+      "complete": 1183,
+      "mean_f1": 0.9443915774172429,
+      "mean_answer_count": 9.935960591133005,
+      "090_repairs_vs_depth10": 45,
+      "090_breaks_vs_depth10": 20,
+      "complete_repairs_vs_depth10": 84,
+      "complete_breaks_vs_depth10": 24,
+      "090_net_paired_bootstrap_95ci": [
+        10.0,
+        41.0
+      ],
+      "complete_net_paired_bootstrap_95ci": [
+        40.0,
+        80.0
+      ],
+      "rescued_090_success9_fail10": 35,
+      "mean_target_tokens_per_090_request": 1564.4532019704434,
+      "target_calls_per_090_request": 2
+    }
+  },
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false,
+  "limits": "This is an offline counterfactual from cached outputs. At deployment, a two-output rule requires both Target calls. Combining answer strings changes the final-answer contract and must be disclosed. No per-query oracle rule selection is allowed."
+}

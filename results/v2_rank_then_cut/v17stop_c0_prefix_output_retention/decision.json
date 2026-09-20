@@ -1,0 +1,26 @@
+{
+  "protocol": "V17-STOP-C0_PREFIX_OUTPUT_RETENTION",
+  "decision": "GO_STOP_C1_COST_PREFLIGHT_ONLY",
+  "population": "fresh train1421 Qwen3-8B V8 depth9/depth10 outputs",
+  "selected_design_side_rule": "depth10_plus_old_context_supported_depth9",
+  "quality": {
+    "baseline_090": 1223,
+    "rule_090": 1248,
+    "baseline_095": 973,
+    "rule_095": 1009,
+    "baseline_complete": 1123,
+    "rule_complete": 1183,
+    "090_repairs": 45,
+    "090_breaks": 20,
+    "090_net_bootstrap_95ci": [10, 41],
+    "complete_net_bootstrap_95ci": [40, 80]
+  },
+  "cost": {
+    "baseline_target_tokens_per_090_request": 840.1203377902885,
+    "two_call_rule_target_tokens_per_090_request": 1564.4532019704434,
+    "extra_target_tokens_per_090_request": 724.3328641801548
+  },
+  "limits": "The chosen rule was selected on train-side outcomes from multiple fixed operators. Output aggregation changes the final-answer contract. A two-output deployment requires two actual Target calls; no independent generalization or quality-cost Pareto claim has been established.",
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

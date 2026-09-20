@@ -2938,3 +2938,55 @@ than merely memorize sparse answer words. Any such experiment needs a
 query-grouped learning curve and a full Target/critic cost ledger before a
 new-data collection decision. The B0 negative result does not prove that the
 deployment-visible full context lacks information.
+
+### V17-STOP-C0 fresh prefix answer-retention audit
+
+This read-only train1421 audit tested fixed, gold-free ways to combine the
+already cached Qwen3-8B depth-9 and depth-10 answer lists. No new Target
+calls were made offline, but every two-output rule requires **both calls at
+deployment**. The current prediction cache stores *already parsed* answers
+joined by ` # `. A first implementation that passed this serialization back
+through the raw-generation parser corrupted names such as `No. 17 Squadron`;
+the corrected audit splits the stored delimiter directly and asserts exact
+reproduction of every cached depth-9/10 F1 before scoring any operator.
+
+| Fixed output rule | 0.90 | 0.95 | Complete | 0.90 repairs / breaks vs depth10 | Target prompt+generation tokens per 0.90 request |
+|---|---:|---:|---:|---:|---:|
+| Depth10 only (one call) | 1223 | 973 | 1123 | 0 / 0 | 840.12 |
+| Depth9 only (one call) | 1050 | 1 | 95 | 50 / 223 | 724.33 |
+| Union, latest answers first | 1243 | 1006 | 1177 | 45 / 25 | 1564.45 |
+| Intersection | 939 | 1 | 43 | 7 / 291 | 1564.45 |
+| Depth9 plus new-packet-supported depth10 answers | 1209 | 934 | 1091 | 52 / 66 | 1564.45 |
+| Depth10 plus old-context-supported depth9-only answers | **1248** | **1009** | **1183** | **45 / 20** | **1564.45** |
+
+The last rule is deterministic and uses only the visible depth-9 context to
+filter depth-9-only answer strings. It rescues 35/50 cases where depth9
+succeeds at 0.90 but depth10 fails, plus 10 cases where *both* original
+outputs fail. It nevertheless breaks 18 baseline successes that were
+fail-at-9/success-at-10 and two successes at both depths. Paired query
+bootstrap 95% intervals for its net change are [+10,+41] at 0.90 and
+[+40,+80] Complete, conditional on this train-side population; selecting
+the best among multiple predeclared operators on the same train data makes
+these intervals **descriptive, not independent validation**.
+
+The main result is a quality/computation tradeoff, not a free rollback fix:
+the best rule gains 25 net 0.90 successes and 60 Complete, while an always-on
+two-call deployment costs **724.33 additional Target tokens per 0.90 request**
+before any critic overhead. Its final depth-10 context is unchanged, but
+total context processed by Target rises. Also, answer-set postprocessing
+changes the final-output contract; it must be represented as a system-level
+answer mechanism, not as if Qwen3-8B itself produced the merged list from a
+single compressed context. An omniscient STOP at depth9 followed by this
+retention rule otherwise reaches only 1265/1421 at 0.90 with 954.42 Target
+tokens/request, below the simpler omniscient STOP-V1A success ceiling of
+1273/1421 at approximately the same cost. Thus retention helps a fallible
+always-continue policy, but does not itself solve continuation decisions.
+
+Decision: `GO_STOP_C1_COST_PREFLIGHT_ONLY`. Do not train a semantic critic
+yet. First choose and benchmark a genuinely small pretrained interaction
+encoder against the actual probe/fallback service path, including encoder
+latency and inference cost. The repository currently contains Qwen3 models
+of 1.7B parameters and larger, but no locally cached 100M--300M pretrained
+cross-encoder. Training a large model on the 1,421 independent queries or
+calling 8B again merely to verify answers is not justified by C0. The
+611/581/internal/development/confirmation outcomes remain sealed.
