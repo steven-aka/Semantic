@@ -1,0 +1,150 @@
+{
+  "protocol": "V17-PACKET-R2G1_EXISTING_OUTPUT_ATTRIBUTION_AUDIT",
+  "groups": {
+    "repairable_failure": {
+      "queries": 39,
+      "scored_queries": 39,
+      "default_action_truncated_queries": 12,
+      "candidate_truncated_at_best_queries": 2,
+      "best_pair_complete_queries": 27,
+      "repair_queries_with_any_complete_repair": 27
+    },
+    "unrepairable_failure": {
+      "queries": 92,
+      "scored_queries": 66,
+      "default_action_truncated_queries": 25,
+      "candidate_truncated_at_best_queries": 2,
+      "best_pair_complete_queries": 41,
+      "repair_queries_with_any_complete_repair": 0
+    },
+    "already_good": {
+      "queries": 381,
+      "scored_queries": 317,
+      "default_action_truncated_queries": 109,
+      "candidate_truncated_at_best_queries": 10,
+      "best_pair_complete_queries": 210,
+      "repair_queries_with_any_complete_repair": 0
+    }
+  },
+  "score_eligible_queries": 422,
+  "paired_auc": {
+    "repairable_vs_unrepairable_failure": {
+      "raw_pooled_auc": 0.48057498057498055,
+      "complete_best_pair_auc": 0.5474254742547425,
+      "complete_best_pair_counts": [
+        27,
+        41
+      ],
+      "within_fold_auc": {
+        "0": 0.3916083916083916,
+        "1": 0.4387755102040816,
+        "2": 0.4576923076923077,
+        "3": 0.6842105263157895
+      }
+    },
+    "repairable_vs_already_good": {
+      "raw_pooled_auc": 0.5529402248645151,
+      "complete_best_pair_auc": 0.5714285714285714,
+      "complete_best_pair_counts": [
+        27,
+        210
+      ],
+      "within_fold_auc": {
+        "0": 0.5102040816326531,
+        "1": 0.6660482374768089,
+        "2": 0.5218295218295218,
+        "3": 0.6525735294117647
+      }
+    }
+  },
+  "within_fold_budgets": {
+    "0.05": {
+      "selected": 28,
+      "opportunities_found": 5,
+      "random_expected_found": 2.5898238779114173,
+      "repairs": 3,
+      "breaks": 3,
+      "selected_with_complete_best_pair": 19,
+      "folds": [
+        {
+          "fold": 0,
+          "eligible": 122,
+          "selected": 8,
+          "repair_opportunities": 11,
+          "found": 2,
+          "random_expected": 0.7213114754098361
+        },
+        {
+          "fold": 1,
+          "eligible": 98,
+          "selected": 6,
+          "repair_opportunities": 7,
+          "found": 0,
+          "random_expected": 0.42857142857142855
+        },
+        {
+          "fold": 2,
+          "eligible": 107,
+          "selected": 7,
+          "repair_opportunities": 13,
+          "found": 1,
+          "random_expected": 0.8504672897196262
+        },
+        {
+          "fold": 3,
+          "eligible": 95,
+          "selected": 7,
+          "repair_opportunities": 8,
+          "found": 2,
+          "random_expected": 0.5894736842105263
+        }
+      ]
+    },
+    "0.1": {
+      "selected": 53,
+      "opportunities_found": 9,
+      "random_expected_found": 4.883777967978012,
+      "repairs": 6,
+      "breaks": 12,
+      "selected_with_complete_best_pair": 32,
+      "folds": [
+        {
+          "fold": 0,
+          "eligible": 122,
+          "selected": 15,
+          "repair_opportunities": 11,
+          "found": 2,
+          "random_expected": 1.3524590163934427
+        },
+        {
+          "fold": 1,
+          "eligible": 98,
+          "selected": 12,
+          "repair_opportunities": 7,
+          "found": 1,
+          "random_expected": 0.8571428571428571
+        },
+        {
+          "fold": 2,
+          "eligible": 107,
+          "selected": 13,
+          "repair_opportunities": 13,
+          "found": 3,
+          "random_expected": 1.5794392523364487
+        },
+        {
+          "fold": 3,
+          "eligible": 95,
+          "selected": 13,
+          "repair_opportunities": 8,
+          "found": 3,
+          "random_expected": 1.0947368421052632
+        }
+      ]
+    }
+  },
+  "interpretation_limit": "This audits saved R2G0 outputs on design-exposed training queries. Within-fold ranking is diagnostic and cannot be directly deployed as a cross-query score calibration. Complete input visibility does not imply all task-relevant information is encoded.",
+  "new_target_calls": 0,
+  "new_training": false,
+  "sealed_sets_read": false
+}

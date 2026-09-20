@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-PACKET-R2G1_EXISTING_OUTPUT_ATTRIBUTION_AUDIT",
+  "decision": "STOP_TRUNCATION_OR_FOLD_SCALE_AS_SOLE_FIX",
+  "reason": "Only 12/39 repairable queries truncate the displaced V8 text, a rate close to the other outcome groups. R2G0's saved score has pooled AUC 0.481 for repairable versus unrepairable V8 failures and 0.547 even when the best candidate and V8 text are complete. Within-fold budgets retrieve more opportunities than global mixing, but still incur at least as many breaks as repairs.",
+  "next": "Use existing training-side labels for a mechanism audit of repairable versus unrepairable baseline failures and candidate-level harm, focusing on what changed in Target answers and evidence combinations. Do not spend Target calls on broad label scaling or treat a larger no-truncation encoder as automatically justified.",
+  "caveats": [
+    "AUCs use design-exposed OOF scores from one specific model, not all possible textual representations.",
+    "Fold-local ranking is a diagnostic calculation; it does not supply a deployable per-query cross-fold calibration rule.",
+    "The current state-title list is truncated for every eligible action, so richer state input remains untested.",
+    "The positive group has only 39 queries and repeated single-run Target labels may be unstable near fidelity thresholds."
+  ],
+  "new_training": false,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

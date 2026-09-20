@@ -3551,3 +3551,42 @@ hits the rare repairs, before freezing another learning hypothesis.
 [summary](v17packet_r2g0_relative_bag_probe/summary.json),
 [OOF decisions](v17packet_r2g0_relative_bag_probe/oof.jsonl), and
 [decision](v17packet_r2g0_relative_bag_probe/decision.json) record this run.
+
+### V17-PACKET-R2G1 existing-output attribution audit
+
+We used only R1 train labels, R2G0 OOF scores and the frozen tokenizer to
+separate three possible causes of the failed gate: input truncation, fold
+score scale, and failure-type discrimination. No model was trained and no
+Target or sealed data were read.
+
+| Query group | Count | V8 action truncated | Scored query count | Best candidate/V8 pair complete |
+|---|---:|---:|---:|---:|
+| Repairable V8 failure | 39 | 12 | 39 | 27 |
+| Unrepairable V8 failure | 92 | 25 | 66 | 41 |
+| V8 already successful | 381 | 109 | 317 | 210 |
+
+Thus V8-action truncation affects some repairs, but is **not disproportionately
+concentrated** in the 39 repairable queries. All 27 queries with a complete
+repair pair remain an important test subset. Using R2G0's saved query score,
+the AUC for repairable versus unrepairable failures is **0.481** pooled, or
+**0.547** when both the best candidate and V8 text were fully visible (27
+versus 41 scored queries). Repairable versus already-successful queries gives
+0.553 pooled and 0.571 on complete best pairs. These weak AUCs apply only to
+this one saved score; they do not prove the text lacks predictive information.
+
+The global OOF ranking did suffer fold-scale distortion. Diagnostic
+within-fold top-5% selection retrieves 5 opportunities against 2.59 expected
+from random selection within each fold, but produces **3 repair / 3 break**.
+Within-fold top-10% retrieves 9 against 4.88 random expectation, but yields
+**6 repair / 12 break**. Fold-local ranking is not a deployable per-query
+calibration method, and the run remains design-exposed. Input truncation or
+fold calibration alone does not account for the observed deployment failure.
+
+Decision: `STOP_TRUNCATION_OR_FOLD_SCALE_AS_SOLE_FIX`. Do not expand labels or
+train a larger encoder by default. Next use existing outcomes to inspect the
+mechanism distinguishing repairable and unrepairable V8 failures, including
+Target-answer and evidence-combination changes; a new learning experiment
+must state what additional deployment-visible information it tests.
+[Audit summary](v17packet_r2g1_attribution_audit/summary.json),
+[per-query measurements](v17packet_r2g1_attribution_audit/per_query.jsonl), and
+[decision](v17packet_r2g1_attribution_audit/decision.json) record the result.
