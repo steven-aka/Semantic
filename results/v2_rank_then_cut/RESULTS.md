@@ -2881,3 +2881,60 @@ quality–context–Target-compute Pareto against the fixed-depth frontier.
 If it cannot clear a preregistered low-break gate on query-held-out train
 folds, revisit the Target feedback contract or packet/state definition;
 do not train another cutoff merely because the hindsight bound is large.
+
+### V17-STOP-B0 continuation-value identifiability audit
+
+This train-side diagnostic used the fresh CANON-P0 Qwen3-8B prefix chain and
+four query-grouped OOF folds over 1,421 queries. It trained no deployment
+checkpoint and made no new Target calls. The four outcome labels for each
+early probe were `(success at probe, success at depth 10)`: success/success,
+fail/success, success/fail (rollback), fail/fail. At 0.90 with a depth-9
+probe the counts are **1,000 / 223 / 50 / 148**, respectively. The 50
+rollback cases are a necessary class missing from a three-way “must continue /
+safe stop / cannot rescue” taxonomy.
+
+Three fixed linear-probe input arms were compared. The weak arm uses requested
+level, depth, answer count and token fraction. The second adds signed-hash
+word unigrams/bigrams of the *full parsed answer*, plus frozen V8 query and
+selected-packet embeddings and an exact answer-in-evidence overlap. The third
+also adds the frozen remaining-packet mean and overlap. This is a cheap
+**lexical-plus-frozen-embedding** test, not a complete semantic observer or
+proof about Bayes-optimal identifiability. The V8 representation was trained
+on these design queries; only the critic was query-held-out. Upstream lineage
+exposure limits any independent generalization claim.
+
+| Arm | OOF four-class NLL ↓ | OOF accuracy, diagnostic only |
+|---|---:|---:|
+| Depth + count | **0.642** | **0.808** |
+| Full answer + query/selected context | 0.829 | 0.765 |
+| Above + remaining packets | 0.825 | 0.767 |
+
+For each fold and anchor, train-fold predicted `fail at probe / success at
+depth10` risk set seven frozen early-exit fractions. The held-out replay
+charged every enabled probe's prompt and generation, plus a depth-10 call on
+CONTINUE. Relative to the no-probe `[10]*5` baseline (0.90=1223, Complete=1123),
+at the 40% train-quantile fraction the weak arm reached 1198/1049 and **spent
+990 more** Target tokens/query; the full-answer arm reached 1177/1051 and
+spent **1,278 more**. At 80%, the weak arm saved 274 Target tokens/query but
+fell to 1139/979; full-answer saved only 21 while falling to 1102/947;
+adding remaining packets saved 36 while falling to 1098/941. No tested arm
+provided a quality-preserving Target-compute improvement. Context-only saving
+would conceal the expensive fallback calls.
+
+After seeing the primary OOF result, a **descriptive, non-gating** hash-grouped
+training-size curve was run with the same fixed model. Full-answer OOF NLL at
+25/50/75/100% of available training queries was 0.901/0.888/0.851/0.829;
+with remaining packets it was 0.912/0.886/0.846/0.825. Its downward slope
+means additional *independent* queries could help this overfit high-dimensional
+probe; it cannot establish how many would be required, or that the arm would
+eventually surpass the weak 0.642 NLL baseline or the end-to-end Pareto gate.
+Repeated states from the same query do not provide independent query diversity.
+
+Decision: `STOP_STOPB0_CHEAP_LINEAR_OBSERVER_NO_OOF_PARETO`. Do not open the
+sealed 611/581/internal/development/confirmation outcomes or scale this
+particular head by default. The remaining hypothesis is whether a *different,
+costed semantic observer* can represent answer–evidence sufficiency, rather
+than merely memorize sparse answer words. Any such experiment needs a
+query-grouped learning curve and a full Target/critic cost ledger before a
+new-data collection decision. The B0 negative result does not prove that the
+deployment-visible full context lacks information.

@@ -1,0 +1,22 @@
+{
+  "protocol": "V17-STOP-B0_CONTINUATION_VALUE_IDENTIFIABILITY",
+  "decision": "STOP_STOPB0_CHEAP_LINEAR_OBSERVER_NO_OOF_PARETO",
+  "population": "train1421, four query-grouped OOF folds; frozen current Qwen3-8B Target prefix outcomes",
+  "primary_findings": {
+    "depth_count_oof_nll": 0.642,
+    "full_answer_selected_oof_nll": 0.829,
+    "full_answer_selected_remaining_oof_nll": 0.825,
+    "costed_quality_preserving_pareto_point_found": false,
+    "090_depth9_transition_counts": {
+      "success_success": 1000,
+      "fail_success": 223,
+      "success_fail": 50,
+      "fail_fail": 148
+    }
+  },
+  "post_result_descriptive_learning_curve": "NLL decreased from 25% to 100% of independent training queries for both high-dimensional arms, but remained above the depth/count baseline. Extra data may reduce estimation error; it is not yet justified as a sufficient solution.",
+  "scope": "Only a frozen cheap lexical and V8-embedding linear probe was tested. No claim that full answer semantics, richer interaction models, or all stopping observers fail.",
+  "learned_deployment_checkpoint": false,
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

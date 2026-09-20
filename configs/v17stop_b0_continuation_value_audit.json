@@ -1,0 +1,19 @@
+{
+  "protocol": "V17-STOP-B0_CONTINUATION_VALUE_IDENTIFIABILITY",
+  "status": "FROZEN_TRAIN_SIDE_DIAGNOSTIC",
+  "population": "lineage-clean train1421 only; four query-grouped OOF folds; 611/581/internal/development/confirmation outcome sets sealed",
+  "target_contract": "fresh CANON-P0 Qwen3-8B V8 prefix chain",
+  "levels": [0.6, 0.7, 0.8, 0.9],
+  "probe_depths": [6, 7, 8, 9],
+  "fallback_depth": 10,
+  "transition_labels": ["success_success", "fail_success", "success_fail", "fail_fail"],
+  "feature_arms": ["depth_count", "answer_selected", "answer_selected_remaining"],
+  "answer_encoding": "stable signed-hash word unigram/bigram 1024-d; this is a cheap lexical encoding, not a full semantic encoder",
+  "existing_representation": "frozen V8 query/packet embeddings, normalized selected/remaining means; no new encoder calls",
+  "model": "shared four-class linear probe; cross entropy; full-batch AdamW lr=0.05 weight_decay=0.01; 80 epochs; seed=20260920; no tuning against OOF outcomes",
+  "risk_curve_fractions": [0.0, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0],
+  "risk_ranking": "lowest OOF predicted probability of fail-at-probe/success-at-depth10; train-fold score quantile chooses each early-exit fraction",
+  "cost_contract": "Every enabled early probe is charged prompt+generated tokens, and a depth10 fallback is charged on CONTINUE. No-probe baseline is separately reported. Critic inference and latency are not yet charged; any claimed Pareto gain must exceed them.",
+  "purpose": "Diagnostic of whether full current answer and remaining evidence improve cross-query deployment decisions; no checkpoint or final opening gate.",
+  "post_result_descriptive_addendum": "After observing the primary OOF result, rerun the same fixed linear probe at 25/50/75/100 percent hash-selected train queries to assess whether more independent data plausibly helps. Exploratory only; not a preregistered gate."
+}
