@@ -3844,3 +3844,44 @@ a method result. [Protocol](../../configs/v17packet_slot_b0_pilot.json),
 [summary](v17packet_slot_b0_pilot/summary.json),
 [per-query frontier](v17packet_slot_b0_pilot/per_query.jsonl), and
 [Target outputs](v17packet_slot_b0_pilot/per_call.jsonl) preserve the pilot.
+
+### V17-PACKET-INSERT-D0 cached gate versus candidate-choice decomposition
+
+We decomposed the 24 design-exposed SLOT-B0 train examples using their 84
+existing Target outputs, with **zero** new Target calls and no training. The
+two proposed formulations "oracle gate + fixed shortest candidate" and
+"fixed shortest candidate + its oracle gate" are mathematically identical;
+they are reported once. A distinct forced-insertion counterfactual isolates
+the cost of leaving the gate permanently ON while selecting the candidate
+with hindsight.
+
+| Decision rule | 0.90 success | Repair/break | Complete | Interventions | Mean added depth9 context tokens/query |
+|---|---:|---:|---:|---:|---:|
+| V8 STAY | 12/24 | 0/0 | 9/24 | 0 | 0 |
+| Always choose shortest sentence | 14/24 | 4/2 | 8/24 | 24 | 22.25 |
+| Shortest sentence + oracle gate | 16/24 | 4/0 | 9/24 | 4 | 3.63 |
+| Always insert + oracle candidate | 19/24 | 7/0 | 9/24 | 24 | 31.38 |
+| Full oracle gate + candidate | 19/24 | 7/0 | 9/24 | 7 | 8.58 |
+
+Thus a perfect gate with the frozen shortest candidate captures only **4/7**
+repair opportunities: choosing a different sentence matters for the other
+three. Conversely, hindsight candidate choice can avoid breaks even with
+insertion always ON in these selected 24 examples, but pays 31.38 rather
+than 8.58 mean extra tokens. This does not show that a deployable candidate
+selector can do so; it proves both decisions matter to the desired frontier.
+All three oracle rules use forbidden Target outcome information, the 24
+examples were baseline-stratified and design-exposed, and no Complete gain
+appears even at the full oracle ceiling on this sample.
+
+Decision: `GO_FROZEN_DEPLOYMENT_FEATURE_PROTOCOL_DESIGN`; do not spend a new
+training-query cohort on a threshold or "relation novelty" rule until the
+exact pre-depth9 inputs, extractor/scorer, candidate ranking, STAY condition,
+compute cost and stopping criteria are specified. A subsequent single frozen
+policy needs an unbalanced train-side query sample and paired V8 depth9/depth10
+evaluation. Measuring oracle-opportunity recall there would additionally
+require a preregistered random subset with all eligible candidate outcomes;
+one policy-chosen Target call per query cannot reveal missed opportunities.
+[Reproducible decomposition](../../src/evaluation/v17packet_insert_d0_decomposition.py),
+[summary](v17packet_insert_d0_decomposition/summary.json), and
+[per-query categories](v17packet_insert_d0_decomposition/per_query.jsonl)
+preserve the audit.

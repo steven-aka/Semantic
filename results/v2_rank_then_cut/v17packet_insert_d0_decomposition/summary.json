@@ -1,0 +1,61 @@
+{
+  "protocol": "INSERT-D0_CACHED_GATE_CHOICE_DECOMPOSITION",
+  "queries": 24,
+  "cached_candidate_actions": 84,
+  "new_target_calls": 0,
+  "new_training": false,
+  "sealed_sets_read": false,
+  "policies": {
+    "v8_stay": {
+      "success_090": 12,
+      "repairs": 0,
+      "breaks": 0,
+      "complete": 9,
+      "interventions": 0,
+      "mean_added_depth9_context_tokens": 0.0
+    },
+    "always_shortest": {
+      "success_090": 14,
+      "repairs": 4,
+      "breaks": 2,
+      "complete": 8,
+      "interventions": 24,
+      "mean_added_depth9_context_tokens": 22.25
+    },
+    "fixed_shortest_oracle_gate": {
+      "success_090": 16,
+      "repairs": 4,
+      "breaks": 0,
+      "complete": 9,
+      "interventions": 4,
+      "mean_added_depth9_context_tokens": 3.625
+    },
+    "always_insert_oracle_candidate": {
+      "success_090": 19,
+      "repairs": 7,
+      "breaks": 0,
+      "complete": 9,
+      "interventions": 24,
+      "mean_added_depth9_context_tokens": 31.375
+    },
+    "full_oracle": {
+      "success_090": 19,
+      "repairs": 7,
+      "breaks": 0,
+      "complete": 9,
+      "interventions": 7,
+      "mean_added_depth9_context_tokens": 8.583333333333334
+    }
+  },
+  "opportunity": {
+    "failure_queries_repairable_by_any_candidate": 7,
+    "failure_queries_repairable_by_shortest": 4,
+    "success_queries_broken_by_shortest": 2,
+    "success_queries_where_all_candidates_break": 0
+  },
+  "interpretation": [
+    "Fixed-shortest oracle gate and oracle gate for the fixed-shortest candidate are the same policy; they are not independent experiments.",
+    "Full oracle selects STAY and candidate using Target outcomes. Forced oracle candidate has no gate and exposes token cost of intervening on every query.",
+    "The 24 baseline-stratified, design-exposed train queries are not a population estimate; all oracle policies are infeasible at deployment."
+  ]
+}
