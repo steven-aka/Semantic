@@ -2631,3 +2631,24 @@ the packet omission task is unlearnable with every possible information
 source. The next distinct hypothesis is explicit frozen-Target sufficiency
 feedback, with extra calls, prompt/output tokens and latency measured as part
 of the compression cost before designing or training a verifier/controller.
+
+### VERIFY-A0 static-depth10 Target-call cost floor
+
+Before spending more Target calls on that hypothesis, a read-only calculation
+compared the fresh four-action oracle's actual token saving with a measured
+extra 8B answer call. The oracle saves only **13.95 context tokens per query**
+over all 1,421 queries, or **63.94** among its 310 edited queries. One
+observed partial-context Target call averages **757.26 prompt + 53.18
+generated = 810.45 tokens**. An extra call on every query is about 58 times
+the oracle's average saving; even a hypothetical perfect cheap gate that
+probed only the 310 oracle-edited queries faces about 12.7 times the saving
+per edited query. A yes/no verifier might generate fewer tokens, but it still
+needs the context in its prompt and cannot make this static depth-10
+omission selector token-efficient through an extra full Target call.
+
+The decision is `STOP_EXTRA_TARGET_PROBE_FOR_STATIC_DEPTH10_OMISSION_TOKEN_SAVINGS`.
+This cost floor does not rule out a qualitatively different closed-loop
+progressive method that *reuses a Target call already required for the final
+answer*, nor quality improvements at higher total cost. Such a method must
+specify when the feedback is observed, whether the call is reusable, and all
+Target/compressor costs before any new training or claim of Pareto gain.

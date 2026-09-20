@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-VERIFY-A0_DEPTH10_EXTRA_TARGET_CALL_COST_FLOOR",
+  "queries": 1421,
+  "oracle_edited_queries": 310,
+  "oracle_mean_context_tokens_saved_all_queries": 13.94933145672062,
+  "oracle_mean_context_tokens_saved_if_edited": 63.94193548387097,
+  "observed_mean_target_call_prompt_tokens": 757.2638986629134,
+  "observed_mean_target_call_generated_tokens": 53.182793807178044,
+  "observed_mean_target_call_total_tokens": 810.4466924700915,
+  "extra_call_cost_to_oracle_saving_ratio_if_all_queries_probed": 58.09932146100293,
+  "extra_call_cost_to_oracle_saving_ratio_if_oracle_edits_alone_probed": 12.674728819782482,
+  "decision": "STOP_EXTRA_TARGET_PROBE_FOR_STATIC_DEPTH10_OMISSION_TOKEN_SAVINGS",
+  "limitations": [
+    "This compares observed generation call size with token savings under a perfect outcome-aware oracle; a verifier prompt may have a different token count.",
+    "A Target call reused as the final answer is not extra, but its signal cannot retroactively change the already submitted context.",
+    "This does not rule out closed-loop feedback when a call is already required at an earlier progressive step, or quality gains at higher total cost."
+  ]
+}
