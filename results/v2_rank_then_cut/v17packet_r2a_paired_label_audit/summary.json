@@ -1,0 +1,132 @@
+{
+  "protocol": "V17-PACKET-R2A_PAIRED_LABEL_AND_FAILURE_AUDIT",
+  "data": "512 design-exposed train queries, frozen R1 outcomes and R2 grouped OOF best actions",
+  "eligibility": "candidate cumulative context tokens <= V8; STAY is always allowed",
+  "action_categories": {
+    "quality_break": 511,
+    "token_only_gain": 871,
+    "quality_repair": 56,
+    "no_value": 3
+  },
+  "query_categories": {
+    "has_quality_repair": 39,
+    "has_quality_break": 238,
+    "has_token_only_gain": 369,
+    "has_no_value": 3
+  },
+  "repair_action_count_by_query": {
+    "1": 26,
+    "3": 4,
+    "2": 9
+  },
+  "baseline": {
+    "switches": 0,
+    "quality_repairs": 0,
+    "quality_breaks": 0,
+    "token_only_gains": 0,
+    "success_090": 381,
+    "complete": 273,
+    "mean_cumulative_context_tokens": 2227.728515625
+  },
+  "strict_oracle": {
+    "switches": 373,
+    "quality_repairs": 39,
+    "quality_breaks": 0,
+    "token_only_gains": 334,
+    "success_090": 420,
+    "complete": 288,
+    "mean_cumulative_context_tokens": 2185.73046875
+  },
+  "counterfactuals": {
+    "top_5": {
+      "learned_gate_learned_choice": {
+        "switches": 5,
+        "quality_repairs": 0,
+        "quality_breaks": 0,
+        "token_only_gains": 5,
+        "success_090": 381,
+        "complete": 273,
+        "mean_cumulative_context_tokens": 2227.2734375
+      },
+      "learned_gate_oracle_choice": {
+        "switches": 5,
+        "quality_repairs": 0,
+        "quality_breaks": 0,
+        "token_only_gains": 5,
+        "success_090": 381,
+        "complete": 273,
+        "mean_cumulative_context_tokens": 2227.099609375
+      },
+      "selected_with_repair_opportunity": 0
+    },
+    "top_26": {
+      "learned_gate_learned_choice": {
+        "switches": 26,
+        "quality_repairs": 1,
+        "quality_breaks": 4,
+        "token_only_gains": 21,
+        "success_090": 378,
+        "complete": 271,
+        "mean_cumulative_context_tokens": 2225.255859375
+      },
+      "learned_gate_oracle_choice": {
+        "switches": 26,
+        "quality_repairs": 1,
+        "quality_breaks": 0,
+        "token_only_gains": 23,
+        "success_090": 382,
+        "complete": 273,
+        "mean_cumulative_context_tokens": 2224.8046875
+      },
+      "selected_with_repair_opportunity": 1
+    },
+    "top_52": {
+      "learned_gate_learned_choice": {
+        "switches": 52,
+        "quality_repairs": 3,
+        "quality_breaks": 8,
+        "token_only_gains": 41,
+        "success_090": 376,
+        "complete": 270,
+        "mean_cumulative_context_tokens": 2223.169921875
+      },
+      "learned_gate_oracle_choice": {
+        "switches": 52,
+        "quality_repairs": 3,
+        "quality_breaks": 0,
+        "token_only_gains": 43,
+        "success_090": 384,
+        "complete": 275,
+        "mean_cumulative_context_tokens": 2222.50390625
+      },
+      "selected_with_repair_opportunity": 3
+    },
+    "perfect_quality_repair_gate": {
+      "learned_choice": {
+        "switches": 39,
+        "quality_repairs": 25,
+        "quality_breaks": 0,
+        "token_only_gains": 14,
+        "success_090": 406,
+        "complete": 283,
+        "mean_cumulative_context_tokens": 2224.494140625
+      },
+      "oracle_choice": {
+        "switches": 39,
+        "quality_repairs": 39,
+        "quality_breaks": 0,
+        "token_only_gains": 0,
+        "success_090": 420,
+        "complete": 288,
+        "mean_cumulative_context_tokens": 2223.701171875
+      }
+    }
+  },
+  "limitations": [
+    "R2 OOF saved only each query's highest-scored eligible action; complete within-query ranking cannot be reconstructed.",
+    "Counterfactual oracle gates and choices use Target labels and are diagnostic ceilings, not deployable policies.",
+    "Quality repairs are rare (39 independent queries); action count is not independent sample size.",
+    "Only 0.90 changes under this action contract; multi-anchor tradeoff is structurally absent.",
+    "No new Target calls, model training, sealed-set reads, or model selection."
+  ]
+}

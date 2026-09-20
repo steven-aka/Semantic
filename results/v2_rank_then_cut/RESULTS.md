@@ -3444,3 +3444,42 @@ frozen paired-decision hypothesis with a query-held-out test and full
 encoder-compute accounting, or a change in deployable observations.
 [Summary](v17packet_r2_semantic_probe/summary.json) and
 [decision](v17packet_r2_semantic_probe/decision.json) retain the result.
+
+### V17-PACKET-R2A paired-label and intervention audit
+
+We reclassified the existing 512 train-side R1 outcomes relative to V8 and
+replayed the saved R2 grouped-OOF top action. There were **no new Target calls
+or training**. Among 1,441 eligible (no-extra-context) sentence actions,
+56 repaired 0.90, 511 broke an existing 0.90 success, 871 preserved quality
+and saved tokens, and three had no value. The 56 repair actions occurred on
+only **39 independent queries**; 26 of these had exactly one repair sentence.
+There were 369 queries with at least one token-only saving opportunity. Under
+this frozen contract, only 0.90 can change, so a multi-anchor repair/break
+tradeoff cannot occur. Complete is derived from that change and is not an
+independent label.
+
+| Diagnostic policy on 512 | 0.90 | Complete | Repair | Break | Mean cumulative context |
+|---|---:|---:|---:|---:|---:|
+| V8 STAY | 381 | 273 | 0 | 0 | 2227.73 |
+| R2 top-5% gate + R2 choice | 378 | 271 | 1 | 4 | 2225.26 |
+| R2 top-5% gate + oracle choice | 382 | 273 | 1 | 0 | 2224.80 |
+| Oracle *quality-repair* gate + saved R2 choice | 406 | 283 | 25 | 0 | 2224.49 |
+| Oracle quality-repair gate + oracle choice | 420 | 288 | 39 | 0 | 2223.70 |
+
+The R2 top-5% gate selected 26 queries, of which only one had a 0.90 repair
+opportunity. Thus the dominant diagnosed failure is **when to leave V8**;
+sentence choice also misses 14/39 repairs even with a perfect repair gate.
+An oracle choice under R2's gate removes four breaks but cannot find repairs
+outside the selected queries. These are hindsight diagnostic ceilings, not
+deployable gains. R2 saved only each query's best-action score, so full
+within-query ranking cannot be reconstructed. The 512 outcomes are now
+design-exposed; neither paired supervision nor a two-stage model has yet
+shown held-out benefit.
+
+Decision: `GO_R2B_PROTOCOL_FREEZE_ONLY`. Any next model must distinguish
+quality repair from the far more prevalent token-only saving, retain an
+explicit STAY action, freeze risk and compute accounting before training,
+and use a fresh train-side query gate where feasible. Do not open sealed
+sets or claim that an oracle gate is implementable. [Summary](v17packet_r2a_paired_label_audit/summary.json),
+[per-query audit](v17packet_r2a_paired_label_audit/per_query.jsonl), and
+[decision](v17packet_r2a_paired_label_audit/decision.json) record the audit.

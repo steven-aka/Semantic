@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-PACKET-R2A_PAIRED_LABEL_AND_FAILURE_AUDIT",
+  "decision": "GO_R2B_PROTOCOL_FREEZE_ONLY",
+  "reason": "The old absolute-success score has a strong intervention-gate failure: its top 26 queries contain only one of 39 quality-repair opportunities and incur four quality breaks. With an oracle quality-repair gate, its saved best action repairs 25 of 39. Both gate and sentence choice need work; the audit does not prove paired supervision will generalize.",
+  "required_next_protocol": [
+    "Keep STAY explicit and separate quality repair from token-only saving in labels and evaluation.",
+    "Freeze one baseline-relative query-grouped model and a risk-constrained deployment rule before training; do not add multiple new heads or architecture changes without evidence.",
+    "Measure scorer GPU time and end-to-end latency as well as Target input tokens.",
+    "Use a fresh train-side query holdout for any next research gate if feasible; these 512 OOF outcomes are design-exposed.",
+    "Keep sealed research and confirmation sets closed."
+  ],
+  "checkpoint_selected": false,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}
