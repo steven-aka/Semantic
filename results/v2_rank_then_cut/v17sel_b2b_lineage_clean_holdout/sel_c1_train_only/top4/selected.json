@@ -1,0 +1,20 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/sel_c1_train_only/top4/step100.pt",
+  "step": 100,
+  "train_loss": 0.03347504138946533,
+  "validation": {
+    "complete": 538,
+    "mean_earliest_090_tokens_successful": 598.0,
+    "mean_penalized_090_token_fraction": 0.7519381060278254,
+    "pool_k": 4,
+    "queries": 611,
+    "selected_rank_histogram": {
+      "0": 238,
+      "1": 27,
+      "2": 9,
+      "3": 81,
+      "4": 256
+    },
+    "success_090": 570
+  }
+}

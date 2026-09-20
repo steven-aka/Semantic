@@ -1,0 +1,13 @@
+{
+  "cache_sha256": "945fe4bbaa7561c5706f5e006cf7a4575b17fa3acdde9aca8d26bad5baca502b",
+  "candidate_count": 11,
+  "complete": true,
+  "config_sha256": "93f10e4ca5dbe827705adb18745a197d3d90b9ff153fabed410fc2899bcb4f49",
+  "data_sha256": "173168ae2d446b8819a07814b524e299cd68caed87de039ecd4bf0274c882568",
+  "examples": 2032,
+  "head_sha256": "b8cf5b243ce68d8c8dc0654a908905f0494b9f345f4d3875eb2a67bad441d6ea",
+  "holdout_read": false,
+  "output_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+  "role": "train",
+  "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+}

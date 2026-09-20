@@ -1,0 +1,26 @@
+{
+  "checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/sel_c1_train_only/top10/step200.pt",
+  "step": 200,
+  "train_loss": 0.10453428328037262,
+  "validation": {
+    "complete": 543,
+    "mean_earliest_090_tokens_successful": 615.1031468531469,
+    "mean_penalized_090_token_fraction": 0.7667158167506783,
+    "pool_k": 10,
+    "queries": 611,
+    "selected_rank_histogram": {
+      "0": 0,
+      "1": 60,
+      "10": 76,
+      "2": 3,
+      "3": 39,
+      "4": 43,
+      "5": 72,
+      "6": 59,
+      "7": 66,
+      "8": 86,
+      "9": 107
+    },
+    "success_090": 572
+  }
+}
