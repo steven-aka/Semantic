@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-ACT-C1_FRESH_TARGET_FACTORIZED_OMISSION_CV",
+  "status": "FROZEN_TRAIN_ONLY_CV",
+  "population": "B2B clean train folds0-3=1421; four SHA256 query-grouped OOF folds, fold4=611/B2B581/internal/development/confirmation sealed",
+  "labels": "Fresh EXEC-A1 8B depth10 four-mask F1 only; preserve all originally passing attainable anchors and no higher context cost; repaired or cheaper is positive, any anchor break is negative, incomparable masked",
+  "actions": "STAY plus the three canonical distinct depth10 omission pairs from A3; no all66 expansion",
+  "features": "A3 frozen query/packet difference features plus explicit symmetric omitted-pair sum/product and query-times-pair interactions; all target F1 excluded from features",
+  "model": "One shared linear scalar scorer; STAY fixed zero; frozen V8 embeddings; no architecture or rank sweep",
+  "optimizer": {"steps": 300, "batch_queries": 256, "learning_rate": 0.005, "weight_decay": 0.01, "seed": 20260920, "loss": "A3 unweighted logistic edit versus STAY on labeled outcomes; neutral/incomparable masked", "checkpoint_selection": "final step only"},
+  "inference": "Argmax among zero-score STAY and three edit scores; exact ties favor STAY; no tuned threshold",
+  "primary_gate": "OOF fixed-depth10 five-anchor success counts and Complete all >= same-query current-contract V8, mean normalized context <= V8, with at least one strict gain; report repairs/breaks and selected label types",
+  "scope": "Single train-only controlled representation test; any negative outcome closes this cheap-feature local omission branch. No Target calls or sealed-set reads."
+}
