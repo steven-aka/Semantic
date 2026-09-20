@@ -1,0 +1,51 @@
+{
+  "protocol": "V17-STOP-C1.1_SEMANTIC_CRITIC_COST_PREFLIGHT",
+  "population": 1421,
+  "encoder_repo": "distilbert/distilbert-base-uncased",
+  "max_tokens": 512,
+  "full_input_length_percentiles": {
+    "0": 70.0,
+    "50": 164.0,
+    "90": 222.0,
+    "95": 249.0,
+    "99": 304.0,
+    "100": 468.0
+  },
+  "new_packet_length_percentiles": {
+    "0": 19.0,
+    "50": 88.0,
+    "90": 144.0,
+    "95": 168.0,
+    "99": 229.79999999999995,
+    "100": 385.0
+  },
+  "fraction_full_input_over_512": 0.0,
+  "mean_overflow_tokens": 0.0,
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false,
+  "parameters": 66362880,
+  "gpu_benchmark": {
+    "gpu": "NVIDIA RTX A6000",
+    "precision": "fp16",
+    "batch_size": 1,
+    "forward_ms_percentiles": {
+      "0": 5.818761885166168,
+      "50": 8.4136335644871,
+      "90": 15.467988140881065,
+      "95": 18.497765809297558,
+      "99": 30.93668732792137,
+      "100": 62.786374939605594
+    },
+    "tokenization_and_transfer_ms_percentiles": {
+      "0": 1.207549823448062,
+      "50": 1.8864909652620554,
+      "90": 2.559257042594254,
+      "95": 2.929171873256564,
+      "99": 4.384737825021197,
+      "100": 13.797544175758958
+    },
+    "peak_allocated_mib": 145.244140625,
+    "sampled_examples": 100,
+    "warmup_examples": 10
+  }
+}

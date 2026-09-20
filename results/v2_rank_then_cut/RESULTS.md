@@ -3029,3 +3029,28 @@ cost and Target tokens on separate axes. The 0.95 case requires a different
 earlier-probe schedule or should go directly to depth10. The merged output
 is a two-call system answer, not a single-call compressed-context Target
 result. No sealed outcome set or new Target call was used here.
+
+### V17-STOP-C1.1 small semantic encoder cost preflight
+
+On the same 1421 train-side depth9 states, we serialized the exact proposed
+critic input `(query, 0.90, parsed A9, actual depth10 packet)` and measured
+it with a frozen, untrained English DistilBERT base encoder (66.36M
+parameters). Full sequence length was median 164, P90 222, P99 304, maximum
+468 tokens; **none exceeded the 512-token limit**, so the added packet was
+not silently truncated. On an RTX A6000 at fp16 and batch size 1, 100
+deterministically sampled inputs gave median forward 8.41 ms, P90 15.47 ms;
+tokenization plus transfer median 1.89 ms, P90 2.56 ms. Peak PyTorch
+allocated memory was 145 MiB. The model used no classifier head and was not
+trained. [Summary](v17stop_c1_1_cost_preflight/summary.json) and
+[decision](v17stop_c1_1_cost_preflight/decision.json) record the preflight.
+
+This confirms a local semantic encoder can process the proposed input at
+modest latency and memory, but does **not** prove predictive power or final
+quality–compute Pareto improvement. GPU milliseconds and Target tokens remain
+separate axes, and this audit did not benchmark a matched Qwen3-8B batch-1
+fallback wall time. Decision:
+`GO_STOP_C1_SEMANTIC_CRITIC_PROTOCOL_DESIGN_090_ONLY`. The next experiment
+must freeze the query-grouped training split, policy loss/threshold rule and
+full STOP/retained-CONTINUE replay before fitting anything. The 0.95 case is
+excluded under this depth9 probe contract. No Target calls or sealed outcome
+sets were used.

@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-STOP-C1.1_SEMANTIC_CRITIC_COST_PREFLIGHT",
+  "status": "FROZEN_NO_TRAINING_TRAIN_SIDE",
+  "encoder_repo": "distilbert/distilbert-base-uncased",
+  "input": "[QUERY] question [TARGET] 0.90 [ANSWER9] cached parsed answer list [NEW_PACKET] actual depth10 packet text",
+  "maximum_tokens": 512,
+  "precision": "fp16",
+  "gpu": 0,
+  "benchmark_examples": 100,
+  "warmup_examples": 10,
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

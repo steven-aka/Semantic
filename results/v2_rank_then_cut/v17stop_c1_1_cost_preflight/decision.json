@@ -1,0 +1,14 @@
+{
+  "protocol": "V17-STOP-C1.1_SEMANTIC_CRITIC_COST_PREFLIGHT",
+  "decision": "GO_STOP_C1_SEMANTIC_CRITIC_PROTOCOL_DESIGN_090_ONLY",
+  "basis": "All 1421 proposed deployment inputs fit within 512 tokens. An untrained 66.36M-parameter encoder takes median 8.41 ms forward on batch-1 RTX A6000, plus median 1.89 ms tokenization and transfer. This establishes feasibility of a low-latency local encoder, not its predictive value or costed Pareto gain.",
+  "limits": [
+    "Benchmark uses an untrained base encoder with no prediction head and 100 deterministically sampled examples; production end-to-end latency may differ.",
+    "GPU forward cost and Target prompt-plus-generation tokens are separate axes; no conversion factor is asserted.",
+    "No comparison with measured Qwen3-8B per-request wall latency is available from this preflight.",
+    "The final answer is a two-call system-level aggregation when CONTINUE is chosen.",
+    "The 0.95 depth9 probe fails the existing single-call-quality compute gate."
+  ],
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}
