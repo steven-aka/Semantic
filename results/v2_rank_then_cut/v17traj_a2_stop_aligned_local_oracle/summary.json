@@ -1,0 +1,506 @@
+{
+  "protocol": "V17-TRAJ-A2_STOP_ALIGNED_LOCAL_ORACLE",
+  "queries": 1421,
+  "schedules": {
+    "quality_depth10": {
+      "depths": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "v8": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1345,
+          1332,
+          1293,
+          1195,
+          914
+        ],
+        "width3_diagnostic": [
+          1365,
+          1339,
+          1270,
+          1031,
+          521
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.8200900023258562,
+          0.8200900023258562,
+          0.8200900023258562,
+          0.8200900023258562,
+          0.8174216861454908
+        ],
+        "complete": 1045,
+        "complete_repairs": 0,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 0,
+        "mean_normalized_cumulative_context": 0.8200900023258562,
+        "mean_cumulative_tokens": 3191.058409570725,
+        "mean_paired_cumulative_token_delta_all": 0,
+        "mean_paired_cumulative_token_delta_both_complete": 0
+      },
+      "cost_bounded_oracle": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1384,
+          1377,
+          1351,
+          1274,
+          914
+        ],
+        "width3_diagnostic": [
+          1377,
+          1350,
+          1303,
+          1065,
+          521
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.801793717340536,
+          0.801793717340536,
+          0.801793717340536,
+          0.801793717340536,
+          0.8062269880010766
+        ],
+        "complete": 1083,
+        "complete_repairs": 38,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          39,
+          45,
+          58,
+          79,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 366,
+        "mean_normalized_cumulative_context": 0.801793717340536,
+        "mean_cumulative_tokens": 3119.847290640394,
+        "mean_paired_cumulative_token_delta_all": -71.21111893033076,
+        "mean_paired_cumulative_token_delta_both_complete": -14.322488038277513
+      },
+      "quality_first_oracle": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1396,
+          1389,
+          1369,
+          1302,
+          915
+        ],
+        "width3_diagnostic": [
+          1381,
+          1354,
+          1312,
+          1077,
+          522
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.8032388566080266,
+          0.8032388566080266,
+          0.8032388566080266,
+          0.8032388566080266,
+          0.806969967977942
+        ],
+        "complete": 1100,
+        "complete_repairs": 55,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          51,
+          57,
+          76,
+          107,
+          1
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 386,
+        "mean_normalized_cumulative_context": 0.8032388566080266,
+        "mean_cumulative_tokens": 3124.505277973258,
+        "mean_paired_cumulative_token_delta_all": -66.55313159746657,
+        "mean_paired_cumulative_token_delta_both_complete": -14.322488038277513
+      }
+    },
+    "balanced_lower_early": {
+      "depths": [
+        9,
+        9,
+        9,
+        10,
+        10
+      ],
+      "v8": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1328,
+          1306,
+          1266,
+          1195,
+          914
+        ],
+        "width3_diagnostic": [
+          1365,
+          1339,
+          1270,
+          1031,
+          521
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.6873365712014766,
+          0.6873365712014766,
+          0.6873365712014766,
+          0.8200900023258562,
+          0.8174216861454908
+        ],
+        "complete": 1004,
+        "complete_repairs": 0,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 0,
+        "mean_normalized_cumulative_context": 0.7362752410638991,
+        "mean_cumulative_tokens": 2864.6094299788883,
+        "mean_paired_cumulative_token_delta_all": 0,
+        "mean_paired_cumulative_token_delta_both_complete": 0
+      },
+      "cost_bounded_oracle": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1357,
+          1342,
+          1307,
+          1260,
+          914
+        ],
+        "width3_diagnostic": [
+          1367,
+          1335,
+          1291,
+          1048,
+          521
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.6782780655341301,
+          0.6782780655341301,
+          0.6782780655341301,
+          0.8007398774806559,
+          0.8063911355115483
+        ],
+        "complete": 1038,
+        "complete_repairs": 34,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          29,
+          36,
+          41,
+          65,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 506,
+        "mean_normalized_cumulative_context": 0.72407194990077,
+        "mean_cumulative_tokens": 2815.972554539057,
+        "mean_paired_cumulative_token_delta_all": -48.63687543983111,
+        "mean_paired_cumulative_token_delta_both_complete": -11.296812749003983
+      },
+      "quality_first_oracle": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1399,
+          1389,
+          1375,
+          1294,
+          915
+        ],
+        "width3_diagnostic": [
+          1381,
+          1352,
+          1313,
+          1063,
+          522
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.6817006905597286,
+          0.6817006905597286,
+          0.6817006905597286,
+          0.8035238303820497,
+          0.8075294181756083
+        ],
+        "complete": 1084,
+        "complete_repairs": 80,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          71,
+          83,
+          109,
+          99,
+          1
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 550,
+        "mean_normalized_cumulative_context": 0.727314654916433,
+        "mean_cumulative_tokens": 2827.710767065447,
+        "mean_paired_cumulative_token_delta_all": -36.898662913441235,
+        "mean_paired_cumulative_token_delta_both_complete": -11.296812749003983
+      }
+    },
+    "compression_lower_early": {
+      "depths": [
+        8,
+        8,
+        9,
+        9,
+        10
+      ],
+      "v8": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1322,
+          1273,
+          1266,
+          1017,
+          914
+        ],
+        "width3_diagnostic": [
+          1365,
+          1339,
+          1270,
+          1031,
+          521
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.5792804045205084,
+          0.5792804045205084,
+          0.6873365712014766,
+          0.6873365712014766,
+          0.8174216861454908
+        ],
+        "complete": 863,
+        "complete_repairs": 0,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 0,
+        "mean_normalized_cumulative_context": 0.662836416932355,
+        "mean_cumulative_tokens": 2577.84236453202,
+        "mean_paired_cumulative_token_delta_all": 0,
+        "mean_paired_cumulative_token_delta_both_complete": 0
+      },
+      "cost_bounded_oracle": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1335,
+          1292,
+          1308,
+          1058,
+          914
+        ],
+        "width3_diagnostic": [
+          1365,
+          1332,
+          1287,
+          1018,
+          521
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.578053926977769,
+          0.578053926977769,
+          0.6807288688608003,
+          0.6807288688608003,
+          0.8051397992457965
+        ],
+        "complete": 890,
+        "complete_repairs": 27,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          13,
+          19,
+          42,
+          41,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 569,
+        "mean_normalized_cumulative_context": 0.6572886113302047,
+        "mean_cumulative_tokens": 2555.1660802251936,
+        "mean_paired_cumulative_token_delta_all": -22.67628430682618,
+        "mean_paired_cumulative_token_delta_both_complete": -4.457705677867903
+      },
+      "quality_first_oracle": {
+        "eligible": [
+          1421,
+          1421,
+          1421,
+          1421,
+          1131
+        ],
+        "anchor_success": [
+          1377,
+          1364,
+          1370,
+          1237,
+          915
+        ],
+        "width3_diagnostic": [
+          1380,
+          1360,
+          1318,
+          1046,
+          522
+        ],
+        "mean_context_fraction_by_anchor": [
+          0.5807996825072805,
+          0.5807996825072805,
+          0.6899311749447247,
+          0.6899311749447247,
+          0.807308466425421
+        ],
+        "complete": 1056,
+        "complete_repairs": 193,
+        "complete_breaks": 0,
+        "anchor_repairs": [
+          55,
+          91,
+          104,
+          220,
+          1
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edited_queries": 703,
+        "mean_normalized_cumulative_context": 0.6630464353743969,
+        "mean_cumulative_tokens": 2577.2962702322307,
+        "mean_paired_cumulative_token_delta_all": -0.546094299788881,
+        "mean_paired_cumulative_token_delta_both_complete": -4.457705677867903
+      }
+    }
+  },
+  "limitations": [
+    "The stopping schedule is fixed before each query, but oracle local-edit selection still uses exact outcome labels and is not deployable.",
+    "At fixed depth an edit can change the selected packet subset, so context tokens are measured from the exact cache for each order.",
+    "These train-side opportunities do not establish held-out cross-query learnability or a final Pareto improvement."
+  ]
+}

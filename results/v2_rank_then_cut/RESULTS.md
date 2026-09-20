@@ -2243,3 +2243,58 @@ the **25 ordinary-quality repairs or paired token savings**, rather than just
 predict which late swap widens an oracle window. Keep the 611/581/internal/
 development/confirmation sets sealed and do not train a full permutation
 generator or a new cutoff on this evidence.
+
+## V17-TRAJ-A2 fixed-stop local-edit oracle (train-only)
+
+The proposed bridge from retrospective A1 windows to the actual compression
+objective is scientifically useful, with one correction: freezing the stop
+schedule removes **stopping** hindsight, but per-query selection of the best
+edit still reads exact Target outcomes. A2 is an opportunity ceiling, not a
+deployable result. The protocol froze three monotone schedules before A2 ran:
+the previous C0 quality control `[10,10,10,10,10]`, balanced
+`[9,9,9,10,10]`, and compression-oriented `[8,8,9,9,10]`. Each query gets
+one V8 order or one of its 76 distinct alternatives at Kendall distance at
+most two. The primary oracle may select only an edit that breaks no previously
+successful anchor and does not increase that query's cumulative context
+tokens. It then maximizes repaired anchors and minimizes tokens. Undefined
+0.95 labels on four-anchor queries remain masked.
+
+| Fixed schedule | Method | 0.90 | 0.95 / eligible | Complete | Mean normalized cumulative context | Edited queries |
+|---|---|---:|---:|---:|---:|---:|
+| `[10,10,10,10,10]` | V8 | 1195/1421 | 914/1131 | 1045/1421 | 0.8201 | 0 |
+| | bounded local oracle | **1274/1421** | 914/1131 | **1083/1421** | **0.8018** | 366 |
+| `[9,9,9,10,10]` | V8 | 1195/1421 | 914/1131 | 1004/1421 | 0.7363 | 0 |
+| | bounded local oracle | **1260/1421** | 914/1131 | **1038/1421** | **0.7241** | 506 |
+| `[8,8,9,9,10]` | V8 | 1017/1421 | 914/1131 | 863/1421 | 0.6628 | 0 |
+| | bounded local oracle | **1058/1421** | 914/1131 | **890/1421** | **0.6573** | 569 |
+
+All five anchor counts, paired repairs/breaks, per-anchor context fractions,
+both-Complete token changes, and width-three diagnostics are in the A2
+summary. The quality-depth-10 bounded oracle repairs 79 instances at 0.90
+and 38 Complete examples with **zero anchor or Complete breaks**, while
+reducing mean cumulative context by 71.2 tokens per query. It edits 366
+queries, but only 108 obtain any quality repair; the rest are chiefly oracle
+token savings. All three fixed operating points have the same qualitative
+oracle direction. The V8 depth-10 counts reproduce the earlier F0 control
+exactly. The optional quality-first oracle, which permits token increases on
+individual queries, reaches 1302/1421 at 0.90 and 1100/1421 Complete, but
+its extra freedom is not needed to establish the bounded opportunity.
+
+Width-three does not track these gains monotonically: under the most
+compressed schedule, the bounded oracle improves fixed-stop 0.90 success
+from 1017 to 1058 while its retrospective 0.90 width-three count falls from
+1031 to 1018. This supports using *actual fixed-stop quality and token cost*
+as the primary target, not A1's window label. The 0.95 count remains unchanged
+under the bounded oracle at all three schedules; early claims should focus on
+preserving this anchor while improving other quality/cost coordinates.
+
+**Decision:** A2 establishes a nontrivial local-edit opportunity under causal
+fixed stopping, so do not close the trajectory branch or buy verifier calls
+yet. It does **not** establish a new deployable Pareto point: the oracle has
+looked up the result of 77 edits per query. The next bounded experiment is a
+train-only, query-grouped V8 residual editor using *deployment-visible*
+features and set-valued beneficial edits from the frozen depth-10 objective.
+Other two schedules remain fixed sensitivity checks. Evaluate actual generated
+orders end to end against same-query V8 for all five anchors, Complete,
+paired repairs/breaks, and tokens; stop if no held-out-query Pareto gain.
+Keep fold4=611, B2B581, internal300, development, and confirmation sealed.

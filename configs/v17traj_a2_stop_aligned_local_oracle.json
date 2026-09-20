@@ -1,0 +1,17 @@
+{
+  "protocol": "V17-TRAJ-A2_STOP_ALIGNED_LOCAL_ORACLE",
+  "status": "FROZEN_TRAIN_ONLY_READ_ONLY",
+  "population": "B2B clean-train folds0-3 (1421 queries); fold4=611, B2B581, internal300, development, confirmation sealed",
+  "schedules": {
+    "quality_depth10": [10, 10, 10, 10, 10],
+    "balanced_lower_early": [9, 9, 9, 10, 10],
+    "compression_lower_early": [8, 8, 9, 9, 10]
+  },
+  "schedule_origin": "Quality schedule is the previously frozen C0/fixed-depth-10 control. Other two are prespecified monotone sensitivity points using only previously examined depths; no schedule is selected from A2 outcomes.",
+  "edit_family": "V8/STAY plus every distinct permutation reachable by at most two adjacent transpositions (Kendall inversion distance <=2); exactly one full 12-packet order per query and schedule",
+  "primary_oracle": "Choose per query from candidate orders with no attainable-anchor success breaks and cumulative context tokens <= same-query V8; maximize number of repaired anchors, then minimize cumulative tokens, prefer STAY on exact ties, then lexicographically smallest order. STAY always feasible.",
+  "secondary_oracle": "Quality-first no-break oracle: maximize repaired anchors, then minimize cumulative tokens without a baseline cost constraint; prefer STAY on exact ties and report token increase when applicable.",
+  "metrics": "All attainable-anchor successes, Complete, paired repairs/breaks, cumulative context tokens, normalized mean cumulative context fraction, and both-success paired token delta. Width-three is descriptive only.",
+  "interpretation": "Fixed stopping removes per-query stopping hindsight, but choosing a local edit using exact outcomes is still a per-query oracle upper bound, not a deployable policy. Train1421 is design-exposed.",
+  "explicitly_off": ["training", "new Target calls", "new holdout reads", "learned selector", "learned cutoff", "packet redesign"]
+}
