@@ -2990,3 +2990,42 @@ of 1.7B parameters and larger, but no locally cached 100M--300M pretrained
 cross-encoder. Training a large model on the 1,421 independent queries or
 calling 8B again merely to verify answers is not justified by C0. The
 611/581/internal/development/confirmation outcomes remain sealed.
+
+### V17-STOP-C1.0 deployed STOP/retained-CONTINUE contract
+
+We recomputed the proposed two-action contract on the fresh train1421 cache:
+`STOP` returns the depth-9 answer after one Target call; `CONTINUE` makes a
+depth-10 call and applies the single fixed C0 retention rule. Labels now
+compare depth9 with **retained depth10**, rather than bare depth10. This is a
+read-only hindsight ceiling, not a learned decision rule. The
+[summary](v17stop_c1_0_deployment_contract/summary.json) and
+[per-request table](v17stop_c1_0_deployment_contract/per_request.jsonl) are
+reproducible with `python -m src.evaluation.v17stop_c1_0_deployment_contract`.
+
+| Attainable target | STOP/CONTINUE SS, SF, FS, FF | Single depth10 success | Hindsight max success | Depth10 Target tokens/request | Hindsight minimum tokens at max success |
+|---|---:|---:|---:|---:|---:|
+| 0.60 | 1328 / 3 / 47 / 43 | 1347 | 1378 | 840.12 | 753.35 |
+| 0.70 | 1304 / 8 / 50 / 59 | 1337 | 1362 | 840.12 | 755.62 |
+| 0.80 | 1259 / 15 / 60 / 87 | 1311 | 1334 | 840.12 | 764.28 |
+| 0.90 | 1033 / 17 / 215 / 156 | 1223 | 1265 | 840.12 | 856.95 |
+| 0.95 (1131 attainable) | 1 / 0 / 1008 / 122 | 973 | 1009 | 828.27 | 1450.91 |
+
+For 0.90, an omniscient selector can match 1223 single-depth10 successes
+at a minimum 819.82 Target tokens/request, or reach 1265 successes at 856.95.
+These are **optimistic lower-cost bounds**: they use post-hoc correctness to
+avoid unproductive calls and omit critic cost. At 0.95, even the cheapest
+hindsight policy matching 973 single-depth10 successes costs 1405.92 versus
+828.27 tokens/request. Thus the earlier 410-token/query STOP-V1A bound over
+five anchors does not finance this specific depth9-to-10 critic across all
+anchors. Complete under independently chosen attainable-anchor actions has
+an oracle ceiling of 1189 versus 1123 at depth10 and 1183 always-continue;
+it is not a single shared stopping decision.
+
+Decision: `GO_STOP_C1_COST_PREFLIGHT_090_ONLY`. Before training, benchmark a
+genuinely small pretrained semantic encoder on deployment input `(query,
+target, depth9 answer, new packet)`, including serialized length, batch-1
+latency, GPU time, memory, and comparison with direct depth10. Keep critic
+cost and Target tokens on separate axes. The 0.95 case requires a different
+earlier-probe schedule or should go directly to depth10. The merged output
+is a two-call system answer, not a single-call compressed-context Target
+result. No sealed outcome set or new Target call was used here.

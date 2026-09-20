@@ -1,0 +1,14 @@
+{
+  "protocol": "V17-STOP-C1.0_DEPLOYMENT_CONTRACT_REFREEZE",
+  "status": "FROZEN_READ_ONLY_TRAIN_SIDE",
+  "population": "fresh Qwen3-8B CANON-P0 lineage-clean train1421 depth9/depth10 outputs",
+  "actions": {
+    "STOP": "one depth9 Target call; return its parsed answer list",
+    "CONTINUE": "depth9 and depth10 Target calls; return depth10 answers plus depth9-only answers supported by the depth9 context"
+  },
+  "oracle_role": "hindsight ceiling only; fidelity labels and future Target output are never deployment inputs",
+  "cost": "sum prompt_tokens and generated_tokens for each Target call; report per attainable anchor independently",
+  "evaluation": "all five attainable anchors and Complete; compare against single-call depth10 and always-CONTINUE",
+  "sealed_outcome_sets_read": false,
+  "new_target_calls": 0
+}

@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-STOP-C1.0_DEPLOYMENT_CONTRACT_REFREEZE",
+  "decision": "GO_STOP_C1_COST_PREFLIGHT_090_ONLY",
+  "interpretation": "The 0.90 hindsight contract has a narrow quality-compute opportunity, but no learned policy has demonstrated it. At 0.95 the depth9 probe is economically dominated by direct depth10 for the existing single-call quality target, even with hindsight decisions.",
+  "constraints": [
+    "Freeze STOP=depth9 output and CONTINUE=depth10 plus old-context-supported depth9-only answers.",
+    "Measure critic GPU-ms/latency separately from Target prompt+generated tokens.",
+    "Do not train critic or read sealed outcome sets before cost preflight and protocol freeze.",
+    "The merged answer changes the output contract and cannot be reported as a single-call Target answer."
+  ],
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

@@ -1,0 +1,104 @@
+{
+  "protocol": "V17-STOP-C1.0_DEPLOYMENT_CONTRACT_REFREEZE",
+  "population": 1421,
+  "anchors": {
+    "0.6": {
+      "attainable_requests": 1421,
+      "transitions_stop_vs_retained_continue": {
+        "SS": 1328,
+        "SF": 3,
+        "FS": 47,
+        "FF": 43
+      },
+      "stop_success": 1331,
+      "retained_continue_success": 1375,
+      "single_depth10_success": 1347,
+      "hindsight_max_success": 1378,
+      "single_depth10_mean_target_tokens": 840.1203377902885,
+      "stop_mean_target_tokens": 724.3328641801548,
+      "always_continue_mean_target_tokens": 1564.4532019704434,
+      "hindsight_min_mean_tokens_at_max_success": 753.3490499648135,
+      "hindsight_min_mean_tokens_at_single_depth10_success": 731.1527093596059
+    },
+    "0.7": {
+      "attainable_requests": 1421,
+      "transitions_stop_vs_retained_continue": {
+        "SS": 1304,
+        "SF": 8,
+        "FS": 50,
+        "FF": 59
+      },
+      "stop_success": 1312,
+      "retained_continue_success": 1354,
+      "single_depth10_success": 1337,
+      "hindsight_max_success": 1362,
+      "single_depth10_mean_target_tokens": 840.1203377902885,
+      "stop_mean_target_tokens": 724.3328641801548,
+      "always_continue_mean_target_tokens": 1564.4532019704434,
+      "hindsight_min_mean_tokens_at_max_success": 755.6178747361014,
+      "hindsight_min_mean_tokens_at_single_depth10_success": 735.789584799437
+    },
+    "0.8": {
+      "attainable_requests": 1421,
+      "transitions_stop_vs_retained_continue": {
+        "SS": 1259,
+        "SF": 15,
+        "FS": 60,
+        "FF": 87
+      },
+      "stop_success": 1274,
+      "retained_continue_success": 1319,
+      "single_depth10_success": 1311,
+      "hindsight_max_success": 1334,
+      "single_depth10_mean_target_tokens": 840.1203377902885,
+      "stop_mean_target_tokens": 724.3328641801548,
+      "always_continue_mean_target_tokens": 1564.4532019704434,
+      "hindsight_min_mean_tokens_at_max_success": 764.2843068261787,
+      "hindsight_min_mean_tokens_at_single_depth10_success": 743.4440534834623
+    },
+    "0.9": {
+      "attainable_requests": 1421,
+      "transitions_stop_vs_retained_continue": {
+        "SS": 1033,
+        "SF": 17,
+        "FS": 215,
+        "FF": 156
+      },
+      "stop_success": 1050,
+      "retained_continue_success": 1248,
+      "single_depth10_success": 1223,
+      "hindsight_max_success": 1265,
+      "single_depth10_mean_target_tokens": 840.1203377902885,
+      "stop_mean_target_tokens": 724.3328641801548,
+      "always_continue_mean_target_tokens": 1564.4532019704434,
+      "hindsight_min_mean_tokens_at_max_success": 856.9535538353273,
+      "hindsight_min_mean_tokens_at_single_depth10_success": 819.8198451794511
+    },
+    "0.95": {
+      "attainable_requests": 1131,
+      "transitions_stop_vs_retained_continue": {
+        "SS": 1,
+        "SF": 0,
+        "FS": 1008,
+        "FF": 122
+      },
+      "stop_success": 1,
+      "retained_continue_success": 1009,
+      "single_depth10_success": 973,
+      "hindsight_max_success": 1009,
+      "single_depth10_mean_target_tokens": 828.2749778956676,
+      "stop_mean_target_tokens": 713.6666666666666,
+      "always_continue_mean_target_tokens": 1541.9416445623342,
+      "hindsight_min_mean_tokens_at_max_success": 1450.9089301503095,
+      "hindsight_min_mean_tokens_at_single_depth10_success": 1405.918656056587
+    }
+  },
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false,
+  "complete": {
+    "single_depth10": 1123,
+    "always_continue": 1183,
+    "hindsight_independent_anchor_max": 1189,
+    "note": "Independent attainable-anchor requests; not one shared stop action for all five levels."
+  }
+}
