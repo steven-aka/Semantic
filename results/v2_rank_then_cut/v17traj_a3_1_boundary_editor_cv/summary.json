@@ -1,0 +1,242 @@
+{
+  "protocol": "V17-TRAJ-A3_1_FOUR_OUTCOME_BOUNDARY_EDITOR_CV",
+  "queries": 1421,
+  "folds": [
+    {
+      "fold": 0,
+      "train_queries": 1064,
+      "validation_queries": 357,
+      "train_positive_outcomes": 593,
+      "train_negative_outcomes": 2533,
+      "final_training_loss": 0.4689432382583618
+    },
+    {
+      "fold": 1,
+      "train_queries": 1047,
+      "validation_queries": 374,
+      "train_positive_outcomes": 567,
+      "train_negative_outcomes": 2515,
+      "final_training_loss": 0.40971484780311584
+    },
+    {
+      "fold": 2,
+      "train_queries": 1067,
+      "validation_queries": 354,
+      "train_positive_outcomes": 574,
+      "train_negative_outcomes": 2568,
+      "final_training_loss": 0.4523411989212036
+    },
+    {
+      "fold": 3,
+      "train_queries": 1085,
+      "validation_queries": 336,
+      "train_positive_outcomes": 597,
+      "train_negative_outcomes": 2596,
+      "final_training_loss": 0.4498368203639984
+    }
+  ],
+  "label_counts": {
+    "positive": 777,
+    "negative": 3404,
+    "ignored": 82
+  },
+  "schedules": {
+    "primary": {
+      "v8": {
+        "queries": 1421,
+        "anchor_success": [
+          1345,
+          1332,
+          1293,
+          1195,
+          914
+        ],
+        "complete": 1045,
+        "anchor_repairs": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "complete_repairs": 0,
+        "complete_breaks": 0,
+        "edited_queries": 0,
+        "mean_normalized_context": 0.8200900023258562,
+        "mean_paired_cumulative_token_delta": 0,
+        "mean_paired_token_delta_both_complete": 0
+      },
+      "learned": {
+        "queries": 1421,
+        "anchor_success": [
+          1343,
+          1326,
+          1274,
+          1146,
+          760
+        ],
+        "complete": 878,
+        "anchor_repairs": [
+          17,
+          16,
+          20,
+          18,
+          0
+        ],
+        "anchor_breaks": [
+          19,
+          22,
+          39,
+          67,
+          154
+        ],
+        "complete_repairs": 6,
+        "complete_breaks": 173,
+        "edited_queries": 306,
+        "mean_normalized_context": 0.8037846198145538,
+        "mean_paired_cumulative_token_delta": -69.08304011259676,
+        "mean_paired_token_delta_both_complete": -3.0688073394495414
+      }
+    },
+    "balanced_lower_early": {
+      "v8": {
+        "queries": 1421,
+        "anchor_success": [
+          1328,
+          1306,
+          1266,
+          1195,
+          914
+        ],
+        "complete": 1004,
+        "anchor_repairs": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "complete_repairs": 0,
+        "complete_breaks": 0,
+        "edited_queries": 0,
+        "mean_normalized_context": 0.7362752410638991,
+        "mean_paired_cumulative_token_delta": 0,
+        "mean_paired_token_delta_both_complete": 0
+      },
+      "learned": {
+        "queries": 1421,
+        "anchor_success": [
+          1328,
+          1301,
+          1261,
+          1146,
+          760
+        ],
+        "complete": 849,
+        "anchor_repairs": [
+          5,
+          5,
+          7,
+          18,
+          0
+        ],
+        "anchor_breaks": [
+          5,
+          10,
+          12,
+          67,
+          154
+        ],
+        "complete_repairs": 6,
+        "complete_breaks": 161,
+        "edited_queries": 306,
+        "mean_normalized_context": 0.7314033567463909,
+        "mean_paired_cumulative_token_delta": -21.30682617874736,
+        "mean_paired_token_delta_both_complete": -0.3701067615658363
+      }
+    },
+    "compression_lower_early": {
+      "v8": {
+        "queries": 1421,
+        "anchor_success": [
+          1322,
+          1273,
+          1266,
+          1017,
+          914
+        ],
+        "complete": 863,
+        "anchor_repairs": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "complete_repairs": 0,
+        "complete_breaks": 0,
+        "edited_queries": 0,
+        "mean_normalized_context": 0.662836416932355,
+        "mean_paired_cumulative_token_delta": 0,
+        "mean_paired_token_delta_both_complete": 0
+      },
+      "learned": {
+        "queries": 1421,
+        "anchor_success": [
+          1322,
+          1273,
+          1261,
+          1022,
+          760
+        ],
+        "complete": 747,
+        "anchor_repairs": [
+          0,
+          0,
+          7,
+          20,
+          0
+        ],
+        "anchor_breaks": [
+          0,
+          0,
+          12,
+          15,
+          154
+        ],
+        "complete_repairs": 6,
+        "complete_breaks": 122,
+        "edited_queries": 306,
+        "mean_normalized_context": 0.6611638761273115,
+        "mean_paired_cumulative_token_delta": -7.745953553835327,
+        "mean_paired_token_delta_both_complete": 0.18893387314439947
+      }
+    }
+  },
+  "primary_gate": "STOP_A3_1_NO_OOF_PARETO",
+  "limitations": [
+    "Train-only query-grouped OOF design validation, not independent lineage-clean confirmation.",
+    "The editor observes only frozen V8 features and packet token lengths; exact fidelity is used exclusively for training labels and OOF evaluation."
+  ]
+}

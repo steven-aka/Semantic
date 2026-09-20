@@ -1,0 +1,16 @@
+{
+  "protocol": "V17-TRAJ-A3_1_FOUR_OUTCOME_BOUNDARY_EDITOR_CV",
+  "status": "FROZEN_TRAIN_ONLY_CV",
+  "population": "B2B clean-train folds0-3=1421; four query-grouped CV folds using SHA256(example_id) modulo 4 within this population; fold4=611, B2B581, internal300, development, confirmation sealed",
+  "primary_schedule": [10, 10, 10, 10, 10],
+  "secondary_schedules": {"balanced_lower_early": [9, 9, 9, 10, 10], "compression_lower_early": [8, 8, 9, 9, 10]},
+  "actions": "STAY plus three distinct depth-10 stop-mask outcomes reachable by V8 Kendall<=2; choose the minimum-inversion, then lexicographically earliest relative-position order as canonical representative for each outcome",
+  "features": "Only frozen V8 query and packet embeddings, changed packet embedding difference, query-times-difference, existing packet token-length difference, and changed V8 ranks; train-fold standardization only",
+  "labels": "Set-valued strict Pareto positives: no anchor break, cumulative token <= V8, and anchor repair or token saving. Any anchor break or non-repair cost increase is negative. Repair with cost increase is ignored as incomparable. Duplicate nominal edit IDs are removed by stop-mask equivalence.",
+  "model": "One linear scalar residual scorer shared across three non-STAY outcomes; STAY has fixed score zero; frozen V8 and Qwen3-4B, no capacity sweep",
+  "optimizer": {"steps": 300, "batch_queries": 256, "learning_rate": 0.005, "weight_decay": 0.01, "seed": 20260920, "loss": "unweighted empirical pairwise logistic against STAY on labeled outcomes; neutral/incomparable masked", "checkpoint_selection": "final step only"},
+  "inference": "Argmax among zero-score STAY and three edit scores; exact ties favor STAY; no tuned threshold",
+  "primary_gate": "On concatenated query-held-out OOF rollouts, compare all five anchor counts, Complete, and mean normalized cumulative context to the same-query V8 depth10 baseline. A strict Pareto improvement requires no lower anchor or Complete count, no higher context cost, and at least one strict gain. Report repairs/breaks even when gate fails.",
+  "interpretation": "This train-side OOF result is design validation, not independent confirmation or a deployable checkpoint. No 611/581/internal/development/confirmation read is authorized by this protocol.",
+  "explicitly_off": ["V8 fine-tuning", "Target calls", "top10 selector", "learned cutoff", "packet redesign", "hyperparameter search"]
+}

@@ -2344,3 +2344,47 @@ grouped out-of-fold *rollout quality and token cost*, not edit-ID accuracy,
 must decide whether this representation can capture any A2 oracle headroom.
 The existing V8 lineage uses frozen Qwen3-4B; the supplied guidance's
 “Qwen3-8B” description does not match the current checkpoint.
+
+## V17-TRAJ-A3-1 four-outcome boundary-editor CV (train-only)
+
+A3-0's quotient suggested a small, controlled train-only test rather than
+the supplied guidance's 77-action ranker. A3-1 kept V8 and its frozen
+Qwen3-4B embeddings fixed. For quality-depth-10, it retained STAY plus the
+three distinct edited packet subsets, with a canonical minimum-inversion
+order per subset. A single shared linear scorer used only frozen V8 query and
+packet embeddings, their local difference/interaction, packet token lengths,
+and changed V8 ranks. STAY had fixed score zero. Four query-grouped folds
+trained for the frozen 300-step budget, final checkpoint only, and each held-
+out query received exactly one editor decision. Target outcomes were used
+only for training labels and cached rollout evaluation. No Target calls or
+611/581/internal/development/confirmation reads occurred.
+
+| Fixed schedule | Method | 0.90 | 0.95 / eligible | Complete | Mean normalized cumulative context |
+|---|---|---:|---:|---:|---:|
+| Quality `[10,10,10,10,10]` | V8 | 1195/1421 | 914/1131 | 1045/1421 | 0.8201 |
+| | OOF learned editor | **1146/1421** | **760/1131** | **878/1421** | 0.8038 |
+| Balanced `[9,9,9,10,10]` | V8 | 1195/1421 | 914/1131 | 1004/1421 | 0.7363 |
+| | Same OOF editor | 1146/1421 | 760/1131 | 849/1421 | 0.7314 |
+| Compression `[8,8,9,9,10]` | V8 | 1017/1421 | 914/1131 | 863/1421 | 0.6628 |
+| | Same OOF editor | 1022/1421 | 760/1131 | 747/1421 | 0.6612 |
+
+The model edited 306/1,421 queries. On the primary schedule it made 18
+0.90 repairs but 67 0.90 breaks, and only 6 Complete repairs against 173
+Complete breaks. At 0.95 it made **zero repairs and 154 breaks**. Among those
+306 selected edits, 205 broke at least one originally successful anchor;
+only 29 were safe quality repairs and 63 were token-only savings. This is a
+large quality loss in exchange for modest token savings, not a Pareto point.
+The predeclared decision is `STOP_A3_1_NO_OOF_PARETO`. Even restricting this
+editor to four-anchor queries would not solve it: in that cohort 0.90 falls
+from 131 to 118 with 6 repairs and 19 breaks.
+
+This failure does not prove *no* local editor is learnable. It does refute the
+specific frozen-representation linear residual scorer with empirical pairwise
+labels as a useful next deployment step. The train-only folds are not
+lineage-clean for upstream V8, which saw these train queries; that caveat
+would weaken a positive claim, but cannot explain away this negative one.
+Do not spend 611/581/internal/development/confirmation on this checkpoint,
+or tune its threshold/rank/steps against these outcomes. A bounded follow-up
+may audit whether any high-confidence subset has acceptable risk; absent
+that, close the current-feature local-editor branch and only then design an
+explicit Target sufficiency feasibility test with full call/token accounting.
