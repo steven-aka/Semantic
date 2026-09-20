@@ -1,0 +1,73 @@
+{
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "a690e1bc13a986d396a14455af1fbd64d69efbaaf3362e7d25cd8702301f9e63",
+    "cut_b0_decisions_sha256": "6a366812bee786f50c4fbe19d5056d8ceff0fff03da1713a1d3ce4732f373767",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+  },
+  "confirmation_read": false,
+  "cut_b0_mean_normalized_context_cost_all_queries": 0.5596319186311289,
+  "development_read": false,
+  "evaluation_role": "design-exposed fold4, not independent confirmation",
+  "exposed_mean_normalized_regret_on_complete": 0.26754219506407434,
+  "exposed_metrics": {
+    "anchor_eligible": [
+      611,
+      611,
+      611,
+      611,
+      481
+    ],
+    "anchor_success": [
+      578,
+      571,
+      557,
+      514,
+      399
+    ],
+    "complete": 466,
+    "mean_normalized_context_cost_all_queries": 0.8175011925557041,
+    "mean_normalized_context_cost_complete_only": 0.8117337002409682,
+    "queries": 611
+  },
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "new_target_calls": 0,
+  "paired_vs_cut_b0": {
+    "both_complete_queries": 179,
+    "break_090": 3,
+    "complete_break": 0,
+    "complete_gain": 287,
+    "mean_paired_normalized_context_cost_delta_both_complete": 0.22668503211812524,
+    "repair_090": 16
+  },
+  "protocol": "V17-CUT-C0_FIXED_DEPTH_SCHEDULE_CONTROL",
+  "selected_depths": [
+    10,
+    10,
+    10,
+    10,
+    10
+  ],
+  "selection_role": "train folds0-3",
+  "train_metrics": {
+    "anchor_eligible": [
+      1421,
+      1421,
+      1421,
+      1421,
+      1131
+    ],
+    "anchor_success": [
+      1345,
+      1332,
+      1293,
+      1195,
+      914
+    ],
+    "complete": 1045,
+    "mean_normalized_context_cost_all_queries": 0.8200900023258562,
+    "mean_normalized_context_cost_complete_only": 0.8166127522501571,
+    "queries": 1421
+  }
+}

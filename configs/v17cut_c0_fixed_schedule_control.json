@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-CUT-C0_FIXED_DEPTH_SCHEDULE_CONTROL",
+  "status": "FROZEN_TRAIN_ONLY_SELECTION_THEN_ONE_EXPOSED_EVALUATION",
+  "candidate_order": "unchanged clean-lineage V8 add-only 12-packet trajectory",
+  "inference": "one global nondecreasing five-depth vector; no exact fidelity, answer, oracle, or attainable-level feature is read at inference",
+  "selection_role": "1421 query-grouped train-side folds 0-3 only",
+  "selection_rule": "enumerate all nondecreasing five-depth vectors from 0..12; maximize five-anchor Complete count on train-side queries, then maximize 0.90 successes, then minimize mean normalized five-anchor context tokens, then lexicographically earliest vector",
+  "evaluation_role": "exactly one read of previously design-exposed fold4=611 after the vector is fixed; compare same-order CUT-B0 and oracle ceilings",
+  "metrics": ["each anchor success", "Complete", "0.90 success", "all-query mean normalized legal context tokens", "Complete-only mean normalized oracle token regret", "paired repair/break versus CUT-B0"],
+  "interpretation": "fixed schedule is a necessary depth-only control, not evidence of learned per-query safe-window recognition; a quality-only gain with higher tokens is not final Pareto improvement",
+  "sealed": ["B2B 581", "internal300", "development", "confirmation", "new Target calls", "selector retraining", "cutoff model retraining"]
+}

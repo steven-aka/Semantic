@@ -1916,3 +1916,33 @@ negative result forbids adapting BM25 constants on the untouched fold. It does
 not rule out a different packet representation or a richer causal evidence
 signal, but such a proposal now needs a new train-only test that can preserve
 V8's already successful trajectories.
+
+## V17-CUT-C0 quality-first fixed-depth schedule control
+
+CUT-C0 exhaustively enumerated nondecreasing five-anchor stop-depth vectors
+using only 1,421 clean-lineage train-side queries. The fixed selection rule
+maximized train-side Complete, then 0.90 successes, then minimized context
+cost. It selected `(10, 10, 10, 10, 10)`. No exact fidelity, oracle label, or
+attainability mask is needed by this inference rule. Only after the vector was
+fixed were metrics computed for the already design-exposed 611-query fold;
+B2B 581, internal300, development, and confirmation remained sealed. This is
+a fixed-order/fixed-stop deployed policy control, not a learned cutoff result.
+
+On the 611 queries, fixed depth 10 yielded 514/611 at 0.90 and 466/611
+Complete, compared with CUT-B0's 501/611 and 179/611 on the same V8 order.
+Its paired changes were 16 repairs and 3 breaks at 0.90, and 287 Complete
+gains with no Complete break. Yet average legal five-anchor context fraction
+over all queries rose from **0.5596** for CUT-B0 to **0.8175** for fixed depth
+10. Among the 179 queries Complete for both, fixed depth 10 added **0.2267**
+normalized context fraction on average; its mean normalized regret against
+the same-order oracle on its own Complete cases was **0.2675**, far above the
+project's 0.03 regret target. Thus fixed depth 10 is a necessary quality-first
+control and exposes CUT-B0's over-early stopping, but it is **not** a verified
+quality--token Pareto improvement. Its 0.90 and Complete counts also remain
+below same-order oracle ceilings of 565 and 551 on this role.
+
+Decision: `KEEP_FIXED_DEPTH_AS_CONTROL_ONLY`. The empirical tradeoff makes the
+next cutoff question more specific: recover the robust depth-10 successes
+while spending much less context on the easier queries. Any such method must
+demonstrate per-query stopping information beyond depth and report both
+Complete and all-query context cost against the fixed-depth and CUT-B0 controls.
