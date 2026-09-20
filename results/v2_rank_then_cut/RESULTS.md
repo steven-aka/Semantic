@@ -2562,3 +2562,37 @@ decisive next step. It contains 1,421 × 4 = 5,684 contexts, not 1,421 ×
 4,096 lattice states. It must first re-establish the A2 V8-versus-local-oracle
 quality/token headroom; no selector/editor training or sealed-set reads are
 authorized by this audit.
+
+### V17-EXEC-A1 fresh four-action depth-10 cache
+
+The current Qwen3-8B contract was used to regenerate exactly four canonical
+depth-10 contexts for each of the 1,421 train-side queries: 5,684 Target
+calls, 4,304,288 prompt tokens and 302,291 generated tokens. No model was
+trained, no other schedule was regenerated, and 611/581/internal/development/
+confirmation remained sealed. The 12 earlier rerun pairs agree in F1 with
+their corresponding entries in this fresh cache despite the new submission
+batch size of 128.
+
+| Current-contract depth-10 | 0.90 | 0.95 / eligible | Complete | Mean context fraction |
+|---|---:|---:|---:|---:|
+| Frozen V8 | 1223/1421 | 973/1131 | 1123/1421 | 0.82009 |
+| Cost-bounded four-action oracle | 1293/1421 | 973/1131 | 1155/1421 | 0.80432 |
+
+The local four-action headroom therefore survives under the current Target:
+70 additional 0.90 successes and 32 additional Complete queries, with no
+anchor breaks by construction and lower context cost. It is smaller than
+historical A2's 79 and 38 repairs, and remains an outcome-aware oracle, not
+a deployable learned editor. The 0.95 anchor has no repair opportunity in
+these four depth-10 masks and must be protected.
+
+The historical versus fresh paired-mask audit found changed F1 on 788/5,684
+contexts. At 0.90, 81 contexts changed success→failure and 260 changed
+failure→success. The old four-action oracle had 108 queries with any-anchor
+repairs; the fresh one has 91. These cross-run differences show that old
+cache labels are not a reliable unqualified supervision contract for the
+current Target execution. They do not measure same-run aleatoric noise or
+independent query generalization. The fresh four-mask cache can support a
+new train-only, predeclared four-action experiment, but that experiment must
+use fresh labels and preserve the same frozen Target manifest. The frozen
+V8 order itself was learned on the historical training lineage, so the
+positive oracle result is still design-side evidence only.

@@ -1,0 +1,57 @@
+{
+  "protocol": "V17-EXEC-A1_FRESH_VS_HISTORICAL_FOUR_MASK_DRIFT",
+  "contexts": 5684,
+  "changed_f1_contexts": 788,
+  "by_level": {
+    "0.6": {
+      "eligible_contexts": 5684,
+      "old_success_new_failure": 24,
+      "old_failure_new_success": 34,
+      "unchanged_success": 5346,
+      "unchanged_failure": 280
+    },
+    "0.7": {
+      "eligible_contexts": 5684,
+      "old_success_new_failure": 26,
+      "old_failure_new_success": 58,
+      "unchanged_success": 5245,
+      "unchanged_failure": 355
+    },
+    "0.8": {
+      "eligible_contexts": 5684,
+      "old_success_new_failure": 41,
+      "old_failure_new_success": 121,
+      "unchanged_success": 5014,
+      "unchanged_failure": 508
+    },
+    "0.9": {
+      "eligible_contexts": 5684,
+      "old_success_new_failure": 81,
+      "old_failure_new_success": 260,
+      "unchanged_success": 4027,
+      "unchanged_failure": 1316
+    },
+    "0.95": {
+      "eligible_contexts": 4524,
+      "old_success_new_failure": 21,
+      "old_failure_new_success": 81,
+      "unchanged_success": 897,
+      "unchanged_failure": 3525
+    }
+  },
+  "opportunity": {
+    "old_repair_090": 79,
+    "old_repair_complete": 38,
+    "old_any_repair": 108,
+    "fresh_repair_090": 70,
+    "fresh_repair_complete": 32,
+    "fresh_any_repair": 91,
+    "any_opportunity_changed": 400
+  },
+  "prior_12_pair_f1_agreement": 12,
+  "prior_12_pair_disagreements": [],
+  "limitations": [
+    "Historical cache disagreement measures cross-run changes, not within-run aleatoric probability.",
+    "Old and fresh outcomes share training queries and a historically trained V8 order."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "protocol": "V17-EXEC-A1_FRESH_DEPTH10_FOUR_ACTION_CACHE",
+  "queries": 1421,
+  "contexts": 5684,
+  "stay": {
+    "anchor_success": [
+      1347,
+      1337,
+      1311,
+      1223,
+      973
+    ],
+    "complete": 1123,
+    "mean_context_fraction": 0.8200900023258562,
+    "anchor_repairs": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor_breaks": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "complete_repairs": 0,
+    "complete_breaks": 0
+  },
+  "oracle": {
+    "anchor_success": [
+      1387,
+      1382,
+      1365,
+      1293,
+      973
+    ],
+    "complete": 1155,
+    "mean_context_fraction": 0.8043244925358903,
+    "anchor_repairs": [
+      40,
+      45,
+      54,
+      70,
+      0
+    ],
+    "anchor_breaks": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "complete_repairs": 32,
+    "complete_breaks": 0
+  },
+  "total_cost": {
+    "target_calls": 5684,
+    "prompt_tokens": 4304288,
+    "generated_tokens": 302291
+  },
+  "limitations": [
+    "Four-action oracle uses outcome labels and is not deployable.",
+    "The V8 order and query pool are historical train-side, not independent upstream lineage-clean validation.",
+    "Only one fixed depth10 endpoint is regenerated; this does not revalidate other stopping schedules or full trajectories."
+  ]
+}
