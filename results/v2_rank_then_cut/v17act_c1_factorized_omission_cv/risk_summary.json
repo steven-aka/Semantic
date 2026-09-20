@@ -1,0 +1,111 @@
+{
+  "protocol": "V17-ACT-C1_OOF_MARGIN_RISK_DIAGNOSTIC",
+  "note": "Fold-relative top score fractions are read-only diagnostics, not deployable thresholds; no model selection.",
+  "coverage": {
+    "0.01": {
+      "edited": 16,
+      "selected_positive": 3,
+      "selected_negative": 13,
+      "selected_ignored": 0,
+      "by_anchor": [
+        {
+          "level": 0.6,
+          "repair": 0,
+          "break": 2
+        },
+        {
+          "level": 0.7,
+          "repair": 0,
+          "break": 2
+        },
+        {
+          "level": 0.8,
+          "repair": 0,
+          "break": 3
+        },
+        {
+          "level": 0.9,
+          "repair": 0,
+          "break": 2
+        },
+        {
+          "level": 0.95,
+          "repair": 0,
+          "break": 8
+        }
+      ],
+      "complete_repairs": 0,
+      "complete_breaks": 8
+    },
+    "0.02": {
+      "edited": 31,
+      "selected_positive": 7,
+      "selected_negative": 23,
+      "selected_ignored": 1,
+      "by_anchor": [
+        {
+          "level": 0.6,
+          "repair": 1,
+          "break": 3
+        },
+        {
+          "level": 0.7,
+          "repair": 1,
+          "break": 3
+        },
+        {
+          "level": 0.8,
+          "repair": 2,
+          "break": 5
+        },
+        {
+          "level": 0.9,
+          "repair": 1,
+          "break": 7
+        },
+        {
+          "level": 0.95,
+          "repair": 1,
+          "break": 13
+        }
+      ],
+      "complete_repairs": 2,
+      "complete_breaks": 16
+    },
+    "0.05": {
+      "edited": 72,
+      "selected_positive": 18,
+      "selected_negative": 53,
+      "selected_ignored": 1,
+      "by_anchor": [
+        {
+          "level": 0.6,
+          "repair": 4,
+          "break": 5
+        },
+        {
+          "level": 0.7,
+          "repair": 4,
+          "break": 5
+        },
+        {
+          "level": 0.8,
+          "repair": 6,
+          "break": 8
+        },
+        {
+          "level": 0.9,
+          "repair": 3,
+          "break": 21
+        },
+        {
+          "level": 0.95,
+          "repair": 1,
+          "break": 35
+        }
+      ],
+      "complete_repairs": 4,
+      "complete_breaks": 44
+    }
+  }
+}

@@ -2596,3 +2596,38 @@ new train-only, predeclared four-action experiment, but that experiment must
 use fresh labels and preserve the same frozen Target manifest. The frozen
 V8 order itself was learned on the historical training lineage, so the
 positive oracle result is still design-side evidence only.
+
+## V17-ACT-C1 fresh-target factorized omission CV (train-only)
+
+After EXEC-A1 re-established four-action headroom under the current 8B
+contract, one controlled model test was frozen before fitting. ACT-C1 used
+the fresh 5,684 mask labels, the same 1,421 train-side queries and four
+query-grouped OOF folds as A3, and the same 300-step linear edit-versus-STAY
+optimizer. The only feature addition was a symmetric representation of the
+two omitted packets, their interaction and query interaction. STAY remained
+at score zero; no threshold, capacity or loss sweep occurred. No Target calls
+or sealed-set reads were used for this training experiment.
+
+| Fixed depth-10 current Target | 0.90 | 0.95 / eligible | Complete | Mean context fraction |
+|---|---:|---:|---:|---:|
+| Frozen V8 | 1223/1421 | 973/1131 | 1123/1421 | 0.82009 |
+| Four-action oracle | 1293/1421 | 973/1131 | 1155/1421 | 0.80432 |
+| ACT-C1 OOF editor | **1153/1421** | **700/1131** | **823/1421** | 0.79830 |
+
+The learned editor chose an edit for 466 queries; 362 chosen edits have a
+negative fresh-cache supervision label, 101 positive and 3 ignored. It made
+20 repairs versus 90 breaks at 0.90; at 0.95, one repair versus 274 breaks;
+Complete had 12 repairs versus 312 breaks. The lower context fraction is
+therefore bought with a major quality loss, not a Pareto improvement. The
+predeclared decision is `STOP_ACT_C1_NO_TRAIN_ONLY_PARETO`.
+
+A read-only fold-relative score diagnostic found no observed low-risk tail:
+among the top 1% highest-scoring edits in each fold (16 total), 13 were
+negative, with zero 0.90 or Complete repair and eight Complete breaks. Top
+2% and 5% also had more breaks than repairs. These batch-relative fractions
+are diagnostics, not deployable thresholds. This result closes the specific
+cheap frozen-V8-feature four-action editor branch. It does not prove that
+the packet omission task is unlearnable with every possible information
+source. The next distinct hypothesis is explicit frozen-Target sufficiency
+feedback, with extra calls, prompt/output tokens and latency measured as part
+of the compression cost before designing or training a verifier/controller.

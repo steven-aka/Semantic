@@ -1,0 +1,111 @@
+{
+  "protocol": "V17-ACT-C1_FRESH_TARGET_FACTORIZED_OMISSION_CV",
+  "queries": 1421,
+  "fresh_target_contexts": 5684,
+  "label_counts": {
+    "positive": 644,
+    "negative": 3545,
+    "ignored": 74
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "train_queries": 1064,
+      "valid_queries": 357,
+      "train_positive": 496,
+      "train_negative": 2638,
+      "loss": 0.3992868661880493
+    },
+    {
+      "fold": 1,
+      "train_queries": 1047,
+      "valid_queries": 374,
+      "train_positive": 488,
+      "train_negative": 2602,
+      "loss": 0.36489078402519226
+    },
+    {
+      "fold": 2,
+      "train_queries": 1067,
+      "valid_queries": 354,
+      "train_positive": 464,
+      "train_negative": 2681,
+      "loss": 0.3771311938762665
+    },
+    {
+      "fold": 3,
+      "train_queries": 1085,
+      "valid_queries": 336,
+      "train_positive": 484,
+      "train_negative": 2714,
+      "loss": 0.3476503789424896
+    }
+  ],
+  "stay": {
+    "anchor_success": [
+      1347,
+      1337,
+      1311,
+      1223,
+      973
+    ],
+    "complete": 1123,
+    "mean_context_fraction": 0.8200900023258562,
+    "anchor_repairs": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor_breaks": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "complete_repairs": 0,
+    "complete_breaks": 0,
+    "edited_queries": 0
+  },
+  "learned": {
+    "anchor_success": [
+      1344,
+      1326,
+      1285,
+      1153,
+      700
+    ],
+    "complete": 823,
+    "mean_context_fraction": 0.7982960457672947,
+    "anchor_repairs": [
+      18,
+      20,
+      23,
+      20,
+      1
+    ],
+    "anchor_breaks": [
+      21,
+      31,
+      49,
+      90,
+      274
+    ],
+    "complete_repairs": 12,
+    "complete_breaks": 312,
+    "edited_queries": 466
+  },
+  "selected_label_counts": {
+    "-1": 362,
+    "0": 3,
+    "1": 101
+  },
+  "gate": "STOP_ACT_C1_NO_TRAIN_ONLY_PARETO",
+  "limitations": [
+    "Train-only OOF folds use queries seen in historical upstream V8 training.",
+    "Fresh Target labels are one current-contract run, not repeated statistical truth.",
+    "Only fixed-depth10 endpoint quality is tested; no deployment or progressive cutoff claim."
+  ]
+}
