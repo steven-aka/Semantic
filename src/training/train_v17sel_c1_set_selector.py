@@ -143,9 +143,25 @@ def main() -> None:
     config = json.loads(Path(args.config).read_text())
     if config["status"] != "FROZEN_APPROVED_TO_BUILD_TRAIN_ONLY":
         raise ValueError("C0 protocol is not frozen")
+    cache_manifest = json.loads(Path(args.cache).with_name("sel_c0_train_v13_embeddings_manifest.json").read_text())
+    if cache_manifest["output_sha256"] != sha256(args.cache) or cache_manifest["checkpoint"] != config["upstream"]["v13_checkpoint"]:
+        raise ValueError("selector features are not from the frozen clean V13 checkpoint")
+    candidate_manifest = json.loads(Path(args.candidates).with_name("sel_c0_train_top10_candidates_manifest.json").read_text())
+    if not candidate_manifest["complete"] or candidate_manifest["output_sha256"] != sha256(args.candidates) or candidate_manifest["config_sha256"] != sha256(args.config):
+        raise ValueError("selector candidate artifact failed frozen-manifest verification")
     rows, features, unique = load_features(args.candidates, args.cache)
     if len(rows) != 2032 or len({row["example_id"] for row in rows}) != 2032:
         raise ValueError("unexpected clean-train population")
+    source = list(read_jsonl(config["upstream"]["source_data"]))
+    if [row["example_id"] for row in rows] != [row["example_id"] for row in source]:
+        raise ValueError("selector candidates do not match frozen source ordering")
+    question_roles = {}
+    for row in source:
+        key = row["question"].strip().casefold()
+        role = fold(row["example_id"]) == 4
+        if key in question_roles and question_roles[key] != role:
+            raise ValueError("identical question text crosses selector train/validation split")
+        question_roles[key] = role
     valid_ids = [i for i, row in enumerate(rows) if fold(row["example_id"]) == 4]
     if not valid_ids:
         raise ValueError("empty selector validation split")
