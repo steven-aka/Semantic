@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-TRAJ-A3_2_OOF_MARGIN_RISK_AUDIT",
+  "status": "FROZEN_READ_ONLY_DIAGNOSTIC",
+  "source": "The unchanged A3-1 four-fold OOF model, with its maximum local-edit score recorded per query; no retraining or score recalibration",
+  "coverage_fractions": [0.01, 0.02, 0.05, 0.10, 0.20],
+  "selection": "Within each held-out fold, select up to floor(fraction * fold query count) positive-margin proposed edits ranked by OOF margin; all others STAY. This batch-relative ranking is diagnostic, not an online deployable threshold.",
+  "metrics": "For every fraction, all five anchor counts, Complete, repairs/breaks, normalized cumulative context and paired token delta against the same V8 quality-depth10 baseline",
+  "decision": "If even tiny high-margin subsets have substantial quality breaks, close the present frozen-feature linear editor; do not tune a threshold on the same OOF outcomes. A positive low-risk region would require a separately frozen online threshold and independent validation.",
+  "explicitly_off": ["model training", "new Target calls", "new holdout reads", "checkpoint selection", "threshold selection", "cutoff", "selector"]
+}

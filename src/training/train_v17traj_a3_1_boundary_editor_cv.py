@@ -137,7 +137,7 @@ def main():
     x = torch.stack(features).float()
     y = torch.tensor(labels, dtype=torch.float32)
     assignments = torch.tensor([row["fold"] for row in records])
-    decisions, fold_info = [None] * len(records), []
+    decisions, margins, fold_info = [None] * len(records), [None] * len(records), []
     opt = config["optimizer"]
     for held_out in range(4):
         train_indices = torch.where(assignments != held_out)[0]
@@ -165,20 +165,21 @@ def main():
             valid_scores = model(normalized_valid).squeeze(-1)
             combined = torch.cat((torch.zeros((len(valid_indices), 1)), valid_scores), dim=1)
             choices = combined.argmax(dim=1).tolist()
-        for index, choice in zip(valid_indices.tolist(), choices):
+        for position, (index, choice) in enumerate(zip(valid_indices.tolist(), choices)):
             decisions[index] = choice
+            margins[index] = float(valid_scores[position].max())
         fold_info.append({"fold": held_out, "train_queries": len(train_indices), "validation_queries": len(valid_indices),
                           "train_positive_outcomes": int((train_y == 1).sum()),
                           "train_negative_outcomes": int((train_y == -1).sum()),
                           "final_training_loss": float(loss.detach())})
         print(json.dumps(fold_info[-1]), flush=True)
-    if any(choice is None for choice in decisions):
+    if any(choice is None for choice in decisions) or any(value is None for value in margins):
         raise AssertionError("missing OOF decision")
     detailed = {name: [] for name in schedules}
-    for row, choice in zip(records, decisions):
+    for row, choice, margin in zip(records, decisions, margins):
         for name in schedules:
             outcomes = row["outcomes"][name]
-            detailed[name].append({"example_id": row["example_id"], "fold": row["fold"], "choice": choice,
+            detailed[name].append({"example_id": row["example_id"], "fold": row["fold"], "choice": choice, "edit_margin": margin,
                                    "v8": outcomes[0], "learned": outcomes[choice]})
     summary = {"protocol": config["protocol"], "queries": len(records), "folds": fold_info,
                "label_counts": {"positive": int((y == 1).sum()), "negative": int((y == -1).sum()), "ignored": int((y == 0).sum())},

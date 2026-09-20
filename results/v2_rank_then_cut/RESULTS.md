@@ -2388,3 +2388,31 @@ or tune its threshold/rank/steps against these outcomes. A bounded follow-up
 may audit whether any high-confidence subset has acceptable risk; absent
 that, close the current-feature local-editor branch and only then design an
 explicit Target sufficiency feasibility test with full call/token accounting.
+
+## V17-TRAJ-A3-2 OOF margin risk audit (train-only)
+
+The A3-1 model and four query-grouped fits were rerun unchanged solely to
+record each held-out query's maximum edit score; all A3-1 decisions and
+aggregate metrics reproduced. A read-only audit then applied predeclared
+1%, 2%, 5%, 10%, and 20% fold-relative highest-margin coverage points.
+These are **batch-relative diagnostics**, not deployable online thresholds.
+
+| Nominal coverage | Edited | 0.90 repairs / breaks | Complete repairs / breaks | 0.95 breaks | Mean normalized cumulative context |
+|---|---:|---:|---:|---:|---:|
+| V8 / 0% | 0 | 0 / 0 | 0 / 0 | 0 | 0.8201 |
+| 1% | 12 | **0 / 2** | **0 / 5** | **5** | 0.8192 |
+| 2% | 27 | 1 / 4 | 1 / 14 | 14 | 0.8184 |
+| 5% | 68 | 5 / 14 | 2 / 33 | 28 | 0.8159 |
+| 10% | 140 | 9 / 28 | 3 / 68 | 59 | 0.8117 |
+| 20% | 264 | 17 / 55 | 6 / 142 | 127 | 0.8059 |
+
+Even the highest-confidence 12 edits contain no quality repair and five
+Complete breaks. There is no observed low-risk region to justify a separately
+frozen online threshold. This is not a proof that all local editing or all
+representations fail; it is a decisive **STOP for the current frozen V8
+embedding + linear four-outcome scorer**. Do not sweep rank, loss, epochs,
+margin, or thresholds on these same OOF outcomes, and do not read 611/581/
+internal/development/confirmation. The next independent mechanism to assess
+is explicit Target sufficiency feedback, with input/output tokens and call
+count included in the deployment cost comparison. A new verifier protocol
+must be frozen before any such calls.
