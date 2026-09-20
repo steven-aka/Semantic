@@ -2773,3 +2773,37 @@ an action on only **69** of them and misses **285**. Of its 637 selected
 swaps, 511 change no anchor outcome, 69 safely repair at least one anchor,
 and 57 break at least one. Thus the OOF failure is mainly poor targeting of
 the rare beneficial state/action pairs, not an optimizer that never switches.
+
+### V17-STOP-V0 fresh hindsight stopping value bound
+
+Using CANON-P0 alone, a dynamic program chose nondecreasing stop depths along
+each frozen V8 chain while preserving *every* fixed-schedule attainable-anchor
+success/failure. Baseline-failed anchors stayed at their fixed depth, avoiding
+artificial savings from abandoning already-failed levels. This oracle reads
+future Target outcomes, so it is a context-token **upper bound**, not an
+online policy. No new Target calls or sealed sets were used.
+
+| Fixed schedule | Mean baseline cumulative tokens | Mean hindsight minimum | Upper-bound saving / query |
+|---|---:|---:|---:|
+| `[10,10,10,10,10]` | 3191.06 | 2222.86 | **968.19** |
+| `[9,9,9,10,10]` | 2864.61 | 2197.66 | **666.95** |
+| `[8,8,9,9,10]` | 2577.84 | 2153.00 | **424.84** |
+| `[6,7,7,9,10]` | 2183.62 | 2084.92 | **98.69** |
+
+These are *cumulative* context tokens over the attainable fidelity requests,
+not per-request savings. The quality-heavy schedule leaves substantial
+stopping headroom, chiefly at lower anchors, while the already-early schedule
+leaves much less. Extra Target feedback calls, prompt/output tokens, latency
+and compressor inference are excluded. A perfect hindsight stopper cannot
+be called a deployable "perfect online stopper" without specifying an
+observable success signal and charging its acquisition cost.
+
+Before a wider PROG-B0 run, a read-only action-mask count found that an
+arbitrary remaining-packet move changes *multiple* downstream fixed-stop
+contexts. With both `[6,7,7,9,10]` and `[7,8,8,9,10]` evaluated, extending
+the existing P0/A0 caches needs **5,684** new query/mask Target evaluations
+for move-at-depth-9 only, **17,052** for depths 7+9, or **24,157** for
+depths 6+7+9. These are deduplicated state counts, not new actions. The
+cost-controlled next candidate is depth-9 only, because it directly tests
+0.90 and its movement can also alter the depth-10 0.95 endpoint. The
+all-depth design should not be launched as if each move cost one Target call.

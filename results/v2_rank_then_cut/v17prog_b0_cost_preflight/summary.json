@@ -1,0 +1,29 @@
+{
+  "protocol": "V17-PROG-B0_BOUNDED_ACTION_COST_PREFLIGHT",
+  "queries": 1421,
+  "new_target_calls": 0,
+  "fixed_stop_depths": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "scenarios": {
+    "9": {
+      "candidate_move_actions_including_cached_adjacent": 4263,
+      "deduplicated_new_target_states": 5684,
+      "average_new_states_per_query": 4.0
+    },
+    "7,9": {
+      "candidate_move_actions_including_cached_adjacent": 11368,
+      "deduplicated_new_target_states": 17052,
+      "average_new_states_per_query": 12.0
+    },
+    "6,7,9": {
+      "candidate_move_actions_including_cached_adjacent": 19894,
+      "deduplicated_new_target_states": 24157,
+      "average_new_states_per_query": 17.0
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-PROG-B0_BOUNDED_ACTION_COST_PREFLIGHT",
+  "status": "COST_PREFLIGHT_ONLY_NO_TARGET_CALLS",
+  "population": "CANON-P0 and PROG-A0 train1421 only; all validation sets sealed",
+  "stage1_move_depths": [9],
+  "conditional_extension_move_depths": [[7, 9], [6, 7, 9]],
+  "fixed_schedules": [[6, 7, 7, 9, 10], [7, 8, 8, 9, 10]],
+  "move_semantics": "At one selected V8 state choose any remaining packet for the next reveal, then keep all other packets in their original V8 relative order. Evaluate all affected endpoints of the same frozen schedules.",
+  "stage1_primary_outputs": "Five attainable-anchor successes, Complete, paired repair/break, and cumulative context tokens; report both no-break quality-first and no-break nonincreasing-token oracle frontiers, with action prevalence.",
+  "important_limit": "A positive oracle is only train-side opportunity, not cross-query learnability. A negative one-step oracle is a resource-based STOP for this local action family, not a proof against all progressive ordering.",
+  "explicitly_off": ["Target generation until protocol is frozen", "new controller training", "cutoff training", "611", "581", "internal", "development", "confirmation"]
+}

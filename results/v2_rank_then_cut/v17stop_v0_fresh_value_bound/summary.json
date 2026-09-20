@@ -1,0 +1,71 @@
+{
+  "protocol": "V17-STOP-V0_FRESH_VALUE_OF_INFORMATION_BOUND",
+  "queries": 1421,
+  "schedules": {
+    "quality": {
+      "depths": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "mean_baseline_cumulative_context_tokens": 3191.058409570725,
+      "mean_clairvoyant_cumulative_context_tokens": 2222.8648838845884,
+      "mean_context_token_saving_upper_bound": 968.1935256861365,
+      "median_context_token_saving": 985,
+      "queries_with_saving": 1330,
+      "baseline_complete": 1123,
+      "new_target_calls": 0
+    },
+    "balanced": {
+      "depths": [
+        9,
+        9,
+        9,
+        10,
+        10
+      ],
+      "mean_baseline_cumulative_context_tokens": 2864.6094299788883,
+      "mean_clairvoyant_cumulative_context_tokens": 2197.6629134412387,
+      "mean_context_token_saving_upper_bound": 666.9465165376496,
+      "median_context_token_saving": 674,
+      "queries_with_saving": 1325,
+      "baseline_complete": 1084,
+      "new_target_calls": 0
+    },
+    "compression": {
+      "depths": [
+        8,
+        8,
+        9,
+        9,
+        10
+      ],
+      "mean_baseline_cumulative_context_tokens": 2577.84236453202,
+      "mean_clairvoyant_cumulative_context_tokens": 2152.9978888106966,
+      "mean_context_token_saving_upper_bound": 424.844475721323,
+      "median_context_token_saving": 427,
+      "queries_with_saving": 1309,
+      "baseline_complete": 942,
+      "new_target_calls": 0
+    },
+    "early": {
+      "depths": [
+        6,
+        7,
+        7,
+        9,
+        10
+      ],
+      "mean_baseline_cumulative_context_tokens": 2183.6171710063336,
+      "mean_clairvoyant_cumulative_context_tokens": 2084.9225897255455,
+      "mean_context_token_saving_upper_bound": 98.69458128078817,
+      "median_context_token_saving": 96,
+      "queries_with_saving": 1152,
+      "baseline_complete": 775,
+      "new_target_calls": 0
+    }
+  },
+  "limitations": "Report context-token saving only. Extra Target feedback calls, generation, latency and compressor inference are not included and must be charged before any deployment claim. Per query, preserve every attainable anchor's fixed-schedule success/failure; baseline-failed anchors remain at their fixed depth; choose nondecreasing depth 1..12 and minimize sum of actual context tokens for successful anchors. This is a clairvoyant hindsight bound, not an online stopper."
+}

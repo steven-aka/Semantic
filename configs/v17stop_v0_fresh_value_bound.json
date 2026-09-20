@@ -1,0 +1,14 @@
+{
+  "protocol": "V17-STOP-V0_FRESH_VALUE_OF_INFORMATION_BOUND",
+  "status": "FROZEN_READ_ONLY_TRAIN_SIDE",
+  "population": "CANON-P0 train1421 only; all validation and confirmation sets sealed",
+  "baseline_schedules": {
+    "quality": [10, 10, 10, 10, 10],
+    "balanced": [9, 9, 9, 10, 10],
+    "compression": [8, 8, 9, 9, 10],
+    "early": [6, 7, 7, 9, 10]
+  },
+  "oracle_contract": "Per query, preserve every attainable anchor's fixed-schedule success/failure; baseline-failed anchors remain at their fixed depth; choose nondecreasing depth 1..12 and minimize sum of actual context tokens for successful anchors. This is a clairvoyant hindsight bound, not an online stopper.",
+  "cost_accounting": "Report context-token saving only. Extra Target feedback calls, generation, latency and compressor inference are not included and must be charged before any deployment claim.",
+  "explicitly_off": ["new Target calls", "cutoff training", "611", "581", "internal", "development", "confirmation"]
+}
