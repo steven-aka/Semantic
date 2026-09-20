@@ -2424,3 +2424,32 @@ End-to-End Cost
 Do not optimize for engineering complexity.
 
 Optimize for a clean test of the scientific hypothesis.
+
+---
+
+# Current V17 decision checkpoint (2026-09-20)
+
+The current fresh Target contract is Qwen3-8B. CANON-P0 holds the train1421
+V8 prefix chain; the lineage 611/581, internal300, development and fresh
+confirmation outcomes remain sealed for the recent stopping studies.
+
+STOP-C1's grouped semantic continuation critic did not turn the 0.90
+depth9-to-10 hindsight ceiling into a quality-preserving compute saving.
+STOP-C2A found 2/32 paired 0.90 label flips with logprob-enabled generation,
+so the new trace could not be joined safely to old labels. Forced 6/7→9→10
+probes added 473–548 Target tokens/query with no 0.90 oracle gain.
+
+SAMECALL-A0's binary `Sufficient_090` self-report was stable but falsely said
+YES for 49/53 depth9 failures in its enriched pilot. A later prompt-quality
+signal was largely inflated by a B0 mixed-template batch anomaly. Corrected
+homogeneous B3 showed a small gain, but independent train-side B4 missed its
+frozen gate: depth10 0.90 115→119/128 (required >=+5), 0.95 96→94/105,
+and Target cost 818.77→961.45 tokens/query. No new prompt or stopper is
+approved for deployment, cutoff training, or sealed evaluation.
+
+The next research step must return to the final five-anchor quality/context
+Pareto objective. Use the existing fresh prefix/action cache to isolate a
+specific state-dependent packet interaction or action-unit limitation with
+a costed oracle before generating more Target data or fitting another
+controller. Preserve V8 plus fixed schedules as the current deployable
+comparison and report all Target calls and final context tokens separately.

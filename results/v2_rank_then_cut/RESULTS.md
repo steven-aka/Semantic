@@ -3177,3 +3177,47 @@ a new hypothesis requiring a **fresh unstratified train-side sample**, all
 attainable anchors and full Target-cost accounting before any claim about the
 final quality–token Pareto. The 611/581/internal/development/confirmation
 sets remain sealed.
+
+### V17-SAMECALL-B0/B4 prompt gain correction and replication
+
+The A0 self-report itself failed, but its answer prompt appeared to improve
+0.90 success in an intentionally enriched 128-query set. We tested that
+answer-generation hypothesis on 128 previously unused train-side queries,
+with both old and new prompts at depths 9 and 10 and all five attainable
+anchors. **B0's initial comparison was invalid as a gate**: it interleaved
+old/new templates within each batch. At depth10 it reported 104→119 0.90
+successes, but 10/15 net gains came from old-prompt responses without a
+valid `<answer>` tag and with zero parsed F1. A targeted rerun of all 23
+old-untagged query/depth cases in an old-only batch reached 0.90 in 21/23;
+many raw outputs were parseable `#`-separated lists. Thus B0's old arm had
+a substantial batch/run-condition failure, not 15 confirmed semantic gains.
+The B0 raw result and its superseding [decision](v17samecall_b0_unstratified_prompt_gate/decision.json)
+are both retained for audit.
+
+A format-only ablation on B0's already exposed IDs achieved 111/128 depth10
+0.90 successes versus 104 in B0's old mixed arm and 119 with the longer
+self-report prompt. That ablation was diagnostic only: B0's old arm was
+unstable and cannot be used to estimate format-only deployment benefit.
+The [format-only summary](v17samecall_b1_format_only_ablation/summary.json)
+and [untagged raw-output audit](v17samecall_b2_untagged_output_audit/summary.json)
+preserve the mechanism checks.
+
+We then reran old and new prompts in **separate homogeneous batches** on
+the same B0 IDs. At depth10, old→new was 114→119/128 at 0.90, 95→95/102
+at 0.95 and 110→114 Complete, costing 845.52→989.95 Target tokens/query.
+Because those IDs were already design-exposed, B3 was descriptive only.
+The [B3 summary](v17samecall_b3_homogeneous_batch_control/summary.json)
+records this corrected comparison.
+
+Finally B4 used a fresh 128 train-side queries excluding **all** A0 and B0
+IDs. It kept the prompt and homogeneous batching fixed. At depth10, 0.90
+was 115→119/128 (**+4**, six repairs/two breaks), 0.95 was 96→94/105,
+Complete was 107→110, and Target cost was 818.77→961.45 tokens/query.
+Depth9 0.90 was 103→104 with eight breaks and nine repairs. The frozen B4
+research gate required at least +5/128 at depth10, no Complete regression,
+no anchor worse than -3, and <=25% extra Target tokens. It **failed the
+primary +5 threshold**, so the prompt-only branch stops; we do not adjust
+the gate to +4 after observing B4. The
+[B4 summary](v17samecall_b4_fresh_prompt_replication/summary.json) and
+[decision](v17samecall_b4_fresh_prompt_replication/decision.json) are the
+final train-side evidence. No sealed outcome set was read.

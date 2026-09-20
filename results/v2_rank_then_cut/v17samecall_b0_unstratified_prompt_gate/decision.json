@@ -1,0 +1,7 @@
+{
+  "protocol": "V17-SAMECALL-B0_UNSTRATIFIED_PROMPT_GATE",
+  "decision": "INVALIDATE_MIXED_TEMPLATE_BATCH_GATE",
+  "reason": "Old and new prompts were interleaved inside the same Target batch. The apparent depth10 104->119 gain was strongly affected by old-prompt empty/untagged outputs: 10 of 15 net gains arose in old-untagged cases. On 23 old-untagged query/depth cases rerun alone, 21 reached 0.90. B3/B4 homogeneous-batch controls supersede B0 for prompt comparison.",
+  "raw_result_preserved": true,
+  "sealed_outcome_sets_read": false
+}

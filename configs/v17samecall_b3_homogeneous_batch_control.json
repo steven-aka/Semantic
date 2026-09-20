@@ -1,0 +1,17 @@
+{
+  "protocol": "V17-SAMECALL-B3_HOMOGENEOUS_BATCH_PROMPT_CONTROL",
+  "status": "FROZEN_EXECUTION_CONTRACT_CORRECTION",
+  "sample": "the same 128 train-side IDs as B0, no reselection",
+  "target_model": "models/Qwen3-8B",
+  "arms": ["canonical_old_prompt", "samecall_a0_new_prompt"],
+  "depths": [9, 10],
+  "batching": "homogeneous 32-request batches; never mix prompt templates within one Target batch",
+  "batch_size": 32,
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "new_prompt_config": "configs/v17samecall_a0_sufficiency_pilot.json",
+  "purpose": "Correct the invalid B0 mixed-template comparison and store raw output to diagnose parser effects",
+  "sealed_outcome_sets_read": false
+}

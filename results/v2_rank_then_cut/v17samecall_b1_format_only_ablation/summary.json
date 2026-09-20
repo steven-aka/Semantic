@@ -1,0 +1,94 @@
+{
+  "protocol": "V17-SAMECALL-B1_FORMAT_ONLY_ABLATION",
+  "queries": 128,
+  "target_calls": 256,
+  "depths": {
+    "9": {
+      "anchors": {
+        "0.6": {
+          "eligible": 128,
+          "old_success": 108,
+          "format_success": 120,
+          "selfreport_prompt_success": 125
+        },
+        "0.7": {
+          "eligible": 128,
+          "old_success": 108,
+          "format_success": 117,
+          "selfreport_prompt_success": 125
+        },
+        "0.8": {
+          "eligible": 128,
+          "old_success": 103,
+          "format_success": 112,
+          "selfreport_prompt_success": 122
+        },
+        "0.9": {
+          "eligible": 128,
+          "old_success": 93,
+          "format_success": 102,
+          "selfreport_prompt_success": 108
+        },
+        "0.95": {
+          "eligible": 102,
+          "old_success": 0,
+          "format_success": 0,
+          "selfreport_prompt_success": 0
+        }
+      },
+      "old_tag_present": 115,
+      "format_tag_present": 128,
+      "selfreport_tag_present": 128,
+      "old_tagged_090_success": 93,
+      "format_on_old_tagged_090_success": 90,
+      "format_on_old_untagged_090_success": 12,
+      "mean_target_tokens_old": 728.4296875,
+      "mean_target_tokens_format": 778.4921875,
+      "mean_target_tokens_selfreport": 873.46875
+    },
+    "10": {
+      "anchors": {
+        "0.6": {
+          "eligible": 128,
+          "old_success": 113,
+          "format_success": 120,
+          "selfreport_prompt_success": 125
+        },
+        "0.7": {
+          "eligible": 128,
+          "old_success": 113,
+          "format_success": 120,
+          "selfreport_prompt_success": 125
+        },
+        "0.8": {
+          "eligible": 128,
+          "old_success": 111,
+          "format_success": 116,
+          "selfreport_prompt_success": 123
+        },
+        "0.9": {
+          "eligible": 128,
+          "old_success": 104,
+          "format_success": 111,
+          "selfreport_prompt_success": 119
+        },
+        "0.95": {
+          "eligible": 102,
+          "old_success": 86,
+          "format_success": 88,
+          "selfreport_prompt_success": 95
+        }
+      },
+      "old_tag_present": 118,
+      "format_tag_present": 128,
+      "selfreport_tag_present": 128,
+      "old_tagged_090_success": 104,
+      "format_on_old_tagged_090_success": 102,
+      "format_on_old_untagged_090_success": 9,
+      "mean_target_tokens_old": 846.1875,
+      "mean_target_tokens_format": 895.390625,
+      "mean_target_tokens_selfreport": 989.9609375
+    }
+  },
+  "sealed_outcome_sets_read": false
+}

@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-SAMECALL-B1_FORMAT_ONLY_ABLATION",
+  "status": "FROZEN_MECHANISM_ABLATION_TRAIN_SIDE",
+  "sample": "same 128 design-exposed B0 IDs; one call each at depth9/depth10",
+  "target_model": "models/Qwen3-8B",
+  "system_suffix": "Output exactly one final answer line using <answer>item1 # item2 # ...</answer>. Put no text before or after the tags. If no answer is supported, output <answer></answer>.",
+  "user_suffix": "Format reminder: output only <answer>...</answer>.",
+  "batch_size": 32,
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "goal": "Separate answer-tag compliance from semantic change and remove the unsuccessful sufficiency field",
+  "sealed_outcome_sets_read": false
+}

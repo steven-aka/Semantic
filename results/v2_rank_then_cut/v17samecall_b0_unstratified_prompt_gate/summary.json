@@ -1,0 +1,133 @@
+{
+  "protocol": "V17-SAMECALL-B0_UNSTRATIFIED_PROMPT_GATE",
+  "queries": 128,
+  "target_calls": 512,
+  "design_pilot_ids_excluded": 128,
+  "depths": {
+    "9": {
+      "anchors": {
+        "0.6": {
+          "eligible": 128,
+          "old_success": 108,
+          "new_success": 125,
+          "net": 17,
+          "repairs": 18,
+          "breaks": 1
+        },
+        "0.7": {
+          "eligible": 128,
+          "old_success": 108,
+          "new_success": 125,
+          "net": 17,
+          "repairs": 18,
+          "breaks": 1
+        },
+        "0.8": {
+          "eligible": 128,
+          "old_success": 103,
+          "new_success": 122,
+          "net": 19,
+          "repairs": 20,
+          "breaks": 1
+        },
+        "0.9": {
+          "eligible": 128,
+          "old_success": 93,
+          "new_success": 108,
+          "net": 15,
+          "repairs": 20,
+          "breaks": 5
+        },
+        "0.95": {
+          "eligible": 102,
+          "old_success": 0,
+          "new_success": 0,
+          "net": 0,
+          "repairs": 0,
+          "breaks": 0
+        }
+      },
+      "old_complete": 9,
+      "new_complete": 14,
+      "mean_old_f1": 0.7936220376308409,
+      "mean_new_f1": 0.9143567582228562,
+      "mean_old_answer_count": 7.8203125,
+      "mean_new_answer_count": 8.765625,
+      "old_answer_tag_fraction": 0.8984375,
+      "new_answer_tag_fraction": 1.0,
+      "new_status_valid_fraction": 1.0,
+      "mean_old_target_tokens": 728.4296875,
+      "mean_new_target_tokens": 873.46875,
+      "mean_old_prompt_tokens": 678.265625,
+      "mean_new_prompt_tokens": 805.59375,
+      "mean_old_generated_tokens": 50.1640625,
+      "mean_new_generated_tokens": 67.875
+    },
+    "10": {
+      "anchors": {
+        "0.6": {
+          "eligible": 128,
+          "old_success": 113,
+          "new_success": 125,
+          "net": 12,
+          "repairs": 13,
+          "breaks": 1
+        },
+        "0.7": {
+          "eligible": 128,
+          "old_success": 113,
+          "new_success": 125,
+          "net": 12,
+          "repairs": 13,
+          "breaks": 1
+        },
+        "0.8": {
+          "eligible": 128,
+          "old_success": 111,
+          "new_success": 123,
+          "net": 12,
+          "repairs": 13,
+          "breaks": 1
+        },
+        "0.9": {
+          "eligible": 128,
+          "old_success": 104,
+          "new_success": 119,
+          "net": 15,
+          "repairs": 16,
+          "breaks": 1
+        },
+        "0.95": {
+          "eligible": 102,
+          "old_success": 86,
+          "new_success": 95,
+          "net": 9,
+          "repairs": 13,
+          "breaks": 4
+        }
+      },
+      "old_complete": 100,
+      "new_complete": 114,
+      "mean_old_f1": 0.8688272074180549,
+      "mean_new_f1": 0.9623100129896761,
+      "mean_old_answer_count": 8.9375,
+      "mean_new_answer_count": 9.7421875,
+      "old_answer_tag_fraction": 0.921875,
+      "new_answer_tag_fraction": 1.0,
+      "new_status_valid_fraction": 1.0,
+      "mean_old_target_tokens": 846.1875,
+      "mean_new_target_tokens": 989.9609375,
+      "mean_old_prompt_tokens": 789.4453125,
+      "mean_new_prompt_tokens": 916.7734375,
+      "mean_old_generated_tokens": 56.7421875,
+      "mean_new_generated_tokens": 73.1875
+    }
+  },
+  "sealed_outcome_sets_read": false,
+  "research_gate": {
+    "quality_pass": true,
+    "cost_pass": true,
+    "pass": true,
+    "decision": "GO_PROMPT_ONLY_METHOD_DESIGN"
+  }
+}

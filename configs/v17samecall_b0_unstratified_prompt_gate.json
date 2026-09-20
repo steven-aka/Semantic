@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-SAMECALL-B0_UNSTRATIFIED_PROMPT_GATE",
+  "status": "FROZEN_FRESH_TRAIN_SIDE_HOLDOUT",
+  "selection": "128 lowest SHA256('SAMECALL-B0|' + example_id) from train1421 excluding all 128 SAMECALL-A0 pilot IDs",
+  "target_model": "models/Qwen3-8B",
+  "depths": [9, 10],
+  "arms": ["canonical_old_prompt", "samecall_a0_new_prompt"],
+  "batching": "interleave old/new prompt for each query in the same 32-request batch",
+  "batch_size": 32,
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "new_prompt_config": "configs/v17samecall_a0_sufficiency_pilot.json",
+  "primary": "paired 0.90 success, all-attainable Complete, five anchor success and Target prompt+generated tokens at depth9 and depth10",
+  "research_gate": "GO prompt-only design if at depth10 0.90 net repair >=5/128, Complete does not regress, each attainable anchor has no net regression worse than 3/128, and mean Target tokens per query rise by at most 25%; this opens design only, not deployment or sealed evaluation",
+  "sealed_outcome_sets_read": false
+}

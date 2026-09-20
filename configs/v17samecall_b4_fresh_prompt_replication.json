@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-SAMECALL-B4_FRESH_HOMOGENEOUS_PROMPT_REPLICATION",
+  "status": "FROZEN_FRESH_REPLICATION",
+  "sample_strategy": "fresh_replication",
+  "sample": "128 lowest SHA256('SAMECALL-B4|' + ID) from train1421 excluding A0 and B0/B3 IDs",
+  "target_model": "models/Qwen3-8B",
+  "arms": ["canonical_old_prompt", "samecall_a0_new_prompt"],
+  "depths": [9, 10],
+  "batch_size": 32,
+  "batching": "homogeneous old/new prompt batches exactly as B3",
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "new_prompt_config": "configs/v17samecall_a0_sufficiency_pilot.json",
+  "replication_gate": "depth10 0.90 net >=5/128, Complete non-regression, every attainable anchor net >= -3/128, mean Target token cost increase <=25%; gate is research-only",
+  "sealed_outcome_sets_read": false
+}

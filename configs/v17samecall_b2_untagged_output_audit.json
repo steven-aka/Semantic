@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-SAMECALL-B2_OLD_PROMPT_UNTAGGED_OUTPUT_AUDIT",
+  "status": "FROZEN_TARGETED_DESIGN_SIDE_DIAGNOSTIC",
+  "sample": "all 23 old-prompt B0 query/depth outputs missing an answer tag, depth9=13 and depth10=10",
+  "target_model": "models/Qwen3-8B",
+  "batch_size": 23,
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "goal": "Inspect raw old-prompt generation and distinguish true generation failure from parser-only failure; no new parser or deployment policy is selected here",
+  "sealed_outcome_sets_read": false
+}

@@ -1,0 +1,6 @@
+{
+  "protocol": "V17-SAMECALL-B3_HOMOGENEOUS_BATCH_PROMPT_CONTROL",
+  "decision": "DESCRIPTIVE_SMALL_GAIN_REQUIRE_FRESH_REPLICATION",
+  "basis": "On the already design-exposed B0 IDs, homogeneous batches gave depth10 0.90 114->119/128, Complete 110->114 and 0.95 95->95/102, with +144.43 Target tokens/request. The result cannot independently confirm the prompt hypothesis because the same IDs were used to detect B0's batching problem.",
+  "sealed_outcome_sets_read": false
+}

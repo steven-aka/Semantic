@@ -1,0 +1,7 @@
+{
+  "protocol": "V17-SAMECALL-B4_FRESH_HOMOGENEOUS_PROMPT_REPLICATION",
+  "decision": "STOP_PROMPT_ONLY_BRANCH_PRE_REGISTERED_GATE_FAILED",
+  "basis": "Fresh train-side 128 IDs excluded all A0/B0/B3 queries. In homogeneous batches, depth10 0.90 changed 115->119 (+4, 6 repairs/2 breaks), below the frozen +5 gate; Complete changed 107->110, 0.95 changed 96->94/105, and Target cost rose 818.77->961.45 tokens/request. No further prompt tuning or sealed evaluation is justified from these exposed results.",
+  "scope": "This rejects the tested prompt-only change under its frozen gate; it is not proof that every output-contract improvement is impossible.",
+  "sealed_outcome_sets_read": false
+}

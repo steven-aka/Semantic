@@ -1,0 +1,100 @@
+{
+  "protocol": "V17-SAMECALL-B3_HOMOGENEOUS_BATCH_PROMPT_CONTROL",
+  "queries": 128,
+  "target_calls": 512,
+  "depths": {
+    "9": {
+      "anchors": {
+        "0.6": {
+          "eligible": 128,
+          "old_success": 121,
+          "new_success": 125,
+          "repairs": 5,
+          "breaks": 1
+        },
+        "0.7": {
+          "eligible": 128,
+          "old_success": 120,
+          "new_success": 125,
+          "repairs": 6,
+          "breaks": 1
+        },
+        "0.8": {
+          "eligible": 128,
+          "old_success": 116,
+          "new_success": 121,
+          "repairs": 6,
+          "breaks": 1
+        },
+        "0.9": {
+          "eligible": 128,
+          "old_success": 106,
+          "new_success": 107,
+          "repairs": 8,
+          "breaks": 7
+        },
+        "0.95": {
+          "eligible": 102,
+          "old_success": 0,
+          "new_success": 0,
+          "repairs": 0,
+          "breaks": 0
+        }
+      },
+      "old_complete": 11,
+      "new_complete": 14,
+      "old_answer_tag_count": 117,
+      "new_answer_tag_count": 128,
+      "mean_old_target_tokens": 728.6171875,
+      "mean_new_target_tokens": 873.3828125,
+      "old_vs_B0_old_answer_agreement": 110
+    },
+    "10": {
+      "anchors": {
+        "0.6": {
+          "eligible": 128,
+          "old_success": 123,
+          "new_success": 125,
+          "repairs": 3,
+          "breaks": 1
+        },
+        "0.7": {
+          "eligible": 128,
+          "old_success": 122,
+          "new_success": 125,
+          "repairs": 4,
+          "breaks": 1
+        },
+        "0.8": {
+          "eligible": 128,
+          "old_success": 120,
+          "new_success": 123,
+          "repairs": 4,
+          "breaks": 1
+        },
+        "0.9": {
+          "eligible": 128,
+          "old_success": 114,
+          "new_success": 119,
+          "repairs": 6,
+          "breaks": 1
+        },
+        "0.95": {
+          "eligible": 102,
+          "old_success": 95,
+          "new_success": 95,
+          "repairs": 4,
+          "breaks": 4
+        }
+      },
+      "old_complete": 110,
+      "new_complete": 114,
+      "old_answer_tag_count": 117,
+      "new_answer_tag_count": 128,
+      "mean_old_target_tokens": 845.5234375,
+      "mean_new_target_tokens": 989.953125,
+      "old_vs_B0_old_answer_agreement": 113
+    }
+  },
+  "sealed_outcome_sets_read": false
+}
