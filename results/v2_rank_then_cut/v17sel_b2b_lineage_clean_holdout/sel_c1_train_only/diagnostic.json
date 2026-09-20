@@ -1,0 +1,21 @@
+{
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "choices_sha256": "73cb49726adc55f59c9598d84d58c37e84c13bfbca2f4a52f502ecb1d2942ca1",
+    "train_summary_sha256": "bd4585ec6430260ca53b43e3503d6f99e916e46cb085b01f612507d44e4a18f7"
+  },
+  "both_arms_success_090": 560,
+  "holdout_read": false,
+  "mean_top10_minus_top4_earliest_090_tokens_both_success": 15.557142857142857,
+  "mean_unique_projected_orders_out_of_11": 8.450081833060556,
+  "median_top10_minus_top4_earliest_090_tokens_both_success": 0.0,
+  "new_opportunities_repaired_by_top10_selector": 5,
+  "new_top10_oracle_opportunities": 14,
+  "queries": 611,
+  "rank_5_to_10_selected_complete": 406,
+  "rank_5_to_10_selected_successes": 430,
+  "role": "read-only diagnostic after preregistered train-only STOP; no model selection",
+  "top10_longer_on_both_success": 240,
+  "top10_selected_rank_5_to_10": 466,
+  "top10_shorter_on_both_success": 112
+}

@@ -1682,3 +1682,44 @@ The run status and stage logs are under
 `results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/`. Monitor with
 `watch -n 10 bash scripts/93_monitor_v17sel_b2b.sh`. This run does not train a
 selector or cutoff, and it does not access development or confirmation data.
+
+## V17-SEL-C0/C1 train-only quality–token test
+
+C0 fixed one selected trajectory at deployment, frozen B2B V8/V13, top-4
+versus top-10 arms of the same candidate-set scorer, a query-grouped selector
+train/validation split within the 2,032 clean-train queries, fixed optimization
+and checkpoints, and a set-valued successful-prefix loss with a small
+within-success token-cost term. Identical projected orders were deduplicated
+before set attention and top-1 choice. The 581-query B2B holdout remained
+closed throughout this stage. No cutoff, development, confirmation, or Target
+calls were used.
+
+The train-only oracle cost audit found 1,941/2,032 top-4 versus 1,996/2,032
+top-10 reachable 0.90 trajectories. The 55 newly covered queries required a
+mean 80.4% of their full-context tokens at their earliest 0.90-successful
+prefix, with mean global-lattice token regret 0.0147 of full-context tokens.
+Thus much of the new coverage is genuinely expensive in context tokens, but
+the projected order is close to the exact-cache minimum for those queries.
+On the 611-query selector-validation subset, the corresponding oracle counts
+were 587 and 601; top-10 reduced the failure-penalized oracle token fraction
+from 0.7231 to 0.7086.
+
+The learned selector did not turn this opportunity into a quality–token
+improvement. On the same 611 queries, top-4 selected one 0.90-successful
+trajectory on 570 and top-10 on 572, with 12 repairs and 10 breaks. Complete
+was 538 versus 543. However, the mean failure-penalized earliest-0.90 token
+fraction rose from **0.7519** to **0.7667**. The fixed V13 rank-1 candidate
+alone had 567 successes, 559 complete trajectories, and fraction 0.7405;
+the V8 fallback had 565, 551, and 0.7409. Among the 14 new top-10 oracle
+opportunities in validation, the top-10 selector converted only five. It
+selected ranks 5–10 on 466/611 queries, and among the 560 queries where both
+arms succeeded, its choice used more tokens on 240 and fewer on 112, with a
+mean +15.6-token difference. This is a failure of the frozen C1 selection
+protocol, not a refutation of the top-10 oracle pool ceiling.
+
+The preregistered quality–token gate therefore returned
+`STOP_SEL_C1_TRAIN_ONLY_GATE`; the 581-query holdout was **not read again**.
+Do not tune the selector against those 581 outcomes or treat this checkpoint
+as deployable. The train-only cost audit, both selector checkpoints, summary,
+choices, and read-only error decomposition are under
+`results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/`.
