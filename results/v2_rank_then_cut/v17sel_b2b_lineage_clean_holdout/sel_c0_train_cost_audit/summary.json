@@ -1,0 +1,120 @@
+{
+  "all_clean_train": {
+    "new_top10_success": {
+      "mean_earliest_090_token_fraction": 0.8043137246384462,
+      "mean_earliest_090_tokens": 743.2181818181818,
+      "mean_global_090_token_regret_fraction": 0.014728837216501223,
+      "median_earliest_090_tokens": 698,
+      "p90_earliest_090_tokens": 1135,
+      "queries": 55
+    },
+    "paired_top4_success": {
+      "mean_token_delta_top10_minus_top4": -9.646058732612056,
+      "queries": 1941,
+      "top10_cheaper": 352,
+      "top10_equal": 1589
+    },
+    "queries": 2032,
+    "top10": {
+      "complete": 1994,
+      "mean_earliest_090_token_fraction_successful": 0.7053569452463018,
+      "mean_earliest_090_tokens_successful": 574.8171342685371,
+      "mean_global_090_token_regret_fraction_successful": 0.00699949238452113,
+      "mean_penalized_090_token_fraction_all_queries": 0.7105769993659539,
+      "median_earliest_090_tokens_successful": 568.0,
+      "p90_earliest_090_tokens_successful": 814.0,
+      "success_090": 1996
+    },
+    "top4": {
+      "complete": 1935,
+      "mean_earliest_090_token_fraction_successful": 0.7141145377409783,
+      "mean_earliest_090_tokens_successful": 579.6913961875322,
+      "mean_global_090_token_regret_fraction_successful": 0.018342097192855115,
+      "mean_penalized_090_token_fraction_all_queries": 0.7269174792102554,
+      "median_earliest_090_tokens_successful": 569.0,
+      "p90_earliest_090_tokens_successful": 828.0,
+      "success_090": 1941
+    }
+  },
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "93f10e4ca5dbe827705adb18745a197d3d90b9ff153fabed410fc2899bcb4f49"
+  },
+  "development_read": false,
+  "holdout_read": false,
+  "role": "train-only descriptive oracle cost audit; not a deployable selector result",
+  "selector_train": {
+    "new_top10_success": {
+      "mean_earliest_090_token_fraction": 0.8047833012095149,
+      "mean_earliest_090_tokens": 746.1219512195122,
+      "mean_global_090_token_regret_fraction": 0.012226647961340265,
+      "median_earliest_090_tokens": 708,
+      "p90_earliest_090_tokens": 1135,
+      "queries": 41
+    },
+    "paired_top4_success": {
+      "mean_token_delta_top10_minus_top4": -10.049483013293944,
+      "queries": 1354,
+      "top10_cheaper": 251,
+      "top10_equal": 1103
+    },
+    "queries": 1421,
+    "top10": {
+      "complete": 1393,
+      "mean_earliest_090_token_fraction_successful": 0.7060395644697798,
+      "mean_earliest_090_tokens_successful": 573.9232974910394,
+      "mean_global_090_token_regret_fraction_successful": 0.007203637412070738,
+      "mean_penalized_090_token_fraction_all_queries": 0.711418150904534,
+      "median_earliest_090_tokens_successful": 566.0,
+      "p90_earliest_090_tokens_successful": 809.0,
+      "success_090": 1395
+    },
+    "top4": {
+      "complete": 1348,
+      "mean_earliest_090_token_fraction_successful": 0.7151176283334567,
+      "mean_earliest_090_tokens_successful": 578.758493353028,
+      "mean_global_090_token_regret_fraction_successful": 0.019119625776345253,
+      "mean_penalized_090_token_fraction_all_queries": 0.7285498020855035,
+      "median_earliest_090_tokens_successful": 566.5,
+      "p90_earliest_090_tokens_successful": 827.0,
+      "success_090": 1354
+    }
+  },
+  "selector_validation": {
+    "new_top10_success": {
+      "mean_earliest_090_token_fraction": 0.8029385361088881,
+      "mean_earliest_090_tokens": 734.7142857142857,
+      "mean_global_090_token_regret_fraction": 0.022056677178044028,
+      "median_earliest_090_tokens": 684.0,
+      "p90_earliest_090_tokens": 958,
+      "queries": 14
+    },
+    "paired_top4_success": {
+      "mean_token_delta_top10_minus_top4": -8.71550255536627,
+      "queries": 587,
+      "top10_cheaper": 101,
+      "top10_equal": 486
+    },
+    "queries": 611,
+    "top10": {
+      "complete": 601,
+      "mean_earliest_090_token_fraction_successful": 0.7037724962999593,
+      "mean_earliest_090_tokens_successful": 576.891846921797,
+      "mean_global_090_token_regret_fraction_successful": 0.006525644941207148,
+      "mean_penalized_090_token_fraction_all_queries": 0.7086207369497145,
+      "median_earliest_090_tokens_successful": 575.0,
+      "p90_earliest_090_tokens_successful": 820.0,
+      "success_090": 601
+    },
+    "top4": {
+      "complete": 587,
+      "mean_earliest_090_token_fraction_successful": 0.7118007648922292,
+      "mean_earliest_090_tokens_successful": 581.8432708688246,
+      "mean_global_090_token_regret_fraction_successful": 0.016548615588007336,
+      "mean_penalized_090_token_fraction_all_queries": 0.7231211931125017,
+      "median_earliest_090_tokens_successful": 577.0,
+      "p90_earliest_090_tokens_successful": 850.0,
+      "success_090": 587
+    }
+  }
+}
