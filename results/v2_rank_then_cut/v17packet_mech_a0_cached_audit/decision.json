@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-PACKET-MECH-A0_CACHED_ANSWER_AND_EVIDENCE_AUDIT",
+  "decision": "GO_SMALL_FACTORIAL_MECHANISM_REPLAY",
+  "reason": "38/39 R1 repairs add at least one correct answer and its selected sentence mentions a newly correct gold entity; 13/39 also reduce false answers. Cached depth8 D alone repairs none of the 39. But 62/92 unrepairable failures also have a candidate with a novel gold mention, so lexical evidence presence does not identify safe action.",
+  "next": "Test A addition alone and paired B/AD stability on frozen training-side cases; keep gold mentions diagnostic-only.",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

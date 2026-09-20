@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-PACKET-MECH-A1_FACTORIAL_REPLAY",
+  "decision": "GO_BUDGET_NEUTRAL_PARTIAL_REPLACEMENT_ORACLE_PILOT",
+  "reason": "35/39 historical repair pairs reproduce B failure and AD success. A alone succeeds in 26/35 stable pairs, while D succeeds in 0/39 cached pairs. A costs about 46 extra depth9 context tokens versus B; AD saves about 55 but discards all rank9 evidence. Seven of 24 previously unrepairable controls succeed under A, showing that preserving V8 evidence can matter.",
+  "next": "Enumerate original-sentence omissions within the V8 rank9 packet that permit adding the frozen rank10 sentence without exceeding the V8 depth9 token budget. Do not train a selector from these outcome-selected cases.",
+  "new_target_calls": 141,
+  "sealed_sets_read": false
+}

@@ -1,0 +1,24 @@
+{
+  "protocol": "V17-PACKET-MECH-A0_CACHED_ANSWER_AND_EVIDENCE_AUDIT",
+  "queries": 512,
+  "repairable_failures": 39,
+  "unrepairable_failures": 92,
+  "repair_answer_change_types": {
+    "new_correct_without_fewer_false": 25,
+    "new_correct_and_fewer_false": 13,
+    "no_new_correct_and_fewer_false": 1
+  },
+  "repair_depth8_already_successful": 0,
+  "repair_sentence_new_gold_mention": 38,
+  "repair_new_correct_atom_mentioned_in_sentence": 38,
+  "unrepairable_any_candidate_novel_gold_mention": 62,
+  "repairable_any_candidate_novel_gold_mention": 38,
+  "new_target_calls": 0,
+  "new_training": false,
+  "sealed_sets_read": false,
+  "limitations": [
+    "Gold lexical mentions are retrospective diagnostics, not evidence of a supported query relation or deployable features.",
+    "R1 repair actions were selected using single-run Target outcomes; paired replay is needed before causal claims.",
+    "D uses the cached V8 depth-8 state and changes context length as well as evidence."
+  ]
+}

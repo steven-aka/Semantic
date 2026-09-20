@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-PACKET-MECH-A2_BUDGET_NEUTRAL_SENTENCE_SWAP",
+  "status": "FROZEN_TRAIN_SIDE_MECHANISM",
+  "source": "MECH-A1 63 selected training queries and fixed rank10 sentence",
+  "action": "At depth9 reveal V8 rank9 with exactly one original sentence deferred and the A1 rank10 sentence added; retain source-order canonical rendering. At depth10 restore both deferred rank9 sentence and rank10 remainder.",
+  "candidate_rule": "Enumerate every single rank9 sentence omission; retain only contexts whose exact Qwen3-8B context tokens do not exceed V8 depth9. No outcome-based choice before Target calls.",
+  "expected_cases_with_action": 41,
+  "expected_new_calls": 80,
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 64,
+  "fidelity_epsilon": 0.000001,
+  "sealed_sets_read": false
+}

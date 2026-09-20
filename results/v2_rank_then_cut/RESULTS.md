@@ -3590,3 +3590,69 @@ must state what additional deployment-visible information it tests.
 [Audit summary](v17packet_r2g1_attribution_audit/summary.json),
 [per-query measurements](v17packet_r2g1_attribution_audit/per_query.jsonl), and
 [decision](v17packet_r2g1_attribution_audit/decision.json) record the result.
+
+### V17-PACKET-MECH-A0/A1 cached answers and factorial replay
+
+We stopped changing classifiers and decomposed the 39 R1 repairs on the
+same train-side 512. The cached answer audit used no new Target calls. In
+38/39 repairs, the AD answer adds a previously missing correct atom and the
+selected rank-10 sentence lexically mentions a newly correct gold entity;
+13/39 also have fewer false answers, and one is driven by fewer false answers
+without a newly correct atom. The cached D-only arm is the original depth-8
+V8 context; it succeeds in **0/39**. Yet 62/92 failures unrepairable by the
+R1 substitution also have a candidate sentence mentioning a gold entity not
+seen in the V8 depth-9 text. Gold mentions are retrospective diagnostics,
+not proof of relation support or permitted deployment features.
+
+We then froze 39 selected repairs and 24 unrepairable-failure controls for a
+small B/A/D/AD replay. A keeps the V8 rank-9 packet and adds the selected
+rank-10 sentence; AD replaces rank-9 with that sentence. A changes token
+cost and is **not** a deployable budget-neutral compression action. We made
+141 new Qwen3-8B calls, consuming 105,457 prompt and 7,674 generated tokens.
+In paired reruns, 35/39 repairs still had B fail and AD succeed; among these
+stable cases A succeeded in **26**, while the cached D alone succeeded in
+none. A failed but AD succeeded for the other nine stable cases. A uses
+about **46 more** depth-9 context tokens than B among stable cases, whereas
+AD saves about **55**. Seven of 24 previously unrepairable controls succeeded
+under A despite failing under the AD substitution. Four of the 39 original
+repairs did not reproduce their original B-fail/AD-success pairing, so they
+were excluded from the mechanism count.
+
+This supports new evidence as the dominant *selected-sample* mechanism and
+shows why removing the entire V8 rank-9 packet can also be harmful. It does
+not identify a deployable gate or establish a population-level gain.
+[Cached audit](v17packet_mech_a0_cached_audit/summary.json),
+[factorial protocol](../../configs/v17packet_mech_a1_factorial_replay.json),
+[factorial result](v17packet_mech_a1_factorial_replay/summary.json), and
+[per-case replay](v17packet_mech_a1_factorial_replay/per_case.jsonl) retain
+the evidence.
+
+### V17-PACKET-MECH-A2 budget-neutral partial replacement pilot
+
+To preserve more V8 evidence, we enumerated every original sentence in its
+rank-9 packet that could be deferred while adding the already frozen rank-10
+sentence, requiring exact Qwen3-8B depth-9 context tokens no greater than
+V8. At depth10 the deferred sentence and rank-10 remainder restore the
+original lossless context. On the 63 A1 mechanism cases this yields 80
+feasible actions across 41 queries. We evaluated all 80 with the current
+Target (71,404 prompt and 4,012 generated tokens). The rank-10 sentence was
+selected using the earlier A1/R1 outcome; the rank-9 omission was not
+selected using this pilot's Target output before evaluation.
+
+Among **18** repeat-stable R1 repair cases with a feasible action, **13**
+have at least one 0.90-successful partial replacement. The best successful
+action saves an average **11.85 depth-9 context tokens** versus V8 across
+these 13 cases. Four of 21 feasible, previously unrepairable controls also
+have a successful action. This is a useful **selected-case oracle ceiling**:
+the 63 cases were chosen from earlier outcome audits, and the winning rank-9
+sentence omission is chosen retrospectively. We have not measured how often
+the same action generator breaks queries where V8 already succeeds.
+
+Decision: `GO_PRE_REGISTERED_SAFETY_AND_GENERALIZATION_AUDIT_NO_TRAINING`.
+Next freeze a train-side V8-success sample and measure break prevalence and
+token costs for this exact action generator before training a controller or
+opening sealed data. [Protocol](../../configs/v17packet_mech_a2_budget_neutral_swap.json),
+[result](v17packet_mech_a2_budget_neutral_swap/summary.json),
+[per-action Target outcomes](v17packet_mech_a2_budget_neutral_swap/per_action.jsonl),
+and [decision](v17packet_mech_a2_budget_neutral_swap/decision.json) record
+the pilot.

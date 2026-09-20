@@ -1,0 +1,19 @@
+{
+  "protocol": "V17-PACKET-MECH-A1_FACTORIAL_REPLAY",
+  "status": "FROZEN_TRAIN_SIDE_MECHANISM",
+  "source": "R1 label-scale512, cached MECH-A0 answer audit",
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "repair_selection": "all 39 R1 strict-oracle quality repair queries, strict_index sentence",
+  "control_selection": "20 SHA256-first unrepairable baseline failures with a novel gold mention in some eligible candidate, plus all 4 with eligible actions but no novel gold mention; within each control choose the lowest-cost eligible candidate, tie by sentence index",
+  "arms": ["B: cached V8 depth9 plus repeat", "D: cached V8 depth8", "AD: cached strict R1 sentence replacement plus repeat", "A: V8 depth9 plus selected rank10 sentence"],
+  "interpretation": "A and D change context length; this is a diagnostic factorial, not a matched-budget deployment comparison. Repeat B and AD for selected repairs to estimate outcome stability before attributing a mechanism.",
+  "batch_size": 64,
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "fidelity_epsilon": 0.000001,
+  "new_target_call_budget": 141,
+  "sealed_sets_read": false
+}

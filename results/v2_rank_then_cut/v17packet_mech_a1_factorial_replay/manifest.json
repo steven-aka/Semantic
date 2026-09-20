@@ -1,0 +1,9 @@
+{
+  "protocol": "V17-PACKET-MECH-A1_FACTORIAL_REPLAY",
+  "selected_queries": 63,
+  "repair_queries": 39,
+  "controls_with_novel_gold_mention": 20,
+  "controls_without_novel_gold_mention": 4,
+  "new_target_calls": 141,
+  "task_signature_sha256": "5c1609c7923b8602630db006b07f2b66fd99610d48fa7331d4ca0787c0c2ed3e"
+}

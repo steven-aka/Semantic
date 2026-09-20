@@ -1,0 +1,28 @@
+{
+  "protocol": "V17-PACKET-MECH-A1_FACTORIAL_REPLAY",
+  "new_target_calls": 141,
+  "prompt_tokens": 105457,
+  "generated_tokens": 7674,
+  "repair_cases": 39,
+  "repeat_pair_valid": 35,
+  "B_repeat_success_among_repairs": 2,
+  "AD_repeat_success_among_repairs": 36,
+  "A_success_among_all_repairs": 29,
+  "A_success_among_repeat_valid": 26,
+  "A_failure_but_AD_success_among_repeat_valid": 9,
+  "D_success_among_all_repairs": 0,
+  "mean_A_context_tokens_minus_B_among_repeat_valid": 46.08571428571429,
+  "mean_AD_context_tokens_minus_B_among_repeat_valid": -54.74285714285714,
+  "controls": {
+    "control_novel_gold_mention": {
+      "queries": 20,
+      "A_success": 6
+    },
+    "control_no_novel_gold_mention": {
+      "queries": 4,
+      "A_success": 1
+    }
+  },
+  "limitations": "Outcome-selected repairs and single-run cached D; A adds context and D removes context. This is mechanism diagnosis, not deployable quality-token Pareto evidence.",
+  "sealed_sets_read": false
+}

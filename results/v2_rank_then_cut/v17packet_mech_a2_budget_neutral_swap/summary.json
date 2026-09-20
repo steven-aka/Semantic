@@ -1,0 +1,14 @@
+{
+  "protocol": "V17-PACKET-MECH-A2_BUDGET_NEUTRAL_SENTENCE_SWAP",
+  "new_target_calls": 80,
+  "prompt_tokens": 71404,
+  "generated_tokens": 4012,
+  "cases_with_action": 41,
+  "successful_cases_total": 18,
+  "stable_repair_cases_with_action": 18,
+  "stable_repair_cases_with_successful_budget_neutral_swap": 13,
+  "controls_with_action": 21,
+  "controls_with_successful_budget_neutral_swap": 4,
+  "limitations": "Outcome-selected mechanism sample and oracle omission choice. No deployable selector; evaluate safety on untouched V8-success queries before any candidate policy.",
+  "sealed_sets_read": false
+}

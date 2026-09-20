@@ -1,0 +1,11 @@
+{
+  "protocol": "V17-PACKET-MECH-A2_BUDGET_NEUTRAL_SENTENCE_SWAP",
+  "cases_with_action": 41,
+  "new_target_calls": 80,
+  "tasks_by_prior_group": {
+    "repair": 30,
+    "control_novel_gold_mention": 39,
+    "control_no_novel_gold_mention": 11
+  },
+  "task_signature_sha256": "65e320f88c1809297949b377be6f225374ff500138398ad4de0f55c13bec360a"
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-PACKET-MECH-A2_BUDGET_NEUTRAL_SENTENCE_SWAP",
+  "decision": "GO_PRE_REGISTERED_SAFETY_AND_GENERALIZATION_AUDIT_NO_TRAINING",
+  "reason": "Among 18 repeat-stable repair cases with a feasible single-sentence budget-neutral swap, 13 have an oracle 0.90-successful action with mean depth9 context saving of 11.85 tokens among the 13. Four of 21 feasible previously unrepairable controls also become successful. These are selected-case oracle outcomes, not a deployable policy or population-level Pareto point.",
+  "required_next": [
+    "Before training, freeze an untouched train-side sample of V8-success cases and measure break prevalence for the same action generator.",
+    "Preserve add-only restoration and exact token accounting; avoid oracle-selected omissions in deployment claims.",
+    "Report both action-space ceiling and low-risk candidate selection on query-held-out queries; include compressor inference cost."
+  ],
+  "new_target_calls": 80,
+  "sealed_sets_read": false
+}
