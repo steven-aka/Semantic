@@ -2652,3 +2652,29 @@ progressive method that *reuses a Target call already required for the final
 answer*, nor quality improvements at higher total cost. Such a method must
 specify when the feedback is observed, whether the call is reusable, and all
 Target/compressor costs before any new training or claim of Pareto gain.
+
+### V17-CANON-P0 fresh V8 prefix-chain protocol
+
+The static depth-10 four-action branch is closed after ACT-C1 and VERIFY-A0.
+The next measurement returns to progressive V8 prefixes under the *current*
+Qwen3-8B execution contract. Its frozen protocol is
+`configs/v17canon_p0_fresh_v8_prefix_chain.json`; its resumable generator and
+auditor are `src/evaluation/v17canon_p0_fresh_v8_prefix_chain.py` and
+`src/evaluation/v17canon_p0_analyze.py`.
+
+The population is train-side folds 0–3 (1,421 queries). For each query the
+generator evaluates V8 depths 1–12. The fresh EXEC-A1 STAY result at depth 10
+is reused by exact query/mask, leaving 15,631 new Target calls rather than
+17,052. The resulting per-depth success, Complete and context cost are
+*single fixed-depth diagnostics*. A level-wise deployment schedule has a
+different cost and Complete definition and must be frozen and evaluated
+separately. This stage does not train a model or read the 611, 581, internal,
+development or confirmation sets.
+
+The next progressive neighborhood is not authorized by the historical 4096
+cache or the depth-10 oracle alone. It requires a fresh-chain Pareto audit,
+then a predeclared local action set, causal stopping schedule and Target-call
+budget. Any later Qwen3-4B semantic utility experiment must show how its
+state-conditioned representation differs from the frozen Qwen3-4B features
+already used by A3/ACT-C1, and must pass query-grouped rollout rather than
+classifier accuracy alone.

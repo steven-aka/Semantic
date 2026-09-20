@@ -1,0 +1,19 @@
+{
+  "protocol": "V17-CANON-P0_FRESH_V8_PREFIX_CHAIN",
+  "status": "FROZEN_TRAIN_ONLY",
+  "population": "B2B clean train folds 0-3, 1421 queries; all other gates sealed",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "target_model": "models/Qwen3-8B",
+  "v8_order": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/sel_c0_train_v8_rollouts.jsonl",
+  "reused_depth10": "results/v2_rank_then_cut/v17exec_a1_fresh_depth10_cache/per_mask.jsonl",
+  "depths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "gpu_memory_utilization": 0.55,
+  "max_model_len": 4096,
+  "max_new_tokens": 256,
+  "temperature": 0.0,
+  "batch_size": 128,
+  "fidelity_epsilon": 1e-6,
+  "evaluation": "Per-depth five eligible-anchor success, all-attainable Complete, context tokens and fraction, earliest success and rollback. A fixed depth is a single-depth diagnostic, not a five-level deployment schedule.",
+  "next_stage": "Select a small early-depth neighborhood only after reading the fresh train-side frontier; freeze causal schedules and cost/quality gate before PROG-A0 target calls.",
+  "explicitly_off": ["ACT-C1", "new controller training", "learned cutoff", "611", "581", "internal300", "development", "confirmation"]
+}
