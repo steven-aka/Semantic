@@ -1,0 +1,378 @@
+{
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70"
+  },
+  "baseline_top4": {
+    "all": {
+      "mean_failure_penalized_090_token_fraction": 0.7269174792102554,
+      "mean_token_saving_on_top4_success": 0,
+      "new_success_vs_top4": 0,
+      "oracle_complete": 1935,
+      "oracle_success_090": 1941,
+      "queries": 2032,
+      "tail_ranks": [],
+      "top4_success_with_token_saving": 0
+    },
+    "train": {
+      "mean_failure_penalized_090_token_fraction": 0.7285498020855035,
+      "mean_token_saving_on_top4_success": 0,
+      "new_success_vs_top4": 0,
+      "oracle_complete": 1348,
+      "oracle_success_090": 1354,
+      "queries": 1421,
+      "tail_ranks": [],
+      "top4_success_with_token_saving": 0
+    },
+    "validation": {
+      "mean_failure_penalized_090_token_fraction": 0.7231211931125017,
+      "mean_token_saving_on_top4_success": 0,
+      "new_success_vs_top4": 0,
+      "oracle_complete": 587,
+      "oracle_success_090": 587,
+      "queries": 611,
+      "tail_ranks": [],
+      "top4_success_with_token_saving": 0
+    }
+  },
+  "candidate_budget": "top4 preserved as a pool; adding tail slots increases pool size; final output still requires a selector",
+  "confirmation_read": false,
+  "decision": "DO_NOT_INFER_ONE_ESCAPE_SLOT_DEPLOYABILITY_FROM_ORACLE_COVERAGE",
+  "development_read": false,
+  "fixed_single_tail_rank": {
+    "10": {
+      "all": {
+        "mean_failure_penalized_090_token_fraction": 0.7211480935247224,
+        "mean_token_saving_on_top4_success": 3.958784131890778,
+        "new_success_vs_top4": 14,
+        "oracle_complete": 1949,
+        "oracle_success_090": 1955,
+        "queries": 2032,
+        "tail_ranks": [
+          10
+        ],
+        "top4_success_with_token_saving": 149
+      },
+      "train": {
+        "mean_failure_penalized_090_token_fraction": 0.722220078888329,
+        "mean_token_saving_on_top4_success": 4.4364844903988185,
+        "new_success_vs_top4": 11,
+        "oracle_complete": 1359,
+        "oracle_success_090": 1365,
+        "queries": 1421,
+        "tail_ranks": [
+          10
+        ],
+        "top4_success_with_token_saving": 107
+      },
+      "validation": {
+        "mean_failure_penalized_090_token_fraction": 0.71865498190167,
+        "mean_token_saving_on_top4_success": 2.856899488926746,
+        "new_success_vs_top4": 3,
+        "oracle_complete": 590,
+        "oracle_success_090": 590,
+        "queries": 611,
+        "tail_ranks": [
+          10
+        ],
+        "top4_success_with_token_saving": 42
+      }
+    },
+    "5": {
+      "all": {
+        "mean_failure_penalized_090_token_fraction": 0.7219885455423186,
+        "mean_token_saving_on_top4_success": 3.0195775373518803,
+        "new_success_vs_top4": 15,
+        "oracle_complete": 1952,
+        "oracle_success_090": 1956,
+        "queries": 2032,
+        "tail_ranks": [
+          5
+        ],
+        "top4_success_with_token_saving": 102
+      },
+      "train": {
+        "mean_failure_penalized_090_token_fraction": 0.7234100461926402,
+        "mean_token_saving_on_top4_success": 3.068685376661743,
+        "new_success_vs_top4": 11,
+        "oracle_complete": 1361,
+        "oracle_success_090": 1365,
+        "queries": 1421,
+        "tail_ranks": [
+          5
+        ],
+        "top4_success_with_token_saving": 73
+      },
+      "validation": {
+        "mean_failure_penalized_090_token_fraction": 0.7186825677614561,
+        "mean_token_saving_on_top4_success": 2.906303236797274,
+        "new_success_vs_top4": 4,
+        "oracle_complete": 591,
+        "oracle_success_090": 591,
+        "queries": 611,
+        "tail_ranks": [
+          5
+        ],
+        "top4_success_with_token_saving": 29
+      }
+    },
+    "6": {
+      "all": {
+        "mean_failure_penalized_090_token_fraction": 0.7221815134039157,
+        "mean_token_saving_on_top4_success": 3.4198866563626997,
+        "new_success_vs_top4": 10,
+        "oracle_complete": 1945,
+        "oracle_success_090": 1951,
+        "queries": 2032,
+        "tail_ranks": [
+          6
+        ],
+        "top4_success_with_token_saving": 131
+      },
+      "train": {
+        "mean_failure_penalized_090_token_fraction": 0.7238885833171346,
+        "mean_token_saving_on_top4_success": 3.5937961595273262,
+        "new_success_vs_top4": 5,
+        "oracle_complete": 1353,
+        "oracle_success_090": 1359,
+        "queries": 1421,
+        "tail_ranks": [
+          6
+        ],
+        "top4_success_with_token_saving": 94
+      },
+      "validation": {
+        "mean_failure_penalized_090_token_fraction": 0.7182113884502594,
+        "mean_token_saving_on_top4_success": 3.0187393526405453,
+        "new_success_vs_top4": 5,
+        "oracle_complete": 592,
+        "oracle_success_090": 592,
+        "queries": 611,
+        "tail_ranks": [
+          6
+        ],
+        "top4_success_with_token_saving": 37
+      }
+    },
+    "7": {
+      "all": {
+        "mean_failure_penalized_090_token_fraction": 0.7217068703869947,
+        "mean_token_saving_on_top4_success": 2.7949510561566204,
+        "new_success_vs_top4": 21,
+        "oracle_complete": 1957,
+        "oracle_success_090": 1962,
+        "queries": 2032,
+        "tail_ranks": [
+          7
+        ],
+        "top4_success_with_token_saving": 117
+      },
+      "train": {
+        "mean_failure_penalized_090_token_fraction": 0.7233875743134294,
+        "mean_token_saving_on_top4_success": 2.8389955686853767,
+        "new_success_vs_top4": 14,
+        "oracle_complete": 1363,
+        "oracle_success_090": 1368,
+        "queries": 1421,
+        "tail_ranks": [
+          7
+        ],
+        "top4_success_with_token_saving": 87
+      },
+      "validation": {
+        "mean_failure_penalized_090_token_fraction": 0.7177980646922913,
+        "mean_token_saving_on_top4_success": 2.6933560477001706,
+        "new_success_vs_top4": 7,
+        "oracle_complete": 594,
+        "oracle_success_090": 594,
+        "queries": 611,
+        "tail_ranks": [
+          7
+        ],
+        "top4_success_with_token_saving": 30
+      }
+    },
+    "8": {
+      "all": {
+        "mean_failure_penalized_090_token_fraction": 0.7206826372618503,
+        "mean_token_saving_on_top4_success": 4.001545595054096,
+        "new_success_vs_top4": 17,
+        "oracle_complete": 1953,
+        "oracle_success_090": 1958,
+        "queries": 2032,
+        "tail_ranks": [
+          8
+        ],
+        "top4_success_with_token_saving": 153
+      },
+      "train": {
+        "mean_failure_penalized_090_token_fraction": 0.7217968136692392,
+        "mean_token_saving_on_top4_success": 4.215657311669129,
+        "new_success_vs_top4": 14,
+        "oracle_complete": 1363,
+        "oracle_success_090": 1368,
+        "queries": 1421,
+        "tail_ranks": [
+          8
+        ],
+        "top4_success_with_token_saving": 105
+      },
+      "validation": {
+        "mean_failure_penalized_090_token_fraction": 0.7180914021147151,
+        "mean_token_saving_on_top4_success": 3.507666098807496,
+        "new_success_vs_top4": 3,
+        "oracle_complete": 590,
+        "oracle_success_090": 590,
+        "queries": 611,
+        "tail_ranks": [
+          8
+        ],
+        "top4_success_with_token_saving": 48
+      }
+    },
+    "9": {
+      "all": {
+        "mean_failure_penalized_090_token_fraction": 0.7213427666151928,
+        "mean_token_saving_on_top4_success": 3.7800103039670274,
+        "new_success_vs_top4": 14,
+        "oracle_complete": 1949,
+        "oracle_success_090": 1955,
+        "queries": 2032,
+        "tail_ranks": [
+          9
+        ],
+        "top4_success_with_token_saving": 143
+      },
+      "train": {
+        "mean_failure_penalized_090_token_fraction": 0.7229270417819588,
+        "mean_token_saving_on_top4_success": 4.016248153618907,
+        "new_success_vs_top4": 8,
+        "oracle_complete": 1356,
+        "oracle_success_090": 1362,
+        "queries": 1421,
+        "tail_ranks": [
+          9
+        ],
+        "top4_success_with_token_saving": 104
+      },
+      "validation": {
+        "mean_failure_penalized_090_token_fraction": 0.7176582248607339,
+        "mean_token_saving_on_top4_success": 3.2350936967632027,
+        "new_success_vs_top4": 6,
+        "oracle_complete": 593,
+        "oracle_success_090": 593,
+        "queries": 611,
+        "tail_ranks": [
+          9
+        ],
+        "top4_success_with_token_saving": 39
+      }
+    }
+  },
+  "full_top10": {
+    "all": {
+      "mean_failure_penalized_090_token_fraction": 0.7105769993659539,
+      "mean_token_saving_on_top4_success": 9.646058732612056,
+      "new_success_vs_top4": 55,
+      "oracle_complete": 1994,
+      "oracle_success_090": 1996,
+      "queries": 2032,
+      "tail_ranks": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "top4_success_with_token_saving": 352
+    },
+    "train": {
+      "mean_failure_penalized_090_token_fraction": 0.711418150904534,
+      "mean_token_saving_on_top4_success": 10.049483013293944,
+      "new_success_vs_top4": 41,
+      "oracle_complete": 1393,
+      "oracle_success_090": 1395,
+      "queries": 1421,
+      "tail_ranks": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "top4_success_with_token_saving": 251
+    },
+    "validation": {
+      "mean_failure_penalized_090_token_fraction": 0.7086207369497145,
+      "mean_token_saving_on_top4_success": 8.71550255536627,
+      "new_success_vs_top4": 14,
+      "oracle_complete": 601,
+      "oracle_success_090": 601,
+      "queries": 611,
+      "tail_ranks": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "top4_success_with_token_saving": 101
+    }
+  },
+  "holdout_read": false,
+  "new_opportunity_first_success_rank": {
+    "5": 15,
+    "6": 9,
+    "7": 13,
+    "8": 6,
+    "9": 5,
+    "10": 7
+  },
+  "new_opportunity_successful_tail_count": {
+    "1": 30,
+    "2": 18,
+    "3": 4,
+    "4": 2,
+    "5": 1
+  },
+  "per_query_oracle_one_tail": {
+    "oracle_success_090": 1996,
+    "reason": "when a tail success exists, an adaptive oracle can choose it; this equals the full top10 existential ceiling by definition"
+  },
+  "protocol": "V17-SEL-D0_TRAIN_ONLY_TAIL_OPPORTUNITY_AUDIT",
+  "role": "oracle pool opportunity, not deployed top-1 or a tail-gate result",
+  "train_selected_fixed_two_tail_ranks": {
+    "ranks_selected_on_train": [
+      7,
+      10
+    ],
+    "train": {
+      "mean_failure_penalized_090_token_fraction": 0.7186930594127744,
+      "mean_token_saving_on_top4_success": 5.976366322008863,
+      "new_success_vs_top4": 24,
+      "oracle_complete": 1373,
+      "oracle_success_090": 1378,
+      "queries": 1421,
+      "tail_ranks": [
+        7,
+        10
+      ],
+      "top4_success_with_token_saving": 159
+    },
+    "validation": {
+      "mean_failure_penalized_090_token_fraction": 0.7147141177681149,
+      "mean_token_saving_on_top4_success": 4.846678023850085,
+      "new_success_vs_top4": 8,
+      "oracle_complete": 595,
+      "oracle_success_090": 595,
+      "queries": 611,
+      "tail_ranks": [
+        7,
+        10
+      ],
+      "top4_success_with_token_saving": 62
+    }
+  }
+}

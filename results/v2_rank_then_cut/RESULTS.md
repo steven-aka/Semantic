@@ -1723,3 +1723,38 @@ Do not tune the selector against those 581 outcomes or treat this checkpoint
 as deployable. The train-only cost audit, both selector checkpoints, summary,
 choices, and read-only error decomposition are under
 `results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/`.
+
+## V17-SEL-D0 train-only tail opportunity audit
+
+D0 read only the same 2,032 clean-train candidate records. The 581-query
+lineage-clean gate, internal300, development, confirmation, cutoff, and Target
+were not accessed. The frozen top-4 **pool** is preserved; the following are
+oracle pool ceilings, not deployable top-1 outcomes. The artifact and its
+per-query audit are in `v17sel_b2b_lineage_clean_holdout/sel_d0_train_only/`.
+
+Top-4 covers 1,941/2,032 at 0.90. Full top-10 covers 1,996/2,032, adding
+55 success opportunities and lowering the oracle failure-penalized token
+fraction from 0.72692 to 0.71058. It also finds an earlier successful
+prefix on 352 queries that top-4 already covers. Thus tail opportunity is
+not limited to the 55 new successes, although no learned policy has yet
+converted this oracle token saving into a deployed benefit.
+
+An adaptive *per-query oracle* with one tail slot equals full top-10 coverage
+by definition: whenever any tail candidate succeeds, it chooses that one.
+It says nothing about whether a controller can select the tail without
+labels. Among the 55 new opportunities, 30 have exactly one successful tail
+rank; their first successful ranks are distributed across rank 5 through 10
+as 15, 9, 13, 6, 5, and 7. A precommitted single rank covers at most 21/55
+new opportunities (rank 7). Selecting two fixed ranks (7 and 10) solely on
+the 1,421-query training fold recovers 24/41 there, but only 8/14 on the
+611-query selector-validation fold. The corresponding validation oracle
+counts are 587 top-4, 595 with those two ranks, and 601 full top-10.
+
+Decision: `DO_NOT_INFER_ONE_ESCAPE_SLOT_DEPLOYABILITY_FROM_ORACLE_COVERAGE`.
+The next candidate-policy experiment must jointly test **whether to expand**
+and **which tail candidate to use**, under a fixed final-output budget and a
+specified final chooser. A gate that predicts only “need expansion” is
+insufficient. Its train-only criterion must compare actual repairs, breaks,
+Complete, failure-penalized context tokens, and added inference cost against
+the V13 rank-1, V8 fallback, and learned top-4 baselines. No D0 oracle number
+is evidence that the C1 top-4 selector is a Pareto-dominant deployed anchor.
