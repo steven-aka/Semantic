@@ -1,0 +1,22 @@
+{
+  "protocol": "V17-ACT-C0_TARGET_DECISION_RERUN",
+  "queries": 12,
+  "paired_masks": 24,
+  "repeat_generations": 2,
+  "cached_positive_label_flip_queries": [
+    "57509__wikitables_composition__train",
+    "59078__wikitables_composition__train",
+    "22710__wikidata_simple__train",
+    "55876__wikidata_intersection__train"
+  ],
+  "queries_with_within_rerun_label_disagreement": [],
+  "cost": {
+    "target_calls": 48,
+    "prompt_tokens": 40488,
+    "generated_tokens": 2972
+  },
+  "limitations": [
+    "Enriched rare-positive pairs, not a population label-flip estimate.",
+    "Only selected STAY/edit masks are rerun; other actions retain original cache labels."
+  ]
+}

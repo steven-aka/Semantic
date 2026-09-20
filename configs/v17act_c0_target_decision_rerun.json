@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-ACT-C0_TARGET_DECISION_RERUN",
+  "status": "FROZEN_TRAIN_ONLY",
+  "sample": "First 12 SHA256-ordered queries among the 64 hash-stable learning-chain spot audit queries with a positive non-STAY depth10 edit; use the lowest-index positive edit and STAY",
+  "target_model": "models/Qwen3-8B",
+  "gpu": 0,
+  "gpu_memory_utilization": 0.55,
+  "max_model_len": 4096,
+  "max_new_tokens": 256,
+  "repeat_generations": 2,
+  "batch_size": 24,
+  "scoring": "Original atomic QAMPARI prompt, greedy generation and qampari_list_metrics list-F1; cached non-rerun masks unchanged",
+  "purpose": "Measure whether rare positive edit-versus-STAY labels flip under repeated frozen Target evaluation; not a population flip-rate estimate",
+  "sealed": ["fold4=611", "B2B581", "internal300", "development", "confirmation"]
+}

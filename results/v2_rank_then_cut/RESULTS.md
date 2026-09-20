@@ -2488,3 +2488,31 @@ boundary-enriched sample; any further Target reruns should target rare
 beneficial-edit versus STAY *decision flips*, use the Qwen3-8B Target
 (not the Qwen3-4B V8 encoder), and report call/token costs. They are not
 silently replaced by this cache arithmetic check.
+
+### Paired Target decision rerun
+
+To test the cache-to-Target leg, 12 hash-selected positive edit/STAY pairs
+from the audited 64 queries were rerun twice with the frozen Qwen3-8B,
+the original atomic QAMPARI prompt and greedy generation. All 24 paired
+masks were regenerated in each repeat, for 48 Target calls, 40,488 prompt
+tokens and 2,972 generated tokens. This is deliberately enriched for rare
+positive edit decisions and cannot estimate their population flip rate.
+
+Eight of the 12 cached-positive edit decisions remained positive; four
+became harmful in both new repeats. The two new repeats agreed on all 12
+pair decisions. In all four changed pairs the STAY result improved relative
+to the original exact cache while the edit did not, so a quality loss appeared
+under the new paired evaluation. This shows decision-label drift across the
+old exact cache and the current Target run, not evidence that the same-process
+Target is randomly flipping these labels. The original exact-search code
+defaults to a 512-state batch, while this pilot used a 24-mask batch; the
+cache metadata does not establish the original effective batch size. vLLM batching, runtime
+environment and model artifact identity need to be isolated before deciding
+whether the old cache can be used as an unqualified ACT-C1 training contract.
+
+Therefore the deterministic cache-to-label spot check passes, but the
+cache-to-current-Target decision check does not. Freeze ACT-C1 training
+pending a small exact-contract replication on these four pairs, including
+prompt/token hashes, model artifact hashes, runtime versions and batch
+conditions. Do not treat the 4/12 as a general error rate or tune a new
+label threshold against it.
