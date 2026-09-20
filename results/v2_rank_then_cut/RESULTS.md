@@ -2509,6 +2509,9 @@ defaults to a 512-state batch, while this pilot used a 24-mask batch; the
 cache metadata does not establish the original effective batch size. vLLM batching, runtime
 environment and model artifact identity need to be isolated before deciding
 whether the old cache can be used as an unqualified ACT-C1 training contract.
+For all 12 rerun queries, the current train-side question matched the original
+exact-search example and all 12 packet texts matched the original atomic
+packet files. A source-text mismatch does not explain these four label flips.
 
 Therefore the deterministic cache-to-label spot check passes, but the
 cache-to-current-Target decision check does not. Freeze ACT-C1 training
