@@ -1,0 +1,47 @@
+{
+  "protocol": "V17-STATE-A0_EARLY_MOVE_EXPAND256",
+  "sample_ids_sha256": "68d7a122d516ea9b440afc3a24f73212027a2845d5c8a081e1eb29edd12e653b",
+  "queries": 256,
+  "actions": 2304,
+  "fresh_states": 960,
+  "fresh_target_prompt_tokens": 465309,
+  "fresh_target_generated_tokens": 33802,
+  "baseline": {
+    "success": {
+      "0.6": 226,
+      "0.7": 223,
+      "0.8": 176,
+      "0.9": 190,
+      "0.95": 175
+    },
+    "complete": 147,
+    "mean_cumulative_context_tokens": 2143.92578125,
+    "changed_queries": 0
+  },
+  "quality_first_oracle": {
+    "success": {
+      "0.6": 247,
+      "0.7": 247,
+      "0.8": 223,
+      "0.9": 209,
+      "0.95": 175
+    },
+    "complete": 184,
+    "mean_cumulative_context_tokens": 2160.37109375,
+    "changed_queries": 120
+  },
+  "strict_no_extra_context_oracle": {
+    "success": {
+      "0.6": 229,
+      "0.7": 228,
+      "0.8": 179,
+      "0.9": 191,
+      "0.95": 175
+    },
+    "complete": 150,
+    "mean_cumulative_context_tokens": 2141.796875,
+    "changed_queries": 69
+  },
+  "limitations": "Outcome-aware selected action; train-side 256-query audit, not generalization or deployable policy.",
+  "reused_pilot_states": 320
+}

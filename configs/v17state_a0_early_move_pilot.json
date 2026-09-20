@@ -1,0 +1,17 @@
+{
+  "protocol": "V17-STATE-A0_EARLY_MOVE_PILOT",
+  "status": "FROZEN_TRAIN_SIDE",
+  "target_model": "models/Qwen3-8B",
+  "sample_size": 64,
+  "sample_rule": "lowest SHA256(example_id) among train1421",
+  "decision_depths": [5, 6],
+  "latest_eligible_v8_rank": 10,
+  "primary_schedule": [6, 7, 7, 9, 10],
+  "fidelity_epsilon": 1e-6,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 64,
+  "temperature": 0.0,
+  "interpretation": "Train-side outcome-aware pilot oracle. Depth10 packet set is identical across actions. No model training or sealed-set access. Report five-anchor quality and context cost; Target generation cost is experimental cost, not deployment cost."
+}

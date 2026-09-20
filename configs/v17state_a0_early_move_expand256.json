@@ -1,0 +1,17 @@
+{
+  "protocol": "V17-STATE-A0_EARLY_MOVE_EXPAND256",
+  "status": "FROZEN_TRAIN_SIDE",
+  "target_model": "models/Qwen3-8B",
+  "sample_size": 256,
+  "sample_rule": "lowest SHA256(example_id) among train1421; first 64 design-exposed pilot, remaining 192 extension",
+  "decision_depths": [5, 6],
+  "latest_eligible_v8_rank": 10,
+  "primary_schedule": [6, 7, 7, 9, 10],
+  "fidelity_epsilon": 1e-6,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 64,
+  "temperature": 0.0,
+  "gate": "Report the first 64 separately. On the 192 extension, require at least 9 additional 0.80 repairs or 6 additional 0.90 repairs for further learnability design, with quality-first mean context increase <=10 tokens/query and no five-anchor baseline break. Otherwise close early ordering under current action space. This is an outcome-aware upper-bound gate, never proof of deployability."
+}

@@ -1,0 +1,51 @@
+{
+  "protocol": "V17-STATE-A0_EARLY_MOVE_EXPAND256",
+  "decision": "STOP_CURRENT_EARLY_MOVE_TRAINING_UNDER_FROZEN_GATE",
+  "extension_queries": 192,
+  "frozen_gate": {
+    "minimum_080_repairs": 9,
+    "or_minimum_090_repairs": 6,
+    "maximum_mean_added_context_tokens": 10,
+    "no_anchor_break": true
+  },
+  "extension": {
+    "baseline": {
+      "success": [
+        168,
+        165,
+        131,
+        142,
+        132
+      ],
+      "complete": 106,
+      "mean_cumulative_context_tokens": 2141.9635416666665
+    },
+    "quality_first_oracle": {
+      "success": [
+        186,
+        185,
+        166,
+        157,
+        132
+      ],
+      "complete": 137,
+      "mean_cumulative_context_tokens": 2162.6927083333335
+    },
+    "strict_no_extra_context_oracle": {
+      "success": [
+        170,
+        170,
+        134,
+        143,
+        132
+      ],
+      "complete": 109,
+      "mean_cumulative_context_tokens": 2139.453125
+    },
+    "quality_first_080_repairs": 35,
+    "quality_first_090_repairs": 15,
+    "quality_first_mean_added_context_tokens": 20.72916666666697
+  },
+  "interpretation": "Quality headroom exists, but the preset <=10 average added-context-token gate fails on the unseen extension. Outcome-aware selection does not establish cross-query learnability. Do not start a controller based on this audit; analyze cost-quality structure and action granularity before another train run.",
+  "sealed_sets_read": false
+}

@@ -3221,3 +3221,44 @@ the gate to +4 after observing B4. The
 [B4 summary](v17samecall_b4_fresh_prompt_replication/summary.json) and
 [decision](v17samecall_b4_fresh_prompt_replication/decision.json) are the
 final train-side evidence. No sealed outcome set was read.
+
+### V17-STATE-A0 early state-dependent packet move audit
+
+We tested one move-to-next action at V8 depth 5 or 6, changing the depth-6
+or depth-7 prefix. Only V8 ranks up to 10 could move, so every action kept
+the same depth-10 packet set. The Target prompt and fixed five-anchor stop
+schedule `[6,7,7,9,10]` were unchanged. P0/A0 states were reused by exact
+query/mask; the initial 64 queries required 320 fresh Target states and the
+next 192 queries required 960. Both cohorts are train-side. Action choice
+below is outcome-aware, never a deployable policy.
+
+| Cohort/policy | 0.60 | 0.70 | 0.80 | 0.90 | 0.95 | Complete | Mean cumulative context tokens |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| First 64, V8 STAY | 58 | 58 | 45 | 48 | 43 | 41 | 2149.81 |
+| First 64, quality-first oracle | 61 | 62 | 57 | 52 | 43 | 47 | 2153.41 |
+| First 64, no-extra-context oracle | 59 | 58 | 45 | 48 | 43 | 41 | 2148.83 |
+| New 192, V8 STAY | 168 | 165 | 131 | 142 | 132 | 106 | 2141.96 |
+| New 192, quality-first oracle | 186 | 185 | 166 | 157 | 132 | 137 | 2162.69 |
+| New 192, no-extra-context oracle | 170 | 170 | 134 | 143 | 132 | 109 | 2139.45 |
+
+After the first 64, we froze the next 192 SHA256-selected query IDs and a
+learning-design gate before reading their outcomes: at least 9 additional
+0.80 repairs **or** 6 additional 0.90 repairs, no baseline anchor breaks,
+and at most 10 extra *mean* cumulative context tokens/query. The extension
+confirmed quality headroom (+35 at 0.80, +15 at 0.90, +31 Complete), but the
+quality-first oracle cost **+20.73 tokens/query**, so the frozen gate fails.
+The no-extra-context oracle recovered only +3 at 0.80 and +1 at 0.90.
+A read-only cost-cap sensitivity on all 256 found that a **per-query**
+20-token added-context cap yields 0.90 192 versus 190 STAY; a 40-token cap
+yields 197. These per-query caps are distinct from the frozen mean-cost gate
+and are descriptive only. The unchanged 0.95 count follows from preserving
+the depth-10 packet set; it does not imply general action safety.
+
+Decision: `STOP_CURRENT_EARLY_MOVE_TRAINING_UNDER_FROZEN_GATE`. Early actions
+have quality headroom, especially at 0.80, but their cheap region is narrow
+and the oracle uses Target truth. Inspect whether packet boundaries force
+beneficial evidence to arrive with unnecessary tokens before another
+controller is trained. [Pilot summary](v17state_a0_early_move_pilot/summary.json),
+[256-query summary](v17state_a0_early_move_expand256/summary.json), and
+[decision](v17state_a0_early_move_expand256/decision.json) record the audit.
+No sealed set was read.

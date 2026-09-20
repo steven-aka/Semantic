@@ -1,0 +1,47 @@
+{
+  "protocol": "V17-STATE-A0_EARLY_MOVE_PILOT",
+  "sample_ids_sha256": "9323f793635009d3b9add26b79c6a559ed23df32d1ec17deb95fdd501e990203",
+  "queries": 64,
+  "actions": 576,
+  "fresh_states": 320,
+  "fresh_target_prompt_tokens": 158956,
+  "fresh_target_generated_tokens": 12380,
+  "baseline": {
+    "success": {
+      "0.6": 58,
+      "0.7": 58,
+      "0.8": 45,
+      "0.9": 48,
+      "0.95": 43
+    },
+    "complete": 41,
+    "mean_cumulative_context_tokens": 2149.8125,
+    "changed_queries": 0
+  },
+  "quality_first_oracle": {
+    "success": {
+      "0.6": 61,
+      "0.7": 62,
+      "0.8": 57,
+      "0.9": 52,
+      "0.95": 43
+    },
+    "complete": 47,
+    "mean_cumulative_context_tokens": 2153.40625,
+    "changed_queries": 25
+  },
+  "strict_no_extra_context_oracle": {
+    "success": {
+      "0.6": 59,
+      "0.7": 58,
+      "0.8": 45,
+      "0.9": 48,
+      "0.95": 43
+    },
+    "complete": 41,
+    "mean_cumulative_context_tokens": 2148.828125,
+    "changed_queries": 14
+  },
+  "limitations": "Outcome-aware selected action; train-side 64-query audit, not generalization or deployable policy.",
+  "reused_pilot_states": 0
+}

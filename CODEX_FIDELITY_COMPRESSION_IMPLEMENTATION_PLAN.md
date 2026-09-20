@@ -2453,3 +2453,13 @@ specific state-dependent packet interaction or action-unit limitation with
 a costed oracle before generating more Target data or fitting another
 controller. Preserve V8 plus fixed schedules as the current deployable
 comparison and report all Target calls and final context tokens separately.
+
+STATE-A0 audited early single-packet moves at depth 5/6 under the fixed
+`[6,7,7,9,10]` schedule. A 192-query train-side extension confirmed an
+outcome-aware +35 0.80, +15 0.90 and +31 Complete opportunity, but mean
+cumulative context rose by 20.73 tokens/query, exceeding the frozen 10-token
+learning-design gate. The per-query no-extra-context oracle gained only +3
+0.80 and +1 0.90. No deployable policy emerged. Before controller training,
+inspect whether current packet boundaries bundle useful evidence with
+unnecessary text; preserve the same Qwen3-8B prompt and five-anchor schedule
+and count all context and Target costs.
