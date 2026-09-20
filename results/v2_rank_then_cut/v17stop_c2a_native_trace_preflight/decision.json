@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-STOP-C2A_NATIVE_TRACE_PREFLIGHT",
+  "decision": "STOP_FULL_NATIVE_TRACE_COLLECTION_UNDER_CURRENT_CACHE_CONTRACT",
+  "basis": "In 32 train-side stratified paired runs, ordinary and logprob-enabled generations matched raw token IDs in 27, parsed answers in 28 and the 0.90 label in 30. Two of eight historical SF cases crossed the 0.90 label boundary in the logprob run. Chosen-token scores and final EOS token were observable in all 32, but this does not establish answer-span correctness or generalizable continuation information.",
+  "attribution_limit": "A sequential paired comparison cannot distinguish logprob-mode effects from numerical nondeterminism or run-order effects; it only shows the proposed old-label/new-trace join is unsafe without rebuilding labels.",
+  "extra_target_calls_for_pilot": 64,
+  "sealed_outcome_sets_read": false
+}

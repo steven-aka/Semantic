@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-STOP-D0_MULTI_PROBE_COSTED_ORACLE",
+  "decision": "STOP_FORCED_DEPTH6_OR_7_MULTI_PROBE_AT_090",
+  "basis": "Neither depth6 nor depth7 attains 0.90 on any of the 1421 fresh train-side queries. Thus forced 7->9->10 and 6->9->10 have exactly the same 1265 oracle successes and final context as 9->10, while adding 547.50 or 472.83 Target tokens/request respectively.",
+  "scope": "Applies to these fixed forced multi-probe schedules and target 0.90. It does not prove every selective or alternative-depth observation is useless.",
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

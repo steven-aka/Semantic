@@ -1,0 +1,42 @@
+{
+  "protocol": "V17-STOP-D0_MULTI_PROBE_COSTED_ORACLE",
+  "population": 1421,
+  "single_depth10": {
+    "success_090": 1223,
+    "mean_target_tokens": 840.1203377902885
+  },
+  "schedules": {
+    "9->10": {
+      "success_090": 1265,
+      "mean_target_tokens": 954.4222378606615,
+      "mean_final_context_tokens": 588.3230119634061,
+      "mean_target_calls": 1.2610837438423645,
+      "first_success_depth_counts": {
+        "9": 1050,
+        "10": 215
+      }
+    },
+    "7->9->10": {
+      "success_090": 1265,
+      "mean_target_tokens": 1501.9261083743843,
+      "mean_final_context_tokens": 588.3230119634061,
+      "mean_target_calls": 2.2610837438423643,
+      "first_success_depth_counts": {
+        "9": 1050,
+        "10": 215
+      }
+    },
+    "6->9->10": {
+      "success_090": 1265,
+      "mean_target_tokens": 1427.2498240675582,
+      "mean_final_context_tokens": 588.3230119634061,
+      "mean_target_calls": 2.2610837438423643,
+      "first_success_depth_counts": {
+        "9": 1050,
+        "10": 215
+      }
+    }
+  },
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

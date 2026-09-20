@@ -1,0 +1,26 @@
+{
+  "protocol": "V17-STOP-C2A_NATIVE_TRACE_PREFLIGHT",
+  "queries": 32,
+  "classes": {
+    "SS": 8,
+    "SF": 8,
+    "FS": 8,
+    "FF": 8
+  },
+  "paired_raw_token_ids_match": 27,
+  "paired_parsed_match": 28,
+  "plain_vs_cache_parsed_match": 29,
+  "logprob_vs_cache_parsed_match": 27,
+  "paired_090_label_match": 30,
+  "plain_vs_cache_090_label_match": 31,
+  "chosen_token_scores_available": 32,
+  "eos_in_generated": 32,
+  "eos_in_last_top2": 32,
+  "plain_batch_seconds": 8.602611024864018,
+  "logprob_batch_seconds": 8.46235326002352,
+  "prompt_tokens_per_pass": 22139,
+  "generated_tokens_plain": 1593,
+  "generated_tokens_logprob": 1593,
+  "extra_target_calls_for_pilot": 64,
+  "sealed_outcome_sets_read": false
+}

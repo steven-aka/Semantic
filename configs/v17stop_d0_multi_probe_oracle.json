@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-STOP-D0_MULTI_PROBE_COSTED_ORACLE",
+  "status": "FROZEN_READ_ONLY_TRAIN_SIDE",
+  "population": "fresh Qwen3-8B CANON-P0 train1421",
+  "target_anchor": 0.9,
+  "schedules": [[9, 10], [7, 9, 10], [6, 9, 10]],
+  "rule": "call every listed probe until first 0.90-success; if all earlier probes fail, call depth10; after depth10 retain old-context-supported depth9-only answers",
+  "hindsight_role": "oracle knows which cached prefix is successful; impossible to deploy without a predictor",
+  "cost": "count prompt and generated tokens for every Target call, including unsuccessful probes",
+  "new_target_calls": 0,
+  "sealed_outcome_sets_read": false
+}

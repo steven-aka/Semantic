@@ -3088,3 +3088,52 @@ epochs or thresholds on the exposed OOF outcomes. The fixed-depth and
 earlier five-anchor schedules remain the defensible deployable baselines
 while the next method question is reconsidered. No new Target calls or
 sealed outcome sets were used.
+
+### V17-STOP-C2A native trace contract preflight
+
+The proposed Target-native feature cannot be extracted from the existing
+CANON-P0 cache: it saved parsed answers and token counts, but no generation
+logprobs. We therefore ran exactly 32 train-side depth9 queries (eight per
+frozen 0.90 `SS/SF/FS/FF` class) twice in one Qwen3-8B/vLLM engine:
+ordinary greedy generation versus the same request with top-two logprobs.
+This cost 64 additional Target calls, 22,139 prompt tokens **per pass**, and
+1,593 generated tokens in each pass. Chosen-token logprobs and the final EOS
+token were available in all 32 scored outputs. Batch elapsed time was 8.60 s
+plain and 8.46 s with logprobs; one small batch does not establish an ongoing
+latency advantage.
+
+Only 27/32 pairs matched raw token IDs, 28/32 matched parsed answers and
+30/32 matched the 0.90 success label. Plain reruns matched the old cache's
+parsed answer in 29/32 and 0.90 label in 31/32. The logprob rerun flipped
+the 0.90 label in **two of the eight historical SF cases**, from 0.90 to
+0.842 and 0.700. The [summary](v17stop_c2a_native_trace_preflight/summary.json),
+[paired rows](v17stop_c2a_native_trace_preflight/paired.jsonl), and
+[decision](v17stop_c2a_native_trace_preflight/decision.json) preserve this
+result. A sequential pair cannot attribute the discrepancy specifically to
+logprobs rather than run-order/numerical effects; it does show that joining
+new traces to old C1 labels would corrupt some scarce critical examples.
+Decision: `STOP_FULL_NATIVE_TRACE_COLLECTION_UNDER_CURRENT_CACHE_CONTRACT`.
+We did not regenerate all 1421 traces or fit a trace critic.
+
+### V17-STOP-D0 forced multi-probe value of information
+
+With no new Target calls, we replayed fresh cached prefixes for three
+predeclared 0.90 schedules. The oracle stops at the first successful probe;
+if it reaches depth10 it uses the same fixed C0 retention rule. Every call's
+prompt and generated tokens are charged.
+
+| Oracle schedule | 0.90 success | Target tokens/request | Final context tokens/request | Calls/request |
+|---|---:|---:|---:|---:|
+| Direct depth10 | 1223 | 840.12 | 667.50 | 1.00 |
+| 9→10 | 1265 | 954.42 | 588.32 | 1.26 |
+| 7→9→10 | 1265 | 1501.93 | 588.32 | 2.26 |
+| 6→9→10 | 1265 | 1427.25 | 588.32 | 2.26 |
+
+On these 1421 queries, depth6 and depth7 have **zero** 0.90-success
+outputs. Thus the extra forced early probe cannot improve this oracle's
+quality or final context and costs an additional 472.83–547.50 Target
+tokens/request over 9→10. The [summary](v17stop_d0_multi_probe_oracle/summary.json)
+and [decision](v17stop_d0_multi_probe_oracle/decision.json) close these
+fixed 0.90 multi-probe schedules. This does not rule out every other depth
+or an adaptive information-gathering action, but it sharply limits the
+economics of the proposed 6/7→9→10 path. No sealed set was read.

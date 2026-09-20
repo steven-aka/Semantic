@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-STOP-C2A_NATIVE_TRACE_PREFLIGHT",
+  "status": "FROZEN_SMALL_PAIRED_TRAIN_ONLY",
+  "source": "train1421 C1.0 0.90 STOP versus retained-CONTINUE classes",
+  "selection": "eight lowest SHA256 IDs per SS/SF/FS/FF class; 32 total",
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "batch_size": 32,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "temperature": 0.0,
+  "logprobs_top_k": 2,
+  "gpu": 0,
+  "purpose": "Compare ordinary and logprob-enabled generation token IDs, answers and 0.90 labels; verify chosen-token scores and EOS-vs-alternative availability before any full trace collection.",
+  "full_trace_generation": false,
+  "sealed_outcome_sets_read": false
+}
