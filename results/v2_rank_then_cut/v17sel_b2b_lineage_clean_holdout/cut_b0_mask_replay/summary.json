@@ -1,0 +1,28 @@
+{
+  "all_five_decode_scored_on_attainable_levels": {
+    "complete_on_attainable_levels": 179,
+    "success_090": 501
+  },
+  "artifacts": {
+    "cache_sha256": "945fe4bbaa7561c5706f5e006cf7a4575b17fa3acdde9aca8d26bad5baca502b",
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "checkpoint_sha256": "6b96e88e7b5d39850ef8ac5d1be530b408fe4b475bb05e6137fe68cebe468431",
+    "original_decisions_sha256": "6a366812bee786f50c4fbe19d5056d8ceff0fff03da1713a1d3ce4732f373767"
+  },
+  "candidate_policy_changed": false,
+  "changed_active_stop_vectors": 0,
+  "changed_four_level_stop_vectors": 0,
+  "confirmation_read": false,
+  "development_read": false,
+  "four_level_queries": 130,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "model_retrained": false,
+  "new_target_calls": 0,
+  "oracle_attainability_mask": {
+    "complete_on_attainable_levels": 179,
+    "success_090": 501
+  },
+  "queries": 611,
+  "role": "read-only diagnostic; all-five requested-level inference versus exact-derived attainable-level inference"
+}

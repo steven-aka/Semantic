@@ -1831,3 +1831,15 @@ discriminate rare beneficial candidate switches and whether the optimum stop
 vector is learnable rather than merely minimizing cached oracle cost. More
 training of these two frozen protocols is not justified by their present
 train-only evidence.
+
+**CUT-B0 inference-contract correction.** Its frozen protocol called
+`attainable_levels` a known mask, but that field was derived from the same
+exact-lattice supervision and is not automatically available to a deployed
+controller. A read-only checkpoint replay decoded all five requested anchors
+without this mask, then scored only the benchmark's attainable anchors. On
+the design-exposed 611, including 130 four-anchor examples, all active stop
+vectors were identical to the original run: 501/611 at 0.90 and 179/611
+Complete in both. Thus this particular result is numerically unaffected,
+but future deployment-identifiability audits must not treat exact-derived
+attainability as an observable input. The unchanged frozen protocol and the
+separate replay summary are preserved under `cut_b0_mask_replay/`.
