@@ -2699,3 +2699,70 @@ at depths 6, 7 and 9, while preserving the depth-10 packet set so that the
 0.95 endpoint cannot be accidentally perturbed. The fresh chain does not
 itself establish that those swaps can be learned or improve a deployed
 quality–token Pareto point.
+
+### V17-PROG-A0 fresh adjacent-swap opportunity audit
+
+We froze one V8-adjacent swap at reveal positions 6/7, 7/8 or 9/10, at most
+one swap per query. Each changes only one intermediate prefix; the depth-10
+packet set is unchanged. Fresh Qwen3-8B outcomes were generated for 4,263
+counterfactual contexts (2,345,386 prompt and 180,460 output tokens). The
+primary schedule `[6,7,7,9,10]` was selected from the CANON-P0 train-side
+anchor transitions before these calls; `[7,8,8,9,10]` was a frozen
+sensitivity schedule.
+
+| Fixed schedule | Method | 0.90 | 0.95 / eligible | Complete | Mean cumulative context tokens |
+|---|---|---:|---:|---:|---:|
+| `[6,7,7,9,10]` | V8 | 1050/1421 | 973/1131 | 775/1421 | 2183.62 |
+| | no-break, no-extra-token oracle | **1067/1421** | 973/1131 | **797/1421** | **2180.59** |
+| `[7,8,8,9,10]` | V8 | 1050/1421 | 973/1131 | 909/1421 | 2410.62 |
+| | no-break, no-extra-token oracle | **1067/1421** | 973/1131 | **920/1421** | **2408.41** |
+
+The primary oracle selects 456 swaps but only 53 queries gain any anchor;
+the net token saving is only 3.03 tokens/query. All 17 new 0.90 successes
+come from swapping positions 9 and 10. The frozen minimum opportunity gate
+(20 safely repaired queries) passes, but this is a small cost-bounded ceiling
+for an expensive new semantic model. It does **not** establish that a model
+can identify the 53 queries without breaking others.
+
+A secondary, explicitly *exploratory* quality-first oracle removes the
+per-query no-extra-token restriction while still forbidding all anchor
+breaks. On the primary schedule it reaches 0.90 `1166/1421` and Complete
+`937/1421`, with mean cumulative context **+2.61 tokens/query**; on the
+sensitivity schedule it reaches `1184/1421` and `1003/1421`, with
+**+0.99 tokens/query**. This is a substantially larger quality–token
+opportunity, but it is outcome-aware and was calculated after the primary
+protocol. It may motivate one bounded *train-only* state-conditioned
+learnability test; it is not a deployable result or a revised primary gate.
+
+### V17-PROG-A1 frozen V8 state-conditioned OOF test
+
+One bounded learning test used the fresh A0 outcomes and V8's actual frozen
+history-conditioned action features (alternate packet minus V8 packet). It
+trained a single linear set-valued utility head with four fixed query folds;
+STAY remained an explicit zero-logit action. It did not update Qwen3-4B,
+LoRA, V8 heads, Target, cutoff or decoding. All evaluation below is
+train-lineage query-grouped out-of-fold for this *new head* only; V8's older
+representation training did see these train-side queries.
+
+| Primary `[6,7,7,9,10]` | 0.90 | 0.95 / eligible | Complete | Mean cumulative context tokens |
+|---|---:|---:|---:|---:|
+| V8 | 1050/1421 | 973/1131 | 775/1421 | 2183.62 |
+| A1 OOF | **1055/1421** | 973/1131 | **781/1421** | **2193.17** |
+
+A1 selected 637 swaps. At 0.90 it made 26 repairs and 21 breaks; for
+Complete, 24 repairs and 18 breaks. The sensitivity schedule similarly moves
+0.90 `1050→1055` and Complete `909→911`, while adding 6.57 context tokens per
+query. The predeclared strict-dominance gate fails:
+`STOP_PROG_A1_NO_OOF_PARETO`. This is a real but very small net quality gain
+paid for with tokens and substantial paired breaks. It captures little of
+the exploratory A0 oracle's 116 repairs / 162 Complete gains.
+
+A post-result read-only enumeration found that no monotone V8 static schedule
+with depths 1–12 simultaneously matches all six A1 primary quality counts
+at or below its 2193.17 mean cumulative tokens. This means A1's OOF point
+may be a **new trade-off point on design-side data**, even though it does not
+strictly dominate its frozen primary baseline. This secondary observation
+does not override the predeclared STOP decision or authorize opening the
+611/581/internal/development sets. In particular, 21 newly broken 0.90
+queries make a small aggregate gain too fragile to treat as a solved
+compression method.

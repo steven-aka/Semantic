@@ -135,6 +135,25 @@ def main() -> None:
                                  "safe_repair_queries": sum(any(a is False and b is True for a, b in zip(r["stay"]["hits"], r["oracle"]["hits"])) for r in records),
                                  "complete_repairs": sum(not r["stay"]["complete"] and r["oracle"]["complete"] for r in records),
                                  "action_counts": {str(d): sum(r["action"] == d for r in records) for d in (None, *SWAPS)}}
+        # Secondary design-side analysis only: this was not the frozen primary oracle rule.
+        quality_first = []
+        for q in sorted(source):
+            baseline = evaluate(q, None, schedule)
+            options = [(None, baseline)] + [(d, evaluate(q, d, schedule)) for d in SWAPS]
+            safe = [(d, v) for d, v in options if not any(a is True and b is False
+                    for a, b in zip(baseline["hits"], v["hits"]))]
+            _, best = min(safe, key=lambda item: (
+                -sum(a is False and b is True for a, b in zip(baseline["hits"], item[1]["hits"])),
+                item[1]["tokens"], item[0] is not None, item[0] or 0))
+            quality_first.append(best)
+        result[schedule_name]["quality_first_exploratory"] = {
+            "success": {str(level): sum(row["hits"][i] is True for row in quality_first)
+                        for i, level in enumerate(LEVELS)},
+            "complete": sum(row["complete"] for row in quality_first),
+            "mean_cumulative_context_tokens": mean(row["tokens"] for row in quality_first),
+            "mean_paired_context_token_delta": mean(row["tokens"] - record["stay"]["tokens"]
+                                                     for row, record in zip(quality_first, records)),
+            "role": "post-primary outcome-aware diagnostic; not a deployment or preregistered gate result"}
     summary = {"protocol": cfg["protocol"], "queries": 1421, "target_calls": len(done),
                "prompt_tokens": sum(x["prompt_tokens"] for x in done.values()),
                "generated_tokens": sum(x["generated_tokens"] for x in done.values()),

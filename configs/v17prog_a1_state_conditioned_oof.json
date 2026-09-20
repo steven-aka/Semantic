@@ -1,0 +1,18 @@
+{
+  "protocol": "V17-PROG-A1_FROZEN_V8_STATE_CONDITIONED_OOF",
+  "status": "FROZEN_TRAIN_ONLY",
+  "population": "CANON-P0/PROG-A0 train1421 only; V8 representation has previously seen this lineage, so OOF tests the new head only",
+  "target_labels": "fresh current Qwen3-8B PROG-A0 outcomes",
+  "representation": "frozen V8 sequential_head.pt action_features at exact history preceding swap; feature is alternate-minus-V8-next action feature",
+  "actions": ["STAY", "SWAP_6_7", "SWAP_7_8", "SWAP_9_10"],
+  "label": "Among non-breaking actions, all actions with the maximum number of repaired attainable anchors are positive; if none repairs, STAY only. Token cost is measured at rollout, not used to choose one arbitrary oracle action.",
+  "loss": "set-valued negative log probability mass of positive actions",
+  "model": "single linear scalar head, STAY logit fixed zero; frozen V8 backbone, LoRA and sequential head",
+  "split": "four pre-existing stable SHA256 query folds; train-fold-only feature normalization",
+  "optimizer": {"seed": 20260920, "steps": 500, "batch_queries": 128, "learning_rate": 0.001, "weight_decay": 0.0001},
+  "decoder": "argmax over STAY and 3 swaps, with STAY first for exact score ties; at most one swap per trajectory",
+  "primary_schedule": [6, 7, 7, 9, 10],
+  "sensitivity_schedule": [7, 8, 8, 9, 10],
+  "go_gate": "Direct OOF rollout: every attainable-anchor success and Complete nondecrease versus V8, mean cumulative context tokens nonincrease, and at least one strict improvement; auxiliary loss/accuracy cannot override this gate",
+  "explicitly_off": ["LoRA adaptation", "model capacity or loss sweep", "learned cutoff", "611", "581", "internal", "development", "confirmation"]
+}

@@ -1,0 +1,32 @@
+{
+  "role": "post-result read-only design-side diagnostic, not GO gate",
+  "schedules_tested": 4368,
+  "learned_quality": [
+    1268,
+    1262,
+    1001,
+    1055,
+    973,
+    781
+  ],
+  "learned_mean_cumulative_tokens": 2193.1688951442648,
+  "dominating_v8_schedule_count": 0,
+  "cheapest_v8_schedule_matching_all_quality": [
+    2519.43209007741,
+    [
+      7,
+      8,
+      8,
+      10,
+      10
+    ],
+    [
+      1298,
+      1277,
+      1187,
+      1223,
+      973,
+      995
+    ]
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "protocol": "V17-PROG-A0_FRESH_ADJACENT_SWAP_ORACLE",
+  "queries": 1421,
+  "target_calls": 4263,
+  "prompt_tokens": 2345386,
+  "generated_tokens": 180460,
+  "schedules": {
+    "primary_schedule": {
+      "depths": [
+        6,
+        7,
+        7,
+        9,
+        10
+      ],
+      "stay": {
+        "success": {
+          "0.6": 1265,
+          "0.7": 1252,
+          "0.8": 998,
+          "0.9": 1050,
+          "0.95": 973
+        },
+        "complete": 775,
+        "mean_cumulative_context_tokens": 2183.6171710063336,
+        "mean_normalized_cumulative_context": 0.5619259514104382
+      },
+      "oracle": {
+        "success": {
+          "0.6": 1278,
+          "0.7": 1262,
+          "0.8": 1016,
+          "0.9": 1067,
+          "0.95": 973
+        },
+        "complete": 797,
+        "mean_cumulative_context_tokens": 2180.5904292751584,
+        "mean_normalized_cumulative_context": 0.5612536805676669
+      },
+      "edited_queries": 456,
+      "safe_repair_queries": 53,
+      "complete_repairs": 22,
+      "action_counts": {
+        "None": 965,
+        "6": 163,
+        "7": 141,
+        "9": 152
+      },
+      "quality_first_exploratory": {
+        "success": {
+          "0.6": 1323,
+          "0.7": 1324,
+          "0.8": 1156,
+          "0.9": 1166,
+          "0.95": 973
+        },
+        "complete": 937,
+        "mean_cumulative_context_tokens": 2186.2301196340604,
+        "mean_paired_context_token_delta": 2.612948627726953,
+        "role": "post-primary outcome-aware diagnostic; not a deployment or preregistered gate result"
+      }
+    },
+    "sensitivity_schedule": {
+      "depths": [
+        7,
+        8,
+        8,
+        9,
+        10
+      ],
+      "stay": {
+        "success": {
+          "0.6": 1298,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1050,
+          "0.95": 973
+        },
+        "complete": 909,
+        "mean_cumulative_context_tokens": 2410.615763546798,
+        "mean_normalized_cumulative_context": 0.6200613350443545
+      },
+      "oracle": {
+        "success": {
+          "0.6": 1306,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1067,
+          "0.95": 973
+        },
+        "complete": 920,
+        "mean_cumulative_context_tokens": 2408.4060520760027,
+        "mean_normalized_cumulative_context": 0.6195722236925466
+      },
+      "edited_queries": 323,
+      "safe_repair_queries": 25,
+      "complete_repairs": 11,
+      "action_counts": {
+        "None": 1098,
+        "6": 0,
+        "7": 169,
+        "9": 154
+      },
+      "quality_first_exploratory": {
+        "success": {
+          "0.6": 1350,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1184,
+          "0.95": 973
+        },
+        "complete": 1003,
+        "mean_cumulative_context_tokens": 2411.6052076002816,
+        "mean_paired_context_token_delta": 0.9894440534834623,
+        "role": "post-primary outcome-aware diagnostic; not a deployment or preregistered gate result"
+      }
+    }
+  },
+  "limitations": "Outcome-aware oracle on design-side train queries; no deployable policy or independent quality claim."
+}

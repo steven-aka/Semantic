@@ -1,0 +1,123 @@
+{
+  "protocol": "V17-PROG-A1_FROZEN_V8_STATE_CONDITIONED_OOF",
+  "queries": 1421,
+  "folds": [
+    {
+      "fold": 0,
+      "train_queries": 1064,
+      "valid_queries": 357,
+      "train_queries_with_repair_target": 264,
+      "final_loss": 1.0450533628463745,
+      "chosen_swaps": 156
+    },
+    {
+      "fold": 1,
+      "train_queries": 1047,
+      "valid_queries": 374,
+      "train_queries_with_repair_target": 260,
+      "final_loss": 1.0280262231826782,
+      "chosen_swaps": 185
+    },
+    {
+      "fold": 2,
+      "train_queries": 1067,
+      "valid_queries": 354,
+      "train_queries_with_repair_target": 265,
+      "final_loss": 1.071619987487793,
+      "chosen_swaps": 156
+    },
+    {
+      "fold": 3,
+      "train_queries": 1085,
+      "valid_queries": 336,
+      "train_queries_with_repair_target": 273,
+      "final_loss": 1.0912818908691406,
+      "chosen_swaps": 140
+    }
+  ],
+  "target_repair_queries": 354,
+  "schedules": {
+    "primary": {
+      "v8": {
+        "success": {
+          "0.6": 1265,
+          "0.7": 1252,
+          "0.8": 998,
+          "0.9": 1050,
+          "0.95": 973
+        },
+        "complete": 775,
+        "mean_cumulative_context_tokens": 2183.6171710063336
+      },
+      "learned": {
+        "success": {
+          "0.6": 1268,
+          "0.7": 1262,
+          "0.8": 1001,
+          "0.9": 1055,
+          "0.95": 973
+        },
+        "complete": 781,
+        "mean_cumulative_context_tokens": 2193.1688951442648
+      },
+      "repairs": {
+        "0.6": 5,
+        "0.7": 21,
+        "0.8": 30,
+        "0.9": 26,
+        "0.95": 0
+      },
+      "breaks": {
+        "0.6": 2,
+        "0.7": 11,
+        "0.8": 27,
+        "0.9": 21,
+        "0.95": 0
+      },
+      "complete_repairs": 24,
+      "complete_breaks": 18
+    },
+    "sensitivity": {
+      "v8": {
+        "success": {
+          "0.6": 1298,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1050,
+          "0.95": 973
+        },
+        "complete": 909,
+        "mean_cumulative_context_tokens": 2410.615763546798
+      },
+      "learned": {
+        "success": {
+          "0.6": 1304,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1055,
+          "0.95": 973
+        },
+        "complete": 911,
+        "mean_cumulative_context_tokens": 2417.1822660098524
+      },
+      "repairs": {
+        "0.6": 17,
+        "0.7": 0,
+        "0.8": 0,
+        "0.9": 26,
+        "0.95": 0
+      },
+      "breaks": {
+        "0.6": 11,
+        "0.7": 0,
+        "0.8": 0,
+        "0.9": 21,
+        "0.95": 0
+      },
+      "complete_repairs": 19,
+      "complete_breaks": 17
+    }
+  },
+  "limitations": "Train-side query-grouped OOF for new head; frozen V8 representation was learned on this lineage. No independent claim.",
+  "primary_gate": "STOP_PROG_A1_NO_OOF_PARETO"
+}

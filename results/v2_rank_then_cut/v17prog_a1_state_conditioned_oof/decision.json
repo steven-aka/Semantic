@@ -1,0 +1,7 @@
+{
+  "protocol": "V17-PROG-A1_FROZEN_V8_STATE_CONDITIONED_OOF",
+  "decision": "STOP_PROG_A1_NO_OOF_PARETO",
+  "basis": "Predeclared primary strict-dominance gate: learned quality improved slightly but cumulative context increased from 2183.62 to 2193.17 tokens/query and 0.90 had 21 paired breaks.",
+  "research_note": "Read-only post-result enumeration found no monotone fixed V8 schedule dominating all six learned quality counts at the learned cost. This is design-side trade-off evidence, not a preregistered GO result.",
+  "not_authorized": ["611", "581", "internal", "development", "confirmation", "learned cutoff", "claim of deployed Pareto improvement"]
+}
