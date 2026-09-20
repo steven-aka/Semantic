@@ -1,0 +1,23 @@
+{
+  "protocol": "V17-PACKET-R2_ONE_SEMANTIC_CROSS_ENCODER_PROBE",
+  "status": "FROZEN_TRAIN_SIDE_OOF",
+  "encoder_repo": "distilbert/distilbert-base-uncased",
+  "source": "V17-PACKET-R1_LABEL_SCALE512, 512 queries and 1485 original sentence actions",
+  "input": "[QUERY] question [STATE_TITLES] first 8 V8 packet titles [CANDIDATE] original rank10 document title and sentence [DISPLACED] V8 rank9 packet text",
+  "label": "actual 0.90 success at the refined depth9 context; no Target response or oracle outcome in input",
+  "fold_rule": "first eight SHA256 bytes of example_id modulo 4; all actions from one query stay together",
+  "folds": 4,
+  "seed": 20260920,
+  "epochs": 2,
+  "batch_size": 16,
+  "learning_rate": 0.00002,
+  "weight_decay": 0.01,
+  "max_tokens": 256,
+  "precision": "fp16 autocast",
+  "policy": "Among per-query no-extra-context actions use max OOF predicted success. Primary policy switches only the top 5% of all queries by that max score, otherwise STAY.",
+  "primary_switch_fraction": 0.05,
+  "descriptive_fractions": [0.01, 0.02, 0.05, 0.1],
+  "primary_gate": "On query-grouped OOF replay, top-5% policy must have at least three more 0.90 repairs than breaks, no Complete regression, and mean cumulative context no higher than V8. This train-only gate does not open sealed sets.",
+  "save_checkpoint": false,
+  "sealed_sets_read": false
+}

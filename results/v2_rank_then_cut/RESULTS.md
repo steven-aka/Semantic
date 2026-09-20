@@ -3404,3 +3404,43 @@ semantic observability impossible: it only closes this cheap lexical probe.
 See [512-label summary](v17packet_r1_label_scale512/summary.json) and
 [lexical probe](v17packet_r2_lexical_probe/summary.json). No sealed set was
 used, and no deployable checkpoint has been selected.
+
+### V17-PACKET-R2 one frozen semantic action-success probe
+
+Following the positive R1 oracle, we ran exactly one preregistered
+DistilBERT cross-encoder diagnostic on the same 512 train-side queries.
+All actions for a query stayed in one of four folds. Input contained only
+the query, first-eight packet titles, the candidate rank-10 sentence and
+the displaced rank-9 text. The binary training label was the actual 0.90
+success of the refined depth-9 context. It used two epochs, 256 input
+tokens, no checkpoint selection and no new Target calls. Fold training loss
+fell from about 0.65–0.67 to 0.54–0.59. The frozen *primary* policy took
+the highest-scored no-extra-context sentence on only the top 5% of OOF
+queries; all others remained STAY.
+
+| OOF policy | Switches | 0.90 | Complete | Mean cumulative context | Repairs | Breaks |
+|---|---:|---:|---:|---:|---:|---:|
+| V8 STAY | 0 | 381 | 273 | 2227.73 | 0 | 0 |
+| Semantic top 1% (descriptive) | 6 | 381 | 273 | 2227.25 | 0 | 0 |
+| Semantic top 5% (frozen primary) | 26 | **378** | 271 | 2225.26 | 1 | 4 |
+| Semantic top 10% (descriptive) | 52 | 376 | 270 | 2223.17 | 3 | 8 |
+
+The primary train-only gate fails. Input-length audit found 254/1,485
+actions beyond the 256-token limit, but only 6/39 oracle-repair actions
+were truncated, and the displaced-packet marker was not completely lost in
+any of those 39. This limits interpretation without explaining away the
+main failure. A separate **exploratory** rule using the already-paid depth7
+answer count and rank-10 title absence, with a fixed last-sentence choice,
+also had more breaks than repairs (at count threshold 8: 1 repair/10
+breaks). It is not a validated deployment rule.
+
+Decision: `STOP_R2_SEMANTIC_OOF_GATE`. This closes the *specific* binary
+action-success head and input contract. It does not prove that the refined
+evidence is intrinsically unlearnable: the actual decision is a paired,
+asymmetric **STAY versus action** comparison, while this head learned only
+absolute action success. Do not sweep this model's thresholds, epochs or
+capacity on the exposed OOF outcomes. Further work would need a separately
+frozen paired-decision hypothesis with a query-held-out test and full
+encoder-compute accounting, or a change in deployable observations.
+[Summary](v17packet_r2_semantic_probe/summary.json) and
+[decision](v17packet_r2_semantic_probe/decision.json) retain the result.

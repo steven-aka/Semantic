@@ -1,0 +1,25 @@
+{
+  "protocol": "V17-PACKET-R2_ONE_SEMANTIC_CROSS_ENCODER_PROBE",
+  "decision": "STOP_R2_SEMANTIC_OOF_GATE",
+  "primary_policy": {
+    "switch_fraction": 0.05,
+    "switches": 26,
+    "success_090": 378,
+    "complete": 271,
+    "mean_cumulative_context_tokens": 2225.255859375,
+    "repairs": 1,
+    "breaks": 4
+  },
+  "baseline_090": 381,
+  "baseline_complete": 273,
+  "input_truncation_audit": {
+    "actions_total": 1485,
+    "actions_over_256_tokens": 254,
+    "oracle_repairs_total": 39,
+    "oracle_repair_actions_over_256_tokens": 6
+  },
+  "interpretation": "This one frozen DistilBERT action-success model learned on train folds but did not yield a net quality gain in query-grouped OOF rollout. Do not tune thresholds, epochs, model capacity or max length on this exposed result. This does not establish that no deployment-visible information can identify safe snippet actions.",
+  "other_exploratory_diagnostic": "Using already paid depth7 answer count and rank10 title absence with a fixed last-sentence choice also produced more breaks than repairs on the same exposed 512; it is not a validated policy.",
+  "checkpoint_saved": false,
+  "sealed_sets_read": false
+}

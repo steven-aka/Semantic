@@ -2496,3 +2496,12 @@ authorized by a frozen protocol, is **one** small pretrained query–snippet–
 displaced-evidence cross-encoder evaluated by query-grouped rollout and
 full inference cost. Failure should close this specific cheap-observation
 selection branch rather than trigger repeated loss/threshold tuning.
+
+The one frozen semantic R2 probe has now failed its query-grouped primary
+gate: at top-5% switching, 1 repair/4 breaks and 0.90 378/512 versus V8
+381/512. No checkpoint was saved. This is not evidence to reject R1's
+refined action space; it shows that predicting absolute action success with
+this encoder/input is insufficient for the asymmetric STAY-versus-action
+decision. Do not sweep the exposed result. Any next training protocol must
+explicitly represent paired net value and demonstrate query-held-out
+low-break rollout plus encoder-cost accounting before accessing sealed sets.
