@@ -1,0 +1,71 @@
+{
+  "protocol": "SLOT-A1_TRAIN_SIDE_PAIRED_FACTORIAL",
+  "cases": 13,
+  "new_target_calls": 52,
+  "prompt_tokens": 43442,
+  "generated_tokens": 2522,
+  "baseline_reproduced": 12,
+  "swap_reproduced": 13,
+  "by_group": {
+    "break_early_only": {
+      "cases": 2,
+      "baseline_success": 1,
+      "swap_success": 0,
+      "both_success": 2,
+      "neither_success": 2,
+      "baseline_reproduced": 1,
+      "swap_reproduced": 2
+    },
+    "break_late_only": {
+      "cases": 2,
+      "baseline_success": 2,
+      "swap_success": 0,
+      "both_success": 2,
+      "neither_success": 1,
+      "baseline_reproduced": 2,
+      "swap_reproduced": 2
+    },
+    "break_mixed": {
+      "cases": 2,
+      "baseline_success": 2,
+      "swap_success": 0,
+      "both_success": 1,
+      "neither_success": 0,
+      "baseline_reproduced": 2,
+      "swap_reproduced": 2
+    },
+    "break_no_loss": {
+      "cases": 1,
+      "baseline_success": 1,
+      "swap_success": 0,
+      "both_success": 1,
+      "neither_success": 0,
+      "baseline_reproduced": 1,
+      "swap_reproduced": 1
+    },
+    "matched_safe": {
+      "cases": 2,
+      "baseline_success": 2,
+      "swap_success": 2,
+      "both_success": 1,
+      "neither_success": 2,
+      "baseline_reproduced": 2,
+      "swap_reproduced": 2
+    },
+    "selected_repair": {
+      "cases": 4,
+      "baseline_success": 0,
+      "swap_success": 4,
+      "both_success": 4,
+      "neither_success": 0,
+      "baseline_reproduced": 4,
+      "swap_reproduced": 4
+    }
+  },
+  "sealed_sets_read": false,
+  "limitations": [
+    "Selected train-side cases are mechanism-enriched, not a population estimate.",
+    "Both adds context tokens and is a causal diagnostic, not a compression policy.",
+    "Text is rendered in canonical source order; reveal-order persistence is not tested."
+  ]
+}

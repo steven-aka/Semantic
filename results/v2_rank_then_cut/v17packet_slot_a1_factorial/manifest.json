@@ -1,0 +1,92 @@
+{
+  "protocol": "SLOT-A1_TRAIN_SIDE_PAIRED_FACTORIAL",
+  "cases": [
+    {
+      "example_id": "21507__wikidata_simple__train",
+      "selection_group": "break_late_only",
+      "omit_index": 0,
+      "candidate_index": 1
+    },
+    {
+      "example_id": "23680__wikidata_simple__train",
+      "selection_group": "break_late_only",
+      "omit_index": 2,
+      "candidate_index": 0
+    },
+    {
+      "example_id": "53909__wikidata_intersection__train",
+      "selection_group": "break_early_only",
+      "omit_index": 0,
+      "candidate_index": 1
+    },
+    {
+      "example_id": "15727__wikidata_simple__train",
+      "selection_group": "break_early_only",
+      "omit_index": 0,
+      "candidate_index": 3
+    },
+    {
+      "example_id": "54004__wikidata_intersection__train",
+      "selection_group": "break_mixed",
+      "omit_index": 1,
+      "candidate_index": 2
+    },
+    {
+      "example_id": "21544__wikidata_simple__train",
+      "selection_group": "break_mixed",
+      "omit_index": 1,
+      "candidate_index": 0
+    },
+    {
+      "example_id": "25996__wikidata_simple__train",
+      "selection_group": "break_no_loss",
+      "omit_index": 1,
+      "candidate_index": 0
+    },
+    {
+      "example_id": "16159__wikidata_simple__train",
+      "selection_group": "selected_repair",
+      "omit_index": 1,
+      "candidate_index": 0
+    },
+    {
+      "example_id": "53859__wikidata_intersection__train",
+      "selection_group": "selected_repair",
+      "omit_index": 2,
+      "candidate_index": 2
+    },
+    {
+      "example_id": "21601__wikidata_simple__train",
+      "selection_group": "selected_repair",
+      "omit_index": 1,
+      "candidate_index": 1
+    },
+    {
+      "example_id": "58069__wikitables_composition__train",
+      "selection_group": "selected_repair",
+      "omit_index": 2,
+      "candidate_index": 1
+    },
+    {
+      "example_id": "21507__wikidata_simple__train",
+      "selection_group": "matched_safe",
+      "omit_index": 0,
+      "candidate_index": 0
+    },
+    {
+      "example_id": "53909__wikidata_intersection__train",
+      "selection_group": "matched_safe",
+      "omit_index": 0,
+      "candidate_index": 0
+    }
+  ],
+  "arms": [
+    "neither",
+    "baseline",
+    "swap",
+    "both"
+  ],
+  "task_sha256": "ab0f969e3b678b5345117f56bc0dc4f9e2eb7b3efbaf9b23e09c8bbf8e93843f",
+  "planned_new_calls": 52,
+  "sealed_sets_read": false
+}

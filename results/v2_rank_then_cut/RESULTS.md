@@ -3760,3 +3760,39 @@ Pareto question; the present answer audit does not supersede it.
 [summary](v17packet_slot_a0_functional_provenance/summary.json), and
 [per-action transitions](v17packet_slot_a0_functional_provenance/per_action.jsonl)
 preserve the result.
+
+### V17-PACKET-SLOT-A1 paired depth-9 factorial replay
+
+We froze 13 train-side actions before new Target calls: seven mechanism-
+stratified historical breaks, four outcome-selected stable repairs, and two
+same-query safe controls. Each action was evaluated in one Qwen3-8B run under
+four canonically rendered conditions: rank9 remainder alone (`neither`),
+remainder plus original sentence (`baseline`), remainder plus candidate
+(`swap`), and all three (`both`). This used **52 fresh Target calls**, 43,442
+prompt tokens and 2,522 generated tokens; no model was trained and no sealed
+set was read. The four contexts differ in evidence *and* length, and `both`
+is a mechanism probe rather than a budget-neutral deployment action.
+
+The cached baseline success bit reproduced in 12/13 cases; the cached swap
+success bit reproduced in 13/13. Among the six historical break cases with
+both bits reproduced, `both` restored 0.90 success in **5/6**; `neither`
+was successful in **2/6**. The remaining stable break still failed under
+`both`. All four selected repairs stayed successful under `both`, but all
+four paid extra depth9 context tokens (13–40 versus baseline). One of two
+matched safe swaps became a failure under `both`, demonstrating that merely
+adding evidence is not uniformly safe. These small, deliberately enriched
+samples cannot estimate a population break or repair rate.
+
+The experiment supports a substantial default-evidence delay cost in the
+selected failures, alongside non-monotone Target response to additional
+evidence. It does **not** justify a dual-head selector yet: the prospective
+deployment-visible signal for deciding *which* query should change remains
+unproven. The next economical test is a preregistered bounded-slack
+micro-insertion frontier on both repair and V8-success train queries, with
+actual context tokens and five-level paired quality. The current four-arm
+probe itself is not a Pareto result. [Frozen protocol](../../configs/v17packet_slot_a1_factorial.json),
+[runner](../../src/evaluation/v17packet_slot_a1_factorial.py),
+[summary](v17packet_slot_a1_factorial/summary.json),
+[per-case contrasts](v17packet_slot_a1_factorial/per_case.jsonl), and
+[per-call outputs](v17packet_slot_a1_factorial/per_call.jsonl) retain the
+evidence.

@@ -1,0 +1,19 @@
+{
+  "protocol": "SLOT-A1_TRAIN_SIDE_PAIRED_FACTORIAL",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "source": "SLOT-A0 cached A3 safety and A2 stable-repair actions",
+  "selection": "SHA256-first unique query per category: 2 late-only break, 2 early-only break, 2 mixed break, 1 no-correct-loss break, 4 selected stable repair, then 2 same-query safe controls from selected break queries; ties by action indices",
+  "arms": ["neither: depth8 + rank9 remainder", "baseline: depth8 + full rank9", "swap: depth8 + rank9 remainder + rank10 sentence", "both: depth8 + full rank9 + rank10 sentence"],
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 52,
+  "fidelity_epsilon": 0.000001,
+  "expected_cases": 13,
+  "expected_new_calls": 52,
+  "sealed_sets_read": false,
+  "new_training": false
+}
