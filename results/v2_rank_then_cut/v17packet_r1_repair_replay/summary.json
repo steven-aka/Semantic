@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-PACKET-R1_REPAIR_PAIRED_REPLAY",
+  "queries": 11,
+  "target_calls": 22,
+  "baseline_090_success": 0,
+  "fragment_090_success": 10,
+  "paired_repairs": 10,
+  "fragment_no_extra_context": 11,
+  "prompt_tokens": 14734,
+  "generated_tokens": 1088,
+  "limitations": "Only the 11 outcome-selected repairs were rerun. This tests reproducibility, not unselected generalization."
+}

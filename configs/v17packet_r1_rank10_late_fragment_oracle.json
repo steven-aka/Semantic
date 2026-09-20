@@ -1,0 +1,21 @@
+{
+  "protocol": "V17-PACKET-R1_RANK10_LATE_FRAGMENT_ORACLE",
+  "status": "FROZEN_TRAIN_SIDE",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "target_model": "models/Qwen3-8B",
+  "query_sample": "SHA256(example_id) positions 256:384 in train1421; excludes all STATE-A0/R0 queries",
+  "sample_offset": 256,
+  "sample_size": 128,
+  "schedule": [6, 7, 7, 9, 10],
+  "action": "At macro-depth9 reveal one original sentence plus original document title from V8 rank10 instead of rank9; at macro-depth10 reveal displaced rank9 and rank10 residual; canonical source-order renderer restores exact original depth10 context.",
+  "candidate_packet_rank": 10,
+  "sentence_rule": "Split the normalized Source evidence proof at punctuation+whitespace; require at least two exact-reconstructable sentences; no generated summaries or arbitrary spans.",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 64,
+  "temperature": 0.0,
+  "fidelity_epsilon": 1e-6,
+  "opportunity_gate": "On these unselected 128 train queries: strict per-query no-extra-context oracle must add >=6 0.90 successes, break zero other baseline-success anchors, and have <=0 mean cumulative context change. Passing is only an oracle opportunity, not authorization for model training or sealed evaluation.",
+  "explicitly_off": ["selector training", "new cutoff", "development", "confirmation", "581", "611", "internal300"]
+}

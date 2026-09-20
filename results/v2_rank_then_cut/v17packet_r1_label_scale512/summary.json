@@ -1,0 +1,55 @@
+{
+  "protocol": "V17-PACKET-R1_LABEL_SCALE512",
+  "queries": 512,
+  "splittable": 424,
+  "fresh_target_calls": 1485,
+  "fresh_prompt_tokens": 1030034,
+  "fresh_generated_tokens": 71796,
+  "baseline": {
+    "success": {
+      "0.6": 449,
+      "0.7": 453,
+      "0.8": 354,
+      "0.9": 381,
+      "0.95": 338
+    },
+    "complete": 273,
+    "mean_cumulative_context_tokens": 2227.728515625
+  },
+  "full_move": {
+    "success": {
+      "0.6": 449,
+      "0.7": 453,
+      "0.8": 354,
+      "0.9": 346,
+      "0.95": 338
+    },
+    "complete": 261,
+    "mean_cumulative_context_tokens": 2248.17578125
+  },
+  "strict_no_extra_context_oracle": {
+    "success": {
+      "0.6": 449,
+      "0.7": 453,
+      "0.8": 354,
+      "0.9": 420,
+      "0.95": 338
+    },
+    "complete": 288,
+    "mean_cumulative_context_tokens": 2185.73046875
+  },
+  "quality_first_oracle": {
+    "success": {
+      "0.6": 449,
+      "0.7": 453,
+      "0.8": 354,
+      "0.9": 420,
+      "0.95": 338
+    },
+    "complete": 288,
+    "mean_cumulative_context_tokens": 2185.73046875
+  },
+  "strict_changed_queries": 373,
+  "quality_changed_queries": 373,
+  "limitations": "Outcome-aware sentence selection on train-side sample; no deployable policy or held-out model generalization."
+}

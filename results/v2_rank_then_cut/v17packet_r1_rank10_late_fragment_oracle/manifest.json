@@ -1,0 +1,1159 @@
+{
+  "protocol": "V17-PACKET-R1_RANK10_LATE_FRAGMENT_ORACLE",
+  "ids_sha256": "634cf042d1457d49613d48b948e6788aa32f1361f5940d53739611a4f168fe16",
+  "cases": [
+    {
+      "example_id": "20587__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 3,
+      "full_context_sha256": "81b6d46b8fe431d7a95ebf11ed49c969d6fc0e4a57bc1ea44225cfad084dbb27",
+      "depth9_baseline_mask": 4039,
+      "depth9_full_move_mask": 3791,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "23237__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 2,
+      "full_context_sha256": "f179b82c9055d20b77b7a5cacaaf1634f949911ff65f5551cbcb2c3d70fbf7e0",
+      "depth9_baseline_mask": 1015,
+      "depth9_full_move_mask": 1022,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "21062__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 2,
+      "full_context_sha256": "4c2dc0cbf214ee8905c22105fdf23f403cb5b6bd522aa64dd329748d3b71cf79",
+      "depth9_baseline_mask": 3827,
+      "depth9_full_move_mask": 4067,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "60267__wikitables_composition__train",
+      "packet_id": 6,
+      "sentence_count": 4,
+      "full_context_sha256": "e043fb89e1b6da4cc2c41c1a7bac87606bb59c367545b1f6b7235e883e851066",
+      "depth9_baseline_mask": 4019,
+      "depth9_full_move_mask": 3571,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "57584__wikitables_composition__train",
+      "packet_id": 8,
+      "sentence_count": 3,
+      "full_context_sha256": "45a0f335a679eb56fcc36656007404e7f735a3e59269de201879560be4dfe55c",
+      "depth9_baseline_mask": 3836,
+      "depth9_full_move_mask": 2044,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "56930__wikitables_composition__train",
+      "packet_id": 11,
+      "sentence_count": 0,
+      "full_context_sha256": "f4aee66824a7675b6884e8078d4dfff3eaa34bb84d5243a3f7b6a55c0cd35a85",
+      "depth9_baseline_mask": 1999,
+      "depth9_full_move_mask": 4045,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "22137__wikidata_simple__train",
+      "packet_id": 4,
+      "sentence_count": 2,
+      "full_context_sha256": "92f1aa8acc5aff6dac9d9a1c1c56be2fefa7e06664c733df383c5f827492419f",
+      "depth9_baseline_mask": 1007,
+      "depth9_full_move_mask": 895,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "60092__wikitables_composition__train",
+      "packet_id": 4,
+      "sentence_count": 0,
+      "full_context_sha256": "94cdb931cbbdddb7d4d5c9a89e94db4ddc7d39ea8fb155bd5243c004e6ce5faf",
+      "depth9_baseline_mask": 1007,
+      "depth9_full_move_mask": 767,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "59364__wikitables_composition__train",
+      "packet_id": 8,
+      "sentence_count": 4,
+      "full_context_sha256": "950eaf1891482775031b2bf48046977b88c6367a4c26b3740e55989721ce7c58",
+      "depth9_baseline_mask": 3647,
+      "depth9_full_move_mask": 3899,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "19059__wikidata_simple__train",
+      "packet_id": 10,
+      "sentence_count": 0,
+      "full_context_sha256": "30279a8263ae9d8bd074e9d097a2eea5679008107ae228b1c730039d16a67b96",
+      "depth9_baseline_mask": 3068,
+      "depth9_full_move_mask": 2044,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "12174__wikidata_simple__train",
+      "packet_id": 1,
+      "sentence_count": 0,
+      "full_context_sha256": "f50907cae54ef5e394dd40d91e34b46cca198d6f21f8d59117631031757e3bc4",
+      "depth9_baseline_mask": 3325,
+      "depth9_full_move_mask": 1279,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "2955__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 0,
+      "full_context_sha256": "36cd43cb2ce54a61ff117a6a008187cd18e2e4ca14eb290d2957e0b275339bd1",
+      "depth9_baseline_mask": 1015,
+      "depth9_full_move_mask": 511,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "55204__wikidata_intersection__train",
+      "packet_id": 11,
+      "sentence_count": 5,
+      "full_context_sha256": "1d89aab67bdbb59b4a850bcaa62a88ef59b44a3b29c6fddade97baddbb33dfa5",
+      "depth9_baseline_mask": 2044,
+      "depth9_full_move_mask": 4076,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "24647__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 2,
+      "full_context_sha256": "afe54705865ad3e753df56646870c75bdd6ffcfa3354e8a26f0a08d15f09d3f2",
+      "depth9_baseline_mask": 511,
+      "depth9_full_move_mask": 1022,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "19910__wikidata_simple__train",
+      "packet_id": 5,
+      "sentence_count": 2,
+      "full_context_sha256": "3af63e9bba78f5b60002a005a1d74b88430f2ceadd71cba2a8bb1604456ebcfb",
+      "depth9_baseline_mask": 4051,
+      "depth9_full_move_mask": 2035,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "20287__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 0,
+      "full_context_sha256": "5100c8d18305a629cb322b0fa579a3661b9d0e29c3e680a75273c17ea44985ec",
+      "depth9_baseline_mask": 3571,
+      "depth9_full_move_mask": 4067,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "16372__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "f406d45b8f3f584fbc056492ae8bac4af00218fa97ff1b0842b970194330f1de",
+      "depth9_baseline_mask": 1022,
+      "depth9_full_move_mask": 1015,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "24474__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 8,
+      "full_context_sha256": "4f09bc021873a706b3caa7fbbb4f0ee83e74e30cac18e497b693b21c6553a4ab",
+      "depth9_baseline_mask": 1015,
+      "depth9_full_move_mask": 1019,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "22543__wikidata_simple__train",
+      "packet_id": 4,
+      "sentence_count": 3,
+      "full_context_sha256": "1722dc0cbc55cb53da2cf25b63cd6c1005d9b20e897269eb83be09143761d895",
+      "depth9_baseline_mask": 4076,
+      "depth9_full_move_mask": 2044,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "21000__wikidata_simple__train",
+      "packet_id": 4,
+      "sentence_count": 2,
+      "full_context_sha256": "c176cd9d43a480c0f01c9f8820330533f45c3718540255607f6c7fad5bf74bb0",
+      "depth9_baseline_mask": 3887,
+      "depth9_full_move_mask": 3901,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "20668__wikidata_simple__train",
+      "packet_id": 1,
+      "sentence_count": 2,
+      "full_context_sha256": "69f7491d476bdd9d8dc2570cefc0aebe379e7861bc0927a7dc143bf1eccbe8e7",
+      "depth9_baseline_mask": 3325,
+      "depth9_full_move_mask": 1279,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "23973__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 2,
+      "full_context_sha256": "4a199f775633d13a4adf7ab54fd6bc3644cbb8a22d004372bb7ae40de2df03cb",
+      "depth9_baseline_mask": 767,
+      "depth9_full_move_mask": 1021,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "55487__wikidata_intersection__train",
+      "packet_id": 8,
+      "sentence_count": 3,
+      "full_context_sha256": "e7bff6c882376428b7f338d9d326e6c9b69420054cafa19de4996bb8706f99ee",
+      "depth9_baseline_mask": 3836,
+      "depth9_full_move_mask": 4060,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "27489__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 5,
+      "full_context_sha256": "392e752a415dd75737f2813ed3389cef63abf5eaea9d39c8345cb1c1805fec2a",
+      "depth9_baseline_mask": 3571,
+      "depth9_full_move_mask": 4019,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "54362__wikidata_intersection__train",
+      "packet_id": 0,
+      "sentence_count": 4,
+      "full_context_sha256": "0b04fc7c7a7280163161548e73a408f18e21cfd0aeb08e50db92c58377d8221d",
+      "depth9_baseline_mask": 1022,
+      "depth9_full_move_mask": 991,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "27619__wikidata_simple__train",
+      "packet_id": 11,
+      "sentence_count": 3,
+      "full_context_sha256": "bdefeaf8be4742b08532725dc0221ec52c7dd36bdc7899af99d11b449602f849",
+      "depth9_baseline_mask": 1999,
+      "depth9_full_move_mask": 3919,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "58778__wikitables_composition__train",
+      "packet_id": 0,
+      "sentence_count": 6,
+      "full_context_sha256": "30c98d205589a71fe992142061c5a1ba62ef48192f668d9292cdeccb8b7d6a68",
+      "depth9_baseline_mask": 3326,
+      "depth9_full_move_mask": 3311,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "58692__wikitables_composition__train",
+      "packet_id": 9,
+      "sentence_count": 4,
+      "full_context_sha256": "de7c5bb55bf805a7de56571bd7101c054b567e42185eeb2fcf9ec7b7d85ebb6e",
+      "depth9_baseline_mask": 511,
+      "depth9_full_move_mask": 1007,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "60125__wikitables_composition__train",
+      "packet_id": 1,
+      "sentence_count": 4,
+      "full_context_sha256": "f3f03554f933e4ff475873488de1801bf7c2ede27de08440186fe0651f6d47b8",
+      "depth9_baseline_mask": 1021,
+      "depth9_full_move_mask": 1019,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "16678__wikidata_simple__train",
+      "packet_id": 4,
+      "sentence_count": 0,
+      "full_context_sha256": "5f18b234682789b7908fe961b7a7a8b7eef12339cd950d4d59adbf4f66186307",
+      "depth9_baseline_mask": 4076,
+      "depth9_full_move_mask": 3068,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "5061__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 2,
+      "full_context_sha256": "87e0d51b8d6cbfa017794cf43b6365a38643abf9b12f55bb80dd10990fb74a32",
+      "depth9_baseline_mask": 3899,
+      "depth9_full_move_mask": 3871,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "7638__wikidata_simple__train",
+      "packet_id": 5,
+      "sentence_count": 2,
+      "full_context_sha256": "c384f84c135d35ae2872a3a9bc60934b985d49c063a3db5badd2c2eeb4342516",
+      "depth9_baseline_mask": 991,
+      "depth9_full_move_mask": 959,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "21209__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 2,
+      "full_context_sha256": "3849aff1a2a3f4d8173576b4ab99a49a653e85f5b636c70b53ed63704c7ab6ee",
+      "depth9_baseline_mask": 3323,
+      "depth9_full_move_mask": 3326,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "20920__wikidata_simple__train",
+      "packet_id": 7,
+      "sentence_count": 2,
+      "full_context_sha256": "4135e1fd596c787e1d928e8755245e77d33ce8170520a4b43d1e342c1a721037",
+      "depth9_baseline_mask": 3964,
+      "depth9_full_move_mask": 4060,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "61802__wikitables_composition__train",
+      "packet_id": 0,
+      "sentence_count": 0,
+      "full_context_sha256": "1708b88d4399a36393ac5c2cfb19c0d3187ab67071a42948bf78ba2cee677cb8",
+      "depth9_baseline_mask": 4082,
+      "depth9_full_move_mask": 3571,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "26877__wikidata_simple__train",
+      "packet_id": 7,
+      "sentence_count": 2,
+      "full_context_sha256": "926b82b5875cc3c6afd42c8a1384a340bbe1c51699acab71226e4157290473c5",
+      "depth9_baseline_mask": 3964,
+      "depth9_full_move_mask": 3068,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "27194__wikidata_simple__train",
+      "packet_id": 10,
+      "sentence_count": 0,
+      "full_context_sha256": "0674cbe0e6ecddccdfb16d63036866149a72cf7e74819b6e1035205c6f634cd7",
+      "depth9_baseline_mask": 3068,
+      "depth9_full_move_mask": 4088,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "20164__wikidata_simple__train",
+      "packet_id": 10,
+      "sentence_count": 2,
+      "full_context_sha256": "87b6c0a4e8b314f075e7d11ad5be3b81fba50ccd2b2394f7b2fd6539479aaa71",
+      "depth9_baseline_mask": 2879,
+      "depth9_full_move_mask": 3899,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "55698__wikidata_intersection__train",
+      "packet_id": 8,
+      "sentence_count": 4,
+      "full_context_sha256": "90f05c7d5b3a23cdfe94ff2a5a13d4f239f148ba5007872971bab7c2ff20362d",
+      "depth9_baseline_mask": 3791,
+      "depth9_full_move_mask": 3983,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "16039__wikidata_simple__train",
+      "packet_id": 6,
+      "sentence_count": 4,
+      "full_context_sha256": "b0c1e5ad5bb314e73ef656d8035da3907cba10f252d7a7163bd7ebfdcb639a56",
+      "depth9_baseline_mask": 3263,
+      "depth9_full_move_mask": 3325,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "2559__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "d018d8affbecbd6591d9ec28c1a4057bc9f99c19a1ce164740ae99d7ebb49967",
+      "depth9_baseline_mask": 4082,
+      "depth9_full_move_mask": 3059,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "24982__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "60210196b670676d30eb7db099d6c1cc0d3e31f586617664ad4df1ff52457ae5",
+      "depth9_baseline_mask": 4082,
+      "depth9_full_move_mask": 4081,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "16412__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 2,
+      "full_context_sha256": "a632e5245ae11d2761f4ca5e5a7f75b2ad1da1f7b50eb34baac28781aa720cb6",
+      "depth9_baseline_mask": 3895,
+      "depth9_full_move_mask": 3887,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "16209__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 3,
+      "full_context_sha256": "e33f4ff07380cbd5d3f0ced7d610853e815dc6449a8b37b42ef149d7dd832633",
+      "depth9_baseline_mask": 3580,
+      "depth9_full_move_mask": 4084,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "61123__wikitables_composition__train",
+      "packet_id": 10,
+      "sentence_count": 12,
+      "full_context_sha256": "d6e8e5bf16ad265f634e51c6e0b4062fcf977c52a43a3294211a00fb1cf4f9c6",
+      "depth9_baseline_mask": 3023,
+      "depth9_full_move_mask": 4046,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "60566__wikitables_composition__train",
+      "packet_id": 4,
+      "sentence_count": 0,
+      "full_context_sha256": "cd5546247fd9f44ac183e60e2bf80d7c6f4293f361dc97af1f5c1fdb9618c8e5",
+      "depth9_baseline_mask": 3887,
+      "depth9_full_move_mask": 1855,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "27814__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 3,
+      "full_context_sha256": "fe4c6ddd68230667f28f38dff4f2ca848cad36d7d70348ebe562bcc65b475e87",
+      "depth9_baseline_mask": 3571,
+      "depth9_full_move_mask": 3827,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "57102__wikitables_composition__train",
+      "packet_id": 8,
+      "sentence_count": 2,
+      "full_context_sha256": "d8073137e287f8afed71c688cc1ceffb3e8ed8283c4847481a757b4266b37415",
+      "depth9_baseline_mask": 3827,
+      "depth9_full_move_mask": 3059,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "57221__wikitables_composition__train",
+      "packet_id": 1,
+      "sentence_count": 5,
+      "full_context_sha256": "d3861551173332f4bc056372e94e6af10bb4222be7ea4f8ad2eaf05505c0b275",
+      "depth9_baseline_mask": 4081,
+      "depth9_full_move_mask": 4082,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "57718__wikitables_composition__train",
+      "packet_id": 0,
+      "sentence_count": 4,
+      "full_context_sha256": "8aae44da11ca0727ed64342819683428eff47d475f1d42c85ed5b2fae7c6a5ac",
+      "depth9_baseline_mask": 3326,
+      "depth9_full_move_mask": 3199,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "60099__wikitables_composition__train",
+      "packet_id": 3,
+      "sentence_count": 2,
+      "full_context_sha256": "f7187d1484fbd75416abf17542e57ca24254b610713e03ceccb0cfa3c7343eaa",
+      "depth9_baseline_mask": 1015,
+      "depth9_full_move_mask": 511,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "22217__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 2,
+      "full_context_sha256": "a3ce569b7014a23237a6a2868e716d0e760fd81f5df06b286e67977daebabc75",
+      "depth9_baseline_mask": 3827,
+      "depth9_full_move_mask": 4051,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "60589__wikitables_composition__train",
+      "packet_id": 11,
+      "sentence_count": 0,
+      "full_context_sha256": "a4db0029d82c71b035ba85bfea5036739fe1569c168a55fd33759912648bf407",
+      "depth9_baseline_mask": 2035,
+      "depth9_full_move_mask": 4082,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "24199__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 4,
+      "full_context_sha256": "8c08f9ee5dd684b99338959b4069f4fba8562e7383e8621bf42d3116f5f1b305",
+      "depth9_baseline_mask": 4043,
+      "depth9_full_move_mask": 3983,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "22330__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 2,
+      "full_context_sha256": "726f04e6ffd689781e2737222577eb51ccb5dc1b5e192c1f3dd46b6a72b0d377",
+      "depth9_baseline_mask": 3391,
+      "depth9_full_move_mask": 3895,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "59351__wikitables_composition__train",
+      "packet_id": 11,
+      "sentence_count": 4,
+      "full_context_sha256": "1424e0b3f0cd3345fccbd65f34ff341935d016e12917efb80ea2112157557c33",
+      "depth9_baseline_mask": 1279,
+      "depth9_full_move_mask": 2303,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "2566__wikidata_simple__train",
+      "packet_id": 1,
+      "sentence_count": 0,
+      "full_context_sha256": "0010379f4c9f1063fc44fa751e1eeba6abeb23747095a269eb1f61939681e51a",
+      "depth9_baseline_mask": 3325,
+      "depth9_full_move_mask": 3199,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "21415__wikidata_simple__train",
+      "packet_id": 4,
+      "sentence_count": 2,
+      "full_context_sha256": "b768bc69562139d376c4dab4c7d7bb25597f4fe8f78a7dc58006412535c955ad",
+      "depth9_baseline_mask": 3311,
+      "depth9_full_move_mask": 3295,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "60457__wikitables_composition__train",
+      "packet_id": 0,
+      "sentence_count": 0,
+      "full_context_sha256": "ee92e24a556cfe9db9a3dfa1d097e26ce27ab72de4db8cfb86f62bd5a14b0e4c",
+      "depth9_baseline_mask": 3902,
+      "depth9_full_move_mask": 3647,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "54393__wikidata_intersection__train",
+      "packet_id": 9,
+      "sentence_count": 8,
+      "full_context_sha256": "0f6d1a631b78a5d34f2d2f60b734c67388084f33b87fa4511ff5511718e9a0f5",
+      "depth9_baseline_mask": 3571,
+      "depth9_full_move_mask": 4051,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "15525__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 0,
+      "full_context_sha256": "15413df2836154d150f233ef7cf9d150f431c1e1b51961255dde6d6ca2382911",
+      "depth9_baseline_mask": 1022,
+      "depth9_full_move_mask": 767,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "14893__wikidata_simple__train",
+      "packet_id": 10,
+      "sentence_count": 0,
+      "full_context_sha256": "9e78b87db7f83c5c99e3896dde11c791a54909c8258cfcee81b08ecdc191cdf4",
+      "depth9_baseline_mask": 3068,
+      "depth9_full_move_mask": 3964,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "16062__wikidata_simple__train",
+      "packet_id": 1,
+      "sentence_count": 3,
+      "full_context_sha256": "998a5c89d469da553f23afa440e00787ee52f24438747c3b2cf218fa196c5f7a",
+      "depth9_baseline_mask": 1021,
+      "depth9_full_move_mask": 1015,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "21462__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 2,
+      "full_context_sha256": "aed8f43b185ac0794303949d001637247584a464d1057a0cfcaaf384c9d7bebf",
+      "depth9_baseline_mask": 3319,
+      "depth9_full_move_mask": 3263,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "60522__wikitables_composition__train",
+      "packet_id": 9,
+      "sentence_count": 4,
+      "full_context_sha256": "013e0def365c8b6f93fbafaf5d405dc872edb22e15cec925ab5bd6ba6e56b8dd",
+      "depth9_baseline_mask": 3580,
+      "depth9_full_move_mask": 4088,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "61420__wikitables_composition__train",
+      "packet_id": 6,
+      "sentence_count": 0,
+      "full_context_sha256": "947feebac384824355ee43f4d801bfb7fd5ae7507076c5d7b11ff04b5c485d34",
+      "depth9_baseline_mask": 4028,
+      "depth9_full_move_mask": 3580,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "23529__wikidata_simple__train",
+      "packet_id": 1,
+      "sentence_count": 4,
+      "full_context_sha256": "d181b8d66b062b97666f5e3f57c1e534cda9045adbc194a3068c6e6039623dc1",
+      "depth9_baseline_mask": 4081,
+      "depth9_full_move_mask": 4067,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "21558__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 2,
+      "full_context_sha256": "6644f88aadf9043bd3a9d31963412aac5614111527ed366a892c66426582f742",
+      "depth9_baseline_mask": 3580,
+      "depth9_full_move_mask": 3964,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "15682__wikidata_simple__train",
+      "packet_id": 6,
+      "sentence_count": 5,
+      "full_context_sha256": "d3ae29e3ce5d386ee7957f5fb303abf29e74e544d9c7eeb5d935e1bff5d649e5",
+      "depth9_baseline_mask": 3983,
+      "depth9_full_move_mask": 3535,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "24193__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 3,
+      "full_context_sha256": "4a8f2ce9f5cb319990d67db299191bd7988992a9d70207f6f7c878c615b4d455",
+      "depth9_baseline_mask": 3580,
+      "depth9_full_move_mask": 4028,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "22405__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 5,
+      "full_context_sha256": "d01f5badf26b946ccc0237fb71330a47b51133a96e1fd7b45358ae8b4fecb74c",
+      "depth9_baseline_mask": 767,
+      "depth9_full_move_mask": 895,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "20161__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 2,
+      "full_context_sha256": "779a29e4cfda58e50a5d1b76810eb24677d32f668cdef20d06dd82bfdeeee082",
+      "depth9_baseline_mask": 3791,
+      "depth9_full_move_mask": 3023,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "59267__wikitables_composition__train",
+      "packet_id": 3,
+      "sentence_count": 0,
+      "full_context_sha256": "93b436264e32e6b18b9302ce9af3df8a0d8bdbd7b4f7a0bbe36405332f322791",
+      "depth9_baseline_mask": 4039,
+      "depth9_full_move_mask": 4045,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "20449__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 2,
+      "full_context_sha256": "b17203efdf3769be7885fcde7ac59ec7fd16bd036eca5c952bd0c648992c7e57",
+      "depth9_baseline_mask": 3571,
+      "depth9_full_move_mask": 4019,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "59367__wikitables_composition__train",
+      "packet_id": 0,
+      "sentence_count": 0,
+      "full_context_sha256": "a826120aac78214937c8d51fa9072a6957fcb495d7e3dcc0bfc9a74c09924c70",
+      "depth9_baseline_mask": 3902,
+      "depth9_full_move_mask": 2879,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "24976__wikidata_simple__train",
+      "packet_id": 4,
+      "sentence_count": 3,
+      "full_context_sha256": "49a41250608d830767b74c675af47fc12e310423b94ef5dd7d9c12295e2a1bb5",
+      "depth9_baseline_mask": 1007,
+      "depth9_full_move_mask": 1021,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "19828__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 3,
+      "full_context_sha256": "ec9a504128de481d23d5203c601b454c567904f0ebba74351391e97947445edf",
+      "depth9_baseline_mask": 3580,
+      "depth9_full_move_mask": 4088,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "59612__wikitables_composition__train",
+      "packet_id": 9,
+      "sentence_count": 6,
+      "full_context_sha256": "969a9201c18ca07ed6ac771a9ff0887c58e80037218f54363d4554e2fedf9164",
+      "depth9_baseline_mask": 3571,
+      "depth9_full_move_mask": 4082,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "60963__wikitables_composition__train",
+      "packet_id": 8,
+      "sentence_count": 0,
+      "full_context_sha256": "8dcb217a64cdb54ebeff5b78e2f87416de7395a305ce03a4f5d8ff10366a22cf",
+      "depth9_baseline_mask": 767,
+      "depth9_full_move_mask": 511,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "21904__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 6,
+      "full_context_sha256": "8cb8c16bfcb04d41a1f313a2782011ef2b23d18714b4f3f662ff2820e8bcfb28",
+      "depth9_baseline_mask": 1022,
+      "depth9_full_move_mask": 1021,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "16622__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "e2b61fe978a3e3614096c542d92a4ee9a5892305f4bdf68e5d1e572d1e822d73",
+      "depth9_baseline_mask": 1022,
+      "depth9_full_move_mask": 959,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "21144__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 2,
+      "full_context_sha256": "f580a7f2bd3d112522ea1f1cfad5d4a3e5f4df66f698e5db939c636b57b596dc",
+      "depth9_baseline_mask": 3391,
+      "depth9_full_move_mask": 1855,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "26034__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 4,
+      "full_context_sha256": "c89deea8f2cc98df513479890bfc9ba8b166cc9854eef88eb092a2a22ef403e1",
+      "depth9_baseline_mask": 3535,
+      "depth9_full_move_mask": 3791,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "20592__wikidata_simple__train",
+      "packet_id": 6,
+      "sentence_count": 4,
+      "full_context_sha256": "f940102b617aa496f40d394c4519d2d42364246bf90cb04a99b18163e8caa8fd",
+      "depth9_baseline_mask": 959,
+      "depth9_full_move_mask": 895,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "22733__wikidata_simple__train",
+      "packet_id": 10,
+      "sentence_count": 4,
+      "full_context_sha256": "755982bed39866ea13809d1b00d7e40ad17809cfd76644a284d2a75576fbf386",
+      "depth9_baseline_mask": 3068,
+      "depth9_full_move_mask": 4076,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "57218__wikitables_composition__train",
+      "packet_id": 6,
+      "sentence_count": 0,
+      "full_context_sha256": "4e024948fbf2ec231bb8fca6ddd91991ec17f8138ea3ac97b1f5b323df916f23",
+      "depth9_baseline_mask": 4019,
+      "depth9_full_move_mask": 4081,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "3459__wikidata_simple__train",
+      "packet_id": 7,
+      "sentence_count": 2,
+      "full_context_sha256": "717759492e8205b91b86a980067484f9129e958f3ed9f874cef02647daa1e776",
+      "depth9_baseline_mask": 895,
+      "depth9_full_move_mask": 1019,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "15551__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 0,
+      "full_context_sha256": "ee7aba38e7bf666d9e5639a5c4522eeebb30fdc624581609e08e669f1e96daca",
+      "depth9_baseline_mask": 3647,
+      "depth9_full_move_mask": 3887,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "57886__wikitables_composition__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "4dd308bcf9b7e5d33614f679394e0e8a1097b1ac3ea5b7bd852976986c1673c3",
+      "depth9_baseline_mask": 3326,
+      "depth9_full_move_mask": 3295,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "57900__wikitables_composition__train",
+      "packet_id": 11,
+      "sentence_count": 3,
+      "full_context_sha256": "585c59688e20f1668c466662b63ca2c00b8e4f9d04f7212b0022fca823e75cce",
+      "depth9_baseline_mask": 1279,
+      "depth9_full_move_mask": 3325,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "22616__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 3,
+      "full_context_sha256": "f03386baf8e73af8d46038c80d8880f6567f2cf311558021a24a3b982ecb3422",
+      "depth9_baseline_mask": 1019,
+      "depth9_full_move_mask": 895,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "734__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 0,
+      "full_context_sha256": "f885eb958a527fb786d66b7c9acccfefbc95b91cbcacb9e576e474a520188531",
+      "depth9_baseline_mask": 3323,
+      "depth9_full_move_mask": 3311,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "2676__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "b069ada07675a3cc65e512308db368cdfb66b9627e2e7fbd5c755e6f5c045796",
+      "depth9_baseline_mask": 3326,
+      "depth9_full_move_mask": 3199,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "22121__wikidata_simple__train",
+      "packet_id": 7,
+      "sentence_count": 2,
+      "full_context_sha256": "e0b5dcb238cec62b7aa46cac3baa75786ae983f8f16e525f60ddaa74e13f61a5",
+      "depth9_baseline_mask": 3199,
+      "depth9_full_move_mask": 3263,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "25133__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 3,
+      "full_context_sha256": "743d63360720ccbfb41f545a5af12f3c274323a0025faf56427fe3647f889e72",
+      "depth9_baseline_mask": 4046,
+      "depth9_full_move_mask": 1999,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "60070__wikitables_composition__train",
+      "packet_id": 5,
+      "sentence_count": 0,
+      "full_context_sha256": "670ba817319a3cc141f9e83f09ad699e9b317901d948d17e0df9eb703b480193",
+      "depth9_baseline_mask": 991,
+      "depth9_full_move_mask": 1019,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "24090__wikidata_simple__train",
+      "packet_id": 10,
+      "sentence_count": 0,
+      "full_context_sha256": "1505627a3c99b926c599e496c5bc80de004b96b02857bea904e382cf199a3e82",
+      "depth9_baseline_mask": 3068,
+      "depth9_full_move_mask": 4076,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "56661__wikitables_composition__train",
+      "packet_id": 2,
+      "sentence_count": 3,
+      "full_context_sha256": "1ff8d7db2a80cd7e527f4c01bd7f2455fdeb60a3faeb086b8acdb2f85aba5b0e",
+      "depth9_baseline_mask": 4043,
+      "depth9_full_move_mask": 3535,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "54573__wikidata_intersection__train",
+      "packet_id": 1,
+      "sentence_count": 5,
+      "full_context_sha256": "a498f75b79b62596ecf69b26d425aa87ea9ec10fa92ba6c3951a4294bd3522a2",
+      "depth9_baseline_mask": 4081,
+      "depth9_full_move_mask": 4019,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "9262__wikidata_simple__train",
+      "packet_id": 6,
+      "sentence_count": 2,
+      "full_context_sha256": "301ded8522d71d8d0376c908bf58def0ac331d73cae913dacffbc90485c8ce05",
+      "depth9_baseline_mask": 4019,
+      "depth9_full_move_mask": 3955,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "22628__wikidata_simple__train",
+      "packet_id": 4,
+      "sentence_count": 0,
+      "full_context_sha256": "9a83a7b7eff82efeccfe24e5ea45ed4d371fda530f53dd507b72abe7b07e4fd2",
+      "depth9_baseline_mask": 4076,
+      "depth9_full_move_mask": 3964,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "27650__wikidata_simple__train",
+      "packet_id": 10,
+      "sentence_count": 3,
+      "full_context_sha256": "7abd94543db0178f4242fa61f537caca028f56254df43d798ece2182a71ec719",
+      "depth9_baseline_mask": 2879,
+      "depth9_full_move_mask": 3887,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "26538__wikidata_simple__train",
+      "packet_id": 5,
+      "sentence_count": 0,
+      "full_context_sha256": "15706dd745ac5c8690763ead0fa76485270d6cdb6d8dc45e15a2023278919531",
+      "depth9_baseline_mask": 991,
+      "depth9_full_move_mask": 1019,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "60599__wikitables_composition__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "84fddced8a7459500807873d7c158dc9cdeacccd0fd0a89124a63b8cea63b6bc",
+      "depth9_baseline_mask": 3902,
+      "depth9_full_move_mask": 3647,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "56303__wikitables_composition__train",
+      "packet_id": 5,
+      "sentence_count": 2,
+      "full_context_sha256": "e9ed4bb59b8cf7ea387897025c0b989b8d89861364dc2ff1aae7f8f6fe396489",
+      "depth9_baseline_mask": 3295,
+      "depth9_full_move_mask": 3311,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "26489__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 0,
+      "full_context_sha256": "ff3d1a3457da7551fd7b4f714efef2c04fc73cef8023efb08a1d6364b1446493",
+      "depth9_baseline_mask": 1019,
+      "depth9_full_move_mask": 511,
+      "depth10_restored_mask": 1023
+    },
+    {
+      "example_id": "54187__wikidata_intersection__train",
+      "packet_id": 6,
+      "sentence_count": 3,
+      "full_context_sha256": "e8289d4740b11b54e8afc5462f9339fc353eecea31d0c68833eef54c4ef91fd8",
+      "depth9_baseline_mask": 3983,
+      "depth9_full_move_mask": 4039,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "27235__wikidata_simple__train",
+      "packet_id": 9,
+      "sentence_count": 2,
+      "full_context_sha256": "eef03efc7b5bac3a796dc85f8f4ec15eb71ae747295b5f880c7fdd3d9d6ebfb5",
+      "depth9_baseline_mask": 3391,
+      "depth9_full_move_mask": 3901,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "21378__wikidata_simple__train",
+      "packet_id": 0,
+      "sentence_count": 2,
+      "full_context_sha256": "c3ec0069300423a64d460ae2d67755c6aa0a90324a2cdd94484fdb12ae8976aa",
+      "depth9_baseline_mask": 4046,
+      "depth9_full_move_mask": 4045,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "2599__wikidata_simple__train",
+      "packet_id": 7,
+      "sentence_count": 2,
+      "full_context_sha256": "cc2d2d8b163cb281a329ec246ee6be09be6e25530c08e6437677cb516373206c",
+      "depth9_baseline_mask": 3955,
+      "depth9_full_move_mask": 4082,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "22985__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 4,
+      "full_context_sha256": "ec16c80d1d9d88b62cd09499363860f38c3e43a26db36de79f0b57055d257e87",
+      "depth9_baseline_mask": 4084,
+      "depth9_full_move_mask": 3580,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "60570__wikitables_composition__train",
+      "packet_id": 10,
+      "sentence_count": 3,
+      "full_context_sha256": "1bef5a491261954dc7567f94947b2f35081179b598c301d4b253adafcb8fc02a",
+      "depth9_baseline_mask": 3059,
+      "depth9_full_move_mask": 3955,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "15248__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 2,
+      "full_context_sha256": "4eff993e3b6fffc7d7f2cd2b056819363da0c7e0e313b1334f3b248a91fcf171",
+      "depth9_baseline_mask": 4043,
+      "depth9_full_move_mask": 3535,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "16839__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 0,
+      "full_context_sha256": "2063dcf76944f75ffda3cfe8a2224b4a9d5cc492a6e63c48b9953ee94b09668a",
+      "depth9_baseline_mask": 3827,
+      "depth9_full_move_mask": 4081,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "15812__wikidata_simple__train",
+      "packet_id": 11,
+      "sentence_count": 2,
+      "full_context_sha256": "2c932fa9b6e15249240cbe0b92a3e10fe6c729ac1593e020ad5d5533ef4a6e30",
+      "depth9_baseline_mask": 2044,
+      "depth9_full_move_mask": 3068,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "15555__wikidata_simple__train",
+      "packet_id": 7,
+      "sentence_count": 4,
+      "full_context_sha256": "2b9c905fca72651db12337ac4fb80ec8d98c89e906511761e79d2f75adee63cd",
+      "depth9_baseline_mask": 3199,
+      "depth9_full_move_mask": 3311,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "22384__wikidata_simple__train",
+      "packet_id": 3,
+      "sentence_count": 4,
+      "full_context_sha256": "92624d354ba38d2cb3b3cbe86b7514c8c8c444f274493cd8b5c6a51db9e3aae8",
+      "depth9_baseline_mask": 3319,
+      "depth9_full_move_mask": 1279,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "16534__wikidata_simple__train",
+      "packet_id": 11,
+      "sentence_count": 4,
+      "full_context_sha256": "59a0fab8bfff0d3bcafb072e5c5acbf117e5f9493f3d36da76f784a972971490",
+      "depth9_baseline_mask": 2035,
+      "depth9_full_move_mask": 3955,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "58515__wikitables_composition__train",
+      "packet_id": 9,
+      "sentence_count": 0,
+      "full_context_sha256": "138ceced93912b0b8131a312e6448fc776c352dcc71fc0806794e51e69c37e9d",
+      "depth9_baseline_mask": 3571,
+      "depth9_full_move_mask": 4067,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "61443__wikitables_composition__train",
+      "packet_id": 3,
+      "sentence_count": 2,
+      "full_context_sha256": "b9d88154ca5c9dc4255c8f1c6384fc0e5b4038d82176720bb737447bd9984d3c",
+      "depth9_baseline_mask": 4084,
+      "depth9_full_move_mask": 3836,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "60279__wikitables_composition__train",
+      "packet_id": 4,
+      "sentence_count": 8,
+      "full_context_sha256": "de817a87c93fa8a96de56181d16eb0890878fed5dec93e19baeffd00390c73cb",
+      "depth9_baseline_mask": 4067,
+      "depth9_full_move_mask": 3571,
+      "depth10_restored_mask": 4083
+    },
+    {
+      "example_id": "22533__wikidata_simple__train",
+      "packet_id": 5,
+      "sentence_count": 3,
+      "full_context_sha256": "a677302501cd63b9ddb8770b5383113331e9a5bfa1c6b23b4ae71aacca29864f",
+      "depth9_baseline_mask": 3871,
+      "depth9_full_move_mask": 3899,
+      "depth10_restored_mask": 3903
+    },
+    {
+      "example_id": "55433__wikidata_intersection__train",
+      "packet_id": 8,
+      "sentence_count": 8,
+      "full_context_sha256": "4b8fda40ac66aae02b9b6ce5137ba16fbf90864f6cb70b768a1f69f16f46503e",
+      "depth9_baseline_mask": 3791,
+      "depth9_full_move_mask": 1999,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "60032__wikitables_composition__train",
+      "packet_id": 9,
+      "sentence_count": 6,
+      "full_context_sha256": "ed99b363b966a4df699d60c008cd0a08156f1b59abdf080e569dd90b0736303c",
+      "depth9_baseline_mask": 3535,
+      "depth9_full_move_mask": 4039,
+      "depth10_restored_mask": 4047
+    },
+    {
+      "example_id": "21590__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 3,
+      "full_context_sha256": "58bc72f53f8391dec50e96d21ee6b35279b6cd91e42546bb2f225c5216de0be8",
+      "depth9_baseline_mask": 3836,
+      "depth9_full_move_mask": 4028,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "21202__wikidata_simple__train",
+      "packet_id": 11,
+      "sentence_count": 2,
+      "full_context_sha256": "7823bd659af0914affadc2d04098e4f3ec2038486a99c38a61578788f061c638",
+      "depth9_baseline_mask": 1279,
+      "depth9_full_move_mask": 2303,
+      "depth10_restored_mask": 3327
+    },
+    {
+      "example_id": "15657__wikidata_simple__train",
+      "packet_id": 2,
+      "sentence_count": 4,
+      "full_context_sha256": "a89f964f6b7f9fd55b149693d512c47c5c420bb9fd8d1f756fcadf500b47145f",
+      "depth9_baseline_mask": 4088,
+      "depth9_full_move_mask": 3580,
+      "depth10_restored_mask": 4092
+    },
+    {
+      "example_id": "22494__wikidata_simple__train",
+      "packet_id": 8,
+      "sentence_count": 5,
+      "full_context_sha256": "ff4a3ae48df30b1fa1eb222fc1822dd7ffc0e3a417f92a4494a150a1a590b130",
+      "depth9_baseline_mask": 3836,
+      "depth9_full_move_mask": 3964,
+      "depth10_restored_mask": 4092
+    }
+  ],
+  "new_calls_total": 329
+}

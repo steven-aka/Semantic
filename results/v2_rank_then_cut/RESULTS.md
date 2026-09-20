@@ -3311,3 +3311,96 @@ claim deployment Pareto gain from these selected examples. See
 [R0 summary](v17packet_r0_targeted_atomicity_pilot/summary.json),
 [paired replay](v17packet_r0_paired_replay/summary.json), and
 [decision](v17packet_r0_targeted_atomicity_pilot/decision.json).
+
+### V17-PACKET-R1 rank-10 late-sentence five-anchor oracle
+
+We froze one refined action before Target calls: at macro-depth 9, substitute
+one natural sentence (with its original document title) from V8 rank 10 for
+the scheduled rank-9 packet. At macro-depth 10, restore the displaced rank-9
+packet and the rank-10 residual. The renderer is source-order canonical:
+the evidence set grows add-only, although the prompt string is re-rendered
+rather than extended literally. Code asserts exact final full-text recovery,
+one title/one occurrence per original sentence, and the original depth-10
+packet set. Thus 0.60/0.70/0.80/0.95 use the exact cached V8 inputs; only
+the depth-9 0.90 context differs. Position is a macro-step coordinate; the
+comparison uses actual context tokens, not a claim that one sentence costs
+as much as one packet.
+
+The next 128 SHA256-selected train queries, positions 256:384, were not used
+by STATE-A0 or R0. Of these, 99 had splittable rank-10 proof blocks, yielding
+329 candidate sentences. The current Qwen3-8B Target was called exactly 329
+times (219,493 prompt and 16,110 generated tokens). The other 29 queries
+retained STAY. The five-anchor fixed schedule remained `[6,7,7,9,10]`.
+
+| Policy on 128 train queries | 0.60 | 0.70 | 0.80 | 0.90 | 0.95 | Complete | Mean cumulative context tokens |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| V8 STAY | 111 | 113 | 91 | 93 | 96 | 71 | 2158.30 |
+| Rank-10 whole-packet move | 111 | 113 | 91 | 91 | 96 | 73 | 2178.86 |
+| Outcome-aware sentence/STAY, no per-query added context or anchor break | 111 | 113 | 91 | **104** | 96 | **81** | **2124.01** |
+
+The frozen **oracle-opportunity** gate passes: +11 at 0.90 and +10 Complete
+with -34.29 mean cumulative context tokens/query and zero baseline-success
+anchor breaks. The oracle changed 86/128 decisions, often to save context
+on queries without a new success. Eleven 0.90 repairs include ten cases
+also repaired by the full-packet move and one additional case. This is a
+large enough *upper bound* to justify collecting train-side labels, not a
+deployable controller result.
+
+A read-only, explicitly post-hoc risk diagnostic shows why learning remains
+the bottleneck. Always taking the first available sentence yields 0.90
+56/128 (six repairs, 43 breaks); shortest yields 52/128 (six repairs, 47
+breaks); last yields 82/128 (ten repairs, 21 breaks). The original whole
+packet move gives 15 repairs but 17 breaks. These simple policies are
+descriptive, not contenders selected on this exposed set. They show that
+sentence resolution alone does not tell the system when to STAY or which
+snippet to reveal.
+
+Decision: `GO_TRAIN_SIDE_LABEL_SCALE_AND_PRE_REGISTER_R2_LEARNABILITY_TEST`.
+Keep the 128 outcomes design-exposed and sealed sets untouched. Before any
+deployment claim, collect more train-side labels under the exact action
+contract and evaluate a single frozen policy by query-grouped rollout against
+V8, including compressor compute and Target cost. [Protocol](../../configs/v17packet_r1_rank10_late_fragment_oracle.json),
+[summary](v17packet_r1_rank10_late_fragment_oracle/summary.json),
+[per-query actions](v17packet_r1_rank10_late_fragment_oracle/per_query.jsonl),
+and [decision](v17packet_r1_rank10_late_fragment_oracle/decision.json) record
+the result.
+
+The 11 outcome-selected new 0.90 repairs were subsequently rerun as
+baseline/sentence pairs in one Target batch (22 calls). Baseline remained
+0/11; the sentence remained successful in **10/11**, with no added depth9
+context in all 11. This shows a small but real single-run-label instability;
+the initial +11 oracle number should not be presented as 11 independently
+confirmed repairs. [Paired replay](v17packet_r1_repair_replay/summary.json).
+
+With the same frozen contract, a further 512 previously unqueried train-side
+queries (SHA256 positions 384:896) yielded 424 splittable rank-10 proof
+blocks and 1,485 sentence candidates. All candidates were evaluated once
+under the current Qwen3-8B prompt (1,030,034 prompt and 71,796 generated
+tokens). The preregistered label-scale opportunity gate asked for at least
+24 no-extra-context, no-anchor-break 0.90 repairs.
+
+| Policy on new 512 | 0.60 | 0.70 | 0.80 | 0.90 | 0.95 | Complete | Mean cumulative context tokens |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| V8 STAY | 449 | 453 | 354 | 381 | 338 | 273 | 2227.73 |
+| Whole-packet rank-10 move | 449 | 453 | 354 | 346 | 338 | 261 | 2248.18 |
+| Outcome-aware strict sentence/STAY oracle | 449 | 453 | 354 | **420** | 338 | **288** | **2185.73** |
+
+The opportunity gate passes with +39 0.90, +15 Complete and -42.00 mean
+cumulative context tokens/query. The oracle changed 373/512 queries and
+never broke a baseline-success anchor by construction. But blindly taking
+the first, shortest or last sentence yielded respectively 0.90 **211, 220,
+310**, versus V8 **381**; they incurred 186, 176 and 93 breaks. The whole
+packet move had 33 repairs and 68 breaks. Thus the refined action space is
+valuable **only if the policy can identify safe deviations**. The 512 are
+train-side, design-exposed by this audit, not final validation.
+
+We also froze and ran a single low-cost query-grouped lexical diagnostic on
+these 512 queries: hashed words/bigrams from query, chosen sentence and
+displaced rank-9 packet; one linear head, fixed optimization, four OOF folds.
+Its maximum OOF predicted success probability was only 0.704, so every
+predeclared threshold 0.8/0.9/0.95/0.98 chose STAY. A descriptive top-5%
+score ranking gave two repairs but eight breaks. This **does not prove**
+semantic observability impossible: it only closes this cheap lexical probe.
+See [512-label summary](v17packet_r1_label_scale512/summary.json) and
+[lexical probe](v17packet_r2_lexical_probe/summary.json). No sealed set was
+used, and no deployable checkpoint has been selected.

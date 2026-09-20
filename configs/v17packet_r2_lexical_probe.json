@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-PACKET-R2_LEXICAL_IDENTIFIABILITY_PROBE",
+  "status": "FROZEN_TRAIN_SIDE_DIAGNOSTIC",
+  "source": "V17-PACKET-R1_LABEL_SCALE512",
+  "folds": 4,
+  "hash_features": 4096,
+  "optimizer": "torch Adam, lr=0.03, 100 full-batch steps, weight_decay=0.001, seed=20260920",
+  "label": "0.90 success of the refined depth9 sentence context",
+  "inputs": "query text, selected original sentence+title, displaced V8 rank9 packet; no Target output or oracle label",
+  "policy": "On each OOF query, choose the highest predicted-success no-extra-context sentence only if prediction passes a fixed threshold; otherwise STAY.",
+  "thresholds": [0.8, 0.9, 0.95, 0.98],
+  "interpretation": "Diagnostic only. The 512 query outcomes have already been design-exposed by R1; no checkpoint or deployed policy selected."
+}

@@ -2474,3 +2474,25 @@ step is **contract design**, not selector training: specify lossless add-only
 restoration at the depth10 macro-step and evaluate a broader five-anchor
 oracle with all context and Target costs. No deployment improvement is yet
 established.
+
+PACKET-R1 has now frozen a rank-10 single-sentence reveal at macro-depth9
+with source-order, add-only evidence recovery at depth10. On 128 new
+train-side queries the no-extra-context, no-anchor-break hindsight oracle
+reached 0.90 104/128 versus V8 93/128, Complete 81 versus 71, and 34.29
+fewer cumulative context tokens/query. The opportunity gate passes, but
+fixed first/shortest/last-sentence rules broke 43/47/21 existing 0.90
+successes respectively. The immediate unresolved problem is **deployable
+snippet/STAY identification**, not oracle coverage. Keep these 128
+design-exposed. Scale labels on train-side queries only, freeze one
+query-grouped policy/compute gate before fitting, and require actual
+five-anchor rollout Pareto improvement before accessing sealed sets.
+
+An additional 512 unselected train queries confirmed substantial refined
+oracle headroom: V8 0.90 381/512 and Complete 273/512 versus strict sentence
+oracle 420/512 and 288/512, with 42 fewer mean cumulative context tokens.
+Yet fixed sentence rules caused 93–186 0.90 breaks, and a frozen lexical
+four-fold probe found no safe switching region. The next decisive test, if
+authorized by a frozen protocol, is **one** small pretrained query–snippet–
+displaced-evidence cross-encoder evaluated by query-grouped rollout and
+full inference cost. Failure should close this specific cheap-observation
+selection branch rather than trigger repeated loss/threshold tuning.

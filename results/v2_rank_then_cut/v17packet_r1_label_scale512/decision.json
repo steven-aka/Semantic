@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-PACKET-R1_LABEL_SCALE512",
+  "opportunity_gate": "PASS_TRAIN_SIDE_ORACLE_ONLY",
+  "baseline_090": 381,
+  "strict_oracle_090": 420,
+  "baseline_complete": 273,
+  "strict_oracle_complete": 288,
+  "mean_cumulative_context_delta": -41.998046875,
+  "frozen_minimum_090_repairs": 24,
+  "observed_090_repairs": 39,
+  "lexical_probe": "STOP_FROZEN_LEXICAL_PROBE_NO_SAFE_SWITCH",
+  "next_decision": "GO_ONE_FROZEN_SEMANTIC_CROSS_ENCODER_LEARNABILITY_TEST",
+  "limitations": "Oracle picks sentence/STAY using Target truth; raw sentence rules have many breaks. A model must pass query-grouped rollout and inference cost gate. No sealed set read.",
+  "sealed_sets_read": false
+}

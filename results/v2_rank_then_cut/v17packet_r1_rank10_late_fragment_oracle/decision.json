@@ -1,0 +1,35 @@
+{
+  "protocol": "V17-PACKET-R1_RANK10_LATE_FRAGMENT_ORACLE",
+  "frozen_opportunity_gate": "PASS_ORACLE_OPPORTUNITY_ONLY",
+  "baseline_090": 93,
+  "strict_oracle_090": 104,
+  "baseline_complete": 71,
+  "strict_oracle_complete": 81,
+  "mean_cumulative_context_delta": -34.2890625,
+  "query_selection": "128 SHA256-selected train1421 positions 256:384; no prior R0 outcome selection",
+  "fixed_rule_diagnostics_posthoc": {
+    "first_sentence": {
+      "success_090": 56,
+      "repairs": 6,
+      "breaks": 43
+    },
+    "shortest_sentence": {
+      "success_090": 52,
+      "repairs": 6,
+      "breaks": 47
+    },
+    "last_sentence": {
+      "success_090": 82,
+      "repairs": 10,
+      "breaks": 21
+    },
+    "full_packet_move": {
+      "success_090": 91,
+      "repairs": 15,
+      "breaks": 17
+    }
+  },
+  "decision": "GO_TRAIN_SIDE_LABEL_SCALE_AND_PRE_REGISTER_R2_LEARNABILITY_TEST",
+  "caution": "R1 oracle chooses STAY or one sentence with Target outcomes. A fixed sentence rule loses many baseline successes. Additional train-side labels and query-grouped evaluation are needed before a deployable policy claim. Do not read sealed sets or tune on this 128-query research gate.",
+  "sealed_sets_read": false
+}

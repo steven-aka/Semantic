@@ -1,0 +1,55 @@
+{
+  "protocol": "V17-PACKET-R1_RANK10_LATE_FRAGMENT_ORACLE",
+  "queries": 128,
+  "splittable": 99,
+  "fresh_target_calls": 329,
+  "fresh_prompt_tokens": 219493,
+  "fresh_generated_tokens": 16110,
+  "baseline": {
+    "success": {
+      "0.6": 111,
+      "0.7": 113,
+      "0.8": 91,
+      "0.9": 93,
+      "0.95": 96
+    },
+    "complete": 71,
+    "mean_cumulative_context_tokens": 2158.296875
+  },
+  "full_move": {
+    "success": {
+      "0.6": 111,
+      "0.7": 113,
+      "0.8": 91,
+      "0.9": 91,
+      "0.95": 96
+    },
+    "complete": 73,
+    "mean_cumulative_context_tokens": 2178.859375
+  },
+  "strict_no_extra_context_oracle": {
+    "success": {
+      "0.6": 111,
+      "0.7": 113,
+      "0.8": 91,
+      "0.9": 104,
+      "0.95": 96
+    },
+    "complete": 81,
+    "mean_cumulative_context_tokens": 2124.0078125
+  },
+  "quality_first_oracle": {
+    "success": {
+      "0.6": 111,
+      "0.7": 113,
+      "0.8": 91,
+      "0.9": 104,
+      "0.95": 96
+    },
+    "complete": 81,
+    "mean_cumulative_context_tokens": 2124.0078125
+  },
+  "strict_changed_queries": 86,
+  "quality_changed_queries": 86,
+  "limitations": "Outcome-aware sentence selection on train-side sample; no deployable policy or held-out model generalization."
+}

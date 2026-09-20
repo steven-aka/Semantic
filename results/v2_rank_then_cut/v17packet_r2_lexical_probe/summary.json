@@ -1,0 +1,46 @@
+{
+  "protocol": "V17-PACKET-R2_LEXICAL_IDENTIFIABILITY_PROBE",
+  "queries": 512,
+  "candidate_sentences": 1485,
+  "action_success_prevalence": 0.40404040404040403,
+  "baseline_090": 381,
+  "policies": [
+    {
+      "threshold": 0.8,
+      "switches": 0,
+      "success_090": 381,
+      "complete": 273,
+      "mean_cumulative_context_tokens": 2227.728515625,
+      "repairs": 0,
+      "breaks": 0
+    },
+    {
+      "threshold": 0.9,
+      "switches": 0,
+      "success_090": 381,
+      "complete": 273,
+      "mean_cumulative_context_tokens": 2227.728515625,
+      "repairs": 0,
+      "breaks": 0
+    },
+    {
+      "threshold": 0.95,
+      "switches": 0,
+      "success_090": 381,
+      "complete": 273,
+      "mean_cumulative_context_tokens": 2227.728515625,
+      "repairs": 0,
+      "breaks": 0
+    },
+    {
+      "threshold": 0.98,
+      "switches": 0,
+      "success_090": 381,
+      "complete": 273,
+      "mean_cumulative_context_tokens": 2227.728515625,
+      "repairs": 0,
+      "breaks": 0
+    }
+  ],
+  "limitations": "Diagnostic only. The 512 query outcomes have already been design-exposed by R1; no checkpoint or deployed policy selected."
+}
