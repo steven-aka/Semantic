@@ -1980,3 +1980,32 @@ the same role would turn a diagnostic into post-hoc tuning. Further stopping
 work must introduce a distinct deployment-visible signal or a redesigned
 stopping contract, and still beat fixed-depth quality at materially lower
 context cost before it can support the final Pareto claim.
+
+## V17-CUT-D0 cached Target-answer stability stopping gate
+
+CUT-D0 tested a distinct, online-observable signal on the same 1,421
+train-side V8 orders, using only cached frozen-Target outputs. Its frozen rule
+compares the order-insensitive normalized answer sets at depths 7 and 8. If
+they match and contain at least nine distinct answers, the 0.60--0.90 anchors
+stop at depth 8; otherwise they stop at depth 10. A requested 0.95 anchor
+always stops at depth 10. Nine predicted answers are necessary, but not
+sufficient, for 0.90 list-F1 with ten reference answer atoms. The rule never
+sees reference answers or exact fidelity at inference. No new Target calls
+were made in this cache replay, and 611, 581, internal300, development, and
+confirmation remained sealed.
+
+Only **1/1,421** query met the early-stop condition. The rule left 0.90
+success at 1,195 and Complete at 1,045, exactly the fixed-depth-10 baseline.
+Mean legal final-context fraction fell negligibly from 0.82009 to 0.81993.
+Actual deployment would require an average of 2.999 Target calls rather than
+one; the cached context-text-only prompt-token lower bound rose from 667.5 to
+1,527.5 per query, excluding common prompt/question and output tokens. The
+extra calls overwhelm the tiny final-context saving even before considering
+G0's single-run Target-output instability.
+
+Decision: `STOP_CUT_D0_ANSWER_STABILITY_GATE`. Cached Target behavior is an
+available information source, but this strict, cost-accounted stability
+signal does not justify opening the exposed 611 or fitting a new cutoff. No
+claim is made about all possible bounded-feedback policies; any successor
+must specify its Target-call budget and demonstrate a material train-only
+quality--cost advantage before using another validation role.

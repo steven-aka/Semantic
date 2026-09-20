@@ -1,0 +1,32 @@
+{
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "a32cc1d0a9948d07c52221feb21bd36571719f361411428bd5a5af784ca908d3",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+  },
+  "baseline_090": 1195,
+  "baseline_complete": 1045,
+  "baseline_mean_final_context_fraction": 0.8200900023258562,
+  "baseline_mean_target_calls": 1.0,
+  "baseline_mean_target_context_tokens_lower_bound": 667.4982406755806,
+  "break_090": 0,
+  "complete_break": 0,
+  "complete_gain": 0,
+  "confirmation_read": false,
+  "development_read": false,
+  "early_switch_queries": 1,
+  "fold4_611_read": false,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "new_target_calls": 0,
+  "policy_090": 1195,
+  "policy_complete": 1045,
+  "policy_mean_final_context_fraction": 0.8199341705280463,
+  "policy_mean_target_calls": 2.999296270232231,
+  "policy_mean_target_context_tokens_lower_bound": 1527.5109078114003,
+  "protocol": "V17-CUT-D0_CACHED_TARGET_ANSWER_STABILITY_GATE",
+  "queries": 1421,
+  "repair_090": 0,
+  "role": "train-only cached Target replay, no new calls",
+  "scope_limit": "cached predictions are single-run and may differ under repeat generation; context-only probe tokens exclude shared prompt and generated output"
+}

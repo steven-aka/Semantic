@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-CUT-D0_CACHED_TARGET_ANSWER_STABILITY_GATE",
+  "status": "FROZEN_TRAIN_ONLY_REPLAY",
+  "population": "B2B clean-train folds0-3, fixed clean V8 order; fold4=611 sealed until train-only Pareto gate",
+  "online_observation": "one frozen Target answer at depth7 and one at depth8; compare order-insensitive normalized answer sets, with no gold/reference answer or exact fidelity visible",
+  "early_rule": "if depth7 and depth8 normalized answer sets are identical and contain at least nine distinct answers, stop anchors 0.60 through 0.90 at depth8; otherwise stop them at depth10",
+  "high_fidelity_rule": "if 0.95 is requested, always stop it at depth10; all five stop depths remain nondecreasing",
+  "baseline": "single-call fixed depth10 at all anchors; same V8 candidate order",
+  "rationale": "ten-answer QAMPARI makes nine predicted answers a necessary but insufficient condition for 0.90 list-F1; stability tests a distinct Target-behavior signal",
+  "cost_ledger": "report final-context fraction separately from lower-bound sum of context tokens over all necessary Target calls; exclude shared prompt and generated tokens from lower bound, and assume no KV reuse",
+  "train_only_gate": "the frozen rule must preserve or increase both 0.90 successes and Complete while lowering mean final-context fraction; if not, leave fold4=611 sealed",
+  "sealed": ["fold4=611", "B2B 581", "internal300", "development", "confirmation", "new Target calls", "learned cutoff training"]
+}
