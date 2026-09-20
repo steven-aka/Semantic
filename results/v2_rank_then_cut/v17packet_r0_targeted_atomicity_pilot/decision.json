@@ -1,0 +1,26 @@
+{
+  "protocol": "V17-PACKET-R0_TARGETED_ATOMICITY_PILOT",
+  "decision": "GO_PACKET_R1_LATE_FRAGMENT_CONTRACT_DESIGN_ONLY",
+  "reason": "Sentence-granularity has a real train-side outcome-aware opportunity, but early fragment reveal breaks lower anchors and 15 matched controls expose substantial break risk. Do not train a selector or claim deployable Pareto improvement.",
+  "repair_090": {
+    "full_move_repaired": 15,
+    "any_sentence_arm_repaired": 13,
+    "no_extra_depth9_context_repaired": 9,
+    "same_batch_paired_rerun_repaired": 9,
+    "paired_rerun_lower_080_breaks_if_revealed_at_depth7": 2,
+    "late_depth9_only_hindsight_repairs": 9,
+    "late_depth9_only_complete_repairs": 5,
+    "late_depth9_only_mean_cumulative_context_saved_tokens_per_selected_query": 56
+  },
+  "matched_controls": {
+    "baseline_090_success": 13,
+    "full_move_sentence_any_break_among_baseline_success": 8
+  },
+  "required_next_checks": [
+    "Freeze macro-step add-only contract for late fragment at depth9 and restoration at depth10",
+    "Check raw text reconstruction and exact Target prompt/token IDs",
+    "Expand on train-only queries without choosing sentences from their Target outcomes",
+    "Evaluate all five anchors, Complete, cumulative context, Target calls and controller cost"
+  ],
+  "sealed_sets_read": false
+}

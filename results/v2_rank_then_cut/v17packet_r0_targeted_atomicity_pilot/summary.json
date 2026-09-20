@@ -1,0 +1,27 @@
+{
+  "protocol": "V17-PACKET-R0_TARGETED_ATOMICITY_PILOT",
+  "cases": 45,
+  "groups": {
+    "repair_090": 15,
+    "repair_080_only": 15,
+    "control": 15
+  },
+  "new_target_calls": 225,
+  "new_prompt_tokens": 142745,
+  "new_generated_tokens": 10242,
+  "repair_090": {
+    "full_move_success": 15,
+    "baseline_plus_full_success": 12,
+    "any_fragment_success": 13,
+    "fragment_success_no_extra_context": 9,
+    "fragment_success_cheaper_than_full_move": 11
+  },
+  "repair_080_only": {
+    "full_move_success": 15,
+    "baseline_plus_full_success": 12,
+    "any_fragment_success": 13,
+    "fragment_success_no_extra_context": 10,
+    "fragment_success_cheaper_than_full_move": 11
+  },
+  "limitations": "Mechanism-only at the affected fixed stop depth; no selector training, no five-level Pareto claim, no sealed set. Sentence fragments retain document title and source text verbatim."
+}

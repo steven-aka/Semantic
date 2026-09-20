@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-PACKET-R0_PAIRED_REPLAY",
+  "queries": 9,
+  "target_calls": 36,
+  "prompt_tokens": 22141,
+  "generated_tokens": 1658,
+  "depth9_090_success": {
+    "depth9_baseline": 0,
+    "depth9_full_move": 9,
+    "depth9_fragment": 9
+  },
+  "depth7_fragment_080_success": 4,
+  "fragment_no_extra_depth9_context": 9,
+  "limitations": "These 9 were selected by earlier Target outcomes. Paired replay is a robustness diagnostic, not an independent generalization estimate or five-anchor Pareto proof."
+}

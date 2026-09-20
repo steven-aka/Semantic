@@ -2463,3 +2463,14 @@ learning-design gate. The per-query no-extra-context oracle gained only +3
 inspect whether current packet boundaries bundle useful evidence with
 unnecessary text; preserve the same Qwen3-8B prompt and five-anchor schedule
 and count all context and Target costs.
+
+PACKET-R0 then tested natural sentence fragments inside the moved proof
+blocks. A design-exposed 15-case 0.90 audit found 9 sentence replacements
+that preserved the repair without extra depth9 context; same-batch paired
+replay reproduced all 9. Revealing those fragments as early as depth7 broke
+two existing 0.80 successes, so timing matters as much as granularity.
+Controls showed 0.90 breaks for some fragment choices. The next authorized
+step is **contract design**, not selector training: specify lossless add-only
+restoration at the depth10 macro-step and evaluate a broader five-anchor
+oracle with all context and Target costs. No deployment improvement is yet
+established.

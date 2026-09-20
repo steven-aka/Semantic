@@ -3262,3 +3262,52 @@ controller is trained. [Pilot summary](v17state_a0_early_move_pilot/summary.json
 [256-query summary](v17state_a0_early_move_expand256/summary.json), and
 [decision](v17state_a0_early_move_expand256/decision.json) record the audit.
 No sealed set was read.
+
+### V17-PACKET-R0 targeted sentence atomicity mechanism audit
+
+STATE-A0 did not establish that extra context was useless. We therefore
+separated adding the moved packet from displacing the previous packet at the
+single affected stop. The train-side sample used all 15 new-192 queries with
+a quality-first 0.90 repair, 15 hash-selected 0.80-only repairs and 15
+hash-selected controls. Each original packet is one document title and one
+source-evidence block; only natural sentence boundaries within that block
+were considered. The title accompanies each tested sentence. We did **not**
+invent a semantic chunker or train a model. Existing exact query/mask Target
+rows were reused; 225 fresh calls cost 142,745 prompt and 10,242 generated
+tokens. The tested variants were V8 baseline, whole-packet move, baseline
+plus the full moved packet, baseline plus one sentence, and the moved context
+with the whole packet replaced by one sentence.
+
+At the affected stop, the 15 historical 0.90 whole-packet repairs included
+12 for which baseline-plus-full also succeeded, so removal of the displaced
+packet is **not universally necessary**. A sentence variant recovered 13/15;
+9/15 recovered 0.90 without exceeding that query's V8 context tokens at
+depth 9. For 0.80-only repairs the corresponding counts were 12/15
+baseline-plus-full, 13/15 any sentence and 10/15 no-extra-context. These
+are best-of-several *outcome-aware* choices, not a learned selector.
+
+We reran the 9 no-extra-context 0.90 cases in one paired Qwen3-8B batch:
+baseline depth9, whole move depth9, chosen sentence depth9, and chosen
+sentence at depth7 (36 new calls, 22,141 prompt and 1,658 generated tokens).
+Depth9 success was **0/9 baseline, 9/9 whole move, 9/9 sentence**; every
+sentence was still no longer than its paired V8 depth9 context. However,
+revealing that sentence already at depth7 caused **two baseline 0.80 breaks**.
+If instead the sentence is revealed only at depth9, the previously cached
+lower-anchor outputs remain unchanged by definition, the 9 depth9 repairs
+survive, 5/9 reach Complete, and cumulative fixed-schedule context drops by
+56 tokens per selected query on average. This is a *hindsight counterfactual*
+over nine design-exposed cases, not a realizable ten-step policy yet: a
+refined add-only schedule must specify how the displaced packet and residual
+evidence are restored at the depth10 macro-step.
+
+Selection risk is substantial. In the 15 matched controls, 13 were baseline
+0.90 successes; at least one tested replacement sentence broke 0.90 in 8
+of those 13. The study therefore locates a genuine granularity-and-timing
+opportunity, while leaving cross-query identification unresolved. Decision:
+`GO_PACKET_R1_LATE_FRAGMENT_CONTRACT_DESIGN_ONLY`. First freeze an exact
+lossless/add-only restoration and cost contract, then run a broader train-side
+five-anchor oracle under that contract. Do not train a sentence selector or
+claim deployment Pareto gain from these selected examples. See
+[R0 summary](v17packet_r0_targeted_atomicity_pilot/summary.json),
+[paired replay](v17packet_r0_paired_replay/summary.json), and
+[decision](v17packet_r0_targeted_atomicity_pilot/decision.json).

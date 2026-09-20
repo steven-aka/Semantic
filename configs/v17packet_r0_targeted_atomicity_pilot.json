@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-PACKET-R0_TARGETED_ATOMICITY_PILOT",
+  "status": "FROZEN_TRAIN_SIDE",
+  "target_model": "models/Qwen3-8B",
+  "source": "STATE-A0 new192 only",
+  "groups": {"all_090_repairs": 15, "hash_selected_080_only_repairs": 15, "hash_selected_controls": 15},
+  "action_arms": ["baseline", "full_move", "baseline_plus_full", "baseline_plus_sentence", "full_move_with_sentence_instead_of_packet"],
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 64,
+  "temperature": 0.0,
+  "fidelity_epsilon": 1e-6,
+  "scope": "Mechanism-only at the affected fixed stop depth; no selector training, no five-level Pareto claim, no sealed set. Sentence fragments retain document title and source text verbatim."
+}
