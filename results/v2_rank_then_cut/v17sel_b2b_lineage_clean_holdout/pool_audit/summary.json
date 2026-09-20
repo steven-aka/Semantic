@@ -1,0 +1,24 @@
+{
+  "artifact_sha256": {
+    "cache": "f4c394f11637f001dada5d22ecdc4ead0473f7935ac8179727f764c898410702",
+    "config": "1fe55b499706553d668944f5b0c010bfbac7a3290ab1b25c1d59fbd71e6042e3",
+    "data": "8db766c73a014328bc9b4548bb72d50c20b319a2c8f4798c1d3ea2c048689ca8",
+    "head": "b8cf5b243ce68d8c8dc0654a908905f0494b9f345f4d3875eb2a67bad441d6ea",
+    "rollouts": "82cdef41c74c4685cba5f2ee284dfff875469539a8661d9483c775d4cbddac06"
+  },
+  "confirmation_used": false,
+  "cutoff_trained": false,
+  "decision": "GO_SEL_C0_TOPK_SET_SELECTOR_PROTOCOL",
+  "development_used": false,
+  "global_exact_success": 581,
+  "oracle_pool_090_by_top_k": {
+    "10": 565,
+    "20": 572,
+    "4": 552
+  },
+  "queries": 581,
+  "selector_trained": false,
+  "top10_absolute_fraction": 0.9724612736660929,
+  "top10_minus_top4_fraction": 0.022375215146299483,
+  "v8_fallback_090": 539
+}

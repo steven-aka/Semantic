@@ -1,0 +1,41 @@
+{
+  "data": {
+    "development": "results/v2_rank_then_cut/v10_development300_mask_value_full.jsonl",
+    "development_cache": "results/v2_rank_then_cut/v10_development300_v8_embeddings.pt",
+    "locked_roles_used": false,
+    "train": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_train_clean.jsonl",
+    "train_cache": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_train_embeddings.pt",
+    "train_cache_sha256": "aa3ff04708b1d4eaab529b32f789064e3881b0f0093a5443016eb5fbfb68f075",
+    "train_sha256": "173168ae2d446b8819a07814b524e299cd68caed87de039ecd4bf0274c882568"
+  },
+  "date": "2026-09-18 Asia/Shanghai",
+  "decision": {
+    "GO": "top1 projection fidelity-0.90 >=282/300, complete trajectories >=0.90, regret <=0.03",
+    "otherwise": "STOP retrieval hypothesis"
+  },
+  "frozen": {
+    "decoder": "highest-scoring 0.90 mask projected onto frozen V8 relative order",
+    "v10_head": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v10_run/mask_value_head.pt",
+    "v10_head_sha256": "9008bfbf106cf2594def0006aca5d153a98ad4c5175d49db3e539a278dbc809b",
+    "v8_development_order": "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/development_details.jsonl"
+  },
+  "hypothesis": "Direct query-balanced multiple-positive retrieval of 0.90-feasible masks fixes the average-lattice-risk mismatch while V8-relative projection preserves other anchors and rate.",
+  "implementation_sha256": {
+    "src/evaluation/v11_mask_retrieval_audit.py": "7ffa92b132ea1b742a57c4349e22c46758c7fc48bac14fcb551ab1191a96fb30",
+    "src/model/high_fidelity_retrieval_loss.py": "d3756eabb62864d586f0e0164686e30df9a4a9c96d39179ff489672efc71a64f",
+    "src/training/train_v12_high_fidelity_retriever.py": "c3c20cf96286109581e31fe88db3efc5afbf491b6b7bc6c2e2493c54661b5742",
+    "tests/test_high_fidelity_retrieval_loss.py": "6bacc9c48bcc0b15716ca01c25925ff0cbe6b14909ea955b678b05ab8cf7830a"
+  },
+  "optimization": {
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "loss": "query-balanced negative log total softmax probability on sampled masks attaining fidelity >=0.90",
+    "seed": 20260918,
+    "steps": 400,
+    "weight_decay": 0.01
+  },
+  "output": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v12_run",
+  "protocol": "v17sel_b2b_lineage_clean_v12",
+  "scientific_role": "train-only V13 initialization; no development or holdout evaluation",
+  "status": "APPROVED_TO_RUN"
+}

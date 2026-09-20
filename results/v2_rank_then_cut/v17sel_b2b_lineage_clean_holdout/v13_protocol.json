@@ -1,0 +1,94 @@
+{
+  "arguments": {
+    "batch_size": 16,
+    "checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_run/checkpoints/step500",
+    "gradient_accumulation": 1,
+    "head_lr": 0.0001,
+    "initial_head": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v12_run/mask_retrieval_head.pt",
+    "lora_lr": 1e-05,
+    "max_sequence_length": 512,
+    "model": "models/Qwen3-4B",
+    "model_dim": 512,
+    "output_dir": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v13_run",
+    "seed": 20260918,
+    "steps": 300,
+    "train_data": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v13_train_train_clean.jsonl",
+    "validation_data": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v13_train_inner_validation.jsonl",
+    "validation_interval": 100
+  },
+  "artifacts_sha256": {
+    "results/v2_rank_then_cut/v12_high_fidelity_retriever_seed20260918/mask_retrieval_head.pt": "320453b125195ce2344b48fc5bf28c7bae82d3e45a523f912ff42fa2281a4d6f",
+    "results/v2_rank_then_cut/v13_internal_split_manifest.json": "5754f8411e61991a83c04124f5b3195ddd16c23aad3ff5fc106ffe0a1fad798b",
+    "results/v2_rank_then_cut/v13_internal_train2863_mask_value.jsonl": "182b1ec1533777c7d1c798852a678433ac666d2e20ac0647fc31671fea662669",
+    "results/v2_rank_then_cut/v13_internal_validation300_mask_value.jsonl": "a20bc8d994e0650b5ae6bdd207f7f614e177715b57da5fc061eb51d48b7c91a7",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/adapter/adapter_model.safetensors": "1bf97e55d390988fbd5f74a9fbf7a311a24c28816d043ea85a4d6d496db1e132",
+    "results/v2_rank_then_cut/v8_one_run_seed20260912/checkpoints/step250/sequential_head.pt": "0e3d5022868a619e246fd759de82d3891dcf552922dc8ffd8434dfe38814ddb5",
+    "src/data/build_v13_internal_split.py": "aa47e35d4bb7164a04d50db4eb90c86591e031cba0448dbc1baef95fae48e535",
+    "src/model/high_fidelity_retrieval_loss.py": "d3756eabb62864d586f0e0164686e30df9a4a9c96d39179ff489672efc71a64f",
+    "src/training/train_v13_joint_retriever.py": "894314a18ffb3195b42571bc220e6a05146425f8257ff7eb4d63936d732b0e99",
+    "tests/test_v13_internal_split.py": "50a07eaa2217feb0b7063d493dca3cb2ecc4020bb98fe367ff7c4b696adb6b7d"
+  },
+  "date": "2026-09-18 Asia/Shanghai",
+  "development_reporting": {
+    "fresh_opening": "not decided by training; requires a separate frozen end-to-end protocol",
+    "required": [
+      "all five anchor counts",
+      "complete trajectories",
+      "regret",
+      "top1/top4/top16 decomposed oracle ceilings"
+    ]
+  },
+  "frozen_design": {
+    "checkpoint_steps": [
+      100,
+      200,
+      300
+    ],
+    "development_access": "once after selected checkpoint is frozen",
+    "frozen": [
+      "Qwen3-4B NF4 base",
+      "V8 input projection/set encoder/sequential head",
+      "candidate projection rule"
+    ],
+    "selection": "minimum internal-validation query-balanced retrieval loss, earliest step on tie",
+    "trainable": [
+      "V8 LoRA adapter",
+      "V12 mask retrieval head"
+    ]
+  },
+  "hypothesis": "Frozen V8 representations fail to encode query-conditioned compatibility of sparse fidelity-0.90 packet combinations; jointly adapting only the V8 LoRA and V12 retrieval head improves top-1 identification.",
+  "locked_confirmation_or_calibration_used": false,
+  "preflight_amendment": {
+    "development300_accessed": false,
+    "formal_optimizer_steps_started": 0,
+    "new_gradient_accumulation": 1,
+    "new_micro_batch": 16,
+    "old_gradient_accumulation": 2,
+    "old_micro_batch": 4,
+    "reason": "batch4 backward peaked at 8.10 GB on a 49.14 GB A6000; increase utilization before the formal run"
+  },
+  "preflight_amendment_2": {
+    "development300_accessed": false,
+    "formal_optimizer_steps_started": 0,
+    "new_micro_batch": 32,
+    "new_steps": 150,
+    "old_micro_batch": 16,
+    "old_steps": 300,
+    "reason": "batch16 backward peaked at 20.60 GB; batch32 keeps the same 4800-example exposure while increasing GPU utilization and halves optimizer steps"
+  },
+  "preflight_amendment_3": {
+    "allocator": "expandable_segments:True",
+    "checkpoint_created": false,
+    "development300_accessed": false,
+    "failed_run_disposition": "non-endpoint systems failure archived; restart from original V8+V12 initialization",
+    "new_micro_batch": 16,
+    "new_steps": 300,
+    "old_micro_batch": 32,
+    "old_steps": 150,
+    "reason": "formal batch32 encountered a length-dependent OOM after step10 at 46.63 GiB process use; no checkpoint or development access occurred",
+    "sample_exposure_preserved": 4800
+  },
+  "protocol": "v17sel_b2b_lineage_clean_v13",
+  "scientific_role": "lineage-clean train/inner-validation checkpoint selection; holdout sealed",
+  "status": "APPROVED_TO_RUN"
+}

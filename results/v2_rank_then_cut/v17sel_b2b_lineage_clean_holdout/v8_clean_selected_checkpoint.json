@@ -1,0 +1,84 @@
+{
+  "all_checkpoints": [
+    {
+      "checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_run/checkpoints/step250",
+      "gate_success_threshold": 517,
+      "gates": [
+        false,
+        true,
+        true
+      ],
+      "selection_key": [
+        0,
+        2,
+        508,
+        0.9109090909090909,
+        -0.02727829471658943,
+        -0.4098209907179293
+      ],
+      "step": 250
+    },
+    {
+      "checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_run/checkpoints/step500",
+      "gate_success_threshold": 517,
+      "gates": [
+        false,
+        true,
+        true
+      ],
+      "selection_key": [
+        0,
+        2,
+        508,
+        0.9127272727272727,
+        -0.02562090564641698,
+        -0.3867308400247408
+      ],
+      "step": 500
+    },
+    {
+      "checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_run/checkpoints/step750",
+      "gate_success_threshold": 517,
+      "gates": [
+        false,
+        true,
+        true
+      ],
+      "selection_key": [
+        0,
+        2,
+        508,
+        0.9090909090909091,
+        -0.026797260467193804,
+        -0.384863313773404
+      ],
+      "step": 750
+    }
+  ],
+  "artifacts": {
+    "config_sha256": "1fe55b499706553d668944f5b0c010bfbac7a3290ab1b25c1d59fbd71e6042e3",
+    "v8_selection_sha256": "4b13fec5c4aefe0f888ea0b2f8db3c96fc44a6d417c152032db3c501db31c597"
+  },
+  "decision": "V8_LINEAGE_CLEAN_SELECTED_FOR_DOWNSTREAM",
+  "development_read_by_sel_b2b": false,
+  "holdout_read": false,
+  "selected": {
+    "checkpoint": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/v8_run/checkpoints/step500",
+    "gate_success_threshold": 517,
+    "gates": [
+      false,
+      true,
+      true
+    ],
+    "selection_key": [
+      0,
+      2,
+      508,
+      0.9127272727272727,
+      -0.02562090564641698,
+      -0.3867308400247408
+    ],
+    "step": 500
+  },
+  "training_script_selected_checkpoint_ignored": true
+}
