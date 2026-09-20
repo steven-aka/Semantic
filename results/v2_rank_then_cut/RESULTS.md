@@ -2009,3 +2009,30 @@ signal does not justify opening the exposed 611 or fitting a new cutoff. No
 claim is made about all possible bounded-feedback policies; any successor
 must specify its Target-call budget and demonstrate a material train-only
 quality--cost advantage before using another validation role.
+
+## V17-CUT-E0 conservative lower-anchor early stopping
+
+The train-side V8 0.90 safe-window audit located first success at depths 8,
+9, 10, 11, and 12 for **1, 1,016, 234, 44, and 20** of the 1,315
+reachable queries. This explains why CUT-D0's depth-8 early stop had almost
+no opportunity; it is an exact-cache descriptive result, not an inference
+feature. E0 therefore kept 0.90 and 0.95 at the fixed depth-10 baseline and
+tested only whether the 0.60--0.80 anchors could safely stop at depth 9.
+
+The frozen rule evaluated the clean V13 mask-value head at the V8 depth-9
+mask, then stopped all three lower anchors at depth 9 when its 0.80 ordinal
+logit was at least 4.0. This requires no Target call or exact label at
+inference. On the 1,421 train-side queries it switched 1,261 and reduced mean
+legal five-anchor final-context fraction from **0.8201 to 0.7458**.
+0.90 success stayed at **1,195**, as its stop depth was unchanged; Complete
+fell from **1,045 to 1,011**, with **34 breaks and zero gains**. Lower-anchor
+success counts fell from 1,345/1,332/1,293 to 1,330/1,309/1,272 at
+0.60/0.70/0.80. The head's apparently high 0.80 logit was not a guarantee
+of safe lower-anchor stopping; ordinal-score miscalibration and nonmonotone
+Target fidelity remain material.
+
+Decision: `STOP_CUT_E0_HIGH_LOGIT_EARLY_STOP`. The preregistered train-only
+quality gate failed, so fold4=611, B2B 581, internal300, development, and
+confirmation were not read for E0. The cost reduction is a useful
+quality--token tradeoff point but **does not dominate** fixed depth 10.
+No threshold sweep on these same outcomes is authorized by this protocol.

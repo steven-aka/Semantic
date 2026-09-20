@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-CUT-E0_LOWER_ANCHOR_CONSERVATIVE_SAVINGS",
+  "status": "FROZEN_TRAIN_ONLY_GATE",
+  "candidate_order": "unchanged clean-lineage V8 add-only order",
+  "baseline": "all requested anchors stop at packet depth10",
+  "policy": "evaluate frozen clean-lineage V13 mask-value head at V8 depth9; if its 0.80 ordinal logit is at least 4.0, stop the 0.60/0.70/0.80 anchors at depth9; otherwise leave all anchors at depth10; 0.90/0.95 always depth10",
+  "information_contract": "frozen packet/query embedding and depth9 mask only; no Target calls, gold answer, exact fidelity, oracle attainable mask, or per-query threshold tuning",
+  "rationale": "0.80 is the hardest of the three proposed early anchors and logit 4 corresponds to nominal sigmoid confidence above 98%; fixed 0.90/0.95 depths protect their baseline success",
+  "train_only_gate": "on clean-train folds0-3, preserve Complete and 0.90 counts exactly, switch at least 30 queries, and lower mean legal five-anchor context fraction; if any condition fails, keep fold4=611 sealed",
+  "later_role": "only after train gate, one read of design-exposed fold4=611; if positive, B2B 581 must still test ancestry-clean generalization before any final claim",
+  "sealed": ["B2B 581", "internal300", "development", "confirmation", "new Target calls", "new model training"]
+}

@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "cache_sha256": "945fe4bbaa7561c5706f5e006cf7a4575b17fa3acdde9aca8d26bad5baca502b",
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "29141a9d5f50f512fd348d355c20fcdba87d360e7fba936d221d9497b4895fc6",
+    "head_sha256": "b8cf5b243ce68d8c8dc0654a908905f0494b9f345f4d3875eb2a67bad441d6ea",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+  },
+  "confirmation_read": false,
+  "development_read": false,
+  "fold4_611_read": false,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "new_target_calls": 0,
+  "protocol": "V17-CUT-E0_LOWER_ANCHOR_CONSERVATIVE_SAVINGS",
+  "train": {
+    "anchor_baseline_success": [
+      1345,
+      1332,
+      1293,
+      1195,
+      914
+    ],
+    "anchor_policy_success": [
+      1330,
+      1309,
+      1272,
+      1195,
+      914
+    ],
+    "baseline_090": 1195,
+    "baseline_complete": 1045,
+    "baseline_mean_final_context_fraction": 0.8200900023258562,
+    "complete_break": 34,
+    "complete_gain": 0,
+    "policy_090": 1195,
+    "policy_complete": 1011,
+    "policy_mean_final_context_fraction": 0.7458353564070229,
+    "queries": 1421,
+    "switches": 1261
+  },
+  "train_only_gate_passed": false
+}
