@@ -33,6 +33,7 @@
   "model": {
     "architecture": "shared candidate MLP 128 hidden then one 4-head self-attention layer across candidate set, scalar output per candidate",
     "same_architecture_both_arms": true,
+    "duplicate_projection_rule": "masks projecting to an identical full V8 order keep only the earliest-ranked candidate; later duplicate slots are masked in attention, loss and top1 inference",
     "frozen": ["Qwen3-4B", "clean V8", "clean V13"],
     "trainable": "selector only",
     "temperature": 1.0,

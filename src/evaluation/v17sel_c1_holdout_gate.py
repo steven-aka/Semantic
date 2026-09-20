@@ -33,7 +33,7 @@ def main() -> None:
     train = json.loads((Path(args.train_output) / "summary.json").read_text())
     if train["decision"] != "GO_SEL_C1_ONE_DESIGN_EXPOSED_HOLDOUT_READ":
         raise ValueError("train-only gate did not authorize holdout read")
-    rows, features = load_features(args.candidates, args.cache)
+    rows, features, unique = load_features(args.candidates, args.cache)
     if len(rows) != 581:
         raise ValueError("unexpected lineage-clean holdout size")
     original = json.loads(Path(args.b2b_summary).read_text())
@@ -52,7 +52,7 @@ def main() -> None:
         choice = []
         with torch.no_grad():
             for start in range(0, len(rows), 128):
-                score = model(features[start:start + 128, :k + 1].to(device))
+                score = model(features[start:start + 128, :k + 1].to(device), unique[start:start + 128, :k + 1].to(device))
                 choice.extend(torch.argmax(score, dim=1).cpu().tolist())
         choices[arm] = choice
         report = metrics(rows, choice, k)

@@ -111,11 +111,16 @@ def main() -> None:
                 fidelity, tokens = exact_values(Path(args.exact_dir) / f"{query}.jsonl")
                 attainable = {float(level) for level in row["attainable_levels"]}
                 candidates = []
+                seen_orders = set()
                 for rank, mask in enumerate([0, *ranked]):
                     order = base if rank == 0 else project(base, mask)
+                    key = tuple(order)
+                    unique_order = key not in seen_orders
+                    seen_orders.add(key)
                     candidates.append({
                         "rank": rank,
                         "mask": mask,
+                        "unique_order": unique_order,
                         "retrieval_logits": logits[local, mask].tolist(),
                         "mask_tokens": tokens[mask],
                         "score_gap_090": float(logits[local, ranked[0], 3] - logits[local, mask, 3]) if rank else 0.0,
@@ -126,7 +131,7 @@ def main() -> None:
                     "attainable_levels": sorted(attainable),
                     "full_tokens": tokens[-1],
                     "global_min_090_tokens": min((tokens[mask] for mask in range(4096) if meets_fidelity(fidelity[mask], .9)), default=None),
-                    "unique_candidate_orders": len({tuple(base if item["rank"] == 0 else project(base, item["mask"])) for item in candidates}),
+                    "unique_candidate_orders": len(seen_orders),
                     "candidates": candidates,
                 })
             print(json.dumps({"built": len(output), "total": len(rows)}), flush=True)

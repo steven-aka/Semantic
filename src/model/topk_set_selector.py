@@ -17,9 +17,10 @@ class TopKSetSelector(nn.Module):
         self.context = nn.TransformerEncoder(layer, num_layers=1)
         self.score = nn.Linear(128, 1)
 
-    def forward(self, features: torch.Tensor) -> torch.Tensor:
+    def forward(self, features: torch.Tensor, unique: torch.Tensor) -> torch.Tensor:
         values = self.embed(features.float())
-        return self.score(self.context(values)).squeeze(-1)
+        values = self.context(values, src_key_padding_mask=~unique)
+        return self.score(values).squeeze(-1).masked_fill(~unique, -torch.inf)
 
 
 def successful_set_loss(scores: torch.Tensor, success: torch.Tensor) -> torch.Tensor:

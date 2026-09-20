@@ -14,7 +14,7 @@ from src.model.topk_set_selector import TopKSetSelector, successful_set_loss
 from src.reproducibility import sha256, write_metadata
 
 
-def load_features(candidates_path: str, cache_path: str) -> tuple[list[dict], torch.Tensor]:
+def load_features(candidates_path: str, cache_path: str) -> tuple[list[dict], torch.Tensor, torch.Tensor]:
     rows = list(read_jsonl(candidates_path))
     cache = torch.load(cache_path, map_location="cpu", weights_only=True)
     if cache["example_ids"] != [row["example_id"] for row in rows]:
@@ -36,7 +36,10 @@ def load_features(candidates_path: str, cache_path: str) -> tuple[list[dict], to
     features = torch.cat((q, selected, remaining, q * selected, logits, rank, gap, tokens, count), dim=2)
     if features.shape[2] != 4 * 512 + 9 or not torch.isfinite(features).all():
         raise ValueError("invalid selector features")
-    return rows, features
+    unique = torch.tensor([[bool(item["unique_order"]) for item in row["candidates"]] for row in rows], dtype=torch.bool)
+    if not unique[:, 0].all() or unique.sum(1).min() < 1:
+        raise ValueError("invalid trajectory deduplication")
+    return rows, features, unique
 
 
 def metrics(rows: list[dict], selected: list[int], k: int) -> dict:
@@ -57,25 +60,25 @@ def metrics(rows: list[dict], selected: list[int], k: int) -> dict:
     }
 
 
-def evaluate(model: TopKSetSelector, features: torch.Tensor, indices: list[int], rows: list[dict], k: int, device: torch.device) -> tuple[dict, list[int]]:
+def evaluate(model: TopKSetSelector, features: torch.Tensor, unique: torch.Tensor, indices: list[int], rows: list[dict], k: int, device: torch.device) -> tuple[dict, list[int]]:
     model.eval()
     choices = []
     with torch.no_grad():
         for start in range(0, len(indices), 128):
             subset = indices[start:start + 128]
-            scores = model(features[subset, :k + 1].to(device))
+            scores = model(features[subset, :k + 1].to(device), unique[subset, :k + 1].to(device))
             choices.extend(torch.argmax(scores, dim=1).cpu().tolist())
     return metrics([rows[i] for i in indices], choices, k), choices
 
 
-def run_arm(k: int, config: dict, rows: list[dict], features: torch.Tensor, output: Path, device: torch.device) -> tuple[dict, list[int]]:
+def run_arm(k: int, config: dict, rows: list[dict], features: torch.Tensor, unique: torch.Tensor, output: Path, device: torch.device) -> tuple[dict, list[int]]:
     seed = int(config["optimization"]["seed"])
     random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
     train_ids = [i for i, row in enumerate(rows) if fold(row["example_id"]) != 4]
     valid_ids = [i for i, row in enumerate(rows) if fold(row["example_id"]) == 4]
-    train_success = torch.tensor([[item["success"][3] for item in row["candidates"][:k + 1]] for row in rows], dtype=torch.bool)
+    train_success = torch.tensor([[item["success"][3] and item["unique_order"] for item in row["candidates"][:k + 1]] for row in rows], dtype=torch.bool)
     model = TopKSetSelector().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=config["optimization"]["learning_rate"], weight_decay=config["optimization"]["weight_decay"])
     steps = int(config["optimization"]["steps"])
@@ -97,7 +100,7 @@ def run_arm(k: int, config: dict, rows: list[dict], features: torch.Tensor, outp
             batch.extend(train_ids[index] for index in order[cursor:cursor + take])
             cursor += take
         selected = torch.tensor(batch)
-        scores = model(features[selected, :k + 1].to(device))
+        scores = model(features[selected, :k + 1].to(device), unique[selected, :k + 1].to(device))
         loss = successful_set_loss(scores, train_success[selected].to(device))
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
@@ -105,7 +108,7 @@ def run_arm(k: int, config: dict, rows: list[dict], features: torch.Tensor, outp
         optimizer.step()
         scheduler.step()
         if step in config["optimization"]["validation_checkpoints"]:
-            validation, choices = evaluate(model, features, valid_ids, rows, k, device)
+            validation, choices = evaluate(model, features, unique, valid_ids, rows, k, device)
             checkpoint = output / f"step{step}.pt"
             torch.save({name: value.detach().cpu() for name, value in model.state_dict().items()}, checkpoint)
             record = {"step": step, "train_loss": float(loss.detach()), "validation": validation, "checkpoint": str(checkpoint)}
@@ -118,7 +121,7 @@ def run_arm(k: int, config: dict, rows: list[dict], features: torch.Tensor, outp
         -record["validation"]["mean_penalized_090_token_fraction"], -record["step"],
     ))
     model.load_state_dict(torch.load(best["checkpoint"], map_location=device, weights_only=True))
-    validation, choices = evaluate(model, features, valid_ids, rows, k, device)
+    validation, choices = evaluate(model, features, unique, valid_ids, rows, k, device)
     write_metadata(output / "selected.json", best)
     return validation, choices
 
@@ -133,7 +136,7 @@ def main() -> None:
     config = json.loads(Path(args.config).read_text())
     if config["status"] != "FROZEN_APPROVED_TO_BUILD_TRAIN_ONLY":
         raise ValueError("C0 protocol is not frozen")
-    rows, features = load_features(args.candidates, args.cache)
+    rows, features, unique = load_features(args.candidates, args.cache)
     if len(rows) != 2032 or len({row["example_id"] for row in rows}) != 2032:
         raise ValueError("unexpected clean-train population")
     valid_ids = [i for i, row in enumerate(rows) if fold(row["example_id"]) == 4]
@@ -145,7 +148,7 @@ def main() -> None:
     results = {}
     decisions = {}
     for arm, k in config["candidate_budget"]["arms"].items():
-        result, selected = run_arm(k, config, rows, features, output / arm, device)
+        result, selected = run_arm(k, config, rows, features, unique, output / arm, device)
         results[arm] = result
         decisions[arm] = selected
     validation_rows = [rows[i] for i in valid_ids]
