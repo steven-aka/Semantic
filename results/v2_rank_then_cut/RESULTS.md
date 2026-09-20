@@ -3695,3 +3695,32 @@ break plus token improvement on query-held-out data; no sealed set was read.
 [summary](v17packet_mech_a3_success_safety/summary.json),
 [per-action outcomes](v17packet_mech_a3_success_safety/per_action.jsonl), and
 [decision](v17packet_mech_a3_success_safety/decision.json) preserve this audit.
+
+### V17-PACKET-EVICT-A0 gold-alias protection diagnostic
+
+We tested the proposed "protect unique answer support" explanation against
+all 153 A3 actions without a new Target call. This first pass uses gold-answer
+alias *mentions* as a transparent retrospective proxy, not a support-relation
+classifier or deployment feature. None of the omitted rank-9 sentences
+uniquely mentions a gold answer relative to the other evidence retained at
+depth9. All 33 break actions defer a sentence mentioning a baseline correct
+answer, but so do **95/120 safe actions**. A rule that protects every such
+sentence would leave 25 safe actions from only **one query**. Thus simple
+answer-name coverage cannot yield a useful safety gate on this sample.
+
+Among the breaks, 17/33 lose a correct output answer whose gold name appears
+in the deferred sentence, versus 7/120 safe actions. This suggests a real
+link between some answer loss and delayed evidence, but it is known only
+*after* observing the Target response and cannot be used by a controller.
+Lexical duplication is not proof of equivalent relational support, and the
+153 actions are clustered in 32 queries. A richer relation-level graph
+remains a hypothesis, not an established remedy.
+
+Decision: `STOP_GOLD_ALIAS_UNIQUE_SUPPORT_AS_SAFETY_GATE`. Do not train a
+protected-evidence classifier from this proxy. The next efficient causal
+test is a frozen +8/+16/+32 token-slack oracle on both repair and V8-success
+samples: determine whether less aggressive deferral reduces break risk while
+retaining a useful quality–token frontier. This remains train-side mechanism
+work, not deployment validation. [Summary](v17packet_evict_a0_gold_diagnostic/summary.json),
+[per-action audit](v17packet_evict_a0_gold_diagnostic/per_action.jsonl), and
+[decision](v17packet_evict_a0_gold_diagnostic/decision.json) record it.

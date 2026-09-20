@@ -1,0 +1,53 @@
+{
+  "protocol": "V17-PACKET-EVICT-A0_GOLD_ALIAS_DIAGNOSTIC",
+  "actions": 153,
+  "queries": 32,
+  "break_actions": 33,
+  "queries_with_any_break_action": 16,
+  "crosstab": {
+    "omitted_mentions_gold": {
+      "break_true": 33,
+      "break_false": 0,
+      "safe_true": 95,
+      "safe_false": 25
+    },
+    "omitted_mentions_baseline_answer": {
+      "break_true": 33,
+      "break_false": 0,
+      "safe_true": 95,
+      "safe_false": 25
+    },
+    "unique_gold_mention": {
+      "break_true": 0,
+      "break_false": 33,
+      "safe_true": 0,
+      "safe_false": 120
+    },
+    "unique_gold_not_replaced_by_promoted": {
+      "break_true": 0,
+      "break_false": 33,
+      "safe_true": 0,
+      "safe_false": 120
+    },
+    "lost_answer_matches_omitted": {
+      "break_true": 17,
+      "break_false": 16,
+      "safe_true": 7,
+      "safe_false": 113
+    }
+  },
+  "limitations": [
+    "Gold alias mention is not proof of query relation support; absence is not proof of no support.",
+    "Actions within a query are correlated; action counts are not independent samples.",
+    "Lost-answer correspondence is a retrospective outcome diagnostic, unavailable to a deployment controller.",
+    "The V8 rank9 sentence is deferred relative to V8, not removed from already revealed depth8 context."
+  ],
+  "new_target_calls": 0,
+  "new_training": false,
+  "sealed_sets_read": false,
+  "gold_alias_filter": {
+    "remaining_actions": 25,
+    "remaining_queries": 1,
+    "remaining_breaks": 0
+  }
+}

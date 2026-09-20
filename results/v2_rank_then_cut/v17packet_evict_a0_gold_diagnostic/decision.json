@@ -1,0 +1,8 @@
+{
+  "protocol": "V17-PACKET-EVICT-A0_GOLD_ALIAS_DIAGNOSTIC",
+  "decision": "STOP_GOLD_ALIAS_UNIQUE_SUPPORT_AS_SAFETY_GATE",
+  "reason": "Across 153 A3 actions, none of the omitted sentences uniquely mentions a gold answer relative to the other depth9 evidence. Every one of 33 breaks, but also 95 of 120 safe actions, omits a sentence mentioning a baseline correct answer. A gold-alias protection rule leaves only 25 safe actions from one query, so this proxy has no useful coverage. In 17/33 breaks a lost correct answer matches the omitted sentence, versus 7/120 safe actions, but this is an outcome-only diagnostic.",
+  "next": "Do not train EVICT-A1 from gold-alias uniqueness. Freeze a small token-slack causal oracle at +8/+16/+32 using existing mechanism and safety train-side samples, with explicit per-query context cost and no outcome-based policy choice; if positive, investigate deployment-visible relation support separately.",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}
