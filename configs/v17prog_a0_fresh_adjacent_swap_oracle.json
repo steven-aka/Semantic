@@ -1,0 +1,22 @@
+{
+  "protocol": "V17-PROG-A0_FRESH_ADJACENT_SWAP_ORACLE",
+  "status": "FROZEN_TRAIN_ONLY",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "target_model": "models/Qwen3-8B",
+  "population": "CANON-P0 train1421 only; 611, 581, internal, development and confirmation sealed",
+  "base_order": "frozen V8",
+  "actions": ["STAY", "SWAP_6_7", "SWAP_7_8", "SWAP_9_10"],
+  "action_semantics": "At most one adjacent swap per entire trajectory; after swap follow V8. Only the corresponding prefix mask at depths 6, 7 or 9 changes; depth10 and all later prefix sets are identical to V8.",
+  "primary_schedule": [6, 7, 7, 9, 10],
+  "sensitivity_schedule": [7, 8, 8, 9, 10],
+  "oracle_rule": "Select only actions that do not break any V8 successful attainable anchor and do not increase cumulative context tokens; maximize repaired anchors, then minimize tokens, then prefer STAY. Outcome-aware oracle is not deployable.",
+  "target_calls": 4263,
+  "gpu_memory_utilization": 0.55,
+  "max_model_len": 4096,
+  "max_new_tokens": 256,
+  "temperature": 0.0,
+  "batch_size": 128,
+  "fidelity_epsilon": 1e-6,
+  "minimum_opportunity_for_learning_design": "At least 20 safe repaired queries at the primary schedule with non-increasing paired cumulative tokens; otherwise stop this action neighborhood. Even a positive oracle does not authorize learned success claims.",
+  "explicitly_off": ["controller training", "new cutoff", "extra Target feedback during deployment", "611", "581", "internal", "development", "confirmation"]
+}

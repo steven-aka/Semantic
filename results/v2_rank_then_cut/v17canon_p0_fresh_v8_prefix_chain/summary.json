@@ -1,0 +1,320 @@
+{
+  "protocol": "V17-CANON-P0_FRESH_V8_PREFIX_CHAIN",
+  "queries": 1421,
+  "prefix_states": 17052,
+  "reused_depth10": 1421,
+  "target_calls_generated": 15631,
+  "prompt_tokens_generated": 7491571,
+  "generated_tokens_generated": 556934,
+  "fixed_single_depth": {
+    "1": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1,
+        "0.7": 0,
+        "0.8": 0,
+        "0.9": 0,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 41.727656579873326,
+      "mean_context_fraction": 0.052927487434194426
+    },
+    "2": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1,
+        "0.7": 1,
+        "0.8": 1,
+        "0.9": 0,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 88.75650950035187,
+      "mean_context_fraction": 0.11174878443751086
+    },
+    "3": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 0,
+        "0.7": 0,
+        "0.8": 0,
+        "0.9": 0,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 140.228712174525,
+      "mean_context_fraction": 0.1758139773815365
+    },
+    "4": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 3,
+        "0.7": 1,
+        "0.8": 1,
+        "0.9": 0,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 195.94862772695285,
+      "mean_context_fraction": 0.244683825297777
+    },
+    "5": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1134,
+        "0.7": 3,
+        "0.8": 2,
+        "0.9": 0,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 256.0668543279381,
+      "mean_context_fraction": 0.31859891264866613
+    },
+    "6": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1265,
+        "0.7": 1051,
+        "0.8": 2,
+        "0.9": 0,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 320.9591836734694,
+      "mean_context_fraction": 0.3980836130948877
+    },
+    "7": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1298,
+        "0.7": 1252,
+        "0.8": 998,
+        "0.9": 0,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 391.45531315974665,
+      "mean_context_fraction": 0.4841104247615663
+    },
+    "8": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1322,
+        "0.7": 1277,
+        "0.8": 1187,
+        "0.9": 1,
+        "0.95": 0
+      },
+      "complete_all_attainable_at_this_depth": 0,
+      "mean_context_tokens": 469.70654468684023,
+      "mean_context_fraction": 0.5792804045205084
+    },
+    "9": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1331,
+        "0.7": 1312,
+        "0.8": 1274,
+        "0.9": 1050,
+        "0.95": 1
+      },
+      "complete_all_attainable_at_this_depth": 95,
+      "mean_context_tokens": 558.6819141449683,
+      "mean_context_fraction": 0.6873365712014766
+    },
+    "10": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1347,
+        "0.7": 1337,
+        "0.8": 1311,
+        "0.9": 1223,
+        "0.95": 973
+      },
+      "complete_all_attainable_at_this_depth": 1123,
+      "mean_context_tokens": 667.4982406755806,
+      "mean_context_fraction": 0.8200900023258562
+    },
+    "11": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1351,
+        "0.7": 1335,
+        "0.8": 1313,
+        "0.9": 1204,
+        "0.95": 955
+      },
+      "complete_all_attainable_at_this_depth": 1094,
+      "mean_context_tokens": 733.9232934553131,
+      "mean_context_fraction": 0.9067956786575854
+    },
+    "12": {
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1355,
+        "0.7": 1340,
+        "0.8": 1315,
+        "0.9": 1208,
+        "0.95": 882
+      },
+      "complete_all_attainable_at_this_depth": 1032,
+      "mean_context_tokens": 805.1140042223786,
+      "mean_context_fraction": 1.0
+    }
+  },
+  "historical_a2_fixed_schedules": {
+    "quality": {
+      "depths": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1347,
+        "0.7": 1337,
+        "0.8": 1311,
+        "0.9": 1223,
+        "0.95": 973
+      },
+      "complete": 1123,
+      "mean_cumulative_context_tokens": 3191.058409570725,
+      "mean_normalized_cumulative_context": 0.8200900023258562
+    },
+    "balanced": {
+      "depths": [
+        9,
+        9,
+        9,
+        10,
+        10
+      ],
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1331,
+        "0.7": 1312,
+        "0.8": 1274,
+        "0.9": 1223,
+        "0.95": 973
+      },
+      "complete": 1084,
+      "mean_cumulative_context_tokens": 2864.6094299788883,
+      "mean_normalized_cumulative_context": 0.7362752410638991
+    },
+    "compression": {
+      "depths": [
+        8,
+        8,
+        9,
+        9,
+        10
+      ],
+      "eligible": {
+        "0.6": 1421,
+        "0.7": 1421,
+        "0.8": 1421,
+        "0.9": 1421,
+        "0.95": 1131
+      },
+      "success": {
+        "0.6": 1322,
+        "0.7": 1277,
+        "0.8": 1274,
+        "0.9": 1050,
+        "0.95": 973
+      },
+      "complete": 942,
+      "mean_cumulative_context_tokens": 2577.84236453202,
+      "mean_normalized_cumulative_context": 0.662836416932355
+    }
+  },
+  "interpretation": "Each depth applies the same stop to all five anchors. These are diagnostic operating points, not a level-wise deployed schedule or a learned policy."
+}

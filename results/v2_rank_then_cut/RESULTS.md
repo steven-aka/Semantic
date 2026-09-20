@@ -2678,3 +2678,24 @@ budget. Any later Qwen3-4B semantic utility experiment must show how its
 state-conditioned representation differs from the frozen Qwen3-4B features
 already used by A3/ACT-C1, and must pass query-grouped rollout rather than
 classifier accuracy alone.
+
+CANON-P0 completed on all 1,421 queries: 17,052 distinct query/depth
+records, including 1,421 reused EXEC-A1 depth-10 records and 15,631 new
+Qwen3-8B calls (7,491,571 prompt tokens and 556,934 generated tokens).
+The three historical A2 fixed schedules were evaluated on the fresh chain:
+
+| Fixed schedule | 0.90 | 0.95 / eligible | Complete | Mean normalized cumulative context |
+|---|---:|---:|---:|---:|
+| `[10,10,10,10,10]` | 1223/1421 | 973/1131 | 1123/1421 | 0.8201 |
+| `[9,9,9,10,10]` | 1223/1421 | 973/1131 | 1084/1421 | 0.7363 |
+| `[8,8,9,9,10]` | 1050/1421 | 973/1131 | 942/1421 | 0.6628 |
+
+The anchor transition depths are strongly uneven: at depth 6, success is
+`1265/1421` for 0.60 but just `2/1421` for 0.80; at depth 7, 0.80 reaches
+`998/1421`; at depth 9, 0.90 reaches `1050/1421`; at depth 10, 0.95 reaches
+`973/1131`. Thus the proposed generic "depth 5–9" focus is too broad.
+A bounded local counterfactual should target the observed anchor boundaries
+at depths 6, 7 and 9, while preserving the depth-10 packet set so that the
+0.95 endpoint cannot be accidentally perturbed. The fresh chain does not
+itself establish that those swaps can be learned or improve a deployed
+quality–token Pareto point.

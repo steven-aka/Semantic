@@ -48,6 +48,21 @@ def main() -> None:
             "mean_context_tokens": mean(chains[q][d]["tokens"] for q in chains),
             "mean_context_fraction": mean(chains[q][d]["tokens"] / chains[q][d]["full_tokens"] for q in chains),
         }
+    by_schedule = {}
+    for name, depths in cfg["historical_a2_fixed_schedules"].items():
+        if len(depths) != len(LEVELS) or any(not 1 <= d <= 12 for d in depths):
+            raise AssertionError("invalid frozen schedule")
+        by_schedule[name] = {
+            "depths": depths,
+            "eligible": {str(l): sum(l in active[q] for q in chains) for l in LEVELS},
+            "success": {str(l): sum(l in active[q] and hit(q, d, l) for q in chains)
+                        for l, d in zip(LEVELS, depths)},
+            "complete": sum(all(hit(q, d, l) for l, d in zip(LEVELS, depths)) for q in chains),
+            "mean_cumulative_context_tokens": mean(sum(chains[q][d]["tokens"] for l, d in zip(LEVELS, depths)
+                                                       if l in active[q]) for q in chains),
+            "mean_normalized_cumulative_context": mean(mean(chains[q][d]["tokens"] / chains[q][d]["full_tokens"]
+                                                          for l, d in zip(LEVELS, depths) if l in active[q]) for q in chains),
+        }
     per_query = []
     for q in sorted(chains):
         levels = {}
@@ -71,7 +86,7 @@ def main() -> None:
            "target_calls_generated": sum(row["source"] == "CANON-P0 current-contract" for c in chains.values() for row in c.values()),
            "prompt_tokens_generated": sum(row["prompt_tokens"] for c in chains.values() for row in c.values() if row["source"] == "CANON-P0 current-contract"),
            "generated_tokens_generated": sum(row["generated_tokens"] for c in chains.values() for row in c.values() if row["source"] == "CANON-P0 current-contract"),
-           "fixed_single_depth": by_depth,
+           "fixed_single_depth": by_depth, "historical_a2_fixed_schedules": by_schedule,
            "interpretation": "Each depth applies the same stop to all five anchors. These are diagnostic operating points, not a level-wise deployed schedule or a learned policy."}
     (root / "summary.json").write_text(json.dumps(out, indent=2) + "\n")
     with (root / "per_query.jsonl").open("w") as handle:

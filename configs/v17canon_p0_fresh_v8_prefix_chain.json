@@ -7,6 +7,11 @@
   "v8_order": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/sel_c0_train_v8_rollouts.jsonl",
   "reused_depth10": "results/v2_rank_then_cut/v17exec_a1_fresh_depth10_cache/per_mask.jsonl",
   "depths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "historical_a2_fixed_schedules": {
+    "quality": [10, 10, 10, 10, 10],
+    "balanced": [9, 9, 9, 10, 10],
+    "compression": [8, 8, 9, 9, 10]
+  },
   "gpu_memory_utilization": 0.55,
   "max_model_len": 4096,
   "max_new_tokens": 256,
