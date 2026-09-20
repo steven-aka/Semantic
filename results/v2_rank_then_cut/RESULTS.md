@@ -3796,3 +3796,51 @@ probe itself is not a Pareto result. [Frozen protocol](../../configs/v17packet_s
 [per-case contrasts](v17packet_slot_a1_factorial/per_case.jsonl), and
 [per-call outputs](v17packet_slot_a1_factorial/per_call.jsonl) retain the
 evidence.
+
+### V17-PACKET-SLOT-B0 bounded-slack insertion pilot
+
+Before querying the Target, we selected 12 V8-0.90-success and 12 V8-0.90-
+failure examples from the design-exposed R1 train512 frame by SHA256 order,
+requiring at least one exact original rank10 sentence with at most 48 actual
+Qwen3-8B depth9 context tokens of slack. This eligibility depends on text and
+token length, not insertion outcomes. We enumerated all such sentences:
+**84 fresh Qwen3-8B calls** (76,861 prompt and 4,089 generated tokens).
+Caps of +16/+32/+48 admit 20/44/84 action calls, respectively. V8's full
+depth10 prefix is the next discrete V8 context point; it cannot be
+interpolated to an arbitrary insertion cost.
+
+| Rule on 24 selected queries | 0.90 success | Complete | Mean added depth9 context tokens/query |
+|---|---:|---:|---:|
+| V8 depth9 | 12 | 9 | 0 |
+| Frozen shortest-sentence insertion | 14 (4 repair, 2 break) | 8 | 22.25 |
+| +16 oracle with STAY | 14 (2 repair, 0 break) | 9 | 0.96 |
+| +32 oracle with STAY | 15 (3 repair, 0 break) | 9 | 2.21 |
+| +48 oracle with STAY | 19 (7 repair, 0 break) | 9 | 8.58 |
+
+The oracle chooses STAY on already successful queries and picks the cheapest
+successful candidate retrospectively on failures. Its low mean cost is thus
+an **upper bound**, not a deployable policy. The fixed shortest rule is fully
+deployment-visible but loses one Complete case despite net +2 at 0.90; it
+does not establish the required five-level quality–token Pareto improvement.
+The other four anchor outputs are structurally unchanged under this fixed
+schedule: 0.60/0.70/0.80 were read before depth9 and 0.95 at the canonically
+identical depth10 context. Across these 24 queries, V8 depth10 itself reaches
+17/24 at 0.90 but requires a mean **+120.58** depth9 context tokens relative
+to V8 depth9; none of the selected insertion points reaches depth10's token
+cost. This comparison is between attainable discrete contexts, not an
+exact-token matched V8 control.
+
+The sample is intentionally balanced on V8 success and already exposed to
+earlier R1 design work, so none of these rates estimates the train or unseen-
+query population. The result supports a bounded-slack **action-space**
+hypothesis while again exposing the unresolved opportunity/safety decision.
+Do not open sealed sets or train an insertion controller from 24 queries.
+The next study must freeze a larger query frame and a single deployment-
+visible STAY/INSERT rule before measuring paired five-anchor outcomes; if
+that rule cannot protect Complete, the oracle headroom cannot be claimed as
+a method result. [Protocol](../../configs/v17packet_slot_b0_pilot.json),
+[runner](../../src/evaluation/v17packet_slot_b0_pilot.py),
+[manifest](v17packet_slot_b0_pilot/manifest.json),
+[summary](v17packet_slot_b0_pilot/summary.json),
+[per-query frontier](v17packet_slot_b0_pilot/per_query.jsonl), and
+[Target outputs](v17packet_slot_b0_pilot/per_call.jsonl) preserve the pilot.

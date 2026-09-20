@@ -1,0 +1,157 @@
+{
+  "protocol": "SLOT-B0_TRAIN_SIDE_BOUNDED_SLACK_PILOT",
+  "selected": [
+    {
+      "example_id": "86__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 2,
+      "shortest_index": 0
+    },
+    {
+      "example_id": "21507__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 3,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "16267__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 4,
+      "shortest_index": 4
+    },
+    {
+      "example_id": "53909__wikidata_intersection__train",
+      "stratum": "v8_success",
+      "candidate_count": 7,
+      "shortest_index": 2
+    },
+    {
+      "example_id": "21920__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 1,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "23680__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 3,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "22816__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 3,
+      "shortest_index": 2
+    },
+    {
+      "example_id": "56556__wikitables_composition__train",
+      "stratum": "v8_success",
+      "candidate_count": 3,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "56708__wikitables_composition__train",
+      "stratum": "v8_success",
+      "candidate_count": 1,
+      "shortest_index": 0
+    },
+    {
+      "example_id": "22814__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 2,
+      "shortest_index": 0
+    },
+    {
+      "example_id": "25489__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 1,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "22355__wikidata_simple__train",
+      "stratum": "v8_success",
+      "candidate_count": 1,
+      "shortest_index": 0
+    },
+    {
+      "example_id": "16159__wikidata_simple__train",
+      "stratum": "v8_failure",
+      "candidate_count": 2,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "59092__wikitables_composition__train",
+      "stratum": "v8_failure",
+      "candidate_count": 5,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "22398__wikidata_simple__train",
+      "stratum": "v8_failure",
+      "candidate_count": 3,
+      "shortest_index": 0
+    },
+    {
+      "example_id": "27727__wikidata_simple__train",
+      "stratum": "v8_failure",
+      "candidate_count": 3,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "55423__wikidata_intersection__train",
+      "stratum": "v8_failure",
+      "candidate_count": 8,
+      "shortest_index": 2
+    },
+    {
+      "example_id": "59314__wikitables_composition__train",
+      "stratum": "v8_failure",
+      "candidate_count": 3,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "22054__wikidata_simple__train",
+      "stratum": "v8_failure",
+      "candidate_count": 2,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "60609__wikitables_composition__train",
+      "stratum": "v8_failure",
+      "candidate_count": 3,
+      "shortest_index": 0
+    },
+    {
+      "example_id": "56813__wikitables_composition__train",
+      "stratum": "v8_failure",
+      "candidate_count": 11,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "53859__wikidata_intersection__train",
+      "stratum": "v8_failure",
+      "candidate_count": 5,
+      "shortest_index": 1
+    },
+    {
+      "example_id": "59052__wikitables_composition__train",
+      "stratum": "v8_failure",
+      "candidate_count": 2,
+      "shortest_index": 2
+    },
+    {
+      "example_id": "56871__wikitables_composition__train",
+      "stratum": "v8_failure",
+      "candidate_count": 6,
+      "shortest_index": 1
+    }
+  ],
+  "candidate_tasks": 84,
+  "slack_distribution": {
+    "16": 20,
+    "32": 44,
+    "48": 84
+  },
+  "task_sha256": "314bac39a9e7878b891395ef4b7ff7d8010c94aca597e6e8c9b639435eed1bed",
+  "sealed_sets_read": false
+}

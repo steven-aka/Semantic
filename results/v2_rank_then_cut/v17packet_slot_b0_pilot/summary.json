@@ -1,0 +1,125 @@
+{
+  "protocol": "SLOT-B0_TRAIN_SIDE_BOUNDED_SLACK_PILOT",
+  "queries": 24,
+  "candidate_calls": 84,
+  "prompt_tokens": 76861,
+  "generated_tokens": 4089,
+  "v8_depth10_success_090": 17,
+  "v8_depth10_mean_extra_context_tokens": 120.58333333333333,
+  "by_stratum": {
+    "v8_success": {
+      "queries": 12,
+      "baseline_five_level_success": [
+        12,
+        12,
+        11,
+        12,
+        9
+      ],
+      "fixed_shortest_five_level_success": [
+        12,
+        12,
+        11,
+        10,
+        9
+      ],
+      "baseline_success_090": 12,
+      "fixed_shortest_success_090": 10,
+      "fixed_shortest_repairs": 0,
+      "fixed_shortest_breaks": 2,
+      "baseline_complete": 9,
+      "fixed_shortest_complete": 8,
+      "fixed_shortest_mean_slack": 25.666666666666668
+    },
+    "v8_failure": {
+      "queries": 12,
+      "baseline_five_level_success": [
+        9,
+        11,
+        1,
+        0,
+        1
+      ],
+      "fixed_shortest_five_level_success": [
+        9,
+        11,
+        1,
+        4,
+        1
+      ],
+      "baseline_success_090": 0,
+      "fixed_shortest_success_090": 4,
+      "fixed_shortest_repairs": 4,
+      "fixed_shortest_breaks": 0,
+      "baseline_complete": 0,
+      "fixed_shortest_complete": 0,
+      "fixed_shortest_mean_slack": 18.833333333333332
+    }
+  },
+  "by_cap_oracle": {
+    "16": {
+      "eligible_queries": 13,
+      "queries": 24,
+      "oracle_five_level_success": [
+        21,
+        23,
+        12,
+        14,
+        10
+      ],
+      "baseline_success_090": 12,
+      "oracle_success_090": 14,
+      "oracle_repairs": 2,
+      "oracle_breaks": 0,
+      "baseline_complete": 9,
+      "oracle_complete": 9,
+      "mean_selected_slack": 0.9583333333333334,
+      "above_depth10_cost_queries": 0
+    },
+    "32": {
+      "eligible_queries": 19,
+      "queries": 24,
+      "oracle_five_level_success": [
+        21,
+        23,
+        12,
+        15,
+        10
+      ],
+      "baseline_success_090": 12,
+      "oracle_success_090": 15,
+      "oracle_repairs": 3,
+      "oracle_breaks": 0,
+      "baseline_complete": 9,
+      "oracle_complete": 9,
+      "mean_selected_slack": 2.2083333333333335,
+      "above_depth10_cost_queries": 0
+    },
+    "48": {
+      "eligible_queries": 24,
+      "queries": 24,
+      "oracle_five_level_success": [
+        21,
+        23,
+        12,
+        19,
+        10
+      ],
+      "baseline_success_090": 12,
+      "oracle_success_090": 19,
+      "oracle_repairs": 7,
+      "oracle_breaks": 0,
+      "baseline_complete": 9,
+      "oracle_complete": 9,
+      "mean_selected_slack": 8.583333333333334,
+      "above_depth10_cost_queries": 0
+    }
+  },
+  "sealed_sets_read": false,
+  "limitations": [
+    "R1 train512 is design-exposed; this is a bounded train-side action-space pilot, not independent validation.",
+    "Candidate selection for by_cap_oracle uses Target outcomes and is not deployable.",
+    "V8 depths are discrete; there may be no V8 prefix at exactly the insertion cost.",
+    "The depth10 context is the original canonical full context, with no duplicate candidate text."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "protocol": "SLOT-B0_TRAIN_SIDE_BOUNDED_SLACK_PILOT",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "frame": "R1 train512, 12 SHA-first V8-0.90-success and 12 SHA-first V8-0.90-failure queries with at least one exact rank10 sentence at <=48 depth9 context tokens",
+  "candidate_rule": "Enumerate every exact original rank10 sentence with depth9 slack <=48; a fixed shortest-slack action is chosen without Target outcomes, ties by sentence index",
+  "slack_caps": [16, 32, 48],
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 64,
+  "temperature": 0.0,
+  "fidelity_epsilon": 0.000001,
+  "sample_per_baseline_stratum": 12,
+  "max_fresh_calls": 160,
+  "sealed_sets_read": false,
+  "new_training": false
+}
