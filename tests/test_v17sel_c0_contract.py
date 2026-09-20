@@ -3,7 +3,7 @@ import unittest
 import torch
 
 from src.data.build_v17sel_c0_train_candidates import outcome
-from src.model.topk_set_selector import TopKSetSelector, successful_set_loss, FEATURE_DIM
+from src.model.topk_set_selector import TopKSetSelector, successful_set_loss, successful_set_and_cost_loss, FEATURE_DIM
 
 
 class SelC0ContractTests(unittest.TestCase):
@@ -37,6 +37,15 @@ class SelC0ContractTests(unittest.TestCase):
         scores = model(features, unique)
         self.assertTrue(torch.isneginf(scores[~unique]).all())
         self.assertTrue(torch.isfinite(scores[unique]).all())
+
+    def test_cost_aux_prefers_cheaper_success_without_relabeling_success(self):
+        scores = torch.zeros((1, 3), requires_grad=True)
+        positive = torch.tensor([[True, True, False]])
+        costs = torch.tensor([[0.2, 0.8, 0.1]])
+        loss = successful_set_and_cost_loss(scores, positive, costs, 0.1)
+        loss.backward()
+        self.assertLess(scores.grad[0, 0], scores.grad[0, 1])
+        self.assertGreater(scores.grad[0, 2], 0)
 
 
 if __name__ == "__main__":

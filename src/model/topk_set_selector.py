@@ -33,3 +33,22 @@ def successful_set_loss(scores: torch.Tensor, success: torch.Tensor) -> torch.Te
     log_all = torch.logsumexp(selected, dim=1)
     log_good = torch.logsumexp(selected.masked_fill(~positive, -torch.inf), dim=1)
     return (log_all - log_good).mean()
+
+
+def successful_set_and_cost_loss(scores: torch.Tensor, success: torch.Tensor, cost_fraction: torch.Tensor, cost_weight: float) -> torch.Tensor:
+    """Keep successful-set mass primary; prefer cheaper trajectories only within it."""
+    eligible = success.any(dim=1)
+    if not bool(eligible.any()):
+        raise ValueError("batch has no successful candidate sets")
+    selected = scores[eligible].float()
+    positive = success[eligible]
+    costs = cost_fraction[eligible].float()
+    if not torch.isfinite(costs[positive]).all():
+        raise ValueError("nonfinite successful candidate cost")
+    mass_loss = successful_set_loss(selected, positive)
+    positive_scores = selected.masked_fill(~positive, -torch.inf)
+    weights = torch.softmax(positive_scores, dim=1)
+    min_cost = costs.masked_fill(~positive, torch.inf).min(dim=1).values
+    excess = (costs - min_cost[:, None]).masked_fill(~positive, 0.0)
+    cost_loss = (weights * excess).sum(dim=1).mean()
+    return mass_loss + cost_weight * cost_loss

@@ -10,7 +10,7 @@ import torch
 
 from src.data.build_v17sel_b2b_lineage_holdout import fold
 from src.data.schemas import read_jsonl, write_jsonl
-from src.model.topk_set_selector import TopKSetSelector, successful_set_loss
+from src.model.topk_set_selector import TopKSetSelector, successful_set_and_cost_loss
 from src.reproducibility import sha256, write_metadata
 
 
@@ -79,6 +79,10 @@ def run_arm(k: int, config: dict, rows: list[dict], features: torch.Tensor, uniq
     train_ids = [i for i, row in enumerate(rows) if fold(row["example_id"]) != 4]
     valid_ids = [i for i, row in enumerate(rows) if fold(row["example_id"]) == 4]
     train_success = torch.tensor([[item["success"][3] and item["unique_order"] for item in row["candidates"][:k + 1]] for row in rows], dtype=torch.bool)
+    train_costs = torch.tensor([[
+        item["earliest_tokens"][3] / row["full_tokens"] if item["success"][3] else 1.0
+        for item in row["candidates"][:k + 1]
+    ] for row in rows], dtype=torch.float32)
     model = TopKSetSelector().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=config["optimization"]["learning_rate"], weight_decay=config["optimization"]["weight_decay"])
     steps = int(config["optimization"]["steps"])
@@ -101,7 +105,10 @@ def run_arm(k: int, config: dict, rows: list[dict], features: torch.Tensor, uniq
             cursor += take
         selected = torch.tensor(batch)
         scores = model(features[selected, :k + 1].to(device), unique[selected, :k + 1].to(device))
-        loss = successful_set_loss(scores, train_success[selected].to(device))
+        loss = successful_set_and_cost_loss(
+            scores, train_success[selected].to(device), train_costs[selected].to(device),
+            float(config["optimization"]["successful_set_cost_aux_weight"]),
+        )
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)

@@ -40,7 +40,8 @@
     "deployment": "argmax selector score; lowest candidate rank breaks ties"
   },
   "optimization": {
-    "loss": "negative log probability mass of all candidates with an exact 0.90-successful prefix; examples with no successful candidate excluded from gradient but included in evaluation",
+    "loss": "negative log probability mass of all candidates with an exact 0.90-successful prefix plus 0.1 times expected excess earliest-0.90 token fraction within that successful set; examples with no successful candidate excluded from gradient but included in evaluation",
+    "successful_set_cost_aux_weight": 0.1,
     "optimizer": "AdamW",
     "learning_rate": 0.0003,
     "weight_decay": 0.01,
