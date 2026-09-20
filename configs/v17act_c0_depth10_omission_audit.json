@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-ACT-C0_DEPTH10_OMISSION_STRUCTURE_AUDIT",
+  "status": "FROZEN_TRAIN_ONLY_READ_ONLY",
+  "population": "B2B clean-train folds0-3=1421; fold4=611, B2B581, internal300, development, confirmation sealed",
+  "endpoint": "Fixed depth10, one 10-of-12 packet context; all attainable anchors evaluated at the same cached mask under the canonical meets_fidelity comparator",
+  "action_sets": "V8 first10 baseline; four distinct depth10 masks from the 77 Kendall<=2 orders; all 66 pair omissions from 12 packets as a structural oracle ceiling only",
+  "cost_bounded_oracle": "For each query choose among an action set, no attainable-anchor success break relative to V8 and context tokens <= V8; maximize repaired anchors, then minimize tokens, then mask integer. This selection is oracle, not deployable.",
+  "interaction": "For each anchor only among queries whose full12 mask succeeds, compare full12, each 11-packet single omission, and each 10-packet pair omission; count singles-both-safe/pair-unsafe and singles-both-unsafe/pair-safe. Also report scalar fidelity difference-in-differences without interpreting it as a deployable feature.",
+  "metrics": "Five anchor counts, Complete, mean normalized context fraction, paired repairs/breaks and token delta, local-four versus all66 opportunity capture, omission rank-pair frequency and threshold interaction counts",
+  "interpretation": "The all66 oracle may require a large V8 reorder and says nothing by itself about progressive trajectory quality, online learnability or cost of finding the pair. Full12-based deletion effects need not transfer to the V8 depth10 baseline because fidelity is nonmonotone.",
+  "explicitly_off": ["training", "new Target calls", "new holdout reads", "66-way selector", "cutoff", "packet redesign"]
+}

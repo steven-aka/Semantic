@@ -2416,3 +2416,44 @@ internal/development/confirmation. The next independent mechanism to assess
 is explicit Target sufficiency feedback, with input/output tokens and call
 count included in the deployment cost comparison. A new verifier protocol
 must be frozen before any such calls.
+
+## V17-ACT-C0 depth-10 omission structure audit (train-only)
+
+The proposed omission view is meaningful, but the existing A3-1 scorer already
+used frozen query/packet embeddings, packet differences, and query interactions.
+Merely renaming the same features as an omission classifier would not test a
+new mechanism. ACT-C0 therefore first audited the actual 10-of-12 endpoint
+masks, without training or new Target calls. The population was the same 1,421
+train-side queries; 611/581/internal/development/confirmation remained sealed.
+
+| Fixed depth-10 endpoint | 0.90 | 0.95 / eligible | Complete | Mean normalized context |
+|---|---:|---:|---:|---:|
+| V8 | 1195/1421 | 914/1131 | 1045/1421 | 0.8201 |
+| Cost-bounded local-four oracle | 1274/1421 | 914/1131 | 1083/1421 | 0.8018 |
+| Cost-bounded all-66 omitted-pair oracle | 1324/1421 | 915/1131 | 1125/1421 | 0.8000 |
+
+The oracle requires no anchor break and no higher context-token cost than V8
+for each query. The four local masks cover 108 of 165 queries with an
+any-anchor repair opportunity under all 66 masks; 57 have opportunities only
+outside the local four. At 0.90 the local four capture 79 of 129 possible
+repairs; for Complete they capture 38 of 80. The all-66 result is an endpoint
+ceiling, not a deployable policy or a guarantee of a good progressive ordering.
+
+Packet omissions interact. Among the 1,071 queries whose full 12-packet
+context succeeds at 0.90, both individual omissions remain successful but
+their joint omission fails in 27,206 of 70,686 packet pairs. Conversely, 304
+pairs succeed jointly although both single omissions fail. Thus independent
+packet-deletion labels are unsafe as a general rule. This is a thresholded
+full-12 counterfactual; because fidelity can roll back, it does not directly
+label necessity relative to the V8 depth-10 context. For 0.95, only 914 V8
+queries succeed at depth 10 and the local oracle produces zero repairs, so
+any later learned selector must protect this anchor explicitly.
+
+The next defensible cheap-feature test, if run, is one predeclared linear
+four-outcome comparison that adds an explicit symmetric omitted-pair and
+query-pair interaction to A3-1 while keeping its splits, labels, optimizer,
+and STAY decision unchanged. It must be judged by query-held-out rollout
+quality and tokens, not pair accuracy. A negative result would close this
+specific cheap-feature branch; the all-66 oracle does not justify a 66-way
+classifier. The read-only artifacts and audit test are under
+`v17act_c0_depth10_omission_audit`.

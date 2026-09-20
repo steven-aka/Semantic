@@ -1,0 +1,217 @@
+{
+  "protocol": "V17-ACT-C0_DEPTH10_OMISSION_STRUCTURE_AUDIT",
+  "queries": 1421,
+  "v8": {
+    "anchor_success": [
+      1345,
+      1332,
+      1293,
+      1195,
+      914
+    ],
+    "complete": 1045,
+    "mean_context_fraction": 0.8200900023258562,
+    "anchor_repairs": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "anchor_breaks": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "complete_repairs": 0,
+    "complete_breaks": 0,
+    "mean_paired_token_delta": 0
+  },
+  "local4_oracle": {
+    "anchor_success": [
+      1384,
+      1377,
+      1351,
+      1274,
+      914
+    ],
+    "complete": 1083,
+    "mean_context_fraction": 0.801793717340536,
+    "anchor_repairs": [
+      39,
+      45,
+      58,
+      79,
+      0
+    ],
+    "anchor_breaks": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "complete_repairs": 38,
+    "complete_breaks": 0,
+    "mean_paired_token_delta": -15.93244194229416
+  },
+  "all66_oracle": {
+    "anchor_success": [
+      1403,
+      1402,
+      1392,
+      1324,
+      915
+    ],
+    "complete": 1125,
+    "mean_context_fraction": 0.8000434505164822,
+    "anchor_repairs": [
+      58,
+      70,
+      99,
+      129,
+      1
+    ],
+    "anchor_breaks": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "complete_repairs": 80,
+    "complete_breaks": 0,
+    "mean_paired_token_delta": -18.027445460943
+  },
+  "opportunity": {
+    "queries_local4_any_anchor_repair": 108,
+    "queries_all66_any_anchor_repair": 165,
+    "queries_new_repair_only_outside_local4": 57,
+    "most_common_oracle_omitted_v8_rank_pairs": [
+      [
+        [
+          10,
+          11
+        ],
+        994
+      ],
+      [
+        [
+          9,
+          11
+        ],
+        121
+      ],
+      [
+        [
+          9,
+          10
+        ],
+        87
+      ],
+      [
+        [
+          8,
+          11
+        ],
+        49
+      ],
+      [
+        [
+          8,
+          10
+        ],
+        29
+      ],
+      [
+        [
+          7,
+          11
+        ],
+        19
+      ],
+      [
+        [
+          7,
+          10
+        ],
+        12
+      ],
+      [
+        [
+          5,
+          11
+        ],
+        12
+      ],
+      [
+        [
+          6,
+          11
+        ],
+        10
+      ],
+      [
+        [
+          6,
+          10
+        ],
+        10
+      ]
+    ]
+  },
+  "full12_deletion_interaction": {
+    "0.6": {
+      "pairs": 88242,
+      "both_single_safe_pair_unsafe": 1282,
+      "both_single_unsafe_pair_safe": 140,
+      "both_single_safe_pair_safe": 83407,
+      "eligible_full12_success_queries": 1337,
+      "mean_fidelity_difference_in_differences": 0.0018501312793142062,
+      "median_fidelity_difference_in_differences": -0.005847953216374435
+    },
+    "0.7": {
+      "pairs": 86724,
+      "both_single_safe_pair_unsafe": 2070,
+      "both_single_unsafe_pair_safe": 250,
+      "both_single_safe_pair_safe": 79159,
+      "eligible_full12_success_queries": 1314,
+      "mean_fidelity_difference_in_differences": 0.003786665535082861,
+      "median_fidelity_difference_in_differences": -0.005847953216374435
+    },
+    "0.8": {
+      "pairs": 83028,
+      "both_single_safe_pair_unsafe": 5316,
+      "both_single_unsafe_pair_safe": 458,
+      "both_single_safe_pair_safe": 66838,
+      "eligible_full12_success_queries": 1258,
+      "mean_fidelity_difference_in_differences": 0.007881423381241065,
+      "median_fidelity_difference_in_differences": -0.005847953216374435
+    },
+    "0.9": {
+      "pairs": 70686,
+      "both_single_safe_pair_unsafe": 27206,
+      "both_single_unsafe_pair_safe": 304,
+      "both_single_safe_pair_safe": 13468,
+      "eligible_full12_success_queries": 1071,
+      "mean_fidelity_difference_in_differences": 0.015898505130020942,
+      "median_fidelity_difference_in_differences": -0.005847953216374435
+    },
+    "0.95": {
+      "pairs": 48048,
+      "both_single_safe_pair_unsafe": 64,
+      "both_single_unsafe_pair_safe": 25,
+      "both_single_safe_pair_safe": 472,
+      "eligible_full12_success_queries": 728,
+      "mean_fidelity_difference_in_differences": 0.023167517439613136,
+      "median_fidelity_difference_in_differences": -0.004511278195488799
+    }
+  },
+  "limitations": [
+    "The full12 reference can fail despite a good depth10 subset; its single-deletion effects are not general packet-necessity labels.",
+    "An all66 depth10 subset oracle is not a jointly good progressive trajectory or a learnable policy.",
+    "All oracles choose with exact outcomes and cannot be deployed as reported."
+  ]
+}
