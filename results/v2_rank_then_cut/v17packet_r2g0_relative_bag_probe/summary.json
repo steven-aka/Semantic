@@ -1,0 +1,266 @@
+{
+  "protocol": "V17-PACKET-R2G0_RELATIVE_BAG_PROBE",
+  "queries": 512,
+  "eligible_actions": 1441,
+  "label_counts": {
+    "0": 511,
+    "1": 874,
+    "2": 56
+  },
+  "field_truncation_counts": {
+    "query": 22,
+    "candidate": 16,
+    "stay_displaced": 598,
+    "state_titles": 1441
+  },
+  "fold_history": [
+    {
+      "fold": 0,
+      "train_actions": 1014,
+      "valid_actions": 427,
+      "class_counts": [
+        353,
+        623,
+        38
+      ],
+      "class_weights": [
+        0.6249217987060547,
+        0.4704018235206604,
+        1.9046764373779297
+      ],
+      "epoch_loss": [
+        0.9529884224757552,
+        0.8222690084949136
+      ],
+      "inference_seconds": 1.995658959960565
+    },
+    {
+      "fold": 1,
+      "train_actions": 1096,
+      "valid_actions": 345,
+      "class_counts": [
+        379,
+        671,
+        46
+      ],
+      "class_weights": [
+        0.6490781903266907,
+        0.4878152310848236,
+        1.8631064891815186
+      ],
+      "epoch_loss": [
+        0.9486993171166682,
+        0.8405838578507521
+      ],
+      "inference_seconds": 1.4408318540081382
+    },
+    {
+      "fold": 2,
+      "train_actions": 1094,
+      "valid_actions": 347,
+      "class_counts": [
+        396,
+        657,
+        41
+      ],
+      "class_weights": [
+        0.6142277717590332,
+        0.4768637716770172,
+        1.9089083671569824
+      ],
+      "epoch_loss": [
+        0.9637571581895801,
+        0.8374893794889036
+      ],
+      "inference_seconds": 1.6347473659552634
+    },
+    {
+      "fold": 3,
+      "train_actions": 1119,
+      "valid_actions": 322,
+      "class_counts": [
+        405,
+        671,
+        43
+      ],
+      "class_weights": [
+        0.6190829873085022,
+        0.48096683621406555,
+        1.8999499082565308
+      ],
+      "epoch_loss": [
+        0.9687654299395425,
+        0.8713077587740762
+      ],
+      "inference_seconds": 1.6460075669456273
+    }
+  ],
+  "inference_gpu_seconds_total": 6.717245746869594,
+  "inference_gpu_ms_per_query": 13.119620599354676,
+  "baseline_090": 381,
+  "baseline_complete": 273,
+  "baseline_mean_cumulative_context_tokens": 2227.728515625,
+  "policies": [
+    {
+      "budget": 0.05,
+      "switches": 26,
+      "repair_opportunities_found": 2,
+      "random_expected_found": 2.4028436018957344,
+      "repairs": 1,
+      "breaks": 6,
+      "success_090": 376,
+      "complete": 270,
+      "five_anchor_success": [
+        449,
+        453,
+        354,
+        376,
+        338
+      ],
+      "mean_cumulative_context_tokens": 2225.232421875,
+      "folds": [
+        {
+          "fold": 0,
+          "eligible": 122,
+          "opportunities": 11,
+          "selected": 17,
+          "found": 2,
+          "random_expected_found": 1.5327868852459017
+        },
+        {
+          "fold": 1,
+          "eligible": 98,
+          "opportunities": 7,
+          "selected": 7,
+          "found": 0,
+          "random_expected_found": 0.5
+        },
+        {
+          "fold": 2,
+          "eligible": 107,
+          "opportunities": 13,
+          "selected": 1,
+          "found": 0,
+          "random_expected_found": 0.12149532710280374
+        },
+        {
+          "fold": 3,
+          "eligible": 95,
+          "opportunities": 8,
+          "selected": 1,
+          "found": 0,
+          "random_expected_found": 0.08421052631578947
+        }
+      ]
+    },
+    {
+      "budget": 0.1,
+      "switches": 52,
+      "repair_opportunities_found": 4,
+      "random_expected_found": 4.805687203791469,
+      "repairs": 3,
+      "breaks": 14,
+      "success_090": 370,
+      "complete": 268,
+      "five_anchor_success": [
+        449,
+        453,
+        354,
+        370,
+        338
+      ],
+      "mean_cumulative_context_tokens": 2222.6328125,
+      "folds": [
+        {
+          "fold": 0,
+          "eligible": 122,
+          "opportunities": 11,
+          "selected": 32,
+          "found": 2,
+          "random_expected_found": 2.8852459016393444
+        },
+        {
+          "fold": 1,
+          "eligible": 98,
+          "opportunities": 7,
+          "selected": 14,
+          "found": 1,
+          "random_expected_found": 1.0
+        },
+        {
+          "fold": 2,
+          "eligible": 107,
+          "opportunities": 13,
+          "selected": 5,
+          "found": 1,
+          "random_expected_found": 0.6074766355140186
+        },
+        {
+          "fold": 3,
+          "eligible": 95,
+          "opportunities": 8,
+          "selected": 1,
+          "found": 0,
+          "random_expected_found": 0.08421052631578947
+        }
+      ]
+    },
+    {
+      "budget": 0.15,
+      "switches": 77,
+      "repair_opportunities_found": 7,
+      "random_expected_found": 7.11611374407583,
+      "repairs": 6,
+      "breaks": 18,
+      "success_090": 369,
+      "complete": 266,
+      "five_anchor_success": [
+        449,
+        453,
+        354,
+        369,
+        338
+      ],
+      "mean_cumulative_context_tokens": 2220.009765625,
+      "folds": [
+        {
+          "fold": 0,
+          "eligible": 122,
+          "opportunities": 11,
+          "selected": 43,
+          "found": 3,
+          "random_expected_found": 3.877049180327869
+        },
+        {
+          "fold": 1,
+          "eligible": 98,
+          "opportunities": 7,
+          "selected": 24,
+          "found": 2,
+          "random_expected_found": 1.7142857142857142
+        },
+        {
+          "fold": 2,
+          "eligible": 107,
+          "opportunities": 13,
+          "selected": 7,
+          "found": 1,
+          "random_expected_found": 0.8504672897196262
+        },
+        {
+          "fold": 3,
+          "eligible": 95,
+          "opportunities": 8,
+          "selected": 3,
+          "found": 1,
+          "random_expected_found": 0.25263157894736843
+        }
+      ]
+    }
+  ],
+  "primary_gate": "STOP_R2G0_FROZEN_PROBE",
+  "new_target_calls": 0,
+  "checkpoint_saved": false,
+  "sealed_sets_read": false,
+  "limitations": "One train-side design-exposed OOF probe; GPU timing includes shared-device contention and is not a full deployment cost benchmark."
+}

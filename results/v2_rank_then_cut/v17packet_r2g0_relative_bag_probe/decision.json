@@ -1,0 +1,16 @@
+{
+  "protocol": "V17-PACKET-R2G0_RELATIVE_BAG_PROBE",
+  "decision": "STOP_R2G0_FROZEN_PROBE_NO_LABEL_SCALE",
+  "reason": "The preregistered 5% and 10% budgets do not enrich repairable queries above same-pool random expectation and lose 0.90/Complete quality through excess breaks. The current model does not justify more Target counterfactual labels.",
+  "scope": "This closes one DistilBERT, three-class relative-to-V8 input and max-bag scoring protocol on 512 design-exposed training queries. It does not prove that the decision is unidentifiable from all deployment-visible information.",
+  "known_limitations": [
+    "Only 39 independent repairable queries and 56 repair actions.",
+    "The displaced V8 text exceeded its 90-token field budget for 598 of 1441 eligible actions; all state-title fields exceeded 28 tokens.",
+    "Global top-budget selection is sensitive to fold-to-fold score calibration; no post-hoc fold calibration was used.",
+    "The 13.1 GPU-ms/query estimate covers batched OOF forward passes on a shared GPU, not a full deployment latency benchmark."
+  ],
+  "next": "Use the existing labels to audit whether the 39 repairable and 92 unrepairable V8 failures differ in deployment-visible evidence and whether field truncation affects the rare repairs. Freeze any new observation hypothesis before another training run. Do not expand labels or open sealed sets solely on this result.",
+  "new_target_calls": 0,
+  "checkpoint_saved": false,
+  "sealed_sets_read": false
+}

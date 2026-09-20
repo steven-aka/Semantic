@@ -1,0 +1,29 @@
+{
+  "protocol": "V17-PACKET-R2G0_RELATIVE_BAG_PROBE",
+  "status": "FROZEN_TRAIN_SIDE_OOF",
+  "encoder_repo": "distilbert/distilbert-base-uncased",
+  "source": "V17-PACKET-R1_LABEL_SCALE512",
+  "fold_rule": "first eight SHA256 bytes of example_id modulo 4",
+  "folds": 4,
+  "seed": 20260920,
+  "epochs": 2,
+  "batch_size": 16,
+  "learning_rate": 0.00002,
+  "weight_decay": 0.01,
+  "max_tokens": 256,
+  "field_token_budgets": {
+    "query": 40,
+    "candidate": 90,
+    "stay_displaced": 90,
+    "state_titles": 28
+  },
+  "labels": ["quality_break", "quality_same", "quality_repair"],
+  "class_weighting": "sqrt_inverse_train_fold_frequency_normalized",
+  "bag_rule": "score(action)=P(quality_repair)-P(quality_break); gate=max eligible action score; tie-break lowest sentence index",
+  "eligible_rule": "candidate cumulative context tokens <= V8 baseline",
+  "budgets_of_all_512_queries": [0.05, 0.1, 0.15],
+  "primary_gate": "At 5% or 10% budget, repair opportunities exceed same-pool random expectation in at least 3 of 4 folds, actual repairs exceed breaks, Complete does not decrease, and mean cumulative context tokens do not increase. 15% is descriptive.",
+  "checkpoint_saved": false,
+  "sealed_sets_read": false,
+  "new_target_calls": 0
+}

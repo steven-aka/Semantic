@@ -3511,3 +3511,43 @@ relative-to-V8 signal test on existing training-side outcomes. Quality
 repair and token-only saving must remain separate labels. No sealed set was
 opened. [Summary](v17packet_r2a_gate_signal_audit/summary.json) and
 [decision](v17packet_r2a_gate_signal_audit/decision.json) retain the result.
+
+### V17-PACKET-R2G0 relative-to-V8 candidate-bag probe
+
+We froze one DistilBERT-sized three-class probe on the existing 512
+design-exposed train queries. Each candidate input explicitly contains the
+query, proposed sentence, displaced V8 rank-9 packet and current packet
+titles, with fixed per-field token budgets. The labels are relative to V8:
+quality break (511 eligible actions), unchanged 0.90 quality (874), or 0.90
+repair (56). Four query-grouped OOF folds use the R2 split, two epochs, fixed
+class weighting and no checkpoint selection. The bag score is the maximum
+candidate `P(repair)-P(break)` among no-extra-context actions. No Target call
+or sealed data was used.
+
+| OOF budget among 512 | Opportunities found | Random expectation in 422 eligible queries | Repair / break | 0.90 | Complete | Mean cumulative context |
+|---|---:|---:|---:|---:|---:|---:|
+| V8 STAY | — | — | 0 / 0 | 381 | 273 | 2227.73 |
+| 5% (26) | 2/39 | 2.40 | 1 / 6 | 376 | 270 | 2225.23 |
+| 10% (52) | 4/39 | 4.81 | 3 / 14 | 370 | 268 | 2222.63 |
+| 15% (77), descriptive | 7/39 | 7.12 | 6 / 18 | 369 | 266 | 2220.01 |
+
+The frozen primary gate fails: no low-budget opportunity enrichment, and
+context savings come with substantially worse quality. The 5% global score
+selection is also uneven across folds (17/7/1/1 selected queries), which
+limits interpretation of a globally compared OOF score. The fixed input
+budget retained only part of the displaced V8 packet in 598/1,441 eligible
+actions; all title-list fields exceeded their 28-token allocation. These are
+material limitations of this *specific* representation, not evidence that
+all observable text lacks the needed signal. Batched OOF inference averaged
+about 13.1 GPU-ms/query on a shared device; this is diagnostic timing, not
+end-to-end deployment latency. No deployable checkpoint was selected.
+
+Decision: `STOP_R2G0_FROZEN_PROBE_NO_LABEL_SCALE`. Do not expand expensive
+Target labels or open sealed sets on the basis of this run. Next, use the
+existing 39 repairable and 92 unrepairable baseline failures to audit what
+deployment-visible evidence distinguishes them and whether input truncation
+hits the rare repairs, before freezing another learning hypothesis.
+[Protocol](../../configs/v17packet_r2g0_relative_bag_probe.json),
+[summary](v17packet_r2g0_relative_bag_probe/summary.json),
+[OOF decisions](v17packet_r2g0_relative_bag_probe/oof.jsonl), and
+[decision](v17packet_r2g0_relative_bag_probe/decision.json) record this run.
