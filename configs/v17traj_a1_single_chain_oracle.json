@@ -1,0 +1,12 @@
+{
+  "protocol": "V17-TRAJ-A1_MULTI_LEVEL_SINGLE_CHAIN_ORACLE",
+  "status": "FROZEN_TRAIN_ONLY_READ_ONLY",
+  "population": "B2B clean-train folds 0-3, exactly 1421 queries; fold4=611, B2B581, internal300, development and confirmation sealed",
+  "criterion": "For each defined anchor, stable success is three consecutive add-only prefixes above the canonical threshold. Earliest stable stop is the first prefix of the first qualifying run; the run is future-informed oracle evidence, not an online stopping rule.",
+  "ordered_stops": "All anchors use the same scalar fidelity and are nested, so earliest stable start and completion indices are automatically nondecreasing with threshold on any fixed chain.",
+  "joint_coverage": "Exactly equal to stable success at the highest attainable anchor: 0.90 for four-anchor queries, 0.95 for five-anchor queries.",
+  "pool": "Evaluate V8 plus ten V13 projected orders separately; report existence of one order satisfying the full vector and Pareto-safe improvements over V8. Do not combine per-anchor best metrics from different orders.",
+  "full_lattice": "Use exact subset-DAG run DP for joint coverage, and for newly joint-stable queries construct an exact minimum-Kendall-distance order relative to V8. This certifies reachability and minimum inversion distance, not minimum multi-anchor token cost or deployment learnability.",
+  "pareto": "A candidate is a safe quality gain if no ordinary or stable anchor success breaks and at least one stable anchor repairs. At matched ordinary and stable vectors, compare per-anchor earliest stable token costs and cumulative stable tokens only when jointly stable.",
+  "explicitly_off": ["training", "new Target calls", "selector", "learned cutoff", "new holdout reads"]
+}

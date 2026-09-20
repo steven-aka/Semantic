@@ -2191,3 +2191,55 @@ with ordered cutoffs and paired token cost; only then freeze a stability-aware
 trajectory-generation protocol. Selector and current-feature cutoff training
 stay closed; fold4=611, B2B581, internal300, development and confirmation
 remain sealed.
+
+## V17-TRAJ-A1 single-chain multi-anchor oracle audit (train-only)
+
+The guidance to test a *single* order for all anchors was useful, but its
+suggestion that A0's joint coverage might largely disappear overlooks the
+contract: every anchor thresholds the same scalar fidelity. On one chain, a
+three-prefix run above the highest attainable threshold is simultaneously a
+run for every lower threshold; their first qualifying stop positions are
+automatically ordered. This gives an **exact full-lattice joint stable-coverage
+ceiling**, although it does not solve joint token-cost optimization or
+cross-query learnability. The frozen protocol and exact minimum-inversion
+witness DP are in `configs/v17traj_a1_single_chain_oracle.json` and
+`src/evaluation/v17traj_a1_single_chain_oracle.py`.
+
+| Query type | N | V8 single chain stable Complete | Top-10 pool, one chain/query | Full lattice, one chain/query |
+|---|---:|---:|---:|---:|
+| Four attainable anchors, highest 0.90 | 290 | 73 | 115 | 168 |
+| Five attainable anchors, highest 0.95 | 1131 | 521 | 578 | 578 |
+| Total | 1421 | **594** | **693** | **746** |
+
+The full-lattice joint-stability opportunity beyond V8 is 152 queries, of
+which 99 already have a witness in the frozen candidate pool and 53 require a
+different order. For those 152 queries, exact subset DP found the
+minimum-Kendall-distance valid order: 94 need at most two inverted packet
+pairs, and 112 first diverge from V8 at depth 8 or later. These are structural
+oracle witnesses, not predictions from deployment-visible features. None
+breaks a V8 ordinary or stable anchor success because attaining the highest
+stable anchor necessarily attains all lower anchors. Only **25/152** convert a
+V8 ordinary highest-anchor failure to success; 127 merely widen an already
+reachable success window.
+
+The nearest witness reaches the first three-prefix stable run at a mean of
+0.774 of full context, but that run can only be *confirmed by observing two
+further prefixes*, at a mean of 0.951 of full context. For five-anchor queries
+the confirmation mean is exactly 1.0. Treating its retrospectively known
+start as an online stopping point would leak future information. Among queries
+where V8 already has stable Complete, per-query selection of the best pool
+order saves a mean 70.2 cumulative tokens in the four-anchor cohort and 15.3
+in the five-anchor cohort; these are modest oracle opportunities, not learned
+Pareto gains. A full-lattice multi-anchor token Pareto frontier was not
+computed, so no claim is made that the nearest-inversion witness is token
+optimal.
+
+**Decision:** A1 supports the existence of some local single-chain repairs,
+but it does not support launching TRAJ-B0 on width-three labels alone. Stable
+window width is a retrospective surrogate; most new witnesses do not repair
+ordinary quality, and 0.95 width-three confirmation costs full context. The
+next experiment must test whether deployment-visible features can identify
+the **25 ordinary-quality repairs or paired token savings**, rather than just
+predict which late swap widens an oracle window. Keep the 611/581/internal/
+development/confirmation sets sealed and do not train a full permutation
+generator or a new cutoff on this evidence.

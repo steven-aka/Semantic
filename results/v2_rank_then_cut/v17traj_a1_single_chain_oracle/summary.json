@@ -1,0 +1,46 @@
+{
+  "protocol": "V17-TRAJ-A1_MULTI_LEVEL_SINGLE_CHAIN_ORACLE",
+  "queries": 1421,
+  "cohorts": {
+    "4": {
+      "queries": 290,
+      "v8_joint_stable_complete": 73,
+      "pool_joint_stable_complete": 115,
+      "lattice_joint_stable_complete": 168,
+      "pool_safe_stable_repair": 98,
+      "pool_token_pareto_no_quality_change": 23,
+      "mean_paired_stable_cumulative_token_saving_both_complete": 70.23287671232876,
+      "nearest_witness_queries": 95,
+      "nearest_witness_inversion_median": 3,
+      "nearest_witness_inversions_le_2": 37,
+      "nearest_witness_first_divergence_median": 9,
+      "nearest_witness_first_divergence_le_3": 8,
+      "nearest_witness_new_ordinary_highest_success": 25,
+      "nearest_witness_mean_stable_start_fraction_highest": 0.7434524321911395,
+      "nearest_witness_mean_stable_confirmation_fraction_highest": 0.9214744916191898
+    },
+    "5": {
+      "queries": 1131,
+      "v8_joint_stable_complete": 521,
+      "pool_joint_stable_complete": 578,
+      "lattice_joint_stable_complete": 578,
+      "pool_safe_stable_repair": 165,
+      "pool_token_pareto_no_quality_change": 35,
+      "mean_paired_stable_cumulative_token_saving_both_complete": 15.318618042226488,
+      "nearest_witness_queries": 57,
+      "nearest_witness_inversion_median": 1,
+      "nearest_witness_inversions_le_2": 57,
+      "nearest_witness_first_divergence_median": 11,
+      "nearest_witness_first_divergence_le_3": 0,
+      "nearest_witness_new_ordinary_highest_success": 0,
+      "nearest_witness_mean_stable_start_fraction_highest": 0.824548717045221,
+      "nearest_witness_mean_stable_confirmation_fraction_highest": 1.0
+    }
+  },
+  "interpretation": [
+    "Joint width-three coverage is exact because scalar fidelity thresholds are nested; no multi-anchor path switching is needed for coverage.",
+    "A width-three future window is an oracle robustness surrogate, not a deployable stopping rule or required quality criterion.",
+    "Minimum-Kendall witnesses certify the nearest single-chain structural repair, not minimum context tokens or cross-query learnability.",
+    "Stable-run start is retrospectively known; confirmation requires observing two later prefixes and is substantially more expensive."
+  ]
+}
