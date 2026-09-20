@@ -2036,3 +2036,61 @@ quality gate failed, so fold4=611, B2B 581, internal300, development, and
 confirmation were not read for E0. The cost reduction is a useful
 quality--token tradeoff point but **does not dominate** fixed depth 10.
 No threshold sweep on these same outcomes is authorized by this protocol.
+
+## V17-CUT-F0 fixed V8 single-depth frontier and F1 conservative early-exit risk
+
+F0 enumerated a restricted fixed-depth family: all five requested anchors
+stop at the same V8 prefix depth 1--12. It used the exact cache only for
+read-only scoring, with no new Target calls. On both the 1,421 clean-train
+queries and the already design-exposed 611, depth 10 was the unique maximum
+for both 0.90 success and Complete in this family. Depth 11 and full-context
+depth 12 actually lost success because frozen-Target fidelity is nonmonotone.
+Selected points are:
+
+| Role / fixed depth | 0.90 success | Complete | Mean final-context fraction |
+| --- | ---: | ---: | ---: |
+| Train 1,421 / depth 9 | 1,017 | 87 | 0.6873 |
+| Train 1,421 / depth 10 | 1,195 | 1,045 | 0.8201 |
+| Train 1,421 / depth 11 | 1,138 | 975 | 0.9068 |
+| Exposed 611 / depth 9 | 436 | 42 | 0.6862 |
+| Exposed 611 / depth 10 | 514 | 466 | 0.8175 |
+| Exposed 611 / depth 11 | 482 | 398 | 0.9058 |
+
+The machine-readable F0 summary reports every depth, all five anchor counts,
+Complete-only cost and regret, and three-objective nondominated depths. This
+is a one-dimensional reference family, not the full fixed five-depth-vector
+frontier. B2B 581, internal300, development and confirmation remained sealed.
+
+F1 then held the V8 order and depth-10 fallback fixed. Its only early-exit
+action was to stop the 0.60--0.80 anchors at depth 9 when the *existing*
+frozen V13 0.80 mask-value score was high; 0.90/0.95 always stayed at depth
+10. The train-only risk--coverage curve ranked 1%, 2%, 5%, 10% and 20% of
+the 1,421 queries by that score. The protocol named the 10% point in advance
+as the sole candidate for an exposed-role replay. Results:
+
+| Nominal early-exit coverage | Switches | Complete breaks | Mean final-context fraction |
+| --- | ---: | ---: | ---: |
+| 0% fixed depth 10 | 0 | 0 | 0.8201 |
+| 1% | 14 | 0 | 0.8191 |
+| 2% | 28 | 0 | 0.8182 |
+| 5% | 71 | 2 | 0.8155 |
+| 10% precommitted candidate | 142 | 5 | 0.8110 |
+| 20% | 284 | 6 | 0.8022 |
+
+The 10% candidate also broke 2, 2 and 6 lower-anchor successes at 0.60,
+0.70 and 0.80 respectively, despite a few lower-anchor gains; its five
+Complete breaks had no Complete gains. 0.90 remained 1,195 by construction.
+The 1--2% zero-break region is a descriptive result selected from this same
+train role, with at most 28 switched queries and less than 0.002 mean context
+saving. It is not independent evidence of safety and cannot be promoted
+post hoc into a new threshold. The preregistered 10% opening gate failed,
+so F1 did **not** read fold4=611 or B2B581.
+
+Decision: `STOP_CURRENT_FEATURE_CONSERVATIVE_EARLY_EXIT`. This is stronger
+than CUT-B0's negative result: even when the model only has permission to
+make a sparse, quality-first early exit, the tested existing score does not
+provide a useful risk--coverage region. The next stopping experiment must
+measure a genuinely new deployment-visible sequential signal with full
+Target-call accounting, or audit selective packet refinement; it must not
+relabel the F1 curve as a successful cutoff by changing its threshold after
+inspection.

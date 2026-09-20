@@ -1,0 +1,562 @@
+{
+  "artifacts": {
+    "candidates_sha256": "6e0f32fce9e431e8328fbbb5ad6abe31e8b67a623c7afe7ebfef7be75cc0db70",
+    "config_sha256": "61fc496dee3f314bb658da589c95c1768c0bacb3ec1004ae1ab61d5b78a907b4",
+    "rollouts_sha256": "f47ced335bf147b8249b8cc64b038fcb0c107643ff4fe4c5467371826fa81ea5"
+  },
+  "confirmation_read": false,
+  "development_read": false,
+  "holdout_581_read": false,
+  "internal300_read": false,
+  "new_target_calls": 0,
+  "protocol": "V17-CUT-F0_FIXED_V8_SINGLE_DEPTH_FRONTIER",
+  "roles": {
+    "design_exposed611": {
+      "nondominated_depths": [
+        1,
+        9,
+        10
+      ],
+      "points": [
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 1,
+          "mean_final_context_fraction_all_queries": 0.05259784766179228,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 2,
+          "mean_final_context_fraction_all_queries": 0.11108962972127641,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 3,
+          "mean_final_context_fraction_all_queries": 0.17475362040435335,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 4,
+          "mean_final_context_fraction_all_queries": 0.24335230831039564,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            493,
+            0,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 5,
+          "mean_final_context_fraction_all_queries": 0.31656258973351703,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            555,
+            472,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 6,
+          "mean_final_context_fraction_all_queries": 0.3954022164646596,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            574,
+            551,
+            462,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 7,
+          "mean_final_context_fraction_all_queries": 0.4815457850196522,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            571,
+            564,
+            524,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 8,
+          "mean_final_context_fraction_all_queries": 0.5769708976761768,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            576,
+            570,
+            551,
+            436,
+            0
+          ],
+          "complete": 42,
+          "depth": 9,
+          "mean_final_context_fraction_all_queries": 0.6862068903807267,
+          "mean_final_context_fraction_complete_only": 0.6795294621681395,
+          "mean_normalized_regret_complete_only": 0.19726229681764804,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            578,
+            571,
+            557,
+            514,
+            399
+          ],
+          "complete": 466,
+          "depth": 10,
+          "mean_final_context_fraction_all_queries": 0.8175011925557041,
+          "mean_final_context_fraction_complete_only": 0.8117337002409681,
+          "mean_normalized_regret_complete_only": 0.26754219506407434,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            577,
+            569,
+            558,
+            482,
+            346
+          ],
+          "complete": 398,
+          "depth": 11,
+          "mean_final_context_fraction_all_queries": 0.9057662667797798,
+          "mean_final_context_fraction_complete_only": 0.9032861899142683,
+          "mean_normalized_regret_complete_only": 0.353224946000337,
+          "queries": 611
+        },
+        {
+          "anchor_eligible": [
+            611,
+            611,
+            611,
+            611,
+            481
+          ],
+          "anchor_success": [
+            571,
+            559,
+            532,
+            454,
+            315
+          ],
+          "complete": 362,
+          "depth": 12,
+          "mean_final_context_fraction_all_queries": 1.0,
+          "mean_final_context_fraction_complete_only": 1.0,
+          "mean_normalized_regret_complete_only": 0.450560529055895,
+          "queries": 611
+        }
+      ]
+    },
+    "train1421": {
+      "nondominated_depths": [
+        1,
+        8,
+        9,
+        10
+      ],
+      "points": [
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 1,
+          "mean_final_context_fraction_all_queries": 0.052927487434194426,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 2,
+          "mean_final_context_fraction_all_queries": 0.11174878443751086,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 3,
+          "mean_final_context_fraction_all_queries": 0.1758139773815365,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            3,
+            1,
+            1,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 4,
+          "mean_final_context_fraction_all_queries": 0.244683825297777,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1131,
+            3,
+            1,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 5,
+          "mean_final_context_fraction_all_queries": 0.31859891264866613,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1271,
+            1066,
+            2,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 6,
+          "mean_final_context_fraction_all_queries": 0.3980836130948877,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1297,
+            1255,
+            1016,
+            0,
+            0
+          ],
+          "complete": 0,
+          "depth": 7,
+          "mean_final_context_fraction_all_queries": 0.4841104247615663,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1322,
+            1273,
+            1181,
+            1,
+            0
+          ],
+          "complete": 0,
+          "depth": 8,
+          "mean_final_context_fraction_all_queries": 0.5792804045205084,
+          "mean_final_context_fraction_complete_only": null,
+          "mean_normalized_regret_complete_only": null,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1328,
+            1306,
+            1266,
+            1017,
+            1
+          ],
+          "complete": 87,
+          "depth": 9,
+          "mean_final_context_fraction_all_queries": 0.6873365712014766,
+          "mean_final_context_fraction_complete_only": 0.6730682901966849,
+          "mean_normalized_regret_complete_only": 0.1937793284819804,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1345,
+            1332,
+            1293,
+            1195,
+            914
+          ],
+          "complete": 1045,
+          "depth": 10,
+          "mean_final_context_fraction_all_queries": 0.8200900023258562,
+          "mean_final_context_fraction_complete_only": 0.8166127522501571,
+          "mean_normalized_regret_complete_only": 0.26503224194390934,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1345,
+            1320,
+            1273,
+            1138,
+            861
+          ],
+          "complete": 975,
+          "depth": 11,
+          "mean_final_context_fraction_all_queries": 0.9067956786575854,
+          "mean_final_context_fraction_complete_only": 0.904558906577301,
+          "mean_normalized_regret_complete_only": 0.3496786158653455,
+          "queries": 1421
+        },
+        {
+          "anchor_eligible": [
+            1421,
+            1421,
+            1421,
+            1421,
+            1131
+          ],
+          "anchor_success": [
+            1337,
+            1314,
+            1258,
+            1071,
+            728
+          ],
+          "complete": 832,
+          "depth": 12,
+          "mean_final_context_fraction_all_queries": 1.0,
+          "mean_final_context_fraction_complete_only": 1.0,
+          "mean_normalized_regret_complete_only": 0.4407305059609404,
+          "queries": 1421
+        }
+      ]
+    }
+  }
+}

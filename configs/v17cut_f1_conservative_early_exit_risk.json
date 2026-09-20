@@ -1,0 +1,13 @@
+{
+  "protocol": "V17-CUT-F1_FIXED_V8_CONSERVATIVE_EARLY_EXIT_RISK_GATE",
+  "status": "FROZEN_TRAIN_THEN_ONE_EXPOSED_ROLE",
+  "baseline": "single fixed V8 trajectory; all active anchors stop at depth10",
+  "early_exit": "only 0.60/0.70/0.80 may stop at depth9; 0.90/0.95 remain at depth10",
+  "score": "frozen clean-lineage V13 0.80 mask-value logit at V8 depth9; no new features or model training",
+  "risk_curve": "on train1421 only, describe top 1%, 2%, 5%, 10%, and 20% by score, counting every paired anchor and Complete break and mean final-context cost",
+  "single_candidate_rule": "freeze the score threshold at the 10% highest train-query score before any fold4 outcome is read; switch every future query with score at least that value",
+  "opening_gate": "the 10% train-side candidate must switch at least 100 queries, cause zero baseline-to-policy breaks at every active anchor and Complete, and lower all-query mean final-context fraction",
+  "exposed_gate": "apply the frozen threshold once on design-exposed fold4=611; require no anchor or Complete break and lower context cost to claim a research-level Pareto gain; otherwise stop this feature branch",
+  "causal_limit": "V13 has seen train1421 and fold4=611 queries; even a positive result must later pass the B2B lineage-clean 581 before any fresh confirmation or final claim",
+  "sealed": ["B2B581", "internal300", "development", "confirmation", "new Target calls", "new selector/cutoff training"]
+}

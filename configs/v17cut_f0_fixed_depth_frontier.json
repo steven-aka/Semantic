@@ -1,0 +1,11 @@
+{
+  "protocol": "V17-CUT-F0_FIXED_V8_SINGLE_DEPTH_FRONTIER",
+  "status": "FROZEN_READ_ONLY",
+  "candidate": "clean-lineage V8 fallback, one add-only 12-packet order per query",
+  "policy_family": "one common stop depth for every requested fidelity anchor, depth 1 through 12 inclusive",
+  "roles": "train-side folds0-3=1421 for method diagnosis; already design-exposed fold4=611 for paired descriptive replication; B2B581/internal300/development/confirmation sealed",
+  "metrics": ["five per-anchor success counts", "Complete", "0.90 success", "mean legal final-context fraction on all queries", "mean final-context fraction on Complete only", "normalized same-order token regret on Complete"],
+  "frontier": "nondominated points on the triple (higher 0.90 success, higher Complete, lower all-query normalized final-context cost); no single depth selected from fold4",
+  "interpretation": "restricted one-dimensional fixed-depth reference family, not the entire fixed five-vector Pareto frontier or a deployment claim",
+  "sealed": ["B2B581", "internal300", "development", "confirmation", "new Target calls", "new model training"]
+}
