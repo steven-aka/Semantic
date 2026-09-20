@@ -2807,3 +2807,77 @@ depths 6+7+9. These are deduplicated state counts, not new actions. The
 cost-controlled next candidate is depth-9 only, because it directly tests
 0.90 and its movement can also alter the depth-10 0.95 endpoint. The
 all-depth design should not be launched as if each move cost one Target call.
+
+### V17-STOP-V1A/B costed probe and simple observable diagnostic
+
+The fresh P0 chain permits a sharper stopping cost bound without new Target
+calls. A predeclared one-probe policy at depths `[6,7,8,9,10]` was given an
+**omniscient** success decision; when a probe failed it called depth 10 as
+fallback. Counting prompt **and** generated tokens for both calls, the
+independent-request simulation saved 790.18 final-context tokens and 410.28
+Target compute tokens per query relative to `[10]*5`, while improving the
+sum of attainable-anchor successes from 6,191 to 6,354 and Complete from
+1,123 to 1,143. This is a positive *costed oracle ceiling*, not a feasible
+online policy. A monotone sequential-request accounting also remained
+positive (594.30 Target compute tokens saved/query), but assumes calls at
+each requested anchor rather than reusing identical responses. These two
+accounting conventions must not be combined into one deployment claim.
+
+For an actual observable, a four-fold train-side OOF diagnostic used only
+the distinct parsed answer count at each probe depth. Per-anchor integer
+thresholds 1–20 were selected on the other three folds only if they yielded
+at least 20 early exits and **zero** baseline-success breaks. No threshold
+qualified in any fold. The resulting no-probe fallback exactly reproduced
+the depth-10 baseline: zero early exits, zero extra Target calls, no quality
+or token gain. This rejects the answer-count signal under the frozen strict
+risk condition; it does not reject richer low-cost stopping information.
+The lineage 611, 581, internal, development and confirmation sets remained
+sealed. The next bounded root-cause test is the already costed depth-9
+remaining-packet move oracle, rather than another cutoff loss or threshold
+sweep.
+
+### V17-PROG-B0 depth-9 bounded remaining-packet move oracle
+
+We tested **only** move-to-next at depth 9, with fixed causal stop schedules,
+the same Qwen3-8B Target execution contract, and no training. P0 and A0
+states were reused; exactly 5,684 previously unseen query/mask states were
+generated (768 in the initial run plus 4 disjoint GPU shards of 1,229).
+The summary and per-query action outcomes are in
+`v17prog_b0_depth9_move_oracle/`.
+
+| Primary `[6,7,7,9,10]` | 0.90 success | 0.95 success | Complete | Mean cumulative context tokens |
+|---|---:|---:|---:|---:|
+| Frozen V8 STAY | 1050 | 973 | 775 | 2183.62 |
+| Oracle STAY / adjacent depth-9 swap | 1189 | 973 | 840 | 2184.63 |
+| Oracle any remaining-packet move, no per-query extra context | 1067 | 973 | 784 | 2171.13 |
+| Oracle any remaining-packet move, quality first, no anchor break | **1190** | **974** | **841** | **2176.65** |
+
+The sensitivity `[7,8,8,9,10]` schedule gives the same 0.90 counts;
+Complete is 909 for STAY, 993 for adjacent, 920 for strict no-extra-context,
+and 994 for unrestricted quality-first. The quality-first B0 oracle chose
+STAY for 1,000 queries, adjacent rank-10 for 249, rank-11 for 110, and
+rank-12 for 62. The strict no-extra-context oracle chose STAY for 1,075,
+rank-10 for 127, rank-11 for 138, and rank-12 for 81.
+
+This resolves an important ambiguity in A0: its preregistered +17 0.90
+result applied a **per-query no-extra-context constraint**. Removing that
+constraint while preserving all successful anchors lets even the *existing*
+adjacent depth-9 move repair 139 additional 0.90 queries, for just +1.01
+mean cumulative context tokens. Allowing later packets adds only **one**
+further 0.90 repair and one 0.95/Complete repair, while reducing mean
+context by about eight tokens relative to the adjacent oracle. Hence the
+one-step action restriction is not the primary source of missed quality
+headroom at this depth. The unresolved problem is identifying beneficial
+query-specific actions without oracle Target truth or introducing breaks;
+A1 already failed that deployment-side test. B0 is a train-side
+outcome-aware upper bound and does **not** meet final five-anchor gates.
+
+Next-method decision: close further depth-9 action-space expansion and
+another A1-like head. Preserve the positive costed stopping ceiling from
+STOP-V1A, but do not infer that answer-count can realize it: STOP-V1B found
+no zero-break OOF trigger. The next useful experiment should isolate a
+deployment-visible, low-cost sufficiency signal and compare its *full*
+quality–context–Target-compute Pareto against the fixed-depth frontier.
+If it cannot clear a preregistered low-break gate on query-held-out train
+folds, revisit the Target feedback contract or packet/state definition;
+do not train another cutoff merely because the hindsight bound is large.

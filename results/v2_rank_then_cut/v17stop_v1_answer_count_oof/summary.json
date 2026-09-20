@@ -1,0 +1,79 @@
+{
+  "protocol": "V17-STOP-V1B_ANSWER_COUNT_LOW_RISK_OOF",
+  "status": "FROZEN_TRAIN_SIDE_DIAGNOSTIC",
+  "feature": "number of distinct parsed answers in the single Target response at probe depth",
+  "thresholds_by_oof_fold": {
+    "0": {
+      "0.6": null,
+      "0.7": null,
+      "0.8": null,
+      "0.9": null,
+      "0.95": null
+    },
+    "1": {
+      "0.6": null,
+      "0.7": null,
+      "0.8": null,
+      "0.9": null,
+      "0.95": null
+    },
+    "2": {
+      "0.6": null,
+      "0.7": null,
+      "0.8": null,
+      "0.9": null,
+      "0.95": null
+    },
+    "3": {
+      "0.6": null,
+      "0.7": null,
+      "0.8": null,
+      "0.9": null,
+      "0.95": null
+    }
+  },
+  "queries": 1421,
+  "per_anchor": {
+    "0.6": {
+      "requests": 1421,
+      "early_exits": 0,
+      "repairs": 0,
+      "breaks": 0
+    },
+    "0.7": {
+      "requests": 1421,
+      "early_exits": 0,
+      "repairs": 0,
+      "breaks": 0
+    },
+    "0.8": {
+      "requests": 1421,
+      "early_exits": 0,
+      "repairs": 0,
+      "breaks": 0
+    },
+    "0.9": {
+      "requests": 1421,
+      "early_exits": 0,
+      "repairs": 0,
+      "breaks": 0
+    },
+    "0.95": {
+      "requests": 1131,
+      "early_exits": 0,
+      "repairs": 0,
+      "breaks": 0
+    }
+  },
+  "baseline_anchor_success_sum": 6191,
+  "policy_anchor_success_sum": 6191,
+  "baseline_complete": 1123,
+  "policy_complete": 1123,
+  "mean_baseline_final_context_tokens": 3191.058409570725,
+  "mean_policy_final_context_tokens": 3191.058409570725,
+  "mean_baseline_target_compute_tokens": 4019.7206192821955,
+  "mean_policy_target_compute_tokens": 4019.7206192821955,
+  "mean_extra_target_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

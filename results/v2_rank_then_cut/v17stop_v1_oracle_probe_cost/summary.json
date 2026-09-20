@@ -1,0 +1,90 @@
+{
+  "protocol": "V17-STOP-V1A_SINGLE_PROBE_ORACLE_COST_FLOOR",
+  "status": "FROZEN_READ_ONLY_TRAIN_SIDE",
+  "rules": "For each attainable level, query Target once at the predeclared probe depth; an omniscient oracle stops there only if the fresh-cache fidelity reaches that level, otherwise it queries the fixed depth-10 baseline. The oracle decision has no implementation and cannot be deployed. Count every prompt and generated token in every call. Report independent-level and monotone sequential service separately. No held-out sets, model fitting, or new Target calls.",
+  "schedules": {
+    "conservative": {
+      "depths": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "independent_requests": {
+        "queries": 1421,
+        "attainable_requests": 6815,
+        "baseline_anchor_success_sum": 6191,
+        "oracle_probe_anchor_success_sum": 6354,
+        "baseline_complete": 1123,
+        "oracle_probe_complete": 1143,
+        "mean_baseline_final_context_tokens": 3191.058409570725,
+        "mean_probe_final_context_tokens": 2400.8768472906404,
+        "mean_final_context_tokens_saved": 790.1815622800844,
+        "mean_baseline_target_compute_tokens": 4019.7206192821955,
+        "mean_probe_target_compute_tokens": 3609.4405348346236,
+        "mean_target_compute_tokens_saved": 410.2800844475721,
+        "mean_extra_target_calls": 0.6544686840253343,
+        "queries_with_target_compute_saving": 1126
+      },
+      "sequential_monotone": {
+        "queries": 1421,
+        "attainable_requests": 6815,
+        "baseline_anchor_success_sum": 6191,
+        "oracle_probe_anchor_success_sum": 6326,
+        "baseline_complete": 1123,
+        "oracle_probe_complete": 1140,
+        "mean_baseline_final_context_tokens": 3191.058409570725,
+        "mean_probe_final_context_tokens": 2434.3307529908516,
+        "mean_final_context_tokens_saved": 756.7276565798734,
+        "mean_baseline_target_compute_tokens": 4019.7206192821955,
+        "mean_probe_target_compute_tokens": 3425.4180154820547,
+        "mean_target_compute_tokens_saved": 594.3026038001408,
+        "mean_extra_target_calls": 0.33497536945812806,
+        "queries_with_target_compute_saving": 1126
+      }
+    },
+    "earlier": {
+      "depths": [
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "independent_requests": {
+        "queries": 1421,
+        "attainable_requests": 6815,
+        "baseline_anchor_success_sum": 6191,
+        "oracle_probe_anchor_success_sum": 6347,
+        "baseline_complete": 1123,
+        "oracle_probe_complete": 1142,
+        "mean_baseline_final_context_tokens": 3191.058409570725,
+        "mean_probe_final_context_tokens": 2356.5432793807176,
+        "mean_final_context_tokens_saved": 834.5151301900071,
+        "mean_baseline_target_compute_tokens": 4019.7206192821955,
+        "mean_probe_target_compute_tokens": 3711.834623504574,
+        "mean_target_compute_tokens_saved": 307.8859957776214,
+        "mean_extra_target_calls": 1.0211118930330754,
+        "queries_with_target_compute_saving": 1018
+      },
+      "sequential_monotone": {
+        "queries": 1421,
+        "attainable_requests": 6815,
+        "baseline_anchor_success_sum": 6191,
+        "oracle_probe_anchor_success_sum": 6298,
+        "baseline_complete": 1123,
+        "oracle_probe_complete": 1134,
+        "mean_baseline_final_context_tokens": 3191.058409570725,
+        "mean_probe_final_context_tokens": 2445.0781140042222,
+        "mean_final_context_tokens_saved": 745.9802955665025,
+        "mean_baseline_target_compute_tokens": 4019.7206192821955,
+        "mean_probe_target_compute_tokens": 3478.600985221675,
+        "mean_target_compute_tokens_saved": 541.1196340605208,
+        "mean_extra_target_calls": 0.49612948627726955,
+        "queries_with_target_compute_saving": 1016
+      }
+    }
+  },
+  "new_target_calls": 0
+}

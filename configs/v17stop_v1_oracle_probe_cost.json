@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-STOP-V1A_SINGLE_PROBE_ORACLE_COST_FLOOR",
+  "status": "FROZEN_READ_ONLY_TRAIN_SIDE",
+  "baseline_depth": 10,
+  "probe_schedules": {
+    "conservative": [6, 7, 8, 9, 10],
+    "earlier": [5, 6, 7, 9, 10]
+  },
+  "rules": "For each attainable level, query Target once at the predeclared probe depth; an omniscient oracle stops there only if the fresh-cache fidelity reaches that level, otherwise it queries the fixed depth-10 baseline. The oracle decision has no implementation and cannot be deployed. Count every prompt and generated token in every call. Report independent-level and monotone sequential service separately. No held-out sets, model fitting, or new Target calls."
+}

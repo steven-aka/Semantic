@@ -1,0 +1,16 @@
+{
+  "protocol": "V17-PROG-B0_DEPTH9_BOUNDED_MOVE_ORACLE",
+  "status": "FROZEN_TRAIN_SIDE",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "target_model": "models/Qwen3-8B",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "temperature": 0,
+  "batch_size": 128,
+  "move_depth": 9,
+  "primary_schedule": [6, 7, 7, 9, 10],
+  "sensitivity_schedule": [7, 8, 8, 9, 10],
+  "fidelity_epsilon": 1e-6,
+  "gate": "Report quality-first no-break oracle and strict no-extra-context oracle against STAY and cached adjacent swap. This is an outcome-aware upper bound, not a deployable policy. Do not read 611/581/internal/development/confirmation."
+}

@@ -1,0 +1,140 @@
+{
+  "protocol": "V17-PROG-B0_DEPTH9_BOUNDED_MOVE_ORACLE",
+  "queries": 1421,
+  "fresh_target_states": 5684,
+  "fresh_prompt_tokens": 3969760,
+  "fresh_generated_tokens": 281906,
+  "schedules": {
+    "primary_schedule": {
+      "depths": [
+        6,
+        7,
+        7,
+        9,
+        10
+      ],
+      "stay": {
+        "success": {
+          "0.6": 1265,
+          "0.7": 1252,
+          "0.8": 998,
+          "0.9": 1050,
+          "0.95": 973
+        },
+        "complete": 775,
+        "mean_cumulative_context_tokens": 2183.6171710063336
+      },
+      "adjacent_move_oracle": {
+        "success": {
+          "0.6": 1265,
+          "0.7": 1252,
+          "0.8": 998,
+          "0.9": 1189,
+          "0.95": 973
+        },
+        "complete": 840,
+        "mean_cumulative_context_tokens": 2184.6270232230822
+      },
+      "strict_no_extra_context_oracle": {
+        "success": {
+          "0.6": 1265,
+          "0.7": 1252,
+          "0.8": 998,
+          "0.9": 1067,
+          "0.95": 973
+        },
+        "complete": 784,
+        "mean_cumulative_context_tokens": 2171.1259676284308
+      },
+      "quality_first_no_break_oracle": {
+        "success": {
+          "0.6": 1265,
+          "0.7": 1252,
+          "0.8": 998,
+          "0.9": 1190,
+          "0.95": 974
+        },
+        "complete": 841,
+        "mean_cumulative_context_tokens": 2176.6530612244896
+      },
+      "strict_action_counts": {
+        "9": 1075,
+        "10": 127,
+        "11": 138,
+        "12": 81
+      },
+      "quality_action_counts": {
+        "9": 1000,
+        "10": 249,
+        "11": 110,
+        "12": 62
+      }
+    },
+    "sensitivity_schedule": {
+      "depths": [
+        7,
+        8,
+        8,
+        9,
+        10
+      ],
+      "stay": {
+        "success": {
+          "0.6": 1298,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1050,
+          "0.95": 973
+        },
+        "complete": 909,
+        "mean_cumulative_context_tokens": 2410.615763546798
+      },
+      "adjacent_move_oracle": {
+        "success": {
+          "0.6": 1298,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1189,
+          "0.95": 973
+        },
+        "complete": 993,
+        "mean_cumulative_context_tokens": 2411.6256157635466
+      },
+      "strict_no_extra_context_oracle": {
+        "success": {
+          "0.6": 1298,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1067,
+          "0.95": 973
+        },
+        "complete": 920,
+        "mean_cumulative_context_tokens": 2398.124560168895
+      },
+      "quality_first_no_break_oracle": {
+        "success": {
+          "0.6": 1298,
+          "0.7": 1277,
+          "0.8": 1187,
+          "0.9": 1190,
+          "0.95": 974
+        },
+        "complete": 994,
+        "mean_cumulative_context_tokens": 2403.651653764954
+      },
+      "strict_action_counts": {
+        "9": 1075,
+        "10": 127,
+        "11": 138,
+        "12": 81
+      },
+      "quality_action_counts": {
+        "9": 1000,
+        "10": 249,
+        "11": 110,
+        "12": 62
+      }
+    }
+  },
+  "limitations": "Outcome-aware train-side oracle. Fixed stop depths remove hindsight stopping but choosing move still uses Target truth. Not a deployable policy; sealed sets untouched."
+}

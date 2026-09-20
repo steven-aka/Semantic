@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-STOP-V1B_ANSWER_COUNT_LOW_RISK_OOF",
+  "status": "FROZEN_TRAIN_SIDE_DIAGNOSTIC",
+  "baseline_depth": 10,
+  "probe_depths": [6, 7, 8, 9, 10],
+  "folds": 4,
+  "decision_feature": "number of distinct parsed answers in the single Target response at probe depth",
+  "thresholds": "Choose integer answer-count threshold 1..20 independently per anchor on three training folds. Require at least 20 early exits and zero baseline-success breaks in training; maximize final-context saving. Otherwise never exit early. Evaluate only on the fourth fold.",
+  "cost": "Charge probe and fallback calls, including prompt and generated tokens. This is a train-side OOF diagnostic, not a deployable or independently validated cutoff."
+}

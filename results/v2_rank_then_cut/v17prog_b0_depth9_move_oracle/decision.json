@@ -1,0 +1,19 @@
+{
+  "protocol": "V17-PROG-B0_DEPTH9_BOUNDED_MOVE_ORACLE",
+  "decision": "STOP_DEPTH9_ACTION_SPACE_EXPANSION",
+  "basis": {
+    "population": "train1421 only; frozen current Qwen3-8B Target",
+    "primary_schedule": [6, 7, 7, 9, 10],
+    "stay_090": 1050,
+    "adjacent_only_oracle_090": 1189,
+    "any_remaining_move_oracle_090": 1190,
+    "adjacent_only_complete": 840,
+    "any_remaining_move_complete": 841,
+    "strict_no_extra_context_090": 1067,
+    "new_states": 5684
+  },
+  "interpretation": "The new non-adjacent moves add one 0.90 repair and one Complete repair over the already available adjacent depth-9 swap under a quality-first hindsight oracle. A0's +17 was constrained by per-query no-extra-context, not the full adjacent-swap quality ceiling. Deployment-time action identification remains unsolved.",
+  "next": "Prioritize a costed, deployment-visible sufficiency/stop signal on frozen V8 trajectories. Do not infer learnability from the oracle or reopen A1-style action heads.",
+  "sealed_sets_read": false,
+  "learned_checkpoint": false
+}
