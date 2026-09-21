@@ -1,0 +1,19 @@
+{
+  "protocol": "TRAJ-M0C_RANK10_ATOM_DEPTH7_PAIRED_ORACLE",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "population": "SHA-first 128 M0B-eligible CANON-P0 train queries excluding R1 train512, OBS-A1 train256 and FRAG-B0 train128; no outcome stratification",
+  "schedule": [6, 7, 7, 9, 10],
+  "action": "Preserve V8 packets; reveal the M0B-frozen shortest exact rank10 title+sentence at depth7 through depth9, restore full rank10 at depth10",
+  "queries": 128,
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 32,
+  "temperature": 0.0,
+  "fidelity_epsilon": 0.000001,
+  "oracle_opportunity_gate": "At least 8 hindsight no-break Complete repairs among 128 at no more than 10 mean extra cumulative context tokens/query, and exact depth10 recovery; gate authorizes only learnability design, not deployment",
+  "sealed_sets_read": false,
+  "new_training": false
+}

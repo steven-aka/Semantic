@@ -1,0 +1,31 @@
+{
+  "protocol": "TRAJ-M0C_RANK10_ATOM_DEPTH7_PAIRED_ORACLE",
+  "queries": 128,
+  "target_calls": 768,
+  "baseline_success": [
+    116,
+    108,
+    84,
+    93,
+    89
+  ],
+  "action_success": [
+    116,
+    112,
+    100,
+    101,
+    89
+  ],
+  "baseline_complete": 68,
+  "action_complete": 79,
+  "complete_repairs": 19,
+  "complete_breaks": 8,
+  "queries_with_any_anchor_break": 16,
+  "safe_complete_oracle_repairs": 19,
+  "mean_extra_cumulative_context_uniform": 76.3828125,
+  "mean_extra_cumulative_target_uniform": 71.875,
+  "mean_extra_cumulative_context_safe_complete_oracle": 11.3671875,
+  "opportunity_gate": "STOP_M0C_COSTED_ORACLE_GATE",
+  "sealed_sets_read": false,
+  "limitations": "Outcome-aware safe oracle uses forbidden Target outcomes; no controller is trained or validated on unseen queries."
+}

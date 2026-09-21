@@ -2582,3 +2582,28 @@ labels or training stronger models for this exact depth9-only action; its
 multi-anchor opportunity is too narrow for the final objective. Retain V8
 as reference and require a credible five-anchor action-space ceiling before
 another controller branch.
+
+TRAJ-M0A mapped the frozen `[6,7,7,9,10]` V8 failure masks on all 1,421
+train queries without new Target calls: 646 non-Complete, including 221 with
+both 0.80 and 0.90 failures; isolated failures were 127 at 0.80, 106 at
+0.90 and 53 at 0.95. This supports testing one rank-10 atom promoted to
+depth7 as a bounded cross-anchor action, but only after an exact residual-
+recovery and cumulative-cost preflight. Early extra context is paid at the
+0.70/0.80 and 0.90 reads even if final depth10 text has no duplication.
+The historical depth10→12 0.95 rollback does not show rank10 itself causes
+interference, so late partial reveal is not yet a justified parallel arm.
+
+M0B's zero-Target preflight found 951/1,421 trajectories eligible for one
+short exact rank10 atom borrowed at depth7, with exact original depth10
+recovery. The atom costs 78.38 extra cumulative context tokens on each
+eligible trajectory, since the depth7 context is read for two anchors and
+the atom stays visible at depth9. A 128-query outcome-blind M0C cohort then
+received 768 fresh paired Qwen3-8B calls: 0.80 84→100, 0.90 93→101,
+Complete 68→79 (19 repairs, eight breaks), at +76.38 cumulative context
+tokens/query. This validates multi-anchor action-space headroom but not a
+quality–token Pareto gain or a safe controller. The pre-registered hindsight
+gate needed at least eight no-break Complete repairs for <=10 extra mean
+cumulative context tokens; 19 repairs cost +11.37, so it formally STOPs.
+Do not train or open sealed sets by relaxing this bound after observing it.
+A future branch must freeze and test a genuinely cheaper/safe action contract
+on untouched train queries, or retain V8 as the reference.

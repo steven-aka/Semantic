@@ -1,0 +1,14 @@
+{
+  "protocol": "TRAJ-M0B_RANK10_TO_DEPTH7_BORROW_PREFLIGHT",
+  "queries": 1421,
+  "eligible_queries": 951,
+  "max_depth7_slack": 48,
+  "mean_depth7_slack_among_eligible": 26.126182965299684,
+  "mean_depth9_slack_among_eligible": 26.127234490010515,
+  "mean_cumulative_slack_among_eligible": 78.37960042060989,
+  "mean_cumulative_slack_all_queries_if_uniform": 52.45531315974666,
+  "max_cumulative_slack": 144,
+  "depth10_exact_recovery_count": 1421,
+  "sealed_sets_read": false,
+  "limitation": "Only context token accounting; future Target outputs and prompt/output costs are not observed."
+}

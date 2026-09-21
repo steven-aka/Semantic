@@ -1,0 +1,109 @@
+{
+  "protocol": "TRAJ-M0C_POST_RUN_DIAGNOSTICS",
+  "per_anchor_repairs": [
+    0,
+    9,
+    21,
+    17,
+    0
+  ],
+  "per_anchor_breaks": [
+    0,
+    5,
+    5,
+    9,
+    0
+  ],
+  "paired_query_bootstrap_95pct_net_complete_count": [
+    1,
+    21
+  ],
+  "fresh_baseline_mean_cumulative_context": 2291.140625,
+  "fresh_action_mean_cumulative_context": 2367.5234375,
+  "posthoc_slack_caps_descriptive_only": {
+    "16": {
+      "uniform_queries": 44,
+      "uniform_complete_repairs": 7,
+      "uniform_complete_breaks": 2,
+      "uniform_mean_extra_cumulative_context": 13.7578125,
+      "hindsight_safe_complete_repairs": 7,
+      "hindsight_safe_mean_extra_cumulative_context": 2.1328125
+    },
+    "24": {
+      "uniform_queries": 66,
+      "uniform_complete_repairs": 12,
+      "uniform_complete_breaks": 5,
+      "uniform_mean_extra_cumulative_context": 24.375,
+      "hindsight_safe_complete_repairs": 12,
+      "hindsight_safe_mean_extra_cumulative_context": 4.7109375
+    },
+    "32": {
+      "uniform_queries": 87,
+      "uniform_complete_repairs": 14,
+      "uniform_complete_breaks": 7,
+      "uniform_mean_extra_cumulative_context": 38.296875,
+      "hindsight_safe_complete_repairs": 14,
+      "hindsight_safe_mean_extra_cumulative_context": 6.046875
+    },
+    "48": {
+      "uniform_queries": 128,
+      "uniform_complete_repairs": 19,
+      "uniform_complete_breaks": 8,
+      "uniform_mean_extra_cumulative_context": 76.3828125,
+      "hindsight_safe_complete_repairs": 19,
+      "hindsight_safe_mean_extra_cumulative_context": 11.3671875
+    }
+  },
+  "historical_p0_fixed_schedule_references": {
+    "(6, 7, 7, 9, 10)": {
+      "five_anchor_success": [
+        116,
+        110,
+        86,
+        93,
+        89
+      ],
+      "complete": 66,
+      "mean_cumulative_context": 2291.140625
+    },
+    "(6, 7, 7, 10, 10)": {
+      "five_anchor_success": [
+        116,
+        110,
+        86,
+        110,
+        89
+      ],
+      "complete": 76,
+      "mean_cumulative_context": 2413.5859375
+    },
+    "(6, 8, 8, 9, 10)": {
+      "five_anchor_success": [
+        116,
+        115,
+        107,
+        93,
+        89
+      ],
+      "complete": 77,
+      "mean_cumulative_context": 2457.828125
+    },
+    "(7, 8, 8, 9, 10)": {
+      "five_anchor_success": [
+        113,
+        115,
+        107,
+        93,
+        89
+      ],
+      "complete": 78,
+      "mean_cumulative_context": 2531.6328125
+    }
+  },
+  "historical_p0_monotone_fixed_schedules_dominate_fresh_action": 0,
+  "limitations": [
+    "Static schedule comparisons use earlier P0 Target outputs and are not fresh paired comparisons.",
+    "All analyses are design-exposed and post-run; they do not override the preregistered M0C opportunity gate."
+  ],
+  "sealed_sets_read": false
+}

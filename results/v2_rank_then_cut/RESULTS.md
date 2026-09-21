@@ -4059,6 +4059,67 @@ value ceiling before new controller training. [Report](v17packet_obs_a1_natural_
 and [summary](v17packet_obs_a1_natural_insertion/complete_bound.json) retain
 the analysis.
 
+### V17-TRAJ-M0A single-trajectory failure-locus map
+
+A zero-Target-call audit mapped the 1,421 canonical Qwen3-8B V8 chains under
+the frozen `[6,7,7,9,10]` schedule. Complete reproduced as 775/1,421; 646
+queries fail at least one attainable anchor. Failures at 0.80 and 0.90
+co-occur on **221** queries. Isolated single-anchor failures number 127 at
+0.80, 106 at 0.90, and 53 at 0.95. The largest paired failure locus is
+thus early 0.80 plus later 0.90, not isolated late 0.95.
+
+Decision: `GO_TRAJ_M0B_CONTRACT_AND_COST_PREFLIGHT`. A rank-10 atom promoted
+to depth7 is the first bounded single-trajectory hypothesis able to touch
+both the 0.80 and 0.90 reads. Its early insertion cost is paid repeatedly
+over the 0.70, 0.80 and 0.90 requests; residual restoration at depth10 only
+avoids duplicate final text and does not erase earlier cumulative cost.
+Existing R0 replay already found two 0.80 breaks among nine selected early
+revelations, so safety remains unresolved. The decline in 0.95 from depth10
+to depth12 does not identify the rank10 packet as the cause and does not
+justify a rank10 partial-reveal Target run yet. First freeze the exact
+add-only/recovery and cost contract, then run a small paired multi-anchor
+pilot only if the preflight is valid. [Report](v17traj_m0a_failure_locus/REPORT.md)
+and [summary](v17traj_m0a_failure_locus/summary.json) preserve the audit.
+
+### V17-TRAJ-M0B/M0C rank-10 atom early borrow
+
+M0B froze the shortest exact rank-10 title-plus-sentence fragment with at
+most 48 actual Qwen3-8B depth7 context tokens of slack. It is eligible on
+951/1,421 train trajectories; all 1,421 depth10 contexts reconstruct exactly.
+Its cost is **78.38 extra cumulative context tokens per eligible query**
+under `[6,7,7,9,10]`, since depth7 is read twice and the fragment remains
+visible at depth9. Recovering residual text at depth10 does not refund these
+earlier prompt tokens.
+
+M0C then selected SHA-first 128 eligible queries from a training frame
+excluding R1, OBS-A1 and FRAG-B0, and ran **768 fresh matched Qwen3-8B calls**
+at depths 6, 7, 9 and 10. The same action trajectory serves all five levels.
+
+| Uniform policy | 0.60 | 0.70 | 0.80 | 0.90 | 0.95 | Complete | Mean cumulative context |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| V8 | 116 | 108 | 84 | 93 | 89 | 68 | 2291.14 |
+| Early rank-10 atom | 116 | 112 | 100 | 101 | 89 | 79 | 2367.52 |
+
+Complete gains 19 repairs and suffers eight breaks, net +11/128 with paired
+bootstrap interval +1 to +21. The uniform action uses +76.38 cumulative
+context and +71.88 actual Target tokens/query. This is the first fresh
+paired single-trajectory action in the current branch to improve both 0.80
+and 0.90, but it does not strictly dominate V8 because cost rises.
+
+The preregistered safe-Complete oracle gate required >=8 repairs at <=10
+mean extra cumulative context tokens/query. Its 19 repairs cost **+11.37**
+even under hindsight selection, so the formal decision is
+`STOP_M0C_COSTED_ORACLE_GATE`. The near miss is not a license to retune the
+threshold or train a controller. Earlier P0 fixed-schedule comparisons and
+post-result shorter-slack slices are descriptive only; they suggest a
+possible new trade-off point but do not establish a deployment Pareto gain.
+Existing safety and cross-query identification problems persist, while
+depth10 0.95 cannot change under exact final-context recovery.
+[M0B report](v17traj_m0b_borrow_preflight/REPORT.md),
+[M0C report](v17traj_m0c_borrow_pilot/REPORT.md), and
+[M0C paired summary](v17traj_m0c_borrow_pilot/summary.json) document the
+contract, costs and decision.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed
