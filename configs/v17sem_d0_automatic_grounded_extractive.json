@@ -1,0 +1,18 @@
+{
+  "protocol": "SEM-D0_AUTOMATIC_GROUNDED_EXTRACTIVE",
+  "status": "FROZEN_BEFORE_FEASIBILITY_LABELS",
+  "population": "Next 96 SHA-ordered unused M0B-eligible train queries after SEM-A0B and SEM-B0R; 11 remaining queries reserved",
+  "source": "Frozen rank10 atom plus deterministic adjacent atom (next, or previous at end)",
+  "candidate_contract": "One or two exact source spans in source order, joined by ' ; ', final serialized evidence <=16 Qwen3-8B tokens",
+  "automatic_policy": "Require a novel document-title span and an evidence span; rank evidence windows by non-generic query-term overlap, then filled token budget, then earliest offset; ABSTAIN without query-term overlap or title novelty",
+  "automatic_gate": {
+    "emission_grounding_precision": 0.95,
+    "eligible_recall": 0.50,
+    "minimum_emission_coverage": 0.20,
+    "all_outputs_within_16_tokens": true
+  },
+  "human_iaa": "NOT_AVAILABLE; AI-assisted primary plus adversarial audit only",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

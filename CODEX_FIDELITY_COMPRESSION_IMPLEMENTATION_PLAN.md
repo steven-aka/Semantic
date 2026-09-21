@@ -2705,3 +2705,12 @@ Extractive Complete +1, paired bootstrap 95% [-6,8]) and cheaper.  The next
 method decision must therefore test an automatic, grounded compact-evidence
 pipeline and cannot yet attribute the gain specifically to abstractive semantic
 rewriting.
+
+SEM-D0 then froze an exact-span automatic extractor before labeling 96 new
+queries.  Manual feasibility was 29/96 and the frozen system recovered 23/29,
+so the compact extractive action space and recall are nontrivial.  However, it
+emitted 79 times and only 23 emissions closed the requested relation (29.1%
+precision).  Provenance is therefore not the remaining bottleneck; explicit
+relation closure and calibrated ABSTAIN are.  Do not run SEM-D1 Target calls or
+tune a threshold on these exposed 96 items.  The next automatic method must be
+frozen from this design set and tested on a separate canonical-train cohort.

@@ -3916,6 +3916,18 @@ inconclusive against Semantic (active-query Complete 24 vs 25; paired bootstrap
 [B0R report](v17sem_b0_single_atom_eligibility/REPORT_B0R.md),
 [C0 report](v17sem_c0_two_atom_closure/REPORT.md), and
 [B1 report](v17sem_b1_ideal_representation_positive_control/REPORT.md).
+
+### V17-SEM-D0 automatic grounded extractive audit
+
+On 96 new train queries, 29 had a valid one/two-span, exact-source compact
+representation within 16 Qwen3-8B tokens.  The label-blind lexical policy
+recovered 23 of those 29 opportunities (79.3% recall), but emitted on 79
+queries and achieved only 29.1% semantic precision.  Exact provenance therefore
+does not solve relation closure: many emitted spans mention the requested
+entity while omitting the predicate that makes it an answer.  The frozen 95%
+precision gate fails, so SEM-D1 Target inference remains closed.  See the
+[SEM-D0 report](v17sem_d0_automatic_grounded_extractive/REPORT.md) and
+[summary](v17sem_d0_automatic_grounded_extractive/summary.json).
 provide the reviewable next step.
 
 ### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit

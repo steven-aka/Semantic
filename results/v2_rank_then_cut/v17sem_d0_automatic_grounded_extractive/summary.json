@@ -1,0 +1,15 @@
+{
+  "protocol": "SEM-D0_AUTOMATIC_GROUNDED_EXTRACTIVE",
+  "items": 96,
+  "audited_eligible": 29,
+  "automatic_emissions": 79,
+  "automatic_semantically_correct": 23,
+  "emission_precision": 0.2911392405063291,
+  "eligible_recall": 0.7931034482758621,
+  "emission_coverage": 0.8229166666666666,
+  "decision": "STOP_AUTOMATIC_POLICY_REDESIGN_ON_NEW_COHORT_ONLY",
+  "human_iaa": "NOT_AVAILABLE",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}
