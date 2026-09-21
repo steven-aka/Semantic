@@ -4202,6 +4202,22 @@ semantic representation; it prevents an invalid test using the wrong
 generator contract. [SEM-A0 report](v17sem_a0_existing_packet_audit/REPORT.md)
 and [summary](v17sem_a0_existing_packet_audit/summary.json) document the gap.
 
+SEM-A0B then generated two disjoint SHA-selected 32-query grounding-audit
+cohorts with Qwen3-14B, loading only the question, one frozen rank10 atom,
+and the token budget. No gold, Target output, fidelity, or outcome label was
+loaded. V1 obtained exact quotes in 31/32 but only 18/32 facts within the
+16-token limit and **8/32** automatic-valid items. A revised prompt was not
+rescored on V1: it used the next 32 queries, forbade absence statements, and
+added a ten-word limit. V2 reached 30/32 token compliance but only 26/32 exact
+quotes and **18/32** automatic-valid items. Empty outputs, non-exact quotes,
+and query-suggested relations unsupported by the source remained. Both are
+far below the frozen >=31/32 predicate-grounding gate, so no Target calls or
+SEM-A1 occurred. Decision:
+**`STOP_SEM_A0B_SINGLE_ATOM_GENERATOR_CONTRACT`**. This rejects the current
+`q + single atom -> short fact` generator contract, not semantic compression
+in general. [SEM-A0B report](v17sem_a0b_query_conditioned_positive_control/REPORT.md)
+records generation costs and failure modes.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed

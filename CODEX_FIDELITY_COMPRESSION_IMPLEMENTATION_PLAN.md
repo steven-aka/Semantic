@@ -2671,3 +2671,17 @@ a new query+source-only, gold/outcome-free positive-control generator with
 grounding and two-axis cost accounting before authorizing SEM-A1 Target calls.
 Do not call this fine-tuning or reuse old development packets as canonical
 training evidence.
+
+SEM-A0B executed the new single-atom generator contract on two disjoint
+32-query train cohorts before any Target call. V1 passed all automatic hard
+checks in 8/32 cases; its main failures were excessive fact length and
+unsupported query-suggested relations. Per protocol, V1 was not retuned and
+rescored. A revised prompt used the next untouched 32 queries and improved
+the <=16-token rate to 30/32, but exact quote compliance was 26/32 and only
+18/32 passed all automatic checks; empty outputs and unsupported relations
+remained. The >=31/32 strict grounding gate is impossible on either cohort,
+so `STOP_SEM_A0B_SINGLE_ATOM_GENERATOR_CONTRACT` is binding and SEM-A1 stays
+closed. Do not keep prompt-tuning these audit sets. A future semantic branch
+must be a new hypothesis—such as state-conditioned novelty extraction with
+explicit abstention—and must use a new audit cohort and instrument peak VRAM
+as well as prompt/output tokens and latency.

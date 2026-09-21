@@ -1,0 +1,18 @@
+{
+  "protocol": "SEM-A0B_QUERY_CONDITIONED_GROUNDED_POSITIVE_CONTROL_FREEZE_V2",
+  "generator_revision": "v2",
+  "items": 32,
+  "automatic_valid": 18,
+  "exact_quote": 26,
+  "fact_within_16_tokens": 30,
+  "mean_fact_tokens_qwen3_8b": 11.09375,
+  "teacher_prompt_tokens": 5771,
+  "teacher_generated_tokens_including_quote": 1302,
+  "mean_batch1_latency_seconds": 1.9033590518374695,
+  "automatic_precheck": "FAIL_AUTOMATIC_PRECHECK",
+  "manual_blind_audit_status": "NOT_OPENED_AUTOMATIC_PRECHECK_FAILED",
+  "sem_a1_authorized": false,
+  "reason": "Frozen protocol requires >=31/32 strict source-supported judgments; necessary automatic checks are below that ceiling.",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}
