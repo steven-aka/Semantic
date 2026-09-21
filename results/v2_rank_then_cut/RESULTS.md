@@ -4902,3 +4902,18 @@ negative control, not a claim that every sparse retriever must fail.
 [Report](frontier_r1_training_free_extractors_screen64/REPORT.md) and
 [summary](frontier_r1_training_free_extractors_screen64/summary.json) preserve
 all aggregate results; per-query contexts and Target outputs are also saved.
+
+### FRONTIER-R1 LLMLingua-2 frozen-Target adaptation (Screen-64)
+
+To avoid judging LLMLingua-2 only at destructive 2x--8x compression, the
+official checkpoint was evaluated without training at requested keep rates
+0.60--0.95. The strongest configuration is V8 depth-10 coarse selection
+followed by global LLMLingua-2 at requested 0.95: actual keep 0.9333, 634.11
+versus 677.36 V8 tokens, mean F1 0.9271 versus 0.9353, and 53/64 versus 56/64
+0.90 successes. This is a much stronger and useful baseline point, although it
+does not dominate V8: 6.39% extra context reduction costs 0.0081 mean F1 and
+three 0.90 successes. Decision:
+`RETAIN_V8_GLOBAL_RATE095_AS_STRONG_TRAINING_FREE_BASELINE`. The question and
+Target instruction were protected, actual Qwen3 token costs were used, and no
+sealed set was read. [Report](frontier_r1_llmlingua2_adapted_screen64/REPORT.md)
+and [summary](frontier_r1_llmlingua2_adapted_screen64/summary.json).

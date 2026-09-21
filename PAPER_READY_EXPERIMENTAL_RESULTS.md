@@ -299,3 +299,14 @@ BM25的0.90 success为1/64与0/64，随机抽取均为0/64。随机抽取在三�
 外推为所有稀疏检索器均不可能成功。完整结果见
 [report](results/v2_rank_then_cut/frontier_r1_training_free_extractors_screen64/REPORT.md)
 与[summary](results/v2_rank_then_cut/frontier_r1_training_free_extractors_screen64/summary.json)。
+
+### 13.5 LLMLingua-2 冻结Target温和压缩适配
+
+为避免只在2×--8×的破坏性压缩区间评价LLMLingua-2，进一步在冻结Qwen3-8B
+下测试requested keep 0.60--0.95，不训练任何模型。最强配置为V8 depth-10
+粗筛后做一次global LLMLingua-2，requested 0.95、actual 0.9333：平均context
+从677.36降至634.11 tokens，mean F1从0.9353降至0.9271，0.90 success从
+56/64降至53/64。该点明显强于原始硬压缩结果，可作为更有竞争力的论文基线；
+但它仍未支配V8，6.39%的额外context节省伴随0.0081 F1和3个0.90 success
+损失。完整结果见
+[report](results/v2_rank_then_cut/frontier_r1_llmlingua2_adapted_screen64/REPORT.md)。

@@ -1,0 +1,21 @@
+{
+  "protocol": "FRONTIER-R1-LLMLINGUA2-ADAPTED-SCREEN64",
+  "files": {
+    "compressed.jsonl": {
+      "sha256": "27a8559384584d6eb89aa0628c2ab27e8b68e78ca62770d38f2d9692dc92ff02",
+      "bytes": 1706577
+    },
+    "target_outputs.jsonl": {
+      "sha256": "57ed09733d45938d3aab4b6704f5861253bd5b8608dfa96edc44212e1d10ca68",
+      "bytes": 487904
+    },
+    "summary.json": {
+      "sha256": "fc63f1cda9b1c77dc87806b7010642c30864ebc57c78ba962d0b8d6116d62095",
+      "bytes": 8894
+    },
+    "run.log": {
+      "sha256": "ecfc2ca49959cb0dbda04e1a71f1df2e38ebf1c1944fe319cf260221e51d184c",
+      "bytes": 60477
+    }
+  }
+}

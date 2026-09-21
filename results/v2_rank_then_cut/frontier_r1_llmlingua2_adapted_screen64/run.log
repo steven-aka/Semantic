@@ -1,0 +1,1118 @@
+Token indices sequence length is longer than the specified maximum sequence length for this model (707 > 512). Running this sequence through the model will result in indexing errors
+{"compressed": 1, "total": 512}
+{"compressed": 2, "total": 512}
+{"compressed": 3, "total": 512}
+{"compressed": 4, "total": 512}
+{"compressed": 5, "total": 512}
+{"compressed": 6, "total": 512}
+{"compressed": 7, "total": 512}
+{"compressed": 8, "total": 512}
+{"compressed": 9, "total": 512}
+{"compressed": 10, "total": 512}
+{"compressed": 11, "total": 512}
+{"compressed": 12, "total": 512}
+{"compressed": 13, "total": 512}
+{"compressed": 14, "total": 512}
+{"compressed": 15, "total": 512}
+{"compressed": 16, "total": 512}
+{"compressed": 17, "total": 512}
+{"compressed": 18, "total": 512}
+{"compressed": 19, "total": 512}
+{"compressed": 20, "total": 512}
+{"compressed": 21, "total": 512}
+{"compressed": 22, "total": 512}
+{"compressed": 23, "total": 512}
+{"compressed": 24, "total": 512}
+{"compressed": 25, "total": 512}
+{"compressed": 26, "total": 512}
+{"compressed": 27, "total": 512}
+{"compressed": 28, "total": 512}
+{"compressed": 29, "total": 512}
+{"compressed": 30, "total": 512}
+{"compressed": 31, "total": 512}
+{"compressed": 32, "total": 512}
+{"compressed": 33, "total": 512}
+{"compressed": 34, "total": 512}
+{"compressed": 35, "total": 512}
+{"compressed": 36, "total": 512}
+{"compressed": 37, "total": 512}
+{"compressed": 38, "total": 512}
+{"compressed": 39, "total": 512}
+{"compressed": 40, "total": 512}
+{"compressed": 41, "total": 512}
+{"compressed": 42, "total": 512}
+{"compressed": 43, "total": 512}
+{"compressed": 44, "total": 512}
+{"compressed": 45, "total": 512}
+{"compressed": 46, "total": 512}
+{"compressed": 47, "total": 512}
+{"compressed": 48, "total": 512}
+{"compressed": 49, "total": 512}
+{"compressed": 50, "total": 512}
+{"compressed": 51, "total": 512}
+{"compressed": 52, "total": 512}
+{"compressed": 53, "total": 512}
+{"compressed": 54, "total": 512}
+{"compressed": 55, "total": 512}
+{"compressed": 56, "total": 512}
+{"compressed": 57, "total": 512}
+{"compressed": 58, "total": 512}
+{"compressed": 59, "total": 512}
+{"compressed": 60, "total": 512}
+{"compressed": 61, "total": 512}
+{"compressed": 62, "total": 512}
+{"compressed": 63, "total": 512}
+{"compressed": 64, "total": 512}
+{"compressed": 65, "total": 512}
+{"compressed": 66, "total": 512}
+{"compressed": 67, "total": 512}
+{"compressed": 68, "total": 512}
+{"compressed": 69, "total": 512}
+{"compressed": 70, "total": 512}
+{"compressed": 71, "total": 512}
+{"compressed": 72, "total": 512}
+{"compressed": 73, "total": 512}
+{"compressed": 74, "total": 512}
+{"compressed": 75, "total": 512}
+{"compressed": 76, "total": 512}
+{"compressed": 77, "total": 512}
+{"compressed": 78, "total": 512}
+{"compressed": 79, "total": 512}
+{"compressed": 80, "total": 512}
+{"compressed": 81, "total": 512}
+{"compressed": 82, "total": 512}
+{"compressed": 83, "total": 512}
+{"compressed": 84, "total": 512}
+{"compressed": 85, "total": 512}
+{"compressed": 86, "total": 512}
+{"compressed": 87, "total": 512}
+{"compressed": 88, "total": 512}
+{"compressed": 89, "total": 512}
+{"compressed": 90, "total": 512}
+{"compressed": 91, "total": 512}
+{"compressed": 92, "total": 512}
+{"compressed": 93, "total": 512}
+{"compressed": 94, "total": 512}
+{"compressed": 95, "total": 512}
+{"compressed": 96, "total": 512}
+{"compressed": 97, "total": 512}
+{"compressed": 98, "total": 512}
+{"compressed": 99, "total": 512}
+{"compressed": 100, "total": 512}
+{"compressed": 101, "total": 512}
+{"compressed": 102, "total": 512}
+{"compressed": 103, "total": 512}
+{"compressed": 104, "total": 512}
+{"compressed": 105, "total": 512}
+{"compressed": 106, "total": 512}
+{"compressed": 107, "total": 512}
+{"compressed": 108, "total": 512}
+{"compressed": 109, "total": 512}
+{"compressed": 110, "total": 512}
+{"compressed": 111, "total": 512}
+{"compressed": 112, "total": 512}
+{"compressed": 113, "total": 512}
+{"compressed": 114, "total": 512}
+{"compressed": 115, "total": 512}
+{"compressed": 116, "total": 512}
+{"compressed": 117, "total": 512}
+{"compressed": 118, "total": 512}
+{"compressed": 119, "total": 512}
+{"compressed": 120, "total": 512}
+{"compressed": 121, "total": 512}
+{"compressed": 122, "total": 512}
+{"compressed": 123, "total": 512}
+{"compressed": 124, "total": 512}
+{"compressed": 125, "total": 512}
+{"compressed": 126, "total": 512}
+{"compressed": 127, "total": 512}
+{"compressed": 128, "total": 512}
+{"compressed": 129, "total": 512}
+{"compressed": 130, "total": 512}
+{"compressed": 131, "total": 512}
+{"compressed": 132, "total": 512}
+{"compressed": 133, "total": 512}
+{"compressed": 134, "total": 512}
+{"compressed": 135, "total": 512}
+{"compressed": 136, "total": 512}
+{"compressed": 137, "total": 512}
+{"compressed": 138, "total": 512}
+{"compressed": 139, "total": 512}
+{"compressed": 140, "total": 512}
+{"compressed": 141, "total": 512}
+{"compressed": 142, "total": 512}
+{"compressed": 143, "total": 512}
+{"compressed": 144, "total": 512}
+{"compressed": 145, "total": 512}
+{"compressed": 146, "total": 512}
+{"compressed": 147, "total": 512}
+{"compressed": 148, "total": 512}
+{"compressed": 149, "total": 512}
+{"compressed": 150, "total": 512}
+{"compressed": 151, "total": 512}
+{"compressed": 152, "total": 512}
+{"compressed": 153, "total": 512}
+{"compressed": 154, "total": 512}
+{"compressed": 155, "total": 512}
+{"compressed": 156, "total": 512}
+{"compressed": 157, "total": 512}
+{"compressed": 158, "total": 512}
+{"compressed": 159, "total": 512}
+{"compressed": 160, "total": 512}
+{"compressed": 161, "total": 512}
+{"compressed": 162, "total": 512}
+{"compressed": 163, "total": 512}
+{"compressed": 164, "total": 512}
+{"compressed": 165, "total": 512}
+{"compressed": 166, "total": 512}
+{"compressed": 167, "total": 512}
+{"compressed": 168, "total": 512}
+{"compressed": 169, "total": 512}
+{"compressed": 170, "total": 512}
+{"compressed": 171, "total": 512}
+{"compressed": 172, "total": 512}
+{"compressed": 173, "total": 512}
+{"compressed": 174, "total": 512}
+{"compressed": 175, "total": 512}
+{"compressed": 176, "total": 512}
+{"compressed": 177, "total": 512}
+{"compressed": 178, "total": 512}
+{"compressed": 179, "total": 512}
+{"compressed": 180, "total": 512}
+{"compressed": 181, "total": 512}
+{"compressed": 182, "total": 512}
+{"compressed": 183, "total": 512}
+{"compressed": 184, "total": 512}
+{"compressed": 185, "total": 512}
+{"compressed": 186, "total": 512}
+{"compressed": 187, "total": 512}
+{"compressed": 188, "total": 512}
+{"compressed": 189, "total": 512}
+{"compressed": 190, "total": 512}
+{"compressed": 191, "total": 512}
+{"compressed": 192, "total": 512}
+{"compressed": 193, "total": 512}
+{"compressed": 194, "total": 512}
+{"compressed": 195, "total": 512}
+{"compressed": 196, "total": 512}
+{"compressed": 197, "total": 512}
+{"compressed": 198, "total": 512}
+{"compressed": 199, "total": 512}
+{"compressed": 200, "total": 512}
+{"compressed": 201, "total": 512}
+{"compressed": 202, "total": 512}
+{"compressed": 203, "total": 512}
+{"compressed": 204, "total": 512}
+{"compressed": 205, "total": 512}
+{"compressed": 206, "total": 512}
+{"compressed": 207, "total": 512}
+{"compressed": 208, "total": 512}
+{"compressed": 209, "total": 512}
+{"compressed": 210, "total": 512}
+{"compressed": 211, "total": 512}
+{"compressed": 212, "total": 512}
+{"compressed": 213, "total": 512}
+{"compressed": 214, "total": 512}
+{"compressed": 215, "total": 512}
+{"compressed": 216, "total": 512}
+{"compressed": 217, "total": 512}
+{"compressed": 218, "total": 512}
+{"compressed": 219, "total": 512}
+{"compressed": 220, "total": 512}
+{"compressed": 221, "total": 512}
+{"compressed": 222, "total": 512}
+{"compressed": 223, "total": 512}
+{"compressed": 224, "total": 512}
+{"compressed": 225, "total": 512}
+{"compressed": 226, "total": 512}
+{"compressed": 227, "total": 512}
+{"compressed": 228, "total": 512}
+{"compressed": 229, "total": 512}
+{"compressed": 230, "total": 512}
+{"compressed": 231, "total": 512}
+{"compressed": 232, "total": 512}
+{"compressed": 233, "total": 512}
+{"compressed": 234, "total": 512}
+{"compressed": 235, "total": 512}
+{"compressed": 236, "total": 512}
+{"compressed": 237, "total": 512}
+{"compressed": 238, "total": 512}
+{"compressed": 239, "total": 512}
+{"compressed": 240, "total": 512}
+{"compressed": 241, "total": 512}
+{"compressed": 242, "total": 512}
+{"compressed": 243, "total": 512}
+{"compressed": 244, "total": 512}
+{"compressed": 245, "total": 512}
+{"compressed": 246, "total": 512}
+{"compressed": 247, "total": 512}
+{"compressed": 248, "total": 512}
+{"compressed": 249, "total": 512}
+{"compressed": 250, "total": 512}
+{"compressed": 251, "total": 512}
+{"compressed": 252, "total": 512}
+{"compressed": 253, "total": 512}
+{"compressed": 254, "total": 512}
+{"compressed": 255, "total": 512}
+{"compressed": 256, "total": 512}
+{"compressed": 257, "total": 512}
+{"compressed": 258, "total": 512}
+{"compressed": 259, "total": 512}
+{"compressed": 260, "total": 512}
+{"compressed": 261, "total": 512}
+{"compressed": 262, "total": 512}
+{"compressed": 263, "total": 512}
+{"compressed": 264, "total": 512}
+{"compressed": 265, "total": 512}
+{"compressed": 266, "total": 512}
+{"compressed": 267, "total": 512}
+{"compressed": 268, "total": 512}
+{"compressed": 269, "total": 512}
+{"compressed": 270, "total": 512}
+{"compressed": 271, "total": 512}
+{"compressed": 272, "total": 512}
+{"compressed": 273, "total": 512}
+{"compressed": 274, "total": 512}
+{"compressed": 275, "total": 512}
+{"compressed": 276, "total": 512}
+{"compressed": 277, "total": 512}
+{"compressed": 278, "total": 512}
+{"compressed": 279, "total": 512}
+{"compressed": 280, "total": 512}
+{"compressed": 281, "total": 512}
+{"compressed": 282, "total": 512}
+{"compressed": 283, "total": 512}
+{"compressed": 284, "total": 512}
+{"compressed": 285, "total": 512}
+{"compressed": 286, "total": 512}
+{"compressed": 287, "total": 512}
+{"compressed": 288, "total": 512}
+{"compressed": 289, "total": 512}
+{"compressed": 290, "total": 512}
+{"compressed": 291, "total": 512}
+{"compressed": 292, "total": 512}
+{"compressed": 293, "total": 512}
+{"compressed": 294, "total": 512}
+{"compressed": 295, "total": 512}
+{"compressed": 296, "total": 512}
+{"compressed": 297, "total": 512}
+{"compressed": 298, "total": 512}
+{"compressed": 299, "total": 512}
+{"compressed": 300, "total": 512}
+{"compressed": 301, "total": 512}
+{"compressed": 302, "total": 512}
+{"compressed": 303, "total": 512}
+{"compressed": 304, "total": 512}
+{"compressed": 305, "total": 512}
+{"compressed": 306, "total": 512}
+{"compressed": 307, "total": 512}
+{"compressed": 308, "total": 512}
+{"compressed": 309, "total": 512}
+{"compressed": 310, "total": 512}
+{"compressed": 311, "total": 512}
+{"compressed": 312, "total": 512}
+{"compressed": 313, "total": 512}
+{"compressed": 314, "total": 512}
+{"compressed": 315, "total": 512}
+{"compressed": 316, "total": 512}
+{"compressed": 317, "total": 512}
+{"compressed": 318, "total": 512}
+{"compressed": 319, "total": 512}
+{"compressed": 320, "total": 512}
+{"compressed": 321, "total": 512}
+{"compressed": 322, "total": 512}
+{"compressed": 323, "total": 512}
+{"compressed": 324, "total": 512}
+{"compressed": 325, "total": 512}
+{"compressed": 326, "total": 512}
+{"compressed": 327, "total": 512}
+{"compressed": 328, "total": 512}
+{"compressed": 329, "total": 512}
+{"compressed": 330, "total": 512}
+{"compressed": 331, "total": 512}
+{"compressed": 332, "total": 512}
+{"compressed": 333, "total": 512}
+{"compressed": 334, "total": 512}
+{"compressed": 335, "total": 512}
+{"compressed": 336, "total": 512}
+{"compressed": 337, "total": 512}
+{"compressed": 338, "total": 512}
+{"compressed": 339, "total": 512}
+{"compressed": 340, "total": 512}
+{"compressed": 341, "total": 512}
+{"compressed": 342, "total": 512}
+{"compressed": 343, "total": 512}
+{"compressed": 344, "total": 512}
+{"compressed": 345, "total": 512}
+{"compressed": 346, "total": 512}
+{"compressed": 347, "total": 512}
+{"compressed": 348, "total": 512}
+{"compressed": 349, "total": 512}
+{"compressed": 350, "total": 512}
+{"compressed": 351, "total": 512}
+{"compressed": 352, "total": 512}
+{"compressed": 353, "total": 512}
+{"compressed": 354, "total": 512}
+{"compressed": 355, "total": 512}
+{"compressed": 356, "total": 512}
+{"compressed": 357, "total": 512}
+{"compressed": 358, "total": 512}
+{"compressed": 359, "total": 512}
+{"compressed": 360, "total": 512}
+{"compressed": 361, "total": 512}
+{"compressed": 362, "total": 512}
+{"compressed": 363, "total": 512}
+{"compressed": 364, "total": 512}
+{"compressed": 365, "total": 512}
+{"compressed": 366, "total": 512}
+{"compressed": 367, "total": 512}
+{"compressed": 368, "total": 512}
+{"compressed": 369, "total": 512}
+{"compressed": 370, "total": 512}
+{"compressed": 371, "total": 512}
+{"compressed": 372, "total": 512}
+{"compressed": 373, "total": 512}
+{"compressed": 374, "total": 512}
+{"compressed": 375, "total": 512}
+{"compressed": 376, "total": 512}
+{"compressed": 377, "total": 512}
+{"compressed": 378, "total": 512}
+{"compressed": 379, "total": 512}
+{"compressed": 380, "total": 512}
+{"compressed": 381, "total": 512}
+{"compressed": 382, "total": 512}
+{"compressed": 383, "total": 512}
+{"compressed": 384, "total": 512}
+{"compressed": 385, "total": 512}
+{"compressed": 386, "total": 512}
+{"compressed": 387, "total": 512}
+{"compressed": 388, "total": 512}
+{"compressed": 389, "total": 512}
+{"compressed": 390, "total": 512}
+{"compressed": 391, "total": 512}
+{"compressed": 392, "total": 512}
+{"compressed": 393, "total": 512}
+{"compressed": 394, "total": 512}
+{"compressed": 395, "total": 512}
+{"compressed": 396, "total": 512}
+{"compressed": 397, "total": 512}
+{"compressed": 398, "total": 512}
+{"compressed": 399, "total": 512}
+{"compressed": 400, "total": 512}
+{"compressed": 401, "total": 512}
+{"compressed": 402, "total": 512}
+{"compressed": 403, "total": 512}
+{"compressed": 404, "total": 512}
+{"compressed": 405, "total": 512}
+{"compressed": 406, "total": 512}
+{"compressed": 407, "total": 512}
+{"compressed": 408, "total": 512}
+{"compressed": 409, "total": 512}
+{"compressed": 410, "total": 512}
+{"compressed": 411, "total": 512}
+{"compressed": 412, "total": 512}
+{"compressed": 413, "total": 512}
+{"compressed": 414, "total": 512}
+{"compressed": 415, "total": 512}
+{"compressed": 416, "total": 512}
+{"compressed": 417, "total": 512}
+{"compressed": 418, "total": 512}
+{"compressed": 419, "total": 512}
+{"compressed": 420, "total": 512}
+{"compressed": 421, "total": 512}
+{"compressed": 422, "total": 512}
+{"compressed": 423, "total": 512}
+{"compressed": 424, "total": 512}
+{"compressed": 425, "total": 512}
+{"compressed": 426, "total": 512}
+{"compressed": 427, "total": 512}
+{"compressed": 428, "total": 512}
+{"compressed": 429, "total": 512}
+{"compressed": 430, "total": 512}
+{"compressed": 431, "total": 512}
+{"compressed": 432, "total": 512}
+{"compressed": 433, "total": 512}
+{"compressed": 434, "total": 512}
+{"compressed": 435, "total": 512}
+{"compressed": 436, "total": 512}
+{"compressed": 437, "total": 512}
+{"compressed": 438, "total": 512}
+{"compressed": 439, "total": 512}
+{"compressed": 440, "total": 512}
+{"compressed": 441, "total": 512}
+{"compressed": 442, "total": 512}
+{"compressed": 443, "total": 512}
+{"compressed": 444, "total": 512}
+{"compressed": 445, "total": 512}
+{"compressed": 446, "total": 512}
+{"compressed": 447, "total": 512}
+{"compressed": 448, "total": 512}
+{"compressed": 449, "total": 512}
+{"compressed": 450, "total": 512}
+{"compressed": 451, "total": 512}
+{"compressed": 452, "total": 512}
+{"compressed": 453, "total": 512}
+{"compressed": 454, "total": 512}
+{"compressed": 455, "total": 512}
+{"compressed": 456, "total": 512}
+{"compressed": 457, "total": 512}
+{"compressed": 458, "total": 512}
+{"compressed": 459, "total": 512}
+{"compressed": 460, "total": 512}
+{"compressed": 461, "total": 512}
+{"compressed": 462, "total": 512}
+{"compressed": 463, "total": 512}
+{"compressed": 464, "total": 512}
+{"compressed": 465, "total": 512}
+{"compressed": 466, "total": 512}
+{"compressed": 467, "total": 512}
+{"compressed": 468, "total": 512}
+{"compressed": 469, "total": 512}
+{"compressed": 470, "total": 512}
+{"compressed": 471, "total": 512}
+{"compressed": 472, "total": 512}
+{"compressed": 473, "total": 512}
+{"compressed": 474, "total": 512}
+{"compressed": 475, "total": 512}
+{"compressed": 476, "total": 512}
+{"compressed": 477, "total": 512}
+{"compressed": 478, "total": 512}
+{"compressed": 479, "total": 512}
+{"compressed": 480, "total": 512}
+{"compressed": 481, "total": 512}
+{"compressed": 482, "total": 512}
+{"compressed": 483, "total": 512}
+{"compressed": 484, "total": 512}
+{"compressed": 485, "total": 512}
+{"compressed": 486, "total": 512}
+{"compressed": 487, "total": 512}
+{"compressed": 488, "total": 512}
+{"compressed": 489, "total": 512}
+{"compressed": 490, "total": 512}
+{"compressed": 491, "total": 512}
+{"compressed": 492, "total": 512}
+{"compressed": 493, "total": 512}
+{"compressed": 494, "total": 512}
+{"compressed": 495, "total": 512}
+{"compressed": 496, "total": 512}
+{"compressed": 497, "total": 512}
+{"compressed": 498, "total": 512}
+{"compressed": 499, "total": 512}
+{"compressed": 500, "total": 512}
+{"compressed": 501, "total": 512}
+{"compressed": 502, "total": 512}
+{"compressed": 503, "total": 512}
+{"compressed": 504, "total": 512}
+{"compressed": 505, "total": 512}
+{"compressed": 506, "total": 512}
+{"compressed": 507, "total": 512}
+{"compressed": 508, "total": 512}
+{"compressed": 509, "total": 512}
+{"compressed": 510, "total": 512}
+{"compressed": 511, "total": 512}
+{"compressed": 512, "total": 512}
+INFO 09-21 21:52:42 [__init__.py:216] Automatically detected platform cuda.
+INFO 09-21 21:52:45 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [models/Qwen3-8B] to model_path [models/Qwen3-8B]
+INFO 09-21 21:52:45 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [models/Qwen3-8B] to model_path [models/Qwen3-8B]
+INFO 09-21 21:52:45 [utils.py:328] non-default args: {'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 4096, 'gpu_memory_utilization': 0.4, 'disable_log_stats': True, 'revision': 'main', 'model': 'models/Qwen3-8B'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 09-21 21:53:01 [__init__.py:742] Resolved architecture: Qwen3ForCausalLM
+INFO 09-21 21:53:01 [__init__.py:1815] Using max model len 4096
+INFO 09-21 21:53:01 [scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 09-21 21:53:03 [__init__.py:2974] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+INFO 09-21 21:53:11 [__init__.py:216] Automatically detected platform cuda.
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:14 [core.py:654] Waiting for init message from front-end.
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:14 [core.py:76] Initializing a V1 LLM engine (v0.10.2) with config: model='models/Qwen3-8B', speculative_config=None, tokenizer='models/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=models/Qwen3-8B, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":1,"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[W921 21:53:19.863924258 ProcessGroupNCCL.cpp:981] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:19 [parallel_state.py:1165] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+(EngineCore_DP0 pid=4116660) WARNING 09-21 21:53:19 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:19 [gpu_model_runner.py:2338] Starting to load model models/Qwen3-8B...
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:20 [gpu_model_runner.py:2370] Loading model from scratch...
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:20 [cuda.py:362] Using Flash Attention backend on V1 engine.
+(EngineCore_DP0 pid=4116660)
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore_DP0 pid=4116660)
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  2.06it/s]
+(EngineCore_DP0 pid=4116660)
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:04,  1.34s/it]
+(EngineCore_DP0 pid=4116660)
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:04<00:03,  1.76s/it]
+(EngineCore_DP0 pid=4116660)
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:06<00:01,  1.73s/it]
+(EngineCore_DP0 pid=4116660)
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:08<00:00,  1.96s/it]
+(EngineCore_DP0 pid=4116660)
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:08<00:00,  1.75s/it]
+(EngineCore_DP0 pid=4116660)
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:30 [default_loader.py:268] Loading weights took 9.08 seconds
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:31 [gpu_model_runner.py:2392] Model loading took 15.2683 GiB and 9.991777 seconds
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:49 [backends.py:539] Using cache directory: /home/zhangyihan/.cache/vllm/torch_compile_cache/c77933e23c/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:49 [backends.py:550] Dynamo bytecode transform time: 17.61 s
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:53:57 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 6.798 s
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:54:00 [monitor.py:34] torch.compile takes 17.61 s in total
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:54:04 [gpu_worker.py:298] Available KV cache memory: 2.23 GiB
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:54:04 [kv_cache_utils.py:864] GPU KV cache size: 16,208 tokens
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:54:04 [kv_cache_utils.py:868] Maximum concurrency for 4,096 tokens per request: 3.96x
+(EngineCore_DP0 pid=4116660)
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|▏         | 1/67 [00:00<00:16,  3.96it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:00<00:16,  3.89it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 3/67 [00:00<00:16,  3.94it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 4/67 [00:01<00:15,  4.00it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   7%|▋         | 5/67 [00:01<00:15,  3.94it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:01<00:15,  3.91it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|█         | 7/67 [00:01<00:16,  3.60it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:02<00:16,  3.64it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  13%|█▎        | 9/67 [00:02<00:15,  3.80it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  15%|█▍        | 10/67 [00:02<00:14,  3.92it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▋        | 11/67 [00:02<00:15,  3.54it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:03<00:15,  3.47it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 13/67 [00:03<00:15,  3.51it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:03<00:14,  3.66it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 15/67 [00:03<00:13,  3.83it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 16/67 [00:04<00:13,  3.82it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 17/67 [00:04<00:12,  4.01it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:04<00:11,  4.14it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  28%|██▊       | 19/67 [00:04<00:11,  4.16it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:05<00:10,  4.30it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:05<00:10,  4.52it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 22/67 [00:05<00:10,  4.48it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:05<00:09,  4.42it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:06<00:10,  4.17it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 25/67 [00:06<00:10,  3.97it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:06<00:10,  3.75it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 27/67 [00:06<00:11,  3.59it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:07<00:10,  3.76it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 29/67 [00:07<00:10,  3.65it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:07<00:09,  3.78it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  46%|████▋     | 31/67 [00:08<00:09,  3.68it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:08<00:09,  3.81it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 33/67 [00:08<00:08,  4.07it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:08<00:07,  4.31it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:08<00:07,  4.53it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:09<00:06,  4.61it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  55%|█████▌    | 37/67 [00:09<00:06,  4.73it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:09<00:06,  4.80it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 39/67 [00:09<00:05,  4.85it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|█████▉    | 40/67 [00:09<00:05,  4.96it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:10<00:04,  5.21it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:10<00:04,  5.23it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  64%|██████▍   | 43/67 [00:10<00:04,  5.32it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 44/67 [00:10<00:04,  5.38it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 45/67 [00:10<00:04,  5.37it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 46/67 [00:10<00:03,  5.37it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:11<00:03,  5.39it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:11<00:03,  5.53it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 49/67 [00:11<00:03,  5.53it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:11<00:03,  5.58it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 51/67 [00:11<00:02,  5.44it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 52/67 [00:12<00:02,  5.32it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:12<00:02,  5.29it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:12<00:02,  5.29it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 55/67 [00:12<00:02,  4.95it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:12<00:02,  5.14it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 57/67 [00:13<00:01,  5.37it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:13<00:01,  5.27it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:13<00:01,  5.52it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:13<00:01,  5.71it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 61/67 [00:13<00:00,  6.08it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:13<00:00,  6.09it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:14<00:00,  6.00it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 64/67 [00:14<00:00,  5.94it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:14<00:00,  6.07it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▊| 66/67 [00:14<00:00,  5.87it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:14<00:00,  5.56it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:14<00:00,  4.55it/s]
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:54:21 [gpu_model_runner.py:3118] Graph capturing finished in 16 secs, took 0.61 GiB
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:54:21 [gpu_worker.py:391] Free memory on device (22.28/47.41 GiB) on startup. Desired GPU memory utilization is (0.4, 18.97 GiB). Actual usage is 15.27 GiB for weight, 1.45 GiB for peak activation, 0.02 GiB for non-torch memory, and 0.61 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=1577976012` to fit into requested memory, or `--kv-cache-memory=5135741952` to fully utilize gpu memory. Current kv cache memory in use is 2391670988 bytes.
+(EngineCore_DP0 pid=4116660) INFO 09-21 21:54:21 [core.py:218] init engine (profile, create kv cache, warmup model) took 49.83 seconds
+INFO 09-21 21:54:23 [llm.py:295] Supported_tasks: ['generate']
+INFO 09-21 21:54:23 [__init__.py:36] No IOProcessor plugins requested by the model
+{"evaluated": 64, "total": 512}
+{"evaluated": 128, "total": 512}
+{"evaluated": 192, "total": 512}
+{"evaluated": 256, "total": 512}
+{"evaluated": 320, "total": 512}
+{"evaluated": 384, "total": 512}
+{"evaluated": 448, "total": 512}
+{"evaluated": 512, "total": 512}
+{
+  "protocol": "FRONTIER-R1-LLMLINGUA2-ADAPTED-SCREEN64",
+  "target": "frozen Qwen3-8B",
+  "adaptation": "no training; V8 coarse selection plus global compression; mild keep-rate sweep",
+  "results": [
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.6,
+      "mean_actual_keep_rate": 0.606175403570912,
+      "mean_context_tokens": 413.21875,
+      "mean_f1": 0.709837227712751,
+      "delta_f1": -0.22541667226154327,
+      "success_090": 30,
+      "repairs_090": 2,
+      "breaks_090": 28
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.7,
+      "mean_actual_keep_rate": 0.698481954229089,
+      "mean_context_tokens": 475.453125,
+      "mean_f1": 0.86203908408329,
+      "delta_f1": -0.07321481589100463,
+      "success_090": 40,
+      "repairs_090": 2,
+      "breaks_090": 18
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.8,
+      "mean_actual_keep_rate": 0.799480001618545,
+      "mean_context_tokens": 544.28125,
+      "mean_f1": 0.8968685131356857,
+      "delta_f1": -0.038385386838608586,
+      "success_090": 50,
+      "repairs_090": 4,
+      "breaks_090": 10
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.9,
+      "mean_actual_keep_rate": 0.896478306527673,
+      "mean_context_tokens": 609.578125,
+      "mean_f1": 0.9021907143424169,
+      "delta_f1": -0.03306318563187758,
+      "success_090": 51,
+      "repairs_090": 1,
+      "breaks_090": 6
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.6,
+      "mean_actual_keep_rate": 0.6070620869313801,
+      "mean_context_tokens": 491.5,
+      "mean_f1": 0.7704069666143966,
+      "delta_f1": -0.1790634155940304,
+      "success_090": 31,
+      "repairs_090": 2,
+      "breaks_090": 24
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.7,
+      "mean_actual_keep_rate": 0.7006620301121035,
+      "mean_context_tokens": 566.390625,
+      "mean_f1": 0.8717524891044623,
+      "delta_f1": -0.07771789310396454,
+      "success_090": 44,
+      "repairs_090": 3,
+      "breaks_090": 12
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.8,
+      "mean_actual_keep_rate": 0.801164618049064,
+      "mean_context_tokens": 648.09375,
+      "mean_f1": 0.8765445652453596,
+      "delta_f1": -0.07292581696306753,
+      "success_090": 42,
+      "repairs_090": 3,
+      "breaks_090": 14
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.9,
+      "mean_actual_keep_rate": 0.8965553993994664,
+      "mean_context_tokens": 725.0625,
+      "mean_f1": 0.9122656309333939,
+      "delta_f1": -0.03720475127503328,
+      "success_090": 52,
+      "repairs_090": 3,
+      "breaks_090": 4
+    }
+  ],
+  "new_target_calls": 512,
+  "sealed_sets_read": false,
+  "decision": "DESIGN_SCREEN_ONLY_SELECT_PARETO_CONFIG_BEFORE_ANY_LARGER_RUN"
+}
+[rank0]:[W921 21:57:36.982949323 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Token indices sequence length is longer than the specified maximum sequence length for this model (707 > 512). Running this sequence through the model will result in indexing errors
+{"compressed": 513, "total": 640}
+{"compressed": 514, "total": 640}
+{"compressed": 515, "total": 640}
+{"compressed": 516, "total": 640}
+{"compressed": 517, "total": 640}
+{"compressed": 518, "total": 640}
+{"compressed": 519, "total": 640}
+{"compressed": 520, "total": 640}
+{"compressed": 521, "total": 640}
+{"compressed": 522, "total": 640}
+{"compressed": 523, "total": 640}
+{"compressed": 524, "total": 640}
+{"compressed": 525, "total": 640}
+{"compressed": 526, "total": 640}
+{"compressed": 527, "total": 640}
+{"compressed": 528, "total": 640}
+{"compressed": 529, "total": 640}
+{"compressed": 530, "total": 640}
+{"compressed": 531, "total": 640}
+{"compressed": 532, "total": 640}
+{"compressed": 533, "total": 640}
+{"compressed": 534, "total": 640}
+{"compressed": 535, "total": 640}
+{"compressed": 536, "total": 640}
+{"compressed": 537, "total": 640}
+{"compressed": 538, "total": 640}
+{"compressed": 539, "total": 640}
+{"compressed": 540, "total": 640}
+{"compressed": 541, "total": 640}
+{"compressed": 542, "total": 640}
+{"compressed": 543, "total": 640}
+{"compressed": 544, "total": 640}
+{"compressed": 545, "total": 640}
+{"compressed": 546, "total": 640}
+{"compressed": 547, "total": 640}
+{"compressed": 548, "total": 640}
+{"compressed": 549, "total": 640}
+{"compressed": 550, "total": 640}
+{"compressed": 551, "total": 640}
+{"compressed": 552, "total": 640}
+{"compressed": 553, "total": 640}
+{"compressed": 554, "total": 640}
+{"compressed": 555, "total": 640}
+{"compressed": 556, "total": 640}
+{"compressed": 557, "total": 640}
+{"compressed": 558, "total": 640}
+{"compressed": 559, "total": 640}
+{"compressed": 560, "total": 640}
+{"compressed": 561, "total": 640}
+{"compressed": 562, "total": 640}
+{"compressed": 563, "total": 640}
+{"compressed": 564, "total": 640}
+{"compressed": 565, "total": 640}
+{"compressed": 566, "total": 640}
+{"compressed": 567, "total": 640}
+{"compressed": 568, "total": 640}
+{"compressed": 569, "total": 640}
+{"compressed": 570, "total": 640}
+{"compressed": 571, "total": 640}
+{"compressed": 572, "total": 640}
+{"compressed": 573, "total": 640}
+{"compressed": 574, "total": 640}
+{"compressed": 575, "total": 640}
+{"compressed": 576, "total": 640}
+{"compressed": 577, "total": 640}
+{"compressed": 578, "total": 640}
+{"compressed": 579, "total": 640}
+{"compressed": 580, "total": 640}
+{"compressed": 581, "total": 640}
+{"compressed": 582, "total": 640}
+{"compressed": 583, "total": 640}
+{"compressed": 584, "total": 640}
+{"compressed": 585, "total": 640}
+{"compressed": 586, "total": 640}
+{"compressed": 587, "total": 640}
+{"compressed": 588, "total": 640}
+{"compressed": 589, "total": 640}
+{"compressed": 590, "total": 640}
+{"compressed": 591, "total": 640}
+{"compressed": 592, "total": 640}
+{"compressed": 593, "total": 640}
+{"compressed": 594, "total": 640}
+{"compressed": 595, "total": 640}
+{"compressed": 596, "total": 640}
+{"compressed": 597, "total": 640}
+{"compressed": 598, "total": 640}
+{"compressed": 599, "total": 640}
+{"compressed": 600, "total": 640}
+{"compressed": 601, "total": 640}
+{"compressed": 602, "total": 640}
+{"compressed": 603, "total": 640}
+{"compressed": 604, "total": 640}
+{"compressed": 605, "total": 640}
+{"compressed": 606, "total": 640}
+{"compressed": 607, "total": 640}
+{"compressed": 608, "total": 640}
+{"compressed": 609, "total": 640}
+{"compressed": 610, "total": 640}
+{"compressed": 611, "total": 640}
+{"compressed": 612, "total": 640}
+{"compressed": 613, "total": 640}
+{"compressed": 614, "total": 640}
+{"compressed": 615, "total": 640}
+{"compressed": 616, "total": 640}
+{"compressed": 617, "total": 640}
+{"compressed": 618, "total": 640}
+{"compressed": 619, "total": 640}
+{"compressed": 620, "total": 640}
+{"compressed": 621, "total": 640}
+{"compressed": 622, "total": 640}
+{"compressed": 623, "total": 640}
+{"compressed": 624, "total": 640}
+{"compressed": 625, "total": 640}
+{"compressed": 626, "total": 640}
+{"compressed": 627, "total": 640}
+{"compressed": 628, "total": 640}
+{"compressed": 629, "total": 640}
+{"compressed": 630, "total": 640}
+{"compressed": 631, "total": 640}
+{"compressed": 632, "total": 640}
+{"compressed": 633, "total": 640}
+{"compressed": 634, "total": 640}
+{"compressed": 635, "total": 640}
+{"compressed": 636, "total": 640}
+{"compressed": 637, "total": 640}
+{"compressed": 638, "total": 640}
+{"compressed": 639, "total": 640}
+{"compressed": 640, "total": 640}
+INFO 09-21 21:58:50 [__init__.py:216] Automatically detected platform cuda.
+INFO 09-21 21:58:55 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [models/Qwen3-8B] to model_path [models/Qwen3-8B]
+INFO 09-21 21:58:55 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [models/Qwen3-8B] to model_path [models/Qwen3-8B]
+INFO 09-21 21:58:55 [utils.py:328] non-default args: {'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 4096, 'gpu_memory_utilization': 0.4, 'disable_log_stats': True, 'revision': 'main', 'model': 'models/Qwen3-8B'}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 09-21 21:59:13 [__init__.py:742] Resolved architecture: Qwen3ForCausalLM
+INFO 09-21 21:59:13 [__init__.py:1815] Using max model len 4096
+INFO 09-21 21:59:14 [scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 09-21 21:59:16 [__init__.py:2974] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+INFO 09-21 21:59:26 [__init__.py:216] Automatically detected platform cuda.
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:29 [core.py:654] Waiting for init message from front-end.
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:29 [core.py:76] Initializing a V1 LLM engine (v0.10.2) with config: model='models/Qwen3-8B', speculative_config=None, tokenizer='models/Qwen3-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=models/Qwen3-8B, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":1,"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[W921 21:59:34.439106499 ProcessGroupNCCL.cpp:981] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:34 [parallel_state.py:1165] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+(EngineCore_DP0 pid=4124982) WARNING 09-21 21:59:34 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:34 [gpu_model_runner.py:2338] Starting to load model models/Qwen3-8B...
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:34 [gpu_model_runner.py:2370] Loading model from scratch...
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:35 [cuda.py:362] Using Flash Attention backend on V1 engine.
+(EngineCore_DP0 pid=4124982)
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore_DP0 pid=4124982)
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  2.31it/s]
+(EngineCore_DP0 pid=4124982)
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:02<00:03,  1.20s/it]
+(EngineCore_DP0 pid=4124982)
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:04<00:03,  1.56s/it]
+(EngineCore_DP0 pid=4124982)
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:05<00:01,  1.49s/it]
+(EngineCore_DP0 pid=4124982)
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.61s/it]
+(EngineCore_DP0 pid=4124982)
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.47s/it]
+(EngineCore_DP0 pid=4124982)
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:43 [default_loader.py:268] Loading weights took 7.72 seconds
+(EngineCore_DP0 pid=4124982) INFO 09-21 21:59:43 [gpu_model_runner.py:2392] Model loading took 15.2683 GiB and 8.125257 seconds
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:02 [backends.py:539] Using cache directory: /home/zhangyihan/.cache/vllm/torch_compile_cache/c77933e23c/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:02 [backends.py:550] Dynamo bytecode transform time: 18.40 s
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:10 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 6.267 s
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:13 [monitor.py:34] torch.compile takes 18.40 s in total
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:16 [gpu_worker.py:298] Available KV cache memory: 2.23 GiB
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:17 [kv_cache_utils.py:864] GPU KV cache size: 16,208 tokens
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:17 [kv_cache_utils.py:868] Maximum concurrency for 4,096 tokens per request: 3.96x
+(EngineCore_DP0 pid=4124982)
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|▏         | 1/67 [00:00<00:16,  3.97it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:00<00:15,  4.18it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 3/67 [00:00<00:15,  4.23it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 4/67 [00:00<00:15,  4.08it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   7%|▋         | 5/67 [00:01<00:14,  4.15it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:01<00:14,  4.19it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|█         | 7/67 [00:01<00:14,  4.17it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:01<00:14,  4.18it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  13%|█▎        | 9/67 [00:02<00:13,  4.24it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  15%|█▍        | 10/67 [00:02<00:13,  4.18it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▋        | 11/67 [00:02<00:13,  4.18it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:02<00:12,  4.24it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 13/67 [00:03<00:12,  4.18it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:03<00:12,  4.19it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 15/67 [00:03<00:12,  4.19it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 16/67 [00:03<00:12,  4.12it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 17/67 [00:04<00:11,  4.27it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:04<00:11,  4.40it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  28%|██▊       | 19/67 [00:04<00:10,  4.43it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:04<00:10,  4.44it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:04<00:10,  4.41it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 22/67 [00:05<00:10,  4.43it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:05<00:09,  4.46it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:05<00:10,  4.23it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 25/67 [00:05<00:09,  4.28it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:06<00:09,  4.37it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 27/67 [00:06<00:09,  4.39it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 28/67 [00:06<00:08,  4.41it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 29/67 [00:06<00:08,  4.45it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:07<00:08,  4.37it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  46%|████▋     | 31/67 [00:07<00:08,  4.37it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:07<00:07,  4.38it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 33/67 [00:07<00:07,  4.53it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 34/67 [00:07<00:07,  4.66it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:08<00:06,  4.69it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:08<00:06,  4.76it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  55%|█████▌    | 37/67 [00:08<00:06,  4.79it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:08<00:06,  4.74it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 39/67 [00:08<00:05,  4.77it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|█████▉    | 40/67 [00:09<00:05,  4.74it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:09<00:05,  4.78it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:09<00:04,  5.04it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  64%|██████▍   | 43/67 [00:09<00:04,  5.33it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 44/67 [00:09<00:04,  5.38it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 45/67 [00:10<00:04,  5.47it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 46/67 [00:10<00:03,  5.49it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:10<00:03,  5.55it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:10<00:03,  5.46it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 49/67 [00:10<00:03,  5.66it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:10<00:02,  5.78it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 51/67 [00:11<00:02,  5.86it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 52/67 [00:11<00:02,  5.63it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:11<00:02,  5.76it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:11<00:02,  5.81it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 55/67 [00:11<00:02,  5.08it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:12<00:02,  5.15it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 57/67 [00:12<00:01,  5.27it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 58/67 [00:12<00:01,  5.42it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:12<00:01,  5.70it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|████████▉ | 60/67 [00:12<00:01,  5.82it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 61/67 [00:12<00:01,  5.96it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:13<00:00,  5.98it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:13<00:00,  6.06it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 64/67 [00:13<00:00,  6.25it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:13<00:00,  6.34it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▊| 66/67 [00:13<00:00,  6.44it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:13<00:00,  6.30it/s]
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:13<00:00,  4.86it/s]
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:32 [gpu_model_runner.py:3118] Graph capturing finished in 15 secs, took 0.61 GiB
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:32 [gpu_worker.py:391] Free memory on device (22.28/47.41 GiB) on startup. Desired GPU memory utilization is (0.4, 18.97 GiB). Actual usage is 15.27 GiB for weight, 1.45 GiB for peak activation, 0.02 GiB for non-torch memory, and 0.61 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=1577976012` to fit into requested memory, or `--kv-cache-memory=5135741952` to fully utilize gpu memory. Current kv cache memory in use is 2391670988 bytes.
+(EngineCore_DP0 pid=4124982) INFO 09-21 22:00:32 [core.py:218] init engine (profile, create kv cache, warmup model) took 48.81 seconds
+INFO 09-21 22:00:34 [llm.py:295] Supported_tasks: ['generate']
+INFO 09-21 22:00:34 [__init__.py:36] No IOProcessor plugins requested by the model
+{"evaluated": 576, "total": 640}
+{"evaluated": 640, "total": 640}
+{
+  "protocol": "FRONTIER-R1-LLMLINGUA2-ADAPTED-SCREEN64",
+  "target": "frozen Qwen3-8B",
+  "adaptation": "no training; V8 coarse selection plus global compression; mild keep-rate sweep",
+  "results": [
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.6,
+      "mean_actual_keep_rate": 0.606175403570912,
+      "mean_context_tokens": 413.21875,
+      "mean_f1": 0.709837227712751,
+      "delta_f1": -0.22541667226154327,
+      "success_090": 30,
+      "repairs_090": 2,
+      "breaks_090": 28
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.7,
+      "mean_actual_keep_rate": 0.698481954229089,
+      "mean_context_tokens": 475.453125,
+      "mean_f1": 0.86203908408329,
+      "delta_f1": -0.07321481589100463,
+      "success_090": 40,
+      "repairs_090": 2,
+      "breaks_090": 18
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.8,
+      "mean_actual_keep_rate": 0.799480001618545,
+      "mean_context_tokens": 544.28125,
+      "mean_f1": 0.8968685131356857,
+      "delta_f1": -0.038385386838608586,
+      "success_090": 50,
+      "repairs_090": 4,
+      "breaks_090": 10
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.9,
+      "mean_actual_keep_rate": 0.896478306527673,
+      "mean_context_tokens": 609.578125,
+      "mean_f1": 0.9021907143424169,
+      "delta_f1": -0.03306318563187758,
+      "success_090": 51,
+      "repairs_090": 1,
+      "breaks_090": 6
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.95,
+      "mean_actual_keep_rate": 0.9332760610608491,
+      "mean_context_tokens": 634.109375,
+      "mean_f1": 0.9271176562730353,
+      "delta_f1": -0.008136243701259184,
+      "success_090": 53,
+      "repairs_090": 2,
+      "breaks_090": 5
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.6,
+      "mean_actual_keep_rate": 0.6070620869313801,
+      "mean_context_tokens": 491.5,
+      "mean_f1": 0.7704069666143966,
+      "delta_f1": -0.1790634155940304,
+      "success_090": 31,
+      "repairs_090": 2,
+      "breaks_090": 24
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.7,
+      "mean_actual_keep_rate": 0.7006620301121035,
+      "mean_context_tokens": 566.390625,
+      "mean_f1": 0.8717524891044623,
+      "delta_f1": -0.07771789310396454,
+      "success_090": 44,
+      "repairs_090": 3,
+      "breaks_090": 12
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.8,
+      "mean_actual_keep_rate": 0.801164618049064,
+      "mean_context_tokens": 648.09375,
+      "mean_f1": 0.8765445652453596,
+      "delta_f1": -0.07292581696306753,
+      "success_090": 42,
+      "repairs_090": 3,
+      "breaks_090": 14
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.9,
+      "mean_actual_keep_rate": 0.8965553993994664,
+      "mean_context_tokens": 725.0625,
+      "mean_f1": 0.9122656309333939,
+      "delta_f1": -0.03720475127503328,
+      "success_090": 52,
+      "repairs_090": 3,
+      "breaks_090": 4
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.95,
+      "mean_actual_keep_rate": 0.9335352014682307,
+      "mean_context_tokens": 754.46875,
+      "mean_f1": 0.8987485564401195,
+      "delta_f1": -0.05072182576830746,
+      "success_090": 52,
+      "repairs_090": 4,
+      "breaks_090": 5
+    }
+  ],
+  "new_target_calls": 640,
+  "sealed_sets_read": false,
+  "decision": "DESIGN_SCREEN_ONLY_SELECT_PARETO_CONFIG_BEFORE_ANY_LARGER_RUN"
+}
+[rank0]:[W921 22:01:30.922543578 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

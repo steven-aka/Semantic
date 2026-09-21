@@ -1,0 +1,360 @@
+{
+  "protocol": "FRONTIER-R1-LLMLINGUA2-ADAPTED-SCREEN64",
+  "target": "frozen Qwen3-8B",
+  "adaptation": "no training; V8 coarse selection plus global compression; mild keep-rate sweep",
+  "results": [
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.6,
+      "baseline_mean_f1": 0.9352538999742944,
+      "mean_source_context_tokens": 677.359375,
+      "mean_actual_keep_rate": 0.606175403570912,
+      "mean_context_tokens": 413.21875,
+      "mean_f1": 0.709837227712751,
+      "delta_f1": -0.22541667226154327,
+      "success_090": 30,
+      "repairs_090": 2,
+      "breaks_090": 28,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 61,
+          "compressed": 47
+        },
+        "0.70": {
+          "baseline": 60,
+          "compressed": 43
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 37
+        },
+        "0.90": {
+          "baseline": 56,
+          "compressed": 30
+        },
+        "0.95": {
+          "baseline": 47,
+          "compressed": 19
+        }
+      }
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.7,
+      "baseline_mean_f1": 0.9352538999742944,
+      "mean_source_context_tokens": 677.359375,
+      "mean_actual_keep_rate": 0.698481954229089,
+      "mean_context_tokens": 475.453125,
+      "mean_f1": 0.86203908408329,
+      "delta_f1": -0.07321481589100463,
+      "success_090": 40,
+      "repairs_090": 2,
+      "breaks_090": 18,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 61,
+          "compressed": 59
+        },
+        "0.70": {
+          "baseline": 60,
+          "compressed": 57
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 51
+        },
+        "0.90": {
+          "baseline": 56,
+          "compressed": 40
+        },
+        "0.95": {
+          "baseline": 47,
+          "compressed": 28
+        }
+      }
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.8,
+      "baseline_mean_f1": 0.9352538999742944,
+      "mean_source_context_tokens": 677.359375,
+      "mean_actual_keep_rate": 0.799480001618545,
+      "mean_context_tokens": 544.28125,
+      "mean_f1": 0.8968685131356857,
+      "delta_f1": -0.038385386838608586,
+      "success_090": 50,
+      "repairs_090": 4,
+      "breaks_090": 10,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 61,
+          "compressed": 59
+        },
+        "0.70": {
+          "baseline": 60,
+          "compressed": 58
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 56
+        },
+        "0.90": {
+          "baseline": 56,
+          "compressed": 50
+        },
+        "0.95": {
+          "baseline": 47,
+          "compressed": 39
+        }
+      }
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.9,
+      "baseline_mean_f1": 0.9352538999742944,
+      "mean_source_context_tokens": 677.359375,
+      "mean_actual_keep_rate": 0.896478306527673,
+      "mean_context_tokens": 609.578125,
+      "mean_f1": 0.9021907143424169,
+      "delta_f1": -0.03306318563187758,
+      "success_090": 51,
+      "repairs_090": 1,
+      "breaks_090": 6,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 61,
+          "compressed": 59
+        },
+        "0.70": {
+          "baseline": 60,
+          "compressed": 59
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 57
+        },
+        "0.90": {
+          "baseline": 56,
+          "compressed": 51
+        },
+        "0.95": {
+          "baseline": 47,
+          "compressed": 43
+        }
+      }
+    },
+    {
+      "arm": "v8_global",
+      "requested_keep_rate": 0.95,
+      "baseline_mean_f1": 0.9352538999742944,
+      "mean_source_context_tokens": 677.359375,
+      "mean_actual_keep_rate": 0.9332760610608491,
+      "mean_context_tokens": 634.109375,
+      "mean_f1": 0.9271176562730353,
+      "delta_f1": -0.008136243701259184,
+      "success_090": 53,
+      "repairs_090": 2,
+      "breaks_090": 5,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 61,
+          "compressed": 61
+        },
+        "0.70": {
+          "baseline": 60,
+          "compressed": 60
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 59
+        },
+        "0.90": {
+          "baseline": 56,
+          "compressed": 53
+        },
+        "0.95": {
+          "baseline": 47,
+          "compressed": 46
+        }
+      }
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.6,
+      "baseline_mean_f1": 0.949470382208427,
+      "mean_source_context_tokens": 806.203125,
+      "mean_actual_keep_rate": 0.6070620869313801,
+      "mean_context_tokens": 491.5,
+      "mean_f1": 0.7704069666143966,
+      "delta_f1": -0.1790634155940304,
+      "success_090": 31,
+      "repairs_090": 2,
+      "breaks_090": 24,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 53
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 51
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 44
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 31
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 20
+        }
+      }
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.7,
+      "baseline_mean_f1": 0.949470382208427,
+      "mean_source_context_tokens": 806.203125,
+      "mean_actual_keep_rate": 0.7006620301121035,
+      "mean_context_tokens": 566.390625,
+      "mean_f1": 0.8717524891044623,
+      "delta_f1": -0.07771789310396454,
+      "success_090": 44,
+      "repairs_090": 3,
+      "breaks_090": 12,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 60
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 59
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 54
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 44
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 27
+        }
+      }
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.8,
+      "baseline_mean_f1": 0.949470382208427,
+      "mean_source_context_tokens": 806.203125,
+      "mean_actual_keep_rate": 0.801164618049064,
+      "mean_context_tokens": 648.09375,
+      "mean_f1": 0.8765445652453596,
+      "delta_f1": -0.07292581696306753,
+      "success_090": 42,
+      "repairs_090": 3,
+      "breaks_090": 14,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 58
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 56
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 55
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 42
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 33
+        }
+      }
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.9,
+      "baseline_mean_f1": 0.949470382208427,
+      "mean_source_context_tokens": 806.203125,
+      "mean_actual_keep_rate": 0.8965553993994664,
+      "mean_context_tokens": 725.0625,
+      "mean_f1": 0.9122656309333939,
+      "delta_f1": -0.03720475127503328,
+      "success_090": 52,
+      "repairs_090": 3,
+      "breaks_090": 4,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 59
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 59
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 57
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 52
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 43
+        }
+      }
+    },
+    {
+      "arm": "original_global",
+      "requested_keep_rate": 0.95,
+      "baseline_mean_f1": 0.949470382208427,
+      "mean_source_context_tokens": 806.203125,
+      "mean_actual_keep_rate": 0.9335352014682307,
+      "mean_context_tokens": 754.46875,
+      "mean_f1": 0.8987485564401195,
+      "delta_f1": -0.05072182576830746,
+      "success_090": 52,
+      "repairs_090": 4,
+      "breaks_090": 5,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 58
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 58
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 58
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 52
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 39
+        }
+      }
+    }
+  ],
+  "new_target_calls": 640,
+  "sealed_sets_read": false,
+  "decision": "RETAIN_V8_GLOBAL_RATE095_AS_STRONG_TRAINING_FREE_BASELINE"
+}
