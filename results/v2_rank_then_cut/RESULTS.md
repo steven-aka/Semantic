@@ -3983,6 +3983,35 @@ learnability while avoiding a misleading strong-model result on 24 queries.
 [Report](v17packet_obs_a0_data_gate/REPORT.md) and
 [summary](v17packet_obs_a0_data_gate/summary.json) record the gate.
 
+### V17-PACKET-OBS-A1 natural protected-insertion labels and repeat
+
+To replace the 24-query outcome-balanced pilot with a natural train-side
+frame, we froze the shortest eligible rank10 title-plus-sentence insertion
+at V8 depth9 (default context preserved, slack <=48 tokens). SHA-first
+selection yielded 256 independent queries from 500 eligible among 781
+P0 queries not used by R1 or the title-only pilot. The canonical Qwen3-8B
+ran 512 fresh, paired baseline/action calls. No sealed set was accessed.
+
+| Depth9 policy | 0.90 | Repairs / breaks | Mean extra context tokens |
+|---|---:|---:|---:|
+| V8 baseline | 180/256 | — | 0 |
+| Fixed protected insertion | 186/256 | 27 / 21 | +26.64 |
+
+Mean F1 increased by 0.01394, but query-bootstrap 95% intervals include
+zero for net 0.90 success (-7 to +20) and F1 (-0.00362 to +0.03113).
+Target tokens rose by 28.93/query. A selected matched repeat of 10 original
+repairs, 10 breaks and 10 neutral actions reproduced all 30 categories;
+this is conditional repeatability, not a population noise estimate.
+Historical P0 depth10 was 216/256 at 92.70 more context tokens/query than
+the insertion point, but it was not freshly paired. Other anchors and
+Complete were not freshly tested here, so this is **not** an end-to-end
+Pareto gain. The uniform action is too risky for deployment; the 256-query
+cache can support a limited diagnostic of pre-Target effect prediction,
+with only 27 repair and 21 break queries. [Report](v17packet_obs_a1_natural_insertion/REPORT.md),
+[summary](v17packet_obs_a1_natural_insertion/summary.json), and
+[conditional repeat](v17packet_obs_a1_natural_insertion/repeat_summary.json)
+record the result.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed

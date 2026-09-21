@@ -1,0 +1,18 @@
+{
+  "protocol": "OBS-A1_NATURAL_PROTECTED_INSERTION",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "frame": "P0 train1421 excluding R1 train512 and FRAG-B0 title-only 128; SHA-first 256 eligible queries without outcome stratification",
+  "candidate_rule": "At V8 depth9 preserve all default evidence; insert the shortest exact rank10 title+sentence fragment with 0 < Qwen3-8B context slack <= 48, ties by fragment index",
+  "queries": 256,
+  "slack_max": 48,
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 32,
+  "temperature": 0.0,
+  "fidelity_epsilon": 0.000001,
+  "sealed_sets_read": false,
+  "new_training": false
+}

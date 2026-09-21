@@ -1,0 +1,14 @@
+{
+  "protocol": "OBS-A1_NATURAL_PROTECTED_INSERTION",
+  "queries": 256,
+  "eligible_queries": 500,
+  "target_calls": 512,
+  "baseline_success_090": 180,
+  "action_success_090": 186,
+  "repairs": 27,
+  "breaks": 21,
+  "mean_delta_f1": 0.013943934522918124,
+  "mean_extra_context_tokens": 26.64453125,
+  "mean_target_token_delta": 28.9296875,
+  "sealed_sets_read": false
+}

@@ -1,0 +1,20 @@
+{
+  "protocol": "OBS-A1_NATURAL_INSERTION_ANALYSIS",
+  "paired_query_bootstrap_95pct": {
+    "net_success": [
+      -7,
+      20
+    ],
+    "mean_delta_f1": [
+      -0.003624058850935811,
+      0.031128483666155324
+    ]
+  },
+  "continuous_f1_gain_actions": 109,
+  "continuous_f1_loss_actions": 39,
+  "continuous_f1_equal_actions": 108,
+  "historical_p0_depth10_success_090": 216,
+  "historical_p0_depth10_mean_extra_context_tokens_vs_insert": 92.6953125,
+  "depth10_comparison_caveat": "P0 depth10 was generated in a prior run, not paired fresh in OBS-A1.",
+  "sealed_sets_read": false
+}

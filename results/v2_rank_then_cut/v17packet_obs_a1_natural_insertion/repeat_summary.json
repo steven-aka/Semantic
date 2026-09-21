@@ -1,0 +1,21 @@
+{
+  "protocol": "OBS-A1_NATURAL_INSERTION_CONDITIONAL_REPEAT",
+  "queries": 30,
+  "calls": 60,
+  "by_original_stratum": {
+    "repair": {
+      "cases": 10,
+      "repeat_category_agreement": 10
+    },
+    "break": {
+      "cases": 10,
+      "repeat_category_agreement": 10
+    },
+    "neutral": {
+      "cases": 10,
+      "repeat_category_agreement": 10
+    }
+  },
+  "sealed_sets_read": false,
+  "limitation": "Outcome-stratified repeat checks conditional stability, not population noise or independent validation."
+}
