@@ -1,0 +1,25 @@
+{
+  "protocol": "V18-L0A_RUNTIME_INTERFACE_PREFLIGHT",
+  "model": "models/Qwen3-8B",
+  "synthetic_prompt_tokens": 21,
+  "dtype": "bfloat16",
+  "input_ids_vs_token_inputs_embeds_max_abs_logit_difference": 0.0,
+  "one_shot_vs_cached_token_ids_max_abs_logit_difference": 0.59375,
+  "cached_token_ids_vs_cached_inputs_embeds_max_abs_logit_difference": 0.0,
+  "cached_token_ids_vs_cached_inputs_embeds_top1_agreement": 1.0,
+  "latent_gradient_finite": true,
+  "latent_gradient_norm": 20.538761138916016,
+  "all_target_parameter_gradients_none": true,
+  "mean_input_ids_forward_seconds": 0.09314408442005515,
+  "mean_inputs_embeds_forward_seconds": 0.13367661875672637,
+  "inputs_embeds_latency_ratio": 1.4351595121583915,
+  "gates": {
+    "embedding_equivalence": true,
+    "cache_interface_equivalence": true,
+    "gradient_path": true
+  },
+  "decision": "GO_V18_L0B_TINY_MEMORIZATION_PREFLIGHT",
+  "new_target_generation_calls": 0,
+  "synthetic_only": true,
+  "sealed_sets_read": false
+}

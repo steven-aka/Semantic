@@ -145,7 +145,7 @@ Soft/KV 方法第一轮统一使用 frozen Qwen3-8B 在 **V8 depth-10 context** 
 一次性 compressor 获得好的固定预算结果，并不自动满足主线要求。只有满足下列条件之一，才能称为 progressive representation：
 
 1. 最大表示只构造一次，小预算表示是其严格前缀或确定性子集；
-2. 每个 packet 只压缩一次，再按冻结 V8 顺序 append，已有表示不被改写；
+2. 每个 packet 只压缩一次，V8决定逐档加入哪些packet，渲染继续使用canonical source order，已有表示不被改写；
 3. cache/anchor 状态具有明确、可验证的 nested extension 操作。
 
 对每个预算序列计算 SS/SF/FS/FF 和 `P(late fail | early success)`。比较 SF 时必须匹配 early-success prevalence；否则更弱的早期模型可能因早期成功更少而获得虚假的低 SF。
@@ -182,7 +182,7 @@ R0 输出一张 compatibility matrix。没有通过 identity/runtime smoke 的�
 
 预算为实际 Qwen3 token budget，不以 compressor 自报比例为准。Screen-64 取近似 `2x/4x/8x` 三点；通过后 Design-256 增加 `16x`。`6x` 和 `32x` 只有当相邻点显示可用区间时再加。
 
-V8-wrapped 规则：每个 packet 独立、只压缩一次，question/instruction 不压缩，压缩后 packet 按 V8 顺序累加。它是一个有意控制的 progressive arm；native 全上下文压缩只评固定预算，不冒充 nested trajectory。
+V8-wrapped规则：每个packet独立、只压缩一次，question/instruction不压缩；V8只决定各depth选择的packet集合，最终文本仍按canonical source order渲染。这与项目现有V8语义一致，也避免C3已经观察到的文本顺序扰动。它是一个受控progressive arm；native全上下文压缩只评固定预算，不冒充nested trajectory。
 
 RECOMP 不列为 R1 必跑项。只有上述 extractive 方法没有形成可用 frontier，或需要区分“token deletion”与“answer-oriented textual summary”时，才增加一个 RECOMP extractive arm和一个 abstractive诊断 arm。
 

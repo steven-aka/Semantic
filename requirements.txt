@@ -17,6 +17,7 @@ rouge-score>=0.1.2
 matplotlib>=3.9
 tqdm>=4.66
 pyyaml>=6.0
+llmlingua==0.2.2
 
 # Development
 pytest>=8.3

@@ -4802,3 +4802,25 @@ gold F1 to 0.7367, a -0.1008 contribution. Decision:
 authorized: the code is already answer-equivalent and the frozen Target removes
 rather than adds value. [Report](native_code_a0_consumption/REPORT.md) and
 [summary](native_code_a0_consumption/summary.json) preserve the result.
+
+### FRONTIER-R1 LLMLingua-2 frozen-Target baseline (Screen-64)
+
+The official LLMLingua-2 MeetingBank checkpoint was evaluated on 64
+deterministically selected design queries with fresh frozen Qwen3-8B outputs.
+Three contracts were preserved separately: native compression of the complete
+12-packet context, global compression after V8 depth-10 selection, and
+packetwise compression after V8 selection. At the least aggressive requested
+rate (0.50), complete-context LLMLingua-2 obtained mean F1 0.5847 and 13/64
+0.90 successes versus 0.9495 and 53/64 for its fresh uncompressed control.
+Global post-V8 compression obtained 0.6579 and 22/64 versus V8's 0.9353 and
+56/64. At requested 0.25 and 0.125 rates, all arms degraded further.
+
+The fresh V8 control reproduced the historical cache (0.93525 versus 0.93509
+mean F1), ruling out cache drift as the explanation. Decision:
+`STOP_LLMLINGUA2_AFTER_SCREEN64`; no Design-256 escalation and no retraining.
+The result remains a paper baseline and also records two non-training design
+observations: V8 coarse filtering helps before token pruning, while global
+compression is safer than independent packet compression at roughly matched
+2x cost. [Report](frontier_r1_hard_screen64/REPORT.md),
+[summary](frontier_r1_hard_screen64/summary.json), compressed contexts, every
+Target output, and run logs preserve the full result. Sealed sets were not read.

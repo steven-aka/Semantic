@@ -1,0 +1,36 @@
+{
+  "protocol": "FRONTIER-COMPRESSION-R0-TARGET-INTERFACE",
+  "model": "models/Qwen3-8B",
+  "dtype": "bfloat16",
+  "rows": [
+    {
+      "tokens": 20,
+      "ids_vs_embeds_max_abs": 0.0,
+      "ids_vs_embeds_top1": 1.0,
+      "oneshot_vs_cache_max_abs": 0.375,
+      "oneshot_vs_cache_mean_abs": 0.035776473581790924,
+      "oneshot_vs_cache_top1": 1.0,
+      "cache_prefix_length": 20
+    },
+    {
+      "tokens": 32,
+      "ids_vs_embeds_max_abs": 0.0,
+      "ids_vs_embeds_top1": 1.0,
+      "oneshot_vs_cache_max_abs": 1.46875,
+      "oneshot_vs_cache_mean_abs": 0.07887724786996841,
+      "oneshot_vs_cache_top1": 1.0,
+      "cache_prefix_length": 32
+    }
+  ],
+  "gates": {
+    "target_parameters_unchanged": true,
+    "target_parameters_require_no_grad": true,
+    "token_embedding_identity": true,
+    "cache_continuation_decision_identity": true,
+    "cache_length_correct": true
+  },
+  "decision": "GO_HARD_SCREEN",
+  "interpretation": "BF16 one-shot/cache logits may differ numerically; exact top-1 identity is the binding continuation gate.",
+  "new_target_generation_calls": 0,
+  "sealed_sets_read": false
+}

@@ -1,0 +1,29 @@
+{
+  "protocol": "FRONTIER-R1-LLMLINGUA2-SCREEN64",
+  "compressor_checkpoint": "models/llmlingua-2-xlm-roberta-large-meetingbank",
+  "target_checkpoint": "models/Qwen3-8B",
+  "artifacts": {
+    "compressed.jsonl": {
+      "bytes": 674084,
+      "sha256": "9e768c0d120eccde8bdf2249268b6e324c151ff3d186db29a1911714c531c6da"
+    },
+    "target_outputs.jsonl": {
+      "bytes": 413873,
+      "sha256": "ac3be1e9f54fff010ef9d7b609bddddb950f4bfda30f2219f9f96a35911d5872"
+    },
+    "fresh_baseline_outputs.jsonl": {
+      "bytes": 36078,
+      "sha256": "7696778f42eceea891ae1548b18e6d4ef1c9d4540f96b5274ce1ee274ca12437"
+    },
+    "fresh_original_baseline_outputs.jsonl": {
+      "bytes": 36499,
+      "sha256": "d792de521121396fb41f958f20a49f5d83583553a325109bd61e4b80e5de86c1"
+    },
+    "summary.json": {
+      "bytes": 9789,
+      "sha256": "7b2bbc8e1904febd315e2d22a44eca148a7e82968db2fc211a53e7b9d4ba58bc"
+    }
+  },
+  "python": "3.11.16",
+  "sealed_sets_read": false
+}

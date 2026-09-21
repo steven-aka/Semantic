@@ -231,6 +231,27 @@ V8 因而仍是当前合同下证据最完整的自动、faithful、Target-compa
 
 ## 13. 主要证据索引
 
+## 13. Frozen-Target 外部压缩基线
+
+### 13.1 LLMLingua-2 Screen-64
+
+官方 `microsoft/llmlingua-2-xlm-roberta-large-meetingbank` checkpoint在64个
+确定性选取的design queries上，以冻结Qwen3-8B fresh配对评估。完整原始context
+在requested keep=0.50（actual 0.5148）时，mean F1从0.9495降至0.5847，
+0.90 success从53/64降至13/64。先经过V8 depth-10选择、再做global
+LLMLingua-2，在相近压缩率下从0.9353降至0.6579，0.90 success从56/64
+降至22/64。packetwise V8-wrapped arm为0.5811和22/64。更强压缩均进一步
+下降，因此预注册Screen gate失败，决定为`STOP_LLMLINGUA2_AFTER_SCREEN64`。
+
+fresh V8 control与历史缓存mean F1分别为0.93525与0.93509，排除了缓存漂移。
+该结果可作为论文负基线；同时只记录、不触发重训的机制线索是：V8 coarse
+filtering在token pruning前有益，global compression在约2x时比逐packet独立
+compression更稳健。完整结果见
+[report](results/v2_rank_then_cut/frontier_r1_hard_screen64/REPORT.md)与
+[summary](results/v2_rank_then_cut/frontier_r1_hard_screen64/summary.json)。
+
+## 14. 主要证据索引
+
 - 总实验日志：[results/v2_rank_then_cut/RESULTS.md](results/v2_rank_then_cut/RESULTS.md)
 - 实施与合同：[CODEX_FIDELITY_COMPRESSION_IMPLEMENTATION_PLAN.md](CODEX_FIDELITY_COMPRESSION_IMPLEMENTATION_PLAN.md)
 - V8 run：[results/v2_rank_then_cut/v8_one_run_seed20260912](results/v2_rank_then_cut/v8_one_run_seed20260912)
@@ -240,4 +261,3 @@ V8 因而仍是当前合同下证据最完整的自动、faithful、Target-compa
 - V18 memorization：[results/v2_rank_then_cut/v18_l0b1_tiny_memorization/REPORT.md](results/v2_rank_then_cut/v18_l0b1_tiny_memorization/REPORT.md)
 - Native-code existence：[results/v2_rank_then_cut/project_synthesis_a0_solution_existence/REPORT.md](results/v2_rank_then_cut/project_synthesis_a0_solution_existence/REPORT.md)
 - Native-code consumption：[results/v2_rank_then_cut/native_code_a0_consumption/REPORT.md](results/v2_rank_then_cut/native_code_a0_consumption/REPORT.md)
-

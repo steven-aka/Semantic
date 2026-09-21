@@ -1,0 +1,15 @@
+{
+  "protocol": "FRONTIER-COMPRESSION-R0",
+  "status": "FROZEN_BEFORE_SCREEN",
+  "target_model": "models/Qwen3-8B",
+  "population": "CANON-P0 exposed train1421 only",
+  "screen_queries": 64,
+  "design_queries": 256,
+  "selection": "ascending sha256(example_id), screen first 64, design next 256",
+  "sealed_sets": ["lineage-clean 581", "internal", "development", "fresh confirmation"],
+  "hard_screen": {
+    "methods": ["longllmlingua", "llmlingua2"],
+    "variants": ["native", "v8_wrapped"],
+    "keep_rates": [0.5, 0.25, 0.125]
+  }
+}

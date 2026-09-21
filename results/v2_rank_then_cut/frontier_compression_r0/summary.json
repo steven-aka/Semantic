@@ -1,0 +1,21 @@
+{
+  "protocol": "FRONTIER-COMPRESSION-R0",
+  "population_count": 1421,
+  "screen_count": 64,
+  "design_count": 256,
+  "eligible_methods": [
+    "longllmlingua",
+    "llmlingua2",
+    "recomp",
+    "xrag",
+    "500xcompressor",
+    "sac",
+    "flexcomp"
+  ],
+  "excluded_methods": {
+    "pisco": "paper trains decoder LoRA",
+    "ram": "decoder-freezing boundary not established for strict port"
+  },
+  "decision": "GO_R0_RUNTIME_IDENTITY_AND_HARD_SCREEN_ASSET_PREFLIGHT",
+  "sealed_sets_read": false
+}
