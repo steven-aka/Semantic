@@ -1,0 +1,7 @@
+{
+  "protocol": "SEM-B1_LENGTH_MATCHED_EXTRACTIVE_CONTROL",
+  "queries": 40,
+  "planned_target_calls": 120,
+  "task_sha256": "e68201aa6d38b09f0426d31d41397e215fc13a7da3daf248f77238fea48d322d",
+  "sealed_sets_read": false
+}

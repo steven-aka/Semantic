@@ -1,0 +1,18 @@
+{
+  "protocol": "SEM-B1_LENGTH_MATCHED_EXTRACTIVE_CONTROL",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "population": "The same 40 SEM-C0 ELIGIBLE queries used by SEM-B1",
+  "span_rule": "Choose one exact contiguous whitespace-delimited source span with Qwen3-8B tokens <= the paired canonical-fact token count; maximize 2*fact lexical overlap + question lexical overlap, then overlap count, token count, earliest offset",
+  "wrapper": "Document title: Extractive evidence\\nSource evidence: {span}",
+  "schedule": [6, 7, 7, 9, 10],
+  "target_model": "models/Qwen3-8B",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 32,
+  "temperature": 0.0,
+  "fidelity_epsilon": 0.000001,
+  "interpretation": "If ideal semantic does not beat this control on quality/safety, shortening rather than rewriting is sufficient; all context costs remain separately reported.",
+  "sealed_sets_read": false,
+  "new_training": false
+}

@@ -1,0 +1,41 @@
+{
+  "protocol": "SEM-B1_LENGTH_MATCHED_EXTRACTIVE_CONTROL",
+  "queries": 40,
+  "target_calls": 120,
+  "extractive": {
+    "success": [
+      35,
+      38,
+      29,
+      36,
+      32
+    ],
+    "complete": 24,
+    "complete_repairs": 6,
+    "complete_breaks": 5,
+    "queries_with_any_anchor_break": 9,
+    "mean_extra_cumulative_context_active40": 67.7
+  },
+  "semantic": {
+    "success": [
+      35,
+      37,
+      33,
+      36,
+      31
+    ],
+    "complete": 25,
+    "complete_repairs": 8,
+    "complete_breaks": 6,
+    "queries_with_any_anchor_break": 8,
+    "mean_extra_cumulative_context_active40": 76.6
+  },
+  "paired_complete_difference_semantic_minus_extractive": 1,
+  "paired_bootstrap_95pct_complete_difference": [
+    -6,
+    8
+  ],
+  "semantic_pareto_dominates_extractive": false,
+  "interpretation": "INCONCLUSIVE_NO_PARETO_DOMINANCE",
+  "sealed_sets_read": false
+}

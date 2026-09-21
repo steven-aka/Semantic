@@ -2693,3 +2693,15 @@ ELIGIBLE and >=20 direct-agreement ELIGIBLE; <16 is STOP and 16–23 is a gray
 zone. Forms and scoring code are ready, but the experiment is correctly
 blocked on two independent human annotations. Do not replace them with two
 outputs from the same model or call teacher/Target before this gate.
+SEM-B0R later recorded that independent human IAA was unavailable and performed
+a single AI-assisted primary plus adversarial review without claiming kappa.
+Single atoms yielded 15/64 eligible and were stopped.  Fixed adjacent pairs
+yielded 40/64, identifying relation-breaking atomization as an upstream cause.
+SEM-B1 then showed that audited compact evidence can improve the fresh Target
+trajectory (Complete 38→40) at much lower overhead than raw paired evidence,
+but both fixed policies caused six Complete breaks.  A length-bounded exact
+extractive control was indistinguishable at this scale (Semantic minus
+Extractive Complete +1, paired bootstrap 95% [-6,8]) and cheaper.  The next
+method decision must therefore test an automatic, grounded compact-evidence
+pipeline and cannot yet attribute the gain specifically to abstractive semantic
+rewriting.

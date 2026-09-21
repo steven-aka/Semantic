@@ -1,0 +1,40 @@
+{"audit_id": 2, "example_id": "22552__wikidata_simple__train", "span": "and fernando lamas.", "span_tokens": 6, "fact_tokens": 7}
+{"audit_id": 5, "example_id": "58943__wikitables_composition__train", "span": "are part of the appalachian mountains system..", "span_tokens": 10, "fact_tokens": 11}
+{"audit_id": 7, "example_id": "56169__wikitables_composition__train", "span": "it europe's and russia's tallest skyscraper", "span_tokens": 10, "fact_tokens": 13}
+{"audit_id": 8, "example_id": "15654__wikidata_simple__train", "span": "played one summer season in the nasl with the san jose earthquakes", "span_tokens": 13, "fact_tokens": 14}
+{"audit_id": 9, "example_id": "59636__wikitables_composition__train", "span": "is a locality and the seat of varberg municipality", "span_tokens": 10, "fact_tokens": 13}
+{"audit_id": 11, "example_id": "22348__wikidata_simple__train", "span": "pier angeli,", "span_tokens": 5, "fact_tokens": 8}
+{"audit_id": 12, "example_id": "21211__wikidata_simple__train", "span": "leslie howard", "span_tokens": 4, "fact_tokens": 7}
+{"audit_id": 14, "example_id": "57499__wikitables_composition__train", "span": "mountain of the bernese alps", "span_tokens": 8, "fact_tokens": 15}
+{"audit_id": 15, "example_id": "15627__wikidata_simple__train", "span": "dundee (twice)", "span_tokens": 7, "fact_tokens": 10}
+{"audit_id": 16, "example_id": "18381__wikidata_simple__train", "span": "1976 United States presidential election in New York", "span_tokens": 11, "fact_tokens": 16}
+{"audit_id": 18, "example_id": "24050__wikidata_simple__train", "span": "the league of ireland", "span_tokens": 5, "fact_tokens": 10}
+{"audit_id": 22, "example_id": "58099__wikitables_composition__train", "span": "western film directed by robert emmett tansey", "span_tokens": 10, "fact_tokens": 13}
+{"audit_id": 23, "example_id": "54509__wikidata_intersection__train", "span": "with akshay kumar", "span_tokens": 6, "fact_tokens": 16}
+{"audit_id": 24, "example_id": "20205__wikidata_simple__train", "span": "george hamilton", "span_tokens": 4, "fact_tokens": 9}
+{"audit_id": 25, "example_id": "16305__wikidata_simple__train", "span": "president of the pakistan muslim league (f)", "span_tokens": 10, "fact_tokens": 15}
+{"audit_id": 26, "example_id": "58143__wikitables_composition__train", "span": "rockland county is the southernmost county", "span_tokens": 8, "fact_tokens": 8}
+{"audit_id": 28, "example_id": "16427__wikidata_simple__train", "span": "active member of the local independent labour party", "span_tokens": 8, "fact_tokens": 12}
+{"audit_id": 31, "example_id": "3388__wikidata_simple__train", "span": "american singer gene pitney's fifth album", "span_tokens": 8, "fact_tokens": 10}
+{"audit_id": 32, "example_id": "26011__wikidata_simple__train", "span": "born in mount gilead, morrow county, ohio", "span_tokens": 12, "fact_tokens": 12}
+{"audit_id": 33, "example_id": "22007__wikidata_simple__train", "span": "It starred sara garcía,", "span_tokens": 7, "fact_tokens": 12}
+{"audit_id": 34, "example_id": "26894__wikidata_simple__train", "span": "around rochester, new york", "span_tokens": 6, "fact_tokens": 10}
+{"audit_id": 36, "example_id": "24207__wikidata_simple__train", "span": "greater ontario junior hockey league", "span_tokens": 6, "fact_tokens": 12}
+{"audit_id": 37, "example_id": "20789__wikidata_simple__train", "span": "stars herbert lom, john gregson", "span_tokens": 10, "fact_tokens": 10}
+{"audit_id": 40, "example_id": "22476__wikidata_simple__train", "span": "film stars louis hayward,", "span_tokens": 6, "fact_tokens": 9}
+{"audit_id": 41, "example_id": "16446__wikidata_simple__train", "span": "as a saskatchewan party member.", "span_tokens": 8, "fact_tokens": 10}
+{"audit_id": 42, "example_id": "58757__wikitables_composition__train", "span": "county seat of gratiot county", "span_tokens": 6, "fact_tokens": 13}
+{"audit_id": 43, "example_id": "21540__wikidata_simple__train", "span": "humphrey bogart", "span_tokens": 5, "fact_tokens": 9}
+{"audit_id": 44, "example_id": "61758__wikitables_composition__train", "span": "licensed to eugene, oregon", "span_tokens": 8, "fact_tokens": 9}
+{"audit_id": 45, "example_id": "16859__wikidata_simple__train", "span": "1960 United States presidential election in New Mexico", "span_tokens": 11, "fact_tokens": 16}
+{"audit_id": 47, "example_id": "411__wikidata_simple__train", "span": "album by american singer-songwriter jimmy buffett", "span_tokens": 10, "fact_tokens": 12}
+{"audit_id": 52, "example_id": "20661__wikidata_simple__train", "span": "stars himself, sanjay dutt,", "span_tokens": 8, "fact_tokens": 8}
+{"audit_id": 53, "example_id": "22699__wikidata_simple__train", "span": "film stars prabhas,", "span_tokens": 6, "fact_tokens": 7}
+{"audit_id": 55, "example_id": "19969__wikidata_simple__train", "span": "received the jnanpith award", "span_tokens": 7, "fact_tokens": 14}
+{"audit_id": 56, "example_id": "25325__wikidata_simple__train", "span": "in wisconsin rapids", "span_tokens": 5, "fact_tokens": 9}
+{"audit_id": 57, "example_id": "21099__wikidata_simple__train", "span": "dane clark", "span_tokens": 4, "fact_tokens": 8}
+{"audit_id": 58, "example_id": "1691__wikidata_simple__train", "span": "live album by british synthpop band the human league", "span_tokens": 10, "fact_tokens": 12}
+{"audit_id": 59, "example_id": "56487__wikitables_composition__train", "span": "served by the keikyū main line", "span_tokens": 10, "fact_tokens": 16}
+{"audit_id": 61, "example_id": "11372__wikidata_simple__train", "span": "golan regional council", "span_tokens": 4, "fact_tokens": 10}
+{"audit_id": 62, "example_id": "22498__wikidata_simple__train", "span": "minus ted healy,", "span_tokens": 5, "fact_tokens": 9}
+{"audit_id": 64, "example_id": "467__wikidata_simple__train", "span": "album by english rock group free", "span_tokens": 6, "fact_tokens": 9}

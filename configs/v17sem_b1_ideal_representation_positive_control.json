@@ -1,0 +1,28 @@
+{
+  "protocol": "SEM-B1_IDEAL_TWO_ATOM_REPRESENTATION_POSITIVE_CONTROL",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "population": "The 64 SEM-C0 train-side queries; intervention only for the 40 audited ELIGIBLE items",
+  "arms": ["V8", "RAW_PAIRED_ATOMS", "AUDITED_SEMANTIC_FACT"],
+  "schedule": [6, 7, 7, 9, 10],
+  "injection": "Pure additive injection from depth7 onward; original V8 rank10 remains unchanged",
+  "semantic_wrapper": "Document title: Semantic evidence\\nSource evidence: {canonical_fact}",
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 32,
+  "temperature": 0.0,
+  "fidelity_epsilon": 0.000001,
+  "gate": {
+    "semantic_fixed_complete_not_below_v8": true,
+    "minimum_semantic_safe_complete_repairs": 4,
+    "semantic_must_strictly_improve_at_least_two_vs_raw": [
+      "safe_complete_repairs",
+      "queries_with_any_anchor_break (lower)",
+      "mean_extra_cumulative_context (lower)"
+    ]
+  },
+  "sealed_sets_read": false,
+  "new_training": false
+}

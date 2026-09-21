@@ -15,6 +15,19 @@ OUT=BASE/"v17sem_b0_single_atom_eligibility"
 CFG=Path("configs/v17sem_b0_single_atom_eligibility.json")
 
 
+def canonical_tokenizer():
+    """Load the frozen local tokenizer without requiring the CUDA torch wheel."""
+    try:
+        return load_tokenizer("models/Qwen3-8B")
+    except RuntimeError:
+        from tokenizers import Tokenizer
+        raw=Tokenizer.from_file("models/Qwen3-8B/tokenizer.json")
+        class LocalTokenizer:
+            def encode(self,text,add_special_tokens=False):
+                return raw.encode(text,add_special_tokens=add_special_tokens).ids
+        return LocalTokenizer()
+
+
 def choose(cfg):
     m0b={r["example_id"]:r for r in read_jsonl(BASE/"v17traj_m0b_borrow_preflight/per_query.jsonl") if r["eligible"]}
     excluded=set()
@@ -33,7 +46,7 @@ def build(cfg):
     data={r["example_id"]:r for r in read_jsonl(ROOT/"data/v10_v12_train_train_clean.jsonl") if r["example_id"] in chosen}
     orders={r["example_id"]:r["decoded_order"] for r in read_jsonl(ROOT/"sel_c0_train_v8_rollouts.jsonl") if r["example_id"] in chosen}
     assert len(data)==len(orders)==len(chosen)==64
-    tokenizer=load_tokenizer("models/Qwen3-8B")
+    tokenizer=canonical_tokenizer()
     rows=[]
     for index,q in enumerate(chosen,1):
         packets,order=data[q]["packet_texts"],orders[q]
@@ -68,7 +81,7 @@ def kappa(a,b):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument("--score",action="store_true");args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument("--score",action="store_true");ap.add_argument("--single-review",action="store_true");args=ap.parse_args()
     cfg=json.loads(CFG.read_text());assert cfg["status"]=="FROZEN_BEFORE_ANNOTATION"
     chosen,rows=build(cfg);OUT.mkdir(parents=True,exist_ok=True)
     manifest={"protocol":cfg["protocol"],"query_ids":chosen,"items":64,
@@ -85,9 +98,23 @@ def main():
         if not path.exists():
             with path.open("w") as h:
                 for r in rows:h.write(json.dumps({"audit_id":r["audit_id"],"label":None,"exact_quote":None,"canonical_fact":None,"relevance_reason":None,"novelty_reason":None,"abstain_reason":None,"notes":None},ensure_ascii=False)+"\n")
+    if args.single_review:
+        tokenizer=canonical_tokenizer();byid={r["audit_id"]:r for r in rows}
+        values=list(read_jsonl(OUT/"annotator_a.jsonl"));assert len(values)==64
+        bad={r["audit_id"]:validate_annotation(byid[r["audit_id"]],r,tokenizer) for r in values}
+        bad={k:v for k,v in bad.items() if v}
+        if bad:raise ValueError(f"annotator_a.jsonl invalid: {bad}")
+        eligible=sum(r["label"]=="ELIGIBLE" for r in values)
+        reasons={k:sum(r.get("abstain_reason")==k for r in values) for k in sorted({r.get("abstain_reason") for r in values if r.get("abstain_reason")})}
+        route="SEM_B1_IDEAL_REPRESENTATION_POSITIVE_CONTROL" if eligible>=24 else ("STOP_SINGLE_ATOM_CONTRACT" if eligible<16 else "GRAY_ZONE_MECHANISM_AUDIT")
+        summary={"protocol":"SEM-B0R_AI_ASSISTED_SINGLE_REVIEW","items":64,"eligible":eligible,"abstain":64-eligible,
+                 "abstain_reasons":reasons,"human_iaa":"NOT_AVAILABLE","cohen_kappa":None,
+                 "formal_human_gate_claimed":False,"decision_threshold_only":route,
+                 "new_teacher_calls":0,"new_target_calls":0,"sealed_sets_read":False}
+        (OUT/"single_review_summary.json").write_text(json.dumps(summary,indent=2)+"\n");print(json.dumps(summary,indent=2));return
     if not args.score:
         print(json.dumps({"protocol":cfg["protocol"],"items":64,"status":"AWAITING_TWO_INDEPENDENT_HUMAN_ANNOTATIONS","content_sha256":manifest["content_sha256"]},indent=2));return
-    tokenizer=load_tokenizer("models/Qwen3-8B");byid={r["audit_id"]:r for r in rows};annotations=[]
+    tokenizer=canonical_tokenizer();byid={r["audit_id"]:r for r in rows};annotations=[]
     for name in ("annotator_a.jsonl","annotator_b.jsonl"):
         values=list(read_jsonl(OUT/name));assert len(values)==64
         errors={r["audit_id"]:validate_annotation(byid[r["audit_id"]],r,tokenizer) for r in values}

@@ -1,0 +1,19 @@
+{
+  "protocol": "SEM-C0_FIXED_ADJACENT_TWO_ATOM_CLOSURE",
+  "items": 64,
+  "eligible": 40,
+  "abstain": 24,
+  "abstain_reasons": {
+    "AMBIGUOUS_GROUNDING": 1,
+    "CANNOT_FIT_16_TOKENS": 1,
+    "NO_RELEVANT_FACT": 9,
+    "RELATION_NOT_CLOSED": 13
+  },
+  "review": "AI-assisted primary plus adversarial audit; no independent-human IAA claim",
+  "single_atom_eligible": 15,
+  "eligibility_gain_over_single_atom": 25,
+  "decision": "GO_IDEAL_SEMANTIC_REPRESENTATION_POSITIVE_CONTROL",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

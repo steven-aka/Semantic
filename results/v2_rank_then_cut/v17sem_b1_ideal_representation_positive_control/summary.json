@@ -1,0 +1,57 @@
+{
+  "protocol": "SEM-B1_IDEAL_TWO_ATOM_REPRESENTATION_POSITIVE_CONTROL",
+  "queries": 64,
+  "eligible_actions": 40,
+  "target_calls": 496,
+  "v8": {
+    "success": [
+      56,
+      60,
+      52,
+      53,
+      46
+    ],
+    "complete": 38,
+    "complete_repairs": 0,
+    "complete_breaks": 0,
+    "safe_complete_repairs": 0,
+    "queries_with_any_anchor_break": 0,
+    "mean_extra_cumulative_context_all64": 0.0,
+    "mean_extra_cumulative_context_active40": 0.0
+  },
+  "raw": {
+    "success": [
+      56,
+      57,
+      52,
+      58,
+      45
+    ],
+    "complete": 40,
+    "complete_repairs": 8,
+    "complete_breaks": 6,
+    "safe_complete_repairs": 8,
+    "queries_with_any_anchor_break": 10,
+    "mean_extra_cumulative_context_all64": 222.21875,
+    "mean_extra_cumulative_context_active40": 355.55
+  },
+  "semantic": {
+    "success": [
+      56,
+      59,
+      52,
+      56,
+      47
+    ],
+    "complete": 40,
+    "complete_repairs": 8,
+    "complete_breaks": 6,
+    "safe_complete_repairs": 8,
+    "queries_with_any_anchor_break": 8,
+    "mean_extra_cumulative_context_all64": 47.875,
+    "mean_extra_cumulative_context_active40": 76.6
+  },
+  "semantic_vs_raw_strict_improvements": 2,
+  "decision": "GO_LENGTH_MATCHED_EXTRACTIVE_CONTROL",
+  "sealed_sets_read": false
+}

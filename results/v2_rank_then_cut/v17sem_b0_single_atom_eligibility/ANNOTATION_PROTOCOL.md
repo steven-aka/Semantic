@@ -1,4 +1,11 @@
-# SEM-B0 independent annotation protocol
+# SEM-B0R AI-assisted single-atom feasibility protocol
+
+The originally planned two-human reliability study is unavailable for this
+run (`HUMAN_IAA_NOT_AVAILABLE`).  `annotator_a.jsonl` is therefore an
+AI-assisted primary review followed by an adversarial error audit by the same
+reviewer.  It is a mechanism/feasibility annotation, not independent human
+agreement evidence.  `annotator_b.jsonl` remains blank, Cohen's kappa is N/A,
+and the two-human formal gate is not claimed.
 
 Annotate `audit_items.jsonl` independently in `annotator_a.jsonl` or
 `annotator_b.jsonl`. Do not read the other form, SEM-A0B generations, gold
@@ -10,7 +17,13 @@ and novel relative to S6. Supply relevance and novelty reasons. Otherwise use
 `ABSTAIN` with one frozen reason: `NO_RELEVANT_FACT`, `ALREADY_IN_S6`,
 `RELATION_NOT_CLOSED`, `CANNOT_FIT_16_TOKENS`, or `AMBIGUOUS_GROUNDING`.
 
-After both forms are independently locked, run:
+Validate and summarize the single review with:
+
+```bash
+.venv/bin/python -m src.evaluation.v17sem_b0_single_atom_eligibility --single-review
+```
+
+If two genuinely independent human annotations later become available, run:
 
 ```bash
 .venv/bin/python -m src.evaluation.v17sem_b0_single_atom_eligibility --score

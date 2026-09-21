@@ -3902,6 +3902,20 @@ Atom lengths range 11–48 Qwen3-8B tokens (median 32.5). The package is
 kappa, coverage, and direct-agreement gates. No teacher/Target call is
 authorized until this non-automatable requirement is met. [SEM-B0 report](v17sem_b0_single_atom_eligibility/REPORT.md)
 and [protocol](v17sem_b0_single_atom_eligibility/ANNOTATION_PROTOCOL.md)
+
+SEM-B0R replaced the unavailable two-human study with one transparently
+AI-assisted primary annotation plus same-reviewer adversarial audit; human IAA
+and kappa remain N/A.  Only 15/64 single atoms were eligible, so that contract
+stopped.  A fixed adjacent-atom closure audit then reached 40/64, showing that
+the atomizer often split required relations.  Fresh SEM-B1 V8/Raw/Semantic
+Target runs produced Complete 38/40/40; Semantic matched Raw's eight safe
+repairs while reducing any-anchor-break queries 10→8 and cumulative overhead
++222.22→+47.88 tokens/query.  A ≤fact-length extractive control was statistically
+inconclusive against Semantic (active-query Complete 24 vs 25; paired bootstrap
+95% interval [-6,8]) and neither dominated the other.  See the
+[B0R report](v17sem_b0_single_atom_eligibility/REPORT_B0R.md),
+[C0 report](v17sem_c0_two_atom_closure/REPORT.md), and
+[B1 report](v17sem_b1_ideal_representation_positive_control/REPORT.md).
 provide the reviewable next step.
 
 ### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit
