@@ -1,0 +1,26 @@
+{
+  "protocol": "SEM-B0_SINGLE_ATOM_ELIGIBILITY_CEILING",
+  "status": "FROZEN_BEFORE_ANNOTATION",
+  "population": "Next 64 SHA-ordered M0B-eligible canonical train queries after SEM-A0B v1/v2, excluding M0C, M1, M2B, OBS-A1 and FRAG-B0",
+  "queries": 64,
+  "state": "V8 S6",
+  "future_atom": "M0B frozen rank10 title-plus-sentence atom",
+  "annotator_inputs": ["question", "S6", "future atom", "Qwen3-8B fact-token counter"],
+  "forbidden_inputs": ["gold answers", "reference response", "Target outputs", "fidelity", "repair/break labels", "SEM-A0B generations"],
+  "eligible_definition": [
+    "exact_quote is a nonempty contiguous substring of future_atom",
+    "canonical_fact is affirmative and every predicate/entity/number/qualifier is entailed by exact_quote",
+    "canonical_fact is relevant to question",
+    "canonical_fact adds information not already present in S6",
+    "canonical_fact is <=16 Qwen3-8B tokens"
+  ],
+  "abstain_reasons": ["NO_RELEVANT_FACT", "ALREADY_IN_S6", "RELATION_NOT_CLOSED", "CANNOT_FIT_16_TOKENS", "AMBIGUOUS_GROUNDING"],
+  "annotation": "Two independent human annotators, blinded to outcomes and one another; adjudicate disagreements only after initial forms are locked",
+  "reliability_gate": "raw label agreement >=0.85 and Cohen kappa >=0.70",
+  "go_gate": "Adjudicated ELIGIBLE >=24/64 and direct annotator agreement on ELIGIBLE >=20/64, with reliability gate passed",
+  "stop_gate": "Adjudicated ELIGIBLE <16/64",
+  "gray_zone": "16-23/64: no generator training; inspect frozen abstain-reason distribution",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

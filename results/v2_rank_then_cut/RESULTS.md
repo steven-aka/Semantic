@@ -3892,6 +3892,18 @@ one policy-chosen Target call per query cannot reveal missed opportunities.
 [per-query categories](v17packet_insert_d0_decomposition/per_query.jsonl)
 preserve the audit.
 
+### V17-SEM-B0 single-atom eligibility audit
+
+SEM-B0 is frozen on the next 64 untouched SHA-ordered M0B-eligible train
+examples. It exposes only question, V8 S6, and the frozen rank10 atom; no
+gold, Target output, fidelity, outcome, or SEM-A0B generation is loaded.
+Atom lengths range 11–48 Qwen3-8B tokens (median 32.5). The package is
+**`AWAITING_TWO_INDEPENDENT_HUMAN_ANNOTATIONS`** under frozen agreement,
+kappa, coverage, and direct-agreement gates. No teacher/Target call is
+authorized until this non-automatable requirement is met. [SEM-B0 report](v17sem_b0_single_atom_eligibility/REPORT.md)
+and [protocol](v17sem_b0_single_atom_eligibility/ANNOTATION_PROTOCOL.md)
+provide the reviewable next step.
+
 ### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit
 
 We froze 21 decisive SLOT-B0 actions (16 repairs, five breaks) and six

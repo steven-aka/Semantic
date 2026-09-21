@@ -2685,3 +2685,11 @@ closed. Do not keep prompt-tuning these audit sets. A future semantic branch
 must be a new hypothesis—such as state-conditioned novelty extraction with
 explicit abstention—and must use a new audit cohort and instrument peak VRAM
 as well as prompt/output tokens and latency.
+
+SEM-B0 is frozen and materialized as a 64-item independent-human eligibility
+audit over `(q, V8 S6, frozen rank10 atom)`. Reliability requires raw
+agreement >=0.85 and Cohen kappa >=0.70. GO requires >=24 adjudicated
+ELIGIBLE and >=20 direct-agreement ELIGIBLE; <16 is STOP and 16–23 is a gray
+zone. Forms and scoring code are ready, but the experiment is correctly
+blocked on two independent human annotations. Do not replace them with two
+outputs from the same model or call teacher/Target before this gate.
