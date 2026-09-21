@@ -1,0 +1,65 @@
+{
+  "protocol": "V18-L0B1_TINY_MEMORIZATION",
+  "queries": 32,
+  "slots": 32,
+  "steps": 320,
+  "initial_nll": 4.159052688628435,
+  "final_nll": 2.172698517795652,
+  "relative_nll_reduction": 0.47759774149142586,
+  "mean_free_generation_teacher_set_f1": 0.03125,
+  "slot_norm_min": 0.44220253825187683,
+  "slot_norm_max": 0.5225470066070557,
+  "slot_effective_rank": 32,
+  "history": [
+    {
+      "step": 32,
+      "nll": 2.5833341339603066
+    },
+    {
+      "step": 64,
+      "nll": 2.4869132917374372
+    },
+    {
+      "step": 96,
+      "nll": 2.4128381609916687
+    },
+    {
+      "step": 128,
+      "nll": 2.3629885809496045
+    },
+    {
+      "step": 160,
+      "nll": 2.3120509702712297
+    },
+    {
+      "step": 192,
+      "nll": 2.2976376013830304
+    },
+    {
+      "step": 224,
+      "nll": 2.233153014909476
+    },
+    {
+      "step": 256,
+      "nll": 2.1715991105884314
+    },
+    {
+      "step": 288,
+      "nll": 2.2404599394649267
+    },
+    {
+      "step": 320,
+      "nll": 2.172698517795652
+    }
+  ],
+  "elapsed_seconds": 204.76018524169922,
+  "target_trainable_parameters": 0,
+  "gate": {
+    "nll_reduction_ge_0.70": false,
+    "teacher_f1_ge_0.90": false,
+    "finite": true,
+    "rank_gt_1": true
+  },
+  "decision": "STOP_LATENT_CHANNEL",
+  "sealed_sets_read": false
+}

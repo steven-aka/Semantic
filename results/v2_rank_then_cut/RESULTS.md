@@ -4752,3 +4752,19 @@ lower SF at matched early-prefix success to prevent a trivial all-fail result.
 [Static summary](v18_l0a_latent_contract_preflight/summary.json),
 [runtime result](v18_l0a_latent_contract_preflight/runtime.json), and
 [report](v18_l0a_latent_contract_preflight/REPORT.md) preserve the decision.
+
+### V18-L0B-1 32-slot tiny memorization
+
+The single frozen V18 architecture was tested on 32 design-exposed queries for
+320 updates. The frozen Qwen3-1.7B encoded query plus original context once;
+only the cross-attention resampler/projection trained, and Qwen3-8B had zero
+trainable parameters. Teacher answers were supervision and never compressor
+inputs. NLL decreased from 4.1591 to 2.1727, a 47.76% reduction versus the 70%
+gate. Cached free-generation teacher answer-set F1 was only 0.0313 versus the
+0.90 gate. Slots were finite and full-rank (32/32), so the implementation
+learned a weak loss-reducing channel but not a behavior-preserving one.
+Decision: `STOP_LATENT_CHANNEL`. Nested L0B-2, more steps, more slots,
+architecture changes and query-held-out L0C are not authorized. This stops the
+narrow V18 rescue, not every conceivable latent-compression architecture.
+[Report](v18_l0b1_tiny_memorization/REPORT.md) and
+[summary](v18_l0b1_tiny_memorization/summary.json) preserve the result.

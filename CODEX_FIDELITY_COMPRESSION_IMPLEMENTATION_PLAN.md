@@ -2936,3 +2936,14 @@ and gradients reach latents while all Target gradients remain absent.
 Decision: `GO_V18_L0B_TINY_MEMORIZATION_PREFLIGHT`. Final L0 evaluation must
 reduce SF by at least 50% at matched per-anchor success; SF alone is invalid
 because a model can reduce it by making every short prefix fail.
+
+### V18-L0B-1 tiny-memorization outcome
+
+The fixed 32-slot architecture was trained for the pre-registered 320 updates
+on 32 design-exposed queries. Qwen3-8B remained fully frozen and teacher
+answers were loss targets only. NLL fell from 4.1591 to 2.1727 (47.76%, below
+the 70% gate), while cached free-generation teacher answer-set F1 was only
+0.0313 (below 0.90). Slots remained finite and full-rank (32/32), so this is
+not a NaN, gradient-disconnection, or constant-slot failure. Decision:
+`STOP_LATENT_CHANNEL`. Do not run nested L0B-2, extend training, add slots,
+change capacity, or open L0C under this frozen one-architecture rescue.
