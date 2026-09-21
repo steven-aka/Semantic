@@ -1,0 +1,116 @@
+{
+  "protocol": "V17-STOP-C1-C0B_TWO_STAGE_ORACLE",
+  "status": "COMPLETED_FROM_EXISTING_FRESH_CANONICAL_CACHE",
+  "queries": 1421,
+  "attainable_requests": 6815,
+  "early_depths": {
+    "0.6": 6,
+    "0.7": 7,
+    "0.8": 7,
+    "0.9": 9,
+    "0.95": 10
+  },
+  "fallback_depth": 10,
+  "quality": {
+    "aggressive_anchor_success_sum": 5538,
+    "depth10_anchor_success_sum": 6191,
+    "two_stage_oracle_anchor_success_sum": 6345,
+    "aggressive_complete": 775,
+    "depth10_complete": 1123,
+    "two_stage_oracle_complete": 1142,
+    "depth10_rescues": 807,
+    "early_success_lost_at_depth10_but_preserved_by_oracle": 154
+  },
+  "cost": {
+    "mean_depth10_final_context_tokens_per_query": 3191.058409570725,
+    "mean_two_stage_oracle_final_context_tokens_per_query": 2375.551724137931,
+    "mean_final_context_tokens_saved_per_query": 815.5066854327938,
+    "final_context_saving_fraction": 0.2555599367867727,
+    "mean_depth10_target_compute_tokens_per_query": 4019.7206192821955,
+    "mean_two_stage_oracle_target_compute_tokens_per_query": 3641.1238564391274,
+    "mean_target_compute_tokens_saved_per_query": 378.59676284306823,
+    "target_compute_saving_fraction": 0.09418484484393708,
+    "mean_two_stage_oracle_calls_per_attainable_request": 1.1641966250917095,
+    "maximum_calls_per_request": 2
+  },
+  "per_level": {
+    "0.6": {
+      "eligible": 1421,
+      "early_depth": 6,
+      "aggressive_success": 1265,
+      "depth10_success": 1347,
+      "two_stage_oracle_success": 1391,
+      "depth10_rescues": 126,
+      "early_success_lost_at_depth10": 44,
+      "mean_depth10_context_tokens": 667.4982406755806,
+      "mean_oracle_context_tokens": 361.780436312456,
+      "mean_depth10_compute_tokens": 840.1203377902885,
+      "mean_oracle_compute_tokens": 570.3898662913441,
+      "mean_oracle_calls": 1.1097818437719915
+    },
+    "0.7": {
+      "eligible": 1421,
+      "early_depth": 7,
+      "aggressive_success": 1252,
+      "depth10_success": 1337,
+      "two_stage_oracle_success": 1366,
+      "depth10_rescues": 114,
+      "early_success_lost_at_depth10": 29,
+      "mean_depth10_context_tokens": 667.4982406755806,
+      "mean_oracle_context_tokens": 425.3335679099226,
+      "mean_depth10_compute_tokens": 840.1203377902885,
+      "mean_oracle_compute_tokens": 649.8859957776214,
+      "mean_oracle_calls": 1.1189303307529908
+    },
+    "0.8": {
+      "eligible": 1421,
+      "early_depth": 7,
+      "aggressive_success": 998,
+      "depth10_success": 1311,
+      "two_stage_oracle_success": 1342,
+      "depth10_rescues": 344,
+      "early_success_lost_at_depth10": 31,
+      "mean_depth10_context_tokens": 667.4982406755806,
+      "mean_oracle_context_tokens": 479.04926108374383,
+      "mean_depth10_compute_tokens": 840.1203377902885,
+      "mean_oracle_compute_tokens": 807.1864883884589,
+      "mean_oracle_calls": 1.2976776917663617
+    },
+    "0.9": {
+      "eligible": 1421,
+      "early_depth": 9,
+      "aggressive_success": 1050,
+      "depth10_success": 1223,
+      "two_stage_oracle_success": 1273,
+      "depth10_rescues": 223,
+      "early_success_lost_at_depth10": 50,
+      "mean_depth10_context_tokens": 667.4982406755806,
+      "mean_oracle_context_tokens": 588.3230119634061,
+      "mean_depth10_compute_tokens": 840.1203377902885,
+      "mean_oracle_compute_tokens": 954.4222378606615,
+      "mean_oracle_calls": 1.2610837438423645
+    },
+    "0.95": {
+      "eligible": 1131,
+      "early_depth": 10,
+      "aggressive_success": 973,
+      "depth10_success": 973,
+      "two_stage_oracle_success": 973,
+      "depth10_rescues": 0,
+      "early_success_lost_at_depth10": 0,
+      "mean_depth10_context_tokens": 654.6719717064544,
+      "mean_oracle_context_tokens": 654.6719717064544,
+      "mean_depth10_compute_tokens": 828.2749778956676,
+      "mean_oracle_compute_tokens": 828.2749778956676,
+      "mean_oracle_calls": 1.0
+    }
+  },
+  "gate": {
+    "substantial_final_context_headroom": true,
+    "positive_real_target_compute_headroom": true,
+    "authorize_traced_confidence_preflight": true
+  },
+  "decision": "GO_C1_PREFLIGHT_NATIVE_CONFIDENCE",
+  "limitations": "Clairvoyant train-side ceiling. It uses gold F1 only to define the oracle action and supplies no deployable confidence rule. Sealed splits remain closed.",
+  "new_target_calls": 0
+}

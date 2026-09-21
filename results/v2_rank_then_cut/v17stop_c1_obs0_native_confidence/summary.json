@@ -1,0 +1,940 @@
+{
+  "protocol": "V17-STOP-C1-OBS0_NATIVE_CONFIDENCE_TWO_STAGE",
+  "queries": 256,
+  "decision_examples": 1024,
+  "folds": [
+    {
+      "fold": 0,
+      "train_queries": 191,
+      "test_queries": 65,
+      "train_examples": 764,
+      "test_examples": 260,
+      "train_positive": 604,
+      "test_positive": 216
+    },
+    {
+      "fold": 1,
+      "train_queries": 198,
+      "test_queries": 58,
+      "train_examples": 792,
+      "test_examples": 232,
+      "train_positive": 640,
+      "test_positive": 180
+    },
+    {
+      "fold": 2,
+      "train_queries": 189,
+      "test_queries": 67,
+      "train_examples": 756,
+      "test_examples": 268,
+      "train_positive": 601,
+      "test_positive": 219
+    },
+    {
+      "fold": 3,
+      "train_queries": 190,
+      "test_queries": 66,
+      "train_examples": 760,
+      "test_examples": 264,
+      "train_positive": 615,
+      "test_positive": 205
+    }
+  ],
+  "baselines": {
+    "aggressive": {
+      "per_level_success": {
+        "0.6": 223,
+        "0.7": 222,
+        "0.8": 189,
+        "0.9": 186,
+        "0.95": 183
+      },
+      "complete": 135,
+      "mean_final_context_tokens_per_query": 2316.9609375,
+      "mean_target_compute_tokens_per_query": 3123.734375
+    },
+    "depth10": {
+      "per_level_success": {
+        "0.6": 245,
+        "0.7": 244,
+        "0.8": 242,
+        "0.9": 220,
+        "0.95": 183
+      },
+      "complete": 183,
+      "mean_final_context_tokens_per_query": 3325.5078125,
+      "mean_target_compute_tokens_per_query": 4185.21484375
+    },
+    "two_stage_oracle": {
+      "per_level_success": {
+        "0.6": 250,
+        "0.7": 248,
+        "0.8": 245,
+        "0.9": 230,
+        "0.95": 183
+      },
+      "complete": 183,
+      "mean_final_context_tokens_per_query": 2510.703125,
+      "mean_target_compute_tokens_per_query": 3826.15625,
+      "mean_calls_per_request": 1.159375
+    }
+  },
+  "fixed_threshold_curves": {
+    "B0_output_only": [
+      {
+        "per_level": {
+          "0.6": {
+            "success": 230,
+            "stop_early": 244,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 236,
+            "stop_early": 235,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 216,
+            "stop_early": 216,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 202,
+            "stop_early": 217,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 145,
+        "mean_final_context_tokens_per_query": 2426.3671875,
+        "mean_target_compute_tokens_per_query": 3523.86328125,
+        "mean_calls_per_request": 1.0875,
+        "threshold": 0.5,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 1.1035044824775877,
+        "target_compute_tokens_saved_vs_depth10": 661.3515625,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 236,
+            "stop_early": 232,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 240,
+            "stop_early": 229,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 223,
+            "stop_early": 203,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 208,
+            "stop_early": 197,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 153,
+        "mean_final_context_tokens_per_query": 2475.0625,
+        "mean_target_compute_tokens_per_query": 3704.99609375,
+        "mean_calls_per_request": 1.12734375,
+        "threshold": 0.7,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 1.0437413107052111,
+        "target_compute_tokens_saved_vs_depth10": 480.21875,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 239,
+            "stop_early": 223,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 243,
+            "stop_early": 222,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 231,
+            "stop_early": 176,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 216,
+            "stop_early": 168,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 163,
+        "mean_final_context_tokens_per_query": 2540.734375,
+        "mean_target_compute_tokens_per_query": 3956.5,
+        "mean_calls_per_request": 1.18359375,
+        "threshold": 0.8,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.9631430078143727,
+        "target_compute_tokens_saved_vs_depth10": 228.71484375,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 237,
+            "stop_early": 106,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 245,
+            "stop_early": 208,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 234,
+            "stop_early": 9,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 218,
+            "stop_early": 16,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 169,
+        "mean_final_context_tokens_per_query": 2956.81640625,
+        "mean_target_compute_tokens_per_query": 5403.1640625,
+        "mean_calls_per_request": 1.53515625,
+        "threshold": 0.9,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.45249053166498876,
+        "target_compute_tokens_saved_vs_depth10": -1217.94921875,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 241,
+            "stop_early": 14,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 244,
+            "stop_early": 182,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 238,
+            "stop_early": 4,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 219,
+            "stop_early": 2,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 175,
+        "mean_final_context_tokens_per_query": 3111.53515625,
+        "mean_target_compute_tokens_per_query": 5831.83984375,
+        "mean_calls_per_request": 1.6421875,
+        "threshold": 0.95,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.26260606932259456,
+        "target_compute_tokens_saved_vs_depth10": -1646.625,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 241,
+            "stop_early": 8,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 242,
+            "stop_early": 10,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 241,
+            "stop_early": 1,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 0,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 178,
+        "mean_final_context_tokens_per_query": 3301.4609375,
+        "mean_target_compute_tokens_per_query": 6409.80078125,
+        "mean_calls_per_request": 1.78515625,
+        "threshold": 0.98,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.02951244067309075,
+        "target_compute_tokens_saved_vs_depth10": -2224.5859375,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 241,
+            "stop_early": 5,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 242,
+            "stop_early": 4,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 241,
+            "stop_early": 1,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 0,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 178,
+        "mean_final_context_tokens_per_query": 3312.1484375,
+        "mean_target_compute_tokens_per_query": 6439.31640625,
+        "mean_calls_per_request": 1.7921875,
+        "threshold": 0.99,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.016395800373939305,
+        "target_compute_tokens_saved_vs_depth10": -2254.1015625,
+        "go": false
+      }
+    ],
+    "B1_native_only": [
+      {
+        "per_level": {
+          "0.6": {
+            "success": 230,
+            "stop_early": 243,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 229,
+            "stop_early": 239,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 206,
+            "stop_early": 215,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 200,
+            "stop_early": 214,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 149,
+        "mean_final_context_tokens_per_query": 2425.03125,
+        "mean_target_compute_tokens_per_query": 3506.6953125,
+        "mean_calls_per_request": 1.08828125,
+        "threshold": 0.5,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 1.1051440625149815,
+        "target_compute_tokens_saved_vs_depth10": 678.51953125,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 233,
+            "stop_early": 234,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 235,
+            "stop_early": 218,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 218,
+            "stop_early": 186,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 209,
+            "stop_early": 181,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 160,
+        "mean_final_context_tokens_per_query": 2504.3671875,
+        "mean_target_compute_tokens_per_query": 3802.41015625,
+        "mean_calls_per_request": 1.16015625,
+        "threshold": 0.7,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 1.0077760199434298,
+        "target_compute_tokens_saved_vs_depth10": 382.8046875,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 238,
+            "stop_early": 221,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 236,
+            "stop_early": 202,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 225,
+            "stop_early": 142,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 216,
+            "stop_early": 138,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 166,
+        "mean_final_context_tokens_per_query": 2600.3515625,
+        "mean_target_compute_tokens_per_query": 4173.578125,
+        "mean_calls_per_request": 1.25078125,
+        "threshold": 0.8,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.8899755501222494,
+        "target_compute_tokens_saved_vs_depth10": 11.63671875,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 244,
+            "stop_early": 171,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 242,
+            "stop_early": 149,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 238,
+            "stop_early": 73,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 219,
+            "stop_early": 57,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 179,
+        "mean_final_context_tokens_per_query": 2845.0625,
+        "mean_target_compute_tokens_per_query": 5011.94140625,
+        "mean_calls_per_request": 1.4484375,
+        "threshold": 0.9,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.5896447576585646,
+        "target_compute_tokens_saved_vs_depth10": -826.7265625,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 245,
+            "stop_early": 128,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 245,
+            "stop_early": 92,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 243,
+            "stop_early": 6,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 219,
+            "stop_early": 5,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 182,
+        "mean_final_context_tokens_per_query": 3055.5859375,
+        "mean_target_compute_tokens_per_query": 5725.4140625,
+        "mean_calls_per_request": 1.61953125,
+        "threshold": 0.95,
+        "quality_gate_pass": true,
+        "oracle_context_saving_capture": 0.33127187305239947,
+        "target_compute_tokens_saved_vs_depth10": -1540.19921875,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 246,
+            "stop_early": 33,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 245,
+            "stop_early": 5,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 243,
+            "stop_early": 2,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 0,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 183,
+        "mean_final_context_tokens_per_query": 3276.94140625,
+        "mean_target_compute_tokens_per_query": 6340.10546875,
+        "mean_calls_per_request": 1.76875,
+        "threshold": 0.98,
+        "quality_gate_pass": true,
+        "oracle_context_saving_capture": 0.05960496668104895,
+        "target_compute_tokens_saved_vs_depth10": -2154.890625,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 245,
+            "stop_early": 5,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 245,
+            "stop_early": 3,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 242,
+            "stop_early": 0,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 0,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 183,
+        "mean_final_context_tokens_per_query": 3315.90625,
+        "mean_target_compute_tokens_per_query": 6444.33203125,
+        "mean_calls_per_request": 1.79375,
+        "threshold": 0.99,
+        "quality_gate_pass": true,
+        "oracle_context_saving_capture": 0.011783882257059303,
+        "target_compute_tokens_saved_vs_depth10": -2259.1171875,
+        "go": false
+      }
+    ],
+    "B2_combined": [
+      {
+        "per_level": {
+          "0.6": {
+            "success": 236,
+            "stop_early": 231,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 236,
+            "stop_early": 231,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 216,
+            "stop_early": 209,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 204,
+            "stop_early": 207,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 149,
+        "mean_final_context_tokens_per_query": 2465.0078125,
+        "mean_target_compute_tokens_per_query": 3633.8984375,
+        "mean_calls_per_request": 1.1140625,
+        "threshold": 0.5,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 1.056081307828755,
+        "target_compute_tokens_saved_vs_depth10": 551.31640625,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 239,
+            "stop_early": 222,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 239,
+            "stop_early": 225,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 223,
+            "stop_early": 188,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 215,
+            "stop_early": 184,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 157,
+        "mean_final_context_tokens_per_query": 2518.92578125,
+        "mean_target_compute_tokens_per_query": 3841.01953125,
+        "mean_calls_per_request": 1.16015625,
+        "threshold": 0.7,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.9899084328107771,
+        "target_compute_tokens_saved_vs_depth10": 344.1953125,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 240,
+            "stop_early": 217,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 241,
+            "stop_early": 216,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 227,
+            "stop_early": 165,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 215,
+            "stop_early": 164,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 164,
+        "mean_final_context_tokens_per_query": 2569.05859375,
+        "mean_target_compute_tokens_per_query": 4022.15625,
+        "mean_calls_per_request": 1.2046875,
+        "threshold": 0.8,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.9283810345654154,
+        "target_compute_tokens_saved_vs_depth10": 163.05859375,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 242,
+            "stop_early": 182,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 242,
+            "stop_early": 201,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 236,
+            "stop_early": 104,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 92,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 172,
+        "mean_final_context_tokens_per_query": 2734.35546875,
+        "mean_target_compute_tokens_per_query": 4635.3203125,
+        "mean_calls_per_request": 1.34765625,
+        "threshold": 0.9,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.7255141665468143,
+        "target_compute_tokens_saved_vs_depth10": -450.10546875,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 243,
+            "stop_early": 120,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 245,
+            "stop_early": 183,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 242,
+            "stop_early": 10,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 7,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 178,
+        "mean_final_context_tokens_per_query": 2965.56640625,
+        "mean_target_compute_tokens_per_query": 5456.4296875,
+        "mean_calls_per_request": 1.55,
+        "threshold": 0.95,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.44175176182942616,
+        "target_compute_tokens_saved_vs_depth10": -1271.21484375,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 242,
+            "stop_early": 25,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 245,
+            "stop_early": 114,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 243,
+            "stop_early": 2,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 1,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 179,
+        "mean_final_context_tokens_per_query": 3173.890625,
+        "mean_target_compute_tokens_per_query": 6023.11328125,
+        "mean_calls_per_request": 1.6890625,
+        "threshold": 0.98,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.18607795196318136,
+        "target_compute_tokens_saved_vs_depth10": -1837.8984375,
+        "go": false
+      },
+      {
+        "per_level": {
+          "0.6": {
+            "success": 243,
+            "stop_early": 7,
+            "eligible": 256
+          },
+          "0.7": {
+            "success": 245,
+            "stop_early": 22,
+            "eligible": 256
+          },
+          "0.8": {
+            "success": 243,
+            "stop_early": 1,
+            "eligible": 256
+          },
+          "0.9": {
+            "success": 220,
+            "stop_early": 1,
+            "eligible": 256
+          },
+          "0.95": {
+            "success": 183,
+            "stop_early": 256,
+            "eligible": 256
+          }
+        },
+        "complete": 180,
+        "mean_final_context_tokens_per_query": 3290.2421875,
+        "mean_target_compute_tokens_per_query": 6372.0078125,
+        "mean_calls_per_request": 1.77578125,
+        "threshold": 0.99,
+        "quality_gate_pass": false,
+        "oracle_context_saving_capture": 0.043281077712258496,
+        "target_compute_tokens_saved_vs_depth10": -2186.79296875,
+        "go": false
+      }
+    ]
+  },
+  "gates": {
+    "B0_output_go": false,
+    "B1_native_go": false,
+    "B2_combined_go": false,
+    "native_increment_over_B0": false
+  },
+  "decision": "STOP_C1_NATIVE_CONFIDENCE",
+  "diagnosis": {
+    "native_confidence_has_quality_context_signal": true,
+    "best_native_quality_context_point": {
+      "per_level": {
+        "0.6": {
+          "success": 245,
+          "stop_early": 128,
+          "eligible": 256
+        },
+        "0.7": {
+          "success": 245,
+          "stop_early": 92,
+          "eligible": 256
+        },
+        "0.8": {
+          "success": 243,
+          "stop_early": 6,
+          "eligible": 256
+        },
+        "0.9": {
+          "success": 219,
+          "stop_early": 5,
+          "eligible": 256
+        },
+        "0.95": {
+          "success": 183,
+          "stop_early": 256,
+          "eligible": 256
+        }
+      },
+      "complete": 182,
+      "mean_final_context_tokens_per_query": 3055.5859375,
+      "mean_target_compute_tokens_per_query": 5725.4140625,
+      "mean_calls_per_request": 1.61953125,
+      "threshold": 0.95,
+      "quality_gate_pass": true,
+      "oracle_context_saving_capture": 0.33127187305239947,
+      "target_compute_tokens_saved_vs_depth10": -1540.19921875,
+      "go": false
+    },
+    "cost_is_binding_when_native_signal_qualifies": true,
+    "next_action": "GO_C2_COST_PREFIX_STATE_REUSE_PREFLIGHT"
+  },
+  "limitations": "Train-side query-grouped OOF on a traced design cohort. Threshold grid was frozen before analysis. No sealed split was read.",
+  "sealed_sets_read": false
+}

@@ -1,0 +1,38 @@
+{
+  "protocol": "V17-STOP-C2-COST_PREFIX_STATE_REUSE_PREFLIGHT",
+  "queries": 256,
+  "policy": "B1 native-confidence OOF threshold 0.95",
+  "prompt_rendering": "Canonical context is re-rendered in original packet-index order; later states are not simple token append operations.",
+  "per_depth": {
+    "6": {
+      "pairs": 256,
+      "mean_early_prompt_tokens": 435.17578125,
+      "mean_depth10_prompt_tokens": 780.40234375,
+      "mean_longest_common_prefix_tokens": 150.55859375,
+      "mean_depth10_prompt_fraction_reusable": 0.20252008477491099
+    },
+    "7": {
+      "pairs": 512,
+      "mean_early_prompt_tokens": 503.9375,
+      "mean_depth10_prompt_tokens": 780.40234375,
+      "mean_longest_common_prefix_tokens": 185.23828125,
+      "mean_depth10_prompt_fraction_reusable": 0.24623357706447446
+    },
+    "9": {
+      "pairs": 256,
+      "mean_early_prompt_tokens": 670.015625,
+      "mean_depth10_prompt_tokens": 780.40234375,
+      "mean_longest_common_prefix_tokens": 354.37890625,
+      "mean_depth10_prompt_fraction_reusable": 0.45926808900968696
+    }
+  },
+  "fallback_requests": 793,
+  "current_extra_target_tokens_per_query_vs_depth10": 1540.19921875,
+  "optimistic_exact_lcp_prefill_tokens_saved_per_query": 726.75390625,
+  "residual_extra_target_tokens_per_query_vs_depth10": 813.4453125,
+  "exact_current_prompt_kv_reuse_restores_compute_pareto": false,
+  "decision": "STOP_C2_COST_UNDER_CURRENT_PROMPT_RENDERING",
+  "next_contract_question": "Changing to V8 reveal-order append-only rendering could increase KV reuse but changes token order and Target behavior; it requires a new paired quality/cost baseline rather than being treated as a serving-only optimization.",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

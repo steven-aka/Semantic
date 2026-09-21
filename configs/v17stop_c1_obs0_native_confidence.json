@@ -1,0 +1,30 @@
+{
+  "protocol": "V17-STOP-C1-OBS0_NATIVE_CONFIDENCE_TWO_STAGE",
+  "status": "FROZEN_TRACE_DESIGN_COHORT",
+  "population": "256 deterministic natural queries from train1421 excluding the 32 C2A trace-preflight IDs; queries are design-exposed but native traces are new",
+  "selection_salt": "STOP-C1-OBS0|",
+  "sample_size": 256,
+  "depths": [6, 7, 9, 10],
+  "early_depths": {"0.6": 6, "0.7": 7, "0.8": 7, "0.9": 9, "0.95": 10},
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "batch_size": 32,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "temperature": 0.0,
+  "logprobs_top_k": 2,
+  "gpu": 0,
+  "oof_folds": 4,
+  "classifier": "Train-fold StandardScaler plus zero-init linear sigmoid, Adam lr=0.05 for 500 full-batch steps, L2=1e-4, no class weighting",
+  "fixed_stop_probability_thresholds": [0.5, 0.7, 0.8, 0.9, 0.95, 0.98, 0.99],
+  "quality_noninferiority_pp": 1.0,
+  "minimum_oracle_context_saving_capture": 0.25,
+  "collection_contract": [
+    "Generate answer, fidelity label and native confidence trace in the same traced call.",
+    "Treat traced inference as the canonical C1 path; never join traces to old cached labels.",
+    "Use natural deterministic query selection without outcome stratification.",
+    "Keep fold4=611, B2B581, internal300, development and confirmation sealed.",
+    "Collection authorizes only query-grouped OOF B0/B1/B2 diagnostics and two-stage replay; it is not confirmation."
+  ]
+}

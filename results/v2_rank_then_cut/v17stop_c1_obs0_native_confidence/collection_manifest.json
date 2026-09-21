@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-STOP-C1-OBS0_NATIVE_CONFIDENCE_TWO_STAGE",
+  "queries": 256,
+  "depths": [
+    6,
+    7,
+    9,
+    10
+  ],
+  "trace_states": 1024,
+  "target_calls": 1024,
+  "selection_role": "natural deterministic design cohort; queries previously design-exposed, traces newly collected",
+  "excluded_preflight_queries": 32,
+  "sealed_sets_read": false
+}

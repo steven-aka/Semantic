@@ -2828,3 +2828,26 @@ be joined to newly collected traces: outcomes and traces must be generated
 together under one recorded execution manifest. This is a new white-box
 observation contract, not a continuation of the failed standard text-output
 API claim.
+
+### C1-OBS0 and C2-COST outcome
+
+The corrected aggressive-checkpoint-to-depth10 two-stage oracle has sufficient
+headroom, so native confidence was tested on a 256-query same-call traced
+design cohort. Native confidence contains a real but insufficient signal: the
+native-only 0.95 threshold satisfies the frozen quality tolerance and captures
+33.1% of final-context oracle saving, but costs 1,540.20 more Target tokens per
+query than direct depth10. Output-only and combined ablations do not pass. The
+formal C1 decision is `STOP_C1_NATIVE_CONFIDENCE`; do not tune thresholds,
+features or classifier capacity on this cohort.
+
+Current prompt rendering also prevents KV-state reuse from restoring compute
+Pareto. Exact longest-common-prefix reuse can optimistically recover 726.75
+tokens/query, leaving a residual 813.45-token deficit. Decision:
+`STOP_C2_COST_UNDER_CURRENT_PROMPT_RENDERING`. Making V8 reveals literal token
+appends would alter evidence order and Qwen3-8B behavior and therefore requires
+a separately frozen paired quality/cost contract. The other scientifically
+distinct alternative is `C2-OBS_INTERNAL`, which permits read-only frozen
+Target hidden-state uncertainty and tests whether stronger observability can
+approach the positive two-stage compute oracle with far fewer fallbacks. Do
+not open either branch without naming the contract change; neither may be
+presented as the original standard text-output API method.

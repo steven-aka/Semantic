@@ -4625,3 +4625,38 @@ accounting. Therefore the conjunctive legality gate gives
 Target calls are not authorized. Latent memory remains a possible separately
 named research project only if the lossless/text-API scope is explicitly
 changed.
+
+### V17-STOP-C1 native-confidence two-stage result
+
+The corrected stopping question is valuable: stop at the aggressive checkpoint
+when it is already sufficient, otherwise rescue at depth10. On all 1,421 fresh
+canonical chains, its zero-call oracle saves 815.51 final-context tokens/query
+(25.56%) and 378.60 fully charged Target tokens/query (9.42%) relative to
+depth10, with 1.164 calls per attainable request. It raises anchor-success sum
+from 6,191 to 6,345 and Complete from 1,123 to 1,142 by preserving early
+answers that later roll back. This authorized a native-confidence design
+cohort, not a deployable policy.
+
+We generated 1,024 same-call traced states at d6/d7/d9/d10 for 256 naturally
+selected train queries, excluding all 32 earlier trace-preflight queries.
+Answers, F1, token log-probabilities and costs came from the same traced path.
+Four-fold query-grouped OOF compared output-only (B0), native-only (B1), and
+combined (B2) linear scores over thresholds frozen before analysis. No system
+passed quality, context-capture and real Target-compute gates; formal decision:
+`STOP_C1_NATIVE_CONFIDENCE`.
+
+Native-only at threshold 0.95 is diagnostically useful. It gives
+0.60--0.95 counts `245/245/243/219/183` and Complete 182, versus depth10
+`245/244/242/220/183` and Complete 183, while capturing 33.1% of the oracle
+final-context saving. But repeated calls raise Target compute from 4,185.21 to
+5,725.41 tokens/query. B0 has no quality-qualified point and B2 does not pass,
+so this is partial observability rather than a successful method.
+
+An exact prompt-prefix reuse preflight closes the cheap systems rescue under
+the current rendering. Because context is re-rendered in original packet-index
+order, early and depth10 prompts share only 20.3% (d6), 24.6% (d7), or 45.9%
+(d9) of the depth10 token prefix. Even optimistically reusing every common
+prefix token saves only 726.75 tokens/query at the B1 point, leaving it 813.45
+Target tokens/query more expensive than direct depth10. Decision:
+`STOP_C2_COST_UNDER_CURRENT_PROMPT_RENDERING`. Reveal-order prompt rendering
+would be a behavior-changing contract, not a free serving optimization.

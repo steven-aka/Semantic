@@ -1,0 +1,23 @@
+{
+  "protocol": "V17-STOP-C1-C0B_TWO_STAGE_ORACLE",
+  "early_depths": {
+    "0.6": 6,
+    "0.7": 7,
+    "0.8": 7,
+    "0.9": 9,
+    "0.95": 10
+  },
+  "fallback_depth": 10,
+  "inputs": {
+    "per_prefix_glob": "results/v2_rank_then_cut/v17canon_p0_fresh_v8_prefix_chain/shard_*_of_3/per_prefix.jsonl",
+    "per_query": "results/v2_rank_then_cut/v17canon_p0_fresh_v8_prefix_chain/per_query.jsonl"
+  },
+  "rules": [
+    "For each attainable fidelity, call the fixed aggressive checkpoint first.",
+    "A clairvoyant oracle stops at the early checkpoint iff its fresh paired F1 reaches the requested fidelity; otherwise it calls depth10.",
+    "Depth10 requests make exactly one call.",
+    "Charge prompt plus generated tokens for every call; charge selected prefix context tokens for final-context accounting.",
+    "This is a hindsight ceiling and supplies no deployable decision rule.",
+    "Use no sealed split and make no new Target calls."
+  ]
+}
