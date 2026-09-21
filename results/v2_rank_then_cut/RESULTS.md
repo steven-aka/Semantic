@@ -4886,3 +4886,19 @@ a Qwen3-8B port requires compressor training. Decision:
 This is an asset/interface result rather than a negative performance result.
 The KV-versus-embedding carrier hypothesis is retained for a future authorized
 training phase; no run is started. [Report](frontier_r2_500x_eligibility_audit/REPORT.md).
+
+### FRONTIER-R1 training-free extractive controls (Screen-64)
+
+Sentence-level BM25 and deterministic-random extraction were evaluated on the
+same complete original contexts, exact Qwen3 token budgets, and frozen Qwen3-8B.
+At approximately 2x compression, BM25 obtained mean F1 0.5541 and 7/64 0.90
+successes, while random extraction obtained 0.6008 and 3/64, versus the fresh
+uncompressed control's 0.9495 and 53/64. At approximately 4x and 8x, BM25 had
+1/64 and 0/64 0.90 successes; random had 0/64 at both rates. Random extraction
+exceeded BM25 mean F1 at every matched budget, showing that lexical relevance
+alone is a poor proxy for this task's distributed answer coverage. Decision:
+`SAVE_AS_PAPER_BASELINES_NO_ESCALATION`; no larger run or training. This is a
+negative control, not a claim that every sparse retriever must fail.
+[Report](frontier_r1_training_free_extractors_screen64/REPORT.md) and
+[summary](frontier_r1_training_free_extractors_screen64/summary.json) preserve
+all aggregate results; per-query contexts and Target outputs are also saved.

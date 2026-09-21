@@ -287,3 +287,15 @@ Llama-2，该结果严格标为mechanism port。在requested keep=0.50（actual
 但mean F1从0.9495降至0.1888，0.90 success从53/64降至0/64，并产生10个
 空摘要。决定为`STOP_RECOMP_ABSTRACTIVE_AFTER_SCREEN64`。这说明跨域失败点
 是faithfulness而非compactness，不能外推为域内训练版本不可能。
+
+### 13.4 无训练抽取对照：BM25 与确定性随机抽取
+
+在相同Screen-64、完整原始context、Qwen3实际token预算和冻结Qwen3-8B下，
+句子级BM25在约2×压缩时得到mean F1 0.5541、0.90 success 7/64；确定性随机
+抽取得到0.6008、3/64。fresh未压缩对照为0.9495、53/64。在约4×/8×压缩时，
+BM25的0.90 success为1/64与0/64，随机抽取均为0/64。随机抽取在三个匹配
+预算上的mean F1均高于BM25，说明词项相关性不足以代理QAMPARI所需的分散
+答案覆盖。两者作为论文负对照保存，不扩大实验、不触发训练；这一结果不能
+外推为所有稀疏检索器均不可能成功。完整结果见
+[report](results/v2_rank_then_cut/frontier_r1_training_free_extractors_screen64/REPORT.md)
+与[summary](results/v2_rank_then_cut/frontier_r1_training_free_extractors_screen64/summary.json)。

@@ -1,0 +1,76 @@
+{
+  "protocol": "FRONTIER-R1-TRAINING-FREE-EXTRACTORS-SCREEN64",
+  "baseline_mean_f1": 0.949470382208427,
+  "baseline_success_090": 53,
+  "results": [
+    {
+      "arm": "bm25",
+      "requested_keep_rate": 0.125,
+      "mean_actual_keep_rate": 0.12368986477813487,
+      "mean_context_tokens": 99.828125,
+      "mean_f1": 0.22077141608391612,
+      "delta_f1": -0.7286989661245111,
+      "success_090": 0,
+      "repairs_090": 0,
+      "breaks_090": 53
+    },
+    {
+      "arm": "bm25",
+      "requested_keep_rate": 0.25,
+      "mean_actual_keep_rate": 0.24856835957983198,
+      "mean_context_tokens": 200.484375,
+      "mean_f1": 0.34650266206961255,
+      "delta_f1": -0.602967720138815,
+      "success_090": 1,
+      "repairs_090": 0,
+      "breaks_090": 52
+    },
+    {
+      "arm": "bm25",
+      "requested_keep_rate": 0.5,
+      "mean_actual_keep_rate": 0.4983706494724932,
+      "mean_context_tokens": 401.953125,
+      "mean_f1": 0.554077511916618,
+      "delta_f1": -0.3953928702918094,
+      "success_090": 7,
+      "repairs_090": 1,
+      "breaks_090": 47
+    },
+    {
+      "arm": "random",
+      "requested_keep_rate": 0.125,
+      "mean_actual_keep_rate": 0.12339315578860545,
+      "mean_context_tokens": 99.71875,
+      "mean_f1": 0.24742965367965372,
+      "delta_f1": -0.702040728528774,
+      "success_090": 0,
+      "repairs_090": 0,
+      "breaks_090": 53
+    },
+    {
+      "arm": "random",
+      "requested_keep_rate": 0.25,
+      "mean_actual_keep_rate": 0.2477535239226891,
+      "mean_context_tokens": 200.078125,
+      "mean_f1": 0.3984013076384399,
+      "delta_f1": -0.5510690745699877,
+      "success_090": 0,
+      "repairs_090": 0,
+      "breaks_090": 53
+    },
+    {
+      "arm": "random",
+      "requested_keep_rate": 0.5,
+      "mean_actual_keep_rate": 0.4971134210020907,
+      "mean_context_tokens": 400.859375,
+      "mean_f1": 0.6008368357354381,
+      "delta_f1": -0.348633546472989,
+      "success_090": 3,
+      "repairs_090": 0,
+      "breaks_090": 50
+    }
+  ],
+  "decision": "SAVE_AS_PAPER_BASELINES_NO_ESCALATION",
+  "new_target_calls": 384,
+  "sealed_sets_read": false
+}

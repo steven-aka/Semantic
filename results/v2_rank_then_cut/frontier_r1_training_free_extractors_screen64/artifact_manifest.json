@@ -1,0 +1,21 @@
+{
+  "protocol": "FRONTIER-R1-TRAINING-FREE-EXTRACTORS-SCREEN64",
+  "files": {
+    "compressed.jsonl": {
+      "sha256": "7679e4973bf4a5548cd69310e690930efba231fbd987fe88ecd0fd576562b334",
+      "bytes": 494866
+    },
+    "target_outputs.jsonl": {
+      "sha256": "d04eb1f50fc1eed953a617c74f9af640ff6ec9597112aa9f47f7845c8883d91c",
+      "bytes": 177882
+    },
+    "summary.json": {
+      "sha256": "5b60a7cdfc12d49f932aa68b11a02bd47347d3ab86f3cb951bd4ddf3134b8f06",
+      "bytes": 2120
+    },
+    "run.log": {
+      "sha256": "489d349438112b0f5b7fab47a1d56439ee21e505f062b959a2a6d1eec56d3477",
+      "bytes": 16317
+    }
+  }
+}
