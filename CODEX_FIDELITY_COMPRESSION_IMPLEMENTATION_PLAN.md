@@ -2533,3 +2533,15 @@ frontier. A one-action-per-query policy replay cannot estimate missed oracle
 opportunities without a separately preregistered candidate-enumeration
 subset. Results and detailed limitations are in
 `results/v2_rank_then_cut/RESULTS.md`.
+
+REP-A2 tested the proposed answer-support state before training it. In the
+design-exposed SLOT-B0 pilot, only 2/16 repair actions explicitly assert the
+whole requested relation in the inserted title+sentence, while four
+clear-support controls include a continuous-F1 loss. The current regex
+sentence splitter also yields 227/1485 R1 candidates of at most three word
+tokens. These observations do not rule out support as an auxiliary feature,
+but they reject automatically treating block-level gold proof provenance as
+sentence-level positive labels or deploying support-per-token scheduling on
+every query. Any support annotation used for learning needs blinded human
+validation, title-shortcut control, and query-held-out incremental Target-
+utility evidence beyond V8 STAY before new Target labeling or model training.

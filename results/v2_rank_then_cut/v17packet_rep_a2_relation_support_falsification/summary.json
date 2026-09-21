@@ -1,0 +1,42 @@
+{
+  "protocol": "REP-A2_POSTHOC_RELATION_SUPPORT_FALSIFICATION",
+  "scope": "all 21 decisive SLOT-B0 actions plus four clear-support controls",
+  "new_target_calls": 0,
+  "model_training": false,
+  "sealed_sets_read": false,
+  "relation_support_by_outcome": {
+    "repair": {
+      "none": 12,
+      "full": 2,
+      "partial": 2
+    },
+    "same_threshold_f1_gain": {
+      "full": 3
+    },
+    "break": {
+      "none": 5
+    },
+    "same_threshold_f1_loss": {
+      "full": 1
+    }
+  },
+  "full_support_repair_recall_on_annotated_actions": 0.125,
+  "r1_short_fragment_diagnostic": {
+    "total": 1485,
+    "break_total": 524,
+    "short_total": 227,
+    "break_short": 103,
+    "other_total": 905,
+    "other_short": 121,
+    "repair_total": 56,
+    "repair_short": 3
+  },
+  "judgment_contract": "Exact inserted title+sentence explicitly states every query relation for the titled answer; partial states only some; no inference from gold/proof block.",
+  "limitations": [
+    "Labels were inspected after outcomes were known; this is a necessary-condition check, not an unbiased predictive validation.",
+    "Only decisive actions and four controls are hand-reviewed; other 59 actions have no relation-support labels.",
+    "A single sentence may still change the Target through priming, entity cues, ordering, or interaction with existing prefix text.",
+    "Manual judgments need independent blinded review before use as a training set."
+  ],
+  "decision": "STOP_AUTOMATIC_PROOF_TO_SENTENCE_SUPPORT_LABELING; do not train support encoder from current block-level certificates"
+}

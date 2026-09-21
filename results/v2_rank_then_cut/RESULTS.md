@@ -4080,3 +4080,50 @@ independent estimate of deployment performance.
 [summary](v17eval_a0_alignment_audit/summary.json), and
 [per-query counts](v17eval_a0_alignment_audit/per_query.jsonl) preserve the
 read-only result.
+
+### V17-PACKET-REP-A2 relation-support necessary-condition audit
+
+Before training a `(query, answer, sentence)` support encoder, we hand-reviewed
+the exact inserted title and sentence for all **21** decisive SLOT-B0 actions
+(16 repair, five break), plus four clear-support controls. A `full` judgment
+requires the inserted text itself to explicitly assert **every** relation in
+the query for the titled answer; `partial` asserts only some conjuncts. This
+is a small, post-hoc falsification exercise, not independent support-label
+validation or a learned score.
+
+| Cached action outcome | Full relation support | Partial | No explicit full support |
+|---|---:|---:|---:|
+| 0.90 repair (16) | 2 | 2 | 12 |
+| 0.90 break (5) | 0 | 0 | 5 |
+| Four clear-support controls | 4 | 0 | 0 |
+
+Three controls improved continuous F1 without crossing the 0.90 threshold;
+the fourth lost F1 while staying in the same threshold class. For example, a
+sentence explicitly naming the cast member of the titled film can still
+reduce Target F1, whereas a one-word section heading or a sentence unrelated
+to the requested relation can coincide with a repair. The latter may act
+through title cues or interaction with prior context; these observations do
+not identify a causal mechanism. They *do* refute the strong claim that
+explicit new sentence-level relation support is necessary for most observed
+repairs or sufficient for safety in this action pool.
+
+The existing sentence splitter is another concrete action-quality issue:
+**227/1,485** R1 candidate fragments have at most three word tokens,
+including **3/56** threshold-repair actions and **103/524** threshold-break
+actions when all candidates are counted (the earlier 511-break figure applies
+only to no-extra-context eligible actions). Abbreviation splitting and bare
+headings are visible in the reviewed texts. Fragment length alone is not a
+validated safety score, and filtering these actions would require a new
+frozen action contract and paired Target comparison.
+
+Decision: `STOP_AUTOMATIC_PROOF_TO_SENTENCE_SUPPORT_LABELING`. The block-level
+certificate and gold-answer title cannot supply trusted sentence-level
+entailment labels, and these post-hoc 25 judgments cannot train or validate
+an encoder. A blinded, independently reviewed support annotation could still
+be useful as an auxiliary feature study, but it must first show incremental
+query-held-out Target-utility signal beyond title and V8 STAY. Do not switch
+all queries to support-per-token scheduling on this evidence. No new Target
+calls, training, or sealed-set access occurred. [Script](../../src/evaluation/v17packet_rep_a2_relation_support_falsification.py),
+[summary](v17packet_rep_a2_relation_support_falsification/summary.json), and
+[inspectable judgments](v17packet_rep_a2_relation_support_falsification/per_action.jsonl)
+preserve the audit.
