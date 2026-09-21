@@ -31,6 +31,7 @@ original-context arm for attribution.
 | `frontier_r1_recomp_abstractive` | official RECOMP NQ abstractive zero-shot |
 | `recomp_qampari_abstractive_data`, `generate_recomp_qampari_teacher`, `filter_recomp_qampari_teacher`, `train_recomp_qampari_abstractive` | QAMPARI-domain RECOMP-style abstractive distillation and training |
 | `train_xrag_qwen3_projector` | xRAG-style one-token projector port with frozen Qwen3-8B Target |
+| `evaluate_recomp_qampari_abstractive`, `evaluate_xrag_qwen3_projector` | held-out Screen-64 evaluation for the two trained baselines |
 | `frontier_r1_training_free_extractors` | BM25 and deterministic-random controls |
 | `recomp_qampari_data` | train-only supervision builder for RECOMP adaptation |
 | `train_recomp_qampari_extractive` | learned RECOMP-style compressor; Target absent |
