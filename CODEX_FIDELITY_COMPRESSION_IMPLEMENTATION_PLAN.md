@@ -2883,3 +2883,14 @@ token-ID prefix correctness preflight and then a small paired depth10 order
 test. It does not authorize adaptive C3 collection: only about 1.6 percentage
 points remain above the 2% deployment gate before real cache overhead and
 latency are charged.
+
+C3-P1 passed exact token-prefix and source-preservation checks on all 256
+design queries. C3-P2 nevertheless failed the binding order-quality gate under
+a corrected single-variable comparison that preserved the canonical chat
+template and question suffix. Reveal-order depth10 changed five-anchor counts
+from `123/122/121/108/88` to `121/120/118/109/83`; Complete changed 99 to 101.
+Decision: `STOP_C3_ORDER_PERTURBATION`. The cache microbenchmark and adaptive
+C3 are not authorized, and ordering must not be retrained to accommodate the
+cache. Under the frozen Target, literal appendability conflicts with quality
+at several anchors, so the adaptive-stopping family is closed under the tested
+text contracts.

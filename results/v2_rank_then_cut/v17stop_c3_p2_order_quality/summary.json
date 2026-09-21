@@ -1,0 +1,35 @@
+{
+  "protocol": "V17-STOP-C3-P2_ORDER_PERTURBATION",
+  "queries": 128,
+  "single_variable": "packet block order only; canonical chat template and question-after-context suffix preserved",
+  "results": {
+    "canonical": {
+      "success": {
+        "0.6": 123,
+        "0.7": 122,
+        "0.8": 121,
+        "0.9": 108,
+        "0.95": 88
+      },
+      "complete": 99,
+      "mean_prompt_tokens": 789.328125,
+      "mean_generated_tokens": 57.65625
+    },
+    "reveal": {
+      "success": {
+        "0.6": 121,
+        "0.7": 120,
+        "0.8": 118,
+        "0.9": 109,
+        "0.95": 83
+      },
+      "complete": 101,
+      "mean_prompt_tokens": 799.3203125,
+      "mean_generated_tokens": 56.3515625
+    }
+  },
+  "quality_gate_pass": false,
+  "decision": "STOP_C3_ORDER_PERTURBATION",
+  "target_calls": 256,
+  "sealed_sets_read": false
+}

@@ -1,0 +1,10 @@
+{
+  "protocol": "V17-STOP-C3-P1_TOKEN_PREFIX_CORRECTNESS",
+  "queries": 256,
+  "prefix_correct": 256,
+  "source_preserved": 256,
+  "all_pass": true,
+  "serialization": "fixed query/instruction header + tokenized exact packet chunks in V8 reveal order separated by two newlines + separately tokenized fixed chat generation suffix",
+  "decision": "GO_C3_P2_ORDER_PERTURBATION",
+  "new_target_calls": 0
+}

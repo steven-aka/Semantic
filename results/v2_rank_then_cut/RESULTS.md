@@ -4692,3 +4692,16 @@ compute is 4,034.50 versus 4,185.21 tokens/query for direct depth10, a saving
 of 150.71 or **3.60%**. Final context remains 3,055.59 tokens/query. This
 passes the 2% gate and yields `GO_C3_PREFIX_TOKEN_PREFLIGHT`, but assumes zero
 cache-management overhead and leaves only a narrow deployment margin.
+
+C3-P1 then constructed one component-tokenized serialization with an exact
+fixed header, unchanged packet text in V8 reveal order, fixed delimiters and a
+separate canonical generation/question suffix. All 256/256 design queries
+satisfied token-ID `P6 < P7 < P9 < P10` prefix checks and source preservation.
+The corrected C3-P2 paired depth10 test held the chat template, question suffix,
+packet set, backend and decoding fixed; only block order changed. On 128 design
+queries, canonical versus reveal-order success counts were respectively
+`123/122/121/108/88` and `121/120/118/109/83`, while Complete was 99 versus
+101. The losses at 0.60, 0.70, 0.80 and especially 0.95 exceed the frozen
+one-percentage-point tolerance. Decision: `STOP_C3_ORDER_PERTURBATION`.
+Do not run the real-cache microbenchmark, adaptive C3, or relearn an ordering
+for cacheability. This is direct evidence of a quality--cacheability conflict.
