@@ -1,0 +1,9 @@
+{
+  "input_rows": 32,
+  "kept_rows": 30,
+  "keep_fraction": 0.9375,
+  "minimum_answer_recall": 0.6,
+  "max_target_tokens": 256,
+  "mean_answer_recall": 0.8906249999999999,
+  "mean_summary_tokens": 118.3125
+}

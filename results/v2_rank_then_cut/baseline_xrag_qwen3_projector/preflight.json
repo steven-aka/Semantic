@@ -1,0 +1,12 @@
+{
+  "protocol": "BASELINE-XRAG-QWEN3-PROJECTOR-V1",
+  "mode": "preflight",
+  "loss": 6.146430969238281,
+  "projector_trainable_parameters": 19931136,
+  "projector_gradients_finite": true,
+  "target_parameter_grads": 0,
+  "target_hash_unchanged": true,
+  "retriever_trainable": false,
+  "latent_context_tokens": 1,
+  "peak_cuda_bytes": 19446410240
+}

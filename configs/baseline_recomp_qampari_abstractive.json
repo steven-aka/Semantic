@@ -1,0 +1,23 @@
+{
+  "protocol": "BASELINE-RECOMP-QAMPARI-ABSTRACTIVE-V1",
+  "status": "FROZEN_BEFORE_TRAINING",
+  "target": "models/Qwen3-8B",
+  "target_trainable": false,
+  "compressor_initialization": "models/recomp-nq-abstractive",
+  "teacher": "models/Qwen3-14B",
+  "qualification": "RECOMP-style QAMPARI in-domain distillation; not an official QAMPARI checkpoint",
+  "train_source": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_train_clean.jsonl",
+  "validation_source": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_inner_validation.jsonl",
+  "max_source_length": 1024,
+  "max_target_length": 256,
+  "teacher_max_new_tokens": 192,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 4,
+  "epochs": 3,
+  "learning_rate": 0.00003,
+  "weight_decay": 0.01,
+  "seed": 20260921,
+  "selection": "validation loss",
+  "screen_evaluation": "held-out Screen-64; frozen Qwen3-8B",
+  "sealed_sets": ["lineage_holdout_581", "internal300", "development", "confirmation"]
+}
