@@ -1,0 +1,18 @@
+{
+  "protocol": "SEM-E0P_PROPOSITION_BACKED_PREFLIGHT",
+  "proof_objects": 19,
+  "sentence_witness_length": {
+    "min": 22,
+    "median": 54,
+    "max": 83,
+    "le16": 0,
+    "le24": 1,
+    "le32": 4
+  },
+  "available_dependency_or_srl_runtime": false,
+  "interpretation": "Offsets and complete sentences establish provenance but not entailment. No reproducible dependency/SRL runtime is installed, so a fresh automatic proposition gate is not yet authorized.",
+  "decision": "STOP_BEFORE_FRESH_E0C2_IMPLEMENT_OR_FREEZE_PROPOSITION_LINK_VALIDATOR",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

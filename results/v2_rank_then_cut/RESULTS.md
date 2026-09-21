@@ -3949,14 +3949,27 @@ SEM-E0 tested the proposed `relation first -> construct -> minimize` ordering on
 the exposed D0.5 cohort before spending a fresh cohort. A question-only parser
 covered all 96 queries, but this was syntactic template coverage rather than a
 semantic success metric. The slot-first constructor emitted 40 candidates;
-adding answer-type/domain cues reduced this to 29. AI-assisted design review
-found only 21/29 (72.4%) closed. Errors included missing domain constraints,
+adding answer-type/domain cues reduced this to 29. A stricter second-pass
+AI-assisted design review found only 19/29 (65.5%) closed all relations and
+domain constraints. Errors included missing domain constraints,
 predicate mismatches, and a proposition-linkage failure in which joining a
 document title to a source fragment changed the fragment's subject. E0C was
 therefore not run. The next admissible implementation must preserve explicit
 subject-predicate-object/constraint linkage and store inspectable offsets for
 every claimed witness. No Teacher/Target calls or sealed-set reads occurred.
 See the [SEM-E0 report](v17sem_e0_slot_first_source_backed/REPORT.md).
+
+### V17-SEM-E0P proposition-backed preflight
+
+E0P upgraded the design object from matching tokens to a source proposition
+with offsets and an explicit linkage type. For the 19 surviving E0 designs,
+using the entire enclosing source sentence as a conservative provenance witness
+required a median 54 Qwen3-8B tokens (range 22–83); 0/19 fit 16 tokens, 1/19 fit
+24, and 4/19 fit 32. These are upper bounds on minimal closure length, not proof
+that compact clauses cannot exist. The result exposes the missing component:
+reliable clause/proposition extraction. The current environment has no frozen
+dependency/SRL runtime, and offsets alone do not prove entailment. Fresh E0C2
+was therefore not opened. No Teacher/Target calls or sealed-set reads occurred.
 provide the reviewable next step.
 
 ### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit

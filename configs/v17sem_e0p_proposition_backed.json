@@ -1,0 +1,18 @@
+{
+  "protocol": "SEM-E0P_PROPOSITION_BACKED_CONSTRUCTOR_PREFLIGHT",
+  "status": "DESIGN_ONLY_BEFORE_FRESH_E0C2",
+  "proof_object": ["subject_span", "predicate_span", "object_spans", "constraint_spans", "source_sentence_offsets", "link_type"],
+  "allowed_links": ["SAME_CLAUSE", "DOCUMENT_ENTITY_PLUS_EXPLICIT_CLAUSE", "EXPLICIT_APPOSITION", "EXPLICIT_COREFERENCE"],
+  "unknown_or_implicit_link": "ABSTAIN",
+  "length_diagnostics": [16, 24, 32],
+  "fresh_gate_if_authorized": {
+    "point_precision_min": 0.95,
+    "wilson_precision_lower_bound_min": 0.80,
+    "eligible_recall_min": 0.50,
+    "minimum_emissions": 40
+  },
+  "free_fact_generation": false,
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

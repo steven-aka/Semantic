@@ -9,7 +9,7 @@
 {"audit_id": 29, "valid_relation_closure": true, "failure": null, "candidate": "Panic in the City ; stars howard duff,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 36, "valid_relation_closure": true, "failure": null, "candidate": "Kevin of the North ; stars skeet ulrich,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 37, "valid_relation_closure": true, "failure": null, "candidate": "Reg Whitehouse ; played for the saskatchewan roughriders", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
-{"audit_id": 40, "valid_relation_closure": true, "failure": null, "candidate": "Abdoulaye Diallo ; joined efl championship side nottingham forest", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 40, "valid_relation_closure": false, "failure": "CONSTRAINT_MISSING_SUMMER_2020_TRANSFER", "candidate": "Abdoulaye Diallo ; joined efl championship side nottingham forest", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 41, "valid_relation_closure": true, "failure": null, "candidate": "Francisco J. Ayala ; awarded the templeton prize.", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 42, "valid_relation_closure": true, "failure": null, "candidate": "Chakoram ; stars shanthi krishna", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 43, "valid_relation_closure": true, "failure": null, "candidate": "The Mirror Crack'd ; stars angela lansbury, kim novak,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
@@ -22,7 +22,7 @@
 {"audit_id": 67, "valid_relation_closure": true, "failure": null, "candidate": "Racing Stripes ; stars hayden panettiere,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 70, "valid_relation_closure": true, "failure": null, "candidate": "Golden Bisquits ; album) by american rock band three dog night,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 73, "valid_relation_closure": false, "failure": "CONSTRAINT_MISSING_MISSOURI", "candidate": "Bellefontaine Neighbors ; city in st. louis county,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
-{"audit_id": 76, "valid_relation_closure": true, "failure": null, "candidate": "Grängesberg ; locality situated in ludvika municipality,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 76, "valid_relation_closure": false, "failure": "CONSTRAINT_MISSING_SWEDEN", "candidate": "Grängesberg ; locality situated in ludvika municipality,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 82, "valid_relation_closure": true, "failure": null, "candidate": "Chowka ; cast of prem kumar,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 85, "valid_relation_closure": true, "failure": null, "candidate": "Glyn Meredith ; played representative cricket for glamorgan county cricket club,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
 {"audit_id": 86, "valid_relation_closure": false, "failure": "PREDICATE_MISMATCH_DIRECTOR_VS_MUSIC_DIRECTOR", "candidate": "Chattakkari ; director g. devarajan", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}

@@ -9,10 +9,12 @@ The question-only parser represented all 96 design-exposed D0.5 questions in
 prove that the normalized relation is semantically correct.
 
 The first slot-first constructor emitted 40/96 candidates. Requiring an answer
-type/domain cue reduced this to 29/96. AI-assisted design review judged 21/29
-(72.4%) to close the requested relation. Eight failures remained:
+type/domain cue reduced this to 29/96. A stricter second pass of the
+AI-assisted design review judged 19/29 (65.5%) to close every requested
+relation and domain constraint. Ten failures remained:
 
-- missing country/domain constraints (Belize, Philippines, Missouri);
+- missing country/domain or temporal constraints (Belize, Philippines,
+  Missouri, Sweden, summer 2020);
 - `Higher Broughton` treated as exact `Broughton`;
 - absent or mismatched predicates (`Mush Records`, director vs music director);
 - missing answer-type/linkage evidence; and
