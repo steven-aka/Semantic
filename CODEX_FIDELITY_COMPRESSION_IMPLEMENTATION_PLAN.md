@@ -2714,3 +2714,13 @@ precision).  Provenance is therefore not the remaining bottleneck; explicit
 relation closure and calibrated ABSTAIN are.  Do not run SEM-D1 Target calls or
 tune a threshold on these exposed 96 items.  The next automatic method must be
 frozen from this design set and tested on a separate canonical-train cohort.
+
+SEM-D0.5 audited the 56 invalid D0 emissions and then evaluated a frozen
+precision-first relation verifier on 96 previously unused canonical train
+queries. The fresh gate found 77 legal source universes, but the verifier kept
+only 17 candidates, of which 16 were valid: precision 94.1% (Wilson lower bound
+73.0%) and eligible recall 20.8%. This fails every substantive gate except raw
+coverage. The broad `lexical window -> verifier` contract is therefore stopped;
+SEM-D1 Target calls remain prohibited. Any continuation must construct evidence
+from explicit query predicate/argument slots and exact source spans, and must
+pass a new frozen fresh-cohort closure gate before Target evaluation.

@@ -1,0 +1,14 @@
+{
+  "protocol": "SEM-D0.5_DESIGN_SET_SANITY_ONLY",
+  "design_exposed": true,
+  "input_emissions": 79,
+  "verified_emissions": 17,
+  "true_emissions": 17,
+  "precision": 1.0,
+  "precision_wilson_95": [
+    0.8156763396284354,
+    1.0
+  ],
+  "recall_among_valid_D0_emissions": 0.7391304347826086,
+  "note": "This result may guide implementation but cannot pass the fresh gate."
+}

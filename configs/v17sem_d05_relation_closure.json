@@ -1,0 +1,34 @@
+{
+  "protocol": "SEM-D0.5_RELATION_CLOSURE_VERIFIER",
+  "status": "FROZEN_AFTER_D0_ERROR_TAXONOMY_BEFORE_FRESH_VALIDATION_LABELS",
+  "design_set": "The 96-query SEM-D0 cohort is design-exposed and may only be used for taxonomy and rule design",
+  "fresh_population": "Previously unused canonical train queries, excluding every SEM-A0/B0/B1/C0/D0 query",
+  "candidate_contract": "One or two exact source spans in source order, joined by ' ; ', final evidence <=16 Qwen3-8B tokens",
+  "verifier_contract": [
+    "Parse the question into an answer type, required predicate(s), known argument(s), and explicit constraints",
+    "Verify every required predicate and argument from the serialized exact-source candidate alone",
+    "Do not resolve a truncated name, pronoun, title, or relation using text outside the serialized candidate",
+    "ABSTAIN for unknown schemas, missing arguments, missing constraints, ambiguous coreference, or unsupported conjunctions",
+    "The verifier may reject or abstain but may not generate or repair evidence"
+  ],
+  "evaluation": {
+    "primary": "precision among emitted compact-evidence candidates",
+    "secondary": ["recall among manually eligible queries", "emission coverage", "error taxonomy"],
+    "gate": {
+      "point_precision_min": 0.95,
+      "wilson_precision_lower_bound_min": 0.80,
+      "eligible_recall_min": 0.50,
+      "minimum_emissions": 20,
+      "minimum_coverage": 0.15
+    }
+  },
+  "notes": [
+    "The Wilson bound prevents a nominal 95% result on a tiny emitted sample from being treated as reliable.",
+    "Candidate-generation coverage and relation-closure precision are reported separately.",
+    "No Teacher or Target calls are permitted before this gate passes.",
+    "Human IAA is unavailable; any AI-assisted annotation must be reported as such."
+  ],
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

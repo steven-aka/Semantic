@@ -1,0 +1,22 @@
+{
+  "protocol": "SEM-D0.5A_RELATION_CLOSURE_ERROR_TAXONOMY",
+  "design_exposed_items": 96,
+  "invalid_emissions": 56,
+  "primary_failure_counts": {
+    "AMBIGUOUS_RELATION": 3,
+    "CONSTRAINT_MISSING": 5,
+    "CROSS_SPAN_UNRESOLVED": 1,
+    "MISSING_ARGUMENT": 13,
+    "MISSING_PREDICATE": 11,
+    "NO_RELEVANT_FACT": 15,
+    "WRONG_PREDICATE": 8
+  },
+  "truncation_contributed": 27,
+  "multi_constraint_queries": 29,
+  "interpretation": "The dominant failure is incomplete or irrelevant relation expression, not source provenance. Exact spans alone do not establish relation closure.",
+  "decision": "PROCEED_TO_FRESH_RELATION_CLOSURE_GATE_WITH_CONSERVATIVE_ABSTENTION",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false,
+  "human_iaa": "NOT_AVAILABLE"
+}

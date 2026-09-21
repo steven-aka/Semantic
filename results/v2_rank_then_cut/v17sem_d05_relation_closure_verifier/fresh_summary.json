@@ -1,0 +1,20 @@
+{
+  "protocol": "SEM-D0.5_FRESH_RELATION_CLOSURE_GATE",
+  "items": 96,
+  "source_universe_eligible": 77,
+  "generator_emissions": 90,
+  "verified_emissions": 17,
+  "valid_verified_emissions": 16,
+  "precision": 0.9411764705882353,
+  "precision_wilson_95": [
+    0.730174547964372,
+    0.9895398693548358
+  ],
+  "eligible_recall": 0.2077922077922078,
+  "coverage": 0.17708333333333334,
+  "decision": "STOP_OR_REDESIGN_RELATION_CLOSURE",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false,
+  "human_iaa": "NOT_AVAILABLE"
+}

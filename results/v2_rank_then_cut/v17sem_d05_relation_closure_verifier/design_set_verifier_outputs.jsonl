@@ -1,0 +1,79 @@
+{"audit_id": 1, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Trinetrudu ; reddy and produced by chiranjeevi himself and", "valid_compact_evidence": false}
+{"audit_id": 2, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Inside Man ; the nypd's hostage negotiator, clive owen", "valid_compact_evidence": false}
+{"audit_id": 4, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Karimpinpoovinakkare ; v. sasi, starring", "valid_compact_evidence": false}
+{"audit_id": 5, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Three Little Words ; ruby, along with vera-ellen and arlene dahl", "valid_compact_evidence": false}
+{"audit_id": 6, "schema": "PLAYED_FOR", "decision": "ABSTAIN", "candidate": "Christian Castillo ; Águila. After being released from d.c.", "valid_compact_evidence": false}
+{"audit_id": 7, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Bombay Talkies ; sequencing of the stories works and the pace is swift,", "valid_compact_evidence": false}
+{"audit_id": 8, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Alvise Cadamosto ; philip and james – probably an error)", "valid_compact_evidence": false}
+{"audit_id": 10, "schema": "LOCATED_IN", "decision": "EMIT", "candidate": "Center Theater ; center theater in hartsville, south carolina is a theater located", "valid_compact_evidence": true}
+{"audit_id": 12, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Kipps ; is believable as the hick; phyllis calvert", "valid_compact_evidence": false}
+{"audit_id": 13, "schema": "PLAYED_FOR", "decision": "EMIT", "candidate": "Hugh Cameron ; times before returning to scotland to play for st mirren.", "valid_compact_evidence": true}
+{"audit_id": 15, "schema": "BORN_IN", "decision": "ABSTAIN", "candidate": "George G. Sumner ; 1906) was an american politician", "valid_compact_evidence": false}
+{"audit_id": 16, "schema": "PLAYED_FOR", "decision": "ABSTAIN", "candidate": "Jorge Fábregas ; brewers. Fábregas played for the", "valid_compact_evidence": false}
+{"audit_id": 17, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Romain Saïss ; 1 before joining wolverhampton wanderers", "valid_compact_evidence": false}
+{"audit_id": 19, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Horseshoe Bend ; merced river in mariposa county, california", "valid_compact_evidence": false}
+{"audit_id": 23, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "All-Star Weekend ; jessica szohr, eva longoria,", "valid_compact_evidence": false}
+{"audit_id": 24, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "KLOU ; radio station with a classic hits format in st. louis,", "valid_compact_evidence": false}
+{"audit_id": 25, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Lake Oakland ; lake located in central oakland county in both waterford township and", "valid_compact_evidence": true}
+{"audit_id": 26, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Aston Manor Road Transport Museum ; museum occupied the former birmingham corporation tramways", "valid_compact_evidence": false}
+{"audit_id": 27, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Joplin ; state of missouri. joplin, officially known as", "valid_compact_evidence": false}
+{"audit_id": 28, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Tenebrae ; argento. The film stars anthony franciosa as", "valid_compact_evidence": true}
+{"audit_id": 29, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Licá ; on 1 august 2014, deemed surplus to", "valid_compact_evidence": false}
+{"audit_id": 30, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "2017 CS Tallinn Trophy ; isu challenger series. The", "valid_compact_evidence": false}
+{"audit_id": 31, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Bodaybo ; history. it was founded in 1864 and", "valid_compact_evidence": false}
+{"audit_id": 32, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Phir Bhi Dil Hai Hindustani ; and earned nett on its opening", "valid_compact_evidence": false}
+{"audit_id": 33, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Thirayum Theeravum ; the music was composed by g.", "valid_compact_evidence": false}
+{"audit_id": 34, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Public Enemies ; relationship with billie frechette (marion cotillard),", "valid_compact_evidence": true}
+{"audit_id": 35, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Kala Bazar ; chetan anand, nanda, rashid", "valid_compact_evidence": false}
+{"audit_id": 36, "schema": "BORN_IN", "decision": "EMIT", "candidate": "Charles Linsley ; linsley was born in cornwall, vermont", "valid_compact_evidence": true}
+{"audit_id": 37, "schema": "PLAYED_FOR", "decision": "ABSTAIN", "candidate": "Norma Metrolis ; lake worth, florida, norma started playing for", "valid_compact_evidence": false}
+{"audit_id": 38, "schema": "BORN_IN", "decision": "ABSTAIN", "candidate": "Elias Riggs Monfort ; 1842 at greensburg,", "valid_compact_evidence": false}
+{"audit_id": 39, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Desborough ; (in descending order) with the north northamptonshire unitary", "valid_compact_evidence": true}
+{"audit_id": 40, "schema": "BORN_IN", "decision": "ABSTAIN", "candidate": "Hugh McLenahan ; later, he was transferred to manchester united. born", "valid_compact_evidence": false}
+{"audit_id": 41, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Michael Asher ; lincolnshire, in 1953, and", "valid_compact_evidence": false}
+{"audit_id": 42, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "I Heart Huckabees ; mark wahlberg, and naomi watts).", "valid_compact_evidence": false}
+{"audit_id": 43, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Bobbili Brahmanna ; sharada and jayasudha as lead", "valid_compact_evidence": false}
+{"audit_id": 44, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Sarvann ; true roots. It stars amrinder gill,", "valid_compact_evidence": true}
+{"audit_id": 45, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Alejandro Moreno ; moreno was selected by vancouver whitecaps fc in the", "valid_compact_evidence": true}
+{"audit_id": 46, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Bristol Rovers ; the 1920–21 season,", "valid_compact_evidence": false}
+{"audit_id": 47, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Indiana ; law and government. indiana has a constitutional democratic republican form of government", "valid_compact_evidence": false}
+{"audit_id": 48, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Tail Spin ; kelly, joan davis, charles farrell and", "valid_compact_evidence": false}
+{"audit_id": 49, "schema": "ALBUM_BY", "decision": "ABSTAIN", "candidate": "Escape from Brooklyn ; by the american/danish hard rock band white lion,", "valid_compact_evidence": false}
+{"audit_id": 50, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Marshal of Laredo ; g. springsteen]]", "valid_compact_evidence": false}
+{"audit_id": 52, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Casa Grande Ruins National Monument ; history of the area. the national monument", "valid_compact_evidence": false}
+{"audit_id": 53, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Panakkaran ; the soundtrack was composed by ilaiyaraaja..", "valid_compact_evidence": false}
+{"audit_id": 54, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Alaska Airlines Flight 779 ; anchorage and shemya.", "valid_compact_evidence": false}
+{"audit_id": 55, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Follow the Boys ; lewis and his band, jeanette macdonald,", "valid_compact_evidence": false}
+{"audit_id": 56, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "The Wages of Sin ; sin is a bbc books original novel written by david", "valid_compact_evidence": false}
+{"audit_id": 57, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "The Citadel ; team, rotc, local law enforcement and the south carolina", "valid_compact_evidence": false}
+{"audit_id": 59, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Zeidan Atashi ; atashi studied arabic language and political science for a", "valid_compact_evidence": false}
+{"audit_id": 60, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Barbary Coast ; Robinson, and stars miriam hopkins in the leading", "valid_compact_evidence": true}
+{"audit_id": 61, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Stella Creasy ; 2015. Following the labour party's", "valid_compact_evidence": false}
+{"audit_id": 62, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Ashby ; is a triangular suburb and is bounded by wanneroo road to", "valid_compact_evidence": false}
+{"audit_id": 63, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Alex Jones ; birmingham city. after appearing in two under-21 matches", "valid_compact_evidence": false}
+{"audit_id": 64, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Snowden, Philip ; of a socialist utopia. he was the first labour", "valid_compact_evidence": false}
+{"audit_id": 65, "schema": "PLAYED_FOR", "decision": "EMIT", "candidate": "Éric Anselme ; played at club level for toulouse olympique", "valid_compact_evidence": true}
+{"audit_id": 66, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Earthquake ; and (under an alias) walter matthau.", "valid_compact_evidence": false}
+{"audit_id": 67, "schema": "BORN_IN", "decision": "ABSTAIN", "candidate": "Wiley Thompson ; thompson was elected as a democratic-republican to the", "valid_compact_evidence": false}
+{"audit_id": 69, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Aan Devathai ; film features samuthirakani, ramya", "valid_compact_evidence": true}
+{"audit_id": 70, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Lake Pocotopaug ; and census-designated place (cdp)", "valid_compact_evidence": false}
+{"audit_id": 71, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Haseenon Ka Devata ; The film stars sanjay khan,", "valid_compact_evidence": true}
+{"audit_id": 72, "schema": "ALBUM_BY", "decision": "EMIT", "candidate": "Anthems ; greatest hits album by australian country music artist john williamson", "valid_compact_evidence": true}
+{"audit_id": 75, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Riders of Destiny ; by wayne and director robert n.", "valid_compact_evidence": false}
+{"audit_id": 76, "schema": "BORN_IN", "decision": "ABSTAIN", "candidate": "Walter M. Higley ; and education. Higley was born", "valid_compact_evidence": false}
+{"audit_id": 78, "schema": "BORN_IN", "decision": "EMIT", "candidate": "Waitstill R. Ranney ; was born in chester, vermont on", "valid_compact_evidence": true}
+{"audit_id": 79, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Eno Onthara ; productions\" banner. The film stars ganesh,", "valid_compact_evidence": true}
+{"audit_id": 80, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Aag Aur Shola ; banner, written by kader khan and directed", "valid_compact_evidence": false}
+{"audit_id": 81, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Cleveland Rockers ; at the time also owned the nba's cleveland", "valid_compact_evidence": false}
+{"audit_id": 82, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Beyond the Pole ; mark benton, alexander skarsgård and", "valid_compact_evidence": false}
+{"audit_id": 84, "schema": "WRITTEN_BY", "decision": "EMIT", "candidate": "Who's Lovin' You ; The song was written by smokey robinson", "valid_compact_evidence": true}
+{"audit_id": 85, "schema": "BURIED_IN", "decision": "EMIT", "candidate": "Terry Turner ; was buried at knollwood cemetery in mayfield heights,", "valid_compact_evidence": true}
+{"audit_id": 87, "schema": "FILM_CAST", "decision": "ABSTAIN", "candidate": "Sudden Death ; agent, named john shaw (john ashley), has", "valid_compact_evidence": true}
+{"audit_id": 88, "schema": "BORN_IN", "decision": "ABSTAIN", "candidate": "Lucy Tayiah Eads ; personal life. Lucy tayiah was born", "valid_compact_evidence": false}
+{"audit_id": 89, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Submarine Patrol ; marine sentry. The supporting cast includes preston foster,", "valid_compact_evidence": true}
+{"audit_id": 90, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Arinthum Ariyamalum ; features navdeep, arya,", "valid_compact_evidence": true}
+{"audit_id": 91, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "David Almond ; 70th anniversary of the british carnegie medal", "valid_compact_evidence": false}
+{"audit_id": 93, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Sitka ; state of alaska. the city and borough of sitka", "valid_compact_evidence": true}
+{"audit_id": 94, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Centreville ; joseph county. state of michigan and the county seat", "valid_compact_evidence": false}
+{"audit_id": 95, "schema": "FILM_CAST", "decision": "EMIT", "candidate": "Imitation of Life ; turner and john gavin, and the cast also", "valid_compact_evidence": true}
+{"audit_id": 96, "schema": "UNKNOWN_OR_UNSUPPORTED_SCHEMA", "decision": "ABSTAIN", "candidate": "Tom Friendly ; on the american broadcasting company (abc) television series \"lost\".", "valid_compact_evidence": false}

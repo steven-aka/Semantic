@@ -3928,6 +3928,20 @@ entity while omitting the predicate that makes it an answer.  The frozen 95%
 precision gate fails, so SEM-D1 Target inference remains closed.  See the
 [SEM-D0 report](v17sem_d0_automatic_grounded_extractive/REPORT.md) and
 [summary](v17sem_d0_automatic_grounded_extractive/summary.json).
+
+### V17-SEM-D0.5 relation-closure verifier
+
+SEM-D0.5 decomposed all 56 invalid SEM-D0 emissions and tested a frozen,
+precision-first relation verifier on 96 previously unused canonical training
+queries. The fresh cohort contained 77 query/source pairs for which AI-assisted
+review found a legal closed extract under the 16-token contract. The verifier
+emitted 17 candidates: 16 were valid (94.1%; Wilson 95% lower bound 73.0%), for
+only 20.8% recall over eligible source universes. It failed the preregistered
+95% precision, 80% Wilson-lower-bound, 50% recall, and 20-emission gates. No
+Teacher/Target calls were made and SEM-D1 remains closed. The failure localizes
+the next problem to relation-directed span construction, rather than generic
+exact-span provenance or a looser verifier threshold. See the
+[SEM-D0.5 report](v17sem_d05_relation_closure_verifier/REPORT.md).
 provide the reviewable next step.
 
 ### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit
