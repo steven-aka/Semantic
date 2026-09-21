@@ -1,0 +1,34 @@
+{
+  "protocol": "TRAJ-M2A_BUDGET_NEUTRAL_PROMOTE_DELAY_PREFLIGHT",
+  "queries": 1421,
+  "m0b_eligible_queries": 951,
+  "query_with_rank7_exchange_candidates": 676,
+  "raw_nondeduplicated_pairs": 1701,
+  "budget_neutral_actions": 941,
+  "budget_neutral_queries": 508,
+  "queries_with_at_least_3_actions": 78,
+  "mean_legal_actions_per_eligible_query": 1.8523622047244095,
+  "depth7_token_delta_range": [
+    -86,
+    0
+  ],
+  "depth9_token_delta_range": [
+    -86,
+    0
+  ],
+  "cumulative_token_delta_range": [
+    -258,
+    0
+  ],
+  "affected_levels": [
+    0.7,
+    0.8,
+    0.9
+  ],
+  "structurally_unchanged_levels": [
+    0.6,
+    0.95
+  ],
+  "target_calls": 0,
+  "sealed_sets_read": false
+}

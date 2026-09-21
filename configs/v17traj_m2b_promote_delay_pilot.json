@@ -1,0 +1,20 @@
+{
+  "protocol": "TRAJ-M2B_BUDGET_NEUTRAL_PROMOTE_DELAY_PILOT",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "population": "SHA-first 128 legal M2A train queries outside M0C, M1, OBS-A1 and FRAG-B0; R1 action outcomes may have been observed but M2 actions have not",
+  "queries": 128,
+  "schedule": [6, 7, 7, 9, 10],
+  "action_rule": "M2A legal actions sorted by smallest absolute cumulative token change, then delayed sentence index; first three distinct contexts; first action is fixed rule",
+  "max_actions_per_query": 3,
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 32,
+  "temperature": 0.0,
+  "fidelity_epsilon": 0.000001,
+  "gate": "GO to query-grouped learnability design only if at least 12 no-anchor-break Complete repairs across at least two distinct baseline failure masks in the 128 fresh paired queries; do not train from this gate alone",
+  "sealed_sets_read": false,
+  "new_training": false
+}

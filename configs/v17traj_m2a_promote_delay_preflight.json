@@ -1,0 +1,13 @@
+{
+  "protocol": "TRAJ-M2A_BUDGET_NEUTRAL_PROMOTE_DELAY_PREFLIGHT",
+  "status": "FROZEN_ZERO_TARGET_CALL_AUDIT",
+  "population": "CANON-P0 train1421 V8 trajectories",
+  "schedule": [6, 7, 7, 9, 10],
+  "promote_rule": "Use the M0B outcome-blind shortest exact rank10 title-plus-sentence atom, without reselecting after Target outcomes",
+  "delay_rule": "Remove exactly one sentence from the rank7 packet proof when at least two proof sentences remain; restore the exact rank7 packet at depth10",
+  "validity_rule": "Different sentence text; exact S6 and depth10 recovery; actual rendered context tokens at depths7 and9 each <= V8, and five-level cumulative context tokens <= V8",
+  "max_actions_per_query_for_future_pilot": 3,
+  "target_model": "models/Qwen3-8B",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

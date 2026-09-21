@@ -1,0 +1,10 @@
+{
+  "protocol": "TRAJ_M2_095_ROLLBACK_LOCUS_ZERO_CALL",
+  "attainable_095_queries": 1131,
+  "depth10_success_depth12_failure": 179,
+  "first_failure_at_10_to_11": 73,
+  "first_failure_at_11_to_12": 106,
+  "new_target_calls": 0,
+  "sealed_sets_read": false,
+  "limitation": "This localizes the observed transition only; it does not identify a packet-level causal mechanism."
+}

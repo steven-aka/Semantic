@@ -4143,6 +4143,35 @@ necessary or rule out other action designs. [M1 report](v17traj_m1_low_cost_borr
 and [paired summary](v17traj_m1_low_cost_borrow/summary.json) preserve the
 protocol, data and caveats.
 
+### V17-TRAJ-M2 budget-neutral promote–delay exchange
+
+M2A froze a narrow extractive exchange: promote the same M0B rank10 atom
+at depth7 while delaying one rank7 proof sentence, then restore exact V8
+evidence at depth10. Costs were checked on **rendered token sequences**,
+not inferred from raw fragment lengths. Among 1,421 train trajectories,
+508 had at least one legal exchange, totaling 941 actions. The real
+`[6,7,7,9,10]` schedule means **0.70 can change**, contrary to the original
+proposal. Exact depth10 recovery means 0.95 is identical by construction.
+
+M2B prospectively tested 223 such actions on 128 SHA-selected train queries
+with 958 fresh paired Qwen3-8B calls. A fixed cost-nearest-zero action saved
+**36.35 cumulative context tokens/query** but changed Complete **52→44**:
+11 repairs and 19 breaks. It changed anchor successes from
+`[107,114,71,84,73]` to `[107,107,73,77,73]`, with marked 0.70 and 0.90
+regressions. The hindsight no-anchor-break oracle found **15 Complete
+repairs across five failure patterns**, passing the frozen action-space gate
+(`GO_M2_LEARNABILITY_DESIGN_ONLY`). This only establishes that some safe
+budget-neutral opportunities exist; it does not solve cross-query action
+selection or establish a deployable Pareto gain. [M2A report](v17traj_m2a_promote_delay_preflight/REPORT.md),
+[M2B report](v17traj_m2b_promote_delay_pilot/REPORT.md), and
+[M2B summary](v17traj_m2b_promote_delay_pilot/summary.json) contain the
+contract and paired outcomes.
+
+Separately, existing CANON-P0 prefix outputs locate 0.95 rollback among
+1,131 attainable train queries: 179 succeeded at depth10 but failed at
+depth12; 73 first failed at 10→11 and 106 at 11→12. This is a location
+audit, not a causal attribution to either late packet.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed

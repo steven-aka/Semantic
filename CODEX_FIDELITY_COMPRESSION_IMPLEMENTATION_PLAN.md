@@ -2622,3 +2622,25 @@ quality–token Pareto gain. The smaller sample limits strength of inference;
 this result does not establish that semantic rewriting is necessary. Preserve
 V8 as the reference while designing a genuinely distinct, costed action
 hypothesis, if the project's remaining untouched train data permits it.
+
+M2A/M2B then tested budget-neutral evidence timing exchange: promote the
+M0B rank10 fragment at depth7 while delaying exactly one sentence of the
+rank7 packet, restoring exact originals at depth10. This affects 0.70 as
+well as 0.80/0.90 under the actual `[6,7,7,9,10]` schedule; 0.95 is
+identical at depth10. Actual rendered-token checks found 941 legal actions
+on 508/1,421 train queries. A SHA-frozen 128-query paired Qwen3-8B pilot
+tested 223 actions: the fixed first action saved 36.35 cumulative context
+tokens/query but reduced Complete 52→44 (11 repairs, 19 breaks). Hindsight
+safe oracle found 15 Complete repairs across five failure masks, passing the
+pre-registered **action-space-only** gate. This is not deployed Pareto
+improvement and cannot be used as a selector checkpoint. R1 outcomes had
+previously been studied on some pilot queries, so this is a design-exposed
+research cohort. Before any learning, require a frozen STAY-aware,
+query-grouped validation protocol that tests whether the rare safe exchanges
+can be identified without increasing breaks. Do not infer semantic rewriting
+is mandatory if this particular exchange selector fails.
+
+A separate zero-call 0.95 locus audit on 1,131 attainable train queries
+found 179 depth10-success/depth12-failure cases: 73 first failed at 10→11
+and 106 at 11→12. That rules out treating rank10 borrowing or one late
+packet as an established 0.95 fix; mechanism identification remains open.

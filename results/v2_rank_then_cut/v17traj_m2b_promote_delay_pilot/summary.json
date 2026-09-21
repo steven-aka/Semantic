@@ -1,0 +1,31 @@
+{
+  "protocol": "TRAJ-M2B_BUDGET_NEUTRAL_PROMOTE_DELAY_PILOT",
+  "queries": 128,
+  "target_calls": 958,
+  "actions_tested": 223,
+  "baseline_success": [
+    107,
+    114,
+    71,
+    84,
+    73
+  ],
+  "fixed_success": [
+    107,
+    107,
+    73,
+    77,
+    73
+  ],
+  "baseline_complete": 52,
+  "fixed_complete": 44,
+  "fixed_complete_repairs": 11,
+  "fixed_complete_breaks": 19,
+  "safe_oracle_complete_repairs": 15,
+  "safe_oracle_failure_masks": 5,
+  "mean_fixed_cumulative_context_delta": -36.3515625,
+  "mean_fixed_cumulative_target_delta": -18.4765625,
+  "opportunity_gate": "GO_M2_LEARNABILITY_DESIGN_ONLY",
+  "sealed_sets_read": false,
+  "limitations": "Safe oracle chooses actions using forbidden Target outcomes; fixed action is a frozen deployment-visible rule. The 0.70 read at depth7 changes. Exact depth10 recovery makes 0.95 identical by construction."
+}
