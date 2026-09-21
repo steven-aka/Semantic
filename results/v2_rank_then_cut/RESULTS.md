@@ -4875,3 +4875,14 @@ would change the Target and invalidate direct comparison. Decision:
 eligibility result, not a negative xRAG performance result. No checkpoint was
 downloaded, no Target call or training occurred, and the possible learned
 carrier experiment is recorded but deferred. [Report](frontier_r2_xrag_eligibility_audit/REPORT.md).
+
+### FRONTIER-R2 500xCompressor eligibility audit
+
+The official repository states that its uploaded models are not public, while
+the released implementation and learned LoRA/compression parameters are tied
+to Meta-Llama-3-8B-Instruct. No official checkpoint can therefore be run, and
+a Qwen3-8B port requires compressor training. Decision:
+`BLOCK_500X_BASELINE_NO_PUBLIC_CHECKPOINT_AND_QWEN3_PORT_REQUIRES_TRAINING`.
+This is an asset/interface result rather than a negative performance result.
+The KV-versus-embedding carrier hypothesis is retained for a future authorized
+training phase; no run is started. [Report](frontier_r2_500x_eligibility_audit/REPORT.md).

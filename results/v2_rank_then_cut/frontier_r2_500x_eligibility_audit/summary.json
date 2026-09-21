@@ -1,0 +1,13 @@
+{
+  "protocol": "FRONTIER-R2-500X-ELIGIBILITY-AUDIT",
+  "official_repo_commit": "ff454a1669e8616698ff1c775aa6ab1db718bea8",
+  "paper": "arXiv:2408.03094 / ACL 2025 Main",
+  "official_backbone": "meta-llama/Meta-Llama-3-8B-Instruct",
+  "public_checkpoint_available": false,
+  "project_target": "models/Qwen3-8B",
+  "same_target_compatible_without_training": false,
+  "decision": "BLOCK_500X_BASELINE_NO_PUBLIC_CHECKPOINT_AND_QWEN3_PORT_REQUIRES_TRAINING",
+  "new_target_calls": 0,
+  "training_runs": 0,
+  "sealed_sets_read": false
+}
