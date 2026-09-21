@@ -1,0 +1,159 @@
+{
+  "protocol": "INSERT-C0_PRETARGET_CHEAP_PROXY_AUDIT",
+  "queries": 24,
+  "actions": 84,
+  "outcomes": {
+    "repair": 16,
+    "break": 5,
+    "same_threshold_f1_gain": 18,
+    "same_threshold_f1_loss": 5,
+    "unchanged": 40
+  },
+  "delta_f1_by_outcome": {
+    "repair": {
+      "mean": 0.07702850877192982,
+      "median": 0.05847953216374269,
+      "min": 0.05847953216374269,
+      "max": 0.19736842105263175
+    },
+    "break": {
+      "mean": -0.0862573099415205,
+      "median": -0.05847953216374269,
+      "min": -0.19736842105263175,
+      "max": -0.05847953216374269
+    },
+    "same_threshold_f1_gain": {
+      "mean": 0.07765343191264135,
+      "median": 0.05263157894736836,
+      "min": 0.03260869565217395,
+      "max": 0.13888888888888906
+    },
+    "same_threshold_f1_loss": {
+      "mean": -0.1150292397660819,
+      "median": -0.08333333333333326,
+      "min": -0.22222222222222232,
+      "max": -0.047368421052631615
+    },
+    "unchanged": {
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    }
+  },
+  "repair_queries": 7,
+  "break_queries": 2,
+  "feature_definitions": {
+    "query_candidate_overlap": "Fraction of non-stopword query tokens literally present in candidate proof.",
+    "novel_query_term_overlap": "Fraction of query tokens present in candidate proof but absent from full V8 depth9 proof text.",
+    "candidate_redundancy": "Maximum Jaccard overlap of candidate proof with any V8 depth9 packet proof; this is not an interference score.",
+    "support_novelty_proxy": "Literal query overlap times (1 - maximum packet redundancy); this does not establish relation support.",
+    "slack": "Actual additional depth9 context tokens, lower is cheaper."
+  },
+  "query_bag_diagnostics": {
+    "query_candidate_overlap": {
+      "query_auc_for_any_repair": 0.4117647058823529,
+      "query_bootstrap_95pct_interval": [
+        0.17832167832167833,
+        0.6574074074074074
+      ],
+      "nonzero_action_count": 35,
+      "positive_queries": 7,
+      "negative_queries": 17
+    },
+    "novel_query_term_overlap": {
+      "query_auc_for_any_repair": 0.47058823529411764,
+      "query_bootstrap_95pct_interval": [
+        0.4,
+        0.5
+      ],
+      "nonzero_action_count": 1,
+      "positive_queries": 7,
+      "negative_queries": 17
+    },
+    "candidate_redundancy": {
+      "query_auc_for_any_repair": 0.5462184873949579,
+      "query_bootstrap_95pct_interval": [
+        0.28888888888888886,
+        0.7734375
+      ],
+      "nonzero_action_count": 69,
+      "positive_queries": 7,
+      "negative_queries": 17
+    },
+    "support_novelty_proxy": {
+      "query_auc_for_any_repair": 0.42436974789915966,
+      "query_bootstrap_95pct_interval": [
+        0.2,
+        0.6666666666666666
+      ],
+      "nonzero_action_count": 35,
+      "positive_queries": 7,
+      "negative_queries": 17
+    },
+    "slack": {
+      "query_auc_for_any_repair": 0.6260504201680672,
+      "query_bootstrap_95pct_interval": [
+        0.3851851851851852,
+        0.8333333333333334
+      ],
+      "nonzero_action_count": 84,
+      "positive_queries": 7,
+      "negative_queries": 17
+    }
+  },
+  "within_query_choice_diagnostics": {
+    "query_candidate_overlap": {
+      "informative_queries": 3,
+      "macro_within_query_repair_auc": 1.0
+    },
+    "novel_query_term_overlap": {
+      "informative_queries": 3,
+      "macro_within_query_repair_auc": 0.5
+    },
+    "candidate_redundancy": {
+      "informative_queries": 3,
+      "macro_within_query_repair_auc": 0.9761904761904763
+    },
+    "support_novelty_proxy": {
+      "informative_queries": 3,
+      "macro_within_query_repair_auc": 1.0
+    },
+    "slack": {
+      "informative_queries": 3,
+      "macro_within_query_repair_auc": 0.9523809523809524
+    }
+  },
+  "continuous_delta_f1_diagnostics": {
+    "query_candidate_overlap": {
+      "queries_with_distinct_delta_f1": 16,
+      "macro_within_query_delta_f1_concordance": 0.7131432701285643
+    },
+    "novel_query_term_overlap": {
+      "queries_with_distinct_delta_f1": 16,
+      "macro_within_query_delta_f1_concordance": 0.46875
+    },
+    "candidate_redundancy": {
+      "queries_with_distinct_delta_f1": 16,
+      "macro_within_query_delta_f1_concordance": 0.5448863840407958
+    },
+    "support_novelty_proxy": {
+      "queries_with_distinct_delta_f1": 16,
+      "macro_within_query_delta_f1_concordance": 0.7271084715937657
+    },
+    "slack": {
+      "queries_with_distinct_delta_f1": 16,
+      "macro_within_query_delta_f1_concordance": 0.6948080514256985
+    }
+  },
+  "new_target_calls": 0,
+  "new_training": false,
+  "sealed_sets_read": false,
+  "limitations": [
+    "Only 24 baseline-stratified, design-exposed queries; 84 actions are clustered, not independent.",
+    "Only seven queries have any repair and only two queries have a break action; interference separability cannot be assessed reliably.",
+    "These lexical proxies do not operationalize semantic relation entailment or Target-specific interference.",
+    "All features are computed before the depth9 Target call using query, current V8 text and candidate text only; no gold or Target output enters feature computation.",
+    "An AUC near 0.5 here cannot rule out richer deployment-visible signals; an apparent high AUC cannot validate a rule without a new cohort."
+  ]
+}

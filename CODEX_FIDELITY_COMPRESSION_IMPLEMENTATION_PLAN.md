@@ -2505,3 +2505,31 @@ this encoder/input is insufficient for the asymmetric STAY-versus-action
 decision. Do not sweep the exposed result. Any next training protocol must
 explicitly represent paired net value and demonstrate query-held-out
 low-break rollout plus encoder-cost accounting before accessing sealed sets.
+
+Protected micro-insertion is the current action-space hypothesis: keep V8's
+depth9 default evidence, insert at most one exact rank10 sentence for no more
+than 48 additional depth9 context tokens, and restore the canonical full
+context at depth10 without duplication. SLOT-B0 on 24 baseline-stratified,
+design-exposed train queries found hindsight 0.90 12→19/24 with Complete
+9→9/24 at +8.58 mean depth9 tokens/query. The fully previsible shortest-
+sentence rule gave 12→14/24 but Complete 9→8/24 at +22.25 tokens/query; it
+is not a deployable Pareto result. INSERT-D0 showed a perfect gate over that
+fixed shortest sentence captures only 4/7 repairable queries, while perfect
+candidate choice with insertion on every query wastes substantially more
+tokens. Both decisions matter.
+
+INSERT-C0 then audited 84 cached insertion actions with zero new Target calls.
+Only seven queries contain a repair action and two contain a break action.
+Literal query–candidate overlap and its nonredundancy product give query-
+level repair-opportunity AUC 0.412 and 0.424 respectively; literal novel
+query-term overlap is nonzero on only 1/84 actions. These are cheap lexical
+proxies, not relation support or interference measurements. No STAY/INSERT
+rule is frozen and no new cohort or sealed set has been opened. Before any
+INSERT-C1 validation, define a specific pre-Target semantic extractor and
+its compute cost, candidate ranking and STAY decision. Use a natural train-
+side query cohort only after those are fixed; compare all five anchors,
+Complete, cumulative context and scorer cost to V8's discrete fixed-schedule
+frontier. A one-action-per-query policy replay cannot estimate missed oracle
+opportunities without a separately preregistered candidate-enumeration
+subset. Results and detailed limitations are in
+`results/v2_rank_then_cut/RESULTS.md`.

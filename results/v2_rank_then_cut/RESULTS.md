@@ -3885,3 +3885,52 @@ one policy-chosen Target call per query cannot reveal missed opportunities.
 [summary](v17packet_insert_d0_decomposition/summary.json), and
 [per-query categories](v17packet_insert_d0_decomposition/per_query.jsonl)
 preserve the audit.
+
+### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
+
+We audited the **84 existing protected-insertion actions on 24 design-exposed
+train queries**, with no Target calls, training, gold features or sealed-set
+access. Continuous F1 and the 0.90 threshold were kept separate: 16 action
+repairs from 7 queries, 5 breaks from 2 queries, 18 same-threshold F1 gains,
+5 same-threshold F1 losses and 40 unchanged outcomes. These are action counts,
+not independent-query frequencies. Because only depth9/0.90 changes under
+this fixed schedule, a threshold repair on a query already failing another
+anchor cannot improve Complete.
+
+We deliberately tested only inexpensive, fully specified pre-Target textual
+proxies: question-token overlap with candidate proof; query terms in the
+candidate absent from V8 depth9 proof; maximum candidate/V8-packet Jaccard
+redundancy; their simple overlap-times-nonredundancy product; and actual
+token slack. These are **not** semantic relation entailment or an
+interference detector. Literal novel query-term overlap is nonzero for just
+**1/84 actions**, so it cannot operationalize the proposed relational novelty
+feature here.
+
+| Pre-Target candidate feature (max over candidate set) | Query AUC for any repair | Query-bootstrap descriptive 95% interval |
+|---|---:|---:|
+| Query-token overlap | 0.412 | [0.178, 0.657] |
+| Literal novel query-term overlap | 0.471 | [0.400, 0.500] |
+| Maximum packet redundancy | 0.546 | [0.289, 0.773] |
+| Overlap × nonredundancy | 0.424 | [0.200, 0.667] |
+| Token slack | 0.626 | [0.385, 0.833] |
+
+Within-query continuous-F1 ordering gives overlap × nonredundancy a
+descriptive macro concordance of 0.727 across 16 queries with varied action
+F1, but the strict repair/non-repair candidate-ranking comparison is
+informative in only **three** queries. Thus a possible candidate-ranking hint
+does not solve query-level opportunity detection. With harmful actions in
+only **two** queries, no interference-risk separation can be estimated
+credibly. All intervals are unstable because the 24-query frame was
+baseline-balanced and already design-exposed.
+
+Decision: `STOP_INSERT_C1_CURRENT_CHEAP_PROXIES`. Do not choose a Q/N/I
+threshold from this sample and spend a new 256-query cohort on it. This
+stops these *literal proxies*, not every possible low-cost deployment-visible
+semantic signal. Any next signal study must first name an actual frozen
+relation-support/interference extractor, verify that it never reads Target
+outputs or gold, measure its per-query compute cost, and define a single
+pre-Target policy. Only then can a fresh natural train cohort test that
+policy without tuning. [Reproducible audit](../../src/evaluation/v17packet_insert_c0_visible_signal.py),
+[summary](v17packet_insert_c0_visible_signal/summary.json), and
+[per-action features and outcomes](v17packet_insert_c0_visible_signal/per_action.jsonl)
+preserve the result.
