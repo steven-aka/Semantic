@@ -9,7 +9,7 @@ import time
 from pathlib import Path
 
 from src.data.schemas import read_jsonl
-from src.evaluation.frontier_r1_hard_screen import BASE, LINEAGE, R0, render_selected
+from src.baselines.frontier_r1_hard_screen import BASE, LINEAGE, R0, render_selected
 
 
 OUT = BASE / "frontier_r1_recomp_nq_extractive_screen64"

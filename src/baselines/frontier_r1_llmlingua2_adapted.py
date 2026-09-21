@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 
 from src.data.schemas import read_jsonl
-from src.evaluation.frontier_r1_hard_screen import BASE, prepare_rows
+from src.baselines.frontier_r1_hard_screen import BASE, prepare_rows
 
 
 OUT = BASE / "frontier_r1_llmlingua2_adapted_screen64"

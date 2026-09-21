@@ -1,5 +1,12 @@
 # Fidelity-Constrained Successive Semantic Compression
 
+> Code ownership and dependency boundaries are documented in
+> [`PROJECT_STRUCTURE.md`](PROJECT_STRUCTURE.md). Proposed-method code lives in
+> `src/model`, `src/training`, `src/representation`, and `src/search`; external
+> and training-free comparison implementations live only in `src/baselines`.
+> Saved baseline artifacts are indexed in
+> [`results/v2_rank_then_cut/BASELINES.md`](results/v2_rank_then_cut/BASELINES.md).
+
 本仓库按 `CODEX_FIDELITY_COMPRESSION_IMPLEMENTATION_PLAN.md` 构建。当前实现范围是 **V0 + V0.1--V0.5 有界诊断，以及 M0 根因验证和 ceiling-v2 锁定复验**；遵守计划中的 STOP POINT，尚未实现或启动 QLoRA/V1 训练。
 
 ## 当前实验进度

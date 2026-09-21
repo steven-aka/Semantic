@@ -56,5 +56,5 @@ Run command:
 ```bash
 source scripts/cuda_env.sh
 CUDA_VISIBLE_DEVICES=4 HF_HUB_OFFLINE=1 .venv/bin/python -u \
-  -m src.evaluation.frontier_r1_training_free_extractors --mode all
+  -m src.baselines.frontier_r1_training_free_extractors --mode all
 ```

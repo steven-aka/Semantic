@@ -60,3 +60,6 @@ checkpoint baseline, not a native QAMPARI-trained reproduction.
 `compressed.jsonl`, `target_outputs.jsonl`, `summary.json`, `run.log`, and
 `artifact_manifest.json` preserve all 640 contexts, fresh Target outputs,
 aggregate metrics, logs, and hashes.
+
+Current code entrypoint: `python -m src.baselines.frontier_r1_llmlingua2_adapted`.
+The saved log retains the historical pre-reorganization module path.

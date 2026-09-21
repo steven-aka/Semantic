@@ -4,7 +4,7 @@ import argparse, hashlib, json, math, os, random, re, time
 from collections import Counter
 from pathlib import Path
 from src.data.schemas import read_jsonl
-from src.evaluation.frontier_r1_hard_screen import BASE, LINEAGE, R0, render_selected
+from src.baselines.frontier_r1_hard_screen import BASE, LINEAGE, R0, render_selected
 
 OUT=BASE/"frontier_r1_training_free_extractors_screen64"
 SENT=re.compile(r"(?<=[.!?])\s+|\n+"); WORD=re.compile(r"[A-Za-z0-9]+")
