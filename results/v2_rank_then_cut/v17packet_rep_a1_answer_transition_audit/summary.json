@@ -1,0 +1,74 @@
+{
+  "scope": "design-exposed, baseline-balanced SLOT-B0 train24",
+  "target_calls": 0,
+  "actions": 84,
+  "queries": 24,
+  "by_outcome": {
+    "break": {
+      "actions": 5,
+      "candidate_atom_added_actions": 0,
+      "other_gold_added_actions": 0,
+      "other_gold_added_total": 0,
+      "gold_lost_actions": 5,
+      "gold_lost_total": 7,
+      "queries": 2,
+      "queries_candidate_atom_added": 0,
+      "queries_other_gold_added": 0,
+      "queries_gold_lost": 2
+    },
+    "repair": {
+      "actions": 16,
+      "candidate_atom_added_actions": 9,
+      "other_gold_added_actions": 11,
+      "other_gold_added_total": 12,
+      "gold_lost_actions": 0,
+      "gold_lost_total": 0,
+      "queries": 7,
+      "queries_candidate_atom_added": 6,
+      "queries_other_gold_added": 4,
+      "queries_gold_lost": 0
+    },
+    "same_threshold_f1_gain": {
+      "actions": 18,
+      "candidate_atom_added_actions": 16,
+      "other_gold_added_actions": 7,
+      "other_gold_added_total": 12,
+      "gold_lost_actions": 3,
+      "gold_lost_total": 3,
+      "queries": 12,
+      "queries_candidate_atom_added": 11,
+      "queries_other_gold_added": 3,
+      "queries_gold_lost": 1
+    },
+    "same_threshold_f1_loss": {
+      "actions": 5,
+      "candidate_atom_added_actions": 0,
+      "other_gold_added_actions": 0,
+      "other_gold_added_total": 0,
+      "gold_lost_actions": 4,
+      "gold_lost_total": 7,
+      "queries": 3,
+      "queries_candidate_atom_added": 0,
+      "queries_other_gold_added": 0,
+      "queries_gold_lost": 2
+    },
+    "unchanged": {
+      "actions": 40,
+      "candidate_atom_added_actions": 0,
+      "other_gold_added_actions": 1,
+      "other_gold_added_total": 1,
+      "gold_lost_actions": 1,
+      "gold_lost_total": 1,
+      "queries": 17,
+      "queries_candidate_atom_added": 0,
+      "queries_other_gold_added": 1,
+      "queries_gold_lost": 1
+    }
+  },
+  "limitations": [
+    "Repeated actions from a query are correlated; action rates do not estimate population probabilities.",
+    "Gold-answer matching is retrospective and cannot be used as a deployment feature.",
+    "Answer transitions reveal outcome mechanisms but do not identify whether evidence semantics, order, or decoding caused them.",
+    "Title/proof provenance is block-level; sentence-level relation support remains unaudited."
+  ]
+}

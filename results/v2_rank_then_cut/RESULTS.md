@@ -3975,3 +3975,38 @@ design-exposed 24-query pilot cannot justify a population-level claim.
 [summary](v17packet_rep_a0_provenance_audit/summary.json), and
 [per-action audit](v17packet_rep_a0_provenance_audit/per_action.jsonl)
 make these counts reproducible.
+
+### V17-PACKET-REP-A1 cached answer-transition audit
+
+We next compared the cached depth9 answer list against all 84 protected
+insertion outputs from SLOT-B0, using exactly the same QAMPARI parser,
+aliases, and F1 scorer as the Target evaluation. Recomputed F1 was asserted
+equal to every stored score. No Target calls or sealed data were used.
+
+| Action outcome | Actions / queries | Candidate's gold answer newly output | Other gold answers newly output | Previously output gold answers lost |
+|---|---:|---:|---:|---:|
+| 0.90 repair | 16 / 7 | 9 actions / 6 queries | 11 actions / 4 queries | 0 |
+| 0.90 break | 5 / 2 | 0 | 0 | 5 actions / 2 queries |
+| Same-threshold F1 gain | 18 / 12 | 16 actions / 11 queries | 7 actions / 3 queries | 3 actions / 1 query |
+| Same-threshold F1 loss | 5 / 3 | 0 | 0 | 4 actions / 2 queries |
+
+The 16 repair actions are **not all direct recovery of the inserted packet's
+gold answer**: seven repairs do not output that answer, but do add at least
+one different gold answer. Some actions add both. Every observed 0.90 break
+loses existing gold answers; none adds the inserted packet's gold answer.
+Thus the Target's answer-list response is a material part of the action
+effect. Sentence-level support may help identify direct gains, but factual
+coverage alone cannot explain all repairs or the observed breaks.
+
+These are descriptive transitions, not a causal attribution to attention,
+order, or decoding. Only seven repair queries and two break queries occur in
+this selected, baseline-balanced frame; actions within each query are
+correlated. The next proposed evidence-support model must demonstrate
+query-held-out incremental value **beyond** the gold-title/provenance
+shortcut and retain explicit STAY protection before any new Target cohort is
+spent. If sentence labels cannot be audited reliably, stop this branch rather
+than turning block-level certificates into noisy sentence targets.
+[Script](../../src/evaluation/v17packet_rep_a1_answer_transition_audit.py),
+[summary](v17packet_rep_a1_answer_transition_audit/summary.json), and
+[per-action transitions](v17packet_rep_a1_answer_transition_audit/per_action.jsonl)
+preserve the decomposition.
