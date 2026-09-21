@@ -4172,6 +4172,20 @@ Separately, existing CANON-P0 prefix outputs locate 0.95 rollback among
 depth12; 73 first failed at 10→11 and 106 at 11→12. This is a location
 audit, not a causal attribution to either late packet.
 
+M2C then tested whether the 15 hindsight-positive M2B queries can be found
+from `(query, S6, promoted atom, delayed sentence)` without new Target calls.
+A frozen three-fold query-grouped DistilBERT probe obtained safe-action AP
+**0.101** at 0.085 prevalence and harm AP **0.329** at 0.314 prevalence.
+At the primary 10% intervention budget it found one safe repair versus 1.52
+expected opportunity queries under random query selection, caused three
+Complete breaks, and changed Complete 52→50. At 20%, it found two repairs
+and caused five breaks. The formal decision is
+**`STOP_M2C_RELATIVE_EXCHANGE_PROBE`**. Lower token use with lower quality
+is not a Pareto gain. Do not expand labels, tune a threshold, or train a
+larger selector for this exact exchange representation. [M2C report](v17traj_m2c_relative_exchange_probe/REPORT.md)
+and [summary](v17traj_m2c_relative_exchange_probe/summary.json) preserve the
+OOF result.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed

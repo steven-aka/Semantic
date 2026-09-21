@@ -2644,3 +2644,15 @@ A separate zero-call 0.95 locus audit on 1,131 attainable train queries
 found 179 depth10-success/depth12-failure cases: 73 first failed at 10→11
 and 106 at 11→12. That rules out treating rank10 borrowing or one late
 packet as an established 0.95 fix; mechanism identification remains open.
+
+M2C closes the current cheap-text learnability branch. A three-fold
+query-grouped OOF probe on 223 M2 actions achieved safe-action AP 0.101 at
+0.085 prevalence. At the frozen 10% intervention budget it found one safe
+repair, caused three Complete breaks, and reduced Complete 52→50; larger
+coverage remained harmful. No checkpoint or new Target labels were created.
+Do not tune this classifier or buy more labels for the same representation.
+The evidence now supports changing the *action representation* before another
+selector: define a compact semantic evidence unit, account for compressor
+cost and leakage, and establish a fresh quality–token action-space ceiling.
+This is a proposed next hypothesis, not a conclusion that generative semantic
+compression must succeed.

@@ -1,0 +1,145 @@
+{
+  "protocol": "TRAJ-M2C_STAY_ANCHORED_RELATIVE_EXCHANGE_OOF_PROBE",
+  "queries": 128,
+  "actions": 223,
+  "label_counts": {
+    "0": 70,
+    "1": 134,
+    "2": 19
+  },
+  "safe_action_average_precision": 0.10082083992183448,
+  "harm_action_average_precision": 0.3293947852608547,
+  "field_truncation_counts": {
+    "query": 5,
+    "state_s6": 223,
+    "promote": 0,
+    "delay": 3
+  },
+  "fold_history": [
+    {
+      "fold": 0,
+      "train": 147,
+      "valid": 76,
+      "train_class_counts": [
+        51,
+        87,
+        9
+      ],
+      "loss": [
+        1.1431361198425294,
+        1.0255682229995728
+      ]
+    },
+    {
+      "fold": 1,
+      "train": 135,
+      "valid": 88,
+      "train_class_counts": [
+        42,
+        77,
+        16
+      ],
+      "loss": [
+        1.0887023475435045,
+        1.0166814261012607
+      ]
+    },
+    {
+      "fold": 2,
+      "train": 164,
+      "valid": 59,
+      "train_class_counts": [
+        47,
+        104,
+        13
+      ],
+      "loss": [
+        1.0794770609248767,
+        0.9712090654806658
+      ]
+    }
+  ],
+  "baseline_complete": 52,
+  "baseline_success": [
+    107,
+    114,
+    71,
+    84,
+    73
+  ],
+  "baseline_mean_cumulative_context_tokens": 2642.7578125,
+  "policies": [
+    {
+      "budget": 0.05,
+      "switches": 7,
+      "opportunity_queries_found": 1,
+      "random_expected_opportunity_queries": 0.8203125,
+      "safe_complete_repairs": 1,
+      "oracle_action_repairs_on_selected_queries": 1,
+      "complete_breaks": 1,
+      "repair_folds": [
+        1
+      ],
+      "complete": 52,
+      "five_anchor_success": [
+        107,
+        114,
+        71,
+        83,
+        73
+      ],
+      "mean_cumulative_context_tokens": 2640.4375,
+      "mean_cumulative_target_tokens": 3399.2890625
+    },
+    {
+      "budget": 0.1,
+      "switches": 13,
+      "opportunity_queries_found": 1,
+      "random_expected_opportunity_queries": 1.5234375,
+      "safe_complete_repairs": 1,
+      "oracle_action_repairs_on_selected_queries": 1,
+      "complete_breaks": 3,
+      "repair_folds": [
+        1
+      ],
+      "complete": 50,
+      "five_anchor_success": [
+        107,
+        114,
+        69,
+        83,
+        73
+      ],
+      "mean_cumulative_context_tokens": 2638.375,
+      "mean_cumulative_target_tokens": 3400.5546875
+    },
+    {
+      "budget": 0.2,
+      "switches": 26,
+      "opportunity_queries_found": 2,
+      "random_expected_opportunity_queries": 3.046875,
+      "safe_complete_repairs": 2,
+      "oracle_action_repairs_on_selected_queries": 2,
+      "complete_breaks": 5,
+      "repair_folds": [
+        0,
+        1
+      ],
+      "complete": 49,
+      "five_anchor_success": [
+        107,
+        112,
+        68,
+        84,
+        73
+      ],
+      "mean_cumulative_context_tokens": 2633.078125,
+      "mean_cumulative_target_tokens": 3403.0078125
+    }
+  ],
+  "primary_gate": "STOP_M2C_RELATIVE_EXCHANGE_PROBE",
+  "checkpoint_saved": false,
+  "new_target_calls": 0,
+  "sealed_sets_read": false,
+  "limitations": "Small design-exposed OOF diagnostic with only 19 positive actions/15 positive queries; no checkpoint is retained."
+}
