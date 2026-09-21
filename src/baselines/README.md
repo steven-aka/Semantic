@@ -30,6 +30,9 @@ original-context arm for attribution.
 | `frontier_r1_recomp_extractive` | official RECOMP NQ extractive zero-shot |
 | `frontier_r1_recomp_abstractive` | official RECOMP NQ abstractive zero-shot |
 | `frontier_r1_training_free_extractors` | BM25 and deterministic-random controls |
+| `recomp_qampari_data` | train-only supervision builder for RECOMP adaptation |
+| `train_recomp_qampari_extractive` | learned RECOMP-style compressor; Target absent |
+| `evaluate_recomp_qampari_extractive` | frozen-Target Screen-64 evaluation |
 
 Run modules as `python -m src.baselines.<module>`. Immutable outputs remain
 under their existing `results/v2_rank_then_cut/frontier_*` directories so that

@@ -310,3 +310,14 @@ BM25的0.90 success为1/64与0/64，随机抽取均为0/64。随机抽取在三�
 但它仍未支配V8，6.39%的额外context节省伴随0.0081 F1和3个0.90 success
 损失。完整结果见
 [report](results/v2_rank_then_cut/frontier_r1_llmlingua2_adapted_screen64/REPORT.md)。
+
+### 13.6 QAMPARI域内训练的RECOMP-style抽取基线
+
+在完全冻结Qwen3-8B的条件下，从官方NQ extractive checkpoint初始化compressor，
+使用剔除Screen-64后的1,967个训练query与35,361个句子正负对进行训练。独立
+550-query validation上，选中的epoch 3达到0.9693 pair accuracy。Screen-64
+约2×压缩时，mean F1由zero-shot checkpoint的0.5374提升到0.7239，0.90
+success由1/64提升到11/64；requested 0.95（actual 0.9399）达到F1 0.9287、
+50/64，未压缩对照为0.9495、53/64。该结果证明域错配是zero-shot失败的重要
+原因，但高句对准确率仍不足以保证多答案集合完整保留。此实验应标为
+`RECOMP-style in-domain adaptation`，不能称为官方QAMPARI checkpoint。

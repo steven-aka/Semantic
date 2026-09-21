@@ -4917,3 +4917,16 @@ three 0.90 successes. Decision:
 Target instruction were protected, actual Qwen3 token costs were used, and no
 sealed set was read. [Report](frontier_r1_llmlingua2_adapted_screen64/REPORT.md)
 and [summary](frontier_r1_llmlingua2_adapted_screen64/summary.json).
+
+### QAMPARI-supervised RECOMP-style extractive baseline
+
+The official NQ extractive encoder was adapted on 1,967 train queries (35,361
+sentence pairs), after excluding every Screen-64 query. Qwen3-8B was absent
+from training and remained frozen for evaluation. Epoch 3 achieved 0.9693 pair
+accuracy on a disjoint 550-query validation set. On Screen-64, requested 0.50
+improved from the zero-shot checkpoint's F1 0.5374 and 1/64 0.90 success to
+0.7239 and 11/64. At requested 0.95 (actual 0.9399), it reached F1 0.9287 and
+50/64 versus the uncompressed control's 0.9495 and 53/64. This is retained as
+a learned in-domain baseline, but does not preserve the full high-fidelity
+contract. [Report](baseline_recomp_qampari_extractive/REPORT.md) and
+[summary](baseline_recomp_qampari_extractive/summary.json).

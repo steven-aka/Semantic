@@ -1,0 +1,50 @@
+{
+  "protocol": "BASELINE-RECOMP-QAMPARI-EXTRACTIVE-V1",
+  "files": {
+    "data_summary.json": {
+      "sha256": "d8031cb5c637a1054fed9a914a2f7f10fef5b8b29fb9aaeb415ee2494c477b9e",
+      "bytes": 636
+    },
+    "training_summary.json": {
+      "sha256": "0ee9ccfef3df006fae273474fc1ebc3e01238429f6c72b032ffabc7c0e9880de",
+      "bytes": 922
+    },
+    "summary.json": {
+      "sha256": "f418d4695510432c71b05a33e0446183401c74e57e9ca0c2d5a36e0591b95570",
+      "bytes": 1784
+    },
+    "compressed.jsonl": {
+      "sha256": "462941638e8d02adbaa21d5ab81d0bef1b3f5c7e77a620e692d10f85dc00690f",
+      "bytes": 824944
+    },
+    "target_outputs.jsonl": {
+      "sha256": "0a265c948adb287805685b11b45f7e3b0c968d25d15d09da927b4ec7752ace49",
+      "bytes": 206865
+    },
+    "train.jsonl": {
+      "sha256": "b2249ceecadee1cb07fc019732d745260f54d3ecebbcf8fce0cacb35a6212ada",
+      "bytes": 11479704
+    },
+    "validation.jsonl": {
+      "sha256": "c8da843dda8f75d914b69156b0fd6952c37386b6916fc79604b50a955e06ab22",
+      "bytes": 3270816
+    },
+    "data_build.log": {
+      "sha256": "d8031cb5c637a1054fed9a914a2f7f10fef5b8b29fb9aaeb415ee2494c477b9e",
+      "bytes": 636
+    },
+    "train.log": {
+      "sha256": "b2b79d53c80c326514648a5d1a1052b19dd600b5583854df477af77e7ba8fa9c",
+      "bytes": 1332
+    },
+    "evaluate.log": {
+      "sha256": "7b22fed0e710d747e7f2aedb0061452a787108e6ddd4aef92e1c3bf6c63d07d1",
+      "bytes": 17719
+    }
+  },
+  "checkpoint": {
+    "path": "checkpoints/baselines/recomp_qampari_extractive/model.safetensors",
+    "sha256": "d3eacb5ac09d2fd9c1c9a89a38d03858df0ac9baf27969a9f075dcafd9573e5b",
+    "bytes": 437951328
+  }
+}

@@ -1,0 +1,41 @@
+{"pair_accuracy": 0.9676730710582495, "mean_margin": 0.5511297004874328, "pairs": 9837, "epoch": 1, "train_loss": 0.013893864341446486}
+{"pair_accuracy": 0.9669614719934939, "mean_margin": 0.6365652079878117, "pairs": 9837, "epoch": 2, "train_loss": 0.0036966433116212946}
+{"pair_accuracy": 0.9692995832062621, "mean_margin": 0.6339009017645222, "pairs": 9837, "epoch": 3, "train_loss": 0.0015360723410869459}
+{
+  "protocol": "BASELINE-RECOMP-QAMPARI-EXTRACTIVE-V1",
+  "train_pairs": 35361,
+  "validation_pairs": 9837,
+  "history": [
+    {
+      "pair_accuracy": 0.9676730710582495,
+      "mean_margin": 0.5511297004874328,
+      "pairs": 9837,
+      "epoch": 1,
+      "train_loss": 0.013893864341446486
+    },
+    {
+      "pair_accuracy": 0.9669614719934939,
+      "mean_margin": 0.6365652079878117,
+      "pairs": 9837,
+      "epoch": 2,
+      "train_loss": 0.0036966433116212946
+    },
+    {
+      "pair_accuracy": 0.9692995832062621,
+      "mean_margin": 0.6339009017645222,
+      "pairs": 9837,
+      "epoch": 3,
+      "train_loss": 0.0015360723410869459
+    }
+  ],
+  "selected": {
+    "pair_accuracy": 0.9692995832062621,
+    "mean_margin": 0.6339009017645222,
+    "pairs": 9837,
+    "epoch": 3,
+    "train_loss": 0.0015360723410869459
+  },
+  "target_loaded": false,
+  "target_trainable": false,
+  "sealed_sets_read": false
+}

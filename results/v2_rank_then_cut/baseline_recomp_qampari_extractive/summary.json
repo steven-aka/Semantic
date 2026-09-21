@@ -1,0 +1,62 @@
+{
+  "protocol": "BASELINE-RECOMP-QAMPARI-EXTRACTIVE-V1",
+  "qualification": "RECOMP-style in-domain supervised adaptation",
+  "target": "frozen Qwen3-8B",
+  "baseline_mean_f1": 0.949470382208427,
+  "baseline_success_090": 53,
+  "results": [
+    {
+      "requested_keep_rate": 0.25,
+      "mean_actual_keep_rate": 0.24845305187043193,
+      "mean_context_tokens": 200.375,
+      "mean_f1": 0.5308200496184242,
+      "delta_f1": -0.41865033259000317,
+      "success_090": 5,
+      "repairs_090": 1,
+      "breaks_090": 49
+    },
+    {
+      "requested_keep_rate": 0.5,
+      "mean_actual_keep_rate": 0.4972114171070441,
+      "mean_context_tokens": 400.96875,
+      "mean_f1": 0.7238793407690945,
+      "delta_f1": -0.22559104143933234,
+      "success_090": 11,
+      "repairs_090": 0,
+      "breaks_090": 42
+    },
+    {
+      "requested_keep_rate": 0.75,
+      "mean_actual_keep_rate": 0.7453722186005232,
+      "mean_context_tokens": 600.9375,
+      "mean_f1": 0.8516273527561636,
+      "delta_f1": -0.09784302945226359,
+      "success_090": 33,
+      "repairs_090": 2,
+      "breaks_090": 22
+    },
+    {
+      "requested_keep_rate": 0.9,
+      "mean_actual_keep_rate": 0.8939071380652889,
+      "mean_context_tokens": 721.359375,
+      "mean_f1": 0.9223838225351504,
+      "delta_f1": -0.027086559673276427,
+      "success_090": 47,
+      "repairs_090": 4,
+      "breaks_090": 10
+    },
+    {
+      "requested_keep_rate": 0.95,
+      "mean_actual_keep_rate": 0.9398548238837252,
+      "mean_context_tokens": 758.5,
+      "mean_f1": 0.9286664989959298,
+      "delta_f1": -0.020803883212497255,
+      "success_090": 50,
+      "repairs_090": 4,
+      "breaks_090": 7
+    }
+  ],
+  "new_target_calls": 320,
+  "screen_queries_excluded_from_training": true,
+  "sealed_sets_read": false
+}

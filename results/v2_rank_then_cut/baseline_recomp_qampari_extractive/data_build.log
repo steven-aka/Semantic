@@ -1,0 +1,20 @@
+{
+  "protocol": "BASELINE-RECOMP-QAMPARI-EXTRACTIVE-V1",
+  "excluded_screen_queries": 64,
+  "splits": {
+    "train": {
+      "queries": 1967,
+      "positive_sentences": 35361,
+      "negative_sentences": 35848,
+      "sha_source": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_train_clean.jsonl"
+    },
+    "validation": {
+      "queries": 550,
+      "positive_sentences": 9837,
+      "negative_sentences": 10374,
+      "sha_source": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_inner_validation.jsonl"
+    }
+  },
+  "target_loaded": false,
+  "sealed_sets_read": false
+}

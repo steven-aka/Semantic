@@ -9,6 +9,7 @@ in `RESULTS.md` and the versioned V8/V17/V18 result directories.
 | LLMLingua-2 mild adaptation | official checkpoint, no training | `frontier_r1_llmlingua2_adapted_screen64` | strongest point: V8-global rate 0.95 |
 | LongLLMLingua | official algorithm, Qwen3-1.7B mechanism port | `frontier_r1_longllmlingua_qwen17b_screen64` | qualified negative port |
 | RECOMP extractive | official NQ checkpoint, zero-shot | `frontier_r1_recomp_nq_extractive_screen64` | saved negative baseline |
+| RECOMP extractive, QAMPARI-adapted | trained compressor; Target frozen | `baseline_recomp_qampari_extractive` | retained learned baseline |
 | RECOMP abstractive | official NQ checkpoint, zero-shot | `frontier_r1_recomp_nq_abstractive_screen64` | saved negative baseline |
 | BM25 sentence extraction | deterministic, no training | `frontier_r1_training_free_extractors_screen64` | saved control |
 | Random sentence extraction | deterministic, no training | `frontier_r1_training_free_extractors_screen64` | saved control |
