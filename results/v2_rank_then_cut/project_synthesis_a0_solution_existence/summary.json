@@ -1,0 +1,104 @@
+{
+  "protocol": "PROJECT-SYNTHESIS-A0_CONSTRUCTIVE_SOLUTION_EXISTENCE",
+  "status": "ZERO_CALL_REPRESENTATION_EXISTENCE_PROVED",
+  "queries": 256,
+  "construction": {
+    "native_symbols": "Qwen3-8B vocabulary token IDs",
+    "nested_sequence": "canonical gold answer strings ordered once; each fidelity state is a longer prefix",
+    "minimum_correct_answer_count_formula": "ceil(tau*n/(2-tau)) under set-F1 with no false positives",
+    "source_backed_control": "concatenated exact source proof for the same answer prefix"
+  },
+  "cumulative": {
+    "oracle_answer_code": {
+      "mean": 193.875,
+      "median": 167.5,
+      "p90": 240.0,
+      "max": 858
+    },
+    "oracle_source_proof": {
+      "mean": 2049.2421875,
+      "median": 2006.0,
+      "p90": 2946.5,
+      "max": 5532
+    },
+    "v8": {
+      "mean": 2316.9609375,
+      "median": 2330.5,
+      "p90": 3202.5,
+      "max": 5585
+    },
+    "mean_answer_code_ratio_vs_v8": 0.08367642149771892,
+    "mean_source_proof_ratio_vs_v8": 0.8844526268583239
+  },
+  "per_level": [
+    {
+      "level": 0.6,
+      "mean_answer_code_tokens": 26.15234375,
+      "mean_source_proof_tokens": 277.16796875,
+      "mean_v8_context_tokens": 319.875,
+      "answer_code_ratio_vs_v8": 0.08175801094177414,
+      "source_proof_ratio_vs_v8": 0.8664883743649863,
+      "answer_code_le_v8_fraction": 1.0,
+      "source_proof_le_v8_fraction": 0.81640625
+    },
+    {
+      "level": 0.7,
+      "mean_answer_code_tokens": 31.38671875,
+      "mean_source_proof_tokens": 333.79296875,
+      "mean_v8_context_tokens": 388.63671875,
+      "answer_code_ratio_vs_v8": 0.08076107386597783,
+      "source_proof_ratio_vs_v8": 0.8588817078931763,
+      "answer_code_le_v8_fraction": 1.0,
+      "source_proof_le_v8_fraction": 0.859375
+    },
+    {
+      "level": 0.8,
+      "mean_answer_code_tokens": 36.76953125,
+      "mean_source_proof_tokens": 388,
+      "mean_v8_context_tokens": 388.63671875,
+      "answer_code_ratio_vs_v8": 0.09461157290609201,
+      "source_proof_ratio_vs_v8": 0.9983616608537456,
+      "answer_code_le_v8_fraction": 1.0,
+      "source_proof_le_v8_fraction": 0.6171875
+    },
+    {
+      "level": 0.9,
+      "mean_answer_code_tokens": 47.203125,
+      "mean_source_proof_tokens": 495.86328125,
+      "mean_v8_context_tokens": 554.7109375,
+      "answer_code_ratio_vs_v8": 0.0850949959860851,
+      "source_proof_ratio_vs_v8": 0.8939129332563412,
+      "answer_code_le_v8_fraction": 1.0,
+      "source_proof_le_v8_fraction": 0.90234375
+    },
+    {
+      "level": 0.95,
+      "mean_answer_code_tokens": 52.36328125,
+      "mean_source_proof_tokens": 554.41796875,
+      "mean_v8_context_tokens": 665.1015625,
+      "answer_code_ratio_vs_v8": 0.07872975226997757,
+      "source_proof_ratio_vs_v8": 0.8335839216285107,
+      "answer_code_le_v8_fraction": 1.0,
+      "source_proof_le_v8_fraction": 1.0
+    }
+  ],
+  "logical_conclusion": {
+    "proved": "A compact nested sequence in the Target native vocabulary exists for every audited query and is much shorter than V8. Thus the joint compactness/nesting/symbol-compatibility constraints are not mathematically inconsistent.",
+    "not_proved": [
+      "Qwen3-8B will copy or use this code under the frozen QA prompt",
+      "a compressor can infer the code without gold answers",
+      "the code is faithful/source-grounded when generated automatically",
+      "end-to-end compute Pareto after code construction"
+    ],
+    "anti_cheating": "The construction uses gold answers and is an existence witness only. It is prohibited as a deployable compressor or training input."
+  },
+  "next_gate": {
+    "name": "NATIVE-CODE-A0_CONSUMPTION_POSITIVE_CONTROL",
+    "design": "Small paired design-exposed Target test of frozen Qwen3-8B consuming oracle answer-prefix codes; compare direct code passthrough, code plus minimal provenance, and V8 at matched cost. No compressor training.",
+    "go": "Only if the Target reliably converts short native codes into task answers across all five nested prefixes without new nonmonotonicity.",
+    "stop": "If even oracle native codes are not reliably consumed, stop discrete representation before implementation."
+  },
+  "decision": "GO_NATIVE_CODE_CONSUMPTION_POSITIVE_CONTROL",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

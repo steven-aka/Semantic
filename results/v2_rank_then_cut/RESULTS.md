@@ -4768,3 +4768,22 @@ architecture changes and query-held-out L0C are not authorized. This stops the
 narrow V18 rescue, not every conceivable latent-compression architecture.
 [Report](v18_l0b1_tiny_memorization/REPORT.md) and
 [summary](v18_l0b1_tiny_memorization/summary.json) preserve the result.
+
+### PROJECT-SYNTHESIS-A0 constructive solution existence
+
+A zero-call audit separated representation existence from Target consumption
+and automatic learnability. On 256 design queries, canonical gold answer
+strings were ordered once and nested prefixes were selected using the exact
+false-positive-free set-F1 requirement `ceil(tau*n/(2-tau))`. The resulting
+five-level native-token code costs 193.88 positions/query cumulatively, 8.37%
+of V8's 2,316.96 context tokens; every code prefix is shorter than its V8
+counterpart. Hence a compact nested Target-native representation does exist.
+
+The exact-source-proof control costs 2,049.24 positions, or 88.45% of V8, so
+plain source-backed concatenation offers little usable margin. The positive
+space is specifically lossy task-relevant native code. Because the witness
+uses gold answers, it is not a deployable method and proves neither consumption
+nor learnability. Decision: `GO_NATIVE_CODE_CONSUMPTION_POSITIVE_CONTROL` with
+no compressor training. [Report](project_synthesis_a0_solution_existence/REPORT.md)
+and [summary](project_synthesis_a0_solution_existence/summary.json) preserve
+the proof and its limits.

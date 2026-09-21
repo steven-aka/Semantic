@@ -2947,3 +2947,21 @@ the 70% gate), while cached free-generation teacher answer-set F1 was only
 not a NaN, gradient-disconnection, or constant-slot failure. Decision:
 `STOP_LATENT_CHANNEL`. Do not run nested L0B-2, extend training, add slots,
 change capacity, or open L0C under this frozen one-architecture rescue.
+
+### PROJECT-SYNTHESIS-A0 constructive existence audit
+
+Before opening another implementation, the project separated representation
+existence, Target consumption and automatic learnability. A zero-call witness
+orders each query's canonical correct answer strings once and takes nested
+prefixes of size `ceil(tau*n/(2-tau))`. Across 256 design queries its cumulative
+five-level length is 193.88 Qwen3-8B native positions, only 8.37% of V8's
+2,316.96 context tokens. Thus compactness, nesting and native-symbol
+compatibility are not mathematically inconsistent. In contrast, concatenated
+exact source proofs cost 2,049.24 positions, 88.45% of V8, leaving little
+deployment margin.
+
+This is a gold, non-deployable existence witness. It neither proves that the
+Target consumes the code nor that an automatic compressor can infer it.
+Decision: `GO_NATIVE_CODE_CONSUMPTION_POSITIVE_CONTROL`, a small
+design-exposed Target-only test with no compressor training. Only consumption
+success can authorize a later learnability audit.
