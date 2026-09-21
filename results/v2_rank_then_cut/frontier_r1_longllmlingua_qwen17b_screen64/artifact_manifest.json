@@ -1,0 +1,26 @@
+{
+  "protocol": "FRONTIER-R1-LONGLMLINGUA-QWEN17B-PORT-SCREEN64",
+  "compressor": "models/Qwen3-1.7B",
+  "target": "models/Qwen3-8B",
+  "llmlingua": "0.2.2",
+  "python": "3.11.16",
+  "artifacts": {
+    "compressed.jsonl": {
+      "bytes": 458090,
+      "sha256": "df44986999ecbcc78d1fcbf1c370ff06bbbb60f9fc1bf1e4efdb92cd34c1d9b6"
+    },
+    "target_outputs.jsonl": {
+      "bytes": 96162,
+      "sha256": "a41a81545cfa6780ab612a36dfb96312811b0e14a7c617aa01cf6110164c3c9e"
+    },
+    "compressed_pre_adapter_partial.jsonl": {
+      "bytes": 31788,
+      "sha256": "7fba4420308f6b8c4b978e074d3c9dd8dff83c7268fd8065fb976846738d2211"
+    },
+    "summary.json": {
+      "bytes": 3166,
+      "sha256": "2275db2235cef53efd671fd53b96ca503666032cab8c2c76f6bb8fd1345e3294"
+    }
+  },
+  "sealed_sets_read": false
+}

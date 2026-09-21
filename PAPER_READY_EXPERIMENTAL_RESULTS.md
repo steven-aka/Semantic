@@ -250,6 +250,16 @@ compression更稳健。完整结果见
 [report](results/v2_rank_then_cut/frontier_r1_hard_screen64/REPORT.md)与
 [summary](results/v2_rank_then_cut/frontier_r1_hard_screen64/summary.json)。
 
+### 13.2 LongLLMLingua Qwen3-1.7B mechanism port
+
+官方LongLLMLingua算法使用冻结Qwen3-1.7B作为本地compressor，并在相同64题
+完整原始context上连接冻结Qwen3-8B。由于compressor backbone不是论文默认
+Llama-2，该结果严格标为mechanism port。在requested keep=0.50（actual
+0.5057）时，mean F1从0.9495降至0.4293，0.90 success从53/64降至1/64；
+更强压缩下0.90 success均为0。决定为
+`STOP_LONGLMLINGUA_PORT_AFTER_SCREEN64`，不扩大、不训练。完整结果见
+[report](results/v2_rank_then_cut/frontier_r1_longllmlingua_qwen17b_screen64/REPORT.md)。
+
 ## 14. 主要证据索引
 
 - 总实验日志：[results/v2_rank_then_cut/RESULTS.md](results/v2_rank_then_cut/RESULTS.md)

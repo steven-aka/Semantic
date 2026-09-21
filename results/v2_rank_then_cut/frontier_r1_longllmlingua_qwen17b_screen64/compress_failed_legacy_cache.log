@@ -1,0 +1,65 @@
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.84s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.08s/it]
+{"compressed": 1, "total": 192, "last_seconds": 2.1855787918902934}
+{"compressed": 2, "total": 192, "last_seconds": 1.0190450930967927}
+{"compressed": 3, "total": 192, "last_seconds": 1.1996959568932652}
+{"compressed": 4, "total": 192, "last_seconds": 1.24792170105502}
+{"compressed": 5, "total": 192, "last_seconds": 0.8272786901798099}
+{"compressed": 6, "total": 192, "last_seconds": 0.935721494955942}
+{"compressed": 7, "total": 192, "last_seconds": 1.3385552719701082}
+{"compressed": 8, "total": 192, "last_seconds": 1.1256896678823978}
+{"compressed": 9, "total": 192, "last_seconds": 1.2881953690666705}
+{"compressed": 10, "total": 192, "last_seconds": 1.6773120251018554}
+{"compressed": 11, "total": 192, "last_seconds": 1.0353968131821603}
+{"compressed": 12, "total": 192, "last_seconds": 1.043507819995284}
+{"compressed": 13, "total": 192, "last_seconds": 1.1841385120060295}
+{"compressed": 14, "total": 192, "last_seconds": 1.2199699429329485}
+{"compressed": 15, "total": 192, "last_seconds": 1.0186482099816203}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/backup01/zhangyihan/projects/semantic/src/evaluation/frontier_r1_longllmlingua_port.py", line 140, in <module>
+    main()
+  File "/backup01/zhangyihan/projects/semantic/src/evaluation/frontier_r1_longllmlingua_port.py", line 135, in main
+    if args.mode in ("compress", "all"): compress(args, source_rows)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/src/evaluation/frontier_r1_longllmlingua_port.py", line 42, in compress
+    result = compressor.compress_prompt(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/llmlingua/prompt_compressor.py", line 682, in compress_prompt
+    context = self.iterative_compress_prompt(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/llmlingua/prompt_compressor.py", line 1636, in iterative_compress_prompt
+    loss, past_key_values = self.get_ppl(
+                            ^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/llmlingua/prompt_compressor.py", line 187, in get_ppl
+    response = self.model(
+               ^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/transformers/utils/generic.py", line 959, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 481, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/transformers/utils/generic.py", line 1083, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/backup01/zhangyihan/projects/semantic/.venv/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 372, in forward
+    past_seen_tokens = past_key_values.get_seq_length() if past_key_values is not None else 0
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get_seq_length'

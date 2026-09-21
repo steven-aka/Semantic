@@ -4824,3 +4824,20 @@ compression is safer than independent packet compression at roughly matched
 2x cost. [Report](frontier_r1_hard_screen64/REPORT.md),
 [summary](frontier_r1_hard_screen64/summary.json), compressed contexts, every
 Target output, and run logs preserve the full result. Sealed sets were not read.
+
+### FRONTIER-R1 LongLLMLingua Qwen3-1.7B mechanism port (Screen-64)
+
+The official LongLLMLingua algorithm was ported to a frozen local Qwen3-1.7B
+compressor and evaluated against frozen Qwen3-8B on the same complete original
+contexts. This is explicitly not an exact reproduction of the paper's default
+Llama-2 compressor. A cache-container adapter was required for current
+Transformers; it changes only legacy-list versus `DynamicCache` representation.
+
+At requested keep 0.50 (actual 0.5057), mean F1 fell from 0.9495 to 0.4293 and
+0.90 success from 53/64 to 1/64. At requested 0.25 and 0.125, 0.90 success was
+0/64. Decision: `STOP_LONGLMLINGUA_PORT_AFTER_SCREEN64`; no Design-256 and no
+training. [Report](frontier_r1_longllmlingua_qwen17b_screen64/REPORT.md) and
+[summary](frontier_r1_longllmlingua_qwen17b_screen64/summary.json) preserve the
+qualification and result. The reusable observation is limited to method design:
+query-conditioned token perplexity did not preserve this task's dispersed
+answer set, so it should not replace V8 coarse packet selection.
