@@ -3934,3 +3934,44 @@ policy without tuning. [Reproducible audit](../../src/evaluation/v17packet_inser
 [summary](v17packet_insert_c0_visible_signal/summary.json), and
 [per-action features and outcomes](v17packet_insert_c0_visible_signal/per_action.jsonl)
 preserve the result.
+
+### V17-PACKET-REP-A0 certified-proof provenance audit
+
+Before training a query-conditioned answer-support encoder, we ran a
+zero-Target-call, retrospective provenance audit on the design-exposed R1
+train512 and SLOT-B0 train24. The constructed QAMPARI pool stores ten
+certified answer atoms per query. Its `Document title` is the answer string,
+and the rank10 packet can be matched back to one complete atom proof.
+
+| Train-side frame | Gold-answer rank10 title | Exact full-proof match |
+|---|---:|---:|
+| R1 train512 | 511/512 | 511/512 |
+| SLOT-B0 actions | 84/84 | 84/84 |
+
+Crucially, **all 39 R1 repairable failures and all 92 unrepairable failures**
+have a gold-answer rank10 title. In SLOT-B0, every sentence option within a
+query inherits the same gold title; gold-atom novelty varies in **0/24**
+queries and distinguishes **0/12** within-query repair versus nonrepair
+pairs. Thus even perfect *answer-identity* coverage cannot be the missing
+decision variable for this particular rank10 action pool. It does **not**
+rule out sentence-level relation support, partial-proof sufficiency,
+interference, or ordering effects.
+
+The construction certificate is block-level provenance, not sentence-level
+logical entailment. In SLOT-B0, only 6/16 repair sentences and 1/5 break
+sentences literally contain a term from their proof's relation-overlap
+certificate; this lexical diagnostic cannot safely label the remaining
+sentences. `Document title` also reveals the gold answer by construction,
+creating a serious shortcut risk for a support encoder. Gold/provenance must
+remain retrospective or train-only, never a deployment input.
+
+Decision: `STOP_REP_A0_AUTO_SENTENCE_LABELING`. Do not train on every proof
+sentence as a positive, and do not treat atom novelty as evidence of
+deployable repairability. First validate sentence-level support labels on a
+small, query-grouped train-side set; then test their incremental value over
+the title/provenance shortcut on existing counterfactuals. The balanced,
+design-exposed 24-query pilot cannot justify a population-level claim.
+[Script](../../src/evaluation/v17packet_rep_a0_provenance_audit.py),
+[summary](v17packet_rep_a0_provenance_audit/summary.json), and
+[per-action audit](v17packet_rep_a0_provenance_audit/per_action.jsonl)
+make these counts reproducible.

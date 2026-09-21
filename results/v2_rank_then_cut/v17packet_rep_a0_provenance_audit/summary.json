@@ -1,0 +1,37 @@
+{
+  "scope": "design-exposed train512 R1 and selected train24 SLOT-B0 only",
+  "target_calls": 0,
+  "r1_queries": 512,
+  "r1_rank10_gold_title": 511,
+  "r1_rank10_exact_certified_proof": 511,
+  "r1_failures": 131,
+  "r1_repairable_failures": 39,
+  "r1_repairable_gold_title": 39,
+  "r1_unrepairable_failures": 92,
+  "r1_unrepairable_gold_title": 92,
+  "slot_b0_queries": 24,
+  "slot_b0_actions": 84,
+  "slot_b0_gold_title_actions": 84,
+  "slot_b0_exact_certified_proof_actions": 84,
+  "slot_b0_queries_with_variable_gold_novelty": 0,
+  "slot_b0_strict_repair_nonrepair_pairs": 12,
+  "slot_b0_gold_novelty_discriminated_pairs": 0,
+  "slot_b0_certificate_term_contingency": {
+    "break|False": 4,
+    "break|True": 1,
+    "repair|False": 10,
+    "repair|True": 6,
+    "same_threshold_f1_gain|False": 9,
+    "same_threshold_f1_gain|True": 9,
+    "same_threshold_f1_loss|False": 4,
+    "same_threshold_f1_loss|True": 1,
+    "unchanged|False": 31,
+    "unchanged|True": 9
+  },
+  "limitations": [
+    "Certified proof provenance is at answer-atom/block level; a split sentence is not automatically an entailing support sentence.",
+    "Document title reveals a gold answer in almost every rank10 packet; this is a retrospective upper-bound feature, not a permissible gold input.",
+    "The 24-query pilot was baseline-balanced and design-exposed; action counts are not independent query counts.",
+    "Certificate relation-term overlap is a construction heuristic, not logical entailment."
+  ]
+}
