@@ -1,0 +1,23 @@
+{
+  "protocol": "LATENT-L0A_LEGALITY_AND_ACCOUNTING",
+  "gates": {
+    "non_text_lossy_representation_in_current_scope": false,
+    "white_box_inputs_embeds_in_current_deployment_contract": false,
+    "compatible_with_current_lossless_claim": false,
+    "prefix_only_additive_latent_sequence_possible_in_principle": true,
+    "frozen_target_training_possible_in_principle": true,
+    "compute_accounting_specifiable_in_principle": true
+  },
+  "evidence": {
+    "readme": "Defines the QAMPARI method as deterministic lossless additive compression",
+    "v2_protocol": "Defines 12 source-preserving lossless binary packets and add-only deployment",
+    "runtime": "The canonical QampariTargetRunner renders chat text and token IDs; it exposes no deployment inputs_embeds contract",
+    "method_change_required": "Latent memory would replace recoverable source text with learned lossy vectors and require a white-box Target interface"
+  },
+  "decision": "STOP_LATENT_UNDER_CURRENT_LOSSLESS_TEXT_API_CONTRACT",
+  "latent_l0b_authorized": false,
+  "alternative_scope": "A separately named white-box lossy representation study could be opened only by explicitly changing the paper and deployment contract; it cannot be reported as continuation of the present lossless method",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

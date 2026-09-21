@@ -2787,3 +2787,21 @@ Target cohort should be run. Before opening a latent-memory branch, separately
 freeze whether non-text `inputs_embeds`/prefix-KV is permitted by the paper and
 deployment contract and define a compute-aware comparison; otherwise retain V8
 as the terminal text-API method.
+
+### LATENT-L0A decision
+
+The latent-memory branch fails the current-contract legality gate. Although a
+fixed maximum latent sequence could support nested prefix reveal and the
+Qwen3-8B weights could remain frozen, learned `inputs_embeds` are neither a
+recoverable source partition nor part of the canonical rendered-text Target
+interface. Opening L0B would silently replace the lossless text-compression
+problem with a lossy white-box representation problem and would require new
+position/latency/FLOP/VRAM accounting. Decision:
+`STOP_LATENT_UNDER_CURRENT_LOSSLESS_TEXT_API_CONTRACT`. Do not run embedding
+equivalence, train a latent compressor, or spend Teacher/Target calls under the
+current method. A latent study is permissible only as a separately scoped
+method after an explicit change to the scientific and deployment contract.
+With PACKET-H0A and LATENT-L0A both stopped, V8 is the terminal defensible
+text-API deployment method for this experimental chain; remaining work should
+consolidate its final Pareto result and the documented oracle--deployment
+limitations rather than open another representation family.

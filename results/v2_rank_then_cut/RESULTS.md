@@ -4582,3 +4582,20 @@ being investigated. Decision:
 `STOP_PACKET_H0_NO_DISTINCT_STRUCTURAL_REPACKETIZATION`; H0B Target calls are
 not authorized. This is a zero-call implementation audit, not evidence that no
 conceivable text packetization can help.
+
+### V17-LATENT-L0A legality and accounting audit
+
+LATENT-L0A checked the proposed soft-memory branch against the actual method
+and deployment contract before model construction. The current project is
+explicitly deterministic, lossless, source-preserving, text-rendered, and
+add-only; the canonical Qwen3-8B runner accepts rendered chat text/token IDs
+and defines no deployment `inputs_embeds` interface. A single ordered latent
+sequence could be prefix-additive and could backpropagate through a frozen
+Target in principle, but it would be a learned lossy representation through a
+new white-box API. Latent positions also cannot be reported as text tokens
+without separate compressor compute, latency, VRAM, and Target-position
+accounting. Therefore the conjunctive legality gate gives
+`STOP_LATENT_UNDER_CURRENT_LOSSLESS_TEXT_API_CONTRACT`; L0B training and
+Target calls are not authorized. Latent memory remains a possible separately
+named research project only if the lossless/text-API scope is explicitly
+changed.

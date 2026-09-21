@@ -1,0 +1,21 @@
+{
+  "protocol": "LATENT-L0A_LEGALITY_AND_ACCOUNTING",
+  "status": "FROZEN_ZERO_CALL_CONTRACT_AUDIT",
+  "candidate_interface": "inputs_embeds only; prefix-KV prohibited",
+  "current_method_contract": {
+    "representation": "12 source-preserving lossless text packets",
+    "deployment_interface": "standard rendered text/chat token IDs",
+    "trajectory": "add-only nested source-packet reveal",
+    "target": "frozen Qwen3-8B"
+  },
+  "required_gates": [
+    "non-text lossy representation is in scientific scope",
+    "white-box inputs_embeds is in deployment scope",
+    "lossless claim is explicitly retired or separated",
+    "target-position and compressor-compute accounting is frozen"
+  ],
+  "decision_rule": "Any failed legality gate stops LATENT-L0B under the current project contract",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}
