@@ -1,0 +1,20 @@
+{
+  "protocol": "FRONTIER-R1-RECOMP-NQ-ABSTRACTIVE-SCREEN64",
+  "compressor": "fangyuan/nq_abstractive_compressor",
+  "target": "models/Qwen3-8B",
+  "artifacts": {
+    "compressed.jsonl": {
+      "bytes": 27418,
+      "sha256": "77fee0688cef5273378de8cfeea4a70c23ecd26eb6929ba7edec8423f38b097a"
+    },
+    "target_outputs.jsonl": {
+      "bytes": 31379,
+      "sha256": "6ae4b713e91ad4867336bdfb9dacf0b58163dc57ba9361c70c3cfafecb72f85a"
+    },
+    "summary.json": {
+      "bytes": 1377,
+      "sha256": "1c8f300c6a02f0b0ff0fe78b072caa37ad245e75daa20dd25d2e2cae0a78d817"
+    }
+  },
+  "sealed_sets_read": false
+}

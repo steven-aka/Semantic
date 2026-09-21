@@ -1,0 +1,53 @@
+{
+  "protocol": "FRONTIER-R1-RECOMP-NQ-ABSTRACTIVE-SCREEN64",
+  "qualification": "official NQ checkpoint; zero-shot cross-domain QAMPARI baseline",
+  "target": "frozen Qwen3-8B",
+  "source": "complete original 12-packet context",
+  "generation": {
+    "max_source_tokens": 1024,
+    "max_new_tokens": 512,
+    "num_beams": 4,
+    "no_repeat_ngram_size": 3
+  },
+  "result": {
+    "queries": 64,
+    "baseline_mean_f1": 0.949470382208427,
+    "compressed_mean_f1": 0.18882376304251305,
+    "delta_mean_f1": -0.7606466191659145,
+    "baseline_success_090": 53,
+    "compressed_success_090": 0,
+    "repairs_090": 0,
+    "breaks_090": 53,
+    "mean_actual_keep_rate": 0.03460264520001306,
+    "mean_context_tokens": 25.703125,
+    "empty_summaries": 10,
+    "mean_compressor_seconds": 2.1600008673522098,
+    "threshold_success": {
+      "0.60": {
+        "baseline": 63,
+        "compressed": 1
+      },
+      "0.70": {
+        "baseline": 61,
+        "compressed": 0
+      },
+      "0.80": {
+        "baseline": 60,
+        "compressed": 0
+      },
+      "0.90": {
+        "baseline": 53,
+        "compressed": 0
+      },
+      "0.95": {
+        "baseline": 39,
+        "compressed": 0
+      }
+    }
+  },
+  "screen_gate_passed": false,
+  "decision": "STOP_RECOMP_ABSTRACTIVE_AFTER_SCREEN64",
+  "new_target_calls": 64,
+  "baseline_reused_calls": 64,
+  "sealed_sets_read": false
+}

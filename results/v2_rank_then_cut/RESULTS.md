@@ -4854,3 +4854,13 @@ QAMPARI-trained RECOMP model is impossible. [Report](frontier_r1_recomp_nq_extra
 and [summary](frontier_r1_recomp_nq_extractive_screen64/summary.json) preserve
 the result. The retained design observation is that independent sentence
 relevance remains misaligned with distributed answer-set coverage.
+
+### FRONTIER-R1 RECOMP NQ abstractive zero-shot baseline (Screen-64)
+
+The official NQ T5-large abstractive checkpoint produced summaries averaging
+25.70 Qwen3 tokens (3.46% of original context), including 10 empty outputs.
+Against frozen Qwen3-8B, mean F1 fell from 0.9495 to 0.1888 and 0.90 success
+from 53/64 to 0/64. Decision: `STOP_RECOMP_ABSTRACTIVE_AFTER_SCREEN64`; no
+expansion or training. This isolates cross-domain faithfulness rather than
+compactness as the failure. [Report](frontier_r1_recomp_nq_abstractive_screen64/REPORT.md)
+and [summary](frontier_r1_recomp_nq_abstractive_screen64/summary.json) preserve it.

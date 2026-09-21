@@ -280,3 +280,10 @@ Llama-2，该结果严格标为mechanism port。在requested keep=0.50（actual
 - V18 memorization：[results/v2_rank_then_cut/v18_l0b1_tiny_memorization/REPORT.md](results/v2_rank_then_cut/v18_l0b1_tiny_memorization/REPORT.md)
 - Native-code existence：[results/v2_rank_then_cut/project_synthesis_a0_solution_existence/REPORT.md](results/v2_rank_then_cut/project_synthesis_a0_solution_existence/REPORT.md)
 - Native-code consumption：[results/v2_rank_then_cut/native_code_a0_consumption/REPORT.md](results/v2_rank_then_cut/native_code_a0_consumption/REPORT.md)
+
+### RECOMP NQ abstractive zero-shot baseline
+
+官方NQ T5-large checkpoint将context压到平均25.70 Qwen3 tokens（3.46%），
+但mean F1从0.9495降至0.1888，0.90 success从53/64降至0/64，并产生10个
+空摘要。决定为`STOP_RECOMP_ABSTRACTIVE_AFTER_SCREEN64`。这说明跨域失败点
+是faithfulness而非compactness，不能外推为域内训练版本不可能。
