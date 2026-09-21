@@ -1,0 +1,47 @@
+{
+  "protocol": "BASELINE-XRAG-QWEN3-PROJECTOR-V1",
+  "mode": "train",
+  "loss": 6.146430969238281,
+  "projector_trainable_parameters": 19931136,
+  "trainable_names": [
+    "net.0.weight",
+    "net.0.bias",
+    "net.2.weight",
+    "net.2.bias"
+  ],
+  "projector_gradients_finite": true,
+  "target_parameter_grads": 0,
+  "target_hash_unchanged": true,
+  "retriever_trainable": false,
+  "latent_context_tokens": 1,
+  "peak_cuda_bytes": 19446410240,
+  "steps": 6096,
+  "mean_train_loss": 2.393979890792682,
+  "history": [
+    {
+      "epoch": 1,
+      "steps": 2032,
+      "train_loss": 2.641103493502569,
+      "validation_nll": 2.29892300974239
+    },
+    {
+      "epoch": 2,
+      "steps": 4064,
+      "train_loss": 2.2836091996621577,
+      "validation_nll": 2.266962427253073
+    },
+    {
+      "epoch": 3,
+      "steps": 6096,
+      "train_loss": 2.2572269792133195,
+      "validation_nll": 2.256737344183705
+    }
+  ],
+  "selected": {
+    "epoch": 3,
+    "steps": 6096,
+    "train_loss": 2.2572269792133195,
+    "validation_nll": 2.256737344183705
+  },
+  "target_hash_unchanged_after_training": true
+}

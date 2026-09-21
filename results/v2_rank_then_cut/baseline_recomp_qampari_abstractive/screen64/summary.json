@@ -1,0 +1,54 @@
+{
+  "protocol": "BASELINE-RECOMP-QAMPARI-ABSTRACTIVE-V1-SCREEN64",
+  "qualification": "RECOMP-style QAMPARI in-domain teacher distillation; not an official QAMPARI checkpoint",
+  "target": "frozen Qwen3-8B",
+  "source": "complete original 12-packet context",
+  "generation": {
+    "max_source_tokens": 1024,
+    "max_new_tokens": 512,
+    "num_beams": 4,
+    "no_repeat_ngram_size": 3
+  },
+  "result": {
+    "queries": 64,
+    "baseline_mean_f1": 0.949470382208427,
+    "compressed_mean_f1": 0.7732548094360224,
+    "delta_mean_f1": -0.1762155727724045,
+    "baseline_success_090": 53,
+    "compressed_success_090": 27,
+    "repairs_090": 5,
+    "breaks_090": 31,
+    "mean_actual_keep_rate": 0.10389291203153558,
+    "mean_context_tokens": 77.15625,
+    "empty_summaries": 0,
+    "mean_compressor_seconds": 5.137594789459399,
+    "threshold_success": {
+      "0.60": {
+        "baseline": 63,
+        "compressed": 54
+      },
+      "0.70": {
+        "baseline": 61,
+        "compressed": 51
+      },
+      "0.80": {
+        "baseline": 60,
+        "compressed": 43
+      },
+      "0.90": {
+        "baseline": 53,
+        "compressed": 27
+      },
+      "0.95": {
+        "baseline": 39,
+        "compressed": 14
+      }
+    }
+  },
+  "screen_gate_passed": false,
+  "decision": "RETAIN_NEGATIVE_FROZEN_TARGET_BASELINE",
+  "new_target_calls": 64,
+  "baseline_reused_calls": 64,
+  "sealed_sets_read": false,
+  "compressor_model": "checkpoints/baselines/recomp_qampari_abstractive"
+}

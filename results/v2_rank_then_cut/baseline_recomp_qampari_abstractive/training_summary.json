@@ -1,0 +1,34 @@
+{
+  "protocol": "BASELINE-RECOMP-QAMPARI-ABSTRACTIVE-V1",
+  "train_rows": 1906,
+  "validation_rows": 523,
+  "history": [
+    {
+      "epoch": 1,
+      "steps": 953,
+      "train_loss": 1.0052455649921301,
+      "validation_loss": 0.7262717676526718
+    },
+    {
+      "epoch": 2,
+      "steps": 1906,
+      "train_loss": 0.8075167644937041,
+      "validation_loss": 0.6612856333492366
+    },
+    {
+      "epoch": 3,
+      "steps": 2859,
+      "train_loss": 0.7526632591159497,
+      "validation_loss": 0.6321490338740458
+    }
+  ],
+  "selected": {
+    "epoch": 3,
+    "steps": 2859,
+    "train_loss": 0.7526632591159497,
+    "validation_loss": 0.6321490338740458
+  },
+  "target_loaded": false,
+  "target_trainable": false,
+  "sealed_sets_read": false
+}

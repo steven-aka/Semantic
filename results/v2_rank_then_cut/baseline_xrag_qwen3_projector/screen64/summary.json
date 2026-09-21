@@ -1,0 +1,24 @@
+{
+  "protocol": "BASELINE-XRAG-QWEN3-PROJECTOR-V1",
+  "qualification": "xRAG-style Qwen3 port; official xRAG supports Mistral/Mixtral, not Qwen3",
+  "target": "frozen Qwen3-8B",
+  "queries": 64,
+  "mean_f1": 0.03386339712166918,
+  "mean_baseline_f1": 0.949470382208427,
+  "latent_context_tokens": 1,
+  "threshold_success": {
+    "0.6": 0,
+    "0.7": 0,
+    "0.8": 0,
+    "0.9": 0,
+    "0.95": 0
+  },
+  "baseline_threshold_success": {
+    "0.6": 63,
+    "0.7": 61,
+    "0.8": 60,
+    "0.9": 53,
+    "0.95": 39
+  },
+  "sealed_sets_read": false
+}
