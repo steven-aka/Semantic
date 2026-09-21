@@ -1,0 +1,22 @@
+{
+  "protocol": "V17-STOP-C3-A0_IDEAL_PREFIX_REUSE_COMPUTE_CEILING",
+  "queries": 256,
+  "policy": "frozen C1 B1 native-only threshold 0.95",
+  "mean_depth10_compute_tokens_per_query": 4185.21484375,
+  "mean_ideal_prefix_reuse_compute_tokens_per_query": 4034.50390625,
+  "mean_compute_tokens_saved_per_query": 150.7109375,
+  "compute_saving_fraction": 0.0360103227974221,
+  "passes_2pct_gate": true,
+  "mean_final_context_tokens_per_query": 3055.5859375,
+  "stop_requests": 487,
+  "fallback_requests": 793,
+  "decision": "GO_C3_PREFIX_TOKEN_PREFLIGHT",
+  "assumptions": [
+    "100% reuse of evidence-prefix KV",
+    "zero cache-management overhead",
+    "fallback pays depth10 prompt prefill once plus both early and depth10 decode",
+    "frozen C1 OOF decisions; no refitting"
+  ],
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

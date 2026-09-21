@@ -4683,3 +4683,12 @@ than direct depth10; compute-oracle capture was negative, far below the binding
 85% requirement. Decision: `STOP_INTERNAL_OBSERVABILITY`. Layer sweeps, MLPs,
 larger critics and native-logit recollection are not authorized. The next
 contract question is C3 prefixable reveal-order prompt serialization.
+
+### V17-STOP-C3-A0 ideal prefix-reuse ceiling
+
+Before changing serialization or calling Target, the frozen C1 native-only
+0.95 policy was recomputed under ideal 100% evidence-prefix KV reuse. Effective
+compute is 4,034.50 versus 4,185.21 tokens/query for direct depth10, a saving
+of 150.71 or **3.60%**. Final context remains 3,055.59 tokens/query. This
+passes the 2% gate and yields `GO_C3_PREFIX_TOKEN_PREFLIGHT`, but assumes zero
+cache-management overhead and leaves only a narrow deployment margin.

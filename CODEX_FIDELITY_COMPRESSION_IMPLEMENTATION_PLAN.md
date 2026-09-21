@@ -2875,3 +2875,11 @@ probes, or another internal-state cohort. Proceed only by separately freezing
 serialization follows reveal order so successive prompts become literal token
 prefixes; because this changes Target token order, it requires paired quality
 and cost baselines before any learned stopping reuse.
+
+C3-A0's zero-call ideal ceiling passes narrowly. With the frozen C1 B1=0.95
+decisions and perfect evidence-prefix KV reuse, effective Target compute falls
+from 4,185.21 to 4,034.50 tokens/query, a 3.60% saving. This authorizes only the
+token-ID prefix correctness preflight and then a small paired depth10 order
+test. It does not authorize adaptive C3 collection: only about 1.6 percentage
+points remain above the 2% deployment gate before real cache overhead and
+latency are charged.
