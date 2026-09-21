@@ -4841,3 +4841,16 @@ training. [Report](frontier_r1_longllmlingua_qwen17b_screen64/REPORT.md) and
 qualification and result. The reusable observation is limited to method design:
 query-conditioned token perplexity did not preserve this task's dispersed
 answer set, so it should not replace V8 coarse packet selection.
+
+### FRONTIER-R1 RECOMP NQ extractive zero-shot baseline (Screen-64)
+
+The official public `fangyuan/nq_extractive_compressor` checkpoint was applied
+zero-shot to QAMPARI sentence units and connected to frozen Qwen3-8B. At
+requested keep 0.50 (actual 0.4984), mean F1 fell from 0.9495 to 0.5374 and
+0.90 success from 53/64 to 1/64. At actual 0.2484 and 0.1240, 0.90 success was
+0/64. Decision: `STOP_RECOMP_EXTRACTIVE_AFTER_SCREEN64`; no Design-256 and no
+domain training. This is a cross-domain checkpoint result and does not claim a
+QAMPARI-trained RECOMP model is impossible. [Report](frontier_r1_recomp_nq_extractive_screen64/REPORT.md)
+and [summary](frontier_r1_recomp_nq_extractive_screen64/summary.json) preserve
+the result. The retained design observation is that independent sentence
+relevance remains misaligned with distributed answer-set coverage.

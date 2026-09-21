@@ -1,0 +1,23 @@
+{
+  "protocol": "FRONTIER-R1-RECOMP-NQ-EXTRACTIVE-SCREEN64",
+  "compressor": "fangyuan/nq_extractive_compressor",
+  "local_checkpoint": "models/recomp-nq-extractive",
+  "target": "models/Qwen3-8B",
+  "official_code_commit": "51d4432151efb3275257a9407dc71d1e5ec6634d",
+  "python": "3.11.16",
+  "artifacts": {
+    "compressed.jsonl": {
+      "bytes": 571805,
+      "sha256": "dea5cacbaf302f7572e13bcf3060c0ae457ca7a0db771ae1f278f59afd936cf7"
+    },
+    "target_outputs.jsonl": {
+      "bytes": 115229,
+      "sha256": "6bc34b8dd87f4c3414f42954b8f516b153345131638eaef4eb1c2cda41b74b51"
+    },
+    "summary.json": {
+      "bytes": 3157,
+      "sha256": "4d80a3092676250dc0fe30b1f7dd76549a6b2fa1f82d746923e39abcf771c970"
+    }
+  },
+  "sealed_sets_read": false
+}

@@ -260,6 +260,15 @@ Llama-2，该结果严格标为mechanism port。在requested keep=0.50（actual
 `STOP_LONGLMLINGUA_PORT_AFTER_SCREEN64`，不扩大、不训练。完整结果见
 [report](results/v2_rank_then_cut/frontier_r1_longllmlingua_qwen17b_screen64/REPORT.md)。
 
+### 13.3 RECOMP NQ extractive zero-shot baseline
+
+官方公开`fangyuan/nq_extractive_compressor` checkpoint在QAMPARI上做zero-shot
+抽取，并连接冻结Qwen3-8B。requested keep=0.50（actual 0.4984）时，mean F1
+从0.9495降至0.5374，0.90 success从53/64降至1/64；4×与8×附近均为0/64。
+决定为`STOP_RECOMP_EXTRACTIVE_AFTER_SCREEN64`。该结论仅适用于NQ checkpoint
+的跨域迁移，不能解释成QAMPARI训练版RECOMP在理论上不可行。完整结果见
+[report](results/v2_rank_then_cut/frontier_r1_recomp_nq_extractive_screen64/REPORT.md)。
+
 ## 14. 主要证据索引
 
 - 总实验日志：[results/v2_rank_then_cut/RESULTS.md](results/v2_rank_then_cut/RESULTS.md)

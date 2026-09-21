@@ -1,0 +1,121 @@
+{
+  "protocol": "FRONTIER-R1-RECOMP-NQ-EXTRACTIVE-SCREEN64",
+  "qualification": "official NQ checkpoint; zero-shot cross-domain QAMPARI baseline",
+  "target": "frozen Qwen3-8B",
+  "source": "complete original 12-packet context",
+  "results": [
+    {
+      "requested_keep_rate": 0.125,
+      "queries": 64,
+      "baseline_mean_f1": 0.949470382208427,
+      "compressed_mean_f1": 0.23468328546453554,
+      "delta_mean_f1": -0.7147870967438917,
+      "baseline_success_090": 53,
+      "compressed_success_090": 0,
+      "repairs_090": 0,
+      "breaks_090": 53,
+      "mean_actual_keep_rate": 0.12404271977469872,
+      "mean_context_tokens": 100.09375,
+      "mean_compressor_seconds": 0.08631604309994145,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 1
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 1
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 0
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 0
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 0
+        }
+      }
+    },
+    {
+      "requested_keep_rate": 0.25,
+      "queries": 64,
+      "baseline_mean_f1": 0.949470382208427,
+      "compressed_mean_f1": 0.3314983346922684,
+      "delta_mean_f1": -0.617972047516159,
+      "baseline_success_090": 53,
+      "compressed_success_090": 0,
+      "repairs_090": 0,
+      "breaks_090": 53,
+      "mean_actual_keep_rate": 0.2483845768873369,
+      "mean_context_tokens": 200.390625,
+      "mean_compressor_seconds": 0.08631604309994145,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 5
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 1
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 1
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 0
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 0
+        }
+      }
+    },
+    {
+      "requested_keep_rate": 0.5,
+      "queries": 64,
+      "baseline_mean_f1": 0.949470382208427,
+      "compressed_mean_f1": 0.5374032964446693,
+      "delta_mean_f1": -0.41206708576375795,
+      "baseline_success_090": 53,
+      "compressed_success_090": 1,
+      "repairs_090": 0,
+      "breaks_090": 52,
+      "mean_actual_keep_rate": 0.49838909152164557,
+      "mean_context_tokens": 401.953125,
+      "mean_compressor_seconds": 0.08631604309994145,
+      "threshold_success": {
+        "0.60": {
+          "baseline": 63,
+          "compressed": 31
+        },
+        "0.70": {
+          "baseline": 61,
+          "compressed": 21
+        },
+        "0.80": {
+          "baseline": 60,
+          "compressed": 14
+        },
+        "0.90": {
+          "baseline": 53,
+          "compressed": 1
+        },
+        "0.95": {
+          "baseline": 39,
+          "compressed": 1
+        }
+      }
+    }
+  ],
+  "screen_gate_passed": false,
+  "decision": "STOP_RECOMP_EXTRACTIVE_AFTER_SCREEN64",
+  "new_target_calls": 192,
+  "baseline_reused_calls": 64,
+  "sealed_sets_read": false
+}
