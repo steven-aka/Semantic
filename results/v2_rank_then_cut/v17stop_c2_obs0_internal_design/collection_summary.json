@@ -1,0 +1,15 @@
+{
+  "protocol": "V17-STOP-C2-OBS0_INTERNAL_STATE_DESIGN_COLLECTION",
+  "queries": 256,
+  "states": 1024,
+  "hidden_shape": [
+    1024,
+    3,
+    4096
+  ],
+  "dtype": "float16",
+  "elapsed_seconds": 807.3155198979657,
+  "peak_vram_bytes": 19787746816,
+  "target_generations": 1024,
+  "sealed_sets_read": false
+}
