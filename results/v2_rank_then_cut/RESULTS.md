@@ -4864,3 +4864,14 @@ from 53/64 to 0/64. Decision: `STOP_RECOMP_ABSTRACTIVE_AFTER_SCREEN64`; no
 expansion or training. This isolates cross-domain faithfulness rather than
 compactness as the failure. [Report](frontier_r1_recomp_nq_abstractive_screen64/REPORT.md)
 and [summary](frontier_r1_recomp_nq_abstractive_screen64/summary.json) preserve it.
+
+### FRONTIER-R2 xRAG same-Target eligibility audit
+
+The official xRAG-7b checkpoint is tied to Mistral-7B-Instruct-v0.2 and an SFR
+retrieval embedding through a learned projector. It cannot be connected to the
+project's frozen Qwen3-8B without training a new bridge; running it unchanged
+would change the Target and invalidate direct comparison. Decision:
+`BLOCK_XRAG_QWEN3_BASELINE_REQUIRES_BRIDGE_TRAINING`. This is an interface
+eligibility result, not a negative xRAG performance result. No checkpoint was
+downloaded, no Target call or training occurred, and the possible learned
+carrier experiment is recorded but deferred. [Report](frontier_r2_xrag_eligibility_audit/REPORT.md).

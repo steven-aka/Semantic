@@ -1,0 +1,14 @@
+{
+  "protocol": "FRONTIER-R2-XRAG-ELIGIBILITY-AUDIT",
+  "official_repo_commit": "121fa4180a8c1fa0ec1af5901d879452e5c9ce89",
+  "official_checkpoint": "Hannibal046/xrag-7b",
+  "official_decoder_backbone": "mistralai/Mistral-7B-Instruct-v0.2",
+  "official_retriever": "Salesforce/SFR-Embedding-Mistral",
+  "checkpoint_bytes": 14551249789,
+  "project_target": "models/Qwen3-8B",
+  "same_target_compatible_without_training": false,
+  "decision": "BLOCK_XRAG_QWEN3_BASELINE_REQUIRES_BRIDGE_TRAINING",
+  "new_target_calls": 0,
+  "training_runs": 0,
+  "sealed_sets_read": false
+}
