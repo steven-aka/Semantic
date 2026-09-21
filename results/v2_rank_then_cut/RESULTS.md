@@ -4031,6 +4031,34 @@ break-prone. Do not tune thresholds or claim deployable Pareto improvement.
 [OOF summary](v17packet_obs_a1_natural_insertion/paired_text_control_summary.json)
 preserve the diagnostic.
 
+### V17-PACKET-OBS-A3 five-anchor value bound
+
+We checked the final-objective opportunity before scaling labels or training
+a stronger semantic controller. Under the frozen `[6,7,7,9,10]` schedule,
+OBS-A1's fresh depth9 0.90 outcomes and P0's unchanged other prefixes
+project V8 versus uniform protected insertion as:
+
+| Policy (256 natural train queries) | 0.60 | 0.70 | 0.80 | 0.90 | 0.95 | Complete |
+|---|---:|---:|---:|---:|---:|---:|
+| V8 | 223 | 222 | 172 | 180 | 173 | 129 |
+| Uniform shortest insertion | 223 | 222 | 172 | 186 | 173 | 127 |
+
+Complete changes by nine repairs and eleven breaks. Only **9/27** 0.90
+repairs can become Complete repairs; among the other 18, fifteen still fail
+the earlier 0.80 anchor (possibly also other anchors). Even a hindsight
+perfect Complete gate for this single action is only **129→138/256** and
+requires identifying nine rare queries. The projection combines fresh
+OBS-A1 depth9 calls with historical P0 calls at other depths; it is not a
+freshly paired end-to-end validation.
+
+Decision: `STOP_DEPTH9_INSERTION_LABEL_SCALE_AND_STRONG_PROBE_FOR_COMPLETE`.
+This action cannot change the earlier 0.80 or later 0.95 context; training a
+larger gate on it would optimize a narrow 0.90 surrogate instead of the
+five-anchor quality–token goal. First establish a multi-anchor action-space
+value ceiling before new controller training. [Report](v17packet_obs_a1_natural_insertion/COMPLETE_BOUND.md)
+and [summary](v17packet_obs_a1_natural_insertion/complete_bound.json) retain
+the analysis.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed

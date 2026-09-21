@@ -2568,3 +2568,17 @@ bootstrap intervals include no quality improvement. Only 0.90 was retested;
 no five-anchor Pareto claim follows. Stop uniform title reveal and do not
 fit another title gate to this newly exposed cohort. The component effects
 are real but do not identify a cheap, broadly safe deployment decision.
+
+OBS-A1 then collected 256 outcome-blind, paired Qwen3-8B protected-insertion
+queries: V8 depth9 0.90 success 180→186 through 27 repairs and 21 breaks,
+at +26.64 context tokens/query. A 30-query outcome-stratified repeat kept
+all repair/break/neutral categories, but the cheap full paired-text OBS-A2
+probe found no useful low-budget enrichment. Crucially, OBS-A3 projected the
+same fixed action onto the frozen five-anchor schedule: Complete 129→127,
+with only nine of 27 0.90 repairs capable of becoming Complete repairs.
+Fifteen of the other 18 still fail the earlier 0.80 anchor. The hybrid-cache
+projection is a research bound, not independent confirmation. Stop adding
+labels or training stronger models for this exact depth9-only action; its
+multi-anchor opportunity is too narrow for the final objective. Retain V8
+as reference and require a credible five-anchor action-space ceiling before
+another controller branch.

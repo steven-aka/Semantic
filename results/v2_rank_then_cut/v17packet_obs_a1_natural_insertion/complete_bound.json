@@ -1,0 +1,38 @@
+{
+  "protocol": "OBS-A3_FIVE_ANCHOR_HYBRID_PROJECTION",
+  "schedule": [
+    6,
+    7,
+    7,
+    9,
+    10
+  ],
+  "queries": 256,
+  "baseline_five_anchor_success": [
+    223,
+    222,
+    172,
+    180,
+    173
+  ],
+  "action_five_anchor_success": [
+    223,
+    222,
+    172,
+    186,
+    173
+  ],
+  "baseline_complete": 129,
+  "action_complete": 127,
+  "complete_repairs": 9,
+  "complete_breaks": 11,
+  "090_repairs_with_all_other_anchors_passing": 9,
+  "oracle_repair_only_090": 207,
+  "oracle_repair_only_complete": 138,
+  "oracle_repair_only_mean_extra_context_tokens": 2.74609375,
+  "oracle_repair_only_mean_extra_target_tokens": 3.8046875,
+  "oracle_complete_repair_only_mean_extra_context_tokens": 0.8984375,
+  "oracle_complete_repair_only_mean_extra_target_tokens": 1.171875,
+  "sealed_sets_read": false,
+  "limitation": "0.90 comes from fresh paired OBS-A1 calls; other unchanged anchors come from earlier P0 runs. This is a hybrid projection and hindsight oracle, not a freshly paired end-to-end result."
+}
