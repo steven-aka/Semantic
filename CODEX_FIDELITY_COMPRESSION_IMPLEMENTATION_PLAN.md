@@ -2769,3 +2769,21 @@ the Qwen3-8B Target for this branch. Preserve V8 and all sealed sets. Any next
 method must be genuinely distinct, must establish a costed action-space ceiling
 before learning, and must be judged by the final five-anchor quality--token
 Pareto objective rather than evidence-construction accuracy alone.
+
+### PACKET-H0A decision
+
+The source-preserving structural-repacketization hypothesis was checked against
+the actual V8 data path before spending Target calls. On all 2,032 clean-train
+queries, every one of the 24,384 V8 actions is already one complete
+`Document title + Source evidence` block, and the twelve blocks exactly
+reconstruct the canonical context and packet-store coordinates. No recoverable
+sentence, table-row, or list-item metadata exists outside those blocks. The
+SEM-B0 adjacent-atom result concerns post-hoc fragments inside a rank10 block,
+not V8 packet boundaries. Therefore merging V8 siblings would conflate distinct
+source blocks and splitting them would create a new fine-grained action space;
+neither is the proposed restoration operation.
+`STOP_PACKET_H0_NO_DISTINCT_STRUCTURAL_REPACKETIZATION` is binding and no H0B
+Target cohort should be run. Before opening a latent-memory branch, separately
+freeze whether non-text `inputs_embeds`/prefix-KV is permitted by the paper and
+deployment contract and define a compute-aware comparison; otherwise retain V8
+as the terminal text-API method.

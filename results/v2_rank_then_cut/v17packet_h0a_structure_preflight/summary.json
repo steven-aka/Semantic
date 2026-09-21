@@ -1,0 +1,26 @@
+{
+  "protocol": "PACKET-H0A_SOURCE_STRUCTURE_PREFLIGHT",
+  "queries": 2032,
+  "packets": 24384,
+  "packets_per_query": [
+    12
+  ],
+  "malformed_title_source_blocks": 0,
+  "exact_context_reconstruction_failures": 0,
+  "exact_source_block_match_failures": 0,
+  "source_blocks_per_upstream_unit": {
+    "2": 12192
+  },
+  "units_with_title_or_sentence_metadata": 0,
+  "packet_token_min_median_max": [
+    16,
+    60,
+    434
+  ],
+  "finding": "V8 operates on complete title-bound source blocks. The sentence fragments used by later SEM/R1 audits are post-hoc derived actions, not V8 packet boundaries. Merging sibling blocks would join distinct source blocks and does not restore a split proposition. No sentence/table/list metadata is present to recover.",
+  "decision": "STOP_PACKET_H0_NO_DISTINCT_STRUCTURAL_REPACKETIZATION",
+  "h0b_target_calls_authorized": false,
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

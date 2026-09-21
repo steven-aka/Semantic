@@ -1,0 +1,13 @@
+{
+  "protocol": "PACKET-H0A_SOURCE_STRUCTURE_PREFLIGHT",
+  "status": "FROZEN_ZERO_TARGET_CALL_AUDIT",
+  "clean_rows": "results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout/data/v10_v12_train_train_clean.jsonl",
+  "source_examples": "data/units/qampari_rank_v2_candidates5000.jsonl",
+  "packet_store": "data/packets_qampari_rank_v2_candidates5000",
+  "claimed_hypothesis": "V8 packetization may split source propositions that a structural repacketizer can restore",
+  "go_rule": "Continue only if V8 packet boundaries demonstrably split recoverable source structures or omit preserved sentence/table/list metadata",
+  "stop_rule": "Stop before Target calls if V8 packets are already exact title-bound source blocks and the proposed merges only join distinct source blocks",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

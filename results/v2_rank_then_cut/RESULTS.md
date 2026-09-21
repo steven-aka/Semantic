@@ -4565,3 +4565,20 @@ is `STOP_AUTOMATIC_SEMANTIC_EVIDENCE_CONSTRUCTION`: no prompt revision, larger
 Teacher, fresh F0B, or Qwen3-8B Target test is authorized. Query instantiation
 fixed many E0Q failures, but did not make the required semantic boundary
 reliable enough to protect V8.
+
+### V17-PACKET-H0A source-structure preflight
+
+PACKET-H0A tested whether the V8 action unit itself had split recoverable source
+structure. Across all 2,032 lineage-clean training queries, all 24,384 V8
+packets contained exactly one title-bound source block; the 12 packets exactly
+reconstructed both the stored context and the pre-packetization source blocks
+for every query. The upstream representation merely groups two distinct source
+blocks per unit and preserves no sentence/table/list metadata beyond the block
+text. The short sentence atoms implicated by `15/64 -> 40/64` were created
+post hoc by later SEM/R1 diagnostic scripts and are not V8 boundaries. Thus a
+macro merge would join distinct documents rather than restore a split
+proposition, while sentence splitting would introduce the very fragmentation
+being investigated. Decision:
+`STOP_PACKET_H0_NO_DISTINCT_STRUCTURAL_REPACKETIZATION`; H0B Target calls are
+not authorized. This is a zero-call implementation audit, not evidence that no
+conceivable text packetization can help.
