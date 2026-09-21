@@ -1,0 +1,29 @@
+{
+  "protocol": "SEM-A0B_QUERY_CONDITIONED_GROUNDED_POSITIVE_CONTROL_FREEZE",
+  "status": "DESIGN_FROZEN_NO_TEACHER_OR_TARGET_CALLS_YET",
+  "scientific_question": "Can a compact query-conditioned fact from the same rank10 source improve the cost-risk tradeoff of early evidence injection relative to the raw M0B atom?",
+  "teacher_role": "positive-control generator only; not assumed deployable",
+  "teacher_model": "models/Qwen3-14B",
+  "teacher_inputs_allowed": ["question", "single rank10 source atom", "Qwen3-8B token budget"],
+  "teacher_inputs_forbidden": ["gold answers", "reference response", "Qwen3-8B outputs", "fidelity", "repair/break labels", "oracle action choice"],
+  "output_schema": {"source_quote": "exact contiguous substring of source", "fact": "query-relevant fact entailed by source_quote"},
+  "max_fact_tokens_qwen3_8b": 16,
+  "hard_validation": [
+    "source_quote is an exact source substring",
+    "fact is nonempty and <=16 Qwen3-8B tokens",
+    "all explicit numeric concepts in fact occur in source",
+    "all detected named entities in fact occur in source",
+    "no gold or Target-outcome fields are loaded"
+  ],
+  "manual_grounding_audit": "Blinded SHA-first 32 generated facts; require >=31 supported and zero gold/outcome leakage before SEM-A1",
+  "cost_logging": ["formatted teacher prompt tokens", "teacher generated tokens", "batch=1 latency", "peak GPU memory", "Qwen3-8B context tokens"],
+  "sem_a1_population": "128 train queries selected by SHA before teacher generation and outside M0C/M1/M2B action cohorts where feasible",
+  "sem_a1_arms": ["V8_STAY", "raw_additive_M0B_atom", "semantic_additive_fact"],
+  "sem_a1_schedule": [6, 7, 7, 9, 10],
+  "sem_a1_selection": "No selector; fixed generation and insertion rule",
+  "sem_a1_primary_comparison": "On the same queries, semantic arm versus raw arm across five-level success, Complete repair/break, cumulative context tokens, and compressor compute",
+  "sem_a1_gate": "At least two of: semantic safe-Complete repairs exceed raw by >=8/128; semantic Complete breaks are <=50% of raw; semantic cumulative context overhead is <=50% of raw. Semantic fixed Complete must not be below V8. Gate authorizes SEM-A2 design only.",
+  "sealed_sets_read": false,
+  "new_teacher_calls": 0,
+  "new_target_calls": 0
+}

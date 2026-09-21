@@ -2656,3 +2656,18 @@ selector: define a compact semantic evidence unit, account for compressor
 cost and leakage, and establish a fresh quality–token action-space ceiling.
 This is a proposed next hypothesis, not a conclusion that generative semantic
 compression must succeed.
+
+SEM-A0 audited the existing semantic-packet implementation before any new
+teacher or Target calls. The versioned Qwen3-14B assets contain 60 old
+development examples and overlap canonical train1421 by zero. The generator
+is source-conditioned: its prompt does not include the question, gold answer,
+or Target outcomes. It therefore cannot directly test the proposed
+query-conditioned semantic representation. Existing validation hard-checks
+numbers and document identities but records no source spans/entailment
+certificate, and historical metadata lacks per-packet prompt/output tokens
+and latency. Formal decision:
+`STOP_EXISTING_PACKETS_AS_DIRECT_SEM_A1_INPUT`. The next protocol must define
+a new query+source-only, gold/outcome-free positive-control generator with
+grounding and two-axis cost accounting before authorizing SEM-A1 Target calls.
+Do not call this fine-tuning or reuse old development packets as canonical
+training evidence.

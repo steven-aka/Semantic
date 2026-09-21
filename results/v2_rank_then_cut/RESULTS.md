@@ -4186,6 +4186,22 @@ larger selector for this exact exchange representation. [M2C report](v17traj_m2c
 and [summary](v17traj_m2c_relative_exchange_probe/summary.json) preserve the
 OOF result.
 
+### V17-SEM-A0 existing semantic packet audit
+
+A zero-call provenance/coverage audit found that the repository's versioned
+Qwen3-14B semantic packet assets cover 60 old development examples and have
+**zero overlap with canonical train1421**. More importantly, the existing
+`PacketGenerator` prompt uses source text and source-derived constraints but
+does not receive the query. It is gold-clean and source-conditioned, not the
+query-conditioned representation proposed for SEM-A1. Packet rows store
+their source and hard-check numbers/titles, but unseen entities are only
+warnings; no source-span or entailment certificate exists. Per-packet prompt
+tokens, generated tokens, and latency were not recorded. The decision is
+**`STOP_EXISTING_PACKETS_AS_DIRECT_SEM_A1_INPUT`**. This does not reject
+semantic representation; it prevents an invalid test using the wrong
+generator contract. [SEM-A0 report](v17sem_a0_existing_packet_audit/REPORT.md)
+and [summary](v17sem_a0_existing_packet_audit/summary.json) document the gap.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed
