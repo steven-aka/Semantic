@@ -4010,3 +4010,67 @@ than turning block-level certificates into noisy sentence targets.
 [summary](v17packet_rep_a1_answer_transition_audit/summary.json), and
 [per-action transitions](v17packet_rep_a1_answer_transition_audit/per_action.jsonl)
 preserve the decomposition.
+
+### V17-EVAL-A0 quality-label and decision-alignment audit
+
+We ran a read-only train-side audit to test whether the 0.90 binary boundary
+itself explains the repeated learned-decision failures. The original five
+anchors and all gates remain unchanged. The R1 train512 cache has 1,485
+sentence actions; 1,441 do not increase actual depth9 context tokens.
+Every cached baseline/action F1 was independently recomputed from the saved
+parsed answer list and ten gold atoms. Stored lists must **not** be passed
+through the raw-output parser again: a saved list beginning `No. 17 Squadron`
+would then be mistaken for a yes/no response. This is an audit parsing pitfall,
+not evidence of an error in the original Target calls.
+
+| No-extra-context action outcome | Actions | Independent queries with at least one |
+|---|---:|---:|
+| Continuous F1 gain | 143 | 67 |
+| Continuous F1 loss | 670 | 296 |
+| Equal F1 | 628 | — |
+| 0.90 repair | 56 | 39 |
+| 0.90 break | 511 | 238 |
+
+Of the 143 F1-improving actions, **87 do not change the 0.90 success bit**;
+38 queries have at least one such hidden gain. Conversely 159 F1-losing
+actions leave that bit unchanged. Among 628 equal-F1 actions, 575 exchange
+some matched gold-answer identities. This last observation is not a failure
+under the existing set-F1 contract; it illustrates how much trajectory
+behavior a scalar quality label can conceal.
+
+A hindsight policy that maximizes continuous depth9 F1 over eligible actions
+plus STAY, then minimizes tokens on ties, raises mean F1 from 0.87720 to
+0.90074. It chooses a real F1 gain on 67/512 queries, preserves the original
+0.90 oracle ceiling **381→420**, Complete **273→288**, and changes mean
+cumulative context by **-37.10 tokens/query**. This is an upper bound that
+uses forbidden Target outcomes; it shows that continuous supervision contains
+additional partial-credit opportunities, not that a deployable policy can
+find them. The existing frozen R2G0 OOF best-action score has AUC **0.532**
+for detecting any such F1-gain query among 422 eligible queries. Its top-26
+and top-52 globally scored queries find 5 and 9 gain opportunities versus
+random expectations 4.13 and 8.26. Thus simply relabeling the same saved
+score does not expose a useful low-budget intervention region.
+
+Changing the threshold is not a free solution. On these same no-extra-context
+R1 actions, a retrospective 0.85 comparison still yields 54 repairs and 205
+breaks, versus 56 and 511 at 0.90; this is **not** a new benchmark or a
+matched-rate policy comparison. On the overlapping fresh V8 train1421
+prefix chains, depth9/depth10 success counts are 1175/1270 at 0.85 and
+1050/1223 at 0.90. Success-to-failure transitions remain common along the
+12-prefix chains (transition edges, not independent queries): 204 at 0.85,
+186 at 0.90, and 271 at 0.95. A lower
+threshold changes prevalence but does not make the Target response monotone.
+
+Decision: `KEEP_FIVE_ANCHOR_EVALUATION; ADD_CONTINUOUS_F1_DIAGNOSTICS`.
+The 0.90 label discards meaningful partial credit, but the current frozen
+OOF score does not identify the extra opportunities and action safety remains
+the main constraint. Do not claim that a new threshold passes the original
+gate, or train the same controller again solely with a smoother label.
+Before any new Target cohort, a new signal must demonstrate query-held-out
+incremental value over V8 and the old OOF score, protect existing successes,
+and count its inference cost. These are design-exposed diagnostics, not an
+independent estimate of deployment performance.
+[Audit script](../../src/evaluation/v17eval_a0_alignment_audit.py),
+[summary](v17eval_a0_alignment_audit/summary.json), and
+[per-query counts](v17eval_a0_alignment_audit/per_query.jsonl) preserve the
+read-only result.

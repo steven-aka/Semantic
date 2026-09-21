@@ -1,0 +1,107 @@
+{
+  "scope": "R1 train512, design-exposed, current Qwen3-8B contract, no-extra-depth9-context actions",
+  "target_calls": 0,
+  "model_training": false,
+  "threshold_085_role": "retrospective sensitivity only; original five-anchor contract unchanged",
+  "queries": 512,
+  "action_counts": {
+    "all_actions": 1485,
+    "f1_loss_actions": 670,
+    "f1_loss_with_gold_loss": 667,
+    "f1_loss_with_gold_gain": 123,
+    "f1_loss_with_title_atom_gain": 105,
+    "f1_loss_with_answer_identity_change": 668,
+    "break_0.90_actions": 511,
+    "eligible_actions": 1441,
+    "break_0.85_actions": 205,
+    "f1_equal_actions": 628,
+    "f1_equal_with_gold_loss": 575,
+    "f1_equal_with_gold_gain": 575,
+    "f1_equal_with_title_atom_gain": 531,
+    "f1_equal_with_answer_identity_change": 575,
+    "f1_gain_actions": 143,
+    "f1_gain_with_gold_loss": 79,
+    "f1_gain_with_gold_gain": 140,
+    "f1_gain_with_title_atom_gain": 96,
+    "f1_gain_with_answer_identity_change": 142,
+    "repair_0.90_actions": 56,
+    "f1_loss_same_090_label": 159,
+    "excluded_added_context": 44,
+    "f1_gain_same_090_label": 87,
+    "repair_0.85_actions": 54
+  },
+  "fresh_v8_chain_sensitivity_1421": {
+    "0.85": {
+      "ever_success": 1369,
+      "depth9_success": 1175,
+      "depth10_success": 1270,
+      "successful_run_width_only_one": 62,
+      "multiple_disjoint_success_runs": 104,
+      "success_to_failure_transitions": 204
+    },
+    "0.90": {
+      "ever_success": 1328,
+      "depth9_success": 1050,
+      "depth10_success": 1223,
+      "successful_run_width_only_one": 83,
+      "multiple_disjoint_success_runs": 66,
+      "success_to_failure_transitions": 186
+    },
+    "0.95": {
+      "ever_success": 1138,
+      "depth9_success": 1,
+      "depth10_success": 1005,
+      "successful_run_width_only_one": 196,
+      "multiple_disjoint_success_runs": 38,
+      "success_to_failure_transitions": 271
+    }
+  },
+  "continuous_f1_hindsight_oracle": {
+    "baseline_mean_f1_090_stop": 0.8771977584356729,
+    "chosen_mean_f1_090_stop": 0.9007398498098573,
+    "baseline_090_success": 381,
+    "chosen_090_success": 420,
+    "baseline_complete": 273,
+    "chosen_complete": 288,
+    "changed_queries": 352,
+    "continuous_gain_queries": 67,
+    "mean_cumulative_context_token_delta": -37.095703125
+  },
+  "old_oof_score_diagnostic": {
+    "score_source": "already-frozen R2G0 grouped-OOF best-action score",
+    "eligible_queries": 422,
+    "positive_continuous_gain_queries": 67,
+    "global_score_auc_for_any_continuous_gain": 0.5316375867143157,
+    "global_budget": {
+      "26": {
+        "gain_queries_found": 5,
+        "random_expectation": 4.127962085308057
+      },
+      "52": {
+        "gain_queries_found": 9,
+        "random_expectation": 8.255924170616113
+      }
+    }
+  },
+  "query_counts": {
+    "with_eligible_action": 422,
+    "with_any_continuous_gain": 67,
+    "with_any_continuous_loss": 296,
+    "with_any_090_repair": 39,
+    "with_any_090_break": 238,
+    "with_gain_hidden_by_090_label": 38
+  },
+  "baseline_depth9_f1_point_mass": {
+    "0.888889": 45,
+    "0.900000": 16,
+    "0.947368": 365,
+    "1.000000": 0
+  },
+  "limitations": [
+    "Action outcomes from one query are correlated; neither action counts nor this cohort estimate unseen-query policy performance.",
+    "The 0.85 threshold is a sensitivity analysis, not a replacement target or a new passing gate.",
+    "An answer identity change at fixed F1 does not itself establish a semantic failure under the current set-F1 contract.",
+    "Counterfactual action outcomes and gold matching are retrospective, forbidden as deployment inputs.",
+    "All candidate actions substitute a rank10 sentence for rank9 at depth9; this audit does not test protected insertion or a learned policy."
+  ]
+}
