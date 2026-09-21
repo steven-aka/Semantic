@@ -2965,3 +2965,15 @@ Target consumes the code nor that an automatic compressor can infer it.
 Decision: `GO_NATIVE_CODE_CONSUMPTION_POSITIVE_CONTROL`, a small
 design-exposed Target-only test with no compressor training. Only consumption
 success can authorize a later learnability audit.
+
+### NATIVE-CODE-A0 consumption result
+
+The 32-query, five-budget correct-versus-shuffled positive control used 320
+fresh frozen-Qwen3-8B calls and no compressor training. Correct codes strongly
+beat shuffled codes (gold-F1 gap 0.7367), confirming code dependence, but mean
+code recovery was only 0.8867 and nested retention only 0.8427, below both
+0.95 gates. Direct code parsing achieved gold F1 0.8375, whereas Qwen3-8B
+consumption reduced it to 0.7367, a -0.1008 value contribution. Decision:
+`STOP_NATIVE_CODE_TARGET_COMPATIBILITY`. Do not run A1: even a perfect code
+predictor would be followed by a lossy consumer, and direct parsing exposes
+that the proposed compressor is effectively the QA solver.

@@ -4787,3 +4787,18 @@ nor learnability. Decision: `GO_NATIVE_CODE_CONSUMPTION_POSITIVE_CONTROL` with
 no compressor training. [Report](project_synthesis_a0_solution_existence/REPORT.md)
 and [summary](project_synthesis_a0_solution_existence/summary.json) preserve
 the proof and its limits.
+
+### NATIVE-CODE-A0 Target-consumption positive control
+
+Thirty-two design-exposed queries were evaluated at five nested oracle-code
+budgets, each paired with an equal-item-count code from another query (320
+fresh Target calls; no training). Correct-code versus shuffled-code gold-F1
+differed by 0.7367, so Qwen3-8B clearly reads the supplied code rather than
+using only query priors. Nevertheless, mean code-recovery F1 was 0.8867 and
+nested retention 0.8427, both below the frozen 0.95 gates. Directly parsing
+the oracle code achieved gold F1 0.8375; passing it through Qwen3-8B reduced
+gold F1 to 0.7367, a -0.1008 contribution. Decision:
+`STOP_NATIVE_CODE_TARGET_COMPATIBILITY`. A1 automatic-code memorization is not
+authorized: the code is already answer-equivalent and the frozen Target removes
+rather than adds value. [Report](native_code_a0_consumption/REPORT.md) and
+[summary](native_code_a0_consumption/summary.json) preserve the result.

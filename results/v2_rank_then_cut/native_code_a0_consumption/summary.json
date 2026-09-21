@@ -1,0 +1,63 @@
+{
+  "protocol": "NATIVE-CODE-A0_CONSUMPTION_POSITIVE_CONTROL",
+  "queries": 32,
+  "target_calls": 320,
+  "per_level": [
+    {
+      "level": 0.6,
+      "correct_code_recovery_f1": 0.9401041666666667,
+      "correct_gold_f1": 0.6242715617715618,
+      "shuffled_gold_f1": 0.0,
+      "decoy_sensitivity_gap": 0.6242715617715618,
+      "nested_prior_code_retention": null
+    },
+    {
+      "level": 0.7,
+      "correct_code_recovery_f1": 0.8824404761904762,
+      "correct_gold_f1": 0.6585992132867132,
+      "shuffled_gold_f1": 0.0,
+      "decoy_sensitivity_gap": 0.6585992132867132,
+      "nested_prior_code_retention": 0.86875
+    },
+    {
+      "level": 0.8,
+      "correct_code_recovery_f1": 0.8854614135864136,
+      "correct_gold_f1": 0.7246443813539405,
+      "shuffled_gold_f1": 0.0,
+      "decoy_sensitivity_gap": 0.7246443813539405,
+      "nested_prior_code_retention": 0.8541666666666667
+    },
+    {
+      "level": 0.9,
+      "correct_code_recovery_f1": 0.8917369395310571,
+      "correct_gold_f1": 0.8424005179761754,
+      "shuffled_gold_f1": 0.0,
+      "decoy_sensitivity_gap": 0.8424005179761754,
+      "nested_prior_code_retention": 0.8526785714285714
+    },
+    {
+      "level": 0.95,
+      "correct_code_recovery_f1": 0.8335137085137085,
+      "correct_gold_f1": 0.8335137085137085,
+      "shuffled_gold_f1": 0.0,
+      "decoy_sensitivity_gap": 0.8335137085137085,
+      "nested_prior_code_retention": 0.7951388888888888
+    }
+  ],
+  "aggregate": {
+    "code_recovery_f1": 0.8866513408976644,
+    "nested_retention": 0.8426835317460318,
+    "correct_minus_shuffled_gold_f1": 0.7366858765804198,
+    "direct_code_gold_f1": 0.8375128998968011,
+    "target_correct_code_gold_f1": 0.7366858765804202,
+    "target_value_over_direct": -0.10082702331638094
+  },
+  "gates": {
+    "code_recovery_ge_0.95": false,
+    "nested_retention_ge_0.95": false,
+    "decoy_gap_ge_0.50": true
+  },
+  "decision": "STOP_NATIVE_CODE_TARGET_COMPATIBILITY",
+  "interpretation": "Positive control only. Oracle answer items are leakage and cannot be compressor inputs. Target value over direct code determines whether this remains compression or collapses to direct QA.",
+  "sealed_sets_read": false
+}
