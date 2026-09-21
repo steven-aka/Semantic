@@ -14,7 +14,7 @@ import torch
 
 from src.data.build_v17sel_b2b_lineage_holdout import fold
 from src.data.schemas import read_jsonl
-from src.evaluation.qampari_metrics import normalize_list_answer, parse_list_prediction
+from src.evaluation.qampari_metrics import normalize_list_answer, parse_cached_list_prediction
 
 ROOT = Path("results/v2_rank_then_cut/v17sel_b2b_lineage_clean_holdout")
 P0 = Path("results/v2_rank_then_cut/v17canon_p0_fresh_v8_prefix_chain")
@@ -55,7 +55,7 @@ def features_for(row: dict, data: dict, embeddings: dict, index: int, level: flo
     packet_texts = data["packet_texts"]
     selected = "\n".join(t for i, t in enumerate(packet_texts) if mask & (1 << i))
     remaining = "\n".join(t for i, t in enumerate(packet_texts) if not mask & (1 << i))
-    answers = [normalize_list_answer(x) for x in parse_list_prediction(row["prediction"])]
+    answers = [normalize_list_answer(x) for x in parse_cached_list_prediction(row["prediction"])]
     count = len(answers)
     depth = row["depth"]
     basic = np.array([*(float(level == x) for x in (.6, .7, .8, .9)),

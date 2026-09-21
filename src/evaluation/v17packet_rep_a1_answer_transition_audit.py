@@ -10,7 +10,7 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from src.evaluation.qampari_metrics import (normalize_list_answer, parse_list_prediction,
+from src.evaluation.qampari_metrics import (normalize_list_answer, parse_cached_list_prediction,
                                             qampari_list_metrics)
 
 
@@ -29,7 +29,7 @@ def matched_atoms(prediction, atoms):
     for i, atom in enumerate(atoms):
         for alias in [atom["answer_text"], *atom.get("aliases", [])]:
             alias_to_atom.setdefault(normalize_list_answer(str(alias)), i)
-    predictions = {normalize_list_answer(x) for x in parse_list_prediction(prediction)}
+    predictions = {normalize_list_answer(x) for x in parse_cached_list_prediction(prediction)}
     return {alias_to_atom[x] for x in predictions if x in alias_to_atom}, predictions
 
 
@@ -52,8 +52,8 @@ def main():
     detail = []
     for row in actions:
         q, index = row["example_id"], row["candidate_index"]
-        assert abs(qampari_list_metrics(parse_list_prediction(baseline[q]["prediction"]), atoms[q])["f1"] - baseline[q]["f1"]) < 1e-8
-        assert abs(qampari_list_metrics(parse_list_prediction(target[q, index]["prediction"]), atoms[q])["f1"] - target[q, index]["f1"]) < 1e-8
+        assert abs(qampari_list_metrics(parse_cached_list_prediction(baseline[q]["prediction"]), atoms[q])["f1"] - baseline[q]["f1"]) < 1e-8
+        assert abs(qampari_list_metrics(parse_cached_list_prediction(target[q, index]["prediction"]), atoms[q])["f1"] - target[q, index]["f1"]) < 1e-8
         before, before_text = matched_atoms(baseline[q]["prediction"], atoms[q])
         after, after_text = matched_atoms(target[q, index]["prediction"], atoms[q])
         title = data[q]["packet_texts"][order[q][9]].split("\n", 1)[0].removeprefix("Document title: ")

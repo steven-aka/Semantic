@@ -2511,8 +2511,8 @@ depth9 default evidence, insert at most one exact rank10 sentence for no more
 than 48 additional depth9 context tokens, and restore the canonical full
 context at depth10 without duplication. SLOT-B0 on 24 baseline-stratified,
 design-exposed train queries found hindsight 0.90 12→19/24 with Complete
-9→9/24 at +8.58 mean depth9 tokens/query. The fully previsible shortest-
-sentence rule gave 12→14/24 but Complete 9→8/24 at +22.25 tokens/query; it
+10→10/24 at +8.58 mean depth9 tokens/query. The fully previsible shortest-
+sentence rule gave 12→14/24 but Complete 10→9/24 at +22.25 tokens/query; it
 is not a deployable Pareto result. INSERT-D0 showed a perfect gate over that
 fixed shortest sentence captures only 4/7 repairable queries, while perfect
 candidate choice with insertion on every query wastes substantially more

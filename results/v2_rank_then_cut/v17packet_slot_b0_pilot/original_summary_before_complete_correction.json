@@ -27,8 +27,8 @@
       "fixed_shortest_success_090": 10,
       "fixed_shortest_repairs": 0,
       "fixed_shortest_breaks": 2,
-      "baseline_complete": 10,
-      "fixed_shortest_complete": 9,
+      "baseline_complete": 9,
+      "fixed_shortest_complete": 8,
       "fixed_shortest_mean_slack": 25.666666666666668
     },
     "v8_failure": {
@@ -71,8 +71,8 @@
       "oracle_success_090": 14,
       "oracle_repairs": 2,
       "oracle_breaks": 0,
-      "baseline_complete": 10,
-      "oracle_complete": 10,
+      "baseline_complete": 9,
+      "oracle_complete": 9,
       "mean_selected_slack": 0.9583333333333334,
       "above_depth10_cost_queries": 0
     },
@@ -90,8 +90,8 @@
       "oracle_success_090": 15,
       "oracle_repairs": 3,
       "oracle_breaks": 0,
-      "baseline_complete": 10,
-      "oracle_complete": 10,
+      "baseline_complete": 9,
+      "oracle_complete": 9,
       "mean_selected_slack": 2.2083333333333335,
       "above_depth10_cost_queries": 0
     },
@@ -109,8 +109,8 @@
       "oracle_success_090": 19,
       "oracle_repairs": 7,
       "oracle_breaks": 0,
-      "baseline_complete": 10,
-      "oracle_complete": 10,
+      "baseline_complete": 9,
+      "oracle_complete": 9,
       "mean_selected_slack": 8.583333333333334,
       "above_depth10_cost_queries": 0
     }
@@ -121,11 +121,5 @@
     "Candidate selection for by_cap_oracle uses Target outcomes and is not deployable.",
     "V8 depths are discrete; there may be no V8 prefix at exactly the insertion cost.",
     "The depth10 context is the original canonical full context, with no duplicate candidate text."
-  ],
-  "complete_correction": {
-    "reason": "attainable 0.95 is undefined on four-anchor examples; None is masked, not failure",
-    "original_summary": "original_summary_before_complete_correction.json",
-    "target_calls": 0,
-    "source": "existing per_query.jsonl"
-  }
+  ]
 }

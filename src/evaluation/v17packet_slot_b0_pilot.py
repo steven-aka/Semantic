@@ -186,8 +186,8 @@ def main() -> None:
             "fixed_shortest_success_090": sum(r["fixed_shortest"]["f1"] + 1e-6 >= .90 for r in rows),
             "fixed_shortest_repairs": sum(r["baseline_f1"] + 1e-6 < .90 and r["fixed_shortest"]["f1"] + 1e-6 >= .90 for r in rows),
             "fixed_shortest_breaks": sum(r["baseline_f1"] + 1e-6 >= .90 and r["fixed_shortest"]["f1"] + 1e-6 < .90 for r in rows),
-            "baseline_complete": sum(all(r["baseline_hits"]) for r in rows),
-            "fixed_shortest_complete": sum(all(r["baseline_hits"][i] for i in (0,1,2,4)) and
+            "baseline_complete": sum(all(hit is not False for hit in r["baseline_hits"]) for r in rows),
+            "fixed_shortest_complete": sum(all(r["baseline_hits"][i] is not False for i in (0,1,2,4)) and
                                            r["fixed_shortest"]["f1"] + 1e-6 >= .90 for r in rows),
             "fixed_shortest_mean_slack": sum(r["fixed_shortest"]["slack"] for r in rows) / len(rows)}
     for cap in cfg["slack_caps"]:
@@ -201,8 +201,8 @@ def main() -> None:
             "oracle_success_090": sum(c["f1"] + 1e-6 >= .90 for _, c in rows),
             "oracle_repairs": sum(r["baseline_f1"] + 1e-6 < .90 and c["f1"] + 1e-6 >= .90 for r, c in rows),
             "oracle_breaks": sum(r["baseline_f1"] + 1e-6 >= .90 and c["f1"] + 1e-6 < .90 for r, c in rows),
-            "baseline_complete": sum(all(r["baseline_hits"]) for r, _ in rows),
-            "oracle_complete": sum(all(r["baseline_hits"][i] for i in (0,1,2,4)) and c["f1"] + 1e-6 >= .90 for r,c in rows),
+            "baseline_complete": sum(all(hit is not False for hit in r["baseline_hits"]) for r, _ in rows),
+            "oracle_complete": sum(all(r["baseline_hits"][i] is not False for i in (0,1,2,4)) and c["f1"] + 1e-6 >= .90 for r,c in rows),
             "mean_selected_slack": sum(c["slack"] for _, c in rows) / len(rows) if rows else None,
             "above_depth10_cost_queries": sum(r["baseline_tokens"] + c["slack"] >= r["depth10_tokens"] for r, c in rows)}
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")

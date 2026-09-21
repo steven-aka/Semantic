@@ -1,0 +1,56 @@
+{
+  "scope": "train-side read-only lineage, cached labels and current pilot",
+  "target_calls": 0,
+  "checks": {
+    "lineage": {
+      "holdout": 581,
+      "inner_validation": 550,
+      "clean_train": 2032,
+      "p0": 1421,
+      "r1": 512,
+      "b0": 24,
+      "all_disjoint_and_nested": true
+    },
+    "cache_f1_and_double_parse": {
+      "P0": {
+        "rows": 17052,
+        "stored_f1_mismatch": 0,
+        "double_parse_f1_mismatch": 12,
+        "affected_queries": {
+          "61482__wikitables_composition__train": 12
+        }
+      },
+      "R1": {
+        "rows": 1485,
+        "stored_f1_mismatch": 0,
+        "double_parse_f1_mismatch": 7,
+        "affected_queries": {
+          "61482__wikitables_composition__train": 7
+        }
+      },
+      "SLOT_B0": {
+        "rows": 84,
+        "stored_f1_mismatch": 0,
+        "double_parse_f1_mismatch": 0,
+        "affected_queries": {}
+      },
+      "EXEC_A1": {
+        "rows": 5684,
+        "stored_f1_mismatch": 0,
+        "double_parse_f1_mismatch": 4,
+        "affected_queries": {
+          "61482__wikitables_composition__train": 4
+        }
+      }
+    },
+    "complete_masking": {
+      "four_anchor_queries": 10,
+      "original_baseline_complete": 9,
+      "corrected_baseline_complete": 10,
+      "affected_summaries": [
+        "SLOT-B0",
+        "INSERT-D0"
+      ]
+    }
+  }
+}

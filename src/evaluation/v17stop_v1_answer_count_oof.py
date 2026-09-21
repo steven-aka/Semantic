@@ -8,14 +8,14 @@ from statistics import mean
 
 from src.data.build_v17sel_b2b_lineage_holdout import fold
 from src.data.schemas import read_jsonl
-from src.evaluation.qampari_metrics import normalize_list_answer, parse_list_prediction
+from src.evaluation.qampari_metrics import normalize_list_answer, parse_cached_list_prediction
 from src.evaluation.v17stop_v1_oracle_probe_cost import LEVELS, ROOT, call_cost
 
 OUT = Path("results/v2_rank_then_cut/v17stop_v1_answer_count_oof")
 
 
 def answer_count(prediction: str) -> int:
-    return len({normalize_list_answer(x) for x in parse_list_prediction(prediction)
+    return len({normalize_list_answer(x) for x in parse_cached_list_prediction(prediction)
                 if normalize_list_answer(x)})
 
 

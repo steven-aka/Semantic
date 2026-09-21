@@ -3811,11 +3811,11 @@ interpolated to an arbitrary insertion cost.
 
 | Rule on 24 selected queries | 0.90 success | Complete | Mean added depth9 context tokens/query |
 |---|---:|---:|---:|
-| V8 depth9 | 12 | 9 | 0 |
-| Frozen shortest-sentence insertion | 14 (4 repair, 2 break) | 8 | 22.25 |
-| +16 oracle with STAY | 14 (2 repair, 0 break) | 9 | 0.96 |
-| +32 oracle with STAY | 15 (3 repair, 0 break) | 9 | 2.21 |
-| +48 oracle with STAY | 19 (7 repair, 0 break) | 9 | 8.58 |
+| V8 depth9 | 12 | 10 | 0 |
+| Frozen shortest-sentence insertion | 14 (4 repair, 2 break) | 9 | 22.25 |
+| +16 oracle with STAY | 14 (2 repair, 0 break) | 10 | 0.96 |
+| +32 oracle with STAY | 15 (3 repair, 0 break) | 10 | 2.21 |
+| +48 oracle with STAY | 19 (7 repair, 0 break) | 10 | 8.58 |
 
 The oracle chooses STAY on already successful queries and picks the cheapest
 successful candidate retrospectively on failures. Its low mean cost is thus
@@ -3857,11 +3857,17 @@ with hindsight.
 
 | Decision rule | 0.90 success | Repair/break | Complete | Interventions | Mean added depth9 context tokens/query |
 |---|---:|---:|---:|---:|---:|
-| V8 STAY | 12/24 | 0/0 | 9/24 | 0 | 0 |
-| Always choose shortest sentence | 14/24 | 4/2 | 8/24 | 24 | 22.25 |
-| Shortest sentence + oracle gate | 16/24 | 4/0 | 9/24 | 4 | 3.63 |
-| Always insert + oracle candidate | 19/24 | 7/0 | 9/24 | 24 | 31.38 |
-| Full oracle gate + candidate | 19/24 | 7/0 | 9/24 | 7 | 8.58 |
+| V8 STAY | 12/24 | 0/0 | 10/24 | 0 | 0 |
+| Always choose shortest sentence | 14/24 | 4/2 | 9/24 | 24 | 22.25 |
+| Shortest sentence + oracle gate | 16/24 | 4/0 | 10/24 | 4 | 3.63 |
+| Always insert + oracle candidate | 19/24 | 7/0 | 10/24 | 24 | 31.38 |
+| Full oracle gate + candidate | 19/24 | 7/0 | 10/24 | 7 | 8.58 |
+
+Audit correction: the original SLOT-B0/INSERT-D0 summaries counted an
+unattainable 0.95 anchor (`None`) as a Complete failure for four-anchor
+examples. The corrected figures mask that anchor; original summaries are
+preserved alongside the corrected JSON. Relative changes and decisions are
+unchanged. No Target calls were made for this correction.
 
 Thus a perfect gate with the frozen shortest candidate captures only **4/7**
 repair opportunities: choosing a different sentence matters for the other

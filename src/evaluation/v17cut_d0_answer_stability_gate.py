@@ -8,7 +8,7 @@ from statistics import mean
 
 from src.data.build_v17sel_b2b_lineage_holdout import fold
 from src.data.schemas import read_jsonl
-from src.evaluation.qampari_metrics import normalize_list_answer, parse_list_prediction
+from src.evaluation.qampari_metrics import normalize_list_answer, parse_cached_list_prediction
 from src.reproducibility import sha256, write_metadata
 from src.search.atomic_nested_chain import state_to_mask
 from src.training.train_v17cut_b0_structured_fixed_v8 import prefix_masks
@@ -16,7 +16,7 @@ from src.training.train_v17h0_multianchor_cutoff import LEVELS, meets_fidelity
 
 
 def answer_set(prediction: str) -> frozenset[str]:
-    return frozenset(normalize_list_answer(part) for part in parse_list_prediction(prediction))
+    return frozenset(normalize_list_answer(part) for part in parse_cached_list_prediction(prediction))
 
 
 def evaluate(depths: list[int], prefixes: list[int], exact: dict[int, dict], active: list[bool],

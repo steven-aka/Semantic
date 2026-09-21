@@ -23,7 +23,7 @@ def metrics(choices: list[tuple[dict, dict]]) -> dict:
         "success_090": sum(success(a) for _, a in choices),
         "repairs": sum(b["baseline_f1"] + EPS < LEVEL and success(a) for b, a in choices),
         "breaks": sum(b["baseline_f1"] + EPS >= LEVEL and not success(a) for b, a in choices),
-        "complete": sum(all(b["baseline_hits"][i] for i in (0, 1, 2, 4)) and success(a)
+        "complete": sum(all(b["baseline_hits"][i] is not False for i in (0, 1, 2, 4)) and success(a)
                         for b, a in choices),
         "interventions": sum(a["candidate_index"] is not None for _, a in choices),
         "mean_added_depth9_context_tokens": sum(a["slack"] for _, a in choices) / len(choices),
@@ -68,6 +68,9 @@ def main() -> None:
     summary = {"protocol": "INSERT-D0_CACHED_GATE_CHOICE_DECOMPOSITION",
                "queries": len(baselines), "cached_candidate_actions": 84,
                "new_target_calls": 0, "new_training": False, "sealed_sets_read": False,
+               "complete_correction": {"reason": "mask unattainable anchor None instead of counting it as failure",
+                                       "original_summary": "original_summary_before_complete_correction.json",
+                                       "source": "existing SLOT-B0 per_query.jsonl", "target_calls": 0},
                "policies": {label: metrics(rows) for label, rows in choices.items()},
                "opportunity": {
                    "failure_queries_repairable_by_any_candidate": sum(r["any_candidate_repairs"] for r in per_query),

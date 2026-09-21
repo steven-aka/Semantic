@@ -8,7 +8,7 @@ from statistics import mean
 from typing import Any, Mapping
 
 from src.data.schemas import ExactSearchResult, QAExample, read_jsonl
-from src.evaluation.qampari_metrics import parse_list_prediction, qampari_list_metrics
+from src.evaluation.qampari_metrics import parse_cached_list_prediction, qampari_list_metrics
 from src.evaluation.v0_3_gate import optimal_states, percentile
 from src.representation.lossless_packetizer import validate_lossless_partition
 from src.representation.packet_store import PacketStore
@@ -159,7 +159,7 @@ def evaluate_qampari_gate(args: argparse.Namespace) -> dict[str, Any]:
             continue
         atoms = annotation["answer_atoms"]
         for row in results:
-            measured = qampari_list_metrics(parse_list_prediction(row.prediction), atoms)
+            measured = qampari_list_metrics(parse_cached_list_prediction(row.prediction), atoms)
             expected_em = float(measured["correct"] == len(atoms) and measured["predicted"] == len(atoms))
             if (
                 abs(row.answer_f1 - float(measured["f1"])) > 1e-12

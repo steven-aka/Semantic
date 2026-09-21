@@ -16,6 +16,16 @@ def normalize_list_answer(text: str) -> str:
 
 def parse_list_prediction(text: str) -> list[str]:
     value = parse_answer(text).strip()
+    return parse_cached_list_prediction(value)
+
+
+def parse_cached_list_prediction(value: str) -> list[str]:
+    """Parse a saved answer list that has already passed the raw-output parser.
+
+    Reapplying ``parse_answer`` can turn an answer beginning ``No.`` into a
+    boolean ``no``. Cached predictions must therefore enter after that step.
+    """
+    value = value.strip()
     if not value:
         return []
     parts = re.split(r"\s*#\s*|\s*;\s*|\n+", value)
