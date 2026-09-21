@@ -21,8 +21,10 @@ not evidence for the gate.
 
 The gate used 96 SHA-ordered canonical training queries absent from every prior
 experiment manifest. It generated candidates from every adjacent atom pair in
-the V8 rank-10 packet, then applied the frozen verifier. AI-assisted blind
-review was used because independent human annotation was unavailable.
+the V8 rank-10 packet, then applied the frozen verifier. AI-assisted,
+Target-outcome-blind review was used because independent human annotation was
+unavailable. The reviewer could see the frozen verifier decision, so this is
+not verifier-blind annotation and is reported as a limitation.
 
 | Metric | Result | Frozen requirement |
 |---|---:|---:|
