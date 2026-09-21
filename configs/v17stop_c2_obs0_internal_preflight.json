@@ -1,0 +1,31 @@
+{
+  "protocol": "V17-STOP-C2-OBS0_INTERNAL_STATE_PREFLIGHT",
+  "status": "FROZEN_PAIRED_DESIGN_PREFLIGHT",
+  "source": "first 16 deterministic C1 design-cohort queries, all d6/d7/d9/d10 states",
+  "sample_size": 16,
+  "depths": [6, 7, 9, 10],
+  "target_model": "models/Qwen3-8B",
+  "dtype": "bfloat16",
+  "max_new_tokens": 256,
+  "batch_size": 4,
+  "device": "cuda:0",
+  "activation_contract": {
+    "layer": "last transformer layer only",
+    "H1": "last prompt-token state from the first decoding forward",
+    "H2": "fixed mean of per-step last-token states used during answer generation",
+    "H3": "last available per-step state before generation terminates",
+    "capture": "read-only forward hook during the same generation; no teacher-forced second pass"
+  },
+  "go_gate": {
+    "raw_token_id_pair_match": 1.0,
+    "parsed_answer_pair_match": 1.0,
+    "fidelity_label_pair_match": 1.0,
+    "hidden_vectors_finite": 1.0
+  },
+  "rules": [
+    "Do not sweep layers, pooling, hooks or model capacity.",
+    "If this Transformers execution path differs from C1 vLLM, any later C2 baseline must be regenerated entirely within the paired C2 path.",
+    "Record latency and peak VRAM; hidden observation is not free.",
+    "No sealed split is read."
+  ]
+}

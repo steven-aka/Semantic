@@ -1,0 +1,20 @@
+{
+  "protocol": "V17-STOP-C2-OBS0_INTERNAL_STATE_PREFLIGHT",
+  "queries": 16,
+  "states": 64,
+  "token_id_matches": 64,
+  "parsed_matches": 64,
+  "f1_matches": 64,
+  "finite_hidden_states": 64,
+  "plain_seconds": 119.41246894001961,
+  "hook_seconds": 126.74821705836803,
+  "hook_latency_ratio": 1.0614320111079283,
+  "plain_peak_vram_bytes": 17438125568,
+  "hook_peak_vram_bytes": 17438127616,
+  "peak_vram_delta_bytes": 2048,
+  "same_execution_path_as_c1_vllm": false,
+  "requires_c2_path_baseline_regeneration": true,
+  "decision": "GO_C2_DESIGN_COLLECTION",
+  "new_target_generations": 128,
+  "sealed_sets_read": false
+}

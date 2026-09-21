@@ -4660,3 +4660,16 @@ prefix token saves only 726.75 tokens/query at the B1 point, leaving it 813.45
 Target tokens/query more expensive than direct depth10. Decision:
 `STOP_C2_COST_UNDER_CURRENT_PROMPT_RENDERING`. Reveal-order prompt rendering
 would be a behavior-changing contract, not a free serving optimization.
+
+### V17-STOP-C2 internal-state preflight
+
+A paired preflight tested a read-only forward hook on the final Qwen3-8B
+transformer layer. Sixteen C1 design queries at d6/d7/d9/d10 produced 64
+states, each generated once without and once with the hook in the same
+Transformers execution path. Token IDs, parsed answers and F1 matched for all
+64/64 states; all H1 prompt-terminal, H2 answer-pooled and H3 terminal vectors
+were finite. Hook latency was 126.75 versus 119.41 seconds (1.061x), while
+peak allocated VRAM increased by only 2,048 bytes. Decision:
+`GO_C2_DESIGN_COLLECTION`. This path is not identical to the earlier vLLM C1
+path, so all C2 baselines and costs must be regenerated within C2; old labels
+cannot be joined to new activations.

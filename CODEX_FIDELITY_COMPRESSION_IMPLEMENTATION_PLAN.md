@@ -2851,3 +2851,15 @@ Target hidden-state uncertainty and tests whether stronger observability can
 approach the positive two-stage compute oracle with far fewer fallbacks. Do
 not open either branch without naming the contract change; neither may be
 presented as the original standard text-output API method.
+
+The C2 internal-state execution preflight passed: a final-layer read-only hook
+preserved token IDs, parsed answers and F1 on all 64 paired design states, with
+1.061x measured generation latency and negligible allocated-VRAM delta. This
+authorizes one C2 design collection using only frozen H1/H2/H3 pooling and a
+linear probe. Because C2 uses a Transformers path rather than C1's vLLM path,
+its depth10 baseline, two-stage oracle, latency and compute accounting must all
+be regenerated in that path. The binding design gate remains at least 85% of
+the B1-to-oracle compute gap, all five quality anchors and Complete within one
+percentage point of depth10, and at least 2% Target-compute saving. Failure
+closes internal observability without layer or probe sweeps and moves the next
+contract question to prefixable reveal-order prompt serialization.
