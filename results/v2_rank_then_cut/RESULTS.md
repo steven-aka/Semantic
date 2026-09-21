@@ -2808,6 +2808,32 @@ cost-controlled next candidate is depth-9 only, because it directly tests
 0.90 and its movement can also alter the depth-10 0.95 endpoint. The
 all-depth design should not be launched as if each move cost one Target call.
 
+### V17-STOP-C0 target-feedback gate reassessment
+
+The proposed Target-feedback stopping protocol was mapped onto the existing
+fresh canonical train1,421 V8 prefix cache before any new calls or fitting.
+Against its required `[6,7,7,9,10]` baseline, the free clairvoyant bound saves
+only **98.69 / 2,183.62 = 4.52%** cumulative context, below the preregistered
+5% gate. This is an optimistic bound with no observation cost, so adding
+STOP/CONTINUE probes cannot repair the failed final-context ceiling.
+
+The opportunity gate also fails. Earlier success occurs for 1,134/1,421
+queries at 0.60 and 1,051/1,421 at 0.70, but only 3/1,421 at 0.80,
+1/1,421 at 0.90, and 1/1,131 attainable queries at 0.95. Thus only **2/5**
+anchors exceed 10%, versus the required 3/5. The higher anchors coincide with
+the sharp natural V8 quality transitions and provide essentially no earlier
+stopping opportunity under this schedule.
+
+Decision: `STOP_CURRENT_CONTRACT_ADAPTIVE_STOPPING_AT_C0`. The positive
+costed oracle relative to `[10]*5` remains a distinct quality-heavy operating
+point; it does not make the aggressive schedule pass. Do not repeat output
+dynamics or train another output-only stopper. If the contract is explicitly
+relaxed, the smallest scientifically distinct next interface is read-only
+native Target confidence (token log-probability/margin), with labels and
+traces collected in the same fresh calls. The reproducible artifacts are
+[summary](v17stop_c0_feedback_gate_reassessment/summary.json) and
+[report](v17stop_c0_feedback_gate_reassessment/REPORT.md).
+
 ### V17-STOP-V1A/B costed probe and simple observable diagnostic
 
 The fresh P0 chain permits a sharper stopping cost bound without new Target

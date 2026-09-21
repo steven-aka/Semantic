@@ -1,0 +1,94 @@
+{
+  "protocol": "V17-STOP-C0_TARGET_FEEDBACK_GATE_REASSESSMENT",
+  "status": "COMPLETED_FROM_EXISTING_FRESH_CANONICAL_CACHE",
+  "queries": 1421,
+  "primary_early_schedule": {
+    "depths": [
+      6,
+      7,
+      7,
+      9,
+      10
+    ],
+    "mean_baseline_cumulative_context_tokens": 2183.6171710063336,
+    "optimistic_clairvoyant_cumulative_context_tokens": 2084.9225897255455,
+    "optimistic_mean_context_token_saving": 98.69458128078817,
+    "optimistic_mean_final_context_saving_fraction": 0.04519774921686669,
+    "saving_gate": 0.05,
+    "saving_gate_pass": false,
+    "quality_loss_percentage_points": 0.0,
+    "quality_gate_pass": true,
+    "note": "This is already a zero-observation-cost hindsight upper bound. Real STOP/CONTINUE probes can only add Target cost and cannot increase this final-context ceiling."
+  },
+  "anchor_opportunity": {
+    "0.6": {
+      "fixed_depth": 6,
+      "eligible_queries": 1421,
+      "eventually_successful_queries": 1410,
+      "earlier_success_queries": 1134,
+      "earlier_success_fraction_of_eligible": 0.7980295566502463,
+      "earlier_success_fraction_of_eventual_success": 0.8042553191489362,
+      "passes_10pct_gate": true
+    },
+    "0.7": {
+      "fixed_depth": 7,
+      "eligible_queries": 1421,
+      "eventually_successful_queries": 1406,
+      "earlier_success_queries": 1051,
+      "earlier_success_fraction_of_eligible": 0.7396199859254047,
+      "earlier_success_fraction_of_eventual_success": 0.7475106685633002,
+      "passes_10pct_gate": true
+    },
+    "0.8": {
+      "fixed_depth": 7,
+      "eligible_queries": 1421,
+      "eventually_successful_queries": 1397,
+      "earlier_success_queries": 3,
+      "earlier_success_fraction_of_eligible": 0.00211118930330753,
+      "earlier_success_fraction_of_eventual_success": 0.0021474588403722263,
+      "passes_10pct_gate": false
+    },
+    "0.9": {
+      "fixed_depth": 9,
+      "eligible_queries": 1421,
+      "eventually_successful_queries": 1328,
+      "earlier_success_queries": 1,
+      "earlier_success_fraction_of_eligible": 0.0007037297677691766,
+      "earlier_success_fraction_of_eventual_success": 0.0007530120481927711,
+      "passes_10pct_gate": false
+    },
+    "0.95": {
+      "fixed_depth": 10,
+      "eligible_queries": 1131,
+      "eventually_successful_queries": 1092,
+      "earlier_success_queries": 1,
+      "earlier_success_fraction_of_eligible": 0.0008841732979664014,
+      "earlier_success_fraction_of_eventual_success": 0.0009157509157509158,
+      "passes_10pct_gate": false
+    }
+  },
+  "anchors_passing_10pct_gate": 2,
+  "required_anchors_passing_10pct_gate": 3,
+  "opportunity_gate_pass": false,
+  "call_and_compute_gates": {
+    "evaluated_for_primary_schedule": false,
+    "reason": "The optimistic no-observation-cost bound already fails two necessary gates; additional calls cannot rescue them."
+  },
+  "distinct_quality_heavy_control": {
+    "baseline": "depth10 for every anchor; this is not the primary [6,7,7,9,10] comparison",
+    "mean_final_context_tokens_saved": 756.7276565798734,
+    "mean_target_compute_tokens_saved": 594.3026038001408,
+    "mean_extra_target_calls": 0.33497536945812806,
+    "baseline_complete": 1123,
+    "oracle_complete": 1140
+  },
+  "decision": "STOP_CURRENT_CONTRACT_ADAPTIVE_STOPPING_AT_C0",
+  "decision_reason": "Against the prescribed early fixed schedule, even a free clairvoyant stopper saves only 4.52% cumulative context (<5%), and only 2/5 anchors have at least 10% earlier-success opportunity. Training an output-only stopper cannot repair an insufficient opportunity ceiling.",
+  "next_contract_change": {
+    "name": "C1-OBS_NATIVE_TARGET_CONFIDENCE",
+    "scope": "Allow read-only native token log-probability/margin traces from the frozen Target while retaining lossless source text, V8 ordering, add-only prefixes, and the same fidelity metric.",
+    "why": "Existing output-only answer-count, answer-stability, linear-answer, semantic-critic, and self-report probes failed. Native confidence is the smallest information-contract change that directly targets missing observability; cost optimization or more output features cannot enlarge the early schedule's opportunity ceiling.",
+    "required_control": "Generate labels and confidence traces in the same fresh canonical calls because prior log-prob preflight showed that old cached outputs cannot be safely joined to a changed generation path."
+  },
+  "new_target_calls": 0
+}

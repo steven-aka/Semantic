@@ -2805,3 +2805,26 @@ With PACKET-H0A and LATENT-L0A both stopped, V8 is the terminal defensible
 text-API deployment method for this experimental chain; remaining work should
 consolidate its final Pareto result and the documented oracle--deployment
 limitations rather than open another representation family.
+
+### STOP-C0 reassessment and minimal contract change
+
+The proposed Target-feedback stopper was evaluated without new Target calls by
+projecting the fresh canonical V8 prefix cache onto its frozen
+`[6,7,7,9,10]` baseline and gates. Even a free clairvoyant stopper saves only
+4.52% cumulative context, below the required 5%, and only the 0.60 and 0.70
+anchors have at least 10% earlier-success opportunity. The 0.80, 0.90 and 0.95
+fractions are 0.21%, 0.07% and 0.09%. Therefore answer-output dynamics and a
+new textual stopping classifier are closed under the current contract:
+`STOP_CURRENT_CONTRACT_ADAPTIVE_STOPPING_AT_C0`.
+
+This does not change the final objective or retract the separate positive
+quality-heavy `[10]*5` oracle control. If another experimental branch is
+opened, it must be an explicit minimal observability-contract change:
+`C1-OBS_NATIVE_TARGET_CONFIDENCE`. It may expose read-only native token
+log-probabilities or logit margins from the same frozen Qwen3-8B calls, while
+retaining V8 ordering, source-preserving text, add-only prefixes, the five
+fidelity anchors and complete quality--token accounting. Old answers may not
+be joined to newly collected traces: outcomes and traces must be generated
+together under one recorded execution manifest. This is a new white-box
+observation contract, not a continuation of the failed standard text-output
+API claim.

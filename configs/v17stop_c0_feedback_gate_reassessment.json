@@ -1,0 +1,32 @@
+{
+  "protocol": "V17-STOP-C0_TARGET_FEEDBACK_GATE_REASSESSMENT",
+  "fixed_schedule": {
+    "0.6": 6,
+    "0.7": 7,
+    "0.8": 7,
+    "0.9": 9,
+    "0.95": 10
+  },
+  "gates": {
+    "minimum_mean_final_context_saving_fraction": 0.05,
+    "minimum_anchors_with_10pct_earlier_success": 3,
+    "earlier_success_fraction": 0.10,
+    "maximum_quality_loss_percentage_points": 1.0,
+    "maximum_mean_calls": 2.0,
+    "maximum_calls": 3,
+    "maximum_cumulative_target_cost_ratio": 1.25
+  },
+  "inputs": {
+    "fresh_prefix_summary": "results/v2_rank_then_cut/v17canon_p0_fresh_v8_prefix_chain/summary.json",
+    "fresh_prefix_per_query": "results/v2_rank_then_cut/v17canon_p0_fresh_v8_prefix_chain/per_query.jsonl",
+    "clairvoyant_value_bound": "results/v2_rank_then_cut/v17stop_v0_fresh_value_bound/summary.json",
+    "costed_quality_baseline_control": "results/v2_rank_then_cut/v17stop_v1_oracle_probe_cost/summary.json"
+  },
+  "rules": [
+    "Use only the fresh canonical train1421 V8 prefix cache.",
+    "Treat the early [6,7,7,9,10] fixed schedule named in the proposed STOP-C0 protocol as the primary baseline.",
+    "Use the zero-observation-cost clairvoyant bound as an optimistic upper bound. If it fails a final-context gate, added Target observations cannot rescue that gate.",
+    "Do not train a stopper and do not make new Target calls when the optimistic bound fails.",
+    "Report the existing depth-10 costed oracle only as a distinct quality-heavy operating-point control, not as evidence that the early-schedule gate passes."
+  ]
+}
