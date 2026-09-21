@@ -1,0 +1,42 @@
+{
+  "protocol": "SEM-E0_SLOT_FIRST_SOURCE_BACKED_CONSTRUCTION",
+  "status": "FROZEN_BEFORE_FRESH_E0C_LABELS",
+  "design_sets": [
+    "SEM-D0 96-query cohort",
+    "SEM-D0.5 96-query cohort"
+  ],
+  "schema_contract": {
+    "input": "question only",
+    "output": ["answer_slot", "predicate_slots", "known_arguments", "constraints", "parser_family"],
+    "unknown_behavior": "ABSTAIN",
+    "answer_generation": false
+  },
+  "witness_contract": {
+    "source": "frozen rank10 source atoms plus S6 only for novelty checking",
+    "output": "one or two exact-source spans with character offsets",
+    "source_order": true,
+    "maximum_qwen3_8b_tokens": 16,
+    "must_cover": ["answer-bearing title", "every predicate", "every known argument", "every explicit constraint"],
+    "missing_slot_behavior": "ABSTAIN",
+    "free_generation": false
+  },
+  "fresh_gate": {
+    "point_precision_min": 0.95,
+    "wilson_precision_lower_bound_min": 0.80,
+    "eligible_recall_min": 0.50,
+    "minimum_emissions": 20,
+    "minimum_coverage": 0.15
+  },
+  "failure_attribution": [
+    "QUERY_SCHEMA_ERROR",
+    "SOURCE_MATCH_MISS",
+    "ARGUMENT_MISSING",
+    "PREDICATE_MISSING",
+    "CONSTRAINT_MISSING",
+    "NOVELTY_FAIL",
+    "BUDGET_INFEASIBLE"
+  ],
+  "new_teacher_calls_before_gate": 0,
+  "new_target_calls_before_gate": 0,
+  "sealed_sets_read": false
+}

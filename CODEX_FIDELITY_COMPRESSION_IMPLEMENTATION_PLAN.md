@@ -2724,3 +2724,13 @@ coverage. The broad `lexical window -> verifier` contract is therefore stopped;
 SEM-D1 Target calls remain prohibited. Any continuation must construct evidence
 from explicit query predicate/argument slots and exact source spans, and must
 pass a new frozen fresh-cohort closure gate before Target evaluation.
+
+SEM-E0 then tested closure-first construction on the exposed D0.5 cohort. Its
+question-only schema parser covered 96/96, but a token-set slot constructor was
+not semantically adequate: after adding answer-type cues it emitted 29 items,
+and AI-assisted review accepted only 21 (72.4%). Exact tokens can still form an
+unsupported proposition when a document title is joined to a fragment whose
+true source subject is different. Consequently E0C was not opened. The next
+constructor must preserve proposition linkage and store exact witness quotes,
+offsets, slot coverage, and tokenizer-verified length; Boolean feasibility
+labels without such witnesses are insufficient evidence.

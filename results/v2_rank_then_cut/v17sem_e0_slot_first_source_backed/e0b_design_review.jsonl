@@ -1,0 +1,29 @@
+{"audit_id": 3, "valid_relation_closure": true, "failure": null, "candidate": "Ahmad Albab ; starring malaysian artiste p. Ramlee", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 4, "valid_relation_closure": true, "failure": null, "candidate": "Bob Landers ; played with penrith panthers", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 7, "valid_relation_closure": false, "failure": "CONSTRAINT_MISSING_BELIZE", "candidate": "Calcutta ; village in the corozal district", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 10, "valid_relation_closure": false, "failure": "ARGUMENT_MISMATCH_HIGHER_BROUGHTON", "candidate": "Sir Norman Moore, 1st Baronet ; Born in higher broughton,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 11, "valid_relation_closure": false, "failure": "SUBJECT_LINKAGE_ERROR_ALBUM_NOT_BAND", "candidate": "The Drones ; won the inaugural australian music prize.", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 14, "valid_relation_closure": true, "failure": null, "candidate": "Char Dervesh ; Feroz khan acted", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 25, "valid_relation_closure": true, "failure": null, "candidate": "Arnold Earley ; died at age 66 in flint,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 28, "valid_relation_closure": true, "failure": null, "candidate": "The Tour ; album by american r&amp;b singer mary j. Blige,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 29, "valid_relation_closure": true, "failure": null, "candidate": "Panic in the City ; stars howard duff,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 36, "valid_relation_closure": true, "failure": null, "candidate": "Kevin of the North ; stars skeet ulrich,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 37, "valid_relation_closure": true, "failure": null, "candidate": "Reg Whitehouse ; played for the saskatchewan roughriders", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 40, "valid_relation_closure": true, "failure": null, "candidate": "Abdoulaye Diallo ; joined efl championship side nottingham forest", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 41, "valid_relation_closure": true, "failure": null, "candidate": "Francisco J. Ayala ; awarded the templeton prize.", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 42, "valid_relation_closure": true, "failure": null, "candidate": "Chakoram ; stars shanthi krishna", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 43, "valid_relation_closure": true, "failure": null, "candidate": "The Mirror Crack'd ; stars angela lansbury, kim novak,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 45, "valid_relation_closure": true, "failure": null, "candidate": "Robert James Shuttleworth ; born in dawlish,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 46, "valid_relation_closure": false, "failure": "CONSTRAINT_MISSING_PHILIPPINES", "candidate": "El Salvador ; city in the province of misamis oriental", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 52, "valid_relation_closure": true, "failure": null, "candidate": "Reuben Reid ; played in the football league for plymouth argyle,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 54, "valid_relation_closure": true, "failure": null, "candidate": "Best Days in the Sun ; album by feeder,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 55, "valid_relation_closure": false, "failure": "PREDICATE_MISSING", "candidate": "Circle ; mush records", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 66, "valid_relation_closure": true, "failure": null, "candidate": "9 Lives ; album by swedish singer pandora,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 67, "valid_relation_closure": true, "failure": null, "candidate": "Racing Stripes ; stars hayden panettiere,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 70, "valid_relation_closure": true, "failure": null, "candidate": "Golden Bisquits ; album) by american rock band three dog night,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 73, "valid_relation_closure": false, "failure": "CONSTRAINT_MISSING_MISSOURI", "candidate": "Bellefontaine Neighbors ; city in st. louis county,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 76, "valid_relation_closure": true, "failure": null, "candidate": "Grängesberg ; locality situated in ludvika municipality,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 82, "valid_relation_closure": true, "failure": null, "candidate": "Chowka ; cast of prem kumar,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 85, "valid_relation_closure": true, "failure": null, "candidate": "Glyn Meredith ; played representative cricket for glamorgan county cricket club,", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 86, "valid_relation_closure": false, "failure": "PREDICATE_MISMATCH_DIRECTOR_VS_MUSIC_DIRECTOR", "candidate": "Chattakkari ; director g. devarajan", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}
+{"audit_id": 88, "valid_relation_closure": false, "failure": "ANSWER_TYPE_OR_LINKAGE_MISSING", "candidate": "Yakum ; jurisdiction of hof hasharon regional council.", "reviewer_provenance": "AI_ASSISTED_DESIGN_REVIEW; no human IAA"}

@@ -3942,6 +3942,21 @@ Teacher/Target calls were made and SEM-D1 remains closed. The failure localizes
 the next problem to relation-directed span construction, rather than generic
 exact-span provenance or a looser verifier threshold. See the
 [SEM-D0.5 report](v17sem_d05_relation_closure_verifier/REPORT.md).
+
+### V17-SEM-E0 slot-first design audit
+
+SEM-E0 tested the proposed `relation first -> construct -> minimize` ordering on
+the exposed D0.5 cohort before spending a fresh cohort. A question-only parser
+covered all 96 queries, but this was syntactic template coverage rather than a
+semantic success metric. The slot-first constructor emitted 40 candidates;
+adding answer-type/domain cues reduced this to 29. AI-assisted design review
+found only 21/29 (72.4%) closed. Errors included missing domain constraints,
+predicate mismatches, and a proposition-linkage failure in which joining a
+document title to a source fragment changed the fragment's subject. E0C was
+therefore not run. The next admissible implementation must preserve explicit
+subject-predicate-object/constraint linkage and store inspectable offsets for
+every claimed witness. No Teacher/Target calls or sealed-set reads occurred.
+See the [SEM-E0 report](v17sem_e0_slot_first_source_backed/REPORT.md).
 provide the reviewable next step.
 
 ### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit

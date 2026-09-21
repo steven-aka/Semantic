@@ -1,0 +1,33 @@
+{
+  "protocol": "SEM-E0A_QUERY_SCHEMA_DESIGN_AUDIT",
+  "items": 96,
+  "parsed": 96,
+  "abstained": 0,
+  "families": {
+    "BORN_IN": 4,
+    "CAST_MEMBER": 1,
+    "CLASSIFIED_UNDER": 1,
+    "COMPETITION_LOCATION_PARTICIPANT": 1,
+    "DIED_IN": 1,
+    "FILM_CAST": 33,
+    "FILM_CAST_MUSIC": 1,
+    "FORMED_IN": 1,
+    "LOCATED_IN": 1,
+    "PARTY_MEMBER": 1,
+    "PART_OF": 1,
+    "PERFORMED_BY": 4,
+    "PLAYED_FOR": 10,
+    "PLAYED_IN_LEAGUE": 1,
+    "RECEIVED_AWARD": 2,
+    "RECORD_LABEL": 1,
+    "TABLE_COMPOSITION": 27,
+    "TEMPORAL_FILTER": 3,
+    "WON_AWARD": 1,
+    "WRITTEN_BY": 1
+  },
+  "question_only": true,
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false,
+  "status": "AWAITING_SCHEMA_CORRECTNESS_REVIEW"
+}

@@ -1,0 +1,14 @@
+{
+  "protocol": "SEM-E0B_SLOT_FIRST_DESIGN_REVIEW",
+  "design_exposed": true,
+  "emissions": 29,
+  "valid_emissions": 21,
+  "precision": 0.7241379310344828,
+  "invalid_emissions": 8,
+  "decision": "NOT_READY_FOR_FRESH_E0C",
+  "root_cause": "Token-set slot coverage does not prove proposition linkage; title-plus-fragment serialization can change the source subject, and domain constraints remain under-specified.",
+  "new_teacher_calls": 0,
+  "new_target_calls": 0,
+  "sealed_sets_read": false,
+  "human_iaa": "NOT_AVAILABLE"
+}
