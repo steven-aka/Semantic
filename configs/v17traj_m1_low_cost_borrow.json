@@ -1,0 +1,19 @@
+{
+  "protocol": "TRAJ-M1_LOW_CUMULATIVE_COST_BORROW",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "population": "All 116 M0B-eligible train queries outside R1, OBS-A1, FRAG-B0 and M0C; no outcome stratification",
+  "schedule": [6, 7, 7, 9, 10],
+  "candidate_rule": "Keep the identical M0B shortest-depth7 exact rank10 title+sentence atom; borrow it only if its measured five-level cumulative context slack is <=72, otherwise STAY; restore full rank10 at depth10",
+  "max_cumulative_context_slack": 72,
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.6,
+  "batch_size": 32,
+  "temperature": 0.0,
+  "fidelity_epsilon": 0.000001,
+  "gate": "At least 8 hindsight no-anchor-break Complete repairs, <=50 extra cumulative context tokens per hindsight Complete repair, and uniform Complete count not below fresh V8; GO means learnability design only",
+  "sealed_sets_read": false,
+  "new_training": false
+}

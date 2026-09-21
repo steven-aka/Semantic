@@ -2607,3 +2607,18 @@ cumulative context tokens; 19 repairs cost +11.37, so it formally STOPs.
 Do not train or open sealed sets by relaxing this bound after observing it.
 A future branch must freeze and test a genuinely cheaper/safe action contract
 on untouched train queries, or retain V8 as the reference.
+
+M1 tested one such new contract prospectively, without changing the M0B atom
+or trajectory: measured five-level cumulative context slack had to be <=72;
+otherwise the action was STAY. Only 116 minimally exposed eligible train
+queries remained after prior cohort exclusions, and 47/116 passed this cost
+filter. Fresh paired Qwen3-8B outcomes gave Complete 62→66 (six repairs, two
+breaks), 0.80 86→91, 0.90 79→81, and +18.08 mean cumulative context
+tokens/query. The hindsight no-anchor-break Complete oracle found six repairs
+at 39.5 extra cumulative tokens per repair. The frozen gate required at least
+eight repairs, so `STOP_M1_EXTRACTIVE_BORROW_GATE` is binding. Do not train a
+selector on this exact action or reinterpret the M0C/M1 costs as a deployable
+quality–token Pareto gain. The smaller sample limits strength of inference;
+this result does not establish that semantic rewriting is necessary. Preserve
+V8 as the reference while designing a genuinely distinct, costed action
+hypothesis, if the project's remaining untouched train data permits it.

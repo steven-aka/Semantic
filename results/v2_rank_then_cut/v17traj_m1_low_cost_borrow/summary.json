@@ -1,0 +1,31 @@
+{
+  "protocol": "TRAJ-M1_LOW_CUMULATIVE_COST_BORROW",
+  "queries": 116,
+  "eligible_action_queries": 47,
+  "target_calls": 558,
+  "baseline_success": [
+    108,
+    104,
+    86,
+    79,
+    77
+  ],
+  "action_success": [
+    108,
+    103,
+    91,
+    81,
+    77
+  ],
+  "baseline_complete": 62,
+  "action_complete": 66,
+  "complete_repairs": 6,
+  "complete_breaks": 2,
+  "safe_complete_oracle_repairs": 6,
+  "safe_complete_oracle_extra_cumulative_context_per_repair": 39.5,
+  "mean_extra_cumulative_context_uniform": 18.07758620689655,
+  "mean_extra_cumulative_target_uniform": 29.103448275862068,
+  "opportunity_gate": "STOP_M1_EXTRACTIVE_BORROW_GATE",
+  "sealed_sets_read": false,
+  "limitations": "Safe oracle is hindsight-only; GO authorizes design, not training, deployment or sealed evaluation."
+}

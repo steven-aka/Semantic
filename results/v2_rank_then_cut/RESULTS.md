@@ -4120,6 +4120,29 @@ depth10 0.95 cannot change under exact final-context recovery.
 [M0C paired summary](v17traj_m0c_borrow_pilot/summary.json) document the
 contract, costs and decision.
 
+### V17-TRAJ-M1 low cumulative cost borrow
+
+The M1 protocol kept M0B's exact shortest rank-10 atom and the same
+depth-7/depth-9 borrow trajectory, but required the **measured five-level
+cumulative context slack <=72 tokens**; otherwise the policy stayed on V8.
+After excluding prior action cohorts, only 116 minimally exposed eligible
+train queries remained; 47 passed the cost cap. We made 558 fresh paired
+Qwen3-8B calls and kept the lineage-clean 581, internal, development and
+confirmation sets closed. The new action changed five-anchor success from
+`[108,104,86,79,77]` to `[108,103,91,81,77]`, and Complete from
+`62/116` to `66/116` (six repairs, two breaks), at **+18.08 cumulative
+context tokens/query** and +29.10 Target prompt/output tokens/query.
+The paired Complete bootstrap interval for the +4 net change spans roughly
+−1 to +10 queries. Six hindsight no-anchor-break Complete repairs cost 39.5
+extra cumulative context tokens per repaired query. The frozen gate required
+at least eight such repairs and <=50 tokens per repair, so its decision is
+**`STOP_M1_EXTRACTIVE_BORROW_GATE`**. The cheaper action retains some
+multi-anchor benefit, but this narrow oracle opportunity does not authorize
+selector training. It does not prove that generated semantic evidence is
+necessary or rule out other action designs. [M1 report](v17traj_m1_low_cost_borrow/REPORT.md)
+and [paired summary](v17traj_m1_low_cost_borrow/summary.json) preserve the
+protocol, data and caveats.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed
