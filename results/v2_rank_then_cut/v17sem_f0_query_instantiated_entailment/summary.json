@@ -1,0 +1,38 @@
+{
+  "protocol": "SEM-F0_QUERY_INSTANTIATED_ENTAILMENT_FINAL_RESCUE",
+  "design_queries": 96,
+  "teacher_tasks": 192,
+  "hard_valid_tasks": 181,
+  "hard_invalid_tasks": 11,
+  "future_hard_valid_entailed": 61,
+  "current_s6_hard_valid_entailed": 0,
+  "query_level_novel_emissions": 61,
+  "conservative_review_false_positive_ids": [
+    11,
+    22,
+    31
+  ],
+  "conservative_review_precision": 0.9508196721311475,
+  "conservative_review_precision_wilson95": [
+    0.8650887247278409,
+    0.9831340173312375
+  ],
+  "regression_cases": 17,
+  "regression_passes": 12,
+  "regression_fail_ids": [
+    11,
+    22,
+    31,
+    40,
+    46
+  ],
+  "decision": "STOP_AUTOMATIC_SEMANTIC_EVIDENCE_CONSTRUCTION",
+  "fresh_f0b_authorized": false,
+  "new_qwen3_8b_target_calls": 0,
+  "sealed_sets_read": false,
+  "limitations": [
+    "Design-exposed cohort",
+    "AI-assisted semantic review with no human IAA",
+    "Three false-positive IDs are a conservative clear-error count, not an exhaustive independent annotation"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "protocol": "SEM-F0_QUERY_INSTANTIATED_ENTAILMENT_FINAL_RESCUE",
+  "items": 192,
+  "queries": 96,
+  "prompt_sha256": "db3cafbbe4dea5a7baaba24716bbca6ba0fef100ec8248449e37e8ab122f458a",
+  "model": "models/Qwen3-14B",
+  "gold_or_target_outcomes_loaded": false,
+  "sealed_sets_read": false
+}

@@ -1,0 +1,16 @@
+{
+  "protocol": "SEM-F0_QUERY_INSTANTIATED_ENTAILMENT_FINAL_RESCUE",
+  "status": "FROZEN_BEFORE_TEACHER_CALLS",
+  "design_population": "The 96 design-exposed SEM-D0.5 queries",
+  "candidate_entity": "Exact Document title from the future rank10 packet",
+  "hypothesis": "Deterministic template instantiated from question-only schema and document title",
+  "teacher_model": "models/Qwen3-14B",
+  "teacher_role": "offline three-way entailment positive control",
+  "decisions": ["ENTAILED", "NOT_ENTAILED", "ABSTAIN"],
+  "required_checks": ["support quote exact when ENTAILED", "future ENTAILED", "S6 not ENTAILED", "known regression suite passes"],
+  "generation": {"temperature": 0, "max_tokens": 128, "batch_size": 1, "enable_thinking": false},
+  "terminal_rule": "Failure on the exposed regression suite terminates automatic semantic-evidence construction; no prompt revision, larger teacher, free-form generator, or alternative relation extractor is opened",
+  "fresh_f0b_authorized": false,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "SEM-F0_QUERY_INSTANTIATED_ENTAILMENT_FINAL_RESCUE",
+  "tasks": 192,
+  "hard_valid": 181,
+  "future_entailed": 61,
+  "current_entailed": 0,
+  "manual_regression_review": "PENDING",
+  "fresh_f0b_authorized": false,
+  "teacher_calls": 192,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

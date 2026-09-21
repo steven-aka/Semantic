@@ -2754,3 +2754,18 @@ regressions. Fresh E0C2 is therefore not authorized. Do not tune E0Q prompts on
 this cohort or build a sequence of generic relation extractors; that branch has
 crossed the preregistered stop point and is no longer a justified route to the
 primary compression objective.
+
+### SEM-F0 terminal decision
+
+SEM-F0 is complete and closes the automatic compact-semantic-evidence branch.
+Deterministic query-plus-title hypotheses substantially improved over free span
+linking, but a frozen Qwen3-14B entailment judge still failed five of 17
+exposed regressions, including three clear false-positive relation/type errors.
+Mechanical validity was 181/192; 61 candidates passed future entailment plus S6
+novelty, but conservative reviewed precision was only 58/61 (95.1%, Wilson
+lower bound 86.5%) on a design-exposed cohort. Per the terminal protocol, do
+not tune the prompt, increase Teacher capacity, open a fresh F0B cohort, or call
+the Qwen3-8B Target for this branch. Preserve V8 and all sealed sets. Any next
+method must be genuinely distinct, must establish a costed action-space ceiling
+before learning, and must be judged by the final five-anchor quality--token
+Pareto objective rather than evidence-construction accuracy alone.

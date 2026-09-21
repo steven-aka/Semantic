@@ -4547,3 +4547,21 @@ calls, training, or sealed-set access occurred. [Script](../../src/evaluation/v1
 [summary](v17packet_rep_a2_relation_support_falsification/summary.json), and
 [inspectable judgments](v17packet_rep_a2_relation_support_falsification/per_action.jsonl)
 preserve the audit.
+
+### V17-SEM-F0 query-instantiated entailment final rescue
+
+SEM-F0 performed the terminal query-instantiated entailment rescue on the same
+96 design-exposed queries. A deterministic question schema plus the exact
+future document title formed the complete hypothesis; Qwen3-14B only judged
+that hypothesis against the future packet and S6. Of 192 paired judgments,
+181 passed structural/exact-quote checks. The hard-valid policy emitted 61
+future candidates and zero S6 candidates, but the frozen regression suite
+passed only 12/17 cases. Clear false positives remained for award-subject
+attribution, formation-location inference, and explorer-class membership
+(IDs 11, 22, and 31); two frozen positive controls were also rejected. A
+conservative, non-independent review gives at most 58/61 = 95.1% precision
+(Wilson 95% interval 86.5%–98.3%). Under the pre-registered terminal rule this
+is `STOP_AUTOMATIC_SEMANTIC_EVIDENCE_CONSTRUCTION`: no prompt revision, larger
+Teacher, fresh F0B, or Qwen3-8B Target test is authorized. Query instantiation
+fixed many E0Q failures, but did not make the required semantic boundary
+reliable enough to protect V8.
