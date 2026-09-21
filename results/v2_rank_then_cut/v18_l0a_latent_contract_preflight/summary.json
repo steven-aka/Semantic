@@ -1,0 +1,76 @@
+{
+  "protocol": "V18-L0A_PROGRESSIVE_LATENT_CONTRACT_PREFLIGHT",
+  "status": "STATIC_PREFLIGHT_COMPLETE_RUNTIME_PREFLIGHT_REQUIRED",
+  "contract_change": {
+    "retired": [
+      "lossless representation",
+      "source-preserving text-only Target interface",
+      "black-box Target API"
+    ],
+    "preserved": [
+      "frozen Qwen3-8B Target",
+      "query-conditioned",
+      "progressive",
+      "add-only nested prefixes",
+      "five fidelity levels",
+      "quality-cost Pareto objective"
+    ],
+    "claim_boundary": "lossy white-box progressive representation; it must not be reported as text-token compression"
+  },
+  "fixed_candidate": {
+    "encoder": "frozen Qwen3-1.7B, run once on canonical query plus full original context",
+    "trainable_module": "one small cross-attention resampler plus 2048-to-4096 projection",
+    "latent_budgets": [
+      4,
+      8,
+      16,
+      24,
+      32
+    ],
+    "target": "Qwen3-8B fully frozen; gradients may pass through it only to the resampler",
+    "forbidden": [
+      "architecture sweep",
+      "latent-budget sweep",
+      "adaptive halting in L0",
+      "gold answers or teacher outputs as compressor inputs"
+    ]
+  },
+  "static_api_checks": {
+    "target_architecture_is_qwen3_causal_lm": true,
+    "target_hidden_size_4096": true,
+    "compressor_model_present": true,
+    "forward_exposes_inputs_embeds": true,
+    "forward_exposes_past_key_values": true,
+    "forward_constructs_dynamic_cache": true
+  },
+  "cost_preflight": {
+    "empirical_c1_queries": 256,
+    "mean_depth10_prompt_tokens": 780.40234375,
+    "mean_depth10_context_tokens": 665.1015625,
+    "mean_generated_tokens_per_call": 56.640625,
+    "mean_noncontext_text_positions_per_call": 115.30078125,
+    "depth10_five_call_target_token_compute": 4185.21484375,
+    "latent_five_call_target_token_compute_if_generation_unchanged": 943.70703125,
+    "compressor_once_8b_equivalent_parameter_position_proxy": 165.835498046875,
+    "combined_parameter_position_proxy": 1109.542529296875,
+    "proxy_ratio_vs_depth10": 0.2651100530606721,
+    "warning": "Parameter-position scaling is only a screening proxy. GO requires measured batch-1 latency, throughput, peak VRAM, Target positions, compressor positions and cache memory; latent positions are not text tokens."
+  },
+  "runtime_gates_before_training": [
+    "token embeddings passed through inputs_embeds reproduce input_ids next-token logits within frozen tolerance",
+    "incremental cached latent-prefix forward reproduces one-shot latent-prefix logits within frozen tolerance",
+    "gradient reaches latent inputs/resampler while every Target parameter has no gradient and remains unchanged",
+    "measured compressor plus Target cost retains positive headroom against V8 fixed depth10"
+  ],
+  "evaluation_gates_after_training": {
+    "quality": "each fidelity and Complete no worse than V8 fixed by more than 1 percentage point on query-held-out data",
+    "target_positions": "strictly fewer than V8 at at least 3 of 5 anchors",
+    "measured_total_cost": "positive Pareto improvement after compressor latency/FLOPs/VRAM and Target prefill/decode are charged",
+    "nonmonotonicity": "SF count falls by at least 50% at matched per-anchor success; shorter-prefix success counts may not fall by more than 1 percentage point",
+    "anti_gaming": "report SS/SF/FS/FF counts, per-prefix success, final success and continuous teacher-answer NLL; SF alone is invalid",
+    "generalization": "query-grouped train/validation only; sealed sets remain closed"
+  },
+  "decision": "GO_V18_L0A_RUNTIME_INTERFACE_PREFLIGHT",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

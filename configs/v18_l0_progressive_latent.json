@@ -1,0 +1,17 @@
+{
+  "protocol": "V18-L0_PROGRESSIVE_LATENT_REPRESENTATION",
+  "scope": "separately named lossy white-box successor to frozen V17",
+  "target": "models/Qwen3-8B",
+  "target_frozen": true,
+  "encoder": "models/Qwen3-1.7B",
+  "encoder_frozen": true,
+  "trainable": "single cross-attention resampler plus projection to 4096",
+  "latent_budgets": [4, 8, 16, 24, 32],
+  "compressor_inputs": ["query", "full original context"],
+  "compressor_inputs_forbidden": ["gold answers", "teacher answers", "fidelity labels", "oracle stop decisions"],
+  "target_interface": "inputs_embeds with exact nested latent prefixes",
+  "development_split": "query-grouped train/design only",
+  "sealed_sets_read": false,
+  "training_stage_authorized": false,
+  "next_gate": "V18-L0A runtime embedding/cache/gradient equivalence and measured cost preflight"
+}

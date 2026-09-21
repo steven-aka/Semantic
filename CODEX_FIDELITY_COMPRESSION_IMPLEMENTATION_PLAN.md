@@ -2915,3 +2915,24 @@ auxiliary judge or open another C-series feature branch. The current-contract
 candidate is V8 with a fixed causal schedule. Further adaptive work requires
 an explicitly revised, separately named contract; the original final objective
 remains unchanged.
+
+### V18-L0A progressive-latent contract change
+
+V17 is frozen. V18 is a separately named lossy white-box successor: it retires
+the lossless source-preserving text-only interface while preserving frozen
+Qwen3-8B, query conditioning, add-only nested prefixes, five fidelity anchors
+and the final quality--cost Pareto objective. The only L0 candidate is a frozen
+Qwen3-1.7B encoder run once per query plus one trainable cross-attention
+resampler and 2048-to-4096 projection, with budgets `[4,8,16,24,32]`.
+Gold/teacher answers, fidelity and oracle actions are forbidden compressor
+inputs. L0 contains no adaptive halting or architecture/budget sweep.
+
+The static cost screen gives a combined parameter-position proxy ratio of
+0.265 versus five depth10 calls. This is not a deployment metric; latency,
+FLOPs, VRAM, cache memory, compressor positions and Target positions remain
+mandatory. The synthetic runtime preflight passed: exact token embeddings
+reproduce token-ID logits, cached token-ID and embedding suffixes are equal,
+and gradients reach latents while all Target gradients remain absent.
+Decision: `GO_V18_L0B_TINY_MEMORIZATION_PREFLIGHT`. Final L0 evaluation must
+reduce SF by at least 50% at matched per-anchor success; SF alone is invalid
+because a model can reduce it by making every short prefix fail.

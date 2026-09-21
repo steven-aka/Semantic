@@ -4731,3 +4731,24 @@ revised research contract. [Script](../../src/evaluation/v17stop_c4_a0_required_
 [summary](v17stop_c4_a0_required_stopper_feasibility/summary.json), and
 [report](v17stop_c4_a0_required_stopper_feasibility/REPORT.md) preserve the
 audit. No Target call or sealed-set access occurred.
+
+### V18-L0A progressive-latent contract and runtime preflight
+
+After freezing V17, L0A explicitly opened a separately named lossy white-box
+contract while retaining frozen Qwen3-8B, query conditioning, nested add-only
+prefixes, five fidelity levels and the quality--cost objective. The single
+candidate is a once-per-query frozen Qwen3-1.7B encoder plus one trainable
+resampler/projection at budgets `[4,8,16,24,32]`.
+
+The zero-call screen projects 943.71 latent Target positions plus 165.84
+8B-equivalent compressor parameter-positions, versus 4,185.21 for the five-call
+depth10 baseline (screening ratio 0.265). A synthetic Qwen3-8B bf16 runtime
+test then found exact equality between token IDs and embedding inputs, exact
+equality and 100% top-1 agreement between cached token-ID and embedding
+suffixes, finite latent gradients, and no Target parameter gradients. Decision:
+`GO_V18_L0B_TINY_MEMORIZATION_PREFLIGHT`. This authorizes only a tiny
+plumbing/overfit test. Future monotonicity evaluation requires at least 50%
+lower SF at matched early-prefix success to prevent a trivial all-fail result.
+[Static summary](v18_l0a_latent_contract_preflight/summary.json),
+[runtime result](v18_l0a_latent_contract_preflight/runtime.json), and
+[report](v18_l0a_latent_contract_preflight/REPORT.md) preserve the decision.
