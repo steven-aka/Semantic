@@ -1,0 +1,66 @@
+{
+  "protocol": "OBS-A2_GROUPED_FULL_PAIRED_TEXT_TFIDF_RIDGE_CONTROL",
+  "queries": 256,
+  "fold_sizes": [
+    66,
+    59,
+    65,
+    66
+  ],
+  "pooled_spearman_predicted_vs_actual_delta_f1": 0.10449961398697862,
+  "pooled_repair_vs_break_auc_on_decisive_cases": 0.5291005291005291,
+  "fold_diagnostics": [
+    {
+      "fold": 0,
+      "queries": 66,
+      "repair_queries": 2,
+      "break_queries": 9,
+      "spearman": -0.03129214070577516,
+      "repair_vs_break_auc": 0.0
+    },
+    {
+      "fold": 1,
+      "queries": 59,
+      "repair_queries": 8,
+      "break_queries": 6,
+      "spearman": 0.22552475753227388,
+      "repair_vs_break_auc": 0.75
+    },
+    {
+      "fold": 2,
+      "queries": 65,
+      "repair_queries": 6,
+      "break_queries": 3,
+      "spearman": 0.330394461826065,
+      "repair_vs_break_auc": 0.7777777777777778
+    },
+    {
+      "fold": 3,
+      "queries": 66,
+      "repair_queries": 11,
+      "break_queries": 3,
+      "spearman": 0.033190950192116694,
+      "repair_vs_break_auc": 0.6363636363636364
+    }
+  ],
+  "budgets": {
+    "0.05": {
+      "interventions": 13,
+      "repairs": 0,
+      "breaks": 1,
+      "mean_extra_context_tokens_all_queries": 1.52734375,
+      "random_expected_repairs": 1.37109375,
+      "random_expected_breaks": 1.06640625
+    },
+    "0.1": {
+      "interventions": 26,
+      "repairs": 2,
+      "breaks": 2,
+      "mean_extra_context_tokens_all_queries": 2.56640625,
+      "random_expected_repairs": 2.7421875,
+      "random_expected_breaks": 2.1328125
+    }
+  },
+  "sealed_sets_read": false,
+  "interpretation": "A cheap lexical control on 256 train-side queries, not a strong observability ceiling or deployable model."
+}

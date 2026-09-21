@@ -4012,6 +4012,25 @@ with only 27 repair and 21 break queries. [Report](v17packet_obs_a1_natural_inse
 [conditional repeat](v17packet_obs_a1_natural_insertion/repeat_summary.json)
 record the result.
 
+### V17-PACKET-OBS-A2 paired-text lexical control
+
+We ran one frozen four-fold, query-grouped TF–IDF/ridge control on the
+OBS-A1 protected-insertion labels, using full baseline/action texts with
+explicit field markers and continuous ΔF1 supervision. OOF Spearman for
+effect prediction was **0.1045** and repair-versus-break AUC on 48 decisive
+queries was **0.5291**. The fixed 5% intervention budget yielded **0 repair /
+1 break**; 10% yielded **2 repair / 2 breaks**, no better than random
+opportunity capture. No new Target calls or sealed data were used.
+
+Decision: `STOP_CHEAP_PAIRED_TEXT_GATE`. This tests one lexical
+representation, **not** a semantic or information-theoretic observability
+ceiling. With only 27 repair and 21 break queries, a stronger-model negative
+result would remain uncertain; uniform insertion itself is also costly and
+break-prone. Do not tune thresholds or claim deployable Pareto improvement.
+[Report](v17packet_obs_a1_natural_insertion/PAIRED_TEXT_CONTROL.md) and
+[OOF summary](v17packet_obs_a1_natural_insertion/paired_text_control_summary.json)
+preserve the diagnostic.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed
