@@ -3963,6 +3963,26 @@ exposed cohort. [Report](v17packet_frag_b0_title_only_natural_pilot/REPORT.md),
 [paired outcomes](v17packet_frag_b0_title_only_natural_pilot/per_query.jsonl)
 record the test.
 
+### V17-PACKET-OBS-A0 protected-insertion data gate
+
+A read-only audit checked whether the existing protected-insertion labels can
+support a strong paired-effect observability probe. SLOT-B0 has **84 actions
+but only 24 independent, outcome-balanced queries**: 16 repairs on seven
+queries, five breaks on two queries, and 63 unchanged 0.90 outcomes. FRAG-A0
+replayed 27 outcome-selected actions on 15 queries: the baseline 0.90 bit
+agreed in 27/27 and the combined title-plus-sentence bit in 26/27 (15/16
+selected repairs, 5/5 selected breaks). The repeat subset cannot estimate
+population label noise. R1/R2G0 has more queries but uses replacement rather
+than protected insertion, so its labels cannot be pooled here.
+
+Decision: `STOP_STRONG_OBSERVABILITY_PROBE_ON_CURRENT_INSERTION_LABELS`.
+First collect an outcome-blind train-side cohort under one frozen insertion
+rule with matched baseline/action Target calls and a small repeat subset.
+This preserves the distinction between oracle action headroom and query-heldout
+learnability while avoiding a misleading strong-model result on 24 queries.
+[Report](v17packet_obs_a0_data_gate/REPORT.md) and
+[summary](v17packet_obs_a0_data_gate/summary.json) record the gate.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed

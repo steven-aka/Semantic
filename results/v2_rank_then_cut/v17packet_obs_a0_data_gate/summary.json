@@ -1,0 +1,35 @@
+{
+  "contract": "V8 depth9 default preserved; one rank10 title+sentence inserted; actual slack <=48",
+  "pilot_queries": 24,
+  "pilot_actions": 84,
+  "sampling": "12 V8 successes + 12 V8 failures, selected from design-exposed R1 train512 by pre-outcome SHA order",
+  "action_outcomes_090": {
+    "same": 63,
+    "break": 5,
+    "repair": 16
+  },
+  "query_counts_any_repair_break": {
+    "repair": 7,
+    "break": 2
+  },
+  "repeat_cases": 27,
+  "repeat_unique_queries": 15,
+  "repeat_selected_by_cached_outcome": {
+    "unchanged": 2,
+    "repair": 16,
+    "same_threshold_f1_gain": 2,
+    "break": 5,
+    "same_threshold_f1_loss": 2
+  },
+  "repeat_combined_success_bit_agreement": "26/27",
+  "repeat_by_cached_outcome": {
+    "unchanged": "2/2",
+    "repair": "15/16",
+    "same_threshold_f1_gain": "2/2",
+    "break": "5/5",
+    "same_threshold_f1_loss": "2/2"
+  },
+  "decision": "STOP_STRONG_OBSERVABILITY_PROBE_ON_CURRENT_INSERTION_LABELS",
+  "reason": "Only 24 independent outcome-balanced queries; repeated actions are outcome-selected, so neither grouped learnability nor population repeatability is estimable reliably.",
+  "next": "Freeze one insertion candidate rule and collect matched baseline/action labels on an outcome-blind train-side query sample before a single grouped paired-effect probe."
+}
