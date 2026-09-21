@@ -1,0 +1,26 @@
+{
+  "protocol": "SEM-E0Q_CONSTRAINED_PROPOSITION_LINKER_POSITIVE_CONTROL",
+  "design_exposed_items": 96,
+  "teacher_calls": 96,
+  "hard_valid_outputs": 60,
+  "hard_valid_links": 46,
+  "semantically_valid_links": 25,
+  "proposition_precision": 0.5434782608695652,
+  "hard_output_rate": 0.625,
+  "mean_teacher_latency_seconds_batch1": 2.275740903659122,
+  "teacher_prompt_tokens": 40369,
+  "teacher_generated_tokens": 4699,
+  "critical_regression_failures": [
+    "SUBJECT_SWAP",
+    "ARGUMENT_MISMATCH",
+    "UNRESOLVED_COREFERENCE",
+    "WRONG_PREDICATE",
+    "MISSING_CONSTRAINT",
+    "ANSWER_ROLE_MISMATCH"
+  ],
+  "decision": "STOP_RELATION_EXTRACTION_ENGINEERING_DO_NOT_OPEN_FRESH_E0C2",
+  "fresh_e0c2_authorized": false,
+  "new_target_calls": 0,
+  "sealed_sets_read": false,
+  "human_iaa": "NOT_AVAILABLE"
+}

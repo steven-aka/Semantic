@@ -1,0 +1,13 @@
+{
+  "protocol": "SEM-E0Q_CONSTRAINED_PROPOSITION_LINKER_POSITIVE_CONTROL",
+  "items": 96,
+  "hard_valid_outputs": 60,
+  "links": 46,
+  "abstains": 14,
+  "teacher_prompt_tokens": 40369,
+  "teacher_generated_tokens": 4699,
+  "manual_semantic_review": "PENDING",
+  "fresh_e0c2_authorized": false,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

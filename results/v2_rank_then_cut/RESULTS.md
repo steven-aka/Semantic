@@ -3970,6 +3970,20 @@ that compact clauses cannot exist. The result exposes the missing component:
 reliable clause/proposition extraction. The current environment has no frozen
 dependency/SRL runtime, and offsets alone do not prove entailment. Fresh E0C2
 was therefore not opened. No Teacher/Target calls or sealed-set reads occurred.
+
+### V17-SEM-E0Q constrained proposition linker
+
+The frozen Qwen3-14B positive control received question schemas and numbered
+source sentences and could only select exact quotes plus a finite link type or
+abstain. Across the 96 exposed design queries, only 60 outputs passed JSON and
+exact-quote checks; 46 were hard-valid links. Strict AI-assisted semantic review
+accepted 25/46 (54.3%). It failed known regressions including subject swap,
+Higher-Broughton argument mismatch, unresolved coreference, wrong predicate,
+missing constraint, and answer-role inversion. This used 96 Teacher calls but
+zero Target calls and no sealed sets. The result stops relation-extraction
+engineering before fresh E0C2 rather than initiating prompt tuning on the
+exposed cohort. See the
+[SEM-E0Q report](v17sem_e0q_constrained_linker/REPORT.md).
 provide the reviewable next step.
 
 ### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit

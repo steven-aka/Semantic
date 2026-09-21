@@ -2743,3 +2743,14 @@ is the missing bridge between provenance and compactness. Since the frozen
 runtime contains no dependency or SRL implementation, fresh E0C2 remains
 closed until a proposition-link validator is implemented and frozen, or the
 method switches to an explicitly provenance-backed structured packet.
+
+SEM-E0Q then tested the strongest narrow positive control available without
+building a generic parser: Qwen3-14B could only select exact quotes and a frozen
+link type from numbered source sentences. On the 96 exposed design queries, 60
+outputs passed structural checks, 46 were links, and strict AI-assisted review
+accepted only 25 links (54.3%). It failed the known subject-swap,
+argument-mismatch, coreference, predicate, constraint, and answer-role
+regressions. Fresh E0C2 is therefore not authorized. Do not tune E0Q prompts on
+this cohort or build a sequence of generic relation extractors; that branch has
+crossed the preregistered stop point and is no longer a justified route to the
+primary compression objective.

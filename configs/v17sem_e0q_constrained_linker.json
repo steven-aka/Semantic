@@ -1,0 +1,21 @@
+{
+  "protocol": "SEM-E0Q_CONSTRAINED_PROPOSITION_LINKER_POSITIVE_CONTROL",
+  "status": "FROZEN_BEFORE_TEACHER_CALLS",
+  "population": "The 96 design-exposed SEM-D0.5 queries only",
+  "teacher_model": "models/Qwen3-14B",
+  "teacher_role": "offline positive-control proposition linker; not deployable by assumption",
+  "inputs_allowed": ["question", "question-only schema", "numbered source sentences"],
+  "inputs_forbidden": ["gold answers", "Target outputs", "fidelity", "repair/break labels"],
+  "decisions": ["LINK", "ABSTAIN"],
+  "link_types": ["SAME_CLAUSE", "PASSIVE", "RELATIVE_CLAUSE", "APPOSITION", "DOCUMENT_TITLE_EXPLICIT_LINK"],
+  "hard_checks": [
+    "selected sentence id exists",
+    "subject/predicate/object/constraint quotes are exact substrings of selected sentence or document-title line",
+    "all required JSON keys and enumerations are valid",
+    "no free proposition text is accepted"
+  ],
+  "generation": {"temperature": 0, "max_tokens": 256, "enable_thinking": false, "batch_size": 1},
+  "fresh_e0c2_authorized": false,
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}
