@@ -2863,3 +2863,15 @@ the B1-to-oracle compute gap, all five quality anchors and Complete within one
 percentage point of depth10, and at least 2% Target-compute saving. Failure
 closes internal observability without layer or probe sweeps and moves the next
 contract question to prefixable reveal-order prompt serialization.
+
+C2 design collection and OOF are complete. Across output-only, H1, H2, H3,
+and output-plus-H2 linear probes, no frozen threshold preserved all five
+anchors and Complete within one percentage point of the C2 depth10 baseline.
+All near-quality settings also exceeded direct-depth10 Target compute, giving
+negative rather than 85% compute-gap capture. Binding decision:
+`STOP_INTERNAL_OBSERVABILITY`. Do not add layers, pooling variants, nonlinear
+probes, or another internal-state cohort. Proceed only by separately freezing
+`C3-PREFIXABLE_PROGRESSIVE_PROMPT`, where V8 packet order is unchanged but
+serialization follows reveal order so successive prompts become literal token
+prefixes; because this changes Target token order, it requires paired quality
+and cost baselines before any learned stopping reuse.

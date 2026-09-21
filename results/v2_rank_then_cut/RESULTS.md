@@ -4673,3 +4673,13 @@ peak allocated VRAM increased by only 2,048 bytes. Decision:
 `GO_C2_DESIGN_COLLECTION`. This path is not identical to the earlier vLLM C1
 path, so all C2 baselines and costs must be regenerated within C2; old labels
 cannot be joined to new activations.
+
+The full C2 design collection then generated 1,024 same-path states for 256
+queries and stored fixed final-layer H1/H2/H3 vectors. Query-grouped linear
+OOF tested output-only, each hidden pooling, and output plus H2 over the frozen
+threshold grid. No point from any probe satisfied the one-percentage-point
+quality gate. Near-quality high-threshold points also remained more expensive
+than direct depth10; compute-oracle capture was negative, far below the binding
+85% requirement. Decision: `STOP_INTERNAL_OBSERVABILITY`. Layer sweeps, MLPs,
+larger critics and native-logit recollection are not authorized. The next
+contract question is C3 prefixable reveal-order prompt serialization.
