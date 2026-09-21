@@ -1,0 +1,23 @@
+{
+  "protocol": "FRAG-A1_LOSSLESS_ABBREVIATION_BOUNDARY_AUDIT",
+  "new_target_calls": 0,
+  "model_training": false,
+  "sealed_sets_read": false,
+  "counts": {
+    "splittable_queries": 424,
+    "old_candidates": 1485,
+    "new_units": 1311,
+    "old_short": 227,
+    "new_short": 135,
+    "queries_with_merges": 88,
+    "merged_boundaries": 174
+  },
+  "decisive_pilot_actions_affected": 3,
+  "decisive_pilot_queries_affected": 1,
+  "contract": "Merge only a boundary after a single-letter abbreviation; preserve original title separately and every proof character in source order. Bare section headings remain unresolved rather than automatically filtered.",
+  "limitations": [
+    "Corrected units are a proposed action space, not measured Target improvements.",
+    "One-letter abbreviation merging does not solve headings, initials separated without periods, decimal or all discourse-boundary errors."
+  ],
+  "decision": "DEFER_BROAD_CLEANED_REPLAY_ONLY_ONE_DECISIVE_QUERY_AFFECTED"
+}

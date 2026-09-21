@@ -1,0 +1,96 @@
+{
+  "protocol": "FRAG-A0_TRAIN_SIDE_COMPONENT_ABLATION",
+  "cases": 27,
+  "target_calls": 108,
+  "prompt_tokens": 97646,
+  "generated_tokens": 5205,
+  "by_cached_outcome": {
+    "unchanged": {
+      "cases": 2,
+      "baseline_success": 2,
+      "title_only_success": 2,
+      "sentence_only_success": 2,
+      "title_sentence_success": 2,
+      "baseline_reproduced": 2,
+      "title_sentence_reproduced": 2
+    },
+    "repair": {
+      "cases": 16,
+      "baseline_success": 0,
+      "title_only_success": 8,
+      "sentence_only_success": 8,
+      "title_sentence_success": 15,
+      "baseline_reproduced": 16,
+      "title_sentence_reproduced": 15
+    },
+    "same_threshold_f1_gain": {
+      "cases": 2,
+      "baseline_success": 2,
+      "title_only_success": 2,
+      "sentence_only_success": 2,
+      "title_sentence_success": 2,
+      "baseline_reproduced": 2,
+      "title_sentence_reproduced": 2
+    },
+    "break": {
+      "cases": 5,
+      "baseline_success": 5,
+      "title_only_success": 5,
+      "sentence_only_success": 3,
+      "title_sentence_success": 0,
+      "baseline_reproduced": 5,
+      "title_sentence_reproduced": 5
+    },
+    "same_threshold_f1_loss": {
+      "cases": 2,
+      "baseline_success": 0,
+      "title_only_success": 0,
+      "sentence_only_success": 1,
+      "title_sentence_success": 0,
+      "baseline_reproduced": 2,
+      "title_sentence_reproduced": 2
+    }
+  },
+  "component_success_patterns_T_S_TS": {
+    "unchanged": {
+      "111": 2
+    },
+    "repair": {
+      "001": 4,
+      "000": 1,
+      "011": 3,
+      "101": 3,
+      "111": 5
+    },
+    "same_threshold_f1_gain": {
+      "111": 2
+    },
+    "break": {
+      "100": 2,
+      "110": 3
+    },
+    "same_threshold_f1_loss": {
+      "000": 1,
+      "010": 1
+    }
+  },
+  "unique_queries_by_cached_outcome": {
+    "unchanged": 2,
+    "repair": 7,
+    "same_threshold_f1_gain": 2,
+    "break": 2,
+    "same_threshold_f1_loss": 2
+  },
+  "repair_queries_with_any_success_by_arm": {
+    "baseline": 0,
+    "title_only": 2,
+    "sentence_only": 4,
+    "title_sentence": 6
+  },
+  "sealed_sets_read": false,
+  "limitations": [
+    "Cases selected by cached outcome; not a population estimate.",
+    "A title-only or sentence-only arm changes actual context length and is a mechanism ablation, not a deployable compression policy.",
+    "If fresh baseline/title+sentence does not reproduce cached outcomes, component attribution is restricted to fresh paired comparisons."
+  ]
+}

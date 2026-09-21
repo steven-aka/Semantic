@@ -1,0 +1,19 @@
+{
+  "protocol": "FRAG-A0_TRAIN_SIDE_COMPONENT_ABLATION",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "selection": "All 21 SLOT-B0 repair/break actions; two SHA-first unique-query controls each from unchanged, same-threshold F1 gain and same-threshold F1 loss, excluding decisive queries",
+  "arms": ["baseline", "title_only", "sentence_only", "title_sentence"],
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.75,
+  "batch_size": 108,
+  "fidelity_epsilon": 0.000001,
+  "expected_decisive_cases": 21,
+  "expected_control_cases": 6,
+  "expected_target_calls": 108,
+  "sealed_sets_read": false,
+  "new_training": false
+}

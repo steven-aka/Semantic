@@ -1,0 +1,28 @@
+{
+  "protocol": "FRAG-B0_NATURAL_TRAIN_TITLE_ONLY_PILOT",
+  "queries": 128,
+  "target_calls": 256,
+  "prompt_tokens": 170079,
+  "generated_tokens": 13877,
+  "baseline_success_090": 100,
+  "title_success_090": 101,
+  "repairs": 6,
+  "breaks": 5,
+  "mean_added_context_tokens": 8.453125,
+  "mean_target_token_delta": 10.78125,
+  "mean_delta_f1": 0.00904938204425432,
+  "paired_query_bootstrap_95pct_net_success_count": [
+    -5,
+    8
+  ],
+  "paired_query_bootstrap_95pct_mean_delta_f1": [
+    -0.0008030622037491384,
+    0.018961390856950044
+  ],
+  "sealed_sets_read": false,
+  "limitations": [
+    "Natural train-side sample, not independent final confirmation.",
+    "Only the 0.90 depth9 endpoint was paired fresh; unchanged other anchors were not re-called and no Complete claim is made.",
+    "All rank10 titles come from a constructed gold-answer packet pool; answer-cue shortcut risk applies."
+  ]
+}

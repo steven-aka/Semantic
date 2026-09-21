@@ -1,0 +1,19 @@
+# FRAG-A0/A1: component and fragment-boundary audit
+
+The train-side, outcome-enriched FRAG-A0 experiment held the V8 depth-9 prefix, query, Target prompt, and insertion slot fixed. It replayed 27 existing actions as four arms in one Qwen3-8B run: baseline, title only, sentence only, and title+sentence. Selection was frozen in the config and manifest before the 108 calls. The run cost 97,646 prompt and 5,205 generated Target tokens. It touched no sealed set and trained no model.
+
+| Originally cached action | Cases | Fresh baseline success | Title-only success | Sentence-only success | Title+sentence success | Cached T+S reproduced |
+|---|---:|---:|---:|---:|---:|---:|
+| 0.90 repair | 16 | 0 | 8 | 8 | 15 | 15 |
+| 0.90 break | 5 | 5 | 5 | 3 | 0 | 5 |
+| Other controls | 6 | 4 | 4 | 5 | 4 | 6 |
+
+Four repair actions succeeded only when title and sentence were combined; three break actions failed only when they were combined, although either component alone preserved 0.90 success. These are paired **context-component effects** at one fixed slot. The same pattern is visible in continuous F1 for those examples, but it does not reveal whether the Target used factual support, answer-title cues, attention, or generation dynamics. One of 16 cached repairs failed to reproduce in the fresh T+S arm; its cached label is not an invariant Target truth. The 16 repair actions come from only seven queries: title-only repairs occur in two queries, sentence-only in four, and combined in six.
+
+The title-only arm repaired eight selected actions with about 7.2 extra context tokens per originally repairable action and did not break the five selected historical-break actions. The sentence-only arm also repaired eight, with about 23.9 extra tokens, and broke two of the five. These are **outcome-selected actions on nine decisive queries**, not policy-level rates or a title-only deployment result. Document titles are gold-answer strings by this constructed QAMPARI pool, so any title-only gain may exploit an answer cue rather than relation evidence. A future natural-cohort test must account for that shortcut and for unsafe cases outside this selected sample.
+
+FRAG-A1 separately reconstructed only unambiguous single-letter abbreviation boundaries, without Target calls or changing proof content: the R1 pool's 1,485 old candidates become 1,311 lossless units; fragments of at most three words fall from 227 to 135. Among the 21 FRAG-A0 decisive actions, only three old fragments change, all from **one** repair query. Thus erroneous abbreviation splitting is real and should be corrected in a future action definition, but it cannot explain most observed decisive outcomes. Other short section headings remain unresolved and were not automatically deleted.
+
+**Decision after A0/A1.** The strongest supported mechanism is that title and sentence can each affect the frozen Target, with material non-additive effects. Neither strict standalone relation support nor the tested abbreviation-boundary error is a sufficient explanation of the selected repair/break pattern. Do not train a support encoder from block-level proof labels or pay for a broad cleaned-fragment replay now. A subsequent natural-cohort test of a uniform title-only action is reported in `../v17packet_frag_b0_title_only_natural_pilot/REPORT.md`; it did not establish a useful title-only policy. The existing 27 A0 actions remain design-exposed.
+
+Reproduce A0 from `configs/v17packet_frag_a0_component_ablation.json` and `src/evaluation/v17packet_frag_a0_component_ablation.py`; cached Target outputs are in `per_call.jsonl`. Reproduce the zero-call boundary audit with `python -m src.evaluation.v17packet_frag_a1_boundary_audit`. Both use the current Qwen3-8B contract. The current A0 run used GPU 4 and a single 108-request vLLM batch; replay across different batching may differ numerically.

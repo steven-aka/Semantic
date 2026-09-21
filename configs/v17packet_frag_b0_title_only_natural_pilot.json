@@ -1,0 +1,18 @@
+{
+  "protocol": "FRAG-B0_NATURAL_TRAIN_TITLE_ONLY_PILOT",
+  "status": "FROZEN_BEFORE_TARGET_CALLS",
+  "selection": "SHA256-first 128 P0 train queries outside R1 train512 with a rank10 Document title, without reading P0 outcomes",
+  "action": "At fixed V8 depth9, retain default V8 evidence and add only the rank10 packet's Document title; at depth10 restore canonical full V8 context",
+  "target_model": "models/Qwen3-8B",
+  "target_manifest": "configs/v17exec_a0_target_provenance.json",
+  "temperature": 0.0,
+  "max_new_tokens": 256,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.75,
+  "batch_size": 256,
+  "expected_queries": 128,
+  "expected_target_calls": 256,
+  "fidelity_epsilon": 0.000001,
+  "sealed_sets_read": false,
+  "new_training": false
+}

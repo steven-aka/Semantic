@@ -1,0 +1,157 @@
+{
+  "protocol": "FRAG-A0_TRAIN_SIDE_COMPONENT_ABLATION",
+  "case_count": 27,
+  "cached_outcomes": {
+    "unchanged": 2,
+    "repair": 16,
+    "same_threshold_f1_gain": 2,
+    "break": 5,
+    "same_threshold_f1_loss": 2
+  },
+  "arms": [
+    "baseline",
+    "title_only",
+    "sentence_only",
+    "title_sentence"
+  ],
+  "task_sha256": "94fafa94e4048901c182e4f8abc2eb4c3328dba322542fb5090d22b7396becc5",
+  "cases": [
+    {
+      "example_id": "86__wikidata_simple__train",
+      "candidate_index": 0,
+      "cached_outcome": "unchanged"
+    },
+    {
+      "example_id": "21507__wikidata_simple__train",
+      "candidate_index": 0,
+      "cached_outcome": "unchanged"
+    },
+    {
+      "example_id": "16159__wikidata_simple__train",
+      "candidate_index": 0,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "16267__wikidata_simple__train",
+      "candidate_index": 5,
+      "cached_outcome": "same_threshold_f1_gain"
+    },
+    {
+      "example_id": "53909__wikidata_intersection__train",
+      "candidate_index": 0,
+      "cached_outcome": "break"
+    },
+    {
+      "example_id": "53909__wikidata_intersection__train",
+      "candidate_index": 2,
+      "cached_outcome": "break"
+    },
+    {
+      "example_id": "53909__wikidata_intersection__train",
+      "candidate_index": 4,
+      "cached_outcome": "break"
+    },
+    {
+      "example_id": "53909__wikidata_intersection__train",
+      "candidate_index": 5,
+      "cached_outcome": "break"
+    },
+    {
+      "example_id": "23680__wikidata_simple__train",
+      "candidate_index": 1,
+      "cached_outcome": "same_threshold_f1_gain"
+    },
+    {
+      "example_id": "59092__wikitables_composition__train",
+      "candidate_index": 6,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "22814__wikidata_simple__train",
+      "candidate_index": 0,
+      "cached_outcome": "break"
+    },
+    {
+      "example_id": "22398__wikidata_simple__train",
+      "candidate_index": 0,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "22398__wikidata_simple__train",
+      "candidate_index": 1,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "22398__wikidata_simple__train",
+      "candidate_index": 2,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "27727__wikidata_simple__train",
+      "candidate_index": 0,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "27727__wikidata_simple__train",
+      "candidate_index": 1,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "27727__wikidata_simple__train",
+      "candidate_index": 2,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "55423__wikidata_intersection__train",
+      "candidate_index": 0,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "22054__wikidata_simple__train",
+      "candidate_index": 0,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "22054__wikidata_simple__train",
+      "candidate_index": 1,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "56813__wikitables_composition__train",
+      "candidate_index": 9,
+      "cached_outcome": "same_threshold_f1_loss"
+    },
+    {
+      "example_id": "53859__wikidata_intersection__train",
+      "candidate_index": 0,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "53859__wikidata_intersection__train",
+      "candidate_index": 1,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "53859__wikidata_intersection__train",
+      "candidate_index": 2,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "53859__wikidata_intersection__train",
+      "candidate_index": 4,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "53859__wikidata_intersection__train",
+      "candidate_index": 5,
+      "cached_outcome": "repair"
+    },
+    {
+      "example_id": "56871__wikitables_composition__train",
+      "candidate_index": 0,
+      "cached_outcome": "same_threshold_f1_loss"
+    }
+  ],
+  "sealed_sets_read": false,
+  "expected_new_calls": 108
+}

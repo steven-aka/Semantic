@@ -2545,3 +2545,26 @@ sentence-level positive labels or deploying support-per-token scheduling on
 every query. Any support annotation used for learning needs blinded human
 validation, title-shortcut control, and query-held-out incremental Target-
 utility evidence beyond V8 STAY before new Target labeling or model training.
+
+FRAG-A0 then isolated the depth9 title and sentence components in 27 selected
+train-side actions (108 fresh Qwen3-8B calls). Among 16 historical repairs,
+title-only and sentence-only each reached 0.90 in eight fresh cases, while
+the combination reached 15; four repairs required the combination. All five
+historical breaks reproduced with the combination, yet title-only preserved
+all five and three broke only under combination. The effect is conditional,
+not an additive support score. FRAG-A1 losslessly merged 174 single-letter
+abbreviation boundaries across R1's 1485 candidates, but only three of 21
+decisive actions (one query) are affected. Do not treat action-boundary noise
+or standalone support as the sole root cause, or infer a title-only deployable
+strategy from outcome-selected cases. Any future title/fragment policy needs
+a natural-query paired five-anchor and full-cost evaluation under a frozen
+deployment-visible rule.
+
+FRAG-B0 tested the simplest such rule, uniform rank10 title-only reveal, on
+128 natural train-side queries outside R1 with paired fresh depth9 Target
+calls. It changed 0.90 success 100→101 through six repairs and five breaks,
+while adding 8.45 context and 10.78 Target tokens/query on average. Paired
+bootstrap intervals include no quality improvement. Only 0.90 was retested;
+no five-anchor Pareto claim follows. Stop uniform title reveal and do not
+fit another title gate to this newly exposed cohort. The component effects
+are real but do not identify a cheap, broadly safe deployment decision.

@@ -3892,6 +3892,77 @@ one policy-chosen Target call per query cannot reveal missed opportunities.
 [per-query categories](v17packet_insert_d0_decomposition/per_query.jsonl)
 preserve the audit.
 
+### V17-PACKET-FRAG-A0/A1 title–sentence component and boundary audit
+
+We froze 21 decisive SLOT-B0 actions (16 repairs, five breaks) and six
+SHA-first neutral/continuous-change controls, then ran a single fresh
+Qwen3-8B four-arm comparison at the same V8 depth-9 slot: baseline,
+title-only, sentence-only, and original title+sentence. All 108 calls used
+the same Target prompt; no model was trained or sealed set read. Fresh
+baseline reproduced all 21 decisive cached success bits, while the original
+combined action reproduced 20/21.
+
+| Cached outcome | Cases | Title-only 0.90 success | Sentence-only | Combined fresh |
+|---|---:|---:|---:|---:|
+| Repair (baseline fail) | 16 | 8 | 8 | 15 |
+| Break (baseline success) | 5 | 5 | 3 | 0 |
+
+Four repairs occur only with title+sentence combined. Three breaks occur
+only with the combination, even though title and sentence individually
+preserve the baseline's success. Thus neither component has a uniform
+positive or negative effect. The sampled title-only repairs are inexpensive
+(mean +7.2 context tokens among the 16 originally repairable actions), but
+the title is usually the gold-answer string in this constructed QAMPARI
+pool. This is a mechanism diagnostic on nine outcome-selected decisive
+queries, **not** evidence for a deployable title-only policy or answer
+support model.
+
+A separate zero-call abbreviation-boundary audit shows that merging only
+single-letter initial splits changes 1,485 R1 candidate fragments into
+1,311 lossless units and reduces ≤3-word fragments from 227 to 135. Only
+three of the 21 decisive actions would change, all from one repair query.
+So fragment construction needs repair, but this particular error cannot be
+the dominant cause of the selected repair/break pattern. Bare headings and
+other discourse boundaries were not automatically filtered.
+
+Decision: `STOP_SUPPORT_OR_BOUNDARY_AS_SINGLE_ROOT_CAUSE`. Preserve the
+matched component result and the proposed lossless unit reconstruction,
+but do not train or scale labels from either yet. A next policy study must
+use a deployment-visible candidate rule on a natural train-side cohort,
+account for title-as-answer shortcuts, and test paired five-anchor quality,
+Complete, context and Target cost against V8. [Full report](v17packet_frag_a0_component_ablation/REPORT.md),
+[A0 summary](v17packet_frag_a0_component_ablation/summary.json),
+[A0 per-case comparison](v17packet_frag_a0_component_ablation/per_case.jsonl),
+and [A1 boundary summary](v17packet_frag_a1_boundary_audit/summary.json)
+preserve the findings.
+
+### V17-PACKET-FRAG-B0 natural-query title-only pilot
+
+Because FRAG-A0 was selected by cached repair/break outcome, we froze a
+natural 128-query train-side cohort outside R1 by SHA256 order and paired
+fresh V8 depth9 calls against V8 plus the rank-10 document title only. This
+used 256 Qwen3-8B calls and no training or sealed-set access.
+
+| Paired depth9 result | V8 | Title-only |
+|---|---:|---:|
+| 0.90 success | 100/128 | 101/128 |
+| Repairs / breaks | — | 6 / 5 |
+| Added context tokens/query | 0 | +8.45 |
+| Added Target tokens/query | 0 | +10.78 |
+
+Mean F1 changed by +0.00905, but the paired-query bootstrap 95% interval
+includes zero (−0.00080 to +0.01896); the net-success-count interval is
+−5 to +8. Other anchors and Complete were not freshly evaluated, so this
+is **not** a five-anchor Pareto result. The uniform title-only action fails
+to reproduce the apparent safe benefit of A0's outcome-selected cases.
+The source title is often the gold-answer string in this constructed pool;
+even a stronger title-only result would need an answer-cue validity check.
+Decision: `STOP_UNIFORM_TITLE_ONLY_REVEAL`; do not fit a new gate on this
+exposed cohort. [Report](v17packet_frag_b0_title_only_natural_pilot/REPORT.md),
+[summary](v17packet_frag_b0_title_only_natural_pilot/summary.json), and
+[paired outcomes](v17packet_frag_b0_title_only_natural_pilot/per_query.jsonl)
+record the test.
+
 ### V17-PACKET-INSERT-C0 pre-Target cheap-signal audit
 
 We audited the **84 existing protected-insertion actions on 24 design-exposed
