@@ -1,0 +1,3330 @@
+{
+  "protocol": "V17-STOP-C4-A0_REQUIRED_STOPPER_FEASIBILITY",
+  "status": "COMPLETED_ZERO_TARGET_CALLS",
+  "queries": 256,
+  "decision_examples": 1024,
+  "decision_semantics": {
+    "FS": "CONTINUE is required: early fails and depth10 succeeds",
+    "SS": "STOP is safe: both early and depth10 succeed",
+    "SF": "STOP is beneficial: early succeeds and depth10 rolls back",
+    "FF": "STOP is quality-neutral and cheaper: both fail",
+    "axes": {
+      "rescue_recall": "P(CONTINUE | FS)",
+      "unnecessary_continue_rate": "P(CONTINUE | SS or SF or FF)"
+    },
+    "why_not_plain_tpr_fpr": "Early-sufficiency labels treat FF as negative, although stopping on FF is quality-neutral and saves compute. They also hide rollback-preserving SF states. The deployment action is rescue necessity, not absolute sufficiency."
+  },
+  "class_counts_per_level": {
+    "0.6": {
+      "SS": 218,
+      "FS": 27,
+      "FF": 6,
+      "SF": 5
+    },
+    "0.7": {
+      "SS": 218,
+      "FS": 26,
+      "FF": 8,
+      "SF": 4
+    },
+    "0.8": {
+      "SS": 186,
+      "FS": 56,
+      "FF": 11,
+      "SF": 3
+    },
+    "0.9": {
+      "FS": 44,
+      "SS": 176,
+      "SF": 10,
+      "FF": 26
+    }
+  },
+  "depth10_baseline": {
+    "per_level_success": {
+      "0.6": 245,
+      "0.7": 244,
+      "0.8": 242,
+      "0.9": 220,
+      "0.95": 183
+    },
+    "complete": 183,
+    "mean_target_compute_tokens_per_query": 4185.21484375,
+    "mean_final_context_tokens_per_query": 3325.5078125
+  },
+  "gate": {
+    "quality_tolerance_fraction": 0.01,
+    "quality_tolerance_expected_queries": 2.56,
+    "target_compute_ratio_cap": 0.98,
+    "realistic_region_definition": "minimum rescue recall <= 0.90 at unnecessary-continue rate >= 0.01",
+    "judge_cost_note": "The grid excludes auxiliary-judge cost. The reported budget at the 0.98 cap is the maximum equivalent Target-token allowance before the point ceases to pass deployment compute."
+  },
+  "grid": {
+    "step": 0.001,
+    "feasible_grid_points": 5667,
+    "boundary": [
+      {
+        "unnecessary_continue_rate": 0.0,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.0820000000001,
+          "0.7": 247.11600000000013,
+          "0.8": 243.09600000000017,
+          "0.9": 228.50400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3638.0161718749996,
+        "mean_final_context_tokens_per_query": 2468.917265625,
+        "target_compute_ratio_vs_depth10": 0.8692543412216553,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 463.4943750000002
+      },
+      {
+        "unnecessary_continue_rate": 0.001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.0770000000001,
+          "0.7": 247.1120000000001,
+          "0.8": 243.09300000000016,
+          "0.9": 228.4940000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3640.831960937489,
+        "mean_final_context_tokens_per_query": 2469.768507812499,
+        "target_compute_ratio_vs_depth10": 0.8699271356103817,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 460.6785859375109
+      },
+      {
+        "unnecessary_continue_rate": 0.002,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.0720000000001,
+          "0.7": 247.1080000000001,
+          "0.8": 243.09000000000015,
+          "0.9": 228.48400000000007,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3643.6477499999983,
+        "mean_final_context_tokens_per_query": 2470.6197500000053,
+        "target_compute_ratio_vs_depth10": 0.870599929999113,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 457.86279687500155
+      },
+      {
+        "unnecessary_continue_rate": 0.003,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.06700000000018,
+          "0.7": 247.10400000000018,
+          "0.8": 243.08700000000022,
+          "0.9": 228.47400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3646.4635390625035,
+        "mean_final_context_tokens_per_query": 2471.4709921875015,
+        "target_compute_ratio_vs_depth10": 0.8712727243878431,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 455.0470078124963
+      },
+      {
+        "unnecessary_continue_rate": 0.004,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.06200000000015,
+          "0.7": 247.10000000000016,
+          "0.8": 243.0840000000002,
+          "0.9": 228.46400000000023,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3649.2793281250006,
+        "mean_final_context_tokens_per_query": 2472.322234375002,
+        "target_compute_ratio_vs_depth10": 0.8719455187765713,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 452.23121874999924
+      },
+      {
+        "unnecessary_continue_rate": 0.005,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.05700000000013,
+          "0.7": 247.09600000000015,
+          "0.8": 243.0810000000002,
+          "0.9": 228.45400000000018,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3652.095117187495,
+        "mean_final_context_tokens_per_query": 2473.173476562503,
+        "target_compute_ratio_vs_depth10": 0.8726183131652989,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 449.4154296875049
+      },
+      {
+        "unnecessary_continue_rate": 0.006,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.05200000000013,
+          "0.7": 247.09200000000013,
+          "0.8": 243.07800000000017,
+          "0.9": 228.44400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3654.9109062499974,
+        "mean_final_context_tokens_per_query": 2474.0247187499995,
+        "target_compute_ratio_vs_depth10": 0.8732911075540284,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 446.5996406250024
+      },
+      {
+        "unnecessary_continue_rate": 0.007,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.0470000000001,
+          "0.7": 247.0880000000001,
+          "0.8": 243.07500000000016,
+          "0.9": 228.4340000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3657.7266953125018,
+        "mean_final_context_tokens_per_query": 2474.875960937502,
+        "target_compute_ratio_vs_depth10": 0.8739639019427584,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 443.78385156249806
+      },
+      {
+        "unnecessary_continue_rate": 0.008,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.0420000000001,
+          "0.7": 247.0840000000001,
+          "0.8": 243.07200000000014,
+          "0.9": 228.42400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3660.5424843750025,
+        "mean_final_context_tokens_per_query": 2475.7272031249986,
+        "target_compute_ratio_vs_depth10": 0.8746366963314874,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 440.96806249999736
+      },
+      {
+        "unnecessary_continue_rate": 0.009000000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.03700000000018,
+          "0.7": 247.08000000000018,
+          "0.8": 243.06900000000022,
+          "0.9": 228.41400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3663.3582734375027,
+        "mean_final_context_tokens_per_query": 2476.5784453125016,
+        "target_compute_ratio_vs_depth10": 0.8753094907202165,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 438.1522734374971
+      },
+      {
+        "unnecessary_continue_rate": 0.01,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.03200000000015,
+          "0.7": 247.07600000000016,
+          "0.8": 243.0660000000002,
+          "0.9": 228.40400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3666.174062499996,
+        "mean_final_context_tokens_per_query": 2477.429687500004,
+        "target_compute_ratio_vs_depth10": 0.8759822851089438,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 435.3364843750037
+      },
+      {
+        "unnecessary_continue_rate": 0.011,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.02700000000016,
+          "0.7": 247.07200000000014,
+          "0.8": 243.0630000000002,
+          "0.9": 228.3940000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3668.989851562504,
+        "mean_final_context_tokens_per_query": 2478.2809296875034,
+        "target_compute_ratio_vs_depth10": 0.8766550794976746,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 432.5206953124957
+      },
+      {
+        "unnecessary_continue_rate": 0.012,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.0220000000001,
+          "0.7": 247.06800000000013,
+          "0.8": 243.06000000000017,
+          "0.9": 228.38400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3671.805640625003,
+        "mean_final_context_tokens_per_query": 2479.1321718750023,
+        "target_compute_ratio_vs_depth10": 0.8773278738864033,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 429.70490624999684
+      },
+      {
+        "unnecessary_continue_rate": 0.013000000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.0170000000001,
+          "0.7": 247.0640000000001,
+          "0.8": 243.05700000000016,
+          "0.9": 228.3740000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3674.6214296874955,
+        "mean_final_context_tokens_per_query": 2479.9834140624994,
+        "target_compute_ratio_vs_depth10": 0.8780006682751305,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 426.8891171875043
+      },
+      {
+        "unnecessary_continue_rate": 0.014,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.01200000000009,
+          "0.7": 247.0600000000001,
+          "0.8": 243.05400000000014,
+          "0.9": 228.36400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3677.437218749996,
+        "mean_final_context_tokens_per_query": 2480.83465625,
+        "target_compute_ratio_vs_depth10": 0.8786734626638595,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 424.0733281250036
+      },
+      {
+        "unnecessary_continue_rate": 0.015,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.00700000000018,
+          "0.7": 247.05600000000018,
+          "0.8": 243.05100000000022,
+          "0.9": 228.35400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3680.253007812505,
+        "mean_final_context_tokens_per_query": 2481.685898437505,
+        "target_compute_ratio_vs_depth10": 0.8793462570525905,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 421.25753906249474
+      },
+      {
+        "unnecessary_continue_rate": 0.016,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 249.00200000000015,
+          "0.7": 247.05200000000016,
+          "0.8": 243.0480000000002,
+          "0.9": 228.34400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3683.068796875009,
+        "mean_final_context_tokens_per_query": 2482.5371406250006,
+        "target_compute_ratio_vs_depth10": 0.8800190514413204,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 418.44174999999086
+      },
+      {
+        "unnecessary_continue_rate": 0.017,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.99700000000013,
+          "0.7": 247.04800000000014,
+          "0.8": 243.0450000000002,
+          "0.9": 228.33400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3685.884585937504,
+        "mean_final_context_tokens_per_query": 2483.388382812501,
+        "target_compute_ratio_vs_depth10": 0.8806918458300482,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 415.6259609374956
+      },
+      {
+        "unnecessary_continue_rate": 0.018000000000000002,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.99200000000013,
+          "0.7": 247.04400000000012,
+          "0.8": 243.04200000000017,
+          "0.9": 228.32400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3688.700375,
+        "mean_final_context_tokens_per_query": 2484.2396249999983,
+        "target_compute_ratio_vs_depth10": 0.881364640218776,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 412.8101718749999
+      },
+      {
+        "unnecessary_continue_rate": 0.019,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.9870000000001,
+          "0.7": 247.0400000000001,
+          "0.8": 243.03900000000016,
+          "0.9": 228.3140000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3691.5161640624974,
+        "mean_final_context_tokens_per_query": 2485.0908671875027,
+        "target_compute_ratio_vs_depth10": 0.8820374346075044,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 409.9943828125024
+      },
+      {
+        "unnecessary_continue_rate": 0.02,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.98200000000008,
+          "0.7": 247.0360000000001,
+          "0.8": 243.03600000000014,
+          "0.9": 228.30400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3694.3319531250086,
+        "mean_final_context_tokens_per_query": 2485.9421093750025,
+        "target_compute_ratio_vs_depth10": 0.882710228996236,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 407.17859374999125
+      },
+      {
+        "unnecessary_continue_rate": 0.021,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.97700000000017,
+          "0.7": 247.03200000000018,
+          "0.8": 243.03300000000021,
+          "0.9": 228.29400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3697.1477421875074,
+        "mean_final_context_tokens_per_query": 2486.7933515624995,
+        "target_compute_ratio_vs_depth10": 0.8833830233849647,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 404.36280468749237
+      },
+      {
+        "unnecessary_continue_rate": 0.022,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.97200000000015,
+          "0.7": 247.02800000000016,
+          "0.8": 243.0300000000002,
+          "0.9": 228.28400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3699.963531249994,
+        "mean_final_context_tokens_per_query": 2487.6445937500034,
+        "target_compute_ratio_vs_depth10": 0.8840558177736904,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 401.54701562500577
+      },
+      {
+        "unnecessary_continue_rate": 0.023,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.96700000000016,
+          "0.7": 247.02400000000014,
+          "0.8": 243.02700000000019,
+          "0.9": 228.2740000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3702.7793203124984,
+        "mean_final_context_tokens_per_query": 2488.4958359375005,
+        "target_compute_ratio_vs_depth10": 0.8847286121624204,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 398.73122656250143
+      },
+      {
+        "unnecessary_continue_rate": 0.024,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.9620000000001,
+          "0.7": 247.02000000000012,
+          "0.8": 243.02400000000017,
+          "0.9": 228.26400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3705.595109374996,
+        "mean_final_context_tokens_per_query": 2489.347078125005,
+        "target_compute_ratio_vs_depth10": 0.8854014065511486,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 395.9154375000039
+      },
+      {
+        "unnecessary_continue_rate": 0.025,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.9570000000001,
+          "0.7": 247.0160000000001,
+          "0.8": 243.02100000000016,
+          "0.9": 228.2540000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3708.4108984375057,
+        "mean_final_context_tokens_per_query": 2490.1983203124987,
+        "target_compute_ratio_vs_depth10": 0.88607420093988,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 393.0996484374941
+      },
+      {
+        "unnecessary_continue_rate": 0.026000000000000002,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.95200000000008,
+          "0.7": 247.01200000000009,
+          "0.8": 243.01800000000014,
+          "0.9": 228.24400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3711.2266875000087,
+        "mean_final_context_tokens_per_query": 2491.0495625000012,
+        "target_compute_ratio_vs_depth10": 0.8867469953286096,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 390.28385937499115
+      },
+      {
+        "unnecessary_continue_rate": 0.027,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.94700000000017,
+          "0.7": 247.00800000000018,
+          "0.8": 243.0150000000002,
+          "0.9": 228.23400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3714.0424765625016,
+        "mean_final_context_tokens_per_query": 2491.9008046875024,
+        "target_compute_ratio_vs_depth10": 0.8874197897173368,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 387.4680703124982
+      },
+      {
+        "unnecessary_continue_rate": 0.028,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.94200000000018,
+          "0.7": 247.00400000000016,
+          "0.8": 243.0120000000002,
+          "0.9": 228.22400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3716.858265624998,
+        "mean_final_context_tokens_per_query": 2492.752046875,
+        "target_compute_ratio_vs_depth10": 0.8880925841060648,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 384.65228125000203
+      },
+      {
+        "unnecessary_continue_rate": 0.029,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.93700000000013,
+          "0.7": 247.00000000000014,
+          "0.8": 243.00900000000019,
+          "0.9": 228.21400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3719.674054687501,
+        "mean_final_context_tokens_per_query": 2493.6032890625033,
+        "target_compute_ratio_vs_depth10": 0.8887653784947945,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 381.8364921874986
+      },
+      {
+        "unnecessary_continue_rate": 0.03,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.93200000000013,
+          "0.7": 246.99600000000012,
+          "0.8": 243.00600000000017,
+          "0.9": 228.20400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3722.489843749997,
+        "mean_final_context_tokens_per_query": 2494.4545312500036,
+        "target_compute_ratio_vs_depth10": 0.8894381728835224,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 379.0207031250029
+      },
+      {
+        "unnecessary_continue_rate": 0.031,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.9270000000001,
+          "0.7": 246.9920000000001,
+          "0.8": 243.00300000000016,
+          "0.9": 228.1940000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3725.3056328125017,
+        "mean_final_context_tokens_per_query": 2495.305773437498,
+        "target_compute_ratio_vs_depth10": 0.8901109672722525,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 376.2049140624981
+      },
+      {
+        "unnecessary_continue_rate": 0.032,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.92200000000008,
+          "0.7": 246.98800000000008,
+          "0.8": 243.00000000000014,
+          "0.9": 228.18400000000005,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3728.1214218749956,
+        "mean_final_context_tokens_per_query": 2496.157015624996,
+        "target_compute_ratio_vs_depth10": 0.89078376166098,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 373.38912500000424
+      },
+      {
+        "unnecessary_continue_rate": 0.033,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.91700000000017,
+          "0.7": 246.98400000000018,
+          "0.8": 242.9970000000002,
+          "0.9": 228.17400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3730.9372109375076,
+        "mean_final_context_tokens_per_query": 2497.0082578125025,
+        "target_compute_ratio_vs_depth10": 0.8914565560497117,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 370.5733359374922
+      },
+      {
+        "unnecessary_continue_rate": 0.034,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.91200000000015,
+          "0.7": 246.98000000000016,
+          "0.8": 242.9940000000002,
+          "0.9": 228.16400000000021,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3733.753000000004,
+        "mean_final_context_tokens_per_query": 2497.8594999999987,
+        "target_compute_ratio_vs_depth10": 0.8921293504384398,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 367.757546874996
+      },
+      {
+        "unnecessary_continue_rate": 0.035,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.90700000000015,
+          "0.7": 246.97600000000014,
+          "0.8": 242.99100000000018,
+          "0.9": 228.1540000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3736.5687890624927,
+        "mean_final_context_tokens_per_query": 2498.710742187499,
+        "target_compute_ratio_vs_depth10": 0.892802144827166,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 364.94175781250715
+      },
+      {
+        "unnecessary_continue_rate": 0.036000000000000004,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.9020000000001,
+          "0.7": 246.97200000000012,
+          "0.8": 242.98800000000017,
+          "0.9": 228.14400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3739.3845781249975,
+        "mean_final_context_tokens_per_query": 2499.5619843750032,
+        "target_compute_ratio_vs_depth10": 0.8934749392158962,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 362.12596875000236
+      },
+      {
+        "unnecessary_continue_rate": 0.037,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.8970000000001,
+          "0.7": 246.9680000000001,
+          "0.8": 242.98500000000016,
+          "0.9": 228.1340000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3742.200367187505,
+        "mean_final_context_tokens_per_query": 2500.4132265624953,
+        "target_compute_ratio_vs_depth10": 0.8941477336046268,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 359.31017968749484
+      },
+      {
+        "unnecessary_continue_rate": 0.038,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.89200000000008,
+          "0.7": 246.96400000000008,
+          "0.8": 242.98200000000014,
+          "0.9": 228.12400000000005,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3745.0161562500016,
+        "mean_final_context_tokens_per_query": 2501.2644687499983,
+        "target_compute_ratio_vs_depth10": 0.894820527993355,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 356.49439062499823
+      },
+      {
+        "unnecessary_continue_rate": 0.039,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.88700000000017,
+          "0.7": 246.96000000000018,
+          "0.8": 242.9790000000002,
+          "0.9": 228.11400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3747.831945312499,
+        "mean_final_context_tokens_per_query": 2502.1157109375013,
+        "target_compute_ratio_vs_depth10": 0.8954933223820833,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 353.6786015625007
+      },
+      {
+        "unnecessary_continue_rate": 0.04,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.88200000000018,
+          "0.7": 246.95600000000016,
+          "0.8": 242.9760000000002,
+          "0.9": 228.1040000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3750.6477343750066,
+        "mean_final_context_tokens_per_query": 2502.9669531250024,
+        "target_compute_ratio_vs_depth10": 0.896166116770814,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 350.8628124999932
+      },
+      {
+        "unnecessary_continue_rate": 0.041,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.87700000000012,
+          "0.7": 246.95200000000014,
+          "0.8": 242.97300000000018,
+          "0.9": 228.09400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3753.4635234375073,
+        "mean_final_context_tokens_per_query": 2503.8181953125013,
+        "target_compute_ratio_vs_depth10": 0.8968389111595431,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 348.0470234374925
+      },
+      {
+        "unnecessary_continue_rate": 0.042,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.87200000000013,
+          "0.7": 246.94800000000012,
+          "0.8": 242.97000000000017,
+          "0.9": 228.08400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3756.279312499986,
+        "mean_final_context_tokens_per_query": 2504.6694374999993,
+        "target_compute_ratio_vs_depth10": 0.897511705548267,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 345.2312343750136
+      },
+      {
+        "unnecessary_continue_rate": 0.043000000000000003,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.8670000000001,
+          "0.7": 246.9440000000001,
+          "0.8": 242.96700000000016,
+          "0.9": 228.0740000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3759.0951015625137,
+        "mean_final_context_tokens_per_query": 2505.5206796875027,
+        "target_compute_ratio_vs_depth10": 0.8981844999370024,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 342.4154453124861
+      },
+      {
+        "unnecessary_continue_rate": 0.044,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.86200000000008,
+          "0.7": 246.94000000000008,
+          "0.8": 242.96400000000014,
+          "0.9": 228.06400000000005,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3761.9108906250044,
+        "mean_final_context_tokens_per_query": 2506.3719218749975,
+        "target_compute_ratio_vs_depth10": 0.8988572943257291,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 339.5996562499954
+      },
+      {
+        "unnecessary_continue_rate": 0.045,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.85700000000017,
+          "0.7": 246.93600000000018,
+          "0.8": 242.9610000000002,
+          "0.9": 228.05400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3764.726679687496,
+        "mean_final_context_tokens_per_query": 2507.2231640625046,
+        "target_compute_ratio_vs_depth10": 0.899530088714456,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 336.7838671875038
+      },
+      {
+        "unnecessary_continue_rate": 0.046,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.85200000000015,
+          "0.7": 246.93200000000016,
+          "0.8": 242.9580000000002,
+          "0.9": 228.0440000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3767.542468750007,
+        "mean_final_context_tokens_per_query": 2508.0744062500007,
+        "target_compute_ratio_vs_depth10": 0.9002028831031876,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 333.96807812499264
+      },
+      {
+        "unnecessary_continue_rate": 0.047,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.84700000000015,
+          "0.7": 246.92800000000014,
+          "0.8": 242.95500000000018,
+          "0.9": 228.0340000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3770.3582578124974,
+        "mean_final_context_tokens_per_query": 2508.925648437503,
+        "target_compute_ratio_vs_depth10": 0.9008756774919143,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 331.1522890625024
+      },
+      {
+        "unnecessary_continue_rate": 0.048,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.84200000000013,
+          "0.7": 246.92400000000012,
+          "0.8": 242.95200000000017,
+          "0.9": 228.02400000000014,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3773.1740468750068,
+        "mean_final_context_tokens_per_query": 2509.776890625003,
+        "target_compute_ratio_vs_depth10": 0.9015484718806455,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 328.33649999999307
+      },
+      {
+        "unnecessary_continue_rate": 0.049,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.8370000000001,
+          "0.7": 246.9200000000001,
+          "0.8": 242.94900000000015,
+          "0.9": 228.0140000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3775.9898359374943,
+        "mean_final_context_tokens_per_query": 2510.628132812504,
+        "target_compute_ratio_vs_depth10": 0.9022212662693714,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 325.52071093750556
+      },
+      {
+        "unnecessary_continue_rate": 0.05,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.83200000000008,
+          "0.7": 246.91600000000008,
+          "0.8": 242.94600000000014,
+          "0.9": 228.00400000000005,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3778.805625000001,
+        "mean_final_context_tokens_per_query": 2511.4793749999985,
+        "target_compute_ratio_vs_depth10": 0.9028940606581018,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 322.70492187499894
+      },
+      {
+        "unnecessary_continue_rate": 0.051000000000000004,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.82700000000017,
+          "0.7": 246.91200000000018,
+          "0.8": 242.9430000000002,
+          "0.9": 227.99400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3781.6214140625043,
+        "mean_final_context_tokens_per_query": 2512.3306171874997,
+        "target_compute_ratio_vs_depth10": 0.9035668550468317,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 319.8891328124955
+      },
+      {
+        "unnecessary_continue_rate": 0.052000000000000005,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.82200000000017,
+          "0.7": 246.90800000000016,
+          "0.8": 242.9400000000002,
+          "0.9": 227.9840000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3784.437203124999,
+        "mean_final_context_tokens_per_query": 2513.181859375002,
+        "target_compute_ratio_vs_depth10": 0.9042396494355593,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 317.07334375000073
+      },
+      {
+        "unnecessary_continue_rate": 0.053,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.81700000000012,
+          "0.7": 246.90400000000014,
+          "0.8": 242.93700000000018,
+          "0.9": 227.97400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3787.2529921875025,
+        "mean_final_context_tokens_per_query": 2514.033101562498,
+        "target_compute_ratio_vs_depth10": 0.904912443824289,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 314.2575546874973
+      },
+      {
+        "unnecessary_continue_rate": 0.054,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.81200000000013,
+          "0.7": 246.90000000000012,
+          "0.8": 242.93400000000017,
+          "0.9": 227.96400000000014,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3790.0687812499996,
+        "mean_final_context_tokens_per_query": 2514.8843437499977,
+        "target_compute_ratio_vs_depth10": 0.9055852382130173,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 311.44176562500024
+      },
+      {
+        "unnecessary_continue_rate": 0.055,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.8070000000001,
+          "0.7": 246.8960000000001,
+          "0.8": 242.93100000000015,
+          "0.9": 227.9540000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3792.8845703125066,
+        "mean_final_context_tokens_per_query": 2515.7355859375048,
+        "target_compute_ratio_vs_depth10": 0.9062580326017479,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 308.6259765624932
+      },
+      {
+        "unnecessary_continue_rate": 0.056,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.80200000000008,
+          "0.7": 246.89200000000008,
+          "0.8": 242.92800000000014,
+          "0.9": 227.94400000000005,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3795.700359375003,
+        "mean_final_context_tokens_per_query": 2516.586828125001,
+        "target_compute_ratio_vs_depth10": 0.9069308269904759,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 305.810187499997
+      },
+      {
+        "unnecessary_continue_rate": 0.057,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.79700000000017,
+          "0.7": 246.88800000000018,
+          "0.8": 242.9250000000002,
+          "0.9": 227.93400000000025,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3798.5161484375076,
+        "mean_final_context_tokens_per_query": 2517.4380703125025,
+        "target_compute_ratio_vs_depth10": 0.9076036213792059,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 302.99439843749224
+      },
+      {
+        "unnecessary_continue_rate": 0.058,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.79200000000014,
+          "0.7": 246.88400000000016,
+          "0.8": 242.9220000000002,
+          "0.9": 227.9240000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3801.3319374999983,
+        "mean_final_context_tokens_per_query": 2518.2893125000055,
+        "target_compute_ratio_vs_depth10": 0.9082764157679326,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 300.17860937500154
+      },
+      {
+        "unnecessary_continue_rate": 0.059000000000000004,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.78700000000015,
+          "0.7": 246.88000000000014,
+          "0.8": 242.91900000000018,
+          "0.9": 227.9140000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3804.1477265624994,
+        "mean_final_context_tokens_per_query": 2519.1405546875035,
+        "target_compute_ratio_vs_depth10": 0.9089492101566619,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 297.3628203125004
+      },
+      {
+        "unnecessary_continue_rate": 0.06,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.78200000000012,
+          "0.7": 246.87600000000012,
+          "0.8": 242.91600000000017,
+          "0.9": 227.90400000000014,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3806.963515625005,
+        "mean_final_context_tokens_per_query": 2519.9917968750033,
+        "target_compute_ratio_vs_depth10": 0.9096220045453921,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 294.5470312499947
+      },
+      {
+        "unnecessary_continue_rate": 0.061,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.7770000000001,
+          "0.7": 246.8720000000001,
+          "0.8": 242.91300000000015,
+          "0.9": 227.8940000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3809.779304687498,
+        "mean_final_context_tokens_per_query": 2520.843039062503,
+        "target_compute_ratio_vs_depth10": 0.9102947989341194,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 291.7312421875017
+      },
+      {
+        "unnecessary_continue_rate": 0.062,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.77200000000008,
+          "0.7": 246.86800000000008,
+          "0.8": 242.91000000000014,
+          "0.9": 227.88400000000004,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3812.595093749993,
+        "mean_final_context_tokens_per_query": 2521.694281250007,
+        "target_compute_ratio_vs_depth10": 0.910967593322847,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 288.91545312500693
+      },
+      {
+        "unnecessary_continue_rate": 0.063,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.76700000000017,
+          "0.7": 246.86400000000017,
+          "0.8": 242.9070000000002,
+          "0.9": 227.87400000000025,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3815.4108828125068,
+        "mean_final_context_tokens_per_query": 2522.5455234374936,
+        "target_compute_ratio_vs_depth10": 0.9116403877115793,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 286.09966406249305
+      },
+      {
+        "unnecessary_continue_rate": 0.064,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.76200000000017,
+          "0.7": 246.86000000000016,
+          "0.8": 242.9040000000002,
+          "0.9": 227.8640000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3818.226671875001,
+        "mean_final_context_tokens_per_query": 2523.396765624998,
+        "target_compute_ratio_vs_depth10": 0.9123131821003069,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 283.2838749999987
+      },
+      {
+        "unnecessary_continue_rate": 0.065,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.75700000000012,
+          "0.7": 246.85600000000014,
+          "0.8": 242.90100000000018,
+          "0.9": 227.85400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3821.042460937494,
+        "mean_final_context_tokens_per_query": 2524.2480078124972,
+        "target_compute_ratio_vs_depth10": 0.9129859764890341,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 280.46808593750575
+      },
+      {
+        "unnecessary_continue_rate": 0.066,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.75200000000012,
+          "0.7": 246.85200000000012,
+          "0.8": 242.89800000000017,
+          "0.9": 227.84400000000014,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3823.8582500000016,
+        "mean_final_context_tokens_per_query": 2525.099249999997,
+        "target_compute_ratio_vs_depth10": 0.9136587708777648,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 277.6522968749982
+      },
+      {
+        "unnecessary_continue_rate": 0.067,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.7470000000001,
+          "0.7": 246.8480000000001,
+          "0.8": 242.89500000000015,
+          "0.9": 227.8340000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3826.674039062502,
+        "mean_final_context_tokens_per_query": 2525.950492187496,
+        "target_compute_ratio_vs_depth10": 0.9143315652664938,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 274.836507812498
+      },
+      {
+        "unnecessary_continue_rate": 0.068,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.74200000000008,
+          "0.7": 246.84400000000008,
+          "0.8": 242.89200000000014,
+          "0.9": 227.82400000000004,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3829.489828124992,
+        "mean_final_context_tokens_per_query": 2526.801734374998,
+        "target_compute_ratio_vs_depth10": 0.9150043596552204,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 272.02071875000775
+      },
+      {
+        "unnecessary_continue_rate": 0.069,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.73700000000017,
+          "0.7": 246.84000000000017,
+          "0.8": 242.8890000000002,
+          "0.9": 227.81400000000025,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3832.305617187497,
+        "mean_final_context_tokens_per_query": 2527.6529765625,
+        "target_compute_ratio_vs_depth10": 0.9156771540439504,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 269.20492968750295
+      },
+      {
+        "unnecessary_continue_rate": 0.07,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.73200000000014,
+          "0.7": 246.83600000000015,
+          "0.8": 242.8860000000002,
+          "0.9": 227.8040000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3835.1214062499926,
+        "mean_final_context_tokens_per_query": 2528.5042187499967,
+        "target_compute_ratio_vs_depth10": 0.9163499484326784,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 266.38914062500726
+      },
+      {
+        "unnecessary_continue_rate": 0.07100000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.72700000000015,
+          "0.7": 246.83200000000014,
+          "0.8": 242.88300000000018,
+          "0.9": 227.79400000000018,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3837.937195312502,
+        "mean_final_context_tokens_per_query": 2529.3554609375024,
+        "target_compute_ratio_vs_depth10": 0.9170227428214095,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 263.5733515624979
+      },
+      {
+        "unnecessary_continue_rate": 0.07200000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.72200000000012,
+          "0.7": 246.82800000000012,
+          "0.8": 242.88000000000017,
+          "0.9": 227.78400000000013,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3840.7529843749962,
+        "mean_final_context_tokens_per_query": 2530.206703125003,
+        "target_compute_ratio_vs_depth10": 0.9176955372101371,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 260.7575625000036
+      },
+      {
+        "unnecessary_continue_rate": 0.073,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.7170000000001,
+          "0.7": 246.8240000000001,
+          "0.8": 242.87700000000015,
+          "0.9": 227.7740000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3843.5687734375015,
+        "mean_final_context_tokens_per_query": 2531.0579453124988,
+        "target_compute_ratio_vs_depth10": 0.9183683315988673,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 257.94177343749834
+      },
+      {
+        "unnecessary_continue_rate": 0.074,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.71200000000007,
+          "0.7": 246.82000000000008,
+          "0.8": 242.87400000000014,
+          "0.9": 227.76400000000004,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3846.3845624999944,
+        "mean_final_context_tokens_per_query": 2531.9091875000004,
+        "target_compute_ratio_vs_depth10": 0.9190411259875945,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 255.12598437500537
+      },
+      {
+        "unnecessary_continue_rate": 0.075,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.70700000000016,
+          "0.7": 246.81600000000017,
+          "0.8": 242.8710000000002,
+          "0.9": 227.75400000000025,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3849.200351562497,
+        "mean_final_context_tokens_per_query": 2532.7604296875015,
+        "target_compute_ratio_vs_depth10": 0.919713920376324,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 252.31019531250286
+      },
+      {
+        "unnecessary_continue_rate": 0.076,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.70200000000017,
+          "0.7": 246.81200000000015,
+          "0.8": 242.8680000000002,
+          "0.9": 227.7440000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3852.016140625008,
+        "mean_final_context_tokens_per_query": 2533.6116718749972,
+        "target_compute_ratio_vs_depth10": 0.9203867147650556,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 249.4944062499917
+      },
+      {
+        "unnecessary_continue_rate": 0.077,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.69700000000012,
+          "0.7": 246.80800000000013,
+          "0.8": 242.86500000000018,
+          "0.9": 227.73400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3854.8319296874924,
+        "mean_final_context_tokens_per_query": 2534.462914062498,
+        "target_compute_ratio_vs_depth10": 0.9210595091537808,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 246.67861718750737
+      },
+      {
+        "unnecessary_continue_rate": 0.078,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.69200000000012,
+          "0.7": 246.80400000000012,
+          "0.8": 242.86200000000017,
+          "0.9": 227.72400000000013,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3857.6477187500022,
+        "mean_final_context_tokens_per_query": 2535.314156249997,
+        "target_compute_ratio_vs_depth10": 0.9217323035425121,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 243.86282812499758
+      },
+      {
+        "unnecessary_continue_rate": 0.079,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.6870000000001,
+          "0.7": 246.8000000000001,
+          "0.8": 242.85900000000015,
+          "0.9": 227.71400000000008,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3860.4635078124916,
+        "mean_final_context_tokens_per_query": 2536.1653984375,
+        "target_compute_ratio_vs_depth10": 0.9224050979312385,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 241.04703906250825
+      },
+      {
+        "unnecessary_continue_rate": 0.08,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.68200000000007,
+          "0.7": 246.79600000000008,
+          "0.8": 242.85600000000014,
+          "0.9": 227.70400000000004,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3863.279296875003,
+        "mean_final_context_tokens_per_query": 2537.016640624996,
+        "target_compute_ratio_vs_depth10": 0.9230778923199702,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 238.23124999999663
+      },
+      {
+        "unnecessary_continue_rate": 0.081,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.67700000000016,
+          "0.7": 246.79200000000017,
+          "0.8": 242.8530000000002,
+          "0.9": 227.69400000000024,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3866.0950859374975,
+        "mean_final_context_tokens_per_query": 2537.867882812503,
+        "target_compute_ratio_vs_depth10": 0.9237506867086978,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 235.4154609375023
+      },
+      {
+        "unnecessary_continue_rate": 0.082,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.67200000000014,
+          "0.7": 246.78800000000015,
+          "0.8": 242.8500000000002,
+          "0.9": 227.6840000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3868.9108749999887,
+        "mean_final_context_tokens_per_query": 2538.7191249999973,
+        "target_compute_ratio_vs_depth10": 0.9244234810974246,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 232.59967187501115
+      },
+      {
+        "unnecessary_continue_rate": 0.083,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.66700000000014,
+          "0.7": 246.78400000000013,
+          "0.8": 242.84700000000018,
+          "0.9": 227.67400000000018,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3871.7266640625116,
+        "mean_final_context_tokens_per_query": 2539.570367187501,
+        "target_compute_ratio_vs_depth10": 0.9250962754861589,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 229.78388281248817
+      },
+      {
+        "unnecessary_continue_rate": 0.084,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.66200000000012,
+          "0.7": 246.78000000000011,
+          "0.8": 242.84400000000016,
+          "0.9": 227.66400000000013,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3874.542453124993,
+        "mean_final_context_tokens_per_query": 2540.4216093749988,
+        "target_compute_ratio_vs_depth10": 0.9257690698748834,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 226.96809375000703
+      },
+      {
+        "unnecessary_continue_rate": 0.085,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.6570000000001,
+          "0.7": 246.7760000000001,
+          "0.8": 242.84100000000015,
+          "0.9": 227.65400000000008,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3877.3582421874935,
+        "mean_final_context_tokens_per_query": 2541.2728515624995,
+        "target_compute_ratio_vs_depth10": 0.9264418642636124,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 224.15230468750633
+      },
+      {
+        "unnecessary_continue_rate": 0.08600000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.65200000000007,
+          "0.7": 246.77200000000008,
+          "0.8": 242.83800000000014,
+          "0.9": 227.64400000000003,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3880.174031250004,
+        "mean_final_context_tokens_per_query": 2542.1240937499983,
+        "target_compute_ratio_vs_depth10": 0.9271146586523439,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 221.33651562499563
+      },
+      {
+        "unnecessary_continue_rate": 0.08700000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.64700000000016,
+          "0.7": 246.76800000000017,
+          "0.8": 242.8350000000002,
+          "0.9": 227.63400000000024,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3882.9898203125017,
+        "mean_final_context_tokens_per_query": 2542.9753359375027,
+        "target_compute_ratio_vs_depth10": 0.9277874530410722,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 218.5207265624981
+      },
+      {
+        "unnecessary_continue_rate": 0.088,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.64200000000017,
+          "0.7": 246.76400000000015,
+          "0.8": 242.8320000000002,
+          "0.9": 227.62400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3885.805609374995,
+        "mean_final_context_tokens_per_query": 2543.8265781250043,
+        "target_compute_ratio_vs_depth10": 0.9284602474297996,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 215.7049375000047
+      },
+      {
+        "unnecessary_continue_rate": 0.089,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.6370000000001,
+          "0.7": 246.76000000000013,
+          "0.8": 242.82900000000018,
+          "0.9": 227.61400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3888.621398437503,
+        "mean_final_context_tokens_per_query": 2544.6778203124977,
+        "target_compute_ratio_vs_depth10": 0.9291330418185304,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 212.88914843749671
+      },
+      {
+        "unnecessary_continue_rate": 0.09,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.63200000000012,
+          "0.7": 246.7560000000001,
+          "0.8": 242.82600000000016,
+          "0.9": 227.60400000000013,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3891.437187500006,
+        "mean_final_context_tokens_per_query": 2545.5290625000034,
+        "target_compute_ratio_vs_depth10": 0.9298058362072601,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 210.07335937499374
+      },
+      {
+        "unnecessary_continue_rate": 0.091,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.6270000000001,
+          "0.7": 246.7520000000001,
+          "0.8": 242.82300000000015,
+          "0.9": 227.59400000000008,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3894.252976562495,
+        "mean_final_context_tokens_per_query": 2546.380304687502,
+        "target_compute_ratio_vs_depth10": 0.9304786305959863,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 207.25757031250487
+      },
+      {
+        "unnecessary_continue_rate": 0.092,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.62200000000007,
+          "0.7": 246.74800000000008,
+          "0.8": 242.82000000000014,
+          "0.9": 227.58400000000003,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3897.0687656249925,
+        "mean_final_context_tokens_per_query": 2547.231546874997,
+        "target_compute_ratio_vs_depth10": 0.9311514249847147,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 204.44178125000735
+      },
+      {
+        "unnecessary_continue_rate": 0.093,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.61700000000016,
+          "0.7": 246.74400000000017,
+          "0.8": 242.8170000000002,
+          "0.9": 227.57400000000024,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3899.884554687503,
+        "mean_final_context_tokens_per_query": 2548.0827890625064,
+        "target_compute_ratio_vs_depth10": 0.9318242193734462,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 201.62599218749665
+      },
+      {
+        "unnecessary_continue_rate": 0.094,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.61200000000014,
+          "0.7": 246.74000000000015,
+          "0.8": 242.8140000000002,
+          "0.9": 227.5640000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3902.700343749999,
+        "mean_final_context_tokens_per_query": 2548.9340312500017,
+        "target_compute_ratio_vs_depth10": 0.9324970137621741,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 198.81020312500095
+      },
+      {
+        "unnecessary_continue_rate": 0.095,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.60700000000014,
+          "0.7": 246.73600000000013,
+          "0.8": 242.81100000000018,
+          "0.9": 227.55400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3905.5161328125027,
+        "mean_final_context_tokens_per_query": 2549.785273437498,
+        "target_compute_ratio_vs_depth10": 0.9331698081509039,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 195.99441406249707
+      },
+      {
+        "unnecessary_continue_rate": 0.096,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.60200000000012,
+          "0.7": 246.7320000000001,
+          "0.8": 242.80800000000016,
+          "0.9": 227.54400000000012,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3908.331921874997,
+        "mean_final_context_tokens_per_query": 2550.6365156249976,
+        "target_compute_ratio_vs_depth10": 0.9338426025396315,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 193.17862500000274
+      },
+      {
+        "unnecessary_continue_rate": 0.097,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.5970000000001,
+          "0.7": 246.7280000000001,
+          "0.8": 242.80500000000015,
+          "0.9": 227.53400000000008,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3911.1477109375032,
+        "mean_final_context_tokens_per_query": 2551.4877578124997,
+        "target_compute_ratio_vs_depth10": 0.9345153969283618,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 190.36283593749658
+      },
+      {
+        "unnecessary_continue_rate": 0.098,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.59200000000007,
+          "0.7": 246.72400000000007,
+          "0.8": 242.80200000000013,
+          "0.9": 227.52400000000003,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3913.963499999998,
+        "mean_final_context_tokens_per_query": 2552.3389999999963,
+        "target_compute_ratio_vs_depth10": 0.9351881913170895,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 187.5470468750018
+      },
+      {
+        "unnecessary_continue_rate": 0.099,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.58700000000016,
+          "0.7": 246.72000000000017,
+          "0.8": 242.7990000000002,
+          "0.9": 227.51400000000024,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3916.779289062493,
+        "mean_final_context_tokens_per_query": 2553.1902421875006,
+        "target_compute_ratio_vs_depth10": 0.9358609857058172,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 184.731257812507
+      },
+      {
+        "unnecessary_continue_rate": 0.1,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.58200000000016,
+          "0.7": 246.71600000000015,
+          "0.8": 242.7960000000002,
+          "0.9": 227.50400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3919.595078124993,
+        "mean_final_context_tokens_per_query": 2554.041484375003,
+        "target_compute_ratio_vs_depth10": 0.9365337800945462,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 181.91546875000677
+      },
+      {
+        "unnecessary_continue_rate": 0.101,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.5770000000001,
+          "0.7": 246.71200000000013,
+          "0.8": 242.79300000000018,
+          "0.9": 227.49400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3922.4108671875038,
+        "mean_final_context_tokens_per_query": 2554.8927265624957,
+        "target_compute_ratio_vs_depth10": 0.9372065744832777,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 179.09967968749606
+      },
+      {
+        "unnecessary_continue_rate": 0.10200000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.57200000000012,
+          "0.7": 246.7080000000001,
+          "0.8": 242.79000000000016,
+          "0.9": 227.48400000000012,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3925.2266562500026,
+        "mean_final_context_tokens_per_query": 2555.74396875,
+        "target_compute_ratio_vs_depth10": 0.9378793688720063,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 176.28389062499718
+      },
+      {
+        "unnecessary_continue_rate": 0.10300000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.5670000000001,
+          "0.7": 246.7040000000001,
+          "0.8": 242.78700000000015,
+          "0.9": 227.47400000000007,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3928.042445312505,
+        "mean_final_context_tokens_per_query": 2556.595210937496,
+        "target_compute_ratio_vs_depth10": 0.9385521632607359,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 173.46810156249467
+      },
+      {
+        "unnecessary_continue_rate": 0.10400000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.56200000000007,
+          "0.7": 246.70000000000007,
+          "0.8": 242.78400000000013,
+          "0.9": 227.46400000000003,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3930.858234374997,
+        "mean_final_context_tokens_per_query": 2557.4464531249996,
+        "target_compute_ratio_vs_depth10": 0.9392249576494629,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 170.6523125000026
+      },
+      {
+        "unnecessary_continue_rate": 0.105,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.55700000000016,
+          "0.7": 246.69600000000017,
+          "0.8": 242.7810000000002,
+          "0.9": 227.45400000000024,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3933.6740234374925,
+        "mean_final_context_tokens_per_query": 2558.297695312498,
+        "target_compute_ratio_vs_depth10": 0.9398977520381907,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 167.83652343750737
+      },
+      {
+        "unnecessary_continue_rate": 0.106,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.55200000000013,
+          "0.7": 246.69200000000015,
+          "0.8": 242.7780000000002,
+          "0.9": 227.4440000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3936.489812500002,
+        "mean_final_context_tokens_per_query": 2559.1489374999983,
+        "target_compute_ratio_vs_depth10": 0.9405705464269218,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 165.02073437499803
+      },
+      {
+        "unnecessary_continue_rate": 0.107,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.54700000000014,
+          "0.7": 246.68800000000013,
+          "0.8": 242.77500000000018,
+          "0.9": 227.43400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3939.3056015624984,
+        "mean_final_context_tokens_per_query": 2560.000179687502,
+        "target_compute_ratio_vs_depth10": 0.94124334081565,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 162.20494531250142
+      },
+      {
+        "unnecessary_continue_rate": 0.108,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.54200000000012,
+          "0.7": 246.6840000000001,
+          "0.8": 242.77200000000016,
+          "0.9": 227.42400000000012,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3942.1213906249955,
+        "mean_final_context_tokens_per_query": 2560.8514218749992,
+        "target_compute_ratio_vs_depth10": 0.9419161352043782,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 159.38915625000436
+      },
+      {
+        "unnecessary_continue_rate": 0.109,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.5370000000001,
+          "0.7": 246.6800000000001,
+          "0.8": 242.76900000000015,
+          "0.9": 227.41400000000007,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3944.9371796874943,
+        "mean_final_context_tokens_per_query": 2561.702664062497,
+        "target_compute_ratio_vs_depth10": 0.9425889295931068,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 156.57336718750548
+      },
+      {
+        "unnecessary_continue_rate": 0.11,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.53200000000007,
+          "0.7": 246.67600000000007,
+          "0.8": 242.76600000000013,
+          "0.9": 227.40400000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3947.7529687499964,
+        "mean_final_context_tokens_per_query": 2562.5539062499965,
+        "target_compute_ratio_vs_depth10": 0.9432617239818363,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 153.75757812500342
+      },
+      {
+        "unnecessary_continue_rate": 0.111,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.52700000000016,
+          "0.7": 246.67200000000017,
+          "0.8": 242.7630000000002,
+          "0.9": 227.39400000000023,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3950.5687578124994,
+        "mean_final_context_tokens_per_query": 2563.4051484375013,
+        "target_compute_ratio_vs_depth10": 0.9439345183705659,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 150.94178906250045
+      },
+      {
+        "unnecessary_continue_rate": 0.112,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.52200000000016,
+          "0.7": 246.66800000000015,
+          "0.8": 242.7600000000002,
+          "0.9": 227.3840000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3953.384546875006,
+        "mean_final_context_tokens_per_query": 2564.2563906250016,
+        "target_compute_ratio_vs_depth10": 0.9446073127592963,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 148.12599999999384
+      },
+      {
+        "unnecessary_continue_rate": 0.113,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.5170000000001,
+          "0.7": 246.66400000000013,
+          "0.8": 242.75700000000018,
+          "0.9": 227.37400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3956.200335937498,
+        "mean_final_context_tokens_per_query": 2565.107632812499,
+        "target_compute_ratio_vs_depth10": 0.9452801071480234,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 145.31021093750178
+      },
+      {
+        "unnecessary_continue_rate": 0.114,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.5120000000001,
+          "0.7": 246.6600000000001,
+          "0.8": 242.75400000000016,
+          "0.9": 227.36400000000012,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3959.0161249999987,
+        "mean_final_context_tokens_per_query": 2565.958874999999,
+        "target_compute_ratio_vs_depth10": 0.9459529015367525,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 142.49442187500108
+      },
+      {
+        "unnecessary_continue_rate": 0.115,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.5070000000001,
+          "0.7": 246.6560000000001,
+          "0.8": 242.75100000000015,
+          "0.9": 227.35400000000007,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3961.831914062504,
+        "mean_final_context_tokens_per_query": 2566.8101171874946,
+        "target_compute_ratio_vs_depth10": 0.9466256959254826,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 139.67863281249583
+      },
+      {
+        "unnecessary_continue_rate": 0.116,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.50200000000007,
+          "0.7": 246.65200000000007,
+          "0.8": 242.74800000000013,
+          "0.9": 227.34400000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3964.647703124997,
+        "mean_final_context_tokens_per_query": 2567.661359374999,
+        "target_compute_ratio_vs_depth10": 0.9472984903142099,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 136.86284375000287
+      },
+      {
+        "unnecessary_continue_rate": 0.117,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.49700000000016,
+          "0.7": 246.64800000000017,
+          "0.8": 242.7450000000002,
+          "0.9": 227.33400000000023,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3967.463492187493,
+        "mean_final_context_tokens_per_query": 2568.5126015625033,
+        "target_compute_ratio_vs_depth10": 0.9479712847029379,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 134.04705468750672
+      },
+      {
+        "unnecessary_continue_rate": 0.11800000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.49200000000013,
+          "0.7": 246.64400000000015,
+          "0.8": 242.7420000000002,
+          "0.9": 227.32400000000018,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3970.279281250001,
+        "mean_final_context_tokens_per_query": 2569.3638437499994,
+        "target_compute_ratio_vs_depth10": 0.9486440790916687,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 131.23126562499874
+      },
+      {
+        "unnecessary_continue_rate": 0.11900000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.48700000000014,
+          "0.7": 246.64000000000013,
+          "0.8": 242.73900000000017,
+          "0.9": 227.31400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3973.0950703125013,
+        "mean_final_context_tokens_per_query": 2570.2150859375,
+        "target_compute_ratio_vs_depth10": 0.9493168734803977,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 128.4154765624985
+      },
+      {
+        "unnecessary_continue_rate": 0.12,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.4820000000001,
+          "0.7": 246.6360000000001,
+          "0.8": 242.73600000000016,
+          "0.9": 227.30400000000012,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3975.9108593750025,
+        "mean_final_context_tokens_per_query": 2571.0663281249977,
+        "target_compute_ratio_vs_depth10": 0.949989667869127,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 125.59968749999734
+      },
+      {
+        "unnecessary_continue_rate": 0.121,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.4770000000001,
+          "0.7": 246.6320000000001,
+          "0.8": 242.73300000000015,
+          "0.9": 227.29400000000007,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3978.7266484375014,
+        "mean_final_context_tokens_per_query": 2571.917570312497,
+        "target_compute_ratio_vs_depth10": 0.9506624622578556,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 122.78389843749846
+      },
+      {
+        "unnecessary_continue_rate": 0.122,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.47200000000007,
+          "0.7": 246.62800000000007,
+          "0.8": 242.73000000000013,
+          "0.9": 227.28400000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3981.542437499999,
+        "mean_final_context_tokens_per_query": 2572.768812499999,
+        "target_compute_ratio_vs_depth10": 0.9513352566465839,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 119.96810937500095
+      },
+      {
+        "unnecessary_continue_rate": 0.123,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.46700000000016,
+          "0.7": 246.62400000000017,
+          "0.8": 242.7270000000002,
+          "0.9": 227.27400000000023,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3984.358226562503,
+        "mean_final_context_tokens_per_query": 2573.620054687496,
+        "target_compute_ratio_vs_depth10": 0.9520080510353138,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 117.15232031249661
+      },
+      {
+        "unnecessary_continue_rate": 0.124,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.46200000000016,
+          "0.7": 246.62000000000015,
+          "0.8": 242.7240000000002,
+          "0.9": 227.2640000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3987.1740156250116,
+        "mean_final_context_tokens_per_query": 2574.4712968750005,
+        "target_compute_ratio_vs_depth10": 0.9526808454240449,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 114.33653124998818
+      },
+      {
+        "unnecessary_continue_rate": 0.125,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.4570000000001,
+          "0.7": 246.61600000000013,
+          "0.8": 242.72100000000017,
+          "0.9": 227.25400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3989.9898046875005,
+        "mean_final_context_tokens_per_query": 2575.3225390625003,
+        "target_compute_ratio_vs_depth10": 0.9533536398127711,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 111.52074218749931
+      },
+      {
+        "unnecessary_continue_rate": 0.126,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.4520000000001,
+          "0.7": 246.6120000000001,
+          "0.8": 242.71800000000016,
+          "0.9": 227.2440000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3992.805593749989,
+        "mean_final_context_tokens_per_query": 2576.1737812499996,
+        "target_compute_ratio_vs_depth10": 0.9540264342014972,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 108.70495312501089
+      },
+      {
+        "unnecessary_continue_rate": 0.127,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.4470000000001,
+          "0.7": 246.6080000000001,
+          "0.8": 242.71500000000015,
+          "0.9": 227.23400000000007,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3995.6213828124974,
+        "mean_final_context_tokens_per_query": 2577.0250234375044,
+        "target_compute_ratio_vs_depth10": 0.9546992285902282,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 105.88916406250246
+      },
+      {
+        "unnecessary_continue_rate": 0.128,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.44200000000018,
+          "0.7": 246.60400000000018,
+          "0.8": 242.71200000000022,
+          "0.9": 227.22400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 3998.4371718750017,
+        "mean_final_context_tokens_per_query": 2577.8762656250015,
+        "target_compute_ratio_vs_depth10": 0.9553720229789582,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 103.07337499999812
+      },
+      {
+        "unnecessary_continue_rate": 0.129,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.43700000000015,
+          "0.7": 246.60000000000016,
+          "0.8": 242.7090000000002,
+          "0.9": 227.21400000000023,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4001.2529609374997,
+        "mean_final_context_tokens_per_query": 2578.7275078125026,
+        "target_compute_ratio_vs_depth10": 0.9560448173676865,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 100.25758593750015
+      },
+      {
+        "unnecessary_continue_rate": 0.13,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.43200000000013,
+          "0.7": 246.59600000000015,
+          "0.8": 242.7060000000002,
+          "0.9": 227.20400000000018,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4004.068749999998,
+        "mean_final_context_tokens_per_query": 2579.5787500000024,
+        "target_compute_ratio_vs_depth10": 0.9567176117564151,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 97.44179687500173
+      },
+      {
+        "unnecessary_continue_rate": 0.131,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.42700000000013,
+          "0.7": 246.59200000000013,
+          "0.8": 242.70300000000017,
+          "0.9": 227.19400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4006.8845390624997,
+        "mean_final_context_tokens_per_query": 2580.4299921875,
+        "target_compute_ratio_vs_depth10": 0.9573904061451445,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 94.62600781250012
+      },
+      {
+        "unnecessary_continue_rate": 0.132,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.4220000000001,
+          "0.7": 246.5880000000001,
+          "0.8": 242.70000000000016,
+          "0.9": 227.1840000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4009.7003281249995,
+        "mean_final_context_tokens_per_query": 2581.2812343750006,
+        "target_compute_ratio_vs_depth10": 0.9580632005338733,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 91.81021875000033
+      },
+      {
+        "unnecessary_continue_rate": 0.133,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.4170000000001,
+          "0.7": 246.5840000000001,
+          "0.8": 242.69700000000014,
+          "0.9": 227.17400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4012.5161171875066,
+        "mean_final_context_tokens_per_query": 2582.1324765624972,
+        "target_compute_ratio_vs_depth10": 0.958735994922604,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 88.99442968749327
+      },
+      {
+        "unnecessary_continue_rate": 0.134,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.41200000000018,
+          "0.7": 246.58000000000018,
+          "0.8": 242.69400000000022,
+          "0.9": 227.16400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4015.3319062500036,
+        "mean_final_context_tokens_per_query": 2582.983718750001,
+        "target_compute_ratio_vs_depth10": 0.9594087893113321,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 86.1786406249962
+      },
+      {
+        "unnecessary_continue_rate": 0.135,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.40700000000015,
+          "0.7": 246.57600000000016,
+          "0.8": 242.6910000000002,
+          "0.9": 227.15400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4018.147695312495,
+        "mean_final_context_tokens_per_query": 2583.834960937505,
+        "target_compute_ratio_vs_depth10": 0.960081583700059,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 83.3628515625046
+      },
+      {
+        "unnecessary_continue_rate": 0.136,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.40200000000016,
+          "0.7": 246.57200000000014,
+          "0.8": 242.6880000000002,
+          "0.9": 227.1440000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4020.963484375002,
+        "mean_final_context_tokens_per_query": 2584.6862031250016,
+        "target_compute_ratio_vs_depth10": 0.9607543780887896,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 80.54706249999799
+      },
+      {
+        "unnecessary_continue_rate": 0.137,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.3970000000001,
+          "0.7": 246.56800000000013,
+          "0.8": 242.68500000000017,
+          "0.9": 227.13400000000016,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4023.779273437502,
+        "mean_final_context_tokens_per_query": 2585.537445312502,
+        "target_compute_ratio_vs_depth10": 0.9614271724775185,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 77.73127343749775
+      },
+      {
+        "unnecessary_continue_rate": 0.138,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.3920000000001,
+          "0.7": 246.5640000000001,
+          "0.8": 242.68200000000016,
+          "0.9": 227.1240000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4026.5950624999946,
+        "mean_final_context_tokens_per_query": 2586.3886874999985,
+        "target_compute_ratio_vs_depth10": 0.9620999668662457,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 74.91548437500524
+      },
+      {
+        "unnecessary_continue_rate": 0.139,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.38700000000009,
+          "0.7": 246.5600000000001,
+          "0.8": 242.67900000000014,
+          "0.9": 227.11400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4029.410851562501,
+        "mean_final_context_tokens_per_query": 2587.2399296874987,
+        "target_compute_ratio_vs_depth10": 0.9627727612549761,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 72.09969531249862
+      },
+      {
+        "unnecessary_continue_rate": 0.14,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.38200000000018,
+          "0.7": 246.55600000000018,
+          "0.8": 242.67600000000022,
+          "0.9": 227.10400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4032.2266406250033,
+        "mean_final_context_tokens_per_query": 2588.0911718750035,
+        "target_compute_ratio_vs_depth10": 0.9634455556437056,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 69.28390624999656
+      },
+      {
+        "unnecessary_continue_rate": 0.14100000000000001,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.37700000000015,
+          "0.7": 246.55200000000016,
+          "0.8": 242.6730000000002,
+          "0.9": 227.09400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4035.0424296875053,
+        "mean_final_context_tokens_per_query": 2588.9424140625024,
+        "target_compute_ratio_vs_depth10": 0.9641183500324351,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 66.4681171874945
+      },
+      {
+        "unnecessary_continue_rate": 0.14200000000000002,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.37200000000013,
+          "0.7": 246.54800000000014,
+          "0.8": 242.6700000000002,
+          "0.9": 227.08400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4037.8582187500047,
+        "mean_final_context_tokens_per_query": 2589.7936562500004,
+        "target_compute_ratio_vs_depth10": 0.9647911444211638,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 63.652328124995165
+      },
+      {
+        "unnecessary_continue_rate": 0.14300000000000002,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.36700000000013,
+          "0.7": 246.54400000000012,
+          "0.8": 242.66700000000017,
+          "0.9": 227.07400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4040.6740078125017,
+        "mean_final_context_tokens_per_query": 2590.644898437499,
+        "target_compute_ratio_vs_depth10": 0.965463938809892,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 60.836539062498105
+      },
+      {
+        "unnecessary_continue_rate": 0.14400000000000002,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.3620000000001,
+          "0.7": 246.5400000000001,
+          "0.8": 242.66400000000016,
+          "0.9": 227.0640000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4043.4897968749974,
+        "mean_final_context_tokens_per_query": 2591.4961406250036,
+        "target_compute_ratio_vs_depth10": 0.9661367331986199,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 58.02075000000241
+      },
+      {
+        "unnecessary_continue_rate": 0.145,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.35700000000008,
+          "0.7": 246.5360000000001,
+          "0.8": 242.66100000000014,
+          "0.9": 227.05400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4046.30558593751,
+        "mean_final_context_tokens_per_query": 2592.347382812504,
+        "target_compute_ratio_vs_depth10": 0.9668095275873518,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 55.204960937489886
+      },
+      {
+        "unnecessary_continue_rate": 0.146,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.35200000000017,
+          "0.7": 246.53200000000018,
+          "0.8": 242.65800000000021,
+          "0.9": 227.04400000000027,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4049.121375000003,
+        "mean_final_context_tokens_per_query": 2593.198625,
+        "target_compute_ratio_vs_depth10": 0.9674823219760791,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 52.38917187499692
+      },
+      {
+        "unnecessary_continue_rate": 0.147,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.34700000000015,
+          "0.7": 246.52800000000016,
+          "0.8": 242.6550000000002,
+          "0.9": 227.03400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4051.9371640624945,
+        "mean_final_context_tokens_per_query": 2594.0498671875034,
+        "target_compute_ratio_vs_depth10": 0.968155116364806,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 49.573382812505315
+      },
+      {
+        "unnecessary_continue_rate": 0.148,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.34200000000016,
+          "0.7": 246.52400000000014,
+          "0.8": 242.65200000000019,
+          "0.9": 227.0240000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4054.7529531249975,
+        "mean_final_context_tokens_per_query": 2594.901109375,
+        "target_compute_ratio_vs_depth10": 0.9688279107535356,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 46.75759375000234
+      },
+      {
+        "unnecessary_continue_rate": 0.149,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.3370000000001,
+          "0.7": 246.52000000000012,
+          "0.8": 242.64900000000017,
+          "0.9": 227.01400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4057.5687421874964,
+        "mean_final_context_tokens_per_query": 2595.752351562505,
+        "target_compute_ratio_vs_depth10": 0.9695007051422643,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 43.94180468750346
+      },
+      {
+        "unnecessary_continue_rate": 0.15,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.3320000000001,
+          "0.7": 246.5160000000001,
+          "0.8": 242.64600000000016,
+          "0.9": 227.0040000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4060.3845312500075,
+        "mean_final_context_tokens_per_query": 2596.603593749998,
+        "target_compute_ratio_vs_depth10": 0.9701734995309959,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 41.126015624992306
+      },
+      {
+        "unnecessary_continue_rate": 0.151,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.32700000000008,
+          "0.7": 246.51200000000009,
+          "0.8": 242.64300000000014,
+          "0.9": 226.99400000000006,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4063.200320312508,
+        "mean_final_context_tokens_per_query": 2597.4548359375003,
+        "target_compute_ratio_vs_depth10": 0.970846293919725,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 38.31022656249161
+      },
+      {
+        "unnecessary_continue_rate": 0.152,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.32200000000017,
+          "0.7": 246.50800000000018,
+          "0.8": 242.6400000000002,
+          "0.9": 226.98400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4066.0161093750025,
+        "mean_final_context_tokens_per_query": 2598.3060781250038,
+        "target_compute_ratio_vs_depth10": 0.9715190883084525,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 35.494437499997275
+      },
+      {
+        "unnecessary_continue_rate": 0.153,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.31700000000018,
+          "0.7": 246.50400000000016,
+          "0.8": 242.6370000000002,
+          "0.9": 226.97400000000022,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4068.831898437495,
+        "mean_final_context_tokens_per_query": 2599.1573203125004,
+        "target_compute_ratio_vs_depth10": 0.9721918826971796,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 32.67864843750476
+      },
+      {
+        "unnecessary_continue_rate": 0.154,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.31200000000013,
+          "0.7": 246.50000000000014,
+          "0.8": 242.63400000000019,
+          "0.9": 226.96400000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4071.6476875000035,
+        "mean_final_context_tokens_per_query": 2600.0085625000033,
+        "target_compute_ratio_vs_depth10": 0.9728646770859106,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 29.862859374996333
+      },
+      {
+        "unnecessary_continue_rate": 0.155,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.30700000000013,
+          "0.7": 246.49600000000012,
+          "0.8": 242.63100000000017,
+          "0.9": 226.95400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4074.463476562498,
+        "mean_final_context_tokens_per_query": 2600.859804687504,
+        "target_compute_ratio_vs_depth10": 0.9735374714746382,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 27.047070312502
+      },
+      {
+        "unnecessary_continue_rate": 0.156,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.3020000000001,
+          "0.7": 246.4920000000001,
+          "0.8": 242.62800000000016,
+          "0.9": 226.9440000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4077.2792656250017,
+        "mean_final_context_tokens_per_query": 2601.7110468749997,
+        "target_compute_ratio_vs_depth10": 0.974210265863368,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 24.23128124999812
+      },
+      {
+        "unnecessary_continue_rate": 0.157,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.29700000000008,
+          "0.7": 246.48800000000008,
+          "0.8": 242.62500000000014,
+          "0.9": 226.93400000000005,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4080.0950546874956,
+        "mean_final_context_tokens_per_query": 2602.562289062494,
+        "target_compute_ratio_vs_depth10": 0.9748830602520955,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 21.415492187504242
+      },
+      {
+        "unnecessary_continue_rate": 0.158,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.29200000000017,
+          "0.7": 246.48400000000018,
+          "0.8": 242.6220000000002,
+          "0.9": 226.92400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4082.9108437500063,
+        "mean_final_context_tokens_per_query": 2603.413531250001,
+        "target_compute_ratio_vs_depth10": 0.975555854640827,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 18.59970312499354
+      },
+      {
+        "unnecessary_continue_rate": 0.159,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.28700000000015,
+          "0.7": 246.48000000000016,
+          "0.8": 242.6190000000002,
+          "0.9": 226.91400000000021,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4085.7266328125033,
+        "mean_final_context_tokens_per_query": 2604.264773437498,
+        "target_compute_ratio_vs_depth10": 0.9762286490295552,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 15.783914062496478
+      },
+      {
+        "unnecessary_continue_rate": 0.16,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.28200000000015,
+          "0.7": 246.47600000000014,
+          "0.8": 242.61600000000018,
+          "0.9": 226.9040000000002,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4088.542421874994,
+        "mean_final_context_tokens_per_query": 2605.116015624996,
+        "target_compute_ratio_vs_depth10": 0.9769014434182819,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 12.968125000005784
+      },
+      {
+        "unnecessary_continue_rate": 0.161,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.2770000000001,
+          "0.7": 246.47200000000012,
+          "0.8": 242.61300000000017,
+          "0.9": 226.89400000000015,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4091.3582109374956,
+        "mean_final_context_tokens_per_query": 2605.9672578125023,
+        "target_compute_ratio_vs_depth10": 0.9775742378070111,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 10.152335937504176
+      },
+      {
+        "unnecessary_continue_rate": 0.162,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.2720000000001,
+          "0.7": 246.4680000000001,
+          "0.8": 242.61000000000016,
+          "0.9": 226.8840000000001,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4094.1740000000054,
+        "mean_final_context_tokens_per_query": 2606.8184999999958,
+        "target_compute_ratio_vs_depth10": 0.9782470321957425,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 7.336546874994383
+      },
+      {
+        "unnecessary_continue_rate": 0.163,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.26700000000008,
+          "0.7": 246.46400000000008,
+          "0.8": 242.60700000000014,
+          "0.9": 226.87400000000005,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4096.989789062499,
+        "mean_final_context_tokens_per_query": 2607.6697421874965,
+        "target_compute_ratio_vs_depth10": 0.9789198265844697,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 4.52075781250096
+      },
+      {
+        "unnecessary_continue_rate": 0.164,
+        "minimum_rescue_recall": 0.966,
+        "per_level_success_expected": {
+          "0.6": 248.26200000000017,
+          "0.7": 246.46000000000018,
+          "0.8": 242.6040000000002,
+          "0.9": 226.86400000000026,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.46169241667195,
+        "mean_target_compute_tokens_per_query": 4099.805578124995,
+        "mean_final_context_tokens_per_query": 2608.520984375003,
+        "target_compute_ratio_vs_depth10": 0.9795926209731978,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 1.7049687500048094
+      }
+    ],
+    "best_compute_margin_boundary_point": {
+      "unnecessary_continue_rate": 0.0,
+      "minimum_rescue_recall": 0.966,
+      "per_level_success_expected": {
+        "0.6": 249.0820000000001,
+        "0.7": 247.11600000000013,
+        "0.8": 243.09600000000017,
+        "0.9": 228.50400000000016,
+        "0.95": 183.0
+      },
+      "complete_expected": 180.46169241667195,
+      "mean_target_compute_tokens_per_query": 3638.0161718749996,
+      "mean_final_context_tokens_per_query": 2468.917265625,
+      "target_compute_ratio_vs_depth10": 0.8692543412216553,
+      "quality_pass": true,
+      "compute_pass": true,
+      "feasible": true,
+      "judge_compute_budget_tokens_per_query_at_cap": 463.4943750000002
+    },
+    "selected_probes": {
+      "rescue_0.800_unnecessary_0.010": {
+        "per_level_success_expected": {
+          "0.6": 244.55000000000024,
+          "0.7": 242.76000000000022,
+          "0.8": 233.77000000000032,
+          "0.9": 221.1000000000003,
+          "0.95": 183.0
+        },
+        "complete_expected": 169.29119999999995,
+        "mean_target_compute_tokens_per_query": 3577.7985156249956,
+        "mean_final_context_tokens_per_query": 2451.3171093750025,
+        "target_compute_ratio_vs_depth10": 0.854866153637945,
+        "quality_pass": false,
+        "compute_pass": true,
+        "feasible": false,
+        "judge_compute_budget_tokens_per_query_at_cap": 523.7120312500042
+      },
+      "rescue_0.900_unnecessary_0.010": {
+        "per_level_success_expected": {
+          "0.6": 247.25000000000017,
+          "0.7": 245.36000000000016,
+          "0.8": 239.3700000000003,
+          "0.9": 225.50000000000028,
+          "0.95": 183.0
+        },
+        "complete_expected": 175.78620000000015,
+        "mean_target_compute_tokens_per_query": 3631.036796875,
+        "mean_final_context_tokens_per_query": 2467.047578125002,
+        "target_compute_ratio_vs_depth10": 0.8675867147650538,
+        "quality_pass": false,
+        "compute_pass": true,
+        "feasible": false,
+        "judge_compute_budget_tokens_per_query_at_cap": 470.47374999999965
+      },
+      "rescue_0.950_unnecessary_0.010": {
+        "per_level_success_expected": {
+          "0.6": 248.59999999999985,
+          "0.7": 246.65999999999985,
+          "0.8": 242.1699999999997,
+          "0.9": 227.69999999999985,
+          "0.95": 183.0
+        },
+        "complete_expected": 179.29826250000002,
+        "mean_target_compute_tokens_per_query": 3657.6559374999965,
+        "mean_final_context_tokens_per_query": 2474.912812500005,
+        "target_compute_ratio_vs_depth10": 0.8739469953286066,
+        "quality_pass": false,
+        "compute_pass": true,
+        "feasible": false,
+        "judge_compute_budget_tokens_per_query_at_cap": 443.8546093750033
+      },
+      "rescue_0.970_unnecessary_0.002": {
+        "per_level_success_expected": {
+          "0.6": 249.17999999999995,
+          "0.7": 247.21199999999993,
+          "0.8": 243.3139999999999,
+          "0.9": 228.65999999999988,
+          "0.95": 183.0
+        },
+        "complete_expected": 180.75562361999997,
+        "mean_target_compute_tokens_per_query": 3645.777281249999,
+        "mean_final_context_tokens_per_query": 2471.248968750005,
+        "target_compute_ratio_vs_depth10": 0.8711087524441974,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 455.73326562500097
+      },
+      "rescue_0.990_unnecessary_0.000": {
+        "per_level_success_expected": {
+          "0.6": 249.73000000000013,
+          "0.7": 247.74000000000015,
+          "0.8": 244.44000000000023,
+          "0.9": 229.56000000000017,
+          "0.95": 183.0
+        },
+        "complete_expected": 182.24398601999994,
+        "mean_target_compute_tokens_per_query": 3650.793359374999,
+        "mean_final_context_tokens_per_query": 2472.6925781250015,
+        "target_compute_ratio_vs_depth10": 0.8723072758921611,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 450.7171875000008
+      },
+      "rescue_1.000_unnecessary_0.000": {
+        "per_level_success_expected": {
+          "0.6": 250.0,
+          "0.7": 248.0,
+          "0.8": 245.0,
+          "0.9": 230.0,
+          "0.95": 183.0
+        },
+        "complete_expected": 183.0,
+        "mean_target_compute_tokens_per_query": 3656.1171875,
+        "mean_final_context_tokens_per_query": 2474.265625,
+        "target_compute_ratio_vs_depth10": 0.873579332004872,
+        "quality_pass": true,
+        "compute_pass": true,
+        "feasible": true,
+        "judge_compute_budget_tokens_per_query_at_cap": 445.3933593749998
+      }
+    }
+  },
+  "decision": "STOP_STRONGER_STOPPER_BEFORE_TRAINING",
+  "limitations": "Design-exposed 256-query C1 cohort. Expected metrics assume a judge with class-conditional rates shared across decisions and independent decisions for expected Complete. A learned judge still requires query-grouped OOF and explicit compute accounting; this audit cannot establish learnability.",
+  "new_target_calls": 0,
+  "sealed_sets_read": false
+}

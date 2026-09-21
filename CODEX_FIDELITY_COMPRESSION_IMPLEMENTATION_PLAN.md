@@ -2894,3 +2894,24 @@ C3 are not authorized, and ordering must not be retrained to accommodate the
 cache. Under the frozen Target, literal appendability conflicts with quality
 at several anchors, so the adaptive-stopping family is closed under the tested
 text contracts.
+
+### C4-A0 terminal stopper-feasibility decision
+
+C4-A0 corrects the abstract judge target before changing the contract. The
+deployment decision is not early sufficiency: FF states should stop because
+depth 10 cannot repair them, and SF states should stop to preserve an answer
+that depth 10 loses. Only FS states require continuation. On the existing
+256-query C1 design cohort, a zero-call expected replay therefore swept rescue
+recall `P(CONTINUE|FS)` against unnecessary fallback
+`P(CONTINUE|SS/SF/FF)`.
+
+The binding one-percentage-point five-anchor/Complete gate requires about
+96.6% rescue recall even with no unnecessary fallback. At 1% unnecessary
+fallback, 90% and 95% rescue recall yield expected Complete 175.79 and 179.30
+respectively, versus the depth-10 baseline of 183. Target compute is already
+below the 0.98 cap; decision identification, not compute, is the limiting
+factor. Decision: `STOP_STRONGER_STOPPER_BEFORE_TRAINING`. Do not train an
+auxiliary judge or open another C-series feature branch. The current-contract
+candidate is V8 with a fixed causal schedule. Further adaptive work requires
+an explicitly revised, separately named contract; the original final objective
+remains unchanged.

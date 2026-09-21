@@ -4705,3 +4705,29 @@ queries, canonical versus reveal-order success counts were respectively
 one-percentage-point tolerance. Decision: `STOP_C3_ORDER_PERTURBATION`.
 Do not run the real-cache microbenchmark, adaptive C3, or relearn an ordering
 for cacheability. This is direct evidence of a quality--cacheability conflict.
+
+### V17-STOP-C4-A0 required-stopper feasibility
+
+C4-A0 performed the final zero-call feasibility audit before authorizing an
+independent auxiliary judge. Ordinary sufficiency TPR/FPR is not
+deployment-aligned: stopping on an early failure that also fails at depth 10
+is quality-neutral and cheaper, while stopping on an early success that later
+rolls back preserves quality. The corrected decision is to CONTINUE only on
+FS states (early failure, depth-10 success). The audit swept rescue recall
+`P(CONTINUE|FS)` and unnecessary fallback `P(CONTINUE|SS/SF/FF)` using exact
+expected five-level quality, Complete, context and Target compute.
+
+The depth-10 baseline is `245/244/242/220/183`, Complete `183`, at 4,185.21
+Target compute tokens/query. Even with zero unnecessary fallback, the first
+quality-qualified point needs approximately **96.6% rescue recall**. At a 1%
+unnecessary-fallback rate, 90% rescue recall yields expected Complete 175.79
+and 95% yields 179.30, both outside the one-percentage-point tolerance. Compute
+is not binding; reliable identification of almost every rescue state is. The
+formal decision is `STOP_STRONGER_STOPPER_BEFORE_TRAINING`. No auxiliary judge
+or further C-series stopping feature is authorized. This closes adaptive
+stopping under the current contract and leaves V8 plus a fixed causal schedule
+as the supported method pending independent confirmation or an explicitly
+revised research contract. [Script](../../src/evaluation/v17stop_c4_a0_required_stopper_feasibility.py),
+[summary](v17stop_c4_a0_required_stopper_feasibility/summary.json), and
+[report](v17stop_c4_a0_required_stopper_feasibility/REPORT.md) preserve the
+audit. No Target call or sealed-set access occurred.
